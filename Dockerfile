@@ -25,6 +25,7 @@ RUN apt-get update \
     curl \
     ca-certificates \
     git \
+    openssh-client \
     locales \
     vim \
     build-essential \
