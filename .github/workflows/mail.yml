@@ -12,7 +12,8 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v1
 
-      - name: Deploy docs
-        uses: gdha/mkdocs-deploy-gh-pages@master
+      - name: Deploy MkDocs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.12
+
         env:
-          GITHUB_TOKEN: ${{ secrets.MKDOCS_BUILDER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
