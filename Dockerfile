@@ -7,7 +7,9 @@
 # docker build --build-arg local_user=gdha -t mkdocs .
 #
 # The first time run of the 'mkdocs' container:
-# docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/rear-user-guide -v /home/gdha/.gitconfig:/home/gdha/.gitconfig -v /home/gdha/.ssh:/home/gdha/.ssh --net=host mkdocs
+# docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/rear-user-guide \
+#                -v /home/gdha/.gitconfig:/home/gdha/.gitconfig -v /home/gdha/.ssh:/home/gdha/.ssh \
+#                -v /home/gdha/.gnupg:/home/gdha/.gnupg --net=host mkdocs
 # Afterwards we can just start the container as:
 # docker start -i mkdocs
 
@@ -26,6 +28,7 @@ RUN apt-get update \
     ca-certificates \
     git \
     openssh-client \
+    gnupg \
     locales \
     vim \
     build-essential \
@@ -37,7 +40,9 @@ RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
     && python3 /tmp/get-pip.py \
     && pip install --upgrade pip \
     && pip install mkdocs \
-    && pip install mkdocs-ivory
+    && pip install mkdocs-ivory \
+    && pip install mkdocs-redirects \
+    && pip install markdown-fenced-code-tabs
 
 RUN echo "Setting home directory for local user ${local_user}" \
     && useradd -u 1001 ${local_user} \
