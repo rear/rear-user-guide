@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Relax-and-Recover (ReaR) User Guide Documentation
+Here we find the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Use the navigation on the left-hand side to explore the different topics. Feel free to contribute to this project but please read the [contributing guidelines](legal/contributing/index.md).
 
-## Commands
+Use the navigation to the left. Not sure what you're looking for? → [Get started](welcome)!
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<div align="right"><img src="img/rear_logo_50.png" alt="ReaR logo"></div>
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
