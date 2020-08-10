@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block site_meta %}
+    {{ super() }}
+    {% if page %}<meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>{% endif %}
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    {% endblock %}
+
+{% block footer %}
+
+<footer>
+  {%- block next_prev %}
+  {% if page and page.next_page or page.previous_page %}
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      {% if page.next_page %}
+        <a href="{{ page.next_page.url|url }}" class="btn btn-neutral float-right" title="{{ page.next_page.title }}">Next <span class="icon icon-circle-arrow-right"></span></a>
+      {% endif %}
+      {% if page.previous_page %}
+        <a href="{{ page.previous_page.url|url }}" class="btn btn-neutral" title="{{ page.previous_page.title }}"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      {% endif %}
+    </div>
+  {% endif %}
+  {%- endblock %}
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    {% if config.copyright %}
+    <p>{{ config.copyright }}<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title={{ page.url }}">feedback</a> on this page.</p>
+    {% endif %}
+  </div>
+</footer>
+{% endblock %}
