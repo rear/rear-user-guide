@@ -1,2 +1,2 @@
-# Relax-and-Recover (ReaR) Documentation
-This is the source files for [http://relax-and-recover.github.io](relax-and-recover.github.io). 
+# Relax-and-Recover (ReaR) User Guide Documentation
+This is the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
