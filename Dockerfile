@@ -42,7 +42,8 @@ RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
     && pip install mkdocs \
     && pip install mkdocs-ivory \
     && pip install mkdocs-redirects \
-    && pip install markdown-fenced-code-tabs
+    && pip install markdown-fenced-code-tabs \
+    && pip install mkdocs-rtd-dropdown
 
 RUN echo "Setting home directory for local user ${local_user}" \
     && useradd -u 1001 ${local_user} \
