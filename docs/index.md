@@ -5,6 +5,6 @@ Use the navigation on the left-hand side to explore the different topics. Feel f
 
 Use the navigation to the left. Not sure what you're looking for? → [Get started](welcome)!
 
-<div align="right"><img src="img/rear_logo_50.png" alt="ReaR logo"></div>
+<div align="left"><img src="img/rear_logo_50.png" alt="ReaR logo"></div>
 
 
