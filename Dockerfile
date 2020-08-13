@@ -7,7 +7,7 @@
 # docker build --build-arg local_user=gdha -t mkdocs .
 #
 # The first time run of the 'mkdocs' container:
-# docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/rear-user-guide \
+# docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/web \
 #                -v /home/gdha/.gitconfig:/home/gdha/.gitconfig -v /home/gdha/.ssh:/home/gdha/.ssh \
 #                -v /home/gdha/.gnupg:/home/gdha/.gnupg --net=host mkdocs
 # Afterwards we can just start the container as:
@@ -47,13 +47,13 @@ RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
 
 RUN echo "Setting home directory for local user ${local_user}" \
     && useradd -u 1001 ${local_user} \
-    && mkdir -p /home/${local_user}/rear-user-guide/ \
-    && chown -R ${local_user}:${local_user} /home/${local_user}/rear-user-guide
+    && mkdir -p /home/${local_user}/web/ \
+    && chown -R ${local_user}:${local_user} /home/${local_user}/web
 
 # Needed to make nerdtree plugin for vim work and git credential.helper
 RUN locale-gen en_US.UTF-8 && \
     echo "export LC_CTYPE=en_US.UTF-8" >> /home/${local_user}/.bashrc && \
     echo "export LC_ALL=en_US.UTF-8" >> /home/${local_user}/.bashrc
 
-WORKDIR /home/${local_user}/rear-user-guide
+WORKDIR /home/${local_user}/web
 USER ${local_user}
