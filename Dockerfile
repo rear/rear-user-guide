@@ -19,7 +19,7 @@ ARG local_user=gdha
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl \
+    && apt-get install -y --no-install-recommends \
     python3 \
     python3-distutils \
     make \
@@ -35,7 +35,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# install pip and mkdocs
+# install pip and mkdocs + extras; remove gcc afterwards again
 RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \ 
     && python3 /tmp/get-pip.py \
     && pip install --upgrade pip \
@@ -43,10 +43,11 @@ RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
     && pip install mkdocs-ivory \
     && pip install mkdocs-redirects \
     && pip install markdown-fenced-code-tabs \
-    && pip install mkdocs-rtd-dropdown
+    && pip install mkdocs-rtd-dropdown \
+    && apt-get remove gcc
 
 RUN echo "Setting home directory for local user ${local_user}" \
-    && useradd -u 1001 ${local_user} \
+    && useradd -u $(id -u ${local_user}) ${local_user} \
     && mkdir -p /home/${local_user}/web/ \
     && chown -R ${local_user}:${local_user} /home/${local_user}/web
 
