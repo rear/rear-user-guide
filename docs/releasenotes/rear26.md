@@ -8,17 +8,7 @@ Relax-and-Recover.
 [GitHub project](https://github.com/rear/)
 
 
-## Overview
-Relax-and-Recover is a GNU/Linux system administrator tool and framework
-used to create bootable disaster recovery images which makes bare metal
-disaster recovery (including backup restore) easier.
-System administrators use the Relax-and-Recover framework to set up a disaster recovery procedure
-as part of their disaster recovery policy (which does not replace in any way a backup policy).
-Relax-and-Recover does not implement backup but complements it because backup (and restore)
-happens via external backup software that is only called by Relax-and-Recover.
-
-
-### Product Features
+## Product Features
 The following features are supported by the most recent releases of
 Relax-and-Recover. Anything labeled as (*New*) was added as the
 most recent release. New functionality for previous releases can be
@@ -146,24 +136,12 @@ functionality:
   - SSH_FILES='avoid_sensitive_files' (see details in _/usr/share/rear/conf/default.conf_)
   - SSH_UNPROTECTED_PRIVATE_KEYS='no' (see details in _/usr/share/rear/conf/default.conf_)
 
-*NOTE*: Features marked *Experimental* are prone to change with future releases.
+!!! note
+    Features marked *Experimental* are prone to change with future releases.
 
-## Relax-and-Recover Releases
 
-The first release of Relax-and-Recover, version 1.0, was posted to the web in July 2006.
-For each release, this chapter lists the new features and defect fixes.
-All releases are cumulative.
-Unless otherwise noted all releases of Relax-and-Recover are intended to work backward compatible with previous versions.
-In addition to the GPL disclaimer of warranty and liability there is no guarantee that things work backward compatible.
-In general the older the system is the less likely it is that a newer Relax-and-Recover version works.
-For each Relax-and-Recover version upgrade and for each change of a software that is used by Relax-and-Recover and
-for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
+## ReaR release 2.6 (June 2020)
 
-The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
-
-### Version 2.6 (June 2020)
-
-#### Abstract
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
@@ -239,7 +217,7 @@ See the explanation in default.conf what that means.
 building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
 (issue #2293).
 
-#### Details (mostly in chronological order - newest topmost):
+## Details (mostly in chronological order - newest topmost):
 
 * Added DHCP auto-configuration for Network Manager (Ubuntu 20.04 Desktop):
 While ReaR supports DHCP auto-detection during 'rear mkrescue' of some DHCP setups,
@@ -976,7 +954,7 @@ these are less tested. Use the '`rear validate`' command after every
 successful DR test please and mail us the results.
 
 
-### Choosing the best compression algorithm
+## Choosing the best compression algorithm
 The default backup program with Relax-and-Recover is (`BACKUP_PROG=tar`)
 GNU tar and the default compression used with tar is `gzip`. However, is
 using `gzip` the best choice? We have done some tests and published the
