@@ -1,4 +1,7 @@
 # Relax-and-Recover (ReaR) User Guide Documentation (RUGD)
+
+[![ReaR](docs/img/rear_logo_trans.png)](https://relax-and-recover.org/)
+
 This is the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
 
 
