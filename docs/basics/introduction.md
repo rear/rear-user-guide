@@ -1,8 +1,12 @@
 # Introduction
 
-Relax-and-Recover is the leading Open Source bare metal disaster recovery
+Relax-and-Recover (ReaR) is the leading Open Source bare metal disaster recovery
 solution. It is a modular framework with many ready-to-go workflows for
 common situations.
+
+!!! note
+    Relax-and-Recover (ReaR) software package has been added to the core of Red Hat's Enterprise Linux and
+    SuSe did the same for their SLES Operating Systems. Furthermore, Debian and Ubuntu also provide packages of ReaR to download from their repositories. However, be aware if you are using one of these vendors ReaR package it might not be the latest packages the upstream provides on their [download page](http://relax-and-recover.org/download/). On the other hand, if you want to have support from your vendor directly then only use the ReaR package they provide. If there is a serious bug then the vendors will open an [issue](https://github.com/rear/rear/issues) with the upstream project.
 
 Relax-and-Recover produces a bootable image which can recreate the system's
 original storage layout. Once that is done it initiates a restore from backup.
@@ -30,7 +34,12 @@ possible by its modular framework. Consistent logging and optionally extended
 output help understand the concepts behind Relax-and-Recover, troubleshoot
 during initial configuration and help debug during integration.
 
-Professional services and support are available.
+If you have time to watch an introduction presentation about Relax-and-Recover then we can recommend the following presentation given by Gratien D'haese during the OpenSuSe Conference (of 2015).
+
+<iframe width="280" height="210" src="https://www.youtube.com/embed/lBM7_Lxaorw"  frameborder="0" allowfullscreen><p>OSEM 2015, Relax-and-Recover simplifies Linux Disaster Recovery</p></iframe>
+
+
+[Professional services and support](http://relax-and-recover.org/support/) are available.
 
 
 ## Relax-and-Recover project
@@ -45,9 +54,10 @@ In case you have questions, ideas or feedback about this document, you
 can contact the development team on the Relax-and-Recover mailinglist at:
 rear-users@lists.relax-and-recover.org.
 
-NOTE: Note that you have to be subscribed to be able to send mails to the
-Relax-and-Recover mailinglist. You can subscribe to the list at:
-http://lists.relax-and-recover.org/mailman/listinfo/rear-users
+!!! note
+       Note that you have to be subscribed to be able to send mails to the
+       Relax-and-Recover mailinglist. You can subscribe to the list at:
+       [http://lists.relax-and-recover.org/mailman/listinfo/rear-users](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
 
 
 ## Design concepts
@@ -59,11 +69,11 @@ defined, and improved over time:
  - For Linux (and possibly Unix operating systems)
  - Few external dependencies (Bash and standard Unix tools)
  - Easy to use and easy to extend
- - Easy to integrate with *real* backup software
+ - Easy to integrate with *real* backup software (Open Source and commercial solutions)
 
 The goal is to make Relax-and-Recover as least demanding as possible, it will
 require only the applications necessary to fulfill the job Relax-and-Recover
-is configured for.
+is configured (and designed) for.
 
 Furthermore, Relax-and-Recover should be platform independent and ideally
 install just as a set of scripts that utilizes everything that the Linux
@@ -73,13 +83,9 @@ operating system provides.
 ## Features and functionality
 Relax-and-Recover has a wide range of features:
 
-// FIXME: Insert the various features from the Release Notes +
-//        include the information from the presentations +
-//        and optionally the rescue creation and recovery workflow
-// FIXME: Get rid of the below list when everything is in the feature set
 
- - Improvements to HP SmartArray and CCISS driver integration
- - Improvements to software RAID integration
+ - HP SmartArray and CCISS driver integration
+ - Software RAID integration
  - Disk layout change detection for monitoring
  - One-Button-Disaster-Recovery (OBDR) tape support
  - DRBD filesystem support
@@ -93,18 +99,18 @@ Relax-and-Recover has a wide range of features:
  - Nagios and webmin integration
  - Syslinux boot menu
  - Storing rescue/backup logfile on rescue media
- - Restoring to different hardware
- - RHEL5, RHEL6 and RHEL7 support
- - SLES 11 and SLES 12 support
+ - Restoring to different hardware (of the same hardware architecture)
+ - Red Hat Enterprise Linux support (included derivated Operating Systems)
+ - SuSe SLES support
  - Debian and Ubuntu support
  - Various usability improvements
  - Serial console support auto-detected
  - Lockless workflows
  - USB udev integration to trigger mkrescue on inserting USB device
- - Beep/UID led/USB suspend integration
  - Migrate UUID from disks and MAC addressed from network interfaces
  - Integrates with Disaster Recovery Linux Manager (DRLM)
  - Data deduplication with Borg as backend
  - Block device level backup/restore
-
+ - Multipath support for SAN devives
+ - See the full list of new features on our [Release Notes](../releasenotes)
 

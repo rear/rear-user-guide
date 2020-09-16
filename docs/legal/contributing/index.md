@@ -8,6 +8,7 @@ The best way to directly collaborate with the project contributors is through Gi
 
 * If you want to contribute to our documentation by either fixing a typo or creating a page, please open a GitHub [pull request](https://github.com/rear/rear-user-guide/pulls).
 * If you want to raise an issue such as a defect, an enhancement request or a general issue, please open a GitHub [issue](https://github.com/rear/rear-user-guide/issues).
+* If you want us to write or enhance the user guide you can subscribe to our [ReaR Subscription](https://it3.be/projects/rear-user-guide/) program.
 
 Before you start writing, we recommend discussing your plans through a GitHub issue, especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your contribution, and help you find out if someone else is working on the same thing.
 
@@ -74,3 +75,5 @@ first, please try again after addressing the feedback you received.
 
 To make a pull request you will need a GitHub account. For help, see
 GitHub's documentation on forking and pull requests.
+
+On the Relax-and-Recover development page under the [contibuting section](http://relax-and-recover.org/development/) you find an example on how to make a fork of the [ReaR User Guide](https://github.com/rear/rear-user-guide) on GitHub.

@@ -16,4 +16,4 @@ This is a sub-project of [Relax-and-Recover (ReaR)](http://relax-and-recover.org
 However, there is a catch, as with the main project we work on this voluntarily (for free), but the progress may be really slow due to the fact we still have to work for a living.
 
 !!! note "Faster creation of documentation"
-    Buy a [ReaR Subscription](https://www.it3.be/projects/rear-user-guide/) will guarantee a few hours per week we will spent on writing documentation and updating the web pages.
+    Buy a [ReaR Subscription](https://www.it3.be/projects/rear-user-guide/) to guarantee a couple of hours a week to be spent on writing documentation and updating these web pages.

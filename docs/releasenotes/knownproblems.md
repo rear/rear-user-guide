@@ -5,7 +5,7 @@
 
 Using `rear -v -c /etc/rear/mydir mkbackup` works fine in production, but when you try (once booted from rescue image) `rear -v -c /etc/rear/mydir recover` it will fail.
 
-!!! note "Do the following in recover mode"
+!!! tip "Do the following in recover mode"
     The configuration files are copied to `/etc/rear/` into the rescue image, so you need to type: `rear -v recover`
 See [issue #512](https://github.com/rear/rear/issues/512)
 
