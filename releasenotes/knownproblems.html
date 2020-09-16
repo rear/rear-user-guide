@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+  <title>Known Problems and Workarounds - Relax-and-Recover (ReaR) User Guide Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/rear.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Known Problems and Workarounds";
+    var mkdocs_page_input_path = "releasenotes/knownproblems.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3406473-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">WELCOME</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">BASICS</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Release Notes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="rear26.html">Release Notes ReaR 2.6</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="knownproblems.html">Known Problems and Workarounds</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#usage_of_an_alternative_configuration_directory_is_different_in_mkbackup_or_recover_mode">Usage of an alternative configuration directory is different in mkbackup or recover mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is_there_a_possibility_to_add_btrfs_subvolume_to_a_rsync_backup">Is there a possibility to add btrfs subvolume to a rsync backup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uefi_iso_booting_does_not_work_on_opensuse_12x_or_sles_1112">UEFI ISO booting does not work on openSUSE 12.x, or SLES 11/12</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#system_reconfiguration_still_has_some_weaknesses">System reconfiguration still has some weaknesses.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#if_selinux_is_not_disabled_during_backup_variable">If SELinux is not disabled during backup (variable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#error_findstoragedrivers_called_but_storage_drivers_is_empty">ERROR: FindStorageDrivers called but STORAGE_DRIVERS is empty</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">LEGAL</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Relax-and-Recover (ReaR) User Guide Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>RELEASE NOTES &raquo;</li>
+        
+      
+    
+    <li>Known Problems and Workarounds</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="known_problems_and_workarounds">Known Problems and Workarounds<a class="headerlink" href="#known_problems_and_workarounds" title="Permanent link">&para;</a></h1>
+<h2 id="usage_of_an_alternative_configuration_directory_is_different_in_mkbackup_or_recover_mode">Usage of an alternative configuration directory is different in mkbackup or recover mode<a class="headerlink" href="#usage_of_an_alternative_configuration_directory_is_different_in_mkbackup_or_recover_mode" title="Permanent link">&para;</a></h2>
+<p>Using <code>rear -v -c /etc/rear/mydir mkbackup</code> works fine in production, but when you try (once booted from rescue image) <code>rear -v -c /etc/rear/mydir recover</code> it will fail.</p>
+<div class="admonition tip">
+<p class="admonition-title">Do the following in recover mode</p>
+<p>The configuration files are copied to <code>/etc/rear/</code> into the rescue image, so you need to type: <code>rear -v recover</code></p>
+</div>
+<p>See <a href="https://github.com/rear/rear/issues/512">issue #512</a></p>
+<h2 id="is_there_a_possibility_to_add_btrfs_subvolume_to_a_rsync_backup">Is there a possibility to add btrfs subvolume to a rsync backup<a class="headerlink" href="#is_there_a_possibility_to_add_btrfs_subvolume_to_a_rsync_backup" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Workaround:
+At present (release 1.18) there is no workaround in place. If you happen to know how this could be fixed then add your ideas to <a href="https://github.com/rear/rear/issues/417">issue #417</a></li>
+</ul>
+<h2 id="uefi_iso_booting_does_not_work_on_opensuse_12x_or_sles_1112">UEFI ISO booting does not work on openSUSE 12.x, or SLES 11/12<a class="headerlink" href="#uefi_iso_booting_does_not_work_on_opensuse_12x_or_sles_1112" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Workaround:
+At present (release 1.18.x and higher) <code>genisoimage</code> cannot produce ISO images that can boot via UEFI on an openSUSE distribution (and also SLES). However, use the <a href="http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.2.3-1.x86_64.rpm"><code>ebiso</code></a> package instead to create UEFI ISO images on SLES.</li>
+</ul>
+<h2 id="system_reconfiguration_still_has_some_weaknesses">System reconfiguration still has some weaknesses.<a class="headerlink" href="#system_reconfiguration_still_has_some_weaknesses" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>this has to be tested before relying on it, there are too many unknowns
+involved so that we cannot guarantee anything in this area. It has been
+developed mostly as a P2V tool to migrate HP servers to VMware Vms</p>
+</li>
+<li>
+<p>hard disks need to be at least of the same size and amount as in the
+original system, ATM this is a simple 1:1 mapping of old to new disks,
+there is no removal of RAID groups or merging of smaller disks onto a
+bigger one or making stuff smaller.</p>
+</li>
+<li>
+<p>any use of <em>/dev/disk/by-path</em> or <em>/dev/disk/by-id</em> is untested and will
+most likely not work. In some cases Relax-and-Recover will print a warning,
+but we are not able to detect all cases. Typically this leads to unbootable
+systems or bad <em>/etc/fstab</em> files</p>
+</li>
+</ul>
+<h2 id="if_selinux_is_not_disabled_during_backup_variable">If SELinux is not disabled during backup (variable<a class="headerlink" href="#if_selinux_is_not_disabled_during_backup_variable" title="Permanent link">&para;</a></h2>
+<p><code>BACKUP_SELINUX_DISABLE=</code> in <em>/etc/rear/local.conf</em>) then we might see
+errors in the <code>rear-$(hostname).log</code> file such as:</p>
+<pre><code>tar: var/cache/yum/i386/15/updates/packages: Cannot setfilecon: No such file or directory
+</code></pre>
+<ul>
+<li>
+<p>Workaround:
+Make sure the <code>BACKUP_URL</code> destination understands extended attributes
+(CIFS is out of the question and NFS is problematic). When using local
+disks (or external USB devices) make sure the proper mount options are
+given in the <code>BACKUP_OPTIONS</code> variable, e.g.:</p>
+<p><code>BACKUP_OPTIONS="rw,relatime,seclabel,user_xattr,acl,barrier=1,data=ordered"</code></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>BACKUP_SELINUX_DISABLE=1</code> variable has been introduced in the <em>/usr/share/rear/conf/default.conf</em> file to disable SELinux while the backup is running (default setting).</p>
+</div>
+<h2 id="error_findstoragedrivers_called_but_storage_drivers_is_empty">ERROR: FindStorageDrivers called but STORAGE_DRIVERS is empty<a class="headerlink" href="#error_findstoragedrivers_called_but_storage_drivers_is_empty" title="Permanent link">&para;</a></h2>
+<p>Above error message might be seen after a fresh installation of the GNU/Linux kernel. ReaR got confused between the running kernel version number and the actual fresh kernel available.</p>
+<ul>
+<li>Workaround:
+Reboot your server before using ReaR again, which is a good practice anyway after upgrading the GNU/Linux kernel.</li>
+</ul>
+              
+            </div>
+          </div>
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../legal/contributing/index.html" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="rear26.html" class="btn btn-neutral" title="Release Notes ReaR 2.6"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2020 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=releasenotes/knownproblems.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="rear26.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../legal/contributing/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
