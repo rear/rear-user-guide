@@ -1,5 +1,6 @@
 # Relax-and-Recover (ReaR) User Guide Documentation
-Here we find the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
+
+This is the home for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/).  The sources of the ReaR User Guide are at [Github](https://github.com/rear/rear-user-guide) - where else?
 
 Use the navigation on the left-hand side to explore the different topics. Feel free to contribute to this project but please read the [contributing guidelines](legal/contributing/index.md).
 

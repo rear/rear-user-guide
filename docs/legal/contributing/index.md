@@ -18,6 +18,10 @@ When a pull request fails review, the author is expected to update the pull requ
 
 At least one review from a maintainer is required for all patches.
 
+### Mastering Markdown
+
+All articles of this user guide are written in Markdown, therefore, please get acquanted with the [Markdown language](https://guides.github.com/features/mastering-markdown/) and if you want to highlight special code see also the "[syntax highlighting in markdown](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)" page.
+
 ### Developer's Certificate of Origin
 
 All contributions must include acceptance of the DCO:
