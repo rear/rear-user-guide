@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+  <title>Getting started with ReaR - Relax-and-Recover (ReaR) User Guide Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/rear.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Getting started with ReaR";
+    var mkdocs_page_input_path = "basics/getting-started.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3406473-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">WELCOME</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">BASICS</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="history.html">Bit of History</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="getting-started.html">Getting started with ReaR</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#software_requirements">Software requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distribution_support">Distribution support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#known_limitations">Known limitations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#from_downloaded_rpm_packages">From downloaded RPM packages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from_deb_packages">From DEB packages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from_source">From source</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file_locations">File locations</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">LEGAL</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Relax-and-Recover (ReaR) User Guide Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>BASICS &raquo;</li>
+        
+      
+    
+    <li>Getting started with ReaR</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting_started_with_rear">Getting started with ReaR<a class="headerlink" href="#getting_started_with_rear" title="Permanent link">&para;</a></h1>
+<p>Relax-and-Recover (ReaR) is a DR tool written for GNU/Linux, but as we all know there are hundreds of GNU/Linux variants and we do our best to support the majorty of them. However, keep in mind we cannot please everybody.</p>
+<h2 id="software_requirements">Software requirements<a class="headerlink" href="#software_requirements" title="Permanent link">&para;</a></h2>
+<p>Relax-and-Recover aims to have as little dependencies as possible, however over time certain capabilities were added using utilities and specific
+features, causing older distributions to fall out of support. We try to avoid this where practically possible and be conservative to add new dependencies.</p>
+<p>The most basic requirement for Relax-and-Recover is having <code>bash</code>, and ubiquitous Linux tools like:</p>
+<ul>
+<li>dd (coreutils)</li>
+<li>ethtool</li>
+<li>file</li>
+<li>grep</li>
+<li>gzip</li>
+<li>ip (iproute[2])</li>
+<li>mount (util-linux-ng)</li>
+<li>ps (procps)</li>
+<li>sed</li>
+<li>ssh (openssh-clients)</li>
+<li>strings (binutils)</li>
+<li>tar</li>
+<li>...</li>
+</ul>
+<p>Optionally, some use-cases require other tools:</p>
+<ul>
+<li>lsscsi and sg3_utils (for OBDR tape support)</li>
+<li>mkisofs or genisoimage (for ISO output support)</li>
+<li>syslinux (for ISO or USB output support)</li>
+<li>syslinux-extlinux (for USB support)</li>
+<li>ebiso (for SLES UEFI booting)</li>
+</ul>
+<p>In some cases having newer versions of tools may provide better support:</p>
+<ul>
+<li>syslinux &gt;= 4.00 (provides menu support)</li>
+<li>parted</li>
+</ul>
+<p>In case we are using <strong>BACKUP=NETFS</strong> with nfs or cifs we might need also:</p>
+<ul>
+<li>nfs-client</li>
+<li>cifs-utils</li>
+</ul>
+<h2 id="distribution_support">Distribution support<a class="headerlink" href="#distribution_support" title="Permanent link">&para;</a></h2>
+<p>As a project our aim is not to exclude any distribution from being supported,
+however (as already noted) some older distributions fell out of support over
+time and there is little interest from the project or the community to spend
+the effort to add this support.</p>
+<p>On the other hand there is a larger demand for a tool like Relax-and-Recover
+from the Enterprise Linux distributions, and as a result more people are
+testing and contributing to support those distributions.</p>
+<p>Currently we aim to support the following distributions by testing them
+regularly:</p>
+<ul>
+<li>Red Hat Enterprise Linux and derivatives: RHEL6, RHEL7 and RHEL8</li>
+<li>SUSE Linux Enterprise Server 12 and 15</li>
+<li>Ubuntu LTS: 17, 18, 20</li>
+</ul>
+<p>Distributions dropped as supported:</p>
+<ul>
+<li>Ubuntu LTS &lt;17</li>
+<li>Fedora &lt;29</li>
+<li>RHEL 3, 4 and 5</li>
+<li>SLES &lt;12</li>
+<li>openSUSE &lt;11</li>
+<li>Debian &lt;8</li>
+</ul>
+<p>Distributions known to be 'unsupported' are:</p>
+<ul>
+<li>Ubuntu LTS 8.04 (as it does not implement <code>grep -P</code>)</li>
+</ul>
+<h2 id="known_limitations">Known limitations<a class="headerlink" href="#known_limitations" title="Permanent link">&para;</a></h2>
+<p>Relax-and-Recover offers a lot of flexibility in various use-cases, however it
+does have some limitations under certain circumstances:</p>
+<ul>
+<li>
+<p>Relax-and-Recover depends on the software of the running system. When
+   recovering this system to newer hardware, it is possible that the hardware
+   support of the original system does not support the newer hardware.</p>
+</li>
+<li>
+<p>Relax-and-Recover supports recovering to different hardware, but it cannot
+   always automatically adapt to this new environment. In such cases it
+   requires a manual intervention to e.g.</p>
+<ul>
+<li>
+<p>modify the <em>disklayout.conf</em> to indicate the number of controller, disks
+ or specific custom desires during restore</p>
+</li>
+<li>
+<p>reduce the partition-sizes/LV-sizes when restoring to smaller storage</p>
+</li>
+<li>
+<p>pull network-media or configure the network interfaces manually</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Depending on your back-up strategy you may have to perform actions, like:</p>
+<ul>
+<li>
+<p>insert the required tape(s)</p>
+</li>
+<li>
+<p>perform commands to restore the backup</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>You can find the RPM and DEB packages from our web site at <a href="https://relax-and-recover.org/download/">https://relax-and-recover.org/download/</a></p>
+<p>The latest stable versions of Fedora and SLES can be installed via <code>yum</code> (on RHEL 6 and 7), or via <code>dnf</code> (on RHEL 8) or <code>zypper</code> (on SLES).
+However, keep in mind, when you download ReaR from the vendors repositories that the version of ReaR is not always the latest version and will vary from the upstream version.
+Furthermore, if you have problems with the vendors version of ReaR please contact the vendor directly via their support channels. If required the vendor will contact us via the upstream channels (through our GitHub issues).</p>
+<p>On our download pages you will find two sections (stable and snapshot versions) of ReaR packages. Select the stable section if you want to play it safe, or the snapshot section if you have issues with a stable version as the snapshot versions are nightly rebuild and may or may not contain your fixes. Please check the current <a href="https://github.com/rear/rear/issues">issues submitted at GitHub</a> to check if your problem has already been reported.</p>
+<h3 id="from_downloaded_rpm_packages">From downloaded RPM packages<a class="headerlink" href="#from_downloaded_rpm_packages" title="Permanent link">&para;</a></h3>
+<p>Simply install (or update) the provided packages using
+the command: <code>rpm -Uhv rear-2.6-1.el8.x86_64.rpm</code></p>
+<p>You can test your installation by running <code>rear dump</code>:</p>
+<p> <pre><code class>[root@system ~]# rear dump
+System definition:
+                                    ARCH = Linux-x86_64
+                                      OS = GNU/Linux
+                               OS_VENDOR = RedHatEnterpriseServer
+                              OS_VERSION = 8.2
+</code></pre></p>
+<h3 id="from_deb_packages">From DEB packages<a class="headerlink" href="#from_deb_packages" title="Permanent link">&para;</a></h3>
+<p>On a Debian system (or Ubuntu) you can download the DEB packages from our download page and install it with the command:</p>
+<p> <pre><code class>dpkg -i rear*.deb
+</code></pre></p>
+<p>On Debian (Ubuntu) use the following command to install missing dependencies:</p>
+<p> <pre><code class>apt-get -f install
+</code></pre></p>
+<h3 id="from_source">From source<a class="headerlink" href="#from_source" title="Permanent link">&para;</a></h3>
+<p>The latest and greatest sources are available at GitHub location : <a href="https://github.com/rear/rear">https://github.com/rear/rear</a></p>
+<p>To make local copy with our github repository just type:</p>
+<p> <pre><code class>git clone git@github.com:rear/rear.git
+</code></pre></p>
+<h2 id="file_locations">File locations<a class="headerlink" href="#file_locations" title="Permanent link">&para;</a></h2>
+<p>Remember the general configuration file is found at <code>/usr/share/rear/conf/default.conf</code>. In that file you find all variables used by <code>rear</code> which can be overruled by redefining these in the <code>/etc/rear/site.conf</code> or <code>/etc/rear/local.conf</code> files. Please do not modify the <code>default.conf</code> file itself, but use the <code>site.conf</code> or <code>local.conf</code> for this purpose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Important note about the configuration files inside ReaR. Treat these as Bash scripts! ReaR will source these configuration files, and therefore, if you make any syntax error against Bash scripting rules ReaR will break.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Test your configuration changes</p>
+<p>If you modify the <code>/etc/rear/local.conf</code> or any other configuration file you can simply test for syntax errors by executing the following command: <strong>bash -n /etc/rear/local.conf</strong></p>
+</div>
+              
+            </div>
+          </div>
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/github-pr.html" class="btn btn-neutral float-right" title="Make a pull request with GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="history.html" class="btn btn-neutral" title="Bit of History"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2021 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=basics/getting-started.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="history.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../development/github-pr.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
