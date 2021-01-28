@@ -113,7 +113,7 @@ the command: `rpm -Uhv rear-2.6-1.el8.x86_64.rpm`
 
 You can test your installation by running `rear dump`:
 
-```
+```bash
 [root@system ~]# rear dump
 System definition:
                                     ARCH = Linux-x86_64
@@ -126,13 +126,13 @@ System definition:
 
 On a Debian system (or Ubuntu) you can download the DEB packages from our download page and install it with the command:
 
-```
+```bash
 dpkg -i rear*.deb
 ```
 
 On Debian (Ubuntu) use the following command to install missing dependencies:
 
-```
+```bash
 apt-get -f install
 ```
 
