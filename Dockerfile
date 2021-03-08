@@ -2,9 +2,10 @@
 # Using MkDocs - https://www.mkdocs.org/ 
 #
 # To build the docker container:
+# 
 # docker build -t mkdocs .
-# or use another user then the default 'gdha' use:
-# docker build --build-arg local_user=gdha -t mkdocs .
+# or use another user then the default 'gdha' (with another uid) use:
+# docker build --build-arg local_user=gdha --build-arg local_id=1000 -t mkdocs .
 #
 # The first time run of the 'mkdocs' container:
 # docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/web \
@@ -16,6 +17,7 @@
 
 FROM ubuntu:18.04
 ARG local_user=gdha
+ARG local_id=1000
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update \
@@ -44,10 +46,11 @@ RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \
     && pip install mkdocs-redirects \
     && pip install markdown-fenced-code-tabs \
     && pip install mkdocs-rtd-dropdown \
-    && apt-get remove gcc
+    && apt autoremove \
+    && apt-get -y remove gcc
 
 RUN echo "Setting home directory for local user ${local_user}" \
-    && useradd -u $(id -u ${local_user}) ${local_user} \
+    && useradd -u ${local_id} ${local_user} \
     && mkdir -p /home/${local_user}/web/ \
     && chown -R ${local_user}:${local_user} /home/${local_user}/web
 
