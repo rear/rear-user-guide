@@ -2,7 +2,7 @@
 
 [![ReaR](docs/img/rear_logo_trans.png)](https://relax-and-recover.org/)
 
-This is the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
+These are the source files for [https://relax-and-recover.org/rear-user-guide/](https://relax-and-recover.org/rear-user-guide/). 
 
 
 # Build, edit and preview
@@ -33,8 +33,14 @@ All the documentation lives in [docs](docs). Your edits should immediately reloa
 
 Once edits are done, commit and push your branch (don't forget the sign-off, see [contributing](docs/legal/contributing/index.md)) and submit a [pull request](https://github.com/rear/rear-user-guide/pulls) (PR).
 
+## Build your own docker instance
+Have a look at the [Dockerfile](./Dockerfile) on how to build your own docker instance.
+
 # Style guides
 The goal is to try keep content as cohesive as possible. Some old sources may require some refactoring to fit into the MkDocs styles we adopt.
+
+## Markdown Syntax
+Please use the [Basic Markdown Syntax](https://www.markdownguide.org/basic-syntax) for the documents.
 
 ## Embedding objects
 Using external sources such as YouTube and Asciinema is encouraged. Here are a few hints on how to get the best results.
