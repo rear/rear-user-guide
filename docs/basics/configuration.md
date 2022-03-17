@@ -1,13 +1,14 @@
 # Configuration
 
-FIXME: add a picture with a simple overview to explain the diff
-between BACKUP and OUTPUT schemes
+There are two important variables that influence Relax-and-Recover and the rescue image. Set **OUTPUT** to your preferred boot method and define **BACKUP** for your favorite **BACKUP** strategy.
+
+Furthermore, the **BACKUP** scheme can be an internal one, meaning using `tar` or `rsync`, or an external one, meaning use a backup program of your choice, e.g. TSM, Legato, and so on.
+
+<div align="right"><img src="../img/backup-internal-external.png" alt="An simple overview of BACKUP and OUTPUT"></div>
 
 The configuration is performed by changing `/etc/rear/local.conf` or `/etc/rear/site.conf`.
 
-There are two important variables that influence Relax-and-Recover and the rescue image. Set **OUTPUT** to your preferred boot method and define **BACKUP** for your favorite **BACKUP** strategy.
-
-In most cases only these two settings are required.
+In most cases only these two settings are required. More complex scenarios examples will be available in the [Scenarios](../scenarios/) chapter.
 
 
 ## Rescue media (OUTPUT)
@@ -28,7 +29,7 @@ Create on a remote PXE/NFS server the required files (such as configuration file
 Create a bootable OBDR tape including the backup archive. Specify the OBDR tape device by using `TAPE_DEVICE`.
 
 * **OUTPUT=USB**:
-Create a bootable USB disk (using extlinux). Specify the USB storage device by using `USB_DEVICE`.
+Create a bootable USB disk.
 
 * **OUTPUT=RAWDISK**:
 Create a bootable raw disk image on as `rear-$(hostname).raw.gz`. Supports UEFI boot if syslinux/EFI or Grub 2/EFI is installed. Supports Legacy BIOS boot if syslinux is installed. Supports UEFI/Legacy BIOS dual boot if syslinux _and_ one of the supported EFI bootloaders are installed.
@@ -108,9 +109,9 @@ Use Bacula programs
 
 * **BACKUP=BAREOS**:
 Use Bareos fork of Bacula
-
-  - _BAREOS_FILESET=Full_ : 
-    Only if you have more than one fileset defined for your clients backup jobs, you need to specify which to use for restore
+!!! note
+    _BAREOS_FILESET=Full_ : 
+    Only if you have more than one fileset defined for your clients backup jobs, you need to specify which to use for restore)
 
 * **BACKUP=GALAXY**:
 Use CommVault Galaxy (5, probably 6)
@@ -127,14 +128,13 @@ Use BorgBackup (short Borg) a deduplicating backup program to restore the data.
 * **BACKUP=NETFS**:
 Use Relax-and-Recover internal backup with tar or rsync (or similar).
 When using `BACKUP=NETFS` and `BACKUP_PROG=tar` there is an option to select
-`BACKUP_TYPE=incremental` or `BACKUP_TYPE=differential` to let rear make
+`BACKUP_TYPE=incremental` or `BACKUP_TYPE=differential` to let ReaR make
 incremental or differential backups until the next full backup day
 e.g. via `FULLBACKUPDAY="Mon"` is reached or when the last full backup
 is too old after FULLBACKUP_OUTDATED_DAYS has passed.
 Incremental or differential backup is currently only known to work
-with `BACKUP_URL=nfs`. Other `BACKUP_URL` schemes may work but
-at least `BACKUP_URL=usb` requires `USB_SUFFIX` to be set
-to work with incremental or differential backup.
+with `BACKUP_URL=nfs://server/path`. Other `BACKUP_URL` schemes may work e.g.
+`BACKUP_URL=usb:///dev/disk/by-label/REAR-000`
 
 * **BACKUP=REQUESTRESTORE**:
 No backup, just ask user to somehow restore the filesystems.
@@ -190,6 +190,13 @@ To backup to USB storage device, use `BACKUP_URL=usb:///dev/disk/by-label/REAR-0
 
 If you combine this with `OUTPUT=USB` you will end up with a bootable USB device.
 
+!!! note
+    With **USB** we refer to all kinds of external block devices, like USB keys, USB disks, eSATA disks, ZIP drives.
+    An USB device needs to be formatted before you can use it with ReaR.
+    `rear format` has now in addition to the `--efi` switch a `--bios` switch.
+    If none is given (i.e. by default) it will now do hybrid formatting
+    with a BIOS boot partition (on GPT) and an EFI system partition.
+
 Optional settings:
 
 * **BACKUP_PROG=rsync**:
@@ -216,8 +223,6 @@ The default value of `TMPDIR` is an empty string, therefore, by default `BUILD_D
 
 Another point of interest is the `ISO_DIR` variable to choose another location of the ISO image instead of the default location (`/var/lib/rear/output`).
 
-!!! note
-    With **USB** we refer to all kinds of external block devices, like USB keys, USB disks, eSATA disks, ZIP drives, etc...
 
 ## Using RSYNC as backup mechanism
 When using *BACKUP=RSYNC* you should provide the backup target location through the `BACKUP_URL` variable. Possible `BACKUP_URL` settings are:
