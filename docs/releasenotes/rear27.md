@@ -84,7 +84,7 @@ functionality:
 
 * Systemd support for the more recent Linux distributions
 
-* System migration and reconfiguration ('MIGRATION_MODE')
+* System migration and reconfiguration (**MIGRATION_MODE**)
 
   - facilitate recovery on hardware, that is not the same as the original system
   - network and storage drivers are adjusted
@@ -98,7 +98,7 @@ functionality:
   bextract) and network-based backups. Also, in combination with OBDR tapes.
 
 * Create OBDR tapes with method `mkbackup` and put the backup onto the tape
-  to have a single-tape bootable recovery solution
+  to have a single-tape bootable recovery solution _(deprecated)_
 
 * Label the OBDR tape with the method `format` to avoid accidental
   overwrites with OBDR
@@ -111,10 +111,10 @@ functionality:
     (booting of it and restoring data).
 
 * DHCP client support (IPv4 and IPv6). Dhcp client activation
-  can be forced via the variable *USE_DHCLIENT=yes* (define in _/etc/rear/local.conf_).
+  can be forced via the variable `USE_DHCLIENT=yes` (define in _/etc/rear/local.conf_).
   It is also possible to force DHCP at boot time with kernel option `dhcp`
 
-* `USE_STATIC_NETWORKING=y`, will cause statically configured network settings to be applied even when `USE_DHCLIENT` is in effect
+* `USE_STATIC_NETWORKING=y`, will cause statically configured network settings to be applied even when **USE_DHCLIENT** is in effect
 
 * Save layout and compare layouts for automation of making
   Relax-and-Recover snapshots (checklayout option)
@@ -303,7 +303,7 @@ functionality:
     when `parted ... set partition_number esp on` failed.
     See [issue 2830](https://github.com/rear/rear/pull/2830)
 
--   Set *USB_DEVICE_PARTED_LABEL* to match _format-workflow.sh_:
+-   Set `USB_DEVICE_PARTED_LABEL` to match _format-workflow.sh_:
     In _format/USB/default/300_format_usb_disk.sh_ it is set
     depending on the format workflow option `-b/--bios` or `-e/--efi`
     and in in _prep/USB/Linux-i386/340_find_mbr_bin.sh_ try to
@@ -321,7 +321,7 @@ functionality:
 
 -   In _layout/prepare/GNU/Linux/110_include_lvm_code.sh_ use a fail-safe
     'yes' pipe for "lvm lvcreate" to pipe as many 'y' as asked for into
-    "lvm lvcreate" see [issue 513](https://github.com/rear/rear/issues/513)
+    "lvm lvcreate". See [issue 513](https://github.com/rear/rear/issues/513)
     and [issue 2820](https://github.com/rear/rear/issues/2820)
 
 -   Avoid creating a /bin/vim symlink to vi: The symlink is more confusing
@@ -339,93 +339,92 @@ functionality:
     as fallback to install the nowadays most often used bootloader GRUB2
     unless the BOOTLOADER variable tells to install another bootloader (other
     bootloader install scripts check the BOOTLOADER variable),
-    cf. https://github.com/rear/rear/issues/2817#issuecomment-1148488339
+    cf. [issue 2871](https://github.com/rear/rear/issues/2817#issuecomment-1148488339)
 
--   Replace 'RELAXRECOVER' in variable names: In lib/global-functions.sh in
+-   Replace 'RELAXRECOVER' in variable names: In _lib/global-functions.sh_ in
     the function mount_url() renamed the user config variable for automated
-    input USER_INPUT_RELAXRECOVER_SYMLINK_TARGET as
-    USER_INPUT_ISO_SYMLINK_TARGET because the old name contained a user config
+    input `USER_INPUT_RELAXRECOVER_SYMLINK_TARGET` as
+    `USER_INPUT_ISO_SYMLINK_TARGET` because the old name contained a user config
     value: "RELAXRECOVER" was an old default value of ISO_VOLID, see
-    https://github.com/rear/rear/pull/2457 and
-    https://github.com/rear/rear/pull/2813#discussion_r885576867
+    [issue 2457](https://github.com/rear/rear/pull/2457) and
+    [issue 2813](https://github.com/rear/rear/pull/2813#discussion_r885576867)
 
--   In default.conf properly describe PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT
+-   In default.conf properly describe `PRE_BACKUP_SCRIPT` and `POST_BACKUP_SCRIPT`
     to match what the implementation does, see
-    https://github.com/rear/rear/pull/2735#issuecomment-1145006984 and for
+    [issue 2735](https://github.com/rear/rear/pull/2735#issuecomment-1145006984) and for
     special cases see
-    https://github.com/rear/rear/pull/2735#issuecomment-1148620157
+    [issue comment](https://github.com/rear/rear/pull/2735#issuecomment-1148620157)
 
--   Add PRE_RECOVERY_COMMANDS and POST_RECOVERY_COMMANDS as alternative to
-    PRE_RECOVERY_SCRIPT and POST_RECOVERY_SCRIPT see the description in
+-   Add `PRE_RECOVERY_COMMANDS` and `POST_RECOVERY_COMMANDS` as alternative to
+    `PRE_RECOVERY_SCRIPT` and `POST_RECOVERY_SCRIPT` see the description in
     default.conf how to use them and how they work. See
-    https://github.com/rear/rear/pull/2811 and see also
-    https://github.com/rear/rear/pull/2735 therein in particular
-    https://github.com/rear/rear/pull/2735#issuecomment-1134686196
+    [issue 2811](https://github.com/rear/rear/pull/2811) and see also
+    [issue 2735](https://github.com/rear/rear/pull/2735) therein in particular
+    [comment within issue 2735](https://github.com/rear/rear/pull/2735#issuecomment-1134686196).
     Additionally use LogPrint to show the user the executed commands, see
-    https://github.com/rear/rear/pull/2789
+    [issue 2789](https://github.com/rear/rear/pull/2789)
 
--   In default.conf describe the new user config variables USB_BOOT_PART_SIZE
-    and USB_DEVICE_BOOT_LABEL see https://github.com/rear/rear/pull/2660
+-   In default.conf describe the new user config variables `USB_BOOT_PART_SIZE`
+    and `USB_DEVICE_BOOT_LABEL` - see [PR 2660](https://github.com/rear/rear/pull/2660)
 
--   Exclude dev/watchdog* from the ReaR recovery system: In default.conf add
-    dev/watchdog* to COPY_AS_IS_EXCLUDE because watchdog functionality is not
+-   Exclude `dev/watchdog*` from the ReaR recovery system: In default.conf add
+    `dev/watchdog*` to `COPY_AS_IS_EXCLUDE` because watchdog functionality is not
     wanted in the recovery system because we do not want any automated reboot
     functionality while disaster recovery happens via "rear recover", see
-    https://github.com/rear/rear/pull/2808 Furthermore having a copy of
-    dev/watchdog* during "rear mkrescue" in ReaR's build area may even trigger
-    a system crash that is caused by a buggy TrendMicro ds_am module touching
+    [PR 2808](https://github.com/rear/rear/pull/2808). Furthermore having a copy of
+    `dev/watchdog*` during "rear mkrescue" in ReaR's build area may even trigger
+    a **system crash** that is caused by a buggy TrendMicro ds_am module touching
     dev/watchdog in ReaR's build area (/var/tmp/rear.XXX/rootfs), see
-    https://github.com/rear/rear/issues/2798
+    [issue 22798](https://github.com/rear/rear/issues/2798)
 
--   In output/default/940_grub2_rescue.sh for GRUB_RESCUE set 'root=/dev/ram0
-    vga=normal rw' (the same is already done for other boot media) to avoid a
+-   In _output/default/940_grub2_rescue.sh_ for GRUB_RESCUE set `root=/dev/ram0 vga=normal rw`
+    (the same is already done for other boot media) to avoid a
     "Kernel panic ... Unable to mount root fs on unknown-block(0,0)" that could
     otherwise happen in certain cases, see
-    https://github.com/rear/rear/pull/2791
+    [issue 2791](https://github.com/rear/rear/pull/2791)
 
--   In build/GNU/Linux/400_copy_modules.sh always include loaded kernel
-    modules i.e. also for MODULES=() or MODULES=( 'moduleX' 'moduleY' )
+-   In _build/GNU/Linux/400_copy_modules.sh_ always include loaded kernel
+    modules i.e. also for `MODULES=()` or `MODULES=( 'moduleX' 'moduleY' )`
     include the currently loaded kernel modules,
-    cf. https://github.com/rear/rear/issues/2727#issuecomment-994731345
+    cf. [comment of issue 2727](https://github.com/rear/rear/issues/2727#issuecomment-994731345)
 
--   In layout/save/GNU/Linux/200_partition_layout.sh ensure $disk_label is one
+-   In _layout/save/GNU/Linux/200_partition_layout.sh_ ensure `$disk_label` is one
     of the supported partition tables (i.e. one of 'msdos' 'gpt'
     'gpt_sync_mbr' 'dasd') and ensure syntactically correct 'disk' and 'part'
     entries in disklayout.conf (each value must exist and each value must be a
     single non-blank word), see the last part about "error out directly ... when
-    things failed" in
-    https://github.com/rear/rear/issues/2801#issuecomment-1122015129 But do
-    not error out when there is no partition label type value for a 'disk'
-    entry in disklayout.conf because "rear recover" works in a special case
+    things failed" in [issue 28010](https://github.com/rear/rear/issues/2801#issuecomment-1122015129).
+    But, do not error out when there is no partition label type value for a 'disk'
+    entry in disklayout.conf, because "rear recover" works in a special case
     without partition label type value when there is only a 'disk' entry but
     nothing else for this disk exists in disklayout.conf which can happen when
     /dev/sdX is an empty SD card slot without medium, see
-    https://github.com/rear/rear/issues/2810
+    [issue 2810](https://github.com/rear/rear/issues/2810)
 
 -   In default.conf explain how to use LIBS properly, see
-    https://github.com/rear/rear/issues/2743
+    [issue 2743](https://github.com/rear/rear/issues/2743)
 
--   In the function find_syslinux_modules_dir in lib/bootloader-functions.sh
+-   In the function **find_syslinux_modules_dir** in _lib/bootloader-functions.sh_
     the fallback 'find /usr' to find the SYSLINUX modules directory may take a
     very long time on some systems (up to several hours) so tell the user in
-    debug mode what is going on, see https://github.com/rear/rear/issues/2792
-    and https://github.com/rear/rear/issues/624
+    debug mode what is going on, see [issue 2792](https://github.com/rear/rear/issues/2792)
+    and [issue 624](https://github.com/rear/rear/issues/624)
 
--   In default.conf tell that MODULES=( 'loaded_modules' 'additional_module' )
-    is not supported (the generic COPY_AS_IS method can be used to include
-    additional modules) cf. https://github.com/rear/rear/issues/2727
+-   In default.conf tell that `MODULES=( 'loaded_modules' 'additional_module' )`
+    is not supported (the generic `COPY_AS_IS` method can be used to include
+    additional modules) cf. [issue 2727](https://github.com/rear/rear/issues/2727)
 
--   Use disklayout.conf keyword 'raidarray' instead of 'raid' because we have
+-   Use _disklayout.conf_ keyword **raidarray** instead of **raid** because we have
     a new 'raiddisk' keyword and a keyword must not be a leading substring of
     another keyword so we have now 'raidarray' and 'raiddisk', see
-    https://github.com/rear/rear/issues/2759 and
-    https://github.com/rear/rear/commit/53757eab1447c712fb7c8e44be9c8b3b3ffd9faa
+    [issue 2759](https://github.com/rear/rear/issues/2759) and
+    [commit](https://github.com/rear/rear/commit/53757eab1447c712fb7c8e44be9c8b3b3ffd9faa)
 
--   In layout/save/default/450_check_bootloader_files.sh use /[e]tc/grub.cfg
-    and /[b]oot/.../grub.cfg with '*' globbing patterns (as in the EFI|GRUB2-EFI
+-   In _layout/save/default/450_check_bootloader_files.sh_ use `/[e]tc/grub.cfg`
+    and `/[b]oot/.../grub.cfg` with '*' globbing patterns (as in the EFI|GRUB2-EFI
     case) to find any of grub.cgf or grub2.cfg in /etc/ or in /boot/ (e.g. in
     openSUSE Leap 15.3 there is /boot/grub2/grub.cfg),
-    cf. https://github.com/rear/rear/pull/2796#issuecomment-1118387393
+    cf. [issue 2796 comment](https://github.com/rear/rear/pull/2796#issuecomment-1118387393)
 
 -   In default.conf added '[e]tc/crypttab' to FILES_TO_PATCH_PATTERNS,
     cf. https://github.com/rear/rear/pull/2795#discussion_r859670066
