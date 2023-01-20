@@ -5,7 +5,7 @@
 # 
 # docker build -t mkdocs .
 # or use another user then the default 'gdha' (with another uid) use:
-# docker build --build-arg local_user=gdha --build-arg local_id=1000 -t mkdocs .
+# docker build --build-arg local_user=gdha --build-arg local_id=1002 -t mkdocs .
 #
 # The first time run of the 'mkdocs' container:
 # docker run -it -v /home/gdha/projects/rear/rear-user-guide:/home/gdha/web \
@@ -15,9 +15,9 @@
 # docker start -i mkdocs
 
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 ARG local_user=gdha
-ARG local_id=1000
+ARG local_id=1002
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update \
