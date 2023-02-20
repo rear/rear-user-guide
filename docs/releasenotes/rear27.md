@@ -427,76 +427,76 @@ functionality:
     cf. [issue 2796 comment](https://github.com/rear/rear/pull/2796#issuecomment-1118387393)
 
 -   In default.conf added '[e]tc/crypttab' to FILES_TO_PATCH_PATTERNS,
-    cf. https://github.com/rear/rear/pull/2795#discussion_r859670066
+    cf. [issue 2795 comment](https://github.com/rear/rear/pull/2795#discussion_r859670066)
 
 -   New FILES_TO_PATCH_PATTERNS in default.conf to verify file hashes at the
     end of recover after file restore from backup and show an error when
     config files were restored from an outdated backup so the restored files
     do not match the recreated system, see
-    https://github.com/rear/rear/pull/2795 and
-    https://github.com/rear/rear/issues/2785 and
-    https://github.com/rear/rear/issues/2787
+    [PR 2795](https://github.com/rear/rear/pull/2795) and
+    [issue 2785](https://github.com/rear/rear/issues/2785) and
+    [issue 2787](https://github.com/rear/rear/issues/2787)
 
 -   In backup/RSYNC/default/450_calculate_req_space.sh comment out remote
-    space check with rsync see https://github.com/rear/rear/issues/2760
+    space check with rsync see [issue 2760](https://github.com/rear/rear/issues/2760)
 
 -   In layout/save/default/450_check_bootloader_files.sh and
     layout/save/default/450_check_network_files.sh added bash globbing
     characters [] around the first letter to ensure that with 'shopt -s
     nullglob' files that do not exist will not appear so nonexistent files are
     not appended to CHECK_CONFIG_FILES
-    cf. https://github.com/rear/rear/pull/2796#issuecomment-1117171070
+    cf. [issue 2796 comment](https://github.com/rear/rear/pull/2796#issuecomment-1117171070)
 
 -   In backup/DUPLICITY/default/500_make_duplicity_backup.sh disable SC2068
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In backup/YUM/default/500_make_backup.sh and
     backup/NETFS/default/500_make_backup.sh and
     prep/NETFS/default/070_set_backup_archive.sh fixed SC2068
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In rescue/default/850_save_sysfs_uefi_vars.sh disable SC2045
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In layout/save/GNU/Linux/240_swaps_layout.sh and lib/output-functions.sh
-    fixed SC2045 cf. https://github.com/rear/rear/issues/1040
+    fixed SC2045 cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In lib/_input-output-functions.sh disable SC2218
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In layout/save/GNU/Linux/230_filesystem_layout.sh aviod SC1087
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In default.conf tell that USB_RETAIN_BACKUP_NR is only supported when
     EXTLINUX is used as bootloader for USB and in
     output/USB/Linux-i386/300_create_extlinux.sh add an explanatory comment
     how that code works,
-    cf. https://github.com/rear/rear/pull/2794#issuecomment-1106286485
+    cf. [issue 2794 comment](https://github.com/rear/rear/pull/2794#issuecomment-1106286485)
 
 -   In layout/save/GNU/Linux/210_raid_layout.sh fixed and overhauled the
     RAID10 'layout' support code (i.e. what belongs to the mdadm -layout
     option). This was triggered by ShellCheck SC2034 and SC2066 for the old
-    code, see https://github.com/rear/rear/pull/2768
+    code, see [issue 2758](https://github.com/rear/rear/pull/2768)
 
 -   In finalize/Fedora/i386/550_rebuild_initramfs.sh fixed SC2068 and SC2145
     via some generic code cleanup
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160 and
-    see https://github.com/rear/rear/pull/2771
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160) and
+    see [issue 2771](https://github.com/rear/rear/pull/2771)
 
 -   In rescue/GNU/Linux/310_network_devices.sh fix SC2091 see
-    https://github.com/rear/rear/pull/2776
+    [issue 2776](https://github.com/rear/rear/pull/2776)
 
 -   In default.conf increase USB_UEFI_PART_SIZE to 1024 MiB,
     cf. https://github.com/rear/rear/pull/1205 in particular to also make
     things work by default when additional third-party kernel modules and
     firmware (e.g. from Nvidia) are used,
-    cf. https://github.com/rear/rear/issues/2770#issuecomment-1068935688
+    cf. [issue 2770 comment](https://github.com/rear/rear/issues/2770#issuecomment-1068935688)
 
 -   In doc/rear.8 and doc/rear.8.adoc fixed typo '/dev/disk/by-path/REAR-000'
     -> '/dev/disk/by-label/REAR-000'
 
 -   In default.conf better describe USB_DEVICE
-    cf. https://github.com/rear/rear/issues/2770#issuecomment-1068831482
+    cf. [issue 2770 comment](https://github.com/rear/rear/issues/2770#issuecomment-1068831482)
 
 -   In output/default/940_grub_rescue.sh removed a misleading comment that
     shows a wrong get_version function call and in
@@ -516,96 +516,96 @@ functionality:
     usr/share/rear/lib/output-functions.sh and lib/layout-functions.sh and
     lib/filesystems-functions.sh and lib/linux-functions.sh avoid ShellCheck
     SC2068
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In output/ISO/Linux-i386/800_create_isofs.sh avoid ShellCheck SC2068 and
     SC2145
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In output/TSM/default/960_dsmc_verify_isofile.sh avoid ShellCheck SC2068
     and SC2145
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160 plus
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160) plus
     better error checking and messaging and other code cleanup
 
 -   In output/default/940_grub2_rescue.sh and
     output/default/940_grub_rescue.sh avoid ShellCheck SC2068
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In output/default/950_email_result_files.sh avoid ShellCheck SC2068 and
     SC2145
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160 and
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160) and
     replaced ...IfError function calls by calling Error
 
 -   In restore/FDRUPSTREAM/default/260_copy_log_and_report.sh fixed ShellCheck
     reported error SC2199
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160 and
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160) and
     fixed possible "bash: conditional binary operator expected" error
 
 -   In output/USB/Linux-i386/300_create_extlinux.sh and
     rescue/GNU/Linux/310_network_devices.sh avoid ShellCheck reported error
     SC2199
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In prep/NBKDC/default/400_prep_nbkdc.s and lib/sesam-functions.sh avoid
     ShellCheck false error indication SC1097
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In lib/_input-output-functions.sh fixed ShellCheck reported errors SC2145
     and SC2068 and avoided ShellCheck false error indication SC1087
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062945160)
 
 -   In usr/sbin/rear avoid ShellCheck SC1075 and fixed ShellCheck SC2145
-    cf. https://github.com/rear/rear/issues/1040
+    cf. [issue 1040](https://github.com/rear/rear/issues/1040)
 
 -   In output/RAWDISK/Linux-i386/260_create_syslinux_efi_bootloader.sh fixed
     ShellCheck SC2235
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In rear/lib/sesam-functions.sh fixed ShellCheck SC2221
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In lib/filesystems-functions.sh in function xfs_parse fixed ShellCheck
     SC2179 and SC2128
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
     furthermore 'xfs_opts' is local in both functions xfs_parse and create_fs
     in layout/prepare/GNU/Linux/131_include_filesystem_code.sh
 
 -   In lib/layout-functions.sh fixed ShellCheck SC2178
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In skel/default/etc/scripts/system-setup.d/00-functions.sh ignore
     ShellCheck SC2119 and SC2120
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1062703092
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1062703092)
 
 -   In restore/DUPLICITY/default/150_restore_duply.sh avoid ShellCheck SC2103
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In layout/prepare/GNU/Linux/100_include_partition_code.sh fixed ShellCheck
     SC2199 and SC2076
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In output/ISO/Linux-ia64/400_create_local_efi_dir.sh fixed ShellCheck
     SC2050
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In layout/save/GNU/Linux/230_filesystem_layout.sh fixed ShellCheck SC2030
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In verify/NBU/default/380_request_client_destination.sh fixed ShellCheck
     SC2018 and SC2019
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   In backup/YUM/default/500_make_backup.sh fixed ShellCheck SC2000
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034870262)
 
 -   Simpler code in prep/Linux-s390/305_include_s390_tools.sh to set a fixed
     bootdir="/boot" that also fixes ShellCheck SC1066
-    cf. https://github.com/rear/rear/issues/1040#issuecomment-1034890880
+    cf. [issue 1040 comment](https://github.com/rear/rear/issues/1040#issuecomment-1034890880)
 
 -   New GRUB2_SEARCH_ROOT_COMMAND in default.conf to overrule the setting in
     output/USB/Linux-i386/100_create_efiboot.sh see
-    https://github.com/rear/rear/pull/2763 and
-    https://github.com/rear/rear/issues/2500
+    [issue 2763](https://github.com/rear/rear/pull/2763) and
+    [issue 2500](https://github.com/rear/rear/issues/2500)
 
 -   New EXCLUDE_IP_ADDRESSES and EXCLUDE_NETWORK_INTERFACES directives: These
     new array variables enable to exclude specific IP addresses or network
@@ -613,7 +613,7 @@ functionality:
     environment. This is typically useful when floating IP addresses are used.
     Not excluding these may lead to outage if the floating IP address is used
     by another system at time the system is getting recovered, see
-    https://github.com/rear/rear/pull/2736
+    [issue 2736](https://github.com/rear/rear/pull/2736)
 
 -   multipath: fix exclusion of still wanted devices: The current code
     excluding multipath devices is broken when a device being excluded matches
@@ -621,7 +621,7 @@ functionality:
     having custom alias for multipath devices or there are more than 26
     multipath devices and 'mpatha' is getting excluded, which leads to
     excluding all 'mpathaX' devices are well, see
-    https://github.com/rear/rear/pull/2750
+    [issue 2750](https://github.com/rear/rear/pull/2750)
 
 -   Update 06-layout-configuration.adoc: Enhance the "disk layout file syntax"
     description: Describe that one cannot rely on backward compatibility.
@@ -629,60 +629,60 @@ functionality:
 
 -   Update default.conf: In default.conf describe that when OUTPUT_URL is set
     OUTPUT_OPTIONS does not inherit the BACKUP_OPTIONS value
-    cf. https://github.com/rear/rear/issues/2753
+    cf. [issue 2753](https://github.com/rear/rear/issues/2753)
 
 -   Include dmsetup and dmeventd as PROGS in conf/GNU/Linux.conf because older
     releases of os-prober (1.74 and below) use dmsetup as a fallback solution
     for mounting when grub-mount is missing but without dmsetup and dmeventd
     also in the recovery system that would block indefinitely at "Installing
     GRUB2 boot loader...", for details see
-    https://github.com/rear/rear/pull/2748
+    [issue 2748](https://github.com/rear/rear/pull/2748)
 
 -   In the function cmdline_add_console in lib/serial-functions.sh add
     'console=tty0' as fallback to cmdline only if no real serial device was
     found otherwise on a machine with e.g. ttyS0 and ttyS1 where only ttyS0 is
     real only kernel messages (but nothing else) would appear on ttyS0, see
-    https://github.com/rear/rear/pull/2749
+    [issue 2749](https://github.com/rear/rear/pull/2749)
 
 -   Skip unneeded /usr/lib/syslog-ng/loggen/ from recovery system: In
     conf/GNU/Linux.conf do no longer copy all in /usr/lib/syslog-ng/ but only
     copy .so files in /usr/lib/syslog-ng/ (same as for rsyslog). This skips in
     particular /usr/lib*/syslog-ng/loggen/ because 'loggen' is not included in
     the recovery system ('loggen' does not appear in any ReaR code). See
-    https://github.com/rear/rear/issues/2743
+    [issue 2743](https://github.com/rear/rear/issues/2743)
 
 -   For BACKUP=CDM removed need for the whole /usr/lib64 in the recovery
-    system. See https://github.com/rear/rear/pull/2747 and the related issues
-    https://github.com/rear/rear/issues/2266
-    https://github.com/rear/rear/issues/2314
-    https://github.com/rear/rear/issues/2685
-    https://github.com/rear/rear/issues/2700
+    system. See [issue 2747](https://github.com/rear/rear/pull/2747) and the related issues
+    [2266](https://github.com/rear/rear/issues/2266), 
+    [2314](https://github.com/rear/rear/issues/2314), 
+    [2685](https://github.com/rear/rear/issues/2685)' and 
+    [issue 2700](https://github.com/rear/rear/issues/2700)
 
 -   Update 400_copy_modules.sh: Do no longer error out if 'cp -a -L' failed to
     to copy all contents of /lib/modules/... but only tell the user about the
     issue so he could inspect his system and decide, see
-    https://github.com/rear/rear/issues/2739#issuecomment-1014304127
+    [issue 2739 comment](https://github.com/rear/rear/issues/2739#issuecomment-1014304127)
 
 -   Support for HTTP sources when using PXE: There is a new config variable
     PXE_HTTP_URL to specify the HTTP download source for PXE. If the variable
     is set the PXE config file will generate an additional 3rd boot option
     (besides the unchanged standard options "rear" via TFTP and "local")
     namely "rear-http" which includes the HTTP URL information to download the
-    kernel and initrd data. See https://github.com/rear/rear/pull/2738
+    kernel and initrd data. See [issue 2738](https://github.com/rear/rear/pull/2738)
 
 -   Also add ssh-add prog when ssh-agent is added. Since ssh-agent gets added
     it makes sense to add ssh-add as well. See
-    https://github.com/rear/rear/pull/2729
+    [PR 2729 ](https://github.com/rear/rear/pull/2729)
 
 -   In layout/prepare/default/420_autoresize_last_partitions.sh automatically
     resize active last partitions on RAID0 disks, see
-    https://github.com/rear/rear/issues/2696 Therefore in
-    layout/save/GNU/Linux/210_raid_layout.sh a new 'raiddisk' entry that has
+    [issue 2696](https://github.com/rear/rear/issues/2696). Therefore in
+    `layout/save/GNU/Linux/210_raid_layout.sh` a new 'raiddisk' entry that has
     same syntax as a 'disk' entry is written to disklayout.conf to have size
-    (and partition label) of a RAID device like "raiddisk /dev/md127
-    23599054848 gpt" because knowing the RAID device size is a precondition to
+    (and partition label) of a RAID device like `raiddisk /dev/md127 23599054848 gpt`
+    because knowing the RAID device size is a precondition to
     be able to automatically resize a RAID0 array. See
-    https://github.com/rear/rear/pull/2730
+    [issue 2730](https://github.com/rear/rear/pull/2730)
 
 -   In layout/prepare/default/420_autoresize_last_partitions.sh automatically
     resize active last partitions on RAID1 disks and fixed fallback setting so
@@ -691,37 +691,37 @@ functionality:
     show info about old disk and sizes and new disks and sizes in case of
     MIGRATION_MODE to make it easier to answer the questions to which new
     disks old disk should be mapped. See
-    https://github.com/rear/rear/pull/2726
+    [PR 2726](https://github.com/rear/rear/pull/2726)
 
 -   Fix modinfo_filename() in build/GNU/Linux/400_copy_modules.sh Output the
     original $module_filename also when it is a symlink because in the code
     below 'cp -L' copies the symlink taget content as a new regular file with
     file name as the name of the symlink so the copied content can be still
     found under its original name, cf.
-    https://github.com/rear/rear/issues/2677#issuecomment-997859219
+    [issue 2677 comment](https://github.com/rear/rear/issues/2677#issuecomment-997859219)
     Additionally in case of MODULES=( 'all_modules' ) also use 'cp -L' to copy
     the actual content to avoid dangling symlinks in the recovery system. See
-    https://github.com/rear/rear/pull/2731
+    [PR 2731](https://github.com/rear/rear/pull/2731)
 
 -   In usr/share/rear/output/PXE/default/800_copy_to_tftp.sh fixed pxe file cp
     and permissions for sshfs target to prevent cp error "failed to preserve
     ownership" for sshfs and to prevent issue with write permissions trying to
-    override image on later runs. See https://github.com/rear/rear/pull/2723
+    override image on later runs. See [issue 2723](https://github.com/rear/rear/pull/2723)
 
--   Improved wiping disks (see https://github.com/rear/rear/pull/2721): In
+-   Improved wiping disks (see [PR 2721](https://github.com/rear/rear/pull/2721)): In
     layout/recreate/default/120_confirm_wipedisk_disks.sh skip disks that do
     not exist on the bare hardware in the recovery system
-    cf. https://github.com/rear/rear/issues/2715 and exclude disks that are
+    cf. [issue 2715](https://github.com/rear/rear/issues/2715) and exclude disks that are
     write-protected
-    cf. https://github.com/rear/rear/pull/2703#issuecomment-979928423 and show
+    cf. [issue 2703 comment](https://github.com/rear/rear/pull/2703#issuecomment-979928423) and show
     in any case a user confirmation dialog for the disks that will be wiped.
     In layout/recreate/default/150_wipe_disks.sh do no longer open (and close)
     LUKS volumes because encrypted volumes contain meaningless data unless
     opened and unencrypted so there is no need to wipe anything inside an
     encrypted LUKS container, cf. "Regarding LUKS" in
-    https://github.com/rear/rear/pull/2514#issuecomment-743483945
+    [issue 2514 comment](https://github.com/rear/rear/pull/2514#issuecomment-743483945)
 
--   Overhauled RAID code (see https://github.com/rear/rear/pull/2714) based on
+-   Overhauled RAID code (see [PR 2714](https://github.com/rear/rear/pull/2714)) based on
     https://github.com/rear/rear/pull/2702 that is about initial software RAID
     IMSM support i.e. with the changes in that pull request: Completely
     overhauled layout/save/GNU/Linux/210_raid_layout.sh: No longer a subshell
@@ -731,16 +731,16 @@ functionality:
     prepare output. Handle options ordered by importance, mandatory first,
     then optional ones. Basic tests that mandatory options are syntactically
     valid plus Error if not. Overhauled
-    layout/prepare/GNU/Linux/120_include_raid_code.sh: The FEATURE_MDADM_UUID
+    layout/prepare/GNU/Linux/120_include_raid_code.sh: The `FEATURE_MDADM_UUID`
     code is meanwhile obsolete because all mdadm versions in supported ReaR
     Linux distributions support '-uuid'. New
     layout/recreate/default/220_verify_layout.sh to verify if RAID devices are
     recreated with the UUIDs in disklayout.conf because mdadm silently ignores
     this option when creating IMSM arrays (both containers and the volumes
     inside them) and picks a random UUID
-    cf. https://github.com/rear/rear/pull/2702#issuecomment-970395567 Support
-    user specified DISKS_TO_BE_WIPED to mitigate
-    https://github.com/rear/rear/issues/2715 see the DISKS_TO_BE_WIPED
+    cf. [issue 2701 comment](https://github.com/rear/rear/pull/2702#issuecomment-970395567)
+    Support user specified DISKS_TO_BE_WIPED to mitigate
+    [issue 2715](https://github.com/rear/rear/issues/2715) see the `DISKS_TO_BE_WIPED`
     description in default.conf
 
 -   Update 100_create_layout_file.sh: Additionally show the filesystem LABEL
@@ -749,8 +749,8 @@ functionality:
     where the array name is shown as LABEL in 'lsblk' for example like
     "/dev/sda ... linux_raid_member any:raid1sdab" - see also "one cannot see ...
     /dev/md/ symlinks as NAME ... /dev/md/raid1sdab -> ../md127" in
-    https://github.com/rear/rear/pull/2702#issuecomment-951769031 and see also
-    https://github.com/rear/rear/commit/1a8a88c20d01f01fac65e296e9481ab9172c3ac7
+    [PR 2702 comment](https://github.com/rear/rear/pull/2702#issuecomment-951769031) and see also
+    [commit](https://github.com/rear/rear/commit/1a8a88c20d01f01fac65e296e9481ab9172c3ac7)
 
 -   Update 100_create_layout_file.sh: Additionally show UUID in 'lsblk' output
     of the original system as comment in disklayout.conf to make it easier to
