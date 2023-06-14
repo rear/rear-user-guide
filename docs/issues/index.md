@@ -1,0 +1,2990 @@
+# Issues History of Relax-and-Recover (ReaR)
+
+- [\#1 PR](2012-02-16.1.pr.merged.md) `merged`: Pull fixes for partitioning and udev.
+- [\#2 PR](2012-02-17.2.pr.merged.md) `merged`: Fix bug SF3487949
+- [\#10 Issue](2012-03-21.10.issue.closed.md) `closed`: Process open bugs and feature requests on Sourceforge
+- [\#11 Issue](2012-03-21.11.issue.closed.md) `closed`: layout: Implement reserved block count in percentage
+- [\#12 Issue](2012-03-21.12.issue.closed.md) `closed`: During rescue boot the screen output is messed up
+- [\#13 Issue](2012-03-21.13.issue.closed.md) `closed`: Packaging/distribution using Makefile ?
+- [\#14 Issue](2012-03-21.14.issue.closed.md) `closed`: Implement new/final website at rear.github.com
+- [\#3 Issue](2012-03-21.3.issue.closed.md) `closed`: Rewrite network configuration abstraction
+- [\#4 Issue](2012-03-21.4.issue.closed.md) `closed`: Finish official documentation
+- [\#5 Issue](2012-03-21.5.issue.closed.md) `closed`: Reorganize source structure
+- [\#6 Issue](2012-03-21.6.issue.closed.md) `closed`: Create a Bash code standard document
+- [\#7 Issue](2012-03-21.7.issue.closed.md) `closed`: Remove remaining progress code
+- [\#8 Issue](2012-03-21.8.issue.closed.md) `closed`: Drop packaging workflows
+- [\#9 Issue](2012-03-21.9.issue.closed.md) `closed`: Check syntax on code-contributions/distributing Rear
+- [\#15 Issue](2012-03-22.15.issue.closed.md) `closed`: Rename vol\_id function
+- [\#16 Issue](2012-03-22.16.issue.closed.md) `closed`: disklayout.conf corrupted by dosfslabel
+- [\#17 Issue](2012-03-22.17.issue.closed.md) `closed`: Disk layout comparison gives confusing error
+- [\#18 Issue](2012-03-22.18.issue.closed.md) `closed`: Shrinking disk size during recovery creates negative sizes
+- [\#19 Issue](2012-03-26.19.issue.closed.md) `closed`: Add support for excluding logicaldrive
+- [\#20 Issue](2012-03-27.20.issue.closed.md) `closed`: Include libs in /lib\*/multipath
+- [\#21 Issue](2012-03-28.21.issue.closed.md) `closed`: Retain log file at a safe place during recovery
+- [\#22 Issue](2012-03-28.22.issue.closed.md) `closed`: Adjust /dev/disk/by-id/\* after rear recover
+- [\#23 Issue](2012-03-28.23.issue.closed.md) `closed`: Clean up remaining items in TODO file
+- [\#24 Issue](2012-03-28.24.issue.closed.md) `closed`: Give more time for entering TSM restore options
+- [\#25 Issue](2012-03-28.25.issue.closed.md) `closed`: mkbackup fails
+- [\#26 Issue](2012-03-28.26.issue.closed.md) `closed`: Device name has carriage return during file system creation
+- [\#27 Issue](2012-03-28.27.issue.closed.md) `closed`: Empty tar backup
+- [\#28 Issue](2012-03-28.28.issue.closed.md) `closed`: ext4 filesystems are no longer supported
+- [\#29 Issue](2012-03-28.29.issue.closed.md) `closed`: ROOTFS\_DIR '/tmp/rear..' is broken, chroot bash test failed
+- [\#30 Issue](2012-03-28.30.issue.closed.md) `closed`: Error reading controller configuration during recovery
+- [\#31 Issue](2012-03-28.31.issue.closed.md) `closed`: BUG BUG BUG! Could not determine size of disk
+- [\#32 Issue](2012-03-28.32.issue.closed.md) `closed`: Mount Binds in /etc/fstab
+- [\#33 Issue](2012-03-28.33.issue.closed.md) `closed`: Relax-and-Recover restore on Ubuntu 10.04.03 LTS does not boot
+- [\#34 Issue](2012-03-29.34.issue.closed.md) `closed`: parted -s /dev/sda mkpart fails with rear-snapshot-0.0.815
+- [\#35 Issue](2012-03-29.35.issue.closed.md) `closed`: OBDR doesnt work on DAT320
+- [\#36 Issue](2012-03-29.36.issue.closed.md) `closed`: Copy complains 'are the same file' during mkbackup
+- [\#37 Issue](2012-03-29.37.issue.closed.md) `closed`: Redesign OUTPUT\_URL and BACKUP\_URL to correct improper logic
+- [\#38 Issue](2012-03-29.38.issue.closed.md) `closed`: Implement automated testing (and define supported targets
+- [\#39 Issue](2012-03-29.39.issue.closed.md) `closed`: md disk uuid describtion incorrect
+- [\#40 Issue](2012-03-30.40.issue.closed.md) `closed`: Backup and restore raw volumes
+- [\#41 Issue](2012-03-30.41.issue.closed.md) `closed`: Reboot command on upstart-based rescue media fails to work (RHEL6, Ubuntu
+- [\#42 Issue](2012-03-30.42.issue.closed.md) `closed`: Recreate diskrestore.sh when disklayout.conf is modified
+- [\#43 Issue](2012-03-30.43.issue.closed.md) `closed`: Support dhcpcd (SLES11
+- [\#44 Issue](2012-03-30.44.issue.closed.md) `closed`: SELinux support in backup code
+- [\#45 Issue](2012-03-30.45.issue.closed.md) `closed`: Rebuild initrd/initramfs in finalize stage for Arch, Gentoo
+- [\#46 Issue](2012-03-30.46.issue.closed.md) `closed`: Save swap label for old distributions
+- [\#47 Issue](2012-03-30.47.issue.closed.md) `closed`: Record partition ID of swap partitions
+- [\#48 Issue](2012-03-30.48.issue.closed.md) `closed`: Better UI when mapping disks.
+- [\#49 Issue](2012-03-30.49.issue.closed.md) `closed`: Get rid of dr and recreate stages altogether
+- [\#50 Issue](2012-03-30.50.issue.closed.md) `closed`: missing initrd rebuild in RHEL5
+- [\#51 Issue](2012-04-02.51.issue.closed.md) `closed`: sshd\_config: listen to all interfaces
+- [\#52 Issue](2012-04-04.52.issue.closed.md) `closed`: function FindStorageDrivers
+- [\#53 Issue](2012-04-05.53.issue.closed.md) `closed`: Make Rear work without the need to install it
+- [\#54 Issue](2012-04-05.54.issue.closed.md) `closed`: Add various INCLUDE\_\* options to limit Relax-and-Recover's scope
+- [\#55 Issue](2012-04-05.55.issue.closed.md) `closed`: Make component-prefix mandatory in layout code
+- [\#56 Issue](2012-04-06.56.issue.closed.md) `closed`: Support changing LOGFILE from /etc/rear/local.conf
+- [\#57 Issue](2012-04-07.57.issue.closed.md) `closed`: Fix indentation in all scripts
+- [\#58 Issue](2012-04-07.58.issue.closed.md) `closed`: Collecting modules should handle whitelist smarter
+- [\#59 Issue](2012-04-07.59.issue.closed.md) `closed`: Make "rear help" understand context
+- [\#60 Issue](2012-04-11.60.issue.closed.md) `closed`: Swap partition as label is not labeled in recovered machine (its not included in disklayout.conf
+- [\#61 Issue](2012-04-11.61.issue.closed.md) `closed`: Partition id of the swap partition is not updated properly (It should be 82
+- [\#62 Issue](2012-04-11.62.issue.closed.md) `closed`: in Disk maping select statement , all possible options are not should if its a long list
+- [\#63 Issue](2012-04-11.63.issue.closed.md) `closed`: Partition does not end on cylinder boundary after recovery
+- [\#64 Issue](2012-04-12.64.issue.closed.md) `closed`: Add iscsi support
+- [\#65 Issue](2012-04-12.65.issue.closed.md) `closed`: Integrate rsnapshot/rbme functionality
+- [\#66 Issue](2012-04-12.66.issue.closed.md) `closed`: permit to proceed with the vlan
+- [\#67 Issue](2012-04-12.67.issue.closed.md) `closed`: Confusing message from tar: /boot/: file is on a different filesystem; not dumped
+- [\#68 Issue](2012-04-12.68.issue.closed.md) `closed`: Option to specify the rear config file to use
+- [\#69 Issue](2012-04-12.69.issue.closed.md) `closed`: Improve, redesign or remove "rear validate"
+- [\#70 Issue](2012-04-20.70.issue.closed.md) `closed`: rear does not inform the user about "soft" tar errors
+- [\#71 Issue](2012-04-20.71.issue.closed.md) `closed`: Swap partitions should not be resized
+- [\#72 Issue](2012-04-24.72.issue.closed.md) `closed`: Manpage still states sourceforge as project homepage
+- [\#73 Issue](2012-04-24.73.issue.closed.md) `closed`: Problem in lib/compatibility-functions.sh because blkid shows no output when there are no partitions
+- [\#74 Issue](2012-04-25.74.issue.closed.md) `closed`: Xen: rear recover "no code has been generated ...
+- [\#75 Issue](2012-04-25.75.issue.closed.md) `closed`: DP: press any key
+- [\#76 Issue](2012-05-07.76.issue.closed.md) `closed`: CIFS parameters not correctly passed
+- [\#77 Issue](2012-05-07.77.issue.closed.md) `closed`: Use generic grub code for all distributions
+- [\#78 Issue](2012-05-18.78.issue.closed.md) `closed`: epel missing dependencies
+- [\#79 Issue](2012-05-20.79.issue.closed.md) `closed`: Items to discuss at LinuxTag 2012 meeting on 24/5 at 10am
+- [\#80 Issue](2012-05-21.80.issue.closed.md) `closed`: Add "StopIfFail" function to \_input-output-functions.sh
+- [\#81 Issue](2012-05-24.81.issue.closed.md) `closed`: Offer possibility to get consistent backup (regarding applications
+- [\#82 Issue](2012-05-24.82.issue.closed.md) `closed`: Ubuntu 12.04 multiarch support
+- [\#83 Issue](2012-05-24.83.issue.closed.md) `closed`: /sbin/agetty not found in Ubuntu 11.04 natty
+- [\#84 Issue](2012-05-28.84.issue.closed.md) `closed`: Port OBS related code to Github
+- [\#85 Issue](2012-05-29.85.issue.closed.md) `closed`: Inconsistent commenting out in disklayout.conf
+- [\#86 Issue](2012-05-30.86.issue.closed.md) `closed`: Inodes in fs creation reset to default
+- [\#87 Issue](2012-05-31.87.issue.closed.md) `closed`: NBU and xinetd issue
+- [\#88 Issue](2012-05-31.88.issue.closed.md) `closed`: lvmvol with dashes
+- [\#89 Issue](2012-05-31.89.issue.closed.md) `closed`: Not a valid file /mnt/local/etc/sysconfig/network/routes \[on RHEL\]
+- [\#90 Issue](2012-05-31.90.issue.closed.md) `closed`: Redirect website -&gt; Github Pages
+- [\#91 Issue](2012-06-01.91.issue.closed.md) `closed`: mappings/ip\_addresses not correctly used by 31\_network\_devices.sh
+- [\#92 Issue](2012-06-01.92.issue.closed.md) `closed`: mount: special device LABEL=/boot/efi does not exist
+- [\#93 PR](2012-06-01.93.pr.merged.md) `merged`: Fixing ebuild to be Gentoo compliant
+- [\#94 Issue](2012-06-04.94.issue.closed.md) `closed`: Add a section "Powerful Relax-and-Recover functionality"
+- [\#95 PR](2012-06-05.95.pr.merged.md) `merged`: This should fix the dashes in lvmvol \#88
+- [\#96 PR](2012-06-05.96.pr.merged.md) `merged`: Fix for issue 86 - missing inode ratio during recovery
+- [\#100 Issue](2012-06-07.100.issue.closed.md) `closed`: Make partition bootable, even if we do not format the device
+- [\#101 Issue](2012-06-07.101.issue.closed.md) `closed`: Harmless spurious log message "This is the disk mapping table:"
+- [\#102 Issue](2012-06-07.102.issue.closed.md) `closed`: Investigate "not properly aligned for best performance"
+- [\#103 Issue](2012-06-07.103.issue.closed.md) `closed`: Location of ISO file and log files
+- [\#97 Issue](2012-06-07.97.issue.closed.md) `closed`: find: \`/tmp/rear.ufJm2F8ErepqTTa/tmp/dev': No such file or directory
+- [\#98 Issue](2012-06-07.98.issue.closed.md) `closed`: Some log output is incomplete
+- [\#99 Issue](2012-06-07.99.issue.closed.md) `closed`: Verify usb:// or file:// URIs for problems
+- [\#104 Issue](2012-06-08.104.issue.closed.md) `closed`: LibCopyTo fails with linked libs
+- [\#105 Issue](2012-06-08.105.issue.closed.md) `closed`: Three dangling symlinks in tree
+- [\#106 Issue](2012-06-08.106.issue.closed.md) `closed`: ERROR: Making backup on / is forbidden. Use an external device!
+- [\#107 Issue](2012-06-08.107.issue.closed.md) `closed`: Get rid of lib/compatibility-functions.sh
+- [\#108 Issue](2012-06-10.108.issue.closed.md) `closed`: Relax-and-Recover asks password when using cifs to a public share
+- [\#109 Issue](2012-06-13.109.issue.closed.md) `closed`: PPC support is broken
+- [\#110 Issue](2012-06-14.110.issue.closed.md) `closed`: Get rid of OS\_VERSION and OS\_VENDOR where possible
+- [\#111 Issue](2012-06-15.111.issue.closed.md) `closed`: TSM restore fails with ANS1464S
+- [\#112 Issue](2012-06-15.112.issue.closed.md) `closed`: make rpm bails out
+- [\#113 Issue](2012-06-20.113.issue.closed.md) `closed`: Add Relax-and-Recover manual page and draft documentation to website
+- [\#114 Issue](2012-06-20.114.issue.closed.md) `closed`: Migrate mailinglists from SF to relax-and-recover.org mailman
+- [\#115 Issue](2012-06-21.115.issue.closed.md) `closed`: fedora17: systemd is broken (booting blocks
+- [\#116 Issue](2012-06-21.116.issue.closed.md) `closed`: Improve GPL header where possible
+- [\#117 Issue](2012-06-21.117.issue.closed.md) `closed`: Erroneous "Excluding component fs:/var"
+- [\#118 Issue](2012-06-21.118.issue.closed.md) `closed`: Tape support is broken for mkbackup workflow
+- [\#119 Issue](2012-06-22.119.issue.closed.md) `closed`: Having a problem with backup using USB memory stick.
+- [\#120 Issue](2012-06-24.120.issue.closed.md) `closed`: Fix the $Date$ in the rear script
+- [\#121 Issue](2012-06-25.121.issue.closed.md) `closed`: Create "final" documentation structure
+- [\#122 Issue](2012-06-26.122.issue.closed.md) `closed`: Unwanted dependency on tar ?
+- [\#123 Issue](2012-06-27.123.issue.closed.md) `closed`: grep -P not available on Hardy (Ubuntu LTS 8.04
+- [\#124 Issue](2012-07-12.124.issue.closed.md) `closed`: Unable to copy ipv6.ko module
+- [\#125 Issue](2012-07-13.125.issue.closed.md) `closed`: Unable to boot after recovery
+- [\#126 Issue](2012-07-14.126.issue.closed.md) `closed`: rear-1.10.0 backup does not write full backup using NETFS and ReaR recovery system fails with systemd error
+- [\#127 Issue](2012-07-20.127.issue.closed.md) `closed`: USB archive path error
+- [\#128 Issue](2012-07-23.128.issue.closed.md) `closed`: mkswap fails for RHEL/CentOS 5
+- [\#129 Issue](2012-07-25.129.issue.closed.md) `closed`: Problem with more than 9 partitions ?
+- [\#130 Issue](2012-07-25.130.issue.closed.md) `closed`: Interrupting tar backup, leaves disk mounted
+- [\#131 Issue](2012-07-25.131.issue.closed.md) `closed`: USB device already mounted should not be mounted again
+- [\#132 Issue](2012-07-26.132.issue.closed.md) `closed`: MTU not applied to interfaces
+- [\#133 Issue](2012-07-26.133.issue.closed.md) `closed`: Unwanted dependency on lsb package in package spec file
+- [\#134 Issue](2012-07-26.134.issue.closed.md) `closed`: Clean-up bonding TODOs in network\_devices
+- [\#135 PR](2012-07-26.135.pr.merged.md) `merged`: Extend Relax-and-Recover to use duplicity and duply as backup methods
+- [\#136 Issue](2012-07-26.136.issue.closed.md) `closed`: Disable redirects in debug mode
+- [\#137 Issue](2012-07-26.137.issue.closed.md) `closed`: rear recover does not label disk partitions
+- [\#138 PR](2012-07-27.138.pr.merged.md) `merged`: Capture and record interface MTUs
+- [\#139 Issue](2012-07-30.139.issue.closed.md) `closed`: ISO image on VMware guest (with VMware-Tools installed
+- [\#140 PR](2012-07-31.140.pr.closed.md) `closed`: Smaller changes in Makefiles as preperation for Debian packaging
+- [\#141 PR](2012-07-31.141.pr.closed.md) `closed`: Fix issue with older versions of asciidoc
+- [\#142 Issue](2012-08-02.142.issue.closed.md) `closed`: /etc/rear/os.conf installed with rpm (of snapshot
+- [\#143 Issue](2012-08-10.143.issue.closed.md) `closed`: BACKUP\_URL target should include/append backup date
+- [\#144 Issue](2012-08-12.144.issue.closed.md) `closed`: Old website should redirect (even for deep links
+- [\#145 Issue](2012-08-17.145.issue.closed.md) `closed`: ROOTFS\_DIR ist broken, chroot bash test failed
+- [\#146 Issue](2012-08-17.146.issue.closed.md) `closed`: Default NFS option (root\_squash
+- [\#147 Issue](2012-08-24.147.issue.closed.md) `closed`: Ensure we have the new partitioning from device
+- [\#148 PR](2012-08-28.148.pr.merged.md) `merged`: Smaller changes in Makefiles as preperation for Debian packaging
+- [\#149 Issue](2012-08-31.149.issue.closed.md) `closed`: mount.cifs error: CIFS VFS: could not allocate crypto hmacmd5
+- [\#150 Issue](2012-09-01.150.issue.closed.md) `closed`: Relax-and-Recover fails when /tmp is mounted noexec
+- [\#151 Issue](2012-09-01.151.issue.closed.md) `closed`: Devices referenced by UUID breaks layout dependency chain
+- [\#152 PR](2012-09-01.152.pr.merged.md) `merged`: Translate by-uuid names of devices for filesystems
+- [\#153 Issue](2012-09-04.153.issue.closed.md) `closed`: creating xfs partiton with 5 TB fails
+- [\#154 Issue](2012-09-05.154.issue.closed.md) `closed`: WARNING! There was an error (Nr. 141
+- [\#155 Issue](2012-09-05.155.issue.closed.md) `closed`: matching kernel in /boot/efi/efi/debian error on ubuntu 12.04.1 LTS
+- [\#156 Issue](2012-09-06.156.issue.closed.md) `closed`: Error in diskrestore.sh script
+- [\#157 Issue](2012-09-07.157.issue.closed.md) `closed`: Make BUILD\_DIR and/or TMP\_DIR configurable
+- [\#158 Issue](2012-09-07.158.issue.closed.md) `closed`: Detect and escalate NFS 'root\_squash' (or other permission related problems
+- [\#159 Issue](2012-09-13.159.issue.closed.md) `closed`: Using a non-existing backup method fails in recovery (e.g. REQUEST\_RESTORE instead of REQUESTRESTORE
+- [\#160 Issue](2012-09-19.160.issue.closed.md) `closed`: vol\_id doesn't exist on ubuntu anymore
+- [\#161 Issue](2012-09-20.161.issue.closed.md) `closed`: Unattended recovery
+- [\#162 Issue](2012-09-20.162.issue.closed.md) `closed`: Fedora18: udevd replaced by systemd-udevd
+- [\#163 PR](2012-09-27.163.pr.merged.md) `merged`: Get filesystem by using file instead of vol\_id
+- [\#164 Issue](2012-09-27.164.issue.closed.md) `closed`: Format workflow stops with error if device has a btrfs filesystem
+- [\#166 Issue](2012-10-12.166.issue.closed.md) `closed`: SLES11.2 recover ERROR: No filesystem mounted on /mnt/local. Stopping.
+- [\#167 Issue](2012-10-16.167.issue.closed.md) `closed`: Shell prompt doesn't load from ISO
+- [\#168 Issue](2012-10-17.168.issue.closed.md) `closed`: HP Smartarray controller issue
+- [\#169 Issue](2012-10-17.169.issue.closed.md) `closed`: understanding OUTPUT, BACKUP\_URL and OUTPUT\_URL
+- [\#170 Issue](2012-10-30.170.issue.closed.md) `closed`: Bug in file : /usr/share/rear/output/default/10\_mount\_output\_path.sh
+- [\#171 Issue](2012-10-30.171.issue.closed.md) `closed`: To add support of sshfs
+- [\#172 Issue](2012-10-31.172.issue.closed.md) `closed`: Could not stat device /dev/hda - No such file or directory with Citrix XenCenter
+- [\#173 Issue](2012-11-01.173.issue.closed.md) `closed`: How to exclude Directories partitions mounts
+- [\#174 Issue](2012-11-06.174.issue.closed.md) `closed`: DRBD layout restoration needs to be reviewed
+- [\#175 PR](2012-11-06.175.pr.merged.md) `merged`: Update usr/share/rear/layout/prepare/GNU/Linux/15\_include\_drbd\_code.sh
+- [\#176 Issue](2012-11-08.176.issue.closed.md) `closed`: problem recover 2 logical drives on one array
+- [\#177 Issue](2012-11-12.177.issue.closed.md) `closed`: uncomplete restore with TSM
+- [\#178 Issue](2012-11-15.178.issue.closed.md) `closed`: 15\_include\_drbd\_code.sh syntax error: unexpected end of file
+- [\#179 Issue](2012-11-15.179.issue.closed.md) `closed`: 16\_remove\_diskbyid.sh does not check if file exists
+- [\#180 Issue](2012-11-15.180.issue.closed.md) `closed`: NBU 7 support
+- [\#181 Issue](2012-11-16.181.issue.closed.md) `closed`: Error restoring the system layout
+- [\#182 Issue](2012-11-26.182.issue.closed.md) `closed`: SLES 11 SP2 Grub Issue
+- [\#183 Issue](2012-11-30.183.issue.closed.md) `closed`: parted complains with "Error: Partition doesn't exist"
+- [\#184 Issue](2012-12-18.184.issue.closed.md) `closed`: BACKUP=DP: restore does not handle sparse files properly
+- [\#185 Issue](2013-01-07.185.issue.closed.md) `closed`: Archie: dhcpcd cannot assign requested address in recovery mode
+- [\#187 Issue](2013-01-15.187.issue.closed.md) `closed`: Ubuntu 12.10 - mingetty required
+- [\#188 Issue](2013-01-24.188.issue.closed.md) `closed`: Syslinux an optional bootloader for Fedora
+- [\#189 Issue](2013-01-25.189.issue.closed.md) `closed`: BACKUP=DP; request-restore feature
+- [\#190 Issue](2013-01-25.190.issue.closed.md) `closed`: EXCLUDE\_BACKUP entries ignored
+- [\#191 Issue](2013-01-28.191.issue.closed.md) `closed`: Typo in output/PXE/default/80\_copy\_to\_tftp.sh
+- [\#192 Issue](2013-01-29.192.issue.closed.md) `closed`: BACKUP=DP OUTPUT=PXE: PXE files are not copied to OUTPUT\_URL
+- [\#193 Issue](2013-01-29.193.issue.closed.md) `closed`: Extend PXE\_TFTP\_PATH and PXE\_CONFIG\_PATH to support url
+- [\#194 Issue](2013-01-30.194.issue.closed.md) `closed`: Running rear creates annoying messages when also running autofs with /net mounted
+- [\#195 Issue](2013-01-31.195.issue.closed.md) `closed`: Encrypting the backup tarball on USB Devices (possible enhancement
+- [\#196 PR](2013-02-02.196.pr.merged.md) `merged`: Encryption of tarball with openssl
+- [\#197 Issue](2013-02-05.197.issue.closed.md) `closed`: Restore
+- [\#198 Issue](2013-02-06.198.issue.closed.md) `closed`: Recovery fails on partitions creation: Kernel failed to re-read partition table
+- [\#199 Issue](2013-02-06.199.issue.closed.md) `closed`: Problem with chroot into nodev mount
+- [\#200 Issue](2013-02-07.200.issue.closed.md) `closed`: RSYNC syntax: simplify (unify
+- [\#201 Issue](2013-02-19.201.issue.closed.md) `closed`: scsi\_id invalid option "-n" line in rear.log
+- [\#202 Issue](2013-02-22.202.issue.closed.md) `closed`: Rear cann't mount /tmp/rear.xxxxxxxxx/outputfs when rescue media created in CentOS x64
+- [\#203 PR](2013-02-22.203.pr.merged.md) `merged`: An attempt to deal with \#189
+- [\#204 PR](2013-02-25.204.pr.merged.md) `merged`: Ask for GUI restore before DP session selection dialog
+- [\#205 Issue](2013-02-27.205.issue.closed.md) `closed`: star missing
+- [\#206 Issue](2013-02-27.206.issue.closed.md) `closed`: OpenSuse 12.2 problem with rescue disk: /dev/sd\* missing
+- [\#207 PR](2013-03-17.207.pr.merged.md) `merged`: CIFS allow all BACKUP\_OPTIONS + Fix broken cryptsetup
+- [\#208 Issue](2013-03-19.208.issue.closed.md) `closed`: hpacucli show config output changed
+- [\#209 Issue](2013-03-20.209.issue.closed.md) `closed`: Archive counter does not increment anymore
+- [\#210 Issue](2013-03-20.210.issue.closed.md) `closed`: grub recovery gets confused by --prefix option, system hangs during boot
+- [\#211 Issue](2013-03-21.211.issue.closed.md) `closed`: udev: /run/udev not writable
+- [\#212 Issue](2013-03-24.212.issue.closed.md) `closed`: Error in grabbing name during saving partition layout (on name containing spaces
+- [\#213 Issue](2013-03-26.213.issue.closed.md) `closed`: Debian 7.0 packages
+- [\#214 Issue](2013-03-26.214.issue.closed.md) `closed`: openSUSE 12.3 genisoimage -efi-boot option missing
+- [\#215 Issue](2013-03-26.215.issue.closed.md) `closed`: ERROR: Could not mkdir '/tmp/rear.OZzQARiDzpq7glx/outputfs/servername' on Debian 7.0
+- [\#216 Issue](2013-03-27.216.issue.closed.md) `closed`: Excluding a folder in a rear backup
+- [\#217 PR](2013-04-03.217.pr.closed.md) `closed`: KEEP\_BUILD\_DIR is now honored
+- [\#218 Issue](2013-04-05.218.issue.closed.md) `closed`: fedora18: grub2-efi cannot find grub.cfg after recovery
+- [\#219 Issue](2013-04-05.219.issue.closed.md) `closed`: Unable to Find Start for dm-1
+- [\#220 Issue](2013-04-06.220.issue.closed.md) `closed`: fedora18: relabeling fails on vfat file systems
+- [\#221 Issue](2013-04-07.221.issue.closed.md) `closed`: vfat UUID changes after recovery
+- [\#222 Issue](2013-04-10.222.issue.closed.md) `closed`: "Mount command failed" during recovery attempt - Ubuntu 10.04
+- [\#223 Issue](2013-04-11.223.issue.closed.md) `closed`: 51\_current\_disk\_usage.sh hangs on unavailable NFS mounts
+- [\#224 Issue](2013-04-11.224.issue.closed.md) `closed`: security enhancements, changing umask before writing ISO images
+- [\#225 Issue](2013-04-12.225.issue.closed.md) `closed`: lvm.conf filter
+- [\#226 Issue](2013-04-12.226.issue.closed.md) `closed`: error during layout creation
+- [\#227 Issue](2013-04-12.227.issue.closed.md) `closed`: recovery on smaller disks
+- [\#228 Issue](2013-04-18.228.issue.closed.md) `closed`: Are SAN boot disks (with "mpath"
+- [\#229 Issue](2013-04-30.229.issue.closed.md) `closed`: SGI uv100 with SLES 11 SP1
+- [\#230 Issue](2013-05-26.230.issue.closed.md) `closed`: Rear for VM to VM
+- [\#231 Issue](2013-05-27.231.issue.closed.md) `closed`: mkrescue problems on Rhel5/6
+- [\#232 Issue](2013-05-29.232.issue.closed.md) `closed`: Grub doesn't get installed
+- [\#233 Issue](2013-05-31.233.issue.closed.md) `closed`: fedora19 btrfs subvolumes issues (diskrestore.sh
+- [\#234 Issue](2013-06-07.234.issue.closed.md) `closed`: running mkrescue after initrd changes
+- [\#235 Issue](2013-06-07.235.issue.closed.md) `closed`: rebuild initramfs for all kernels
+- [\#236 Issue](2013-06-07.236.issue.closed.md) `closed`: ROOTFS\_DIR '/tmp/rear.H6HxCSznsf34ump/rootfs' is broken, chroot bash test failed.
+- [\#237 PR](2013-06-07.237.pr.merged.md) `merged`: Fix installing grub when /boot is inside the root filesystem
+- [\#238 PR](2013-06-07.238.pr.merged.md) `merged`: Support booting syslinux v5 (adding ldlinux.c32 when found
+- [\#239 PR](2013-06-07.239.pr.merged.md) `merged`: Some more syslinux v5 related changes
+- [\#240 PR](2013-06-07.240.pr.merged.md) `merged`: Hopefully last batch of syslinux v5 related fixes
+- [\#241 PR](2013-06-07.241.pr.merged.md) `merged`: Fix standard output and small cosmetic changes to diff logging
+- [\#242 PR](2013-06-07.242.pr.merged.md) `merged`: Revert some of the SPEC file changes, and make the crontabs dependency a Red Hat thing
+- [\#243 Issue](2013-06-11.243.issue.closed.md) `closed`: Missing output directory creation with OUTPUT=PXE
+- [\#244 PR](2013-06-11.244.pr.closed.md) `closed`: Create directory $PXE\_TFTP\_LOCAL\_PATH if it doesn't exist
+- [\#245 PR](2013-06-13.245.pr.closed.md) `closed`: rebuild initramfs for all kernel (fedora
+- [\#246 Issue](2013-06-15.246.issue.closed.md) `closed`: OUTPUT\_URL doesn't for work FTP
+- [\#247 Issue](2013-06-15.247.issue.closed.md) `closed`: The REAR RPM does not require the lftp RPM as a dependency
+- [\#248 Issue](2013-06-17.248.issue.closed.md) `closed`: POSIX output format for df.txt
+- [\#249 PR](2013-06-17.249.pr.merged.md) `merged`: POSIX output format in df.txt
+- [\#250 Issue](2013-06-17.250.issue.closed.md) `closed`: RPM needs to require syslinux-extlinux
+- [\#251 Issue](2013-06-18.251.issue.closed.md) `closed`: ERROR: FindStorageDrivers called but STORAGE\_DRIVERS is empty
+- [\#252 PR](2013-06-20.252.pr.merged.md) `merged`: Fix a synthax error which broke file systems restore
+- [\#253 PR](2013-06-21.253.pr.merged.md) `merged`: Fix UEFI detection on some distributions
+- [\#254 Issue](2013-06-21.254.issue.closed.md) `closed`: bootloader grub2 issue \[OpenSuSe 12.2\]
+- [\#255 Issue](2013-06-22.255.issue.closed.md) `closed`: How to handle noefi kernel parameter ?
+- [\#256 PR](2013-06-24.256.pr.merged.md) `merged`: Automatic Recover feature
+- [\#257 Issue](2013-06-25.257.issue.closed.md) `closed`: DVD layout gets saved in disklayout.conf when mounted
+- [\#258 Issue](2013-06-26.258.issue.closed.md) `closed`: OpenSuSe 12.3 udev Kernel Device Manager failed (in RESCUE image
+- [\#259 PR](2013-06-27.259.pr.merged.md) `merged`: Small improvement to logic to find syslinux version
+- [\#260 PR](2013-06-27.260.pr.merged.md) `merged`: Better ACLs handling
+- [\#261 Issue](2013-06-27.261.issue.closed.md) `closed`: rescue USB/ISO doesn't boot.
+- [\#262 Issue](2013-06-27.262.issue.closed.md) `closed`: vg00 Backup only
+- [\#263 Issue](2013-06-27.263.issue.closed.md) `closed`: RHEL4 Disk layout problems
+- [\#264 Issue](2013-06-28.264.issue.closed.md) `closed`: ISO Creation after the backup archive ?
+- [\#265 PR](2013-06-28.265.pr.merged.md) `merged`: Implement get\_partition\_number(
+- [\#266 PR](2013-06-28.266.pr.merged.md) `merged`: Make use of the new get\_partition\_number function
+- [\#267 Issue](2013-07-01.267.issue.closed.md) `closed`: rescue image cannot detect network
+- [\#268 PR](2013-07-01.268.pr.merged.md) `merged`: Some EFI fixes
+- [\#269 Issue](2013-07-04.269.issue.closed.md) `closed`: Disable tar compression
+- [\#270 Issue](2013-07-05.270.issue.closed.md) `closed`: SELinux Support ?
+- [\#271 Issue](2013-07-08.271.issue.closed.md) `closed`: rear restoration issue
+- [\#272 PR](2013-07-08.272.pr.merged.md) `merged`: Add an option to define a root password to allow SSH connection whithout a public/private key pair
+- [\#273 PR](2013-07-09.273.pr.merged.md) `merged`: Fix SELinux autorelabelling
+- [\#274 PR](2013-07-09.274.pr.merged.md) `merged`: Fix SELinux autorelabelling
+- [\#275 PR](2013-07-10.275.pr.merged.md) `merged`: Fix autorecover menu always displayed even on manual recover
+- [\#276 PR](2013-07-12.276.pr.merged.md) `merged`: Add a correct PS3 variable to fix the display message of automatic recover
+- [\#277 Issue](2013-07-12.277.issue.closed.md) `closed`: Debian wheezy: make deb is FTBFS
+- [\#278 PR](2013-07-12.278.pr.merged.md) `merged`: Backup in ISO feature
+- [\#279 Issue](2013-07-15.279.issue.closed.md) `closed`: LVM
+- [\#280 Issue](2013-07-15.280.issue.closed.md) `closed`: Check only disk size is a little too optimistic ?
+- [\#281 PR](2013-07-16.281.pr.closed.md) `closed`: Make sure all VG are disabled before trying to erase the disk.
+- [\#282 PR](2013-07-16.282.pr.merged.md) `merged`: Add integrity check when BACKUP=NETFS and BACKUP\_PROG=tar with the option BACKUP\_INTEGRITY\_CHECK
+- [\#283 PR](2013-07-17.283.pr.merged.md) `merged`: Add an option to exclude modules on the rescue system
+- [\#284 PR](2013-07-17.284.pr.merged.md) `merged`: Update the TIP message for the new ssh option
+- [\#285 PR](2013-07-17.285.pr.merged.md) `merged`: Add the --selinux option to be safe with SELinux context restoration
+- [\#286 Issue](2013-08-01.286.issue.closed.md) `closed`: Backup hangs on parted -s
+- [\#287 PR](2013-08-02.287.pr.merged.md) `merged`: Implement splitted backup support on multiple ISO images
+- [\#288 PR](2013-08-05.288.pr.merged.md) `merged`: Fix btrfs partitions recreation on RHEL6
+- [\#289 PR](2013-08-09.289.pr.merged.md) `merged`: Fix grub restoration on multipath devices
+- [\#290 PR](2013-08-12.290.pr.closed.md) `closed`: New disk management with serial number and location check to be sure that we restore on the same disk
+- [\#291 Issue](2013-08-12.291.issue.closed.md) `closed`: include filsystem in backup when AUTOEXCLUDE\_MULTIPATH=y
+- [\#292 PR](2013-08-12.292.pr.merged.md) `merged`: Don't exceed the maximum ISO size defined by ISO\_MAX\_SIZE
+- [\#293 Issue](2013-08-20.293.issue.closed.md) `closed`: CentOS 6.4 - Rescue Boot Failed: VFS: Cannot open root device "(null
+- [\#294 PR](2013-09-02.294.pr.merged.md) `merged`: Incremental Patches with NETFS
+- [\#295 Issue](2013-09-02.295.issue.closed.md) `closed`: Multiple ISOs are created during rescue phase by 81\_prepare\_multiple\_iso.sh
+- [\#296 Issue](2013-09-06.296.issue.closed.md) `closed`: Backup to ISO - backup of ISOs is too much (should be excluded
+- [\#297 Issue](2013-09-09.297.issue.closed.md) `closed`: ReaR non-root VG in SAN Storage excluded in the Image Backup but should be imported automatically once the OS is recovered.
+- [\#298 Issue](2013-09-11.298.issue.closed.md) `closed`: rear does not remove temp dir
+- [\#299 Issue](2013-09-12.299.issue.closed.md) `closed`: TSM Recovery uses timers during data input
+- [\#300 Issue](2013-09-12.300.issue.closed.md) `closed`: TSM Password File and rear checklayout
+- [\#301 Issue](2013-09-13.301.issue.closed.md) `closed`: EMC NetWorker can have several servers listed in its resource db
+- [\#302 Issue](2013-09-17.302.issue.closed.md) `closed`: RPM build fails on SLES (on build.opensuse.org
+- [\#303 PR](2013-09-18.303.pr.merged.md) `merged`: fixing dangling symlink on SLES 32-bit platforms (OBS
+- [\#304 Issue](2013-09-19.304.issue.closed.md) `closed`: ReaR with Networker
+- [\#305 Issue](2013-09-25.305.issue.closed.md) `closed`: different name of the same device.
+- [\#306 Issue](2013-09-26.306.issue.closed.md) `closed`: rear checklayout problem with BACKUP=TSM
+- [\#307 Issue](2013-10-01.307.issue.closed.md) `closed`: squashfs
+- [\#308 PR](2013-10-01.308.pr.merged.md) `merged`: updating BACKUP supported stuff
+- [\#309 Issue](2013-10-04.309.issue.closed.md) `closed`: cfg2html bails out
+- [\#310 Issue](2013-10-09.310.issue.closed.md) `closed`: Missing release package for 1.15
+- [\#311 PR](2013-10-11.311.pr.merged.md) `merged`: Add automatic recovery mode to Bareos workflow
+- [\#312 PR](2013-10-15.312.pr.merged.md) `merged`: add support for gentoo kernels
+- [\#313 Issue](2013-10-16.313.issue.closed.md) `closed`: BACKUP\_PROG\_INCLUDE
+- [\#314 Issue](2013-10-16.314.issue.closed.md) `closed`: Log 'ERROR: BUG BUG BUG! Function get\_version could not detect parted version
+- [\#315 Issue](2013-10-18.315.issue.closed.md) `closed`: recover a selektion of FS
+- [\#316 Issue](2013-10-18.316.issue.closed.md) `closed`: Centos6 / RHEL 6 Recovery / selinux issue
+- [\#317 Issue](2013-10-18.317.issue.closed.md) `closed`: "displayarchive" variable missing from versions 1.14 and newer
+- [\#318 Issue](2013-10-23.318.issue.closed.md) `closed`: Point in Time recover is not working
+- [\#319 Issue](2013-10-25.319.issue.closed.md) `closed`: Wrong diskrecover on RHEL4 and rear 1.14
+- [\#320 Issue](2013-10-29.320.issue.closed.md) `closed`: Number of backup copies
+- [\#321 Issue](2013-10-29.321.issue.closed.md) `closed`: lots of empty ISOs are made
+- [\#322 Issue](2013-10-30.322.issue.closed.md) `closed`: Makefile: please remove asciidoc
+- [\#323 Issue](2013-11-04.323.issue.closed.md) `closed`: Rear cannot create ISO image bigger then 4 GB
+- [\#324 PR](2013-11-06.324.pr.merged.md) `merged`: integrate SEP Sesam backup software client into REAR boot image
+- [\#325 PR](2013-11-07.325.pr.merged.md) `merged`: SEP Sesam rear integration: code cleanup
+- [\#326 Issue](2013-11-09.326.issue.closed.md) `closed`: ERROR: Mount command 'mount /dev/disk/by-label/RELAXRECOVER /tmp/rear.fbhHW5ocbWdLhET/outputfs' failed
+- [\#327 Issue](2013-11-09.327.issue.closed.md) `closed`: ERROR: Mount command 'mount /dev/disk/by-label/RELAXRECOVER /tmp/rear.fbhHW5ocbWdLhET/outputfs' failed
+- [\#328 Issue](2013-11-12.328.issue.closed.md) `closed`: ERROR: BUG BUG BUG! Empty string passed to get\_device\_name
+- [\#329 Issue](2013-11-15.329.issue.closed.md) `closed`: make rpm fails on fedora 20
+- [\#330 Issue](2013-11-15.330.issue.closed.md) `closed`: sesam-functions.sh not found
+- [\#331 Issue](2013-11-18.331.issue.closed.md) `closed`: ERROR: FindStorageDrivers called but STORAGE\_DRIVERS is empty
+- [\#332 Issue](2013-11-19.332.issue.closed.md) `closed`: write error: No space left on device
+- [\#333 PR](2013-11-21.333.pr.merged.md) `merged`: Replace -n test by =~ ^\[yY1\] for $AUTOEXCLUDE\_DISKS
+- [\#334 Issue](2013-11-21.334.issue.closed.md) `closed`: No such file or directory in lib/sesam-functions.sh
+- [\#335 Issue](2013-11-22.335.issue.closed.md) `closed`: Error in a recover operation with Debian and rear 1.14
+- [\#336 Issue](2013-11-25.336.issue.closed.md) `closed`: rescue.conf cannot be written
+- [\#337 Issue](2013-11-25.337.issue.closed.md) `closed`: Grub and LVM issues
+- [\#338 PR](2013-11-26.338.pr.merged.md) `merged`: add support for builtin storage modules
+- [\#339 Issue](2013-11-29.339.issue.closed.md) `closed`: Unable to take rear backup of Physical SUSE Servers , but it working fine with VMWARE client
+- [\#340 PR](2013-12-04.340.pr.merged.md) `merged`: Update 17\_rebuild\_initramfs.sh
+- [\#341 Issue](2013-12-04.341.issue.closed.md) `closed`: Debian wheezy package on OBS overwrites local.conf during update
+- [\#342 Issue](2013-12-05.342.issue.closed.md) `closed`: Properly support site.conf and don't hack local.conf
+- [\#343 PR](2013-12-09.343.pr.closed.md) `closed`: do not use $SHARE\_DIR in sesam startup script as it is not set which results in cl...
+- [\#344 Issue](2013-12-10.344.issue.closed.md) `closed`: When using TSM, every checklayout brings "Configuration files have changed"
+- [\#345 PR](2013-12-11.345.pr.merged.md) `merged`: Patch 1
+- [\#346 Issue](2013-12-12.346.issue.closed.md) `closed`: rear for opensuse 12.3 grub2 issue
+- [\#347 Issue](2013-12-17.347.issue.closed.md) `closed`: is not a block device
+- [\#348 Issue](2013-12-17.348.issue.closed.md) `closed`: Rear dependencies on RHEL7 beta 1
+- [\#349 PR](2013-12-18.349.pr.merged.md) `merged`: Add -f option to mkfs if fstype=xfs
+- [\#350 Issue](2013-12-18.350.issue.closed.md) `closed`: rear may hang on df command (hanging on NFS
+- [\#351 Issue](2013-12-19.351.issue.closed.md) `closed`: Regression due to commit : created a new function define\_HPSSACLI to find proper Smart Storage ...
+- [\#352 Issue](2014-01-03.352.issue.closed.md) `closed`: rear issue for Suse 10 SP3 on dell 2950
+- [\#353 Issue](2014-01-08.353.issue.closed.md) `closed`: checklayout always exits 1 when using BACKUP=TSM
+- [\#354 Issue](2014-01-08.354.issue.closed.md) `closed`: checklayout always exits 1 when using BACKUP=TSM
+- [\#355 Issue](2014-01-09.355.issue.closed.md) `closed`: rear tries to perform Multiple NFS mount
+- [\#356 Issue](2014-01-14.356.issue.closed.md) `closed`: Restore problems with current TSM server version (&gt;= 6.4
+- [\#357 PR](2014-01-17.357.pr.merged.md) `merged`: Update 17\_rebuild\_initramfs.sh
+- [\#358 Issue](2014-01-21.358.issue.closed.md) `closed`: TSM Point-In-Time restore not working - needs to specify dateformat.
+- [\#359 Issue](2014-01-24.359.issue.closed.md) `closed`: SSH\_ROOT\_PASSWORD not enough
+- [\#360 PR](2014-01-24.360.pr.merged.md) `merged`: Ensure password login possible when SSH\_ROOT\_PASSWORD is set
+- [\#361 Issue](2014-01-24.361.issue.closed.md) `closed`: RPM upgrade pre-check script for older release
+- [\#362 PR](2014-01-27.362.pr.merged.md) `merged`: Adjusting PermitRootLogin and PasswordAuthentication if SSH\_ROOT\_PASSWOR...
+- [\#363 Issue](2014-01-28.363.issue.closed.md) `closed`: Try to setup a PXE server that installs rear iso images
+- [\#364 PR](2014-01-31.364.pr.merged.md) `merged`: Add sleep command to be sure that network is properly initialized in rescue system
+- [\#365 Issue](2014-02-13.365.issue.closed.md) `closed`: REAR support for Linux on the Power Architecture
+- [\#366 Issue](2014-02-18.366.issue.closed.md) `closed`: RSYNC: 90\_copy\_result\_files.sh syntax error
+- [\#367 Issue](2014-02-18.367.issue.closed.md) `closed`: ext3 module with distribution kernel
+- [\#368 Issue](2014-02-18.368.issue.closed.md) `closed`: Does REAR support DRBD on LVM?
+- [\#369 Issue](2014-02-18.369.issue.closed.md) `closed`: Replace "lsb" RPM requirement in "rear" RPM for openSUSE
+- [\#370 Issue](2014-02-19.370.issue.closed.md) `closed`: TTY issue on RHEL 7
+- [\#371 Issue](2014-02-25.371.issue.closed.md) `closed`: booting from ISO fails
+- [\#372 Issue](2014-03-01.372.issue.closed.md) `closed`: Cannot create USB Rescue and NFS backup
+- [\#373 Issue](2014-03-03.373.issue.closed.md) `closed`: More than 128 disks not allowed
+- [\#374 Issue](2014-03-04.374.issue.closed.md) `closed`: Proper local.conf syntax
+- [\#375 Issue](2014-03-06.375.issue.closed.md) `closed`: Non-destructively recreate filesystem during recover?
+- [\#376 PR](2014-03-07.376.pr.merged.md) `merged`: Missing commits for incremental patches
+- [\#377 Issue](2014-03-08.377.issue.closed.md) `closed`: Root file system is 100% full after recovery
+- [\#378 Issue](2014-03-12.378.issue.closed.md) `closed`: Ability to perform manual Netbackup restore instead of automated?
+- [\#379 Issue](2014-03-14.379.issue.closed.md) `closed`: Failed to copy bplog.restore after NBU restore completes
+- [\#380 PR](2014-03-25.380.pr.merged.md) `merged`: Added "$OUTPUT\_PREFIX/" to PXE (kernel and initrd
+- [\#381 PR](2014-03-27.381.pr.merged.md) `merged`: Some enhancements for use of duplicity directly with rear
+- [\#382 PR](2014-03-27.382.pr.merged.md) `merged`: dsmc query optins (backup/archive
+- [\#383 Issue](2014-03-28.383.issue.closed.md) `closed`: BUILD\_DIR removal can result in unwanted file deletion over NFS
+- [\#384 PR](2014-03-28.384.pr.merged.md) `merged`: AltLinux use /etc/openssh for sshd config files
+- [\#385 Issue](2014-04-02.385.issue.closed.md) `closed`: What about usr/share/rear/lib/progresssubsystem.nosh ?
+- [\#386 Issue](2014-04-02.386.issue.closed.md) `closed`: Issue in HP Data Protector restore script
+- [\#387 Issue](2014-04-03.387.issue.closed.md) `closed`: REAR with BACKUP=NSR breaks YUM on RHELv6
+- [\#388 PR](2014-04-03.388.pr.merged.md) `merged`: Fix for \#386 (usage of wrong filesystem list
+- [\#389 Issue](2014-04-16.389.issue.closed.md) `closed`: Error reporting to syslog and mail
+- [\#390 Issue](2014-04-16.390.issue.closed.md) `closed`: Failed Restore
+- [\#391 PR](2014-04-16.391.pr.merged.md) `merged`: Some enhancements for use with duplicity.
+- [\#392 Issue](2014-04-19.392.issue.closed.md) `closed`: Why no -t cifs?
+- [\#393 Issue](2014-04-21.393.issue.closed.md) `closed`: Recover Failed to Hardware RAID Mirror
+- [\#394 Issue](2014-04-22.394.issue.closed.md) `closed`: link to python is missing - duplicity fails
+- [\#395 Issue](2014-04-22.395.issue.closed.md) `closed`: Regression due to commit : code cleanups for incremental patches
+- [\#396 PR](2014-04-23.396.pr.merged.md) `merged`: fix regression due to an old commit (integrity check and restoring from 'empty'
+- [\#397 Issue](2014-04-29.397.issue.closed.md) `closed`: mail too long
+- [\#398 Issue](2014-04-29.398.issue.closed.md) `closed`: Only backup and restore selected VG.
+- [\#399 Issue](2014-04-30.399.issue.closed.md) `closed`: incrementals archives are not made when full is splitted
+- [\#400 PR](2014-04-30.400.pr.merged.md) `merged`: Fixed typos and spelling in the documentation.
+- [\#401 Issue](2014-05-01.401.issue.closed.md) `closed`: lvm data on san disks are wiped
+- [\#402 PR](2014-05-01.402.pr.merged.md) `merged`: Fixed test if filesystem is mounted with user\_xattr. Was not working with btrfs.
+- [\#403 PR](2014-05-01.403.pr.merged.md) `merged`: Don‘t include encfs filesystems in the df.txt file.
+- [\#404 PR](2014-05-01.404.pr.merged.md) `merged`: Added .gitignore file. Ignore files which are not intended for git.
+- [\#405 Issue](2014-05-02.405.issue.closed.md) `closed`: Network interfaces not recognized in recent version
+- [\#406 Issue](2014-05-02.406.issue.closed.md) `closed`: No git tag for v1.15
+- [\#407 PR](2014-05-04.407.pr.merged.md) `merged`: Added dependency attr to dep and rpm packages.
+- [\#408 Issue](2014-05-05.408.issue.closed.md) `closed`: No layout recreation code generated for btrfs fs on Debian testing
+- [\#409 PR](2014-05-05.409.pr.merged.md) `merged`: Miscellaneous coding style fixes
+- [\#410 Issue](2014-05-05.410.issue.closed.md) `closed`: koji build fails for EPEL5 with rear-1.16
+- [\#411 Issue](2014-05-09.411.issue.closed.md) `closed`: REAR & Networker - Function 'iconv\_open' failed
+- [\#412 Issue](2014-05-09.412.issue.closed.md) `closed`: output / PXE / default / 82\_copy\_to\_net.sh doesn't differentiate between rsync proto and rsync ssh
+- [\#413 Issue](2014-05-15.413.issue.closed.md) `closed`: LVM Snapshots supported?
+- [\#414 Issue](2014-05-22.414.issue.closed.md) `closed`: No git tag for v1.16
+- [\#415 Issue](2014-05-23.415.issue.closed.md) `closed`: mkfs -t btrfs missing force mode
+- [\#416 Issue](2014-05-25.416.issue.closed.md) `closed`: Support for local BACKUP=RSYNC?
+- [\#417 Issue](2014-05-25.417.issue.closed.md) `closed`: Possibility to add btrfs subvolume content to backup
+- [\#418 Issue](2014-05-28.418.issue.closed.md) `closed`: REQUIRED\_PROGS added in prep/\* are not checked
+- [\#419 Issue](2014-05-30.419.issue.closed.md) `closed`: Redundant ISO on local hard disk
+- [\#420 Issue](2014-06-04.420.issue.closed.md) `closed`: Recover of xfs filesystems fails in 1.15
+- [\#421 Issue](2014-06-04.421.issue.closed.md) `closed`: Incremental backup options with rear
+- [\#422 Issue](2014-06-06.422.issue.closed.md) `closed`: unary operator expected with BACKUP\_TYPE
+- [\#423 PR](2014-06-09.423.pr.merged.md) `merged`: Made the input field for the user more convenient.
+- [\#424 Issue](2014-06-12.424.issue.closed.md) `closed`: tsm + LC\_\*
+- [\#425 Issue](2014-06-14.425.issue.closed.md) `closed`: AES-SHA256 on Ubuntu (precise
+- [\#426 Issue](2014-06-15.426.issue.closed.md) `closed`: Ubuntu + Duply
+- [\#427 Issue](2014-06-16.427.issue.closed.md) `closed`: Networker backup fails if pool name contains spaces (rear-1.16.1-1
+- [\#428 PR](2014-06-18.428.pr.merged.md) `merged`: Resolve the issue \#373 : Update 20\_partition\_layout.sh
+- [\#429 Issue](2014-06-24.429.issue.closed.md) `closed`: NetWorker: 95\_nsr\_save\_result\_files.sh fails to identify the correct tape pool to use
+- [\#430 Issue](2014-06-25.430.issue.closed.md) `closed`: ERROR: Could not source '/mnt/local/etc/sysconfig/kernel'
+- [\#431 Issue](2014-06-25.431.issue.closed.md) `closed`: Rear lftp+cfg2html
+- [\#432 Issue](2014-06-25.432.issue.closed.md) `closed`: Rear lftp+cfg2html
+- [\#433 Issue](2014-06-25.433.issue.closed.md) `closed`: Rear lftp+cfg2html
+- [\#434 Issue](2014-07-06.434.issue.closed.md) `closed`: \[Debian testing\]: /boot not correctly modified to boot after recovery
+- [\#435 Issue](2014-07-09.435.issue.closed.md) `closed`: iscsi support - howto example requested
+- [\#436 PR](2014-07-14.436.pr.closed.md) `closed`: Fix doublequotes in NETFS
+- [\#437 PR](2014-07-15.437.pr.merged.md) `merged`: Don't use 'disk size' to find an alternative disk.
+- [\#438 PR](2014-07-15.438.pr.merged.md) `merged`: Prevent hang on boot if NTP can't reach any servers
+- [\#439 Issue](2014-07-16.439.issue.closed.md) `closed`: Shortname vs longname causes "show log" to fail
+- [\#440 Issue](2014-07-16.440.issue.closed.md) `closed`: rear mkrescue fails on new system
+- [\#441 Issue](2014-07-26.441.issue.closed.md) `closed`: writing the MBR to the correct disks(s
+- [\#442 PR](2014-07-27.442.pr.merged.md) `merged`: udev showing error message during startup
+- [\#443 PR](2014-07-28.443.pr.merged.md) `merged`: Resolved the following issues:
+- [\#444 Issue](2014-07-29.444.issue.closed.md) `closed`: rear rescue ISO image kernel panic
+- [\#445 Issue](2014-07-30.445.issue.closed.md) `closed`: Manual restore with "BACKUP=NBU"?
+- [\#446 Issue](2014-08-04.446.issue.closed.md) `closed`: ReaR - Ubuntu 14.04 - /dev/sda main disk not detected
+- [\#447 Issue](2014-08-06.447.issue.closed.md) `closed`: Manual override for USE\_DHCLIENT=y
+- [\#448 Issue](2014-08-07.448.issue.closed.md) `closed`: Migrate Network Device failed
+- [\#449 Issue](2014-08-11.449.issue.closed.md) `closed`: Extend /boot FS in suse by Rear
+- [\#450 Issue](2014-08-15.450.issue.closed.md) `closed`: backuparchive file naming convention
+- [\#451 Issue](2014-08-18.451.issue.closed.md) `closed`: broken milestones link from relax-and-recover portal
+- [\#452 PR](2014-08-18.452.pr.merged.md) `merged`: Update 55-migrate-network-devices.sh
+- [\#453 Issue](2014-08-19.453.issue.closed.md) `closed`: restore of /boot on ext4 filesystem not supported ?
+- [\#454 Issue](2014-09-03.454.issue.closed.md) `closed`: Change Netbackup Restore behavior
+- [\#455 Issue](2014-09-03.455.issue.closed.md) `closed`: Disk Layout Generation with HP SmartArray with mor than one Logical Drive
+- [\#456 PR](2014-09-05.456.pr.merged.md) `merged`: Netbackup: make complete restore reliable
+- [\#457 Issue](2014-09-09.457.issue.closed.md) `closed`: Can't recover my Oracle Linux server with Netbackup (NBU
+- [\#458 Issue](2014-09-09.458.issue.closed.md) `closed`: 2nd NIC interface not configured but needed for NFS access during ReaR restore
+- [\#459 PR](2014-09-16.459.pr.merged.md) `merged`: Fix full path to /sys/class/net
+- [\#460 Issue](2014-09-17.460.issue.closed.md) `closed`: interface misconfigured after successful restore
+- [\#461 Issue](2014-09-18.461.issue.closed.md) `closed`: disk mapping issue after new disk replacement
+- [\#462 Issue](2014-09-19.462.issue.closed.md) `closed`: Disk layout creation failed with error "An error occurred during layout recreation." at the time of restoring RHEL6 on different hardware.
+- [\#463 Issue](2014-09-22.463.issue.closed.md) `closed`: Mounting of NFS share fails at the time of recovering Ubuntu\_12.04\_x64 VM to physical system
+- [\#464 PR](2014-09-23.464.pr.merged.md) `merged`: Update 81\_create\_pxelinux\_cfg.sh
+- [\#465 Issue](2014-09-24.465.issue.closed.md) `closed`: rear configured with netfs backup deletes other folders on NFS at failure
+- [\#466 Issue](2014-09-25.466.issue.closed.md) `closed`: LVs with stripes not managed correctly
+- [\#467 Issue](2014-10-01.467.issue.closed.md) `closed`: Not able to take rear backup through USB on debian 6.0
+- [\#468 Issue](2014-10-01.468.issue.closed.md) `closed`: LSB package not installed - Debian Wheezy 7.6
+- [\#469 Issue](2014-10-02.469.issue.closed.md) `closed`: Suggestion: Duply/Duplicity + TMP\_DIR value not handled (and optionally ARCH\_DIR
+- [\#470 Issue](2014-10-03.470.issue.closed.md) `closed`: Unable to restore OS - RHEL 5 64 bit
+- [\#471 PR](2014-10-07.471.pr.merged.md) `merged`: Galaxy 10
+- [\#472 PR](2014-10-09.472.pr.merged.md) `merged`: Point int Time Recovery for Galaxy10
+- [\#473 Issue](2014-10-13.473.issue.closed.md) `closed`: Grub isn't Setup on Debian 7.6 ?
+- [\#474 PR](2014-10-13.474.pr.merged.md) `merged`: [https://www.debian.org/doc/manuals/maint-guide/dother.de.html\#conffiles](https://www.debian.org/doc/manuals/maint-guide/dother.de.html#conffiles
+- [\#475 Issue](2014-10-15.475.issue.closed.md) `closed`: Have BACKUP\_PROG\_OPTIONS --anchored by default
+- [\#476 Issue](2014-10-15.476.issue.closed.md) `closed`: cp: not writing through dangling symlink TSM link error when running on SLES11 SP3
+- [\#477 Issue](2014-10-15.477.issue.closed.md) `closed`: In SLE12 RC2 /etc/sysconfig/kernel is an useless stub
+- [\#478 PR](2014-10-15.478.pr.merged.md) `merged`: Fix Duply/Duplicity backup logging:
+- [\#479 Issue](2014-10-17.479.issue.closed.md) `closed`: rear.spec contains obsolete sles\_version
+- [\#480 Issue](2014-10-17.480.issue.closed.md) `closed`: rear recover stopped by mdadm and udev
+- [\#481 Issue](2014-10-17.481.issue.closed.md) `closed`: grub failed with wrong mdadm metadata version
+- [\#482 PR](2014-10-18.482.pr.merged.md) `merged`: Resolving all Library Problems on Duply
+- [\#483 Issue](2014-10-18.483.issue.closed.md) `closed`: drbd problem
+- [\#484 PR](2014-10-20.484.pr.merged.md) `merged`: fixing changelog owner/timestamp line and replacing outdated function
+- [\#485 PR](2014-10-20.485.pr.merged.md) `merged`: dropping find error messages if main path didn't exist as in other places
+- [\#486 Issue](2014-10-21.486.issue.closed.md) `closed`: Suggestion: Virtualbox driver (+Vagrant provisioning
+- [\#487 PR](2014-10-21.487.pr.merged.md) `merged`: Update 10\_include\_partition\_code.sh
+- [\#488 PR](2014-10-21.488.pr.merged.md) `merged`: Add a new config option USE\_STATIC\_NETWORKING
+- [\#489 PR](2014-10-24.489.pr.merged.md) `merged`: fix mdadm metadata for grub
+- [\#490 PR](2014-10-24.490.pr.merged.md) `merged`: fix for mdadm and udev
+- [\#491 PR](2014-10-24.491.pr.merged.md) `merged`: device name conflict when grep disklayout file without proper space
+- [\#492 Issue](2014-10-24.492.issue.closed.md) `closed`: Grub2 Install Issue Upon Recovery of CentOS 7 System
+- [\#493 PR](2014-10-25.493.pr.merged.md) `merged`: extend layout-function get\_device\_name so it can handle /dev/vg/lv forma...
+- [\#494 PR](2014-10-27.494.pr.merged.md) `merged`: fix drbd layout so it can handle /dev/vg/lv format backend and mulitple ...
+- [\#495 PR](2014-10-27.495.pr.merged.md) `merged`: fix drbd restore code so it can handle multiple volumes in single resour...
+- [\#496 Issue](2014-10-29.496.issue.closed.md) `closed`: SLES12: lsb\_release missing in created iso image?
+- [\#497 Issue](2014-10-29.497.issue.closed.md) `closed`: SLES12: recovering fails due btrfs subvolume target directory not existing
+- [\#498 Issue](2014-10-29.498.issue.closed.md) `closed`: preferred way of starting up daemon services during recovery
+- [\#499 Issue](2014-10-30.499.issue.closed.md) `closed`: Failed to start udev Kernel Device Manager (rear 1.16.1-git201410241343 
+- [\#500 PR](2014-10-30.500.pr.closed.md) `closed`: Makefile: use DESTDIR in install-bin
+- [\#501 PR](2014-10-30.501.pr.merged.md) `merged`: add OUTPUT\_URL=null support
+- [\#502 PR](2014-11-02.502.pr.closed.md) `closed`: add support for modular custom function cf--$stage--my\_function
+- [\#503 PR](2014-11-04.503.pr.closed.md) `closed`: add custom script support besides PRE\_RECOVERY\_SCRIPT and PORT\_RECOVERY\_...
+- [\#504 PR](2014-11-05.504.pr.merged.md) `merged`: skip the procedure of "drbdadm attach" when restore
+- [\#505 PR](2014-11-06.505.pr.merged.md) `merged`: (\#498
+- [\#506 Issue](2014-11-11.506.issue.closed.md) `closed`: cannot recover, ERROR mount command AND INIT: cannot execute “/sbin/mingetty”
+- [\#507 Issue](2014-11-12.507.issue.closed.md) `closed`: fedora21beta old udev systemd rules fail
+- [\#508 Issue](2014-11-12.508.issue.closed.md) `closed`: fedora21beta diskrestore.sh udevcontrol not found
+- [\#509 Issue](2014-11-15.509.issue.closed.md) `closed`: run-init: /sbin/init: No such file or directory Kernel panic - not syncing: Attempted to kill init!
+- [\#510 Issue](2014-11-20.510.issue.closed.md) `closed`: Excluding files and/or directories from BACKUP=NETFS tar backup
+- [\#511 Issue](2014-11-24.511.issue.closed.md) `closed`: Using Bareos+rear
+- [\#512 Issue](2014-11-26.512.issue.closed.md) `closed`: cannot restore when using alternative config directory
+- [\#513 Issue](2014-12-04.513.issue.closed.md) `closed`: lvcreate hangs because it expects yes prompt to be entered during restore if existing filesystem signature detected.
+- [\#514 Issue](2014-12-05.514.issue.closed.md) `closed`: Always need to start manually rpcbind and rpc.statd before able to use rear to restore under RHEL
+- [\#515 Issue](2014-12-11.515.issue.closed.md) `closed`: 2014-12-11 12:04:50 ERROR: BUG BUG BUG! Function get\_version could not detect parted version.
+- [\#516 Issue](2014-12-12.516.issue.closed.md) `closed`: How to restore using an alternative location storing the same backup files?
+- [\#517 Issue](2014-12-12.517.issue.closed.md) `closed`: ReaR never gets to the backup step on systems with large numbers of disks
+- [\#518 PR](2014-12-18.518.pr.merged.md) `merged`: patch retry to stop mdadm and pause udev
+- [\#519 Issue](2014-12-18.519.issue.closed.md) `closed`: pre-copy usb host drivers
+- [\#520 Issue](2014-12-19.520.issue.closed.md) `closed`: No DNS Lookups possible in rescue system when resolvconf package is installed
+- [\#521 Issue](2014-12-22.521.issue.closed.md) `closed`: Support for thin privisioned LVs
+- [\#522 PR](2014-12-29.522.pr.merged.md) `merged`: DRLM integration with ReaR
+- [\#523 Issue](2015-01-06.523.issue.closed.md) `closed`: Utilize system-wide crypto-policies
+- [\#524 Issue](2015-01-08.524.issue.closed.md) `closed`: F22 System Wide Change: Set sshd(8
+- [\#525 Issue](2015-01-12.525.issue.closed.md) `closed`: Exclude filesystems from rear backup/recovery
+- [\#526 Issue](2015-01-13.526.issue.closed.md) `closed`: ppc64: PREP partition creation needed
+- [\#527 Issue](2015-01-13.527.issue.closed.md) `closed`: partition resizing
+- [\#528 Issue](2015-01-17.528.issue.closed.md) `closed`: Issue with Rear Restore/Restore with TSM .
+- [\#529 Issue](2015-01-19.529.issue.closed.md) `closed`: Error restoring boot from SAN system
+- [\#530 PR](2015-01-20.530.pr.merged.md) `merged`: improve network configuration detection
+- [\#531 Issue](2015-01-20.531.issue.closed.md) `closed`: rear git201501071534 recovery system on Fedora 21: systemd at 100% CPU (/sbin/udevd missing
+- [\#532 Issue](2015-01-20.532.issue.closed.md) `closed`: rear git201501071534 "rear recover" on Fedora 21: hangs at rpc.statd
+- [\#533 Issue](2015-01-20.533.issue.closed.md) `closed`: rear git201501071534 "udevadm settle --timeout=20" hangs endlessly in recovery system for openSUSE 13.2
+- [\#534 Issue](2015-01-21.534.issue.closed.md) `closed`: 20\_recreate\_hpraid.sh creates "set -e ... StopIfError" which cannot work
+- [\#535 PR](2015-01-21.535.pr.merged.md) `merged`: Change TSM default filespaces restored
+- [\#536 PR](2015-01-22.536.pr.merged.md) `merged`: Update 20\_partition\_layout.sh
+- [\#537 Issue](2015-01-22.537.issue.closed.md) `closed`: ppc64: getty not started on /dev/hvsi0 or /dev/hvc0 in rescue image
+- [\#538 PR](2015-01-23.538.pr.merged.md) `merged`: Generic basic btrfs support plus proposed fix for issue\#533 (udevadm settle
+- [\#539 PR](2015-01-27.539.pr.merged.md) `merged`: Prevent udev waking up mdadm later.
+- [\#540 Issue](2015-01-27.540.issue.closed.md) `closed`: Implement a generic "cleanupdisk" function.
+- [\#541 PR](2015-01-27.541.pr.merged.md) `merged`: Using "do\_something || Error\_handling" when "set -e" is set
+- [\#542 PR](2015-01-29.542.pr.merged.md) `merged`: Add option to specify client name in configuration file, improve autodetection of client name
+- [\#543 Issue](2015-02-03.543.issue.closed.md) `closed`: issue rear recovery with emc networker
+- [\#544 Issue](2015-02-04.544.issue.closed.md) `closed`: rear does not support SUSE-specific 'gpt\_sync\_mbr' partition scheme (unable to recover when hybrid MBR found
+- [\#545 Issue](2015-02-06.545.issue.closed.md) `closed`: Restoring from NFS on RHEL (ppc64
+- [\#546 Issue](2015-02-09.546.issue.closed.md) `closed`: Rear cant take backup
+- [\#547 Issue](2015-02-10.547.issue.closed.md) `closed`: restoring an nfs backup needs portmap to be started.
+- [\#548 PR](2015-02-11.548.pr.merged.md) `merged`: Update start-ttys.conf
+- [\#549 Issue](2015-02-16.549.issue.closed.md) `closed`: Check rear \*.sh scripts for lonely words
+- [\#550 Issue](2015-02-16.550.issue.closed.md) `closed`: support for linux with runit as init system
+- [\#551 Issue](2015-02-17.551.issue.closed.md) `closed`: Bareos bconsole mandatory for mkrescue
+- [\#552 PR](2015-02-17.552.pr.merged.md) `merged`: Update 23\_filesystem\_layout.sh
+- [\#553 Issue](2015-02-18.553.issue.closed.md) `closed`: Re: General rear backup/recovery questions
+- [\#554 Issue](2015-02-27.554.issue.closed.md) `closed`: mdraid restore issues
+- [\#555 Issue](2015-03-02.555.issue.closed.md) `closed`: ReaR Recover Issue - Unrecognized mount option, wrong fs type, bad option
+- [\#556 Issue](2015-03-04.556.issue.closed.md) `closed`: Implement support for recovery when what is mounted at '/' is a btrfs snapshot subvolume
+- [\#557 PR](2015-03-04.557.pr.merged.md) `merged`: DRLM integration update within new "init" stage
+- [\#558 Issue](2015-03-04.558.issue.closed.md) `closed`: Error recreating file systems (mkfs.ext4: invalid option -- 'f'
+- [\#559 PR](2015-03-05.559.pr.merged.md) `merged`: Use findmnt options '-nrv' in particular '-r' for raw output that is
+- [\#560 Issue](2015-03-05.560.issue.closed.md) `closed`: Setting SSH\_ROOT\_PASSWORD exposes the root password
+- [\#561 Issue](2015-03-06.561.issue.closed.md) `closed`: Probably misleadingly written code in 13\_include\_mount\_filesystem\_code.sh
+- [\#562 Issue](2015-03-09.562.issue.closed.md) `closed`: What to do if server has failed and NFS is not working
+- [\#563 Issue](2015-03-09.563.issue.closed.md) `closed`: Confirming ReaR backup completed successfully - check return codes or syslog output
+- [\#564 Issue](2015-03-11.564.issue.closed.md) `closed`: Exit codes
+- [\#565 Issue](2015-03-17.565.issue.closed.md) `closed`: SELinux denied message
+- [\#566 PR](2015-03-18.566.pr.merged.md) `merged`: write os.conf to /etc/rear/
+- [\#567 Issue](2015-03-24.567.issue.closed.md) `closed`: No code has been generated to retore device pv:/dev/mapper/sda2 (lvmdev
+- [\#568 Issue](2015-03-26.568.issue.closed.md) `closed`: Backup log contains the BACKUP\_PROG\_CRYPT\_KEY
+- [\#569 Issue](2015-03-26.569.issue.closed.md) `closed`: ISO\_FILES are no longer considered in /etc/rear/local.conf
+- [\#570 Issue](2015-03-29.570.issue.closed.md) `closed`: PXE\_TFTP\_PATH behavior different in rear-1.17
+- [\#571 Issue](2015-03-29.571.issue.closed.md) `closed`: NSR server also included an huge /nsr directory in backup
+- [\#572 Issue](2015-03-30.572.issue.closed.md) `closed`: multipath support/boot from san for ReaR -- i.e. recovery technique
+- [\#573 Issue](2015-04-08.573.issue.closed.md) `closed`: updating REAR within an already created iso image
+- [\#574 Issue](2015-04-08.574.issue.closed.md) `closed`: GPT: parted unable to inform kernel about partition changes
+- [\#575 Issue](2015-04-14.575.issue.closed.md) `closed`: remove temp dir
+- [\#576 Issue](2015-04-17.576.issue.closed.md) `closed`: An error occured during layout recreation
+- [\#577 Issue](2015-04-22.577.issue.closed.md) `closed`: IRC Chat
+- [\#578 PR](2015-04-22.578.pr.merged.md) `merged`: rm -Rf $BUILD\_DIR/outputfs if it is not mounted anymore
+- [\#579 Issue](2015-04-22.579.issue.closed.md) `closed`: ERROR: BUG BUG BUG! Filesystem for device '/dev/sdc1' could not be found
+- [\#580 Issue](2015-04-23.580.issue.closed.md) `closed`: mount is not working with space in cifs share
+- [\#581 Issue](2015-04-24.581.issue.closed.md) `closed`: Cannot create ISO image &gt;4GB on RHEL6
+- [\#582 Issue](2015-04-29.582.issue.closed.md) `closed`: Question on Relax-and-Recover...
+- [\#583 Issue](2015-04-30.583.issue.closed.md) `closed`: elilo Support on SLES11
+- [\#584 Issue](2015-05-05.584.issue.closed.md) `closed`: mbr.bin is not in ISOLINUX (ubuntu 15.04
+- [\#585 Issue](2015-05-06.585.issue.closed.md) `closed`: Rear Recover on UEFI system
+- [\#586 Issue](2015-05-13.586.issue.closed.md) `closed`: cannot make pipe for command substitution: Too many open files
+- [\#587 Issue](2015-05-15.587.issue.closed.md) `closed`: Ubuntu 14.04 LTS does not boot after restore and hangs at grub menu
+- [\#588 Issue](2015-05-15.588.issue.closed.md) `closed`: SLES12 - mkisofs called with incorrect parameters in 82\_create\_iso\_image.sh
+- [\#589 PR](2015-05-21.589.pr.merged.md) `merged`: Adding GRUB2 support
+- [\#590 Issue](2015-05-25.590.issue.closed.md) `closed`: Recovery process. Error. telinit: Did not receive a reply
+- [\#591 Issue](2015-05-29.591.issue.closed.md) `closed`: Exclude directories from rear backup and restore
+- [\#592 Issue](2015-06-04.592.issue.closed.md) `closed`: Convert README to MarkDown and add Gitter Chat
+- [\#593 Issue](2015-06-04.593.issue.closed.md) `closed`: format-workflow.sh does not honor the option arguments
+- [\#594 PR](2015-06-07.594.pr.merged.md) `merged`: Backup log contains the BACKUP\_PROG\_CRYPT\_KEY \#568
+- [\#595 Issue](2015-06-09.595.issue.closed.md) `closed`: failed to restore backup iso for Xen VM
+- [\#596 Issue](2015-06-09.596.issue.closed.md) `closed`: Cannot boot recovery iso on Debian 8: Failed to load ldlinux.c32
+- [\#597 PR](2015-06-09.597.pr.merged.md) `merged`: Added possibility to only backup BACKUP\_PROG\_INCLUDE
+- [\#598 Issue](2015-06-10.598.issue.closed.md) `closed`: checklayout.conf/disklayout.conf sets wrong blocksize=swap, grep -oi in subshell does not return valid values
+- [\#599 Issue](2015-06-12.599.issue.closed.md) `closed`: debian jessie: generated iso image is missing systemd files, fails to bringup udevd/networking
+- [\#600 Issue](2015-06-12.600.issue.closed.md) `closed`: debian jessie: prep/default/50\_guess\_bootloader.sh fails silently if strings is not installed
+- [\#601 PR](2015-06-12.601.pr.merged.md) `merged`: add workaround for systemd scripts on debian 8: issue \#599
+- [\#602 Issue](2015-06-15.602.issue.closed.md) `closed`: Failure saving layout for software raid config
+- [\#603 Issue](2015-06-17.603.issue.closed.md) `closed`: UEFI booting from USB disk
+- [\#604 Issue](2015-06-18.604.issue.closed.md) `closed`: Debian package rules need improvement (need Debian package expert
+- [\#605 Issue](2015-06-25.605.issue.closed.md) `closed`: OL6 and ksplice issue with modprobe.ksplice-orig not being found
+- [\#606 Issue](2015-07-01.606.issue.closed.md) `closed`: rear restore from one physical server to another
+- [\#607 Issue](2015-07-02.607.issue.closed.md) `closed`: Insecure temporary file usage
+- [\#608 Issue](2015-07-02.608.issue.closed.md) `closed`: Unneccessary drivers started after restore?? Problem with initrd?
+- [\#609 PR](2015-07-03.609.pr.merged.md) `merged`: fix debian package build error
+- [\#610 Issue](2015-07-03.610.issue.closed.md) `closed`: recovery iso image fails to boot on ibm powervm lpar
+- [\#611 Issue](2015-07-06.611.issue.closed.md) `closed`: Saving LVM layout on VBOX oracle linux VM fails
+- [\#612 Issue](2015-07-07.612.issue.closed.md) `closed`: TSM Bug
+- [\#613 Issue](2015-07-07.613.issue.closed.md) `closed`: No code to has been generated to restore fs:/ Debian 8 jessie systemd root on LVM
+- [\#614 PR](2015-07-07.614.pr.merged.md) `merged`: fix debian build. README has been renamed to README.adoc
+- [\#615 Issue](2015-07-08.615.issue.closed.md) `closed`: VM to physical server Rear Restore Failing
+- [\#616 PR](2015-07-09.616.pr.merged.md) `merged`: Add SLES ppc64 support
+- [\#617 PR](2015-07-10.617.pr.merged.md) `merged`: This should fix the loading of modules when systemd is present
+- [\#618 Issue](2015-07-10.618.issue.closed.md) `closed`: Rear recovering failing on OracleLinux 6
+- [\#619 Issue](2015-07-13.619.issue.closed.md) `closed`: Rear hangs upon restore for RHEL 7 for failure to mount /run
+- [\#620 Issue](2015-07-14.620.issue.closed.md) `closed`: ERROR: Cannot find required programs: loadkeys kbd\_mode dumpkeys
+- [\#621 Issue](2015-07-14.621.issue.closed.md) `closed`: restore a single file?
+- [\#622 Issue](2015-07-14.622.issue.closed.md) `closed`: Backup to USB Flash Drive and Archive to External USB drive
+- [\#623 Issue](2015-07-21.623.issue.closed.md) `closed`: recover issue
+- [\#624 Issue](2015-07-21.624.issue.closed.md) `closed`: ubuntu 15.04 "No Default or UI configuration found" on reboot
+- [\#625 Issue](2015-07-24.625.issue.closed.md) `closed`: Unify the true/false settings in our code
+- [\#626 Issue](2015-07-25.626.issue.closed.md) `closed`: module scsi\_debug auto load at rhel 7.1
+- [\#627 PR](2015-07-28.627.pr.merged.md) `merged`: Add RHEL/Ubuntu PPC64LE support
+- [\#628 PR](2015-07-28.628.pr.merged.md) `merged`: SLES 11 ppc64 fixes
+- [\#629 Issue](2015-07-29.629.issue.closed.md) `closed`: RPM BuildArch noarch contradicts arch specific bootloader RPM requirement
+- [\#630 Issue](2015-07-30.630.issue.closed.md) `closed`: Missing binaries for hpssacli in recovery image
+- [\#631 PR](2015-07-30.631.pr.merged.md) `merged`: change rear.spec from noarch to architecture dependent build
+- [\#632 Issue](2015-08-06.632.issue.closed.md) `closed`: Support for DL380G8 shipped with P830i array controllers
+- [\#633 PR](2015-08-10.633.pr.merged.md) `merged`: Move nfs-client from depends to recommends
+- [\#634 Issue](2015-08-12.634.issue.closed.md) `closed`: Still output in /var/lib/rear when using BACKUP=TSM
+- [\#635 Issue](2015-08-12.635.issue.closed.md) `closed`: Unable to boot VM after a P2V
+- [\#636 Issue](2015-08-13.636.issue.closed.md) `closed`: Fedora23 ISOLINUX does not boot
+- [\#637 Issue](2015-08-14.637.issue.closed.md) `closed`: NSR servername not defined causing rear to hang
+- [\#638 Issue](2015-08-18.638.issue.closed.md) `closed`: Errors with Duply and Scientific Linux 7.1
+- [\#639 Issue](2015-08-18.639.issue.closed.md) `closed`: Can I partition external usb drive into bootable usb + backup
+- [\#640 Issue](2015-08-20.640.issue.closed.md) `closed`: NSR POOLNAME variable
+- [\#641 Issue](2015-08-20.641.issue.closed.md) `closed`: 43\_prepare\_timesync.sh: Wrong script in rescue image when using TIMESYNC=NTP.
+- [\#642 Issue](2015-08-20.642.issue.closed.md) `closed`: rsync restore: --anchored invalid rsync option
+- [\#643 Issue](2015-08-21.643.issue.closed.md) `closed`: NSR "\# show the saved result file" does not work when using USE\_CFG2HTML=y
+- [\#644 Issue](2015-08-21.644.issue.closed.md) `closed`: OBS: debian 7/8 - package creation error
+- [\#645 Issue](2015-08-22.645.issue.closed.md) `closed`: USB disk mount point added to backup causing rear to rsync infinitely
+- [\#646 Issue](2015-08-24.646.issue.closed.md) `closed`: rear backup that makes one ISO?
+- [\#647 Issue](2015-08-27.647.issue.closed.md) `closed`: Error during recovering (layout recreation
+- [\#648 Issue](2015-08-31.648.issue.closed.md) `closed`: NETFS backup --&gt; ISO\_MAX\_SIZE
+- [\#649 Issue](2015-09-09.649.issue.closed.md) `closed`: wrong uuid in initrd for bootfs
+- [\#650 Issue](2015-09-10.650.issue.closed.md) `closed`: SELinux: missing /.autorelabel in RHEL 7.1
+- [\#651 Issue](2015-09-11.651.issue.closed.md) `closed`: Additional files to initramfs
+- [\#652 Issue](2015-09-13.652.issue.closed.md) `closed`: Bareos and Rear not recovering
+- [\#653 Issue](2015-09-14.653.issue.closed.md) `closed`: NSR checklayout and backup expiration
+- [\#654 Issue](2015-09-17.654.issue.closed.md) `closed`: Wrote ISO image: Saving result files with NSR
+- [\#655 Issue](2015-09-17.655.issue.closed.md) `closed`: Recovery with teaming-interface not possible
+- [\#656 Issue](2015-09-17.656.issue.closed.md) `closed`: Cannot see correct MAC addresses on HP CN1100E CNA card
+- [\#657 PR](2015-09-18.657.pr.merged.md) `merged`: ebiso support added
+- [\#658 Issue](2015-09-23.658.issue.closed.md) `closed`: rear-1.17.2.tar.gz are different on sourceforge versus OBS
+- [\#659 PR](2015-09-25.659.pr.merged.md) `merged`: Adding support for FDRUPSTREAM
+- [\#660 Issue](2015-09-25.660.issue.closed.md) `closed`: expire the old noarch rear versions on Fedora Build service
+- [\#661 Issue](2015-09-25.661.issue.closed.md) `closed`: remove mingetty from dependency list
+- [\#662 PR](2015-09-26.662.pr.merged.md) `merged`: Teaming enhancement
+- [\#663 Issue](2015-09-30.663.issue.closed.md) `closed`: How to create ISO image on s390x?
+- [\#664 PR](2015-10-02.664.pr.merged.md) `merged`: Fixed copy-and-paste error
+- [\#665 PR](2015-10-06.665.pr.merged.md) `merged`: Add ppc64le arch into rpmspec
+- [\#666 Issue](2015-10-08.666.issue.closed.md) `closed`: What RPM package version extension for adapted rear packages?
+- [\#667 Issue](2015-10-09.667.issue.closed.md) `closed`: recovery stalls when using TSM
+- [\#668 PR](2015-10-12.668.pr.merged.md) `merged`: Check for FDRUPSTREAM changed files and required programs
+- [\#669 PR](2015-10-16.669.pr.merged.md) `merged`: Add new NBKDC backup method
+- [\#670 Issue](2015-10-19.670.issue.closed.md) `closed`: rear mkbackup with multiple bacula dir
+- [\#671 Issue](2015-10-20.671.issue.closed.md) `closed`: ReaR doesn't automatically add itself to the Grub bootloader
+- [\#672 PR](2015-10-20.672.pr.merged.md) `merged`: Add grub2 support in ppc64 platform
+- [\#673 PR](2015-10-21.673.pr.merged.md) `merged`: Add ppc64 grub support for PowerVM virtualization environment
+- [\#674 Issue](2015-10-21.674.issue.closed.md) `closed`: Unable to determine raw USB device
+- [\#675 PR](2015-10-21.675.pr.merged.md) `merged`: Notify user that mkinitrd is running
+- [\#676 Issue](2015-10-24.676.issue.closed.md) `closed`: Fedora 22: Mkrescue USB drives don't boot
+- [\#677 Issue](2015-10-28.677.issue.closed.md) `closed`: Deb package build issue for supporting arch specific requirements
+- [\#678 Issue](2015-10-29.678.issue.closed.md) `closed`: Move DISKLAYOUT\_FILE to default.conf?
+- [\#679 Issue](2015-10-29.679.issue.closed.md) `closed`: cryptsetup pw dict files missing
+- [\#680 Issue](2015-11-01.680.issue.closed.md) `closed`: NFS mount error
+- [\#681 PR](2015-11-02.681.pr.merged.md) `merged`: Added support for the SUSE specific gpt\_sync\_mbr partitioning scheme
+- [\#682 PR](2015-11-03.682.pr.merged.md) `merged`: Change deb package control for multi arch support
+- [\#683 PR](2015-11-05.683.pr.merged.md) `merged`: Add sap hana uefi example conf
+- [\#684 Issue](2015-11-06.684.issue.closed.md) `closed`: NFS mount error
+- [\#685 PR](2015-11-06.685.pr.merged.md) `merged`: Add getty and agetty handling to upstart tty script
+- [\#686 PR](2015-11-11.686.pr.merged.md) `merged`: Adding ISO\_DEFAULT boot option and BAREOS\_FILESET for automation purposes
+- [\#687 PR](2015-11-11.687.pr.merged.md) `merged`: Have a header comment about the format for swap entries in disklayout…
+- [\#688 Issue](2015-11-11.688.issue.closed.md) `closed`: In DEBUGSCRIPTS mode print shell input lines as they are read?
+- [\#689 PR](2015-11-11.689.pr.closed.md) `closed`: obsolete the requirement of dosfslabel
+- [\#690 Issue](2015-11-12.690.issue.closed.md) `closed`: Missing mountpoints after recovery
+- [\#691 PR](2015-11-12.691.pr.merged.md) `merged`: Missing mountpoints after recovery
+- [\#692 PR](2015-11-12.692.pr.merged.md) `merged`: Fix "WARNING: Bad format on line 10 of /etc/fstab" after recovery
+- [\#693 PR](2015-11-12.693.pr.merged.md) `merged`: Fix for "Could not find elilo.efi"
+- [\#694 PR](2015-11-12.694.pr.merged.md) `merged`: obsolete the requirement of dosfslabel
+- [\#695 PR](2015-11-13.695.pr.merged.md) `merged`: SAN booting related improvements
+- [\#696 Issue](2015-11-13.696.issue.closed.md) `closed`: Dependency to isolinux missing in Debian 8 package
+- [\#697 Issue](2015-11-13.697.issue.closed.md) `closed`: Missing backup in recovery iso for IBM PowerVM LPAR
+- [\#698 Issue](2015-11-17.698.issue.closed.md) `closed`: Define default use case for ReaR
+- [\#699 PR](2015-11-18.699.pr.merged.md) `merged`: Added separated debugscripts option and first steps so that 'set -eu' works
+- [\#700 Issue](2015-11-18.700.issue.closed.md) `closed`: make rear working with "set -ue -o pipefail"
+- [\#701 PR](2015-11-18.701.pr.merged.md) `merged`: support for UEFI secure boot
+- [\#702 Issue](2015-11-18.702.issue.closed.md) `closed`: ReaR UEFI image fails booting if shim.efi bootloader is used
+- [\#703 Issue](2015-11-18.703.issue.closed.md) `closed`: Boot From GRUB asked for Username and Password
+- [\#704 PR](2015-11-19.704.pr.merged.md) `merged`: Use wipefs when available to clean up disk partitions
+- [\#705 Issue](2015-11-19.705.issue.closed.md) `closed`: Some NSR Remarks
+- [\#706 Issue](2015-11-20.706.issue.closed.md) `closed`: Copy "rear recover" log file and related data into recovered system
+- [\#707 PR](2015-11-20.707.pr.merged.md) `merged`: Show login as root tip only when needed.
+- [\#708 Issue](2015-11-23.708.issue.closed.md) `closed`: Have '/mnt/local' in a global variable.
+- [\#709 PR](2015-11-23.709.pr.merged.md) `merged`: Copy rear recover log et alii into recovered system
+- [\#710 PR](2015-11-24.710.pr.merged.md) `merged`: Have readonly constants in the main rear script
+- [\#711 PR](2015-11-24.711.pr.merged.md) `merged`: Fix typo
+- [\#712 Issue](2015-11-25.712.issue.closed.md) `closed`: Have rear-$(hostname
+- [\#713 Issue](2015-11-25.713.issue.closed.md) `closed`: recovery with TSM Replication breaks
+- [\#714 PR](2015-11-25.714.pr.merged.md) `merged`: Update 40\_verify\_tsm.sh
+- [\#715 PR](2015-11-25.715.pr.merged.md) `merged`: Added documentation for the new debugscripts option
+- [\#716 Issue](2015-11-26.716.issue.closed.md) `closed`: ISO file target instead of USB device
+- [\#717 Issue](2015-11-26.717.issue.closed.md) `closed`: \[FR\] Specify Bacula jobid in confi
+- [\#718 Issue](2015-11-26.718.issue.closed.md) `closed`: DISKLAYOUT\_FILE versus LAYOUT\_FILE inconsistency
+- [\#719 Issue](2015-11-26.719.issue.closed.md) `closed`: \[ Misunderstood \] backup from rescue stick not possible by design / prevent incompatible workflows in rescue mode
+- [\#720 Issue](2015-11-30.720.issue.closed.md) `closed`: Package dependency error when backing up Debian 8.2 system to USB device
+- [\#721 Issue](2015-11-30.721.issue.closed.md) `closed`: excessive delay with mkbackup on oracle ASM server
+- [\#722 Issue](2015-12-01.722.issue.closed.md) `closed`: Incorrect rear bash history entry
+- [\#723 Issue](2015-12-01.723.issue.closed.md) `closed`: Downgrade dependency in .DEB
+- [\#724 PR](2015-12-01.724.pr.closed.md) `closed`: Save and restore bash flags and options settings
+- [\#725 PR](2015-12-02.725.pr.merged.md) `merged`: Update rear.8.adoc
+- [\#726 PR](2015-12-02.726.pr.merged.md) `merged`: Get and apply bash flags and options settings
+- [\#727 PR](2015-12-02.727.pr.merged.md) `merged`: Better wording by using variable named "attributes" and "attribute"
+- [\#728 PR](2015-12-02.728.pr.merged.md) `merged`: Have wipefs automatically available in recovery system
+- [\#729 Issue](2015-12-02.729.issue.closed.md) `closed`: Confused about the meaning of the has\_binary and get\_path functions
+- [\#730 PR](2015-12-03.730.pr.merged.md) `merged`: Use "type -P" instead of "type -p" for get\_path(
+- [\#731 Issue](2015-12-04.731.issue.closed.md) `closed`: Use os-release instead of lsb\_release
+- [\#732 Issue](2015-12-04.732.issue.closed.md) `closed`: SUSE Hack Week 13: Use rear as generic installer in the plain SUSE installation system
+- [\#733 Issue](2015-12-07.733.issue.closed.md) `closed`: REAR not backing up all LVM volumes
+- [\#734 Issue](2015-12-08.734.issue.closed.md) `closed`: Align OUTPUT\_URL=null description of man page throughout rear workflows
+- [\#735 PR](2015-12-08.735.pr.merged.md) `merged`: Packaging: fix "make rpm"
+- [\#736 Issue](2015-12-10.736.issue.closed.md) `closed`: Using HP DL360g9 SD-Card as rear recovery media in UEFI environment - HowTo?
+- [\#737 PR](2015-12-10.737.pr.merged.md) `merged`: Replace experimental option 'grep -P' to 'grep -E'
+- [\#738 PR](2015-12-11.738.pr.closed.md) `closed`: Enhanced the Source function using $SHARE\_DIR/$source\_file as fallback
+- [\#739 PR](2015-12-14.739.pr.merged.md) `merged`: Changing GPLv2 to GPLv3.
+- [\#740 PR](2015-12-15.740.pr.merged.md) `merged`: Rename RECOVERY\_FS\_ROOT into TARGET\_FS\_ROOT
+- [\#741 Issue](2015-12-15.741.issue.closed.md) `closed`: Shouldn't "Source unsourceable\_file" bail out with BugError?
+- [\#742 Issue](2015-12-16.742.issue.closed.md) `closed`: Test suite for rear
+- [\#743 Issue](2015-12-16.743.issue.closed.md) `closed`: NETFS Tar Incremental restore fails with message « Backup archive '' not found » if BACKUP\_PROG\_COMPRESS is not gzip
+- [\#744 Issue](2015-12-18.744.issue.closed.md) `closed`: Merry Christmas and a happy New Year!
+- [\#745 Issue](2015-12-20.745.issue.closed.md) `closed`: 33\_find\_isolinux.sh also called for OUTPUT=USB
+- [\#746 Issue](2015-12-20.746.issue.closed.md) `closed`: Backup to USB needs BACKUP\_URL
+- [\#747 Issue](2015-12-23.747.issue.closed.md) `closed`: Create a Synology-integrated application or documentation
+- [\#748 Issue](2015-12-23.748.issue.closed.md) `closed`: ipv6 has been disabled in server, but ISO boots server with ipv6 assigned to eth0 and lo
+- [\#749 Issue](2016-01-02.749.issue.closed.md) `closed`: Suppress or mask log message that shows the decrypting key on console during recover
+- [\#750 Issue](2016-01-03.750.issue.closed.md) `closed`: Business Case: Store the OS backup in both local and remote server
+- [\#751 Issue](2016-01-05.751.issue.closed.md) `closed`: Question: Update system backup source during rescue image's bootup?
+- [\#752 Issue](2016-01-08.752.issue.closed.md) `closed`: BACKUP\_URL=cifs:// does not work because it uses noatime option
+- [\#753 Issue](2016-01-12.753.issue.closed.md) `closed`: BinCopyTo does not strip
+- [\#754 Issue](2016-01-14.754.issue.closed.md) `closed`: Enhance NFSv4 support (in particular for more security than NFSv3
+- [\#755 Issue](2016-01-14.755.issue.closed.md) `closed`: rear does not work for very minimal systems
+- [\#756 Issue](2016-01-15.756.issue.closed.md) `closed`: Business Case: Backup operation verification with rear
+- [\#757 Issue](2016-01-18.757.issue.closed.md) `closed`: OS doesn't boot after recover
+- [\#758 Issue](2016-01-21.758.issue.closed.md) `closed`: bash 3.x errors in recent changes
+- [\#759 Issue](2016-01-22.759.issue.closed.md) `closed`: diskrestore.sh has not been changed, restarting has no impact
+- [\#760 Issue](2016-01-25.760.issue.closed.md) `closed`: REAR with TSM
+- [\#761 Issue](2016-02-04.761.issue.closed.md) `closed`: REAR TSM Management Class / Naming Request / Scheduling ?
+- [\#762 Issue](2016-02-04.762.issue.closed.md) `closed`: Rear not backin up all the partitions
+- [\#763 PR](2016-02-09.763.pr.merged.md) `merged`: Fixed the first first bash 3.x error (in 25\_populate\_efibootimg.sh
+- [\#764 Issue](2016-02-10.764.issue.closed.md) `closed`: Switch to grub2 (grub-mkrescue
+- [\#765 PR](2016-02-10.765.pr.merged.md) `merged`: fixed second bash 3.x error in 31\_network\_devices.sh
+- [\#766 Issue](2016-02-11.766.issue.closed.md) `closed`: Rear fails to run on modern Fedora kernels
+- [\#767 PR](2016-02-11.767.pr.merged.md) `merged`: fixed third time bash 3.x errors in 31\_network\_devices.sh
+- [\#768 Issue](2016-02-11.768.issue.closed.md) `closed`: SLES 10 REAR ISO Recovery
+- [\#769 Issue](2016-02-12.769.issue.closed.md) `closed`: Fundamental enhancements for the backup
+- [\#770 Issue](2016-02-12.770.issue.closed.md) `closed`: /etc/udev/rules.d/70-persistent-net.rules
+- [\#771 PR](2016-02-12.771.pr.merged.md) `merged`: Added a very simply way to backup up capabilities.
+- [\#772 Issue](2016-02-12.772.issue.closed.md) `closed`: f23: dhclient cannot load /usr/lib64/bind99/libirs-export.so.91 library
+- [\#773 Issue](2016-02-12.773.issue.closed.md) `closed`: /etc/scripts/run-syslog issue with starting rsyslogd
+- [\#774 Issue](2016-02-15.774.issue.closed.md) `closed`: issues if rear is installed in non-default path
+- [\#775 PR](2016-02-15.775.pr.merged.md) `merged`: replaced all hardcoded /mnt/local with $TARGET\_FS\_ROOT
+- [\#776 Issue](2016-02-15.776.issue.closed.md) `closed`: system-udevd needs group input
+- [\#777 Issue](2016-02-15.777.issue.closed.md) `closed`: multi-user.target unknown lvalue 'Names'
+- [\#778 Issue](2016-02-15.778.issue.closed.md) `closed`: agetty: cannot open os-release file
+- [\#779 Issue](2016-02-16.779.issue.closed.md) `closed`: Move away restored files that should not have been restored.
+- [\#780 PR](2016-02-16.780.pr.merged.md) `merged`: new usr/share/rear/restore/default/99\_move\_away\_restored\_files.sh
+- [\#781 Issue](2016-02-17.781.issue.closed.md) `closed`: Problem with making backup on S390X architecture
+- [\#782 PR](2016-02-17.782.pr.merged.md) `merged`: Fixes \#781 Fix for removing directory in case that they are not empty
+- [\#783 Issue](2016-02-17.783.issue.closed.md) `closed`: s390x: dasd disks not recognized
+- [\#784 PR](2016-02-19.784.pr.merged.md) `merged`: more safely remove for move away functionality
+- [\#785 Issue](2016-02-25.785.issue.closed.md) `closed`: USB Not Booting
+- [\#786 Issue](2016-02-25.786.issue.closed.md) `closed`: Mount command failed
+- [\#787 Issue](2016-02-29.787.issue.closed.md) `closed`: NVMe/M.2 SSD // LUKS // diskrestore ...
+- [\#788 Issue](2016-02-29.788.issue.closed.md) `closed`: Could not find 'mkisofs' compatible program during restore
+- [\#789 Issue](2016-03-01.789.issue.closed.md) `closed`: On CentOs 7.2, backup seems successful but nothing is copied to NFS share
+- [\#790 PR](2016-03-04.790.pr.merged.md) `merged`: workaround for rear/rear\#649
+- [\#791 Issue](2016-03-07.791.issue.closed.md) `closed`: Waiting for udev and "kicking udev" are wrong (both miss the point
+- [\#792 Issue](2016-03-08.792.issue.closed.md) `closed`: main gitignore ignoring var directory in skel
+- [\#793 Issue](2016-03-08.793.issue.closed.md) `closed`: partprobe fails
+- [\#794 Issue](2016-03-10.794.issue.closed.md) `closed`: ALL Grub entries after booting are protected
+- [\#795 Issue](2016-03-11.795.issue.closed.md) `closed`: rescue/GNU/Linux/99\_sysreqs.sh can hang up endlessly
+- [\#796 PR](2016-03-11.796.pr.merged.md) `merged`: cleaned up and partially fixed 99\_sysreqs.sh
+- [\#797 PR](2016-03-11.797.pr.merged.md) `merged`: call partprobe in a backward compatible and fail safe way
+- [\#798 Issue](2016-03-15.798.issue.closed.md) `closed`: 99\_sysreqs.sh: fix or implement remaining issues
+- [\#799 Issue](2016-03-15.799.issue.closed.md) `closed`: Clean up disks before recreating partitions/volumes/filesystems/...
+- [\#800 Issue](2016-03-16.800.issue.closed.md) `closed`: Purge backups
+- [\#801 Issue](2016-03-23.801.issue.closed.md) `closed`: ebiso (wrongly
+- [\#802 Issue](2016-03-23.802.issue.closed.md) `closed`: Duplicate ISO images - /backup/fedora.iso and /var/lib/rear/output/fedora.iso
+- [\#803 Issue](2016-03-23.803.issue.closed.md) `closed`: REAR 1.17 and NSR with RHEL 6.7
+- [\#804 Issue](2016-03-23.804.issue.closed.md) `closed`: SUSE Linux Backup is failing ERROR: Could not create ISO image (with /usr/bin/mkisofs
+- [\#805 Issue](2016-03-24.805.issue.closed.md) `closed`: Use 'ebiso' automatically as needed
+- [\#806 PR](2016-03-24.806.pr.merged.md) `merged`: in 82\_create\_iso\_image.sh error out if ebiso is used but no UEFI (issue 801
+- [\#807 PR](2016-03-24.807.pr.merged.md) `merged`: allow generic yes/no values for USING\_UEFI\_BOOTLOADER (issue 801
+- [\#808 Issue](2016-03-25.808.issue.closed.md) `closed`: recover on identical hardware with new NIC, but not USB Keyboard input - using iso + USB key
+- [\#809 PR](2016-03-30.809.pr.merged.md) `merged`: let GitHub properly render the list by adding an empty line in front
+- [\#810 Issue](2016-03-30.810.issue.closed.md) `closed`: mkrescue fails with UEFI and TSM
+- [\#811 PR](2016-03-30.811.pr.merged.md) `merged`: ebiso image size is too small if BACKUP is TSM
+- [\#812 Issue](2016-03-30.812.issue.closed.md) `closed`: P2V Network errors
+- [\#813 PR](2016-04-03.813.pr.closed.md) `closed`: determine EFI virtual disk size automatically
+- [\#814 PR](2016-04-05.814.pr.closed.md) `closed`: Revert "ebiso image size is too small if BACKUP is TSM"
+- [\#815 Issue](2016-04-05.815.issue.closed.md) `closed`: 'ebiso' &lt; 0.2.2 may corrupt random files
+- [\#816 PR](2016-04-05.816.pr.merged.md) `merged`: Determine EFI virtual disk size automatically (take 2
+- [\#817 Issue](2016-04-09.817.issue.closed.md) `closed`: ISO image not booting on IBM Power 8 / SLES 11.4
+- [\#818 Issue](2016-04-11.818.issue.closed.md) `closed`: missing nfs mountpoint after the recovery
+- [\#819 Issue](2016-04-12.819.issue.closed.md) `closed`: Recover does not work if networking is on different interface than eth0
+- [\#820 Issue](2016-04-12.820.issue.closed.md) `closed`: Warning message "the system won't boot" at the end of restore is not correct
+- [\#821 Issue](2016-04-25.821.issue.closed.md) `closed`: ReaR + TSM: btrfs subvolumes excluded by default from restore
+- [\#822 Issue](2016-04-27.822.issue.closed.md) `closed`: No code has been generated to restore device /dev/md0 (raid
+- [\#823 Issue](2016-04-28.823.issue.closed.md) `closed`: enhance TSM support to specify what to backup and restore
+- [\#824 PR](2016-04-29.824.pr.merged.md) `merged`: removed EXCLUDE\_RECREATE from btrfs example configs
+- [\#825 Issue](2016-05-04.825.issue.closed.md) `closed`: License in rear.spec must be "GPL-2.0+ and GPL-3.0"
+- [\#826 PR](2016-05-04.826.pr.merged.md) `merged`: fix license in rear.spec to "GPL-2.0+ and GPL-3.0"
+- [\#827 Issue](2016-05-10.827.issue.closed.md) `closed`: Error: file '/rear-kernel' not found:
+- [\#828 Issue](2016-05-10.828.issue.closed.md) `closed`: Unknown -e flag with genisoimage under Debian
+- [\#829 Issue](2016-05-11.829.issue.closed.md) `closed`: The savefs command could not retrieve the "save sets" from this client
+- [\#830 Issue](2016-05-11.830.issue.closed.md) `closed`: Requires: syslinux
+- [\#831 Issue](2016-05-12.831.issue.closed.md) `closed`: USB UEFI boot support
+- [\#832 Issue](2016-05-12.832.issue.closed.md) `closed`: Unable to Restore Backup
+- [\#833 PR](2016-05-12.833.pr.merged.md) `merged`: Fix btrfs subvolumes with TSM, sshd config
+- [\#834 PR](2016-05-12.834.pr.merged.md) `merged`: USB EFI boot support
+- [\#835 Issue](2016-05-13.835.issue.closed.md) `closed`: Migrating with rear
+- [\#836 Issue](2016-05-13.836.issue.closed.md) `closed`: openssh-server seems to be mandatory
+- [\#837 PR](2016-05-14.837.pr.merged.md) `merged`: USB EFI boot support
+- [\#838 Issue](2016-05-15.838.issue.closed.md) `closed`: USB gets suspended
+- [\#839 Issue](2016-05-15.839.issue.closed.md) `closed`: /usr/share/rear/backup/NETFS/default/50\_make\_backup.sh: line 133: 2.16061e+09: syntax error: invalid arithmetic operator (error token is ".16061e+09"
+- [\#840 Issue](2016-05-17.840.issue.closed.md) `closed`: udev workflow cannot work as it is currently implemented
+- [\#841 Issue](2016-05-17.841.issue.closed.md) `closed`: Implement rear recovery system update support (my next SUSE hackweek project
+- [\#842 Issue](2016-05-20.842.issue.closed.md) `closed`: mkbackup and ftp in CentOS 6
+- [\#843 PR](2016-05-20.843.pr.merged.md) `merged`: added check for vaild BACKUP\_URL schemes
+- [\#844 PR](2016-05-20.844.pr.merged.md) `merged`: Grub2: REAR Improvements proposal
+- [\#845 Issue](2016-05-23.845.issue.closed.md) `closed`: new BACKUP\_URL=ftp://... in future version REAR
+- [\#846 Issue](2016-05-24.846.issue.closed.md) `closed`: Understanding REAR Checklayout
+- [\#847 Issue](2016-05-24.847.issue.closed.md) `closed`: How to manual recover?
+- [\#848 Issue](2016-05-25.848.issue.closed.md) `closed`: HP ProLiant BL460c Gen9 hangs after boot from ISO
+- [\#849 Issue](2016-05-26.849.issue.closed.md) `closed`: Creating EFI USB boot fails on rhel 7
+- [\#850 PR](2016-05-26.850.pr.merged.md) `merged`: Corrected issue \#849 (grub-install vs grub2-install
+- [\#851 Issue](2016-05-27.851.issue.closed.md) `closed`: First boot after restore on FC21 fails trying to find UUID originally generated by mkfs before tune2fs changes it
+- [\#852 PR](2016-05-29.852.pr.merged.md) `merged`: Solving Multipath cannot load due to libaio missing in ramdisk
+- [\#853 PR](2016-05-29.853.pr.merged.md) `merged`: Ignoring block device which are part of a multipath device.
+- [\#854 PR](2016-05-30.854.pr.merged.md) `merged`: Resolve Issue 851: Fix problem with UUIDs on Fedora by using mkfs to …
+- [\#855 PR](2016-06-01.855.pr.merged.md) `merged`: fix check for vaild BACKUP\_URL schemes
+- [\#856 Issue](2016-06-01.856.issue.closed.md) `closed`: clean up 'url\_host(
+- [\#857 PR](2016-06-01.857.pr.merged.md) `merged`: clean up url\_\* functions in global-functions.sh (issue\#856
+- [\#858 Issue](2016-06-02.858.issue.closed.md) `closed`: some latest commit(s
+- [\#859 PR](2016-06-02.859.pr.merged.md) `merged`: First step to support new ftpfs BACKUP\_URL
+- [\#860 Issue](2016-06-02.860.issue.closed.md) `closed`: Having trouble with restoring a backup
+- [\#861 Issue](2016-06-03.861.issue.closed.md) `closed`: mac address not changed on recover
+- [\#862 Issue](2016-06-03.862.issue.closed.md) `closed`: remove needless bash from chroot calls (simplification avoids initramfs isn't recreated during recovery
+- [\#863 PR](2016-06-05.863.pr.merged.md) `merged`: Adding support for ppc64le PowerNV (non-virtualized aka Bare-Metal
+- [\#864 Issue](2016-06-06.864.issue.closed.md) `closed`: SLES12: /var/lib/empty is missing, SSHD does not start
+- [\#865 Issue](2016-06-06.865.issue.closed.md) `closed`: EFI bootable ISO image / status - discussion
+- [\#866 Issue](2016-06-07.866.issue.closed.md) `closed`: EFI bootable ISO image: first boot option is broken
+- [\#867 PR](2016-06-07.867.pr.closed.md) `closed`: better naming for Secure Boot options (issue\#866
+- [\#868 Issue](2016-06-07.868.issue.closed.md) `closed`: bareos restore fails due to more then one restore jobs defined
+- [\#869 Issue](2016-06-08.869.issue.closed.md) `closed`: sshd don't start when Match blocks are used in sshd\_config
+- [\#870 Issue](2016-06-09.870.issue.closed.md) `closed`: Recover problems with rpc.statd
+- [\#871 Issue](2016-06-09.871.issue.closed.md) `closed`: RSYNC: /boot/efi needs --relative rsync option
+- [\#872 Issue](2016-06-09.872.issue.closed.md) `closed`: usage of BACKUP\_OPTIONS for separated things should be split up
+- [\#873 Issue](2016-06-10.873.issue.closed.md) `closed`: Recover failed to restore user
+- [\#874 PR](2016-06-11.874.pr.merged.md) `merged`: Typo in install\_yaboot.sh with sfdisk command (2&gt;&8 instead of 2&gt;&1
+- [\#875 PR](2016-06-11.875.pr.merged.md) `merged`: BUG: 20\_partition\_layout.sh : Multipath partition not found in rhel7.2
+- [\#876 PR](2016-06-11.876.pr.merged.md) `merged`: Limit ppc64/ppc64le bootlist parameter to 5 entries
+- [\#877 PR](2016-06-12.877.pr.merged.md) `merged`: Correct typo in 94\_grub2\_rescue.sh
+- [\#878 Issue](2016-06-15.878.issue.closed.md) `closed`: Can't see login prompt on serial console
+- [\#879 Issue](2016-06-15.879.issue.closed.md) `closed`: rear backup doesn't copy all libraries into chroot directory
+- [\#880 Issue](2016-06-15.880.issue.closed.md) `closed`: Restore ReaR ISO to OVM Guest?
+- [\#881 Issue](2016-06-16.881.issue.closed.md) `closed`: RFC: Document rear coding patterns?
+- [\#882 Issue](2016-06-16.882.issue.closed.md) `closed`: HP Superdome-X servers using multipath an booting from SAN not backing up de ROOT filesystem!
+- [\#883 Issue](2016-06-17.883.issue.closed.md) `closed`: On older systems findmnt does not know about FSROOT
+- [\#884 PR](2016-06-17.884.pr.merged.md) `merged`: findmnt fixes: check for FSROOT issue883 and use '-m' for 'fs' issue882
+- [\#885 Issue](2016-06-17.885.issue.closed.md) `closed`: Messages on screen missing in log file
+- [\#886 Issue](2016-06-18.886.issue.closed.md) `closed`: Tumbleweed did not show up at boot after rear recover
+- [\#887 Issue](2016-06-20.887.issue.closed.md) `closed`: get rid of progress-bar code
+- [\#888 Issue](2016-06-21.888.issue.closed.md) `closed`: mkrescue results in "ERROR: No files to send (RESULT\_FILES is empty
+- [\#889 Issue](2016-06-21.889.issue.closed.md) `closed`: rpcinfo might fail on some systems if used on specific hostname
+- [\#890 Issue](2016-06-22.890.issue.closed.md) `closed`: Use of invalid option "-U" for mkfs during recover on RHEL 5
+- [\#891 PR](2016-06-23.891.pr.merged.md) `merged`: overhauled 05\_start\_required\_daemons.sh
+- [\#892 Issue](2016-06-23.892.issue.closed.md) `closed`: No REQUIRED\_PROGS in conf/GNU/Linux.conf
+- [\#893 PR](2016-06-26.893.pr.merged.md) `merged`: correcting rear return code handling
+- [\#894 PR](2016-06-27.894.pr.merged.md) `merged`: fall back to old way when 'mkfs -U' fails (issue 890 and issue 851
+- [\#895 Issue](2016-06-27.895.issue.closed.md) `closed`: Wrong GRUB version recovered
+- [\#896 Issue](2016-06-28.896.issue.closed.md) `closed`: Grub and LVM leads to physical device metadata to be overwritten
+- [\#897 Issue](2016-06-29.897.issue.closed.md) `closed`: parted fails with "... unable to inform the kernel of the change ..."
+- [\#898 Issue](2016-06-30.898.issue.closed.md) `closed`: ERROR: BUG BUG BUG! Could not determine size of disk sdl/sdl1, please file a bug.
+- [\#899 Issue](2016-06-30.899.issue.closed.md) `closed`: OUTPUT=ISO, BACKUP=NETFS, OUTPUT/BACKUP\_URL=rsync:// does not copy the backup.tar.gz to the remote location?
+- [\#900 PR](2016-07-04.900.pr.merged.md) `merged`: First steps towards more reliably installing the right bootloader
+- [\#901 PR](2016-07-04.901.pr.merged.md) `merged`: Do not install grub on LVM physical volumes
+- [\#902 PR](2016-07-05.902.pr.closed.md) `closed`: Merge pull request \#3 from rear/master
+- [\#903 PR](2016-07-05.903.pr.merged.md) `merged`: Solved findmnt problems with BOOT from SAN issue \#822 (findmnt -m
+- [\#904 Issue](2016-07-06.904.issue.closed.md) `closed`: Speedup REAR by changing compression level?
+- [\#905 PR](2016-07-07.905.pr.merged.md) `merged`: automatically load fuse kernel module for sshfs
+- [\#906 PR](2016-07-08.906.pr.merged.md) `merged`: ask user for EFI partition size on USB disk
+- [\#907 Issue](2016-07-11.907.issue.closed.md) `closed`: Error while recovering SLES-11 SP3 --&gt; cgroup\_disable=memory
+- [\#908 Issue](2016-07-11.908.issue.closed.md) `closed`: Cannot find 'mbr.bin' on Arch Linux
+- [\#909 PR](2016-07-11.909.pr.merged.md) `merged`: always load modules in /etc/modules (issue905 and others
+- [\#910 PR](2016-07-11.910.pr.merged.md) `merged`: Typo in 22\_install\_grub2.sh for ppc64/ppc64le
+- [\#911 PR](2016-07-13.911.pr.merged.md) `merged`: Add requirements for USB boot on EFI to documentation
+- [\#912 PR](2016-07-13.912.pr.merged.md) `merged`: use BACKUP\_PROG\_COMPRESS\_OPTIONS as an array (issue904
+- [\#913 Issue](2016-07-14.913.issue.closed.md) `closed`: If /boot partition is too small it should exit immediately or give me bigger warning
+- [\#914 Issue](2016-07-14.914.issue.closed.md) `closed`: rear exits successufly when unknown backup method is specified
+- [\#915 Issue](2016-07-14.915.issue.closed.md) `closed`: RFE: usecase: automatically clone new virtual machine
+- [\#916 PR](2016-07-14.916.pr.merged.md) `merged`: error out for unknown BACKUP method (issue914
+- [\#917 PR](2016-07-14.917.pr.merged.md) `merged`: error out if not enough disk space for GRUB and GRUB2 rescue image
+- [\#918 Issue](2016-07-14.918.issue.closed.md) `closed`: docs: rsync does not work 'only with ssh'
+- [\#919 Issue](2016-07-14.919.issue.closed.md) `closed`: When using rsync, recovery iso is written to BACKUP\_URL even if OUTPUT\_URL is defined
+- [\#920 Issue](2016-07-14.920.issue.closed.md) `closed`: confused by names - OUTPUT vs BACKUP variables
+- [\#921 Issue](2016-07-15.921.issue.closed.md) `closed`: --help option requires root access
+- [\#922 Issue](2016-07-15.922.issue.closed.md) `closed`: path differences and missing log files when comparing sshfs and rsync transfers
+- [\#923 Issue](2016-07-15.923.issue.closed.md) `closed`: Undocumented cifs support for OUTPUT\_URL
+- [\#924 Issue](2016-07-18.924.issue.closed.md) `closed`: Missing cifs credentials file in rescue image
+- [\#925 Issue](2016-07-18.925.issue.closed.md) `closed`: error message references OUTPUT\_URL instead of BACKUP\_URL
+- [\#926 Issue](2016-07-18.926.issue.closed.md) `closed`: Local data backup with BACKUP=NETFS fails
+- [\#927 PR](2016-07-18.927.pr.merged.md) `merged`: use generic wording in 30\_check\_backup\_and\_output\_url (issue925
+- [\#928 Issue](2016-07-18.928.issue.closed.md) `closed`: implement ternary config variables
+- [\#929 Issue](2016-07-18.929.issue.closed.md) `closed`: No information in default rear output
+- [\#930 Issue](2016-07-18.930.issue.closed.md) `closed`: Missing information about RSYNC using in man page
+- [\#931 Issue](2016-07-20.931.issue.closed.md) `closed`: PXE Support for null is not implemented yet
+- [\#932 PR](2016-07-20.932.pr.merged.md) `merged`: error out instead of bugerror for not implemented URI schemes
+- [\#933 Issue](2016-07-20.933.issue.closed.md) `closed`: Confusing name of configuration directives
+- [\#934 Issue](2016-07-20.934.issue.closed.md) `closed`: Be more verbose by default
+- [\#935 Issue](2016-07-21.935.issue.closed.md) `closed`: Undocumented grub options
+- [\#936 PR](2016-07-21.936.pr.merged.md) `merged`: make test where backup directory is mounted more fail safe
+- [\#937 Issue](2016-07-21.937.issue.closed.md) `closed`: Problem recovering SLES 11 SP3
+- [\#938 Issue](2016-07-22.938.issue.closed.md) `closed`: rename GRUB\_RESCUE to DEVEL\_GRUB\_RESCUE
+- [\#939 Issue](2016-07-25.939.issue.closed.md) `closed`: Packages for Ubuntu 16.04 LTS missing
+- [\#940 Issue](2016-07-25.940.issue.closed.md) `closed`: Missing dependencies at Debian 8 "isolinux" and "extlinux"
+- [\#941 PR](2016-07-25.941.pr.merged.md) `merged`: document GRUB\_RESCUE meaning more clearly
+- [\#942 PR](2016-07-25.942.pr.merged.md) `merged`: first steps to make GRUB\_RESCUE work for GRUB2 on SLES12
+- [\#943 Issue](2016-07-26.943.issue.closed.md) `closed`: P2V HP microserver to VmWare
+- [\#944 Issue](2016-07-27.944.issue.closed.md) `closed`: "rear recover" fails with default btrfs on SLES12-SP2-beta5
+- [\#945 PR](2016-07-29.945.pr.merged.md) `merged`: First steps for downloadin config files into the recovery system.
+- [\#946 Issue](2016-07-30.946.issue.closed.md) `closed`: /boot or not /boot that's the question
+- [\#947 PR](2016-08-01.947.pr.merged.md) `merged`: fix in documentation cifs credentials file name
+- [\#948 PR](2016-08-01.948.pr.merged.md) `merged`: Correctly choose /boot or / prefix for 'Relax-and-Recover' GRUB 2 menu entry
+- [\#949 PR](2016-08-03.949.pr.merged.md) `merged`: better ordering of what is done in 94\_grub2\_rescue
+- [\#950 PR](2016-08-03.950.pr.merged.md) `merged`: first step to make rear recover work on SLES12-SP2
+- [\#951 Issue](2016-08-03.951.issue.closed.md) `closed`: On Dell machines with "biosdevname" there is no support for that in "rear recover"
+- [\#952 Issue](2016-08-04.952.issue.closed.md) `closed`: Incremental encrypted Restore not possible
+- [\#953 Issue](2016-08-04.953.issue.closed.md) `closed`: In recovery system "reboot" no longer works with newest systemd (e.g. SLE12 and FC24
+- [\#954 PR](2016-08-07.954.pr.merged.md) `merged`: GRUB\_RESCUE=y now works with UEFI based systems
+- [\#955 PR](2016-08-08.955.pr.merged.md) `merged`: Corrected bug reported in issue \#866
+- [\#956 PR](2016-08-09.956.pr.merged.md) `merged`: Update 15\_migrate\_uuid\_tags.sh
+- [\#957 PR](2016-08-09.957.pr.merged.md) `merged`: document that GRUB\_RESCUE\_USER is not supported for UEFI
+- [\#958 Issue](2016-08-11.958.issue.closed.md) `closed`: SLES12 SP1 network device name not changed in recover mode
+- [\#959 PR](2016-08-11.959.pr.merged.md) `merged`: Enhanced udev device reload for systemd.
+- [\#960 PR](2016-08-11.960.pr.merged.md) `merged`: Some fixes and addons for recovery system networking setup
+- [\#961 PR](2016-08-11.961.pr.merged.md) `merged`: get\_device\_by\_hwaddr made a bit more universal
+- [\#962 PR](2016-08-12.962.pr.merged.md) `merged`: Improve debian packaging
+- [\#963 Issue](2016-08-16.963.issue.closed.md) `closed`: make it safe against wrong btrfs subvolumes on SLES12
+- [\#964 PR](2016-08-16.964.pr.merged.md) `merged`: USE\_STATIC\_NETWORKING now really overrides USE\_DHCLIENT.
+- [\#965 Issue](2016-08-16.965.issue.closed.md) `closed`: wickedd-dhcp SLES12
+- [\#966 PR](2016-08-16.966.pr.merged.md) `merged`: Make it safe against wrong btrfs subvolumes on sles12 issue963
+- [\#967 Issue](2016-08-17.967.issue.closed.md) `closed`: How to use customized folder instead of /tmp for temp file creation during system backup
+- [\#968 Issue](2016-08-17.968.issue.closed.md) `closed`: default.conf sets TMPDIR to empty value which violates Unix standards
+- [\#969 PR](2016-08-17.969.pr.merged.md) `merged`: make TMPDIR work in compliance with Unix standards
+- [\#970 Issue](2016-08-18.970.issue.closed.md) `closed`: ISO size is larger than 4GiB-1
+- [\#971 Issue](2016-08-18.971.issue.closed.md) `closed`: ISO image generation requirment
+- [\#972 Issue](2016-08-18.972.issue.closed.md) `closed`: cryptsetup fails on restore due to missing cracklib dictionaries
+- [\#973 Issue](2016-08-19.973.issue.closed.md) `closed`: mount command for cifs is successful, but rear is showing it failed ( 0 != 0
+- [\#974 Issue](2016-08-22.974.issue.closed.md) `closed`: No Real Incremental Backups
+- [\#975 PR](2016-08-23.975.pr.merged.md) `merged`: Issue 923 - fix some typos
+- [\#976 Issue](2016-08-24.976.issue.closed.md) `closed`: Recover not working when rpm2cpio was used to unpack
+- [\#977 PR](2016-08-24.977.pr.merged.md) `merged`: Added PRE-POST backup scripts
+- [\#978 Issue](2016-08-24.978.issue.closed.md) `closed`: Missing /etc/e2fsck.conf might cause minor issues
+- [\#979 PR](2016-08-24.979.pr.merged.md) `merged`: new script /etc/scripts/system-setup.d/67-check-by-label-cdrom.sh (issue \#326
+- [\#980 Issue](2016-08-24.980.issue.closed.md) `closed`: Bacula restore -&gt; bconsole does not start -&gt; No job control in this shell
+- [\#981 Issue](2016-08-25.981.issue.closed.md) `closed`: Change network-settings on rescue-boot
+- [\#982 PR](2016-08-25.982.pr.merged.md) `merged`: synchronize dev and master branch
+- [\#983 PR](2016-08-25.983.pr.merged.md) `merged`: Merge pull request \#982 from rear/dev
+- [\#984 Issue](2016-08-25.984.issue.closed.md) `closed`: Name of the generated ISO or auto-creation of FTP-Directory
+- [\#985 Issue](2016-08-25.985.issue.closed.md) `closed`: TSM parameters containing a dot
+- [\#986 PR](2016-08-26.986.pr.merged.md) `merged`: Issue \#985, TSM options with dot in their name
+- [\#987 Issue](2016-08-26.987.issue.closed.md) `closed`: RFC: Implement a backup restore workflow that can work on its own.
+- [\#988 Issue](2016-08-27.988.issue.closed.md) `closed`: How to restore the folder structure without data/content?
+- [\#989 PR](2016-08-29.989.pr.merged.md) `merged`: Merge pull request \#983 from rear/master
+- [\#990 Issue](2016-08-30.990.issue.closed.md) `closed`: How to recover serverafter rear backup is moved to a different location
+- [\#991 Issue](2016-08-30.991.issue.closed.md) `closed`: mount\_NETFS\_path issue
+- [\#992 PR](2016-08-31.992.pr.merged.md) `merged`: Master update from dev
+- [\#993 Issue](2016-08-31.993.issue.closed.md) `closed`: rsync - full path lost
+- [\#994 Issue](2016-09-09.994.issue.closed.md) `closed`: Rear local.conf Questions
+- [\#995 Issue](2016-09-10.995.issue.closed.md) `closed`: better mysql backup, not file based
+- [\#996 Issue](2016-09-14.996.issue.closed.md) `closed`: ReaR recover with BACKUP=BACULA using bconsole
+- [\#997 PR](2016-09-15.997.pr.closed.md) `closed`: Adding a missing default directory and introducing a parameter
+- [\#998 Issue](2016-09-15.998.issue.closed.md) `closed`: NFS support missing...
+- [\#1000 Issue](2016-09-16.1000.issue.closed.md) `closed`: Error at rear recover: Disk /dev/hda is not a block device
+- [\#999 Issue](2016-09-16.999.issue.closed.md) `closed`: since SLES12-SP2 btrfs quota via "snapper setup-quota" is needed
+- [\#1001 PR](2016-09-19.1001.pr.merged.md) `merged`: Added SLE12-SP2-btrfs-example.conf (issue999
+- [\#1002 PR](2016-09-19.1002.pr.merged.md) `merged`: Update SLE12-SP2-btrfs-example.conf
+- [\#1003 Issue](2016-09-20.1003.issue.closed.md) `closed`: ERROR: The OUTPUT\_URL scheme http requires the 'lftp' command, which is missing!
+- [\#1004 PR](2016-09-20.1004.pr.merged.md) `merged`: fixed suse spelling typos
+- [\#1005 Issue](2016-09-21.1005.issue.closed.md) `closed`: mput: Operation not supported: 405 Method Not Allowed (PUT
+- [\#1006 Issue](2016-09-21.1006.issue.closed.md) `closed`: Incremental file changes backup - feature request
+- [\#1007 PR](2016-09-22.1007.pr.merged.md) `merged`: Better documentation for BACKUP\_TYPE=incremental
+- [\#1008 Issue](2016-09-22.1008.issue.closed.md) `closed`: "Relax-and-Recover" or "Relax and Recover" that is the question
+- [\#1009 PR](2016-09-23.1009.pr.merged.md) `merged`: Corrected misspelled forms to Relax-and-Recover
+- [\#1010 PR](2016-09-23.1010.pr.merged.md) `merged`: sync master with dev tree
+- [\#1011 PR](2016-09-26.1011.pr.merged.md) `merged`: Simplify reboot halt poweroff and shutdown in case of systemd
+- [\#1012 Issue](2016-09-28.1012.issue.closed.md) `closed`: Deduplicate files in the rescue/recovery system
+- [\#1013 Issue](2016-09-28.1013.issue.closed.md) `closed`: Useless systemd files in rescue/recovery system when no systemd is used
+- [\#1014 Issue](2016-09-28.1014.issue.closed.md) `closed`: tar --test-label is not supported on Centos 5 who have tar version 1.15.
+- [\#1015 PR](2016-09-28.1015.pr.closed.md) `closed`: tar --test-label is not supported on Centos 5 who have tar version 1.15
+- [\#1016 PR](2016-09-28.1016.pr.closed.md) `closed`: Update 40\_restore\_backup.sh
+- [\#1017 PR](2016-09-28.1017.pr.closed.md) `closed`: older tar does not support --test-label (issue1014
+- [\#1018 Issue](2016-09-29.1018.issue.closed.md) `closed`: Relax-and-Recover (rear
+- [\#1019 Issue](2016-09-30.1019.issue.closed.md) `closed`: MANUAL\_INCLUDE=YES behaves unexpectedly
+- [\#1020 Issue](2016-10-01.1020.issue.closed.md) `closed`: After recover, NW Device Name is changed
+- [\#1021 Issue](2016-10-03.1021.issue.closed.md) `closed`: BUG making the script 20\_partition\_layout.sh
+- [\#1022 PR](2016-10-04.1022.pr.closed.md) `closed`: Notification feature rhbz \#1377547
+- [\#1023 Issue](2016-10-04.1023.issue.closed.md) `closed`: Notification feature to rear
+- [\#1024 PR](2016-10-04.1024.pr.merged.md) `merged`: Fixed non ASCII characters in scripts.
+- [\#1025 PR](2016-10-04.1025.pr.closed.md) `closed`: fix non ASCII characters in documentation
+- [\#1026 Issue](2016-10-05.1026.issue.closed.md) `closed`: REAR issues on SGI UV300/HPE MC990X
+- [\#1027 PR](2016-10-05.1027.pr.merged.md) `merged`: Fixed non ASCII characters in documentation (except rear-release-notes
+- [\#1028 Issue](2016-10-06.1028.issue.closed.md) `closed`: Recover failed - file not found
+- [\#1029 PR](2016-10-08.1029.pr.merged.md) `merged`: Rebuild initrd after migration (for SUSE\_LINUX PPC64
+- [\#1030 Issue](2016-10-09.1030.issue.closed.md) `closed`: add support for Borg Backup
+- [\#1031 PR](2016-10-09.1031.pr.merged.md) `merged`: fix check\_bootloader for POWER arch
+- [\#1032 Issue](2016-10-10.1032.issue.closed.md) `closed`: linux redhat booting problem
+- [\#1033 Issue](2016-10-12.1033.issue.closed.md) `closed`: "rear" or "Rear" or "ReaR" or "REAR" that is the question
+- [\#1034 PR](2016-10-13.1034.pr.merged.md) `merged`: Merge pull request \#1010 from rear/master
+- [\#1035 Issue](2016-10-14.1035.issue.closed.md) `closed`: RFC: Have UTF-8 localization support in the rescue/recovery system
+- [\#1036 Issue](2016-10-15.1036.issue.closed.md) `closed`: SLES12 SP1 recovery fails with btrfs if snapper is not enabled
+- [\#1037 PR](2016-10-15.1037.pr.merged.md) `merged`: Support for Borg
+- [\#1038 Issue](2016-10-19.1038.issue.closed.md) `closed`: "rear mkrescue" fails with "BUG! Unknown bootloader" for 'GRUB2' and 'GRUB2-EFI'
+- [\#1039 PR](2016-10-19.1039.pr.merged.md) `merged`: Update 45\_check\_bootloader\_files.sh
+- [\#1040 Issue](2016-10-19.1040.issue.closed.md) `closed`: Use ShellCheck for ReaR scripts static analysis
+- [\#1041 PR](2016-10-19.1041.pr.merged.md) `merged`: Applied corrections discussed in \#1037
+- [\#1042 PR](2016-10-20.1042.pr.merged.md) `merged`: Update 50\_guess\_bootloader.sh
+- [\#1043 PR](2016-10-20.1043.pr.merged.md) `merged`: Fixed bug, with LOADER\_TYPE=”grub2-efi"
+- [\#1044 PR](2016-10-20.1044.pr.merged.md) `merged`: BORGBACKUP\_COMPRESSION now handles Borg compression defaults correctly
+- [\#1045 PR](2016-10-20.1045.pr.closed.md) `closed`: Borg as back end, now accepts options for repository encryption.
+- [\#1046 PR](2016-10-21.1046.pr.merged.md) `merged`: Borg as back end, now accepts options for repository encryption (take 2
+- [\#1047 Issue](2016-10-24.1047.issue.closed.md) `closed`: rear showing that it is archiving 400GB and taking 4 hours, but actually size is around 4GB
+- [\#1048 PR](2016-10-24.1048.pr.merged.md) `merged`: Improvements in handling of encrypted Borg repositories
+- [\#1049 Issue](2016-10-24.1049.issue.closed.md) `closed`: HOSTNAME variable contains a dot in its name issue
+- [\#1050 Issue](2016-10-25.1050.issue.closed.md) `closed`: usage of get\_template is wrong in 95\_copy\_result\_files.sh
+- [\#1051 PR](2016-10-26.1051.pr.closed.md) `closed`: re-numbered 00\_ 01\_ and 99\_ scripts to get 00\_ 01\_ and 99\_ free
+- [\#1052 PR](2016-10-27.1052.pr.merged.md) `merged`: New Borg variables introduced
+- [\#1053 PR](2016-10-27.1053.pr.merged.md) `merged`: Renumbering (NM becomes NM0
+- [\#1054 Issue](2016-10-27.1054.issue.closed.md) `closed`: Add an automated test that script names match the new 3-digit\_ scheme
+- [\#1055 PR](2016-10-27.1055.pr.merged.md) `merged`: Correction in behavior of Borg environment variables
+- [\#1056 Issue](2016-10-30.1056.issue.closed.md) `closed`: Excluded directory being backed up and in wrong place
+- [\#1057 Issue](2016-11-01.1057.issue.closed.md) `closed`: Restore via ISO swaps disks /dev/sda &lt;==&gt; /dev/sdb
+- [\#1058 PR](2016-11-02.1058.pr.merged.md) `merged`: Added ReaR with Borg configuration example
+- [\#1059 Issue](2016-11-04.1059.issue.closed.md) `closed`: Point-In-Time-Restore
+- [\#1060 PR](2016-11-05.1060.pr.merged.md) `merged`: do not list directories to backup twice in MANUAL\_INCLUDE mode
+- [\#1061 PR](2016-11-07.1061.pr.merged.md) `merged`: Allow yaboot bootlader creation even when yaboot.conf is missing (sles11 ppc64 with LVM
+- [\#1062 Issue](2016-11-08.1062.issue.closed.md) `closed`: Incremental Backup does not work
+- [\#1063 Issue](2016-11-10.1063.issue.closed.md) `closed`: Let "rear recover" check first if the same disks exists based on HW IDs
+- [\#1064 Issue](2016-11-10.1064.issue.closed.md) `closed`: Rear install fails on Debian 7 i386 missing dependency "isolinux"
+- [\#1065 Issue](2016-11-11.1065.issue.closed.md) `closed`: ReaR does not support OS booting from CRC enabled XFS (e.g. on Ubuntu MATE 16.04
+- [\#1066 PR](2016-11-11.1066.pr.merged.md) `merged`: fixed and cleaned up some parts of incremental backup
+- [\#1067 PR](2016-11-13.1067.pr.merged.md) `merged`: Patch for newer versions of XFS with enabled CRC
+- [\#1068 Issue](2016-11-15.1068.issue.closed.md) `closed`: Possibly faulty usage of '\[\*\]' subscript for arrays
+- [\#1069 Issue](2016-11-16.1069.issue.closed.md) `closed`: Add generic support for multiple restore archives (e.g. for incremental backup
+- [\#1070 Issue](2016-11-17.1070.issue.closed.md) `closed`: Arch recover failure from cifs share
+- [\#1071 PR](2016-11-17.1071.pr.merged.md) `merged`: Initial support for multiple restore archives (issue1069
+- [\#1072 Issue](2016-11-17.1072.issue.closed.md) `closed`: mkrescue error; "ERROR: No restore job defined in Bareos for"
+- [\#1073 Issue](2016-11-21.1073.issue.closed.md) `closed`: Preparation to release ReaR 2.0
+- [\#1074 Issue](2016-11-21.1074.issue.closed.md) `closed`: Use date prefixed backup archive filenames in any case?
+- [\#1075 PR](2016-11-22.1075.pr.merged.md) `merged`: Improved BugError message with BASH\_SOURCE and WORKFLOW
+- [\#1076 Issue](2016-11-22.1076.issue.closed.md) `closed`: setting EXIT\_CODE for Error functions is useless because rear kills itself that results exit code 143
+- [\#1077 Issue](2016-11-22.1077.issue.closed.md) `closed`: ReaR + Bareos &gt;16.2 new configuration path/filename structure
+- [\#1078 Issue](2016-11-22.1078.issue.closed.md) `closed`: NTFS support (via BLOCKCLONE backup method
+- [\#1079 PR](2016-11-22.1079.pr.merged.md) `merged`: Add example local.conf for creating a USB recovery drive using a Samba share
+- [\#1080 Issue](2016-11-23.1080.issue.closed.md) `closed`: ISO\_IMAGES set but nowhere used
+- [\#1081 Issue](2016-11-23.1081.issue.closed.md) `closed`: "rear recover" fails for multiple ISOs (ISO\_MAX\_SIZE=...
+- [\#1082 PR](2016-11-23.1082.pr.merged.md) `merged`: Fixed and enhanced code for multiple ISOs.
+- [\#1083 PR](2016-11-24.1083.pr.merged.md) `merged`: Removed dead code.
+- [\#1084 PR](2016-11-24.1084.pr.merged.md) `merged`: Removed EXIT\_CODE usage in case of Error functions.
+- [\#1085 Issue](2016-11-25.1085.issue.closed.md) `closed`: New kind of "backup" method: BACKUP=ZYPPER
+- [\#1086 Issue](2016-11-25.1086.issue.closed.md) `closed`: Check spelling 'ReaR' versus 'rear' and fix it as needed
+- [\#1087 PR](2016-11-25.1087.pr.merged.md) `merged`: Fixed ReaR versus rear spelling.
+- [\#1088 Issue](2016-11-25.1088.issue.closed.md) `closed`: Support for "Multiple Backup Methods"
+- [\#1089 Issue](2016-11-28.1089.issue.closed.md) `closed`: in messages/syslog we find "DONE: rc=0" after a rear run - make it more meaningful
+- [\#1090 PR](2016-11-28.1090.pr.merged.md) `merged`: Added -C option to source additional config files
+- [\#1091 PR](2016-11-29.1091.pr.merged.md) `merged`: Split restoreonly workflow from recover workflow
+- [\#1092 Issue](2016-11-30.1092.issue.closed.md) `closed`: user setting LOGFILE is not used sufficiently
+- [\#1093 Issue](2016-11-30.1093.issue.closed.md) `closed`: boot rear rescue ISO Centos 7 kernel panic
+- [\#1094 Issue](2016-12-01.1094.issue.closed.md) `closed`: mdadm do not restored on new hardware
+- [\#1095 Issue](2016-12-01.1095.issue.closed.md) `closed`: Rear recover doesn't work with SLES 12 SP1 btrfs subvolume
+- [\#1096 Issue](2016-12-01.1096.issue.closed.md) `closed`: How to enhance logging and progress for multiple 'rear' running in parallel?
+- [\#1097 Issue](2016-12-02.1097.issue.closed.md) `closed`: Skip 'remount\_sync' functionality if systemd is used
+- [\#1098 Issue](2016-12-02.1098.issue.closed.md) `closed`: Some workflows do not work with '-s' (validate, shell, and format
+- [\#1099 PR](2016-12-02.1099.pr.merged.md) `merged`: Skip remount sync when systemd is used (issue1097
+- [\#1100 PR](2016-12-05.1100.pr.merged.md) `merged`: Skip remount async when systemd is used
+- [\#1101 PR](2016-12-05.1101.pr.merged.md) `merged`: Enhance logging and progress for running in parallel
+- [\#1102 Issue](2016-12-05.1102.issue.closed.md) `closed`: Allow multiple 'rear mkbackuponly/restoreonly' running in parallel
+- [\#1103 PR](2016-12-05.1103.pr.merged.md) `merged`: Allow multiple mkbackuponly or restoreonly running in parallel
+- [\#1104 Issue](2016-12-05.1104.issue.closed.md) `closed`: Documentation for "Multiple simultaneous backups and restores"
+- [\#1105 Issue](2016-12-05.1105.issue.closed.md) `closed`: rear with a very big usb device
+- [\#1106 Issue](2016-12-05.1106.issue.closed.md) `closed`: Extended partition not detected with util-linux 2.26-rc1
+- [\#1107 Issue](2016-12-06.1107.issue.closed.md) `closed`: Get rid of using "sfdisk"
+- [\#1108 PR](2016-12-06.1108.pr.merged.md) `merged`: Documentation for multiple backups
+- [\#1109 PR](2016-12-06.1109.pr.merged.md) `merged`: Corrected issue \#1106
+- [\#1110 Issue](2016-12-07.1110.issue.closed.md) `closed`: 'mkbackuponly' and 'restoreonly' do not copy the logfile to the right places
+- [\#1111 PR](2016-12-07.1111.pr.merged.md) `merged`: fix spelling errors ('whether' and 'unnecessary'
+- [\#1112 PR](2016-12-07.1112.pr.merged.md) `merged`: Support partitioning and formatting huge USB devices
+- [\#1113 Issue](2016-12-07.1113.issue.closed.md) `closed`: Can't subscribe to mailing list due to broken SPF record
+- [\#1114 Issue](2016-12-08.1114.issue.closed.md) `closed`: ERROR: BUG BUG BUG! Filesystem for device '/dev/sdf1' could not be found
+- [\#1115 PR](2016-12-08.1115.pr.merged.md) `merged`: Fix LOGFILE setting
+- [\#1116 Issue](2016-12-08.1116.issue.closed.md) `closed`: Wrong progress 'Restored' values while backup restore
+- [\#1117 Issue](2016-12-09.1117.issue.closed.md) `closed`: support for new Bareos 16.2 client configuration file location
+- [\#1118 PR](2016-12-12.1118.pr.merged.md) `merged`: Fix documenation for multiple backups with Borg
+- [\#1119 Issue](2016-12-12.1119.issue.closed.md) `closed`: During runtime use RUNTIME\_LOGFILE (and not LOGFILE
+- [\#1120 PR](2016-12-12.1120.pr.merged.md) `merged`: During runtime use RUNTIME\_LOGFILE
+- [\#1121 PR](2016-12-13.1121.pr.merged.md) `merged`: Using RUNTIME\_LOGFILE in all scripts as needed
+- [\#1122 PR](2016-12-13.1122.pr.merged.md) `merged`: workaround for \#1077
+- [\#1123 PR](2016-12-13.1123.pr.merged.md) `merged`: Explain date prefixed backup archive
+- [\#1124 Issue](2016-12-14.1124.issue.closed.md) `closed`: Useless wrapup/rescue/default/600\_add\_galaxy\_group.sh
+- [\#1125 PR](2016-12-14.1125.pr.merged.md) `merged`: Removed dead wrapup script add\_galaxy\_group
+- [\#1126 PR](2016-12-14.1126.pr.merged.md) `merged`: do not show experimental workflows in rear help workflow
+- [\#1127 PR](2016-12-14.1127.pr.merged.md) `merged`: Implement simulation mode for validate and shell workflows
+- [\#1128 Issue](2016-12-14.1128.issue.closed.md) `closed`: RHEL 7 issue with Consistent Network Device Naming
+- [\#1129 PR](2016-12-14.1129.pr.merged.md) `merged`: More fail safe progress messages while tar backup restore
+- [\#1130 PR](2016-12-15.1130.pr.merged.md) `merged`: More meaningful LogToSyslog message when rear ends
+- [\#1131 Issue](2016-12-15.1131.issue.closed.md) `closed`: Support for automated rear calls for multiple backups
+- [\#1132 PR](2016-12-20.1132.pr.merged.md) `merged`: Fix documentation regarding OUTPUT\_URL=null
+- [\#1133 PR](2016-12-20.1133.pr.merged.md) `merged`: Special case syslog message for checklayout workflow
+- [\#1134 Issue](2016-12-20.1134.issue.closed.md) `closed`: RFC: Use proper exit codes (backward incompatible change
+- [\#1135 Issue](2016-12-21.1135.issue.closed.md) `closed`: ReaR recovery system boot screen unintelligible on Dell PowerEdge T630
+- [\#1136 PR](2016-12-21.1136.pr.merged.md) `merged`: Fixed example BACKUP\_PROG\_EXCLUDE and BACKUP\_PROG\_INCLUDE values
+- [\#1137 Issue](2016-12-21.1137.issue.closed.md) `closed`: ERROR: No restore job defined in Bareos for client
+- [\#1138 PR](2016-12-21.1138.pr.merged.md) `merged`: fix missing Bareos restore job error when running mkrescue
+- [\#1139 Issue](2016-12-22.1139.issue.closed.md) `closed`: Trying to restore via PXE but nothing happens after receiving IP-address
+- [\#1140 PR](2016-12-23.1140.pr.merged.md) `merged`: Implement simulation mode for format workflow
+- [\#1141 Issue](2016-12-27.1141.issue.closed.md) `closed`: bootable UEFI enabled USB stick with incremental backup with BACKUP\_URL=usb
+- [\#1142 Issue](2016-12-29.1142.issue.closed.md) `closed`: use better compression for initrd which must be less than 32MB when booting on ppc64 via yaboot
+- [\#1143 Issue](2016-12-30.1143.issue.closed.md) `closed`: non-PAE processor
+- [\#1144 Issue](2017-01-01.1144.issue.closed.md) `closed`: Oversized archive
+- [\#1145 Issue](2017-01-02.1145.issue.closed.md) `closed`: Support BACKUP\_TYPE=incremental/differential also for BACKUP\_URL=usb:
+- [\#1146 PR](2017-01-02.1146.pr.merged.md) `merged`: Forbid BACKUP\_URL=usb for BACKUP\_TYPE=incremental/differential
+- [\#1147 PR](2017-01-03.1147.pr.merged.md) `merged`: align supported distros documentation (issue1073
+- [\#1148 PR](2017-01-03.1148.pr.merged.md) `merged`: Bareos support: add missing directory /var/run/bareos in recovery system
+- [\#1149 Issue](2017-01-03.1149.issue.closed.md) `closed`: Better colors for the ReaR issue labels and additional labels
+- [\#1150 Issue](2017-01-04.1150.issue.closed.md) `closed`: all links got deleted by commit 64535e0d3a76d8688bd47372fdd34c1b40c5849a
+- [\#1151 Issue](2017-01-04.1151.issue.closed.md) `closed`: ReaR fails weirdly when an incompatible 'uname' replacement is used
+- [\#1152 Issue](2017-01-05.1152.issue.closed.md) `closed`: ReaR version 2.0 will no longer use basebackup.txt and timestamp.txt for incremental backup
+- [\#1153 Issue](2017-01-05.1153.issue.closed.md) `closed`: USB device with partition table type gpt not bootable
+- [\#1154 Issue](2017-01-05.1154.issue.closed.md) `closed`: ReaR uses nfs4 need to change it to use nfs3
+- [\#1155 Issue](2017-01-05.1155.issue.closed.md) `closed`: P2V: Is it possible to do a ReaR backup on physical and restore to Vmware host?
+- [\#1156 Issue](2017-01-06.1156.issue.closed.md) `closed`: Create prep script for RECOVERY\_UPDATE\_URL required programs
+- [\#1157 PR](2017-01-07.1157.pr.merged.md) `merged`: GPT now uses right MBR code and flags
+- [\#1158 Issue](2017-01-09.1158.issue.closed.md) `closed`: USB\_RETAIN\_BACKUP\_NR not effective when using extra data partition on USB device (OUTPUT=USB
+- [\#1159 Issue](2017-01-10.1159.issue.closed.md) `closed`: On externally booted VM with empty MBR ReaR fails with "Unknown bootloader" BugError
+- [\#1160 Issue](2017-01-10.1160.issue.closed.md) `closed`: Support multiple backups also for BACKUP\_URL=usb
+- [\#1161 Issue](2017-01-10.1161.issue.closed.md) `closed`: Change find to ls -r in 30\[0\]\_create\_extlinux.sh
+- [\#1162 Issue](2017-01-11.1162.issue.closed.md) `closed`: New kind of "backup" method: BACKUP=BLOCKCLONE
+- [\#1163 Issue](2017-01-11.1163.issue.closed.md) `closed`: packaging/debian still needed ?
+- [\#1164 Issue](2017-01-12.1164.issue.closed.md) `closed`: BACKUP=NETFS behaves inconsistent for BACKUP\_URL=usb versus BACKUP\_URL=nfs
+- [\#1165 PR](2017-01-13.1165.pr.merged.md) `merged`: Align backup on USB with backup on NFS
+- [\#1166 Issue](2017-01-13.1166.issue.closed.md) `closed`: Possibly useless backup selection when backup restore from USB
+- [\#1167 Issue](2017-01-16.1167.issue.closed.md) `closed`: /dev/sda1 device or resouce is busy when recreate partition during rear recover
+- [\#1168 PR](2017-01-16.1168.pr.merged.md) `merged`: Make USB backup selection work (issue1166
+- [\#1169 PR](2017-01-16.1169.pr.merged.md) `merged`: Adapted to Bareos new (since 16.2
+- [\#1170 PR](2017-01-18.1170.pr.merged.md) `merged`: Drop useless Abort choice in USB backup selection dialog
+- [\#1171 PR](2017-01-18.1171.pr.merged.md) `merged`: Removed needless login shell from chroot calls where possible
+- [\#1172 PR](2017-01-19.1172.pr.merged.md) `merged`: BLOCKCLONE backup method
+- [\#1173 Issue](2017-01-19.1173.issue.closed.md) `closed`: RFC: How to get rid of "disgraced" functionality?
+- [\#1174 Issue](2017-01-19.1174.issue.closed.md) `closed`: "rear recover" fails on RHEL 7.3 beta with xfs on / and on /boot with "grub2-install: error: unknown filesystem."
+- [\#1175 Issue](2017-01-19.1175.issue.closed.md) `closed`: tar in ReaR didn't recover ACL and capabilities attributes of files
+- [\#1176 PR](2017-01-23.1176.pr.closed.md) `closed`: Warn if initrd cannot be created when udev not there
+- [\#1177 Issue](2017-01-23.1177.issue.closed.md) `closed`: REAR network interface does not start centos 7.1
+- [\#1178 PR](2017-01-25.1178.pr.merged.md) `merged`: BUG: Typo in rebuild\_initramfs for PPC64
+- [\#1179 PR](2017-01-25.1179.pr.merged.md) `merged`: Warn if initrd cannot be created and code cleanup (issue 1171
+- [\#1180 PR](2017-01-25.1180.pr.merged.md) `merged`: BLOCKCLONE documentation
+- [\#1181 Issue](2017-01-25.1181.issue.closed.md) `closed`: ReaR sshfs -- "fuse" kernel module doesn't load
+- [\#1182 PR](2017-01-26.1182.pr.merged.md) `merged`: New REAR\_INITRD\_COMPRESSION to specify the compression of the recovery system initrd
+- [\#1183 Issue](2017-01-27.1183.issue.closed.md) `closed`: migrate\_network\_configuration\_files flaw if IPADDR in ip\_addr/prefix format
+- [\#1184 PR](2017-01-27.1184.pr.closed.md) `closed`: Fixed problem of truncating network prefix from IPADDR if NETMASK not…
+- [\#1185 Issue](2017-01-31.1185.issue.closed.md) `closed`: SUSE\_LINUX/610\_link\_systemd\_lib.sh fails with "failed to create symbolic link"
+- [\#1186 Issue](2017-02-03.1186.issue.closed.md) `closed`: not setting correct time delta
+- [\#1187 Issue](2017-02-03.1187.issue.closed.md) `closed`: verbose mode showing speed as negative
+- [\#1188 Issue](2017-02-03.1188.issue.closed.md) `closed`: better feedback during recovery
+- [\#1189 PR](2017-02-03.1189.pr.closed.md) `closed`: missing bareos-fd.conf error and could not start bareos-fd error
+- [\#1190 PR](2017-02-04.1190.pr.merged.md) `merged`: add /etc/multipath/\* in rear ramdisk
+- [\#1191 PR](2017-02-05.1191.pr.merged.md) `merged`: support of nvme disks in guess\_bootloader script
+- [\#1192 Issue](2017-02-07.1192.issue.closed.md) `closed`: rear missing genisoimage dependency (on Fedora 26
+- [\#1193 Issue](2017-02-07.1193.issue.closed.md) `closed`: rear miss grub2-efi-modules dependency: fails mkrescue with Error occurred during grub2-mkimage of BOOTX64.efi
+- [\#1194 Issue](2017-02-07.1194.issue.closed.md) `closed`: syntax for /etc/rear/local.conf file
+- [\#1195 Issue](2017-02-07.1195.issue.closed.md) `closed`: ReaR picked up wrong disk size when re-creating the disk partition
+- [\#1196 Issue](2017-02-07.1196.issue.closed.md) `closed`: Issue template change
+- [\#1197 Issue](2017-02-10.1197.issue.closed.md) `closed`: ReaR on Raspberry Pi: Rear package for ARM
+- [\#1198 Issue](2017-02-12.1198.issue.closed.md) `closed`: BACKUP\_URL=cifs not piping the credentials
+- [\#1199 Issue](2017-02-14.1199.issue.closed.md) `closed`: sysinit.service does not start correctly
+- [\#1200 Issue](2017-02-16.1200.issue.closed.md) `closed`: /run/resolvconf/resolv.conf not copied, no DNS in rescue system
+- [\#1201 Issue](2017-02-21.1201.issue.closed.md) `closed`: Extend script with manual optimal aligned partitioning for USB flash/SSD media
+- [\#1202 Issue](2017-02-22.1202.issue.closed.md) `closed`: recovery system does not contain all kernel modules
+- [\#1203 PR](2017-02-22.1203.pr.closed.md) `closed`: Enhancement: find 64-bit systemd UEFI bootloader
+- [\#1204 PR](2017-02-22.1204.pr.merged.md) `merged`: Enhancement: find 64-bit systemd UEFI bootloader
+- [\#1205 PR](2017-02-22.1205.pr.merged.md) `merged`: Increase default USB\_UEFI\_PART\_SIZE from 100 to 200 to 400 to 512 to 1024 MiB
+- [\#1206 Issue](2017-02-23.1206.issue.closed.md) `closed`: ReaR for Ubuntu 16.04 needs syslinux-common (and pxelinux
+- [\#1207 Issue](2017-02-23.1207.issue.closed.md) `closed`: During recovery system startup start-udev-or-load-modules.sh shows some "grep ... broken pipe" error
+- [\#1208 Issue](2017-02-24.1208.issue.closed.md) `closed`: ebiso segmentation fault when executed on ReaR restored XFS filesystem
+- [\#1209 PR](2017-02-24.1209.pr.merged.md) `merged`: First partially working implementation of the new ZYPPER backup method
+- [\#1210 Issue](2017-02-26.1210.issue.closed.md) `closed`: ReaR on Raspberry Pi: BUG in 200\_partition\_layout.sh: Function get\_version could not detect parted version.
+- [\#1211 Issue](2017-03-01.1211.issue.closed.md) `closed`: Excluded VGs with multipath devices partition a wrong multipath device
+- [\#1212 PR](2017-03-01.1212.pr.merged.md) `merged`: Make UEFI\_BOOTLOADER work more generally
+- [\#1213 Issue](2017-03-01.1213.issue.closed.md) `closed`: XFS mount failed with attributes sunit=128,swidth=86016 after updating RHEL 7.2 to 7.3
+- [\#1214 Issue](2017-03-01.1214.issue.closed.md) `closed`: Add support for Arch Linux systemd-boot f.k.a. gummiboot (UEFI boot
+- [\#1215 PR](2017-03-02.1215.pr.merged.md) `merged`: Enable SELinux in the rescure/restore ReaR image for tar internal bac…
+- [\#1216 Issue](2017-03-03.1216.issue.closed.md) `closed`: Implement FIRMWARE\_FILES support
+- [\#1217 PR](2017-03-05.1217.pr.merged.md) `merged`: mkrescue partition alignment enhancement
+- [\#1218 Issue](2017-03-06.1218.issue.closed.md) `closed`: Add lz4 initrd compression support for even faster mkrescue
+- [\#1219 PR](2017-03-06.1219.pr.merged.md) `merged`: small coding style iprovements regarding pull request 1217
+- [\#1220 Issue](2017-03-06.1220.issue.closed.md) `closed`: turn off 30 seconds counter while rear recover
+- [\#1221 PR](2017-03-08.1221.pr.merged.md) `merged`: Add etc/rear/site.conf to .gitignore
+- [\#1222 PR](2017-03-08.1222.pr.merged.md) `merged`: merge master branch with dev
+- [\#1223 Issue](2017-03-08.1223.issue.closed.md) `closed`: UEFI /boot is case sensitive but the /EFI part should be case insensitive
+- [\#1224 Issue](2017-03-08.1224.issue.closed.md) `closed`: Website contributing section seems out of date: checkout new branches against upstream/dev
+- [\#1225 PR](2017-03-08.1225.pr.merged.md) `merged`: 320\_include\_uefi\_env made less case sensitive
+- [\#1226 PR](2017-03-09.1226.pr.closed.md) `closed`: Merge pull request \#1222 from rear/master
+- [\#1227 PR](2017-03-09.1227.pr.merged.md) `merged`: Merge dev changes into master branch
+- [\#1228 Issue](2017-03-09.1228.issue.closed.md) `closed`: What about 30\_stop\_selinux.onhold (two digit named script
+- [\#1229 Issue](2017-03-09.1229.issue.closed.md) `closed`: DRLM ReaR multiple configs support (-C config\_name
+- [\#1230 Issue](2017-03-09.1230.issue.closed.md) `closed`: systemd-service-file-refers-to-obsolete-target
+- [\#1231 Issue](2017-03-09.1231.issue.closed.md) `closed`: swap disk excluded from recovery
+- [\#1232 PR](2017-03-09.1232.pr.merged.md) `merged`: uefi patches from ProBackup-nl
+- [\#1233 Issue](2017-03-10.1233.issue.closed.md) `closed`: ReaR does not sufficiently error out if mandatory stuff is missing
+- [\#1234 Issue](2017-03-10.1234.issue.closed.md) `closed`: rear backup fails on servers with oracle asm disks
+- [\#1235 PR](2017-03-11.1235.pr.merged.md) `merged`: lz4 legacy format (Linux kernel compression
+- [\#1236 PR](2017-03-11.1236.pr.merged.md) `merged`: doc lz4 -1 changed to lz4 -l
+- [\#1237 PR](2017-03-11.1237.pr.merged.md) `merged`: Add (Linaro
+- [\#1238 Issue](2017-03-11.1238.issue.closed.md) `closed`: Can't 230\_run\_efibootmgr.sh in folder Linux-i386 be moved to default?
+- [\#1239 Issue](2017-03-14.1239.issue.closed.md) `closed`: PPC64be - Cannot find required programs: efibootmgr
+- [\#1240 Issue](2017-03-14.1240.issue.closed.md) `closed`: Recover: boot\_debug=2 kernel option causes Rear to wait for "enter" key press
+- [\#1241 PR](2017-03-14.1241.pr.merged.md) `merged`: Use SUSE\_LINUX as OS\_VENDOR on all SUSE systems.
+- [\#1242 Issue](2017-03-14.1242.issue.closed.md) `closed`: Some disks need 'dd ... bs=4092' in guess\_bootloader.sh and without grub2-efi-modules installed things go wrong on RHEL 7.3 with UEFI
+- [\#1243 PR](2017-03-14.1243.pr.merged.md) `merged`: Sync dev/master branches
+- [\#1244 PR](2017-03-15.1244.pr.merged.md) `merged`: Add USB .hci\_pci modules for broader hardware support
+- [\#1245 Issue](2017-03-15.1245.issue.closed.md) `closed`: RFC: Shouldn't '-D' (i.e. 'set -x'
+- [\#1246 PR](2017-03-15.1246.pr.merged.md) `merged`: simplified commit 6c477d4e99edeb21a1a8c7649c24b2a56de535a7
+- [\#1247 PR](2017-03-16.1247.pr.merged.md) `merged`: treat missing additional config files same as other missing config files
+- [\#1248 PR](2017-03-16.1248.pr.merged.md) `merged`: Added plain 'curl' to default PROGS (issue1156 and issue1229
+- [\#1249 Issue](2017-03-17.1249.issue.closed.md) `closed`: mkrescue: don't copy .gitignore files to /rootfs/
+- [\#1250 Issue](2017-03-17.1250.issue.closed.md) `closed`: Can't login to recover ISO PPC64
+- [\#1251 Issue](2017-03-17.1251.issue.closed.md) `closed`: Implement a proper 'init' stage
+- [\#1252 PR](2017-03-17.1252.pr.merged.md) `merged`: DRLM management and security improvements
+- [\#1253 Issue](2017-03-18.1253.issue.closed.md) `closed`: FATAL: Module fuse not found -- in RESCUE shell
+- [\#1254 PR](2017-03-20.1254.pr.closed.md) `closed`: systemd-boot support added
+- [\#1255 Issue](2017-03-21.1255.issue.closed.md) `closed`: DEBIAN specific package 'Release.key' expired
+- [\#1256 PR](2017-03-21.1256.pr.merged.md) `merged`: Implemented FIRMWARE\_FILES support
+- [\#1257 PR](2017-03-21.1257.pr.merged.md) `merged`: Corrected bad test for UEFI partition check inside /boot.
+- [\#1258 Issue](2017-03-21.1258.issue.closed.md) `closed`: In recovery system HOSTNAME is 'localhost' which is not the name of the original system
+- [\#1259 PR](2017-03-22.1259.pr.merged.md) `merged`: More fail safe tests for ReaR specific kernel command line parameters
+- [\#1260 Issue](2017-03-22.1260.issue.closed.md) `closed`: Problems with Toshiba USB flash driveUSB. Seems to format, but then won't boot or mount but is recognised by OS
+- [\#1261 Issue](2017-03-24.1261.issue.closed.md) `closed`: grubby bootloader (needed on s390x and aarch64
+- [\#1262 PR](2017-03-24.1262.pr.merged.md) `merged`: First attempt to implement BOOTLOADER support
+- [\#1263 Issue](2017-03-27.1263.issue.closed.md) `closed`: Hello,
+- [\#1264 Issue](2017-03-27.1264.issue.closed.md) `closed`: Get "grub&gt;" prompt and not booting, after "rear recover" done and reboot with UEFI
+- [\#1265 PR](2017-03-27.1265.pr.merged.md) `merged`: Describe BOOTLOADER in default.conf
+- [\#1266 Issue](2017-03-27.1266.issue.closed.md) `closed`: savelayout workflow could not find bootloader file
+- [\#1267 PR](2017-03-28.1267.pr.merged.md) `merged`: Added required libs and files for curl with HTTPs by default
+- [\#1268 PR](2017-03-28.1268.pr.merged.md) `merged`: Moved guess\_bootloader into layout/save/default
+- [\#1269 Issue](2017-03-28.1269.issue.closed.md) `closed`: 400\_autoresize\_disks.sh incorrectly calculates $new\_size with mawk (Debian
+- [\#1270 Issue](2017-03-29.1270.issue.closed.md) `closed`: old parted does not supprt IEC binary units like MiB GiB so that 300\_format\_usb\_disk needs to be fixed
+- [\#1271 Issue](2017-03-29.1271.issue.closed.md) `closed`: During "rear recover" all what matches ReaR sources like /dev/disk/by-label/REAR-000 or BACKUP\_URL=usb://... must be sacrosanct
+- [\#1272 PR](2017-03-29.1272.pr.merged.md) `merged`: Patch for issue \#1269 where mawk incorrectly calculated size of partition
+- [\#1273 PR](2017-03-30.1273.pr.merged.md) `merged`: Use parted with B unit to be compatible with older parted.
+- [\#1274 Issue](2017-03-30.1274.issue.closed.md) `closed`: Fail to acquire DHCP IP in 58-start-dhclient.sh
+- [\#1275 Issue](2017-03-30.1275.issue.closed.md) `closed`: Relax-and-Recover (ReaR
+- [\#1276 PR](2017-03-30.1276.pr.merged.md) `merged`: More precise XFS file system creation during rear recover
+- [\#1277 Issue](2017-04-04.1277.issue.closed.md) `closed`: How to change working cache folder from /tmp to another folder?
+- [\#1278 PR](2017-04-04.1278.pr.closed.md) `closed`: Change default Permission on Files and Directory in tftpboot.
+- [\#1279 PR](2017-04-05.1279.pr.merged.md) `merged`: Excluded private keys from recovery for curl https (see: PR \#1267
+- [\#1280 Issue](2017-04-05.1280.issue.closed.md) `closed`: Check out waffle.io to increase transparency / Agree on external tool access to ReaR
+- [\#1281 Issue](2017-04-05.1281.issue.closed.md) `closed`: How to avoid the copy of ISO (rescue +data
+- [\#1282 Issue](2017-04-10.1282.issue.closed.md) `closed`: Editor problems in Recovery Mode
+- [\#1283 Issue](2017-04-10.1283.issue.closed.md) `closed`: With NETFS\_RESTORE\_CAPABILITIES=yes 'getcap -r /' runs too long on big systems
+- [\#1284 PR](2017-04-11.1284.pr.merged.md) `merged`: Make NETFS\_RESTORE\_CAPABILITIES more fail safe
+- [\#1285 Issue](2017-04-12.1285.issue.closed.md) `closed`: ReaR backups too old files for incremental backups
+- [\#1286 PR](2017-04-13.1286.pr.merged.md) `merged`: Fix no hostname set in Arch Linux \#1254
+- [\#1287 PR](2017-04-13.1287.pr.closed.md) `closed`: Only set host name in recovery when /etc/HOSTNAME (uppercase
+- [\#1288 PR](2017-04-13.1288.pr.merged.md) `merged`: Add LVM check in 005\_create\_symlinks.sh
+- [\#1289 PR](2017-04-13.1289.pr.merged.md) `merged`: Make long SourceStage logging output better human scannable
+- [\#1290 PR](2017-04-13.1290.pr.merged.md) `merged`: Lz4 -l (Legacy
+- [\#1291 PR](2017-04-13.1291.pr.merged.md) `merged`: Update 990\_sysreqs.sh to make it less error prone
+- [\#1292 PR](2017-04-13.1292.pr.closed.md) `closed`: ESP flagging, name partitions in 300\_format\_usb\_disk.sh
+- [\#1293 PR](2017-04-13.1293.pr.merged.md) `merged`: Simplify case insensitive /boot/efi check in 310\_include\_uefi\_tools
+- [\#1294 PR](2017-04-13.1294.pr.closed.md) `closed`: Simplify case insensitive /boot/efi match in 320\_include\_uefi\_env
+- [\#1295 PR](2017-04-14.1295.pr.closed.md) `closed`: Multipathing when BOOT\_OVER\_SAN=y
+- [\#1296 PR](2017-04-14.1296.pr.merged.md) `merged`: Typo in 600\_store\_NETFS\_variables.sh ?
+- [\#1297 PR](2017-04-14.1297.pr.merged.md) `merged`: Remove duplicate pico from Linux.conf PROGS array
+- [\#1298 Issue](2017-04-14.1298.issue.closed.md) `closed`: Mkrescue: use the text editor that is available (vi: command not found
+- [\#1299 PR](2017-04-14.1299.pr.merged.md) `merged`: exclude tmpfs from df.txt and replace grep
+- [\#1300 Issue](2017-04-14.1300.issue.closed.md) `closed`: 32G recover on 256G disk -&gt; message: size reduced to fit on disk
+- [\#1301 Issue](2017-04-14.1301.issue.closed.md) `closed`: Handle eMMC and NVMe naming schemes (also for migrations
+- [\#1302 PR](2017-04-14.1302.pr.merged.md) `merged`: Add mmcblk and nvme devices to translation mappings
+- [\#1303 PR](2017-04-14.1303.pr.closed.md) `closed`: Fix recovery for Arch Linux EFI boot
+- [\#1304 Issue](2017-04-15.1304.issue.closed.md) `closed`: ReaR website: development documentation: include how to make a branch stay in sync with upstream
+- [\#1305 PR](2017-04-15.1305.pr.merged.md) `merged`: Include mmcblk as bootable device type in guess\_bootloader
+- [\#1306 PR](2017-04-16.1306.pr.merged.md) `merged`: Add nano, dhcp client, sshd start to bash history
+- [\#1307 Issue](2017-04-16.1307.issue.closed.md) `closed`: Migrate: Partition resized to a negative number (new\_size=0
+- [\#1308 PR](2017-04-16.1308.pr.merged.md) `merged`: parted is also able to recreate ESP partition flag
+- [\#1309 PR](2017-04-17.1309.pr.merged.md) `merged`: Multipathing when BOOT\_OVER\_SAN=y
+- [\#1310 PR](2017-04-17.1310.pr.merged.md) `merged`: Use "sort -un" to prevent duplicate entry in partitions file.
+- [\#1311 PR](2017-04-17.1311.pr.merged.md) `merged`: Use dracut to rebuild initrd for RHEL on POWER
+- [\#1312 PR](2017-04-17.1312.pr.merged.md) `merged`: Renaming network interface when MAC not present in udev
+- [\#1313 PR](2017-04-17.1313.pr.merged.md) `merged`: Rebuild initramfs after for SLES ppc64le (Sles12
+- [\#1314 PR](2017-04-17.1314.pr.merged.md) `merged`: Allowing multipath devices to be candidate disk during mapping.
+- [\#1315 PR](2017-04-17.1315.pr.merged.md) `merged`: Multipath device mapping
+- [\#1316 PR](2017-04-17.1316.pr.merged.md) `merged`: Set hostname in both /etc/hostname and /etc/HOSTNAME.
+- [\#1317 PR](2017-04-18.1317.pr.closed.md) `closed`: Equalize Dev/master branch
+- [\#1318 PR](2017-04-18.1318.pr.closed.md) `closed`: Merge master updates into DEV
+- [\#1319 PR](2017-04-19.1319.pr.merged.md) `merged`: Fix for long wait in dig, when DNS servers are not set.
+- [\#1320 Issue](2017-04-20.1320.issue.closed.md) `closed`: Enhance "pure additive" scripts sourcing with "additive plus replacing" scripts sourcing
+- [\#1321 Issue](2017-04-20.1321.issue.closed.md) `closed`: Recreate initrd/initramfs by default in any case
+- [\#1322 PR](2017-04-21.1322.pr.merged.md) `merged`: Add yaboot.conf to the list of file for disk migration.
+- [\#1323 PR](2017-04-21.1323.pr.merged.md) `merged`: Separate PPC bootlist creation from bootloader installation
+- [\#1324 PR](2017-04-21.1324.pr.merged.md) `merged`: Use mpathconf to setup multipath in recovery (if available
+- [\#1325 PR](2017-04-21.1325.pr.merged.md) `merged`: Moving is\_multipath\_path function to lib/layout-functions.sh
+- [\#1326 Issue](2017-04-23.1326.issue.closed.md) `closed`: "rear mkrescue" fails with "BUG! Unknown bootloader" - nvme sys block device not included
+- [\#1327 Issue](2017-04-24.1327.issue.closed.md) `closed`: Stalled recovery due to mkfs interactive prompt
+- [\#1328 PR](2017-04-24.1328.pr.merged.md) `merged`: Adding libaio for multipath if BOOT\_OVER\_SAN true
+- [\#1329 PR](2017-04-24.1329.pr.merged.md) `merged`: Add partition prefix "-part" for multipathed device in Ubuntu.
+- [\#1330 Issue](2017-04-24.1330.issue.closed.md) `closed`: BACKUP\_PROG\_INCLUDE suggested command in SLE12 btrfs example configuration
+- [\#1331 Issue](2017-04-24.1331.issue.closed.md) `closed`: "rear recover" recreates initramfs/initd after bootloader was installed
+- [\#1332 PR](2017-04-25.1332.pr.merged.md) `merged`: Unite calculations in partition code.
+- [\#1333 Issue](2017-04-25.1333.issue.closed.md) `closed`: Any way to speed up mkbackup to cifs share? (getting less than 900KBps w/gzip
+- [\#1334 PR](2017-04-27.1334.pr.merged.md) `merged`: Fixed REQUIRED\_PROGS tests (related to issue1233
+- [\#1335 Issue](2017-04-27.1335.issue.closed.md) `closed`: ReaR PXE setup for SLES11 to boot HP ProLiant with UEFI
+- [\#1336 PR](2017-04-28.1336.pr.merged.md) `merged`: Try wipefs and use dd as fallback (issue1327 and related to issue799
+- [\#1337 Issue](2017-05-01.1337.issue.closed.md) `closed`: rear dump not showing OUTPUT\_URL
+- [\#1338 Issue](2017-05-01.1338.issue.closed.md) `closed`: Potentially patching wrong files during recovery
+- [\#1339 PR](2017-05-02.1339.pr.merged.md) `merged`: Allow "grub PXE style" for non x86 platform.
+- [\#1340 PR](2017-05-02.1340.pr.merged.md) `merged`: Show OUTPUT\_\* variables in rear dump
+- [\#1341 PR](2017-05-03.1341.pr.merged.md) `merged`: Cleanup wipefs code (related to issue1327 and pullrequest1336
+- [\#1342 Issue](2017-05-03.1342.issue.closed.md) `closed`: Error: "No files to copy (RESULT\_FILES is empty
+- [\#1343 PR](2017-05-03.1343.pr.merged.md) `merged`: Do not save RESULT\_FILES via TSM if TSM\_RESULT\_SAVE is false or PXE\_TFTP\_URL is defined.
+- [\#1344 PR](2017-05-05.1344.pr.merged.md) `merged`: Avoid to get devname & devsize when not needed (multipath
+- [\#1345 PR](2017-05-06.1345.pr.merged.md) `merged`: Initramfs need $PATH when running in chroot on sles11
+- [\#1346 PR](2017-05-06.1346.pr.merged.md) `merged`: Using get\_disk\_size to get size of multipath device.
+- [\#1347 PR](2017-05-06.1347.pr.merged.md) `merged`: Don't run yaboot if yaboot.conf is managed by lilo.
+- [\#1348 PR](2017-05-06.1348.pr.merged.md) `merged`: First draft of TSM backup
+- [\#1349 PR](2017-05-08.1349.pr.merged.md) `merged`: Include systemd/network to preserve Predictable Network Interface Names
+- [\#1350 PR](2017-05-08.1350.pr.merged.md) `merged`: document incremental/differential backup timing granularity
+- [\#1351 Issue](2017-05-09.1351.issue.closed.md) `closed`: \[RFE\] ISO\_RECOVER\_MODE=unattended mode
+- [\#1352 PR](2017-05-09.1352.pr.merged.md) `merged`: cleanup linux-functions.sh as preparation for issue1202
+- [\#1353 Issue](2017-05-09.1353.issue.closed.md) `closed`: Recovery fails - Everything in disklayout file is commented out
+- [\#1354 Issue](2017-05-10.1354.issue.closed.md) `closed`: Possibly false IsInArray usage in 610\_exclude\_from\_restore.sh
+- [\#1355 Issue](2017-05-10.1355.issue.closed.md) `closed`: 'modprobe --show-depends' insufficient to get all needed modules
+- [\#1356 PR](2017-05-10.1356.pr.merged.md) `merged`: BUG \#1353 Typo in 300\_map\_disks
+- [\#1357 Issue](2017-05-10.1357.issue.closed.md) `closed`: "rear mkbackup" does not create iso file on aarch64
+- [\#1358 Issue](2017-05-10.1358.issue.closed.md) `closed`: Rear cannot read kernel file on aarch64
+- [\#1359 PR](2017-05-10.1359.pr.merged.md) `merged`: Enhancement what MODULES get included in the reovery system
+- [\#1360 Issue](2017-05-10.1360.issue.closed.md) `closed`: Xorriso support
+- [\#1361 Issue](2017-05-11.1361.issue.closed.md) `closed`: IDEA: Automatically eject CDROM
+- [\#1362 Issue](2017-05-11.1362.issue.closed.md) `closed`: ReaR releases should not mention Git in version / Dev builds should mention the Git commit hash
+- [\#1363 Issue](2017-05-13.1363.issue.closed.md) `closed`: rear mkrescue shows "Using backup archive" message
+- [\#1364 Issue](2017-05-14.1364.issue.closed.md) `closed`: prolient dl380 Gen7 network not coming up
+- [\#1365 PR](2017-05-15.1365.pr.merged.md) `merged`: Do not discard stderr needlessly (related to pull request 1359
+- [\#1366 Issue](2017-05-16.1366.issue.closed.md) `closed`: Avoid 'sit-and-wait predator' and timeout bash 'select' lists with a default/fallback value
+- [\#1367 PR](2017-05-16.1367.pr.merged.md) `merged`: implemented REBUILD\_INITRAMFS variable (issue1321
+- [\#1368 Issue](2017-05-17.1368.issue.closed.md) `closed`: Suse 12 on power. ISO setting seems to be ignored
+- [\#1369 PR](2017-05-19.1369.pr.merged.md) `merged`: Support for Grub2 + RAID1 on POWER
+- [\#1370 Issue](2017-05-20.1370.issue.closed.md) `closed`: ERROR: BUG BUG BUG! Could not determine size of disk sdd/sdd1
+- [\#1371 Issue](2017-05-29.1371.issue.closed.md) `closed`: Provide security recommendations for ReaR developers
+- [\#1372 Issue](2017-06-01.1372.issue.closed.md) `closed`: Make ReaR safe against blanks or special characters in file and directory names
+- [\#1373 Issue](2017-06-02.1373.issue.closed.md) `closed`: Preparation to release ReaR 2.1
+- [\#1374 Issue](2017-06-05.1374.issue.closed.md) `closed`: ReaR UEFI image fails booting if secure boot enabled
+- [\#1375 Issue](2017-06-05.1375.issue.closed.md) `closed`: REAR Suse 11 SP4 running on IBM Power8 ISO image not bootable
+- [\#1376 Issue](2017-06-06.1376.issue.closed.md) `closed`: grep with Perl regular expression causes failures (native grep extended regular expression works
+- [\#1377 Issue](2017-06-07.1377.issue.closed.md) `closed`: Does ReaR work with EMC Powerpath multipathing software?
+- [\#1378 PR](2017-06-08.1378.pr.merged.md) `merged`: replaced some perl regexp with grep native (extended
+- [\#1379 Issue](2017-06-09.1379.issue.closed.md) `closed`: 'rear recover' errors out in FindStorageDrivers (
+- [\#1380 Issue](2017-06-09.1380.issue.closed.md) `closed`: ReaR recovery fails when the OS contains a Thin Pool/Volume
+- [\#1381 Issue](2017-06-12.1381.issue.closed.md) `closed`: debian stretch: sshd wont start as /run/sshd is missing from recovery image
+- [\#1382 PR](2017-06-12.1382.pr.merged.md) `merged`: Create multipath.conf only during migration (from non-mulitpath to multipath
+- [\#1383 PR](2017-06-12.1383.pr.merged.md) `merged`: Allow backup to be stored in ISO for ppc64/ppc64le
+- [\#1384 Issue](2017-06-13.1384.issue.closed.md) `closed`: REAR iso maps scsi controllers in different order than native SUSE on VMWare with different cntrollers
+- [\#1385 PR](2017-06-19.1385.pr.merged.md) `merged`: Do not recreate BOOTX64.efi, if Secure boot is enabled.
+- [\#1386 Issue](2017-06-20.1386.issue.closed.md) `closed`: Creating ext2/3/4 filesystem on whole disk requires answering y without prompt
+- [\#1387 Issue](2017-06-20.1387.issue.closed.md) `closed`: BACKUP\_PROG=rsync and rear mkbackup -v prints the verbose rsync output on the terminal
+- [\#1388 Issue](2017-06-20.1388.issue.closed.md) `closed`: rear mkbackup/mkrescue doesn't create a GRUB2 entry
+- [\#1389 Issue](2017-06-21.1389.issue.closed.md) `closed`: How to make rpm on old distros?
+- [\#1390 Issue](2017-06-21.1390.issue.closed.md) `closed`: RFC: A future ReaR major version that does away with all the old stuff?
+- [\#1391 PR](2017-06-22.1391.pr.merged.md) `merged`: Redirect both stderr and stdout into the log file but use the original fds for actually intended user input/output
+- [\#1392 PR](2017-06-22.1392.pr.merged.md) `merged`: Simplify Makefile
+- [\#1393 PR](2017-06-26.1393.pr.merged.md) `merged`: Add /dev/mapper to COPY\_AS\_IS\_EXCLUDE
+- [\#1394 PR](2017-06-26.1394.pr.merged.md) `merged`: Always copy /etc/multipath/bindings to the TARGET\_FS\_ROOT
+- [\#1395 Issue](2017-06-27.1395.issue.closed.md) `closed`: Remove '&gt;/dev/null' where it makes sense to get all info in the log
+- [\#1396 PR](2017-06-27.1396.pr.merged.md) `merged`: Enhanced the UserInput function and replaced example select and read calls by the UserInput function
+- [\#1397 Issue](2017-06-28.1397.issue.closed.md) `closed`: Bareos automatic recovery stops after the restore (during recover mode
+- [\#1398 Issue](2017-06-28.1398.issue.closed.md) `closed`: Possible regressions because of redirected STDOUT
+- [\#1399 Issue](2017-06-30.1399.issue.closed.md) `closed`: Major user input/output cleanup and improvement for ReaR 2.3
+- [\#1400 Issue](2017-06-30.1400.issue.closed.md) `closed`: RFC: biosdevnames auto detection
+- [\#1401 PR](2017-07-03.1401.pr.merged.md) `merged`: Fix where output should go to the original STDOUT
+- [\#1402 PR](2017-07-03.1402.pr.merged.md) `merged`: Add SSL cert directories
+- [\#1403 Issue](2017-07-06.1403.issue.closed.md) `closed`: rear package on ubuntu 14.04 depends on isolinux package (which does not exist
+- [\#1404 Issue](2017-07-06.1404.issue.closed.md) `closed`: SELinux autorelabelling possibly inconsistently implemented
+- [\#1405 Issue](2017-07-06.1405.issue.closed.md) `closed`: Power: Recovery on multipath volume fails due to get\_sysfs\_name checks volume path with ! included
+- [\#1406 PR](2017-07-10.1406.pr.merged.md) `merged`: Correctly handle initrd modules and other stuff
+- [\#1407 Issue](2017-07-13.1407.issue.closed.md) `closed`: Master: SLES11 SP4 on Power: unable to boot generated iso image, yaboot missing on iso image
+- [\#1408 PR](2017-07-13.1408.pr.merged.md) `merged`: Automated unique default user\_input\_ID for UserInput
+- [\#1409 PR](2017-07-13.1409.pr.closed.md) `closed`: Redirect stdout only if not in verbose mode.
+- [\#1410 Issue](2017-07-13.1410.issue.closed.md) `closed`: Missing OUTPUT\_URL=nfs in 03-configuration.adoc
+- [\#1411 Issue](2017-07-14.1411.issue.closed.md) `closed`: Support 'tar' xattrs (--xattrs --xattrs-include='*.*'
+- [\#1412 PR](2017-07-14.1412.pr.merged.md) `merged`: Added missing OUTPUT\_URL=nfs into documentation.
+- [\#1413 Issue](2017-07-14.1413.issue.closed.md) `closed`: Compilation with "make rpm" failed
+- [\#1414 PR](2017-07-14.1414.pr.merged.md) `merged`: Add /yaboot to ISO\_FILE when running SUSE ppc64
+- [\#1415 Issue](2017-07-14.1415.issue.closed.md) `closed`: USB backup can't work with current code
+- [\#1416 Issue](2017-07-15.1416.issue.closed.md) `closed`: udev failed to start on Debian 8.8, rear 2.1
+- [\#1417 PR](2017-07-16.1417.pr.merged.md) `merged`: ReaR failed to run backup to USB device
+- [\#1418 PR](2017-07-16.1418.pr.merged.md) `merged`: Make function get\_disk\_size (
+- [\#1419 Issue](2017-07-17.1419.issue.closed.md) `closed`: Upgrade ReaR GitHub Security
+- [\#1420 Issue](2017-07-17.1420.issue.closed.md) `closed`: REAR on Power (SLES
+- [\#1421 PR](2017-07-17.1421.pr.merged.md) `merged`: Let user interrupt automated input of the UserInput function
+- [\#1422 PR](2017-07-17.1422.pr.merged.md) `merged`: Improve \#1415 to also explain where the USB device is mounted
+- [\#1423 PR](2017-07-18.1423.pr.merged.md) `merged`: Some fixes for the UserInput function
+- [\#1424 Issue](2017-07-19.1424.issue.closed.md) `closed`: Preparation to release ReaR 2.2
+- [\#1425 Issue](2017-07-19.1425.issue.closed.md) `closed`: RFC: Replace uninterruptible 'sleep ...' by interruptible 'read -t ...'
+- [\#1426 Issue](2017-07-20.1426.issue.closed.md) `closed`: Cannot boot from rear iso uefi
+- [\#1427 Issue](2017-07-21.1427.issue.closed.md) `closed`: Align AUTHORS and COPYRIGHT persons in various sources
+- [\#1428 PR](2017-07-24.1428.pr.closed.md) `closed`: Generate AUTHORS file
+- [\#1429 PR](2017-07-24.1429.pr.merged.md) `merged`: Replace AUTHORS by MAINTAINERS file and explain more background info
+- [\#1430 PR](2017-07-25.1430.pr.merged.md) `merged`: Adapt chrp-boot option when xorrisofs is used
+- [\#1431 Issue](2017-07-26.1431.issue.closed.md) `closed`: Using '2&gt;&1' or '2&gt;&8' for 'select' clause results '-D' debug output on terminal
+- [\#1432 Issue](2017-07-28.1432.issue.closed.md) `closed`: BTRFS subvolumes content are not backup in SLES12-SP2
+- [\#1433 Issue](2017-07-28.1433.issue.closed.md) `closed`: In recovery system /etc/motd results weird user experience for rear\_shell
+- [\#1434 PR](2017-07-28.1434.pr.merged.md) `merged`: Using UserInput in 300\_map\_disks.sh and general overhaul of that script
+- [\#1435 PR](2017-07-28.1435.pr.merged.md) `merged`: SLES12 with no snapshots failed to recreate/mount btrfs FS during recovery.
+- [\#1436 PR](2017-07-31.1436.pr.merged.md) `merged`: Adapt /etc/motd when 'rear recover' is running (issue 1433
+- [\#1437 Issue](2017-08-01.1437.issue.closed.md) `closed`: It seems migration mode migrates only disks but not the bootloader
+- [\#1438 Issue](2017-08-02.1438.issue.closed.md) `closed`: Intermittent errors when running mkrescue/mkbackup
+- [\#1439 Issue](2017-08-04.1439.issue.closed.md) `closed`: Unable to boot from 1Tb external USB drive
+- [\#1440 PR](2017-08-08.1440.pr.closed.md) `closed`: Ensure that ROOTFS\_DIR variable is set with non-null value.
+- [\#1441 Issue](2017-08-09.1441.issue.closed.md) `closed`: An error occurred during layout recreation - SLES12 on Power
+- [\#1442 PR](2017-08-11.1442.pr.merged.md) `merged`: Systemd automatic serial console detection
+- [\#1443 PR](2017-08-11.1443.pr.merged.md) `merged`: Add PXE\_RECOVER\_MODE in PXE GRUB\_STYLE
+- [\#1444 Issue](2017-08-13.1444.issue.closed.md) `closed`: Not able to recover encypted OS
+- [\#1445 Issue](2017-08-15.1445.issue.closed.md) `closed`: Unable restore server from successful rear backup
+- [\#1446 PR](2017-08-16.1446.pr.merged.md) `merged`: Migrate lilo and yaboot before mkinitrd
+- [\#1447 PR](2017-08-16.1447.pr.merged.md) `merged`: Add finalize/550\_rebuild\_initramfs.sh to ppc64le arch for Debian/Ubuntu
+- [\#1448 PR](2017-08-21.1448.pr.merged.md) `merged`: removing duplicate hvc0 console creation.
+- [\#1449 PR](2017-08-21.1449.pr.merged.md) `merged`: Add non blocking userprompt with timeout if no multipath device detected.
+- [\#1450 PR](2017-08-21.1450.pr.merged.md) `merged`: Allow full migration of /dev/disk/by-id/devices
+- [\#1451 Issue](2017-08-21.1451.issue.closed.md) `closed`: rear: service file uses deprecated BindTo=
+- [\#1452 Issue](2017-08-23.1452.issue.closed.md) `closed`: TSM Client 8.1.2 use other files for authentication
+- [\#1453 PR](2017-08-24.1453.pr.merged.md) `merged`: Remove unecessary export variable
+- [\#1454 PR](2017-08-24.1454.pr.merged.md) `merged`: Simplified UserInput return codes to the 'read' return code
+- [\#1455 Issue](2017-08-25.1455.issue.closed.md) `closed`: mkinitrd on Centos fails due missing /var/tmp
+- [\#1456 PR](2017-08-25.1456.pr.merged.md) `merged`: Create /var/tmp (if it doesn't exist
+- [\#1457 PR](2017-08-25.1457.pr.merged.md) `merged`: Enhance MOUNTPOINTS\_TO\_RESTORE into DIRECTORIES\_TO\_CREATE
+- [\#1458 PR](2017-08-28.1458.pr.merged.md) `merged`: cryptsetup hangs on `cryptsetup luksOpen ...`
+- [\#1459 PR](2017-08-28.1459.pr.merged.md) `merged`: Enhance and cleanup the DIRECTORIES\_TO\_CREATE functionality
+- [\#1460 Issue](2017-08-29.1460.issue.closed.md) `closed`: Raid1 container
+- [\#1461 PR](2017-08-29.1461.pr.merged.md) `merged`: Add dir /etc/adsm dir to COPY\_AS\_IS\_TSM (\#1452
+- [\#1462 Issue](2017-08-30.1462.issue.closed.md) `closed`: /etc/tuned/bootcmdline file used by grub2-mkconfig but is missing
+- [\#1463 PR](2017-08-30.1463.pr.merged.md) `merged`: Activate btrfs filesystem creation with original uuid
+- [\#1464 PR](2017-08-31.1464.pr.merged.md) `merged`: Implement new YUM backup method (based on ZYPPER
+- [\#1465 Issue](2017-09-01.1465.issue.closed.md) `closed`: Debian/Ubuntu package version 2.2 are named 2.1?
+- [\#1466 PR](2017-09-01.1466.pr.merged.md) `merged`: Resolve $PXE\_TFTP\_IP to IP if hostname or FQDN are used
+- [\#1467 Issue](2017-09-02.1467.issue.closed.md) `closed`: Problems with bootloader and excluding devices
+- [\#1468 PR](2017-09-03.1468.pr.merged.md) `merged`: Using apply-mappings(
+- [\#1469 PR](2017-09-03.1469.pr.closed.md) `closed`: Use en\_US.UTF-8 instead of creating custom rear.UTF-8
+- [\#1470 Issue](2017-09-04.1470.issue.closed.md) `closed`: SUSE 12 SP1 Btrfs filesystem failed to restore
+- [\#1471 PR](2017-09-04.1471.pr.merged.md) `merged`: Overhauled 900\_clone\_users\_and\_groups.sh
+- [\#1472 PR](2017-09-05.1472.pr.merged.md) `merged`: Improved overhauled 900\_clone\_users\_and\_groups.sh
+- [\#1473 PR](2017-09-05.1473.pr.merged.md) `merged`: Use meaningful variable names for automated UserInput
+- [\#1474 Issue](2017-09-06.1474.issue.closed.md) `closed`: Clean up vagrant and virtualbox detection
+- [\#1475 PR](2017-09-06.1475.pr.merged.md) `merged`: BACKUP\_PROG\_OPTIONS used to be a string variable, turn it into an array
+- [\#1476 PR](2017-09-08.1476.pr.merged.md) `merged`: Do not 'simply return' when 'set-eu' is set.
+- [\#1477 PR](2017-09-08.1477.pr.closed.md) `closed`: Update 310\_include\_uefi\_tools.sh
+- [\#1478 Issue](2017-09-08.1478.issue.closed.md) `closed`: Rear terminates if the /boot/efi is not mounted
+- [\#1479 Issue](2017-09-08.1479.issue.closed.md) `closed`: An error occurred during layout recreation - SLES11SP4 on Power
+- [\#1480 PR](2017-09-11.1480.pr.merged.md) `merged`: Avoid apply\_layout\_mappings Error if input file is empty
+- [\#1481 PR](2017-09-11.1481.pr.merged.md) `merged`: Fix UEFI tools integration (should address issues in \#1477, \#1478
+- [\#1482 Issue](2017-09-12.1482.issue.closed.md) `closed`: Rear fails to detect /dev/sdc1 format
+- [\#1483 PR](2017-09-12.1483.pr.merged.md) `merged`: Avoid log messages about multiple disk partitions with identical name
+- [\#1484 Issue](2017-09-12.1484.issue.closed.md) `closed`: Redesign \_input-output-functions.sh in particular the I/O functions
+- [\#1485 Issue](2017-09-12.1485.issue.closed.md) `closed`: Error function is returning exit code 0
+- [\#1486 PR](2017-09-12.1486.pr.merged.md) `merged`: In 300\_map\_disks.sh use runtime generated UserInput-IDs
+- [\#1487 PR](2017-09-12.1487.pr.merged.md) `merged`: Fix: ZYPPER\_ROOT\_PASSWORD -&gt; YUM\_ROOT\_PASSWORD
+- [\#1488 Issue](2017-09-12.1488.issue.closed.md) `closed`: back-port bugs reported in Debian
+- [\#1489 PR](2017-09-12.1489.pr.merged.md) `merged`: Tweak how ssh user is copied in usr/share/rear/rescue/default/500\_ssh.sh
+- [\#1490 Issue](2017-09-13.1490.issue.closed.md) `closed`: Could endianness on POWER make a difference for ReaR?
+- [\#1491 Issue](2017-09-13.1491.issue.closed.md) `closed`: Disklayout have collecting problem
+- [\#1492 Issue](2017-09-13.1492.issue.closed.md) `closed`: Unable to determine raw USB device
+- [\#1493 PR](2017-09-15.1493.pr.merged.md) `merged`: Improve cryptographic security and user-friendliness for LUKS volumes
+- [\#1494 Issue](2017-09-15.1494.issue.closed.md) `closed`: Recovery system libraries not consistent (e.g. when /lib64/noelision/libpthread is used kernel panics because init fails
+- [\#1495 PR](2017-09-15.1495.pr.merged.md) `merged`: Add automatically some important kernel parameters to KERNEL\_CMDLINE
+- [\#1496 Issue](2017-09-15.1496.issue.closed.md) `closed`: Error during layout recreation with btrfs and docker
+- [\#1497 PR](2017-09-16.1497.pr.merged.md) `merged`: Fix btrfsmountedsubvol exclusion and dependency management
+- [\#1498 PR](2017-09-18.1498.pr.merged.md) `merged`: Cleanup and simplified default input for the UserInput function.
+- [\#1499 PR](2017-09-18.1499.pr.merged.md) `merged`: Avoid recreation of non-existing btrfs subvolumes (fix \#1496
+- [\#1500 PR](2017-09-18.1500.pr.closed.md) `closed`: Avoid leaking unprotected SSH private key files onto rescue medium
+- [\#1501 PR](2017-09-19.1501.pr.merged.md) `merged`: Added confidential mode '-C' for UserInput
+- [\#1502 PR](2017-09-19.1502.pr.merged.md) `merged`: Run ldconfig non mandatory at the end of 390\_copy\_binaries\_liraries.sh
+- [\#1503 PR](2017-09-19.1503.pr.merged.md) `merged`: Improve encrypted password detection in 500\_ssh.sh
+- [\#1504 Issue](2017-09-19.1504.issue.closed.md) `closed`: ubuntu16.04: missing ldconfig.real
+- [\#1505 PR](2017-09-20.1505.pr.merged.md) `merged`: Support raw input and read without echoing for confidential UserInput
+- [\#1506 Issue](2017-09-20.1506.issue.closed.md) `closed`: ReaR within SLES still lower than v2.0
+- [\#1507 PR](2017-09-20.1507.pr.merged.md) `merged`: Add an ExitTask to show a failure message if it exits unintendedly.
+- [\#1508 Issue](2017-09-21.1508.issue.closed.md) `closed`: NETFS Backup with local path fails
+- [\#1509 PR](2017-09-21.1509.pr.merged.md) `merged`: Add function to test for 'real value'
+- [\#1510 PR](2017-09-21.1510.pr.merged.md) `merged`: Improve ReaR network migration
+- [\#1511 Issue](2017-09-22.1511.issue.closed.md) `closed`: Security Vulnerability (Privilege Escalation
+- [\#1512 Issue](2017-09-22.1512.issue.closed.md) `closed`: Security Vulnerability (Gain Information
+- [\#1513 PR](2017-09-24.1513.pr.merged.md) `merged`: Avoid leaking unprotected SSH keys for root user into rescue medium and introduce ssh-agent
+- [\#1514 PR](2017-09-25.1514.pr.merged.md) `merged`: Verify required libraries in recovery system (related to issue 1494
+- [\#1515 Issue](2017-09-25.1515.issue.closed.md) `closed`: RHEL 7.3 on POWER
+- [\#1516 PR](2017-09-26.1516.pr.merged.md) `merged`: Fix lintian error (debian
+- [\#1517 Issue](2017-09-26.1517.issue.closed.md) `closed`: Split up lib/network-functions.sh into DHCP setup and general ReaR functions
+- [\#1518 Issue](2017-09-26.1518.issue.closed.md) `closed`: Recovery system libraries are insufficient (libs needed by libs are missing
+- [\#1519 Issue](2017-09-27.1519.issue.closed.md) `closed`: Incremental/differential backups on one same day do not work
+- [\#1520 Issue](2017-09-29.1520.issue.closed.md) `closed`: ReaR Backup On Multiple USB Disks
+- [\#1521 PR](2017-09-29.1521.pr.merged.md) `merged`: Simplify and cleanup the binaries and libraries copying code.
+- [\#1522 Issue](2017-10-02.1522.issue.closed.md) `closed`: OBS rpm build fails for SLES10 (snapshot release
+- [\#1523 Issue](2017-10-03.1523.issue.closed.md) `closed`: Netbackup agents not automatically started
+- [\#1524 Issue](2017-10-04.1524.issue.closed.md) `closed`: 'MASKS readonly variable' reported during recovery system startup
+- [\#1525 PR](2017-10-05.1525.pr.merged.md) `merged`: Improved cleanup binaries and libraries copying code
+- [\#1526 PR](2017-10-05.1526.pr.merged.md) `merged`: Split network-functions.sh into DHCP setup and general ReaR functions
+- [\#1527 PR](2017-10-06.1527.pr.merged.md) `merged`: Renamed DIRECTORIES\_TO\_CREATE into DIRECTORY\_ENTRIES\_TO\_RECOVER
+- [\#1528 PR](2017-10-06.1528.pr.merged.md) `merged`: Use regex in variable for bash3.1 compatibility
+- [\#1529 Issue](2017-10-10.1529.issue.closed.md) `closed`: Not able to connect with SSH to rescue image
+- [\#1530 PR](2017-10-10.1530.pr.merged.md) `merged`: Empower the user to specify what ssh files get included in his recovery system…
+- [\#1531 Issue](2017-10-11.1531.issue.closed.md) `closed`: ReaR Backup with CIFS SMB 2 configuration
+- [\#1532 Issue](2017-10-12.1532.issue.closed.md) `closed`: Cannot create USB ReaR dir: no space on device
+- [\#1533 Issue](2017-10-13.1533.issue.closed.md) `closed`: ERROR: ReaR recovery system not usable (missing libraries for TSM libraries
+- [\#1534 Issue](2017-10-13.1534.issue.closed.md) `closed`: ReaR with TSM does not ask for TSM passwords
+- [\#1535 Issue](2017-10-16.1535.issue.closed.md) `closed`: Make ReaR disk label configurable (no hardcoded 'REAR-000'
+- [\#1536 PR](2017-10-17.1536.pr.merged.md) `merged`: Implemented USB\_DEVICE\_FILESYSTEM\_LABEL (issue 1535
+- [\#1537 Issue](2017-10-17.1537.issue.closed.md) `closed`: Use pigz instead of gzip
+- [\#1538 PR](2017-10-19.1538.pr.merged.md) `merged`: Only support OpenSSH 3.1 and later for SSH setup
+- [\#1539 PR](2017-10-22.1539.pr.merged.md) `merged`: Tsm ask password
+- [\#1540 Issue](2017-10-23.1540.issue.closed.md) `closed`: ReaR does not support RAID 1 mdraid Intel IMSM/RST based firmware RAID containers
+- [\#1541 Issue](2017-10-23.1541.issue.closed.md) `closed`: Cannot Run on Debian 8.9
+- [\#1542 PR](2017-10-24.1542.pr.merged.md) `merged`: Some code simplification plus explicit 'return 0' where needed
+- [\#1543 PR](2017-10-24.1543.pr.merged.md) `merged`: Better document SSH configuration (related to pull request 1538
+- [\#1544 PR](2017-10-25.1544.pr.merged.md) `merged`: \#1523 Netbackup agents not automatically started
+- [\#1545 Issue](2017-10-25.1545.issue.closed.md) `closed`: "rear mkrescue" destroys existing backup on multiple ISOs
+- [\#1546 Issue](2017-10-25.1546.issue.closed.md) `closed`: rear with EMC networker
+- [\#1547 Issue](2017-10-26.1547.issue.closed.md) `closed`: "rear mkrescue" useless/dangerous in case of backup on ISO
+- [\#1548 Issue](2017-10-26.1548.issue.closed.md) `closed`: "rear mkbackuponly" useless/dangerous in case of backup on ISO
+- [\#1549 PR](2017-10-26.1549.pr.merged.md) `merged`: Forbid mkrescue and mkbackuponly for BACKUP\_URL="iso:///..."
+- [\#1550 PR](2017-10-26.1550.pr.merged.md) `merged`: Remove unecessary /dev prefix
+- [\#1551 Issue](2017-10-27.1551.issue.closed.md) `closed`: Debian 9 sha1 digest untrusted for apt
+- [\#1552 Issue](2017-10-27.1552.issue.closed.md) `closed`: Missing library for duplicity: librsync.so.1 on Debian Testing
+- [\#1553 PR](2017-10-27.1553.pr.closed.md) `closed`: Add support for Bridge Interfaces
+- [\#1554 PR](2017-10-27.1554.pr.merged.md) `merged`: Duplicity: Add Support for NETFS URLs
+- [\#1555 Issue](2017-10-28.1555.issue.closed.md) `closed`: rear mkrescue fails to copy files and later complains about ldd /bin/bash
+- [\#1556 PR](2017-10-29.1556.pr.closed.md) `closed`: choose relative link-target for lib-dirs - fixes \#1555
+- [\#1557 PR](2017-10-29.1557.pr.merged.md) `merged`: This patch correct behavior during symlink creation process of /usr/lib\*
+- [\#1558 PR](2017-10-30.1558.pr.merged.md) `merged`: replaced Web Portal with batch job reference
+- [\#1559 PR](2017-11-01.1559.pr.merged.md) `merged`: Added/updated paths for FDR/Upstream 4.0
+- [\#1560 PR](2017-11-01.1560.pr.merged.md) `merged`: Let /bin/ldd detect \*.so with relative paths
+- [\#1561 Issue](2017-11-03.1561.issue.closed.md) `closed`: Teaming interface support is very limited
+- [\#1562 PR](2017-11-05.1562.pr.merged.md) `merged`: Update and export LD\_LIBRARY\_PATH when using TSM
+- [\#1563 Issue](2017-11-06.1563.issue.closed.md) `closed`: 'EFI System Partition' name restoration fails (blanks in value
+- [\#1564 Issue](2017-11-06.1564.issue.closed.md) `closed`: EFI Boot Manager restoration issue
+- [\#1565 Issue](2017-11-06.1565.issue.closed.md) `closed`: Default ISO\_VOLID="RELAXRECOVER" too long for a FAT32 volume label
+- [\#1566 PR](2017-11-07.1566.pr.merged.md) `merged`: COPY\_AS\_IS\_TSM optimzed example
+- [\#1567 PR](2017-11-07.1567.pr.merged.md) `merged`: Fix copying kernel modules when module aliases are present
+- [\#1568 PR](2017-11-08.1568.pr.merged.md) `merged`: Better explain ISO\_VOLID and COPY\_AS\_IS in default.conf
+- [\#1569 PR](2017-11-08.1569.pr.merged.md) `merged`: Honor $KERNEL\_CMDLINE in bootloaders
+- [\#1570 PR](2017-11-08.1570.pr.merged.md) `merged`: Add support for Bridge Interfaces
+- [\#1571 Issue](2017-11-09.1571.issue.closed.md) `closed`: OUTPUT\_URL=null conflicts with OUTPUT=USB but ReaR does not error out appropriately
+- [\#1572 PR](2017-11-10.1572.pr.merged.md) `merged`: Error out for OUTPUT\_URL=null together with OUTPUT=USB
+- [\#1573 PR](2017-11-13.1573.pr.merged.md) `merged`: Use UserInput in some more usual places
+- [\#1574 PR](2017-11-14.1574.pr.merged.md) `merged`: New network script generator (60-network-devices.sh
+- [\#1575 Issue](2017-11-14.1575.issue.closed.md) `closed`: Rescue fails ERROR: Starting RPC portmapper rpcbind failed
+- [\#1576 Issue](2017-11-16.1576.issue.closed.md) `closed`: External NSR00 workflow for EMC Networker only works with ReaR 1.17
+- [\#1577 PR](2017-11-16.1577.pr.merged.md) `merged`: Let usr/sbin/rear '-D' automatically also set '-d' and '-v'
+- [\#1578 Issue](2017-11-16.1578.issue.closed.md) `closed`: Create a recovery RAW disk
+- [\#1579 Issue](2017-11-16.1579.issue.closed.md) `closed`: Some options of XFS filesystem might be evaluated as illegal when recovering XFS &gt;= 4.7.0
+- [\#1580 PR](2017-11-17.1580.pr.merged.md) `merged`: add the missing rpcbind directoies in the skel framwork - issue \#1575
+- [\#1581 Issue](2017-11-17.1581.issue.closed.md) `closed`: Missing /tmp after recovery (ubuntu with one big /
+- [\#1582 PR](2017-11-17.1582.pr.merged.md) `merged`: Added /etc/tuned to to COPY\_AS\_IS list for grub2
+- [\#1583 PR](2017-11-17.1583.pr.merged.md) `merged`: Enhance user dialogs in recovery system startup towards running unattended
+- [\#1584 PR](2017-11-17.1584.pr.merged.md) `merged`: Add a NSR\_CLIENT\_MODE to the backup method NSR.
+- [\#1585 PR](2017-11-20.1585.pr.merged.md) `merged`: Added NON\_FATAL\_BINARIES\_WITH\_MISSING\_LIBRARY
+- [\#1586 PR](2017-11-20.1586.pr.merged.md) `merged`: Trick for unattended recovery when we have more LAN interfaces
+- [\#1587 PR](2017-11-21.1587.pr.merged.md) `merged`: Document USER\_INPUT variables in default.conf
+- [\#1588 Issue](2017-11-21.1588.issue.closed.md) `closed`: Verbose logging when using BORG backend?
+- [\#1589 Issue](2017-11-21.1589.issue.closed.md) `closed`: function btrfs\_subvolume\_exists fails to properly evaluate some entries
+- [\#1590 PR](2017-11-21.1590.pr.merged.md) `merged`: LogPrintError when sourcing unexpected named script (issue 1054
+- [\#1591 PR](2017-11-21.1591.pr.merged.md) `merged`: Fix btrfs\_subvolume\_exists (fix \#1589
+- [\#1592 Issue](2017-11-22.1592.issue.closed.md) `closed`: Restore from burned ISO fails at or soon after "Running mkinitrd"
+- [\#1593 PR](2017-11-22.1593.pr.merged.md) `merged`: Let the user enforce MIGRATION\_MODE
+- [\#1594 PR](2017-11-22.1594.pr.merged.md) `merged`: Borg backup as back end now displays progress, when ReaR is launched in verbose mode
+- [\#1595 Issue](2017-11-24.1595.issue.closed.md) `closed`: Support 'export CONFIG\_VAR=...' everywhere it makes sense
+- [\#1596 Issue](2017-11-24.1596.issue.closed.md) `closed`: Preparation to release ReaR 2.3
+- [\#1597 PR](2017-11-25.1597.pr.merged.md) `merged`: Trigger udev to reload changed rules (and 1s sleep time as final fallback
+- [\#1598 Issue](2017-11-27.1598.issue.closed.md) `closed`: 430\_prepare\_timesync.sh needs to be improved
+- [\#1599 PR](2017-11-27.1599.pr.merged.md) `merged`: Move the packages isolinux and xorriso from Depends to Recommends lines
+- [\#1600 Issue](2017-11-27.1600.issue.closed.md) `closed`: SSHFS ReaR Hangs
+- [\#1601 Issue](2017-11-28.1601.issue.closed.md) `closed`: UEFI: Cannot boot rescue image created on "BIOS" system
+- [\#1602 PR](2017-11-28.1602.pr.merged.md) `merged`: Fix the bad perl expression in grep to a normal expression
+- [\#1603 PR](2017-11-28.1603.pr.merged.md) `merged`: Fix for XFS file system recreation code.
+- [\#1604 Issue](2017-11-28.1604.issue.closed.md) `closed`: XFS external log is ignored during recovery.
+- [\#1605 PR](2017-11-29.1605.pr.merged.md) `merged`: Reworked implementation to support ancient releases (e.g. RHEL6
+- [\#1606 Issue](2017-11-29.1606.issue.closed.md) `closed`: Create a bootable ISO for RedHat on PPC
+- [\#1607 Issue](2017-11-29.1607.issue.closed.md) `closed`: Support restoring network configurations on ancient OS releases (e.g. RHEL6
+- [\#1608 PR](2017-11-29.1608.pr.merged.md) `merged`: Add ntpdate support to rescue/default/430\_prepare\_timesync.sh…
+- [\#1609 Issue](2017-11-30.1609.issue.closed.md) `closed`: Daemons spawned by sysinit.service die upon sysinit.service's end
+- [\#1610 PR](2017-11-30.1610.pr.merged.md) `merged`: Issue \#1609: keep daemons spawned by sysinit.service alive upon exit
+- [\#1611 PR](2017-11-30.1611.pr.merged.md) `merged`: config-functions.sh - partial rewrite of SetOSVendorAndVersion
+- [\#1612 PR](2017-11-30.1612.pr.merged.md) `merged`: Make ssh key generation in recovery system also work for SysVinit
+- [\#1613 Issue](2017-12-01.1613.issue.closed.md) `closed`: There are use cases for mkrescue/mkbackuponly with BACKUP\_URL=iso
+- [\#1614 PR](2017-12-01.1614.pr.merged.md) `merged`: Make BACKUP\_URL=iso for mkrescue and mkbackuponly no longer fatal
+- [\#1615 PR](2017-12-01.1615.pr.merged.md) `merged`: Solved issue \#878 (Can't see login prompt on serial console
+- [\#1616 Issue](2017-12-02.1616.issue.closed.md) `closed`: ERROR: No restore job defined in Bareos
+- [\#1617 PR](2017-12-02.1617.pr.merged.md) `merged`: FIXME \[\[ "${device\#/}" = "$device" \]\] comment
+- [\#1618 Issue](2017-12-02.1618.issue.closed.md) `closed`: Rear can't create image / xfs\_info checks FS, not Mountpoint (230\_filesystem\_layout
+- [\#1619 PR](2017-12-02.1619.pr.merged.md) `merged`: xfs\_info (&gt;= 4.12.0
+- [\#1620 PR](2017-12-02.1620.pr.merged.md) `merged`: findmnd -&gt; findmnt
+- [\#1621 PR](2017-12-05.1621.pr.merged.md) `merged`: Add basic support for EMC Avamar
+- [\#1622 Issue](2017-12-05.1622.issue.closed.md) `closed`: 430\_prepare\_timesync.sh: systemd-based systems should not update /etc/inittab
+- [\#1623 Issue](2017-12-05.1623.issue.closed.md) `closed`: Add chrony support to 430\_prepare\_timesync.sh
+- [\#1624 PR](2017-12-05.1624.pr.merged.md) `merged`: Ignore disk size of multipath slave in 205\_compare\_disk.sh
+- [\#1625 Issue](2017-12-07.1625.issue.closed.md) `closed`: bc (arbitrary precision calculator
+- [\#1626 PR](2017-12-07.1626.pr.merged.md) `merged`: exclude REAR-000 and ESP from df.txt
+- [\#1627 Issue](2017-12-07.1627.issue.closed.md) `closed`: Drive UUIDs didn't change after rear recover to the new hardware server
+- [\#1628 PR](2017-12-07.1628.pr.merged.md) `merged`: unnessary cat command removed
+- [\#1629 Issue](2017-12-07.1629.issue.closed.md) `closed`: Cannot boot from ReaR ISO / Recover from ReaR USB
+- [\#1630 PR](2017-12-07.1630.pr.merged.md) `merged`: cat /dev/null input shortened to :
+- [\#1631 Issue](2017-12-07.1631.issue.closed.md) `closed`: replace all mount list commands with findmnt
+- [\#1632 PR](2017-12-07.1632.pr.closed.md) `closed`: blkid\_uuid\_of\_device & blkid\_label... simplified to lsblk
+- [\#1633 PR](2017-12-08.1633.pr.merged.md) `merged`: unnessary cat command removed
+- [\#1634 PR](2017-12-08.1634.pr.merged.md) `merged`: one more cat command removed
+- [\#1635 Issue](2017-12-08.1635.issue.closed.md) `closed`: Timezone cannot be set due to missing file
+- [\#1636 PR](2017-12-08.1636.pr.closed.md) `closed`: Follow symbolic link with COPY\_AS\_IS targets
+- [\#1637 PR](2017-12-08.1637.pr.closed.md) `closed`: anti-bloatware suggestion
+- [\#1638 Issue](2017-12-08.1638.issue.closed.md) `closed`: Check recovery system for broken symlinks
+- [\#1639 Issue](2017-12-11.1639.issue.closed.md) `closed`: remove os.conf creation on rear.spec file
+- [\#1640 PR](2017-12-11.1640.pr.merged.md) `merged`: systemd-tmpfiles required for rpcbind and comment some unneeded code
+- [\#1641 PR](2017-12-11.1641.pr.merged.md) `merged`: Move TSM first connexion check to a dedicated script.
+- [\#1642 Issue](2017-12-12.1642.issue.closed.md) `closed`: TSM restore should also work without TSM.PWD in recovery system
+- [\#1643 PR](2017-12-12.1643.pr.merged.md) `merged`: Tried to improve TSM connection test
+- [\#1644 Issue](2017-12-12.1644.issue.closed.md) `closed`: Serial ttyS0 respawns continuously on a VM without a serial console
+- [\#1645 PR](2017-12-12.1645.pr.merged.md) `merged`: Simplified TSM dsmc restore (issue 1534
+- [\#1646 PR](2017-12-13.1646.pr.closed.md) `closed`: Allow TSM\_DSMC\_RESTORE\_OPTIONS to be also set via export
+- [\#1647 PR](2017-12-14.1647.pr.merged.md) `merged`: Correct a typo in documentation.
+- [\#1648 PR](2017-12-14.1648.pr.merged.md) `merged`: mount noise in 400\_save\_directories excluded\_fs\_types?
+- [\#1649 PR](2017-12-14.1649.pr.merged.md) `merged`: Solved issue \#1664 with systemd respawn of serial-console when not present
+- [\#1650 PR](2017-12-17.1650.pr.merged.md) `merged`: typo in: if test -n "btrfs\_subvolume\_path" ; then ?
+- [\#1651 PR](2017-12-19.1651.pr.merged.md) `merged`: BUG: must continue if device is a multipath slave
+- [\#1652 Issue](2017-12-20.1652.issue.closed.md) `closed`: In SLE15 'net-tools' (ifconfig, netstat, route, ...
+- [\#1653 Issue](2017-12-20.1653.issue.closed.md) `closed`: xfs\_admin: xfs\_db/xfs\_growfs command not found (on SLES 12 SP2 ppc64le
+- [\#1654 Issue](2017-12-21.1654.issue.closed.md) `closed`: SLES11SP4 Btrfs OS Recover Fail
+- [\#1655 Issue](2017-12-21.1655.issue.closed.md) `closed`: CentOS 6 Build ReaR 2.3 Dissapeared
+- [\#1656 Issue](2017-12-21.1656.issue.closed.md) `closed`: sourceforge tarball much bigger than OBS tarball (4M versus 500K
+- [\#1657 Issue](2017-12-21.1657.issue.closed.md) `closed`: With btrfs 'rear checklayout' always detects a changed layout
+- [\#1658 Issue](2017-12-21.1658.issue.closed.md) `closed`: With BACKUP\_URL=file 'rear checklayout' always detects a changed layout
+- [\#1659 PR](2017-12-21.1659.pr.merged.md) `merged`: Support TCG Opal 2-compliant self-encrypting disks and RAWDISK output
+- [\#1660 Issue](2017-12-22.1660.issue.closed.md) `closed`: how to avoid Relax-and-Recover created the rescue ISO file automatically
+- [\#1661 Issue](2017-12-22.1661.issue.closed.md) `closed`: FYI: smenu - a shell GUI selection tool
+- [\#1662 PR](2017-12-25.1662.pr.merged.md) `merged`: Initial Arm Support
+- [\#1663 PR](2017-12-26.1663.pr.merged.md) `merged`: tmpfs/ramdrive -&gt; test -e /etc/rear-release
+- [\#1664 Issue](2017-12-29.1664.issue.closed.md) `closed`: Duplicity with duply waits forever (the first time
+- [\#1665 Issue](2017-12-29.1665.issue.closed.md) `closed`: duply profile not found due to missing BACKUP\_DUPLICITY\_URL
+- [\#1666 Issue](2017-12-29.1666.issue.closed.md) `closed`: ReaR 2.3 configuration files world-readable in debian package
+- [\#1667 PR](2017-12-29.1667.pr.merged.md) `merged`: FIXME comments for \*rpmb block devices
+- [\#1668 Issue](2017-12-30.1668.issue.closed.md) `closed`: duplicity backup fails with gpg error "There is no assurance this key belongs to the named user"
+- [\#1669 PR](2017-12-31.1669.pr.merged.md) `merged`: After testing duplicity (and duply
+- [\#1670 Issue](2018-01-02.1670.issue.closed.md) `closed`: recover-workflow.sh (over
+- [\#1671 PR](2018-01-02.1671.pr.merged.md) `merged`: Do not write /etc/motd in simulation mode and only in the recovery system
+- [\#1672 PR](2018-01-02.1672.pr.merged.md) `merged`: Make duply wrapper work again
+- [\#1673 PR](2018-01-03.1673.pr.merged.md) `merged`: Avoid falsely detected changed layout (issues 1657 and 1658
+- [\#1674 PR](2018-01-03.1674.pr.merged.md) `merged`: Fix/debian packaging
+- [\#1675 PR](2018-01-03.1675.pr.merged.md) `merged`: Relax Debian dependencies (change 'Recommends' to 'Suggests'
+- [\#1676 PR](2018-01-03.1676.pr.merged.md) `merged`: Fix chown typo
+- [\#1677 PR](2018-01-04.1677.pr.merged.md) `merged`: Move EMC Avamar daemon starting to rescue step
+- [\#1678 Issue](2018-01-04.1678.issue.closed.md) `closed`: 'cd somedir' without returning back in BORG/default/400\_restore\_backup.sh
+- [\#1679 Issue](2018-01-05.1679.issue.closed.md) `closed`: /sbin directory not backing completely while taking rear locally..
+- [\#1680 PR](2018-01-05.1680.pr.merged.md) `merged`: remove the FIXME line which was not commented from PR \#1667
+- [\#1681 Issue](2018-01-05.1681.issue.closed.md) `closed`: Make ReaR more fail-safe in case of sparse partition schemes
+- [\#1682 PR](2018-01-06.1682.pr.merged.md) `merged`: FIX rpmb block devices check in 200\_partition\_layout.sh
+- [\#1683 PR](2018-01-06.1683.pr.merged.md) `merged`: make duplicity work backup and restore - see \#1668 - fixes PR \#1554
+- [\#1684 Issue](2018-01-08.1684.issue.closed.md) `closed`: initramfs creation failed
+- [\#1685 Issue](2018-01-09.1685.issue.closed.md) `closed`: Cannot restore backup when BACKUP\_INTEGRITY\_CHECK=1
+- [\#1686 PR](2018-01-09.1686.pr.merged.md) `merged`: \#1685 Cannot restore backup when BACKUP\_INTEGRITY\_CHECK=1
+- [\#1687 PR](2018-01-10.1687.pr.merged.md) `merged`: Complete EMC Avamar integration
+- [\#1688 Issue](2018-01-10.1688.issue.closed.md) `closed`: Mkrescue fails on 2.3 with missing libraries for TSM when files exist.
+- [\#1689 Issue](2018-01-11.1689.issue.closed.md) `closed`: ReaR recovery system in /tmp/rear.random/rootfs is broken: 'ldd /bin/bash' failed
+- [\#1690 PR](2018-01-11.1690.pr.merged.md) `merged`: better describe what noise means
+- [\#1691 Issue](2018-01-11.1691.issue.closed.md) `closed`: centos 7 under onapp kvm: rescue hangs on unpaking initramfs
+- [\#1692 Issue](2018-01-11.1692.issue.closed.md) `closed`: Bareos-fd does not start.
+- [\#1693 Issue](2018-01-12.1693.issue.closed.md) `closed`: Better describe NON\_FATAL\_BINARIES\_WITH\_MISSING\_LIBRARY
+- [\#1694 PR](2018-01-12.1694.pr.merged.md) `merged`: Add /usr/local/ibm/gsk8 to TSM\_LD\_LIBRARY\_PATH
+- [\#1695 PR](2018-01-14.1695.pr.merged.md) `merged`: Fix Duplicity
+- [\#1696 Issue](2018-01-16.1696.issue.closed.md) `closed`: ReaR Running exit tasks. without backing up
+- [\#1697 PR](2018-01-19.1697.pr.merged.md) `merged`: Automatically add 'missing' devices to MD arrays with not enough physical devices upon restore
+- [\#1698 PR](2018-01-20.1698.pr.merged.md) `merged`: \`cd’ command replaced by pushd/popd.
+- [\#1699 Issue](2018-01-21.1699.issue.closed.md) `closed`: Rear with Borg - no umask variable.
+- [\#1700 PR](2018-01-22.1700.pr.merged.md) `merged`: Added option BORGBACKUP\_UMASK.
+- [\#1701 Issue](2018-01-23.1701.issue.closed.md) `closed`: On PPC64 "rear mkrescue" fails with BugError in 310\_network\_devices.sh
+- [\#1702 Issue](2018-01-23.1702.issue.closed.md) `closed`: When ReaR with Borg as back end returns error during `rear recover` recovery will abort.
+- [\#1703 Issue](2018-01-23.1703.issue.closed.md) `closed`: USE\_DHCLIENT=y but get the static ip-address when booting from iso
+- [\#1704 Issue](2018-01-23.1704.issue.closed.md) `closed`: Test during "rear mkrescue" to detect a degraded RAID
+- [\#1705 Issue](2018-01-24.1705.issue.closed.md) `closed`: Replace 'read -t $WAIT\_SECS' with UserInput function calls
+- [\#1706 PR](2018-01-24.1706.pr.merged.md) `merged`: Again support partition names with blanks issues 212 and 1563
+- [\#1707 Issue](2018-01-25.1707.issue.closed.md) `closed`: NEtbackup Restore failed on RHEL 7 with error standard policy restore error.
+- [\#1708 PR](2018-01-25.1708.pr.merged.md) `merged`: copy the Bareos plugin directory
+- [\#1709 Issue](2018-01-25.1709.issue.closed.md) `closed`: Default setting of USE\_SERIAL\_CONSOLE considered dangerous in migration mode
+- [\#1710 Issue](2018-01-25.1710.issue.closed.md) `closed`: Rescue system start hangup for RHEL 7.4 on PPC 64 LE Power8 BareMetal (Petitboot v1.4.4
+- [\#1711 Issue](2018-01-25.1711.issue.closed.md) `closed`: Could not copy result files to $opath at $scheme location
+- [\#1712 Issue](2018-01-26.1712.issue.closed.md) `closed`: during "rear mkbackup" \[Ctrl\]+\[C\] does not terminate 'tar' background process
+- [\#1713 PR](2018-01-26.1713.pr.merged.md) `merged`: Remove the os.conf creation in the rear.spec file
+- [\#1714 Issue](2018-01-27.1714.issue.closed.md) `closed`: Inaccurate btrfs example ?
+- [\#1715 Issue](2018-01-29.1715.issue.closed.md) `closed`: Recover IBM Power "Failed to 'chown root:root"
+- [\#1716 PR](2018-01-29.1716.pr.merged.md) `merged`: Simpler and more fail-safe SLE btrfs example configs (issue 1714
+- [\#1717 Issue](2018-01-30.1717.issue.closed.md) `closed`: ERROR BUG in /usr/share/rear/lib/layout-functions.sh:
+- [\#1718 Issue](2018-01-31.1718.issue.closed.md) `closed`: "rear recover" can re-create overlapping partitions in case of an extended partition
+- [\#1719 PR](2018-01-31.1719.pr.merged.md) `merged`: Issue \#1701: Use a fallback to get interface state using the 'carrier' status
+- [\#1720 PR](2018-01-31.1720.pr.merged.md) `merged`: Clean termination of descendant processes (issue 1712
+- [\#1721 Issue](2018-02-01.1721.issue.closed.md) `closed`: Implement support for UTF-8 encoded values in ReaR
+- [\#1722 Issue](2018-02-01.1722.issue.closed.md) `closed`: Cannot restore disk built on multipath + md
+- [\#1723 Issue](2018-02-01.1723.issue.closed.md) `closed`: BinCopyTo: command not found
+- [\#1724 Issue](2018-02-06.1724.issue.closed.md) `closed`: On PPC64 manual IP config fails with "SIOCSIFFLAGS: Invalid argument"
+- [\#1725 PR](2018-02-07.1725.pr.merged.md) `merged`: Skip 62-routing.sh if default gw already set in 60-network-devices.sh
+- [\#1726 Issue](2018-02-09.1726.issue.closed.md) `closed`: Option '-C' not mentioned in Release Notes
+- [\#1727 Issue](2018-02-09.1727.issue.closed.md) `closed`: Recovery media missing python for borg backup
+- [\#1728 Issue](2018-02-12.1728.issue.closed.md) `closed`: Recovery system kernel command line options not documented
+- [\#1729 PR](2018-02-12.1729.pr.merged.md) `merged`: document ReaR specific recovery system kernel options (issue 1728
+- [\#1730 PR](2018-02-12.1730.pr.merged.md) `merged`: ReaR with Borg back end to USB.
+- [\#1731 Issue](2018-02-14.1731.issue.closed.md) `closed`: Possibly destructive 400\_autoresize\_disks.sh must be completely overhauled
+- [\#1732 Issue](2018-02-16.1732.issue.closed.md) `closed`: Missing ReaR RPM for SLES 12 SP3
+- [\#1733 PR](2018-02-16.1733.pr.merged.md) `merged`: Replace 400\_autoresize\_disks by 420\_autoresize\_last\_partitions and 430\_autoresize\_all\_partitions
+- [\#1734 PR](2018-02-17.1734.pr.merged.md) `merged`: Trace broken symbolic links in rootfs
+- [\#1735 Issue](2018-02-22.1735.issue.closed.md) `closed`: UUID <UUID> already in use on “/dev/<devicename>”
+- [\#1736 Issue](2018-02-24.1736.issue.closed.md) `closed`: rear format fails with formatted USB stick
+- [\#1737 PR](2018-02-24.1737.pr.merged.md) `merged`: Correction to the 650\_check\_iso\_recoverable.sh for NSR\_CLIENT\_MODE
+- [\#1738 Issue](2018-02-24.1738.issue.closed.md) `closed`: rear mkrescue to USB stick fails when OUTPUT\_URL is defined
+- [\#1739 PR](2018-02-26.1739.pr.merged.md) `merged`: 430 prepare timesync.sh chronyd support
+- [\#1740 PR](2018-02-26.1740.pr.merged.md) `merged`: Yum+backup
+- [\#1741 Issue](2018-02-27.1741.issue.closed.md) `closed`: BUG in /usr/share/rear/rescue/GNU/Linux/310\_network\_devices.sh line 306:'Unexpected operational state 'unknown' for 'vnet0'.'
+- [\#1742 PR](2018-02-27.1742.pr.merged.md) `merged`: use grub2-install --no-nvram on PowerNV system
+- [\#1743 PR](2018-02-27.1743.pr.merged.md) `merged`: Add dbus user and group by default
+- [\#1744 PR](2018-02-28.1744.pr.merged.md) `merged`: Add gsk libs to TSM\_LD\_LIBRARY\_PATH
+- [\#1745 Issue](2018-03-01.1745.issue.closed.md) `closed`: unattended recover fails with 'Disk /dev/xvda is not a block device.'
+- [\#1746 PR](2018-03-06.1746.pr.merged.md) `merged`: Fixed 100\_include\_partition\_code.sh regarding autoresizing partitions
+- [\#1747 Issue](2018-03-06.1747.issue.closed.md) `closed`: rear restore to smaller disk aborts silently
+- [\#1748 PR](2018-03-07.1748.pr.merged.md) `merged`: Run exit tasks code with default bash flags and options (issues \#700 and \#1747
+- [\#1749 Issue](2018-03-08.1749.issue.closed.md) `closed`: docker hosts would better exclude the file systems under control by docker
+- [\#1750 Issue](2018-03-08.1750.issue.closed.md) `closed`: Replace old 430\_autoresize\_all\_partitions code by a new and proper 410\_autoresize\_all\_partitions
+- [\#1751 PR](2018-03-09.1751.pr.merged.md) `merged`: Fixed invalid reported return code (always 0
+- [\#1752 Issue](2018-03-09.1752.issue.closed.md) `closed`: AWS EC2 systems show wrong bootloader
+- [\#1753 Issue](2018-03-10.1753.issue.closed.md) `closed`: Unable to do rear restore with XEN
+- [\#1754 PR](2018-03-12.1754.pr.merged.md) `merged`: additional check for Hah!IdontNeedEFI \#1752
+- [\#1755 Issue](2018-03-12.1755.issue.closed.md) `closed`: pstree command not found
+- [\#1756 PR](2018-03-13.1756.pr.merged.md) `merged`: Replace pstree by ps command (issue\#1755
+- [\#1757 PR](2018-03-14.1757.pr.merged.md) `merged`: exclude docker FS from layout \#1749
+- [\#1758 PR](2018-03-14.1758.pr.merged.md) `merged`: Migation mode confirmation at beginning of finalize stage
+- [\#1759 PR](2018-03-20.1759.pr.closed.md) `closed`: Update 270\_hpraid\_layout.sh
+- [\#1760 PR](2018-03-20.1760.pr.merged.md) `merged`: Update hp\_raid-functions.sh and 270\_hpraid\_layout.sh
+- [\#1761 Issue](2018-03-22.1761.issue.closed.md) `closed`: USB as OUTPUT and do the BACKUPS to CIFS
+- [\#1762 Issue](2018-03-23.1762.issue.closed.md) `closed`: Unattended PXE recover mode with BAREOS halts after restore
+- [\#1763 PR](2018-03-23.1763.pr.merged.md) `merged`: unattended PXE mode with BAREOS is not unattended enough
+- [\#1764 Issue](2018-03-30.1764.issue.closed.md) `closed`: IBM power8 hmc console disconnects at root prompt for rear rescue
+- [\#1765 PR](2018-04-01.1765.pr.merged.md) `merged`: Fix partition replacement
+- [\#1766 Issue](2018-04-03.1766.issue.closed.md) `closed`: ERROR: Partition mpath230 is numbered '''230'''. More than 128 partitions is not supported.
+- [\#1767 Issue](2018-04-03.1767.issue.closed.md) `closed`: trying to exclude other mount points and swap from rear recovery
+- [\#1768 Issue](2018-04-04.1768.issue.closed.md) `closed`: Recovering big endien
+- [\#1769 Issue](2018-04-06.1769.issue.closed.md) `closed`: BUG Unknown Bootloader - Centos 7.4
+- [\#1770 Issue](2018-04-07.1770.issue.closed.md) `closed`: Restore fails due to invalid parted mkpart command
+- [\#1771 Issue](2018-04-09.1771.issue.closed.md) `closed`: Try to implement to exclude partitions between other partitions on a disk
+- [\#1772 Issue](2018-04-12.1772.issue.closed.md) `closed`: aarch64 architecture kylin OS not support output=iso ?
+- [\#1773 Issue](2018-04-12.1773.issue.closed.md) `closed`: rear format -- --efi /dev/sdb1 does not use /dev/sdb1 (but sdb2 which is not existing
+- [\#1774 Issue](2018-04-12.1774.issue.closed.md) `closed`: RHEL 6 & 7 utility tmpwatch deletes backups (e.g. in case of BACKUP=SSHFS
+- [\#1775 Issue](2018-04-13.1775.issue.closed.md) `closed`: Rear Disk Layout script failing On Centos7
+- [\#1776 Issue](2018-04-16.1776.issue.closed.md) `closed`: Specify what to send by mail independent of RESULT\_FILES
+- [\#1777 Issue](2018-04-17.1777.issue.closed.md) `closed`: Exclude subset of multipath disks
+- [\#1778 Issue](2018-04-17.1778.issue.closed.md) `closed`: mkpart fails with off by one error
+- [\#1779 PR](2018-04-19.1779.pr.merged.md) `merged`: skip LUKS encrypted disks when guessing bootloader (issue 1769
+- [\#1780 PR](2018-04-23.1780.pr.merged.md) `merged`: Fix 'Hah.IdontNeedEFI' case.
+- [\#1781 PR](2018-04-24.1781.pr.merged.md) `merged`: Also include other keyboard mappings to support non-US keyboards
+- [\#1782 PR](2018-04-24.1782.pr.closed.md) `closed`: Borg backup: Update for using diffrent ssh port
+- [\#1783 PR](2018-04-24.1783.pr.closed.md) `closed`: Borg backup: update for new ssh port
+- [\#1784 PR](2018-04-24.1784.pr.closed.md) `closed`: Borg backup: update to use different ssh port
+- [\#1785 PR](2018-04-25.1785.pr.merged.md) `merged`: borg ssh port addition
+- [\#1786 Issue](2018-04-27.1786.issue.closed.md) `closed`: SUSE 12.2 ReaR recovery stuck at system layout restoration
+- [\#1787 PR](2018-04-27.1787.pr.merged.md) `merged`: Fix KEYMAPS\_DEFAULT\_DIRECTORY description (follow-up of pull request 1781
+- [\#1788 Issue](2018-04-27.1788.issue.closed.md) `closed`: ReaR man page 'BACKUP SOFTWARE INTEGRATION' update needed?
+- [\#1789 Issue](2018-04-28.1789.issue.closed.md) `closed`: IBM Power8 (PPC
+- [\#1790 Issue](2018-05-02.1790.issue.closed.md) `closed`: Prepare for release ReaR v2.4
+- [\#1791 PR](2018-05-03.1791.pr.merged.md) `merged`: man page BACKUP SOFTWARE INTEGRATION update (issue\#1788
+- [\#1792 PR](2018-05-03.1792.pr.merged.md) `merged`: Better describe NON\_FATAL\_BINARIES\_WITH\_MISSING\_LIBRARY (issue\#1693
+- [\#1793 Issue](2018-05-03.1793.issue.closed.md) `closed`: diskrestore.sh fails with not consecutively numbered partitions
+- [\#1794 PR](2018-05-03.1794.pr.merged.md) `merged`: Solve problem with some variables loading config from DRLM drlm issue brainupdaters/drlm\#68
+- [\#1795 Issue](2018-05-03.1795.issue.closed.md) `closed`: Restoring to a bigger HD fails, due to over increasing the 2nd. last (data-
+- [\#1796 Issue](2018-05-04.1796.issue.closed.md) `closed`: No code has been generated to recreate pv:/dev/mapper/mpathc\_part2 (lvmdev
+- [\#1797 PR](2018-05-07.1797.pr.merged.md) `merged`: Do not print each files restores by TSM in main output
+- [\#1798 Issue](2018-05-08.1798.issue.closed.md) `closed`: ReaR post recovery UEFI booting error (error:file '/normal.mod' not found
+- [\#1799 PR](2018-05-08.1799.pr.merged.md) `merged`: Use Print outside for loop instead of Log (readability
+- [\#1800 Issue](2018-05-08.1800.issue.closed.md) `closed`: Support Question: Pipe output
+- [\#1801 PR](2018-05-08.1801.pr.merged.md) `merged`: exclude multipath device that does not have mounted fs
+- [\#1802 PR](2018-05-08.1802.pr.merged.md) `merged`: Better way to get multiapth partion name.
+- [\#1803 PR](2018-05-08.1803.pr.merged.md) `merged`: Copy backup restore log into recreated system (related to pull request 1797
+- [\#1804 PR](2018-05-09.1804.pr.merged.md) `merged`: Do not start multipathd when not needed
+- [\#1805 PR](2018-05-14.1805.pr.merged.md) `merged`: Verify if dm-X is a partition before adding to sysfs\_paths
+- [\#1806 PR](2018-05-15.1806.pr.merged.md) `merged`: Issue \#1380 - ReaR recovery fails when the OS contains a Thin Pool/Volume
+- [\#1807 Issue](2018-05-16.1807.issue.closed.md) `closed`: No Networker ISO Backups found.
+- [\#1808 Issue](2018-05-16.1808.issue.closed.md) `closed`: sshfs mount point not working.
+- [\#1809 Issue](2018-05-17.1809.issue.closed.md) `closed`: udevsettle command not found, server hangs
+- [\#1810 PR](2018-05-17.1810.pr.closed.md) `closed`: Sesam integration: add sesam bin directory to LD\_LIBRARY\_PATH
+- [\#1811 Issue](2018-05-17.1811.issue.closed.md) `closed`: /bin/ldd: line 114: /dev/null: Permission denied ( while runing : 980\_verify\_rootfs.sh
+- [\#1812 Issue](2018-05-17.1812.issue.closed.md) `closed`: nsr\_paths is not getting created + but not showing any error
+- [\#1813 PR](2018-05-17.1813.pr.merged.md) `merged`: Make SLES12GA btrfs recovery work again (related to issue 1796
+- [\#1814 Issue](2018-05-17.1814.issue.closed.md) `closed`: 2018-05-17 14:16:46.251048154 Including rescue/NSR/default/470\_safe\_filesystems.sh
+- [\#1815 Issue](2018-05-18.1815.issue.closed.md) `closed`: Misusing -c option produces unexpected result
+- [\#1816 Issue](2018-05-21.1816.issue.closed.md) `closed`: Does rear support Legacy boot ?
+- [\#1817 PR](2018-05-22.1817.pr.merged.md) `merged`: Sesam integration: add sesam bin directory to LD\_LIBRARY\_PATH
+- [\#1818 Issue](2018-05-23.1818.issue.closed.md) `closed`: we have faced a network connectivity issue when the REAR ISO has been booted
+- [\#1819 PR](2018-05-28.1819.pr.merged.md) `merged`: Issue \#1722 - Cannot restore disk built on multipath + md
+- [\#1820 Issue](2018-05-28.1820.issue.closed.md) `closed`: Rear recover overwrites Mountpint ownership xxx to root
+- [\#1821 Issue](2018-05-31.1821.issue.closed.md) `closed`: iso boot failure
+- [\#1822 Issue](2018-05-31.1822.issue.closed.md) `closed`: Restore from burned ISO fails at or soon after "Running mkinitrd..."
+- [\#1823 Issue](2018-06-02.1823.issue.closed.md) `closed`: mount: mount(2
+- [\#1824 Issue](2018-06-06.1824.issue.closed.md) `closed`: Recovery failed - 'disk layout recreation script failed'
+- [\#1825 Issue](2018-06-09.1825.issue.closed.md) `closed`: 'Kernel panic' during recovery
+- [\#1826 Issue](2018-06-11.1826.issue.closed.md) `closed`: Wrong dependencies in ubuntu 18.04 (iproute
+- [\#1827 PR](2018-06-13.1827.pr.merged.md) `merged`: Move iproute to Suggests in control file for Debian
+- [\#1828 Issue](2018-06-13.1828.issue.closed.md) `closed`: on SLES15 with btrfs after "rear recover" GRUB2 fails to boot (manual GRUB2 install helps
+- [\#1829 Issue](2018-06-14.1829.issue.closed.md) `closed`: 'rear recover' fails when migrating on Debian 9.4 from KVM to XEN VM and vice versa
+- [\#1830 Issue](2018-06-14.1830.issue.closed.md) `closed`: Missing RESULT\_usage\_RAWDISK.txt in 2.3 packages
+- [\#1831 PR](2018-06-14.1831.pr.merged.md) `merged`: Fixed a typo plus a small addon in comments in default.conf
+- [\#1832 Issue](2018-06-15.1832.issue.closed.md) `closed`: sometimes 'broken pipe' error in system-setup.d/40-start-udev-or-load-modules.sh
+- [\#1833 PR](2018-06-18.1833.pr.merged.md) `merged`: Fix BAREOS unattended mode; interrupted with question due to bad IF block
+- [\#1834 Issue](2018-06-19.1834.issue.closed.md) `closed`: Which rpm to be used for RHEL5.8 with i686 arch
+- [\#1835 Issue](2018-06-19.1835.issue.closed.md) `closed`: Need to fix "200\_run\_layout\_code.sh"
+- [\#1836 Issue](2018-06-19.1836.issue.closed.md) `closed`: Add some extra parameters to mkisofs like utils
+- [\#1837 Issue](2018-06-21.1837.issue.closed.md) `closed`: Rear2.3 asking for :genisoimage for RHEL 5.8
+- [\#1838 Issue](2018-06-21.1838.issue.closed.md) `closed`: How to interrupt the automatic Rear restore to same hardware and get to Relax-and-Recover shell?
+- [\#1839 Issue](2018-06-21.1839.issue.closed.md) `closed`: Debian Package: add attr to Ubuntu dependencies
+- [\#1840 Issue](2018-06-22.1840.issue.closed.md) `closed`: Booting RHEL 7.3 LPAR on Power stops at Starting Multi-User.
+- [\#1841 Issue](2018-06-22.1841.issue.closed.md) `closed`: How to have 2 versions of Rear installed concurrently for testing?
+- [\#1842 Issue](2018-06-25.1842.issue.closed.md) `closed`: ReaR 2.4 and probably some earlier versions do no longer work on SLES10
+- [\#1843 PR](2018-06-26.1843.pr.merged.md) `merged`: Fixed, simplified and enhanced GRUB2 installation
+- [\#1844 Issue](2018-06-28.1844.issue.closed.md) `closed`: Strange `# vim: set et ts=4 sw=4:` comments at the end of some scrips
+- [\#1845 Issue](2018-06-28.1845.issue.closed.md) `closed`: apply\_layout\_mappings function is not sufficiently fail safe
+- [\#1846 Issue](2018-06-28.1846.issue.closed.md) `closed`: Partitioning errors in RAWDISK creation on Debian 7 and CentOS 6
+- [\#1847 Issue](2018-06-29.1847.issue.closed.md) `closed`: Files (also restored files
+- [\#1848 PR](2018-07-02.1848.pr.merged.md) `merged`: Fixed, simplified and enhanced GRUB2 installation for PPC64/PPC64LE
+- [\#1849 PR](2018-07-02.1849.pr.closed.md) `closed`: added mods for slackware support - mkbackup working with UEFI/USB
+- [\#1850 PR](2018-07-03.1850.pr.merged.md) `merged`: RAWDISK output portability improvements (fix \#1846
+- [\#1851 Issue](2018-07-04.1851.issue.closed.md) `closed`: The various 300\_copy\_kernel.sh scripts should be cleaned up
+- [\#1852 Issue](2018-07-04.1852.issue.closed.md) `closed`: In RAWDISK recovery mode, auto disk mapping is not working
+- [\#1853 PR](2018-07-05.1853.pr.merged.md) `merged`: add support for Slackware UEFI/USB
+- [\#1854 Issue](2018-07-06.1854.issue.closed.md) `closed`: "Pseudo Migration Mode" needed during "rear recover" with a ReaR recovery disk
+- [\#1855 Issue](2018-07-11.1855.issue.closed.md) `closed`: Fedora rear.spec is violating Spec Maintenance and Canonicity
+- [\#1856 Issue](2018-07-11.1856.issue.closed.md) `closed`: Fedora rear.spec: Remove needless use of %defattr
+- [\#1857 Issue](2018-07-11.1857.issue.closed.md) `closed`: Add choice to confirm identical layout mapping only once plus disabling MIGRATION\_MODE
+- [\#1858 Issue](2018-07-12.1858.issue.closed.md) `closed`: Error while running rear mkbackup on SUSE Linux on IBM POWER8
+- [\#1859 Issue](2018-07-12.1859.issue.closed.md) `closed`: Verifying md5sums of the files in the recovery system
+- [\#1860 Issue](2018-07-12.1860.issue.closed.md) `closed`: keyboard input not working on real metal machines during restore/menu choices
+- [\#1861 Issue](2018-07-13.1861.issue.closed.md) `closed`: Fedora28 need ldlinux.c32 with PXE booting
+- [\#1862 PR](2018-07-13.1862.pr.merged.md) `merged`: fedora28: missing ldlinux.c32 prevents PXE booting
+- [\#1863 PR](2018-07-15.1863.pr.merged.md) `merged`: mods to allow slackware ISO image and udev sda fix
+- [\#1864 PR](2018-07-16.1864.pr.merged.md) `merged`: Verify md5sums of files in recovery system (issue \#1859
+- [\#1865 PR](2018-07-16.1865.pr.merged.md) `merged`: Added choice to confirm identical layout mapping only once plus disabling MIGRATION\_MODE
+- [\#1866 Issue](2018-07-17.1866.issue.closed.md) `closed`: fedora28: syslinux needs libcom32.c32 to boot from HD
+- [\#1867 PR](2018-07-17.1867.pr.merged.md) `merged`: fedora28: syslinux needs libcom32.c32 to boot from HD
+- [\#1868 Issue](2018-07-17.1868.issue.closed.md) `closed`: OUTPUT=OBDR support missing for PPC64LE (seems to be supported for PPC64
+- [\#1869 PR](2018-07-17.1869.pr.merged.md) `merged`: Wait for systemd-udevd to avoid broken pipe error in 40-start-udev-or-load-modules.sh
+- [\#1870 Issue](2018-07-17.1870.issue.closed.md) `closed`: USB keyboard becomes unresponsive during recover
+- [\#1871 Issue](2018-07-17.1871.issue.closed.md) `closed`: root\_uuid variable may get duplicate UUID (with newline
+- [\#1872 PR](2018-07-17.1872.pr.merged.md) `merged`: Aviod duplicate UUID in boot menuentry when snapper is used (issue \#1871
+- [\#1873 PR](2018-07-18.1873.pr.merged.md) `merged`: Tentative support for OBDR on ppc64le (issue \#1868
+- [\#1874 PR](2018-07-18.1874.pr.merged.md) `merged`: Add code to recognize persistent LAN interface and manipulate KERNEL\_CMDLINE
+- [\#1875 Issue](2018-07-19.1875.issue.closed.md) `closed`: mkdir: cannot create directory '/tmp/rear.aOAII02mqnI8cRX/outputfs/TestUbuntu': Permission denied
+- [\#1876 PR](2018-07-21.1876.pr.merged.md) `merged`: Duplicity: Misc improvements
+- [\#1877 PR](2018-07-23.1877.pr.merged.md) `merged`: Show last programs messages in Error function (related to issue1875
+- [\#1878 Issue](2018-07-24.1878.issue.closed.md) `closed`: give a specific title/name to a menu item in rear recover iso
+- [\#1879 Issue](2018-07-25.1879.issue.closed.md) `closed`: 400\_restore\_duplicity.sh does unconditioned 'export HOSTNAME=$(hostname
+- [\#1880 PR](2018-07-25.1880.pr.merged.md) `merged`: Remove overwrite of $HOSTNAME in 400\_restore\_duplicity.sh
+- [\#1881 Issue](2018-07-26.1881.issue.closed.md) `closed`: Test of ReaR fails. Could not find 'mbr.bin'
+- [\#1882 PR](2018-07-28.1882.pr.merged.md) `merged`: Yet another Duplicity fix
+- [\#1883 Issue](2018-07-30.1883.issue.closed.md) `closed`: How to find latest Rear version available from official SUSE repository
+- [\#1884 Issue](2018-08-01.1884.issue.closed.md) `closed`: Partition information recorded is unexpected when disk has 4K block size
+- [\#1885 PR](2018-08-01.1885.pr.merged.md) `merged`: \#1884 - Partition information recorded is unexpected when disk has 4K block size
+- [\#1886 Issue](2018-08-01.1886.issue.closed.md) `closed`: LPAR/PPC64 bootlist is incorrectly set when having multiple 'prep' partitions
+- [\#1887 PR](2018-08-01.1887.pr.merged.md) `merged`: \#1886 - LPAR/PPC64 bootlist is incorrectly set when having multiple 'prep' partitions
+- [\#1888 Issue](2018-08-02.1888.issue.closed.md) `closed`: rear recover failing with ERROR: No filesystem mounted on '/mnt/local'. Stopping
+- [\#1889 PR](2018-08-03.1889.pr.merged.md) `merged`: Print multipath device name during rescue when firendly\_name is off
+- [\#1890 Issue](2018-08-05.1890.issue.closed.md) `closed`: Issues with "rear recover" - network interfaces
+- [\#1891 Issue](2018-08-06.1891.issue.closed.md) `closed`: Unable to restore to PPC64LE system with ERROR: Mount command 'mount /dev/disk/by-label/RELAXRECOVER /tmp/rear.../outputfs' failed.
+- [\#1892 Issue](2018-08-06.1892.issue.closed.md) `closed`: Man page scan results for rear
+- [\#1893 Issue](2018-08-07.1893.issue.closed.md) `closed`: recovery system setup script 67-check-by-label-cdrom.sh functionality needs to be overhauled
+- [\#1894 PR](2018-08-08.1894.pr.merged.md) `merged`: Moved what script 67-check-by-label-cdrom.sh does into the mount\_url function 'iso' case (issue1893
+- [\#1895 PR](2018-08-08.1895.pr.merged.md) `merged`: Avoid false alarm during md5sum verification (related to issue1883
+- [\#1896 Issue](2018-08-09.1896.issue.closed.md) `closed`: Rear changing permission on bin files
+- [\#1897 PR](2018-08-09.1897.pr.merged.md) `merged`: LVM: specifying uuid for 'lvmdev' is optional when recovering.
+- [\#1898 Issue](2018-08-10.1898.issue.closed.md) `closed`: Rear ISO size increased from 350MB to 550MB in 2 days.
+- [\#1899 Issue](2018-08-14.1899.issue.closed.md) `closed`: Rear multipath issue
+- [\#1900 PR](2018-08-15.1900.pr.closed.md) `closed`: travis: add tests for linux-ppc64le
+- [\#1901 Issue](2018-08-22.1901.issue.closed.md) `closed`: In recovery mode rear -h does not work
+- [\#1902 Issue](2018-08-22.1902.issue.closed.md) `closed`: centos7: recovery fails during grub-config - GRUB2\_INSTALL\_DEVICES empty
+- [\#1903 PR](2018-08-22.1903.pr.merged.md) `merged`: change the logic of the continue with function is\_disk\_a\_pv during grub2 config
+- [\#1904 Issue](2018-08-24.1904.issue.closed.md) `closed`: chroot bash test failed
+- [\#1905 Issue](2018-08-24.1905.issue.closed.md) `closed`: mktemp: cannot make temp dir /rear\_backup/rear.sgXDqOJPhle9322: Value too large for defined data type
+- [\#1906 Issue](2018-08-25.1906.issue.closed.md) `closed`: rescue/GNU/Linux/500\_clone\_keyboard\_mappings.sh: find traverses recursively from "/"
+- [\#1907 Issue](2018-08-27.1907.issue.closed.md) `closed`: Volume group support and libraries issue in recovery system with NBU backup
+- [\#1908 PR](2018-08-31.1908.pr.merged.md) `merged`: remove BuildRoot and clean section from rear.spec
+- [\#1909 Issue](2018-09-06.1909.issue.closed.md) `closed`: Can we change /boot partition size
+- [\#1910 Issue](2018-09-12.1910.issue.closed.md) `closed`: ReaR Include Exclude configuration with the SAN disks
+- [\#1912 Issue](2018-09-18.1912.issue.closed.md) `closed`: RHEL 6.9 and REAR 1.17.2 - restore problem
+- [\#1913 Issue](2018-09-20.1913.issue.closed.md) `closed`: NETFS+tar backup tests wrong exit code (may succeed even if there was a real error
+- [\#1914 PR](2018-09-20.1914.pr.merged.md) `merged`: Issue \#1913 - NETFS+tar backup exit code testing insufficient (may fail to catch real backup errors
+- [\#1915 Issue](2018-09-21.1915.issue.closed.md) `closed`: function xfs\_parse may show error "filesystems-functions.sh: line 221: \[: -eq: unary operator expected"
+- [\#1916 PR](2018-09-24.1916.pr.merged.md) `merged`: Added exclusion of zram devices from device mapping
+- [\#1917 PR](2018-09-24.1917.pr.closed.md) `closed`: Added default value (0
+- [\#1918 PR](2018-09-24.1918.pr.merged.md) `merged`: Added default value (0
+- [\#1919 Issue](2018-10-02.1919.issue.closed.md) `closed`: Manually define BACKUP\_URL and OUTPUT\_URL to default values.
+- [\#1920 PR](2018-10-02.1920.pr.merged.md) `merged`: Check if CONFIG\_DIR is not a file \#1815
+- [\#1921 Issue](2018-10-04.1921.issue.closed.md) `closed`: ERROR: Could not copy /boot/grub/locale/ files
+- [\#1922 PR](2018-10-05.1922.pr.merged.md) `merged`: avoid nullglob pitfalls in 250\_populate\_efibootimg.sh (issue \#1921
+- [\#1923 Issue](2018-10-08.1923.issue.closed.md) `closed`: mkrescue doesn't contain valid .conf files when files are symlinks
+- [\#1924 Issue](2018-10-08.1924.issue.closed.md) `closed`: BUG in /usr/share/rear/build/default/980\_verify\_rootfs.sh line 29
+- [\#1925 Issue](2018-10-10.1925.issue.closed.md) `closed`: SLES 12 SP3 on IBM Power using the SAN disks
+- [\#1926 Issue](2018-10-10.1926.issue.closed.md) `closed`: Restore fails when teaming runner is configured as LACP
+- [\#1927 Issue](2018-10-11.1927.issue.closed.md) `closed`: ReaR 2.4 - Kernel Panic
+- [\#1928 Issue](2018-10-12.1928.issue.closed.md) `closed`: mkbackup and mkrescue failing with nvme disks
+- [\#1929 Issue](2018-10-15.1929.issue.closed.md) `closed`: 'Unknown bootloader (
+- [\#1930 Issue](2018-10-15.1930.issue.closed.md) `closed`: chroot: failed to run command '/bin/ldd': No such file or directory
+- [\#1931 Issue](2018-10-15.1931.issue.closed.md) `closed`: /usr/share/rear/layout/save/GNU/Linux/200\_partition\_layout.sh: line 271: test: 62180556800: unary operator expected
+- [\#1932 Issue](2018-10-15.1932.issue.closed.md) `closed`: feature request: zfs support (binaries and pool layout
+- [\#1933 Issue](2018-10-16.1933.issue.closed.md) `closed`: partitions are not recreated /usr/share/rear/layout/prepare/GNU/Linux/120\_include\_raid\_code.sh: line 78: create\_partitions: command not found
+- [\#1934 PR](2018-10-16.1934.pr.merged.md) `merged`: Fix for \#1926 - Restore fails when teaming runner is configured as LACP
+- [\#1935 PR](2018-10-17.1935.pr.merged.md) `merged`: Avoid find in whole fstree in 500 clone keyboard mappings issue1906
+- [\#1936 Issue](2018-10-19.1936.issue.closed.md) `closed`: cp: error writing '/tmp/rear-efi.XXXXX//EFI/BOOT/initrd.cgz': No space left on device
+- [\#1937 PR](2018-10-22.1937.pr.merged.md) `merged`: Remove After=syslog.target form dbus.service \#1230
+- [\#1938 Issue](2018-10-22.1938.issue.closed.md) `closed`: UUID not updating after restore
+- [\#1939 Issue](2018-10-23.1939.issue.closed.md) `closed`: The dump and help workflows do not support '-s' simulation mode
+- [\#1940 PR](2018-10-23.1940.pr.merged.md) `merged`: Support simulation mode for dump and help workflows plus better help workflow
+- [\#1941 Issue](2018-10-25.1941.issue.closed.md) `closed`: ReaR breaks on module-less kernels
+- [\#1942 Issue](2018-10-27.1942.issue.closed.md) `closed`: Support EFISTUB booting (e.g. on Arch Linux
+- [\#1943 PR](2018-10-28.1943.pr.merged.md) `merged`: properly handle module-less kernels (fixes \#1941
+- [\#1944 Issue](2018-10-30.1944.issue.closed.md) `closed`: Typo in /usr/share/rear/wrapup/default/500\_post\_recovery\_script.sh
+- [\#1945 PR](2018-10-30.1945.pr.merged.md) `merged`: Blind attempt to clean up 630\_run\_efibootmgr.sh (issue 1942
+- [\#1946 Issue](2018-10-31.1946.issue.closed.md) `closed`: System won't boot after restore - symlink for /etc/mtab missing
+- [\#1947 PR](2018-10-31.1947.pr.merged.md) `merged`: Enhance and cleanup 985\_fix\_broken\_links.sh (issue 1638 and pull request 1734
+- [\#1948 Issue](2018-11-02.1948.issue.closed.md) `closed`: TSM set point-in-time recovery date via configuration
+- [\#1949 PR](2018-11-02.1949.pr.merged.md) `merged`: For Slackware Linux:
+- [\#1950 Issue](2018-11-05.1950.issue.closed.md) `closed`: ReaR doesn't create disklayouts correctly using GPT partition tables
+- [\#1951 PR](2018-11-05.1951.pr.closed.md) `closed`: Obey TSM\_RESTORE\_PIT\_... variables in environment (issue 1948
+- [\#1952 Issue](2018-11-05.1952.issue.closed.md) `closed`: Rear recovery does not start due to "No code has been generated to recreate pv:/dev/sda2 (lvmdev
+- [\#1953 Issue](2018-11-06.1953.issue.closed.md) `closed`: ERROR: No filesystem mounted on '/mnt/local'. Stopping.
+- [\#1954 PR](2018-11-06.1954.pr.merged.md) `merged`: network: Record permanent mac address when device is enslaved in a bond, or else /etc/mac-addresses will record broken information
+- [\#1955 Issue](2018-11-07.1955.issue.closed.md) `closed`: Does rear support Oracle Enterprise Linux(OEL
+- [\#1956 Issue](2018-11-07.1956.issue.closed.md) `closed`: New solution for GitHub push emails
+- [\#1957 Issue](2018-11-08.1957.issue.closed.md) `closed`: Two slightly different 500\_selinux\_autorelabel.sh get sourced
+- [\#1958 Issue](2018-11-08.1958.issue.closed.md) `closed`: Support by-path PVs
+- [\#1959 PR](2018-11-08.1959.pr.merged.md) `merged`: Switch TSM PIT input to UserInput function to allow scripting.
+- [\#1960 PR](2018-11-08.1960.pr.merged.md) `merged`: Switch TSM PIT input to UserInput function to allow scripting.
+- [\#1961 PR](2018-11-09.1961.pr.merged.md) `merged`: moved PROGS from GNU/Linux.conf to default.conf REQUIRED\_PROGS \#892
+- [\#1962 PR](2018-11-12.1962.pr.merged.md) `merged`: cleanup REQUIRED\_PROGS checks (issue 892
+- [\#1963 Issue](2018-11-14.1963.issue.closed.md) `closed`: Specific mandatrory programs get not added to REQUIRED\_PROGS
+- [\#1964 PR](2018-11-14.1964.pr.merged.md) `merged`: Add specific required programs to REQUIRED\_PROGS (issue 1963
+- [\#1965 Issue](2018-11-15.1965.issue.closed.md) `closed`: mkrescue error "cp: cannot stat '/tmp/rear.aaja71UVdjBgWZt/tmp/README': No such file or directory"
+- [\#1966 Issue](2018-11-19.1966.issue.closed.md) `closed`: Borg integration cannot handle local backups
+- [\#1967 Issue](2018-11-19.1967.issue.closed.md) `closed`: rear mkbackup hang : Creating disk layout
+- [\#1968 Issue](2018-11-19.1968.issue.closed.md) `closed`: Rear mkbackup is hang : Creating disk layout
+- [\#1969 PR](2018-11-19.1969.pr.merged.md) `merged`: check for carriage return in {local|site|rescue}.conf files
+- [\#1970 PR](2018-11-19.1970.pr.merged.md) `merged`: Let Source function return exit code of source call (related to issue 1965
+- [\#1971 PR](2018-11-19.1971.pr.merged.md) `merged`: Add /etc/ca-certificates directory to ReaR recovery system for Arch Linux
+- [\#1972 Issue](2018-11-19.1972.issue.closed.md) `closed`: rear recover stops if /boot/efi is missing.
+- [\#1973 Issue](2018-11-20.1973.issue.closed.md) `closed`: ReaR 2.00 not working for SLES 12 SP3 on PowerVM LPAR with MPIO SAN device
+- [\#1974 Issue](2018-11-20.1974.issue.closed.md) `closed`: NBU (Netbackup
+- [\#1975 Issue](2018-11-20.1975.issue.closed.md) `closed`: Missing libraries in Rescue ISO causing executables to fail
+- [\#1976 PR](2018-11-21.1976.pr.merged.md) `merged`: Issue \#1975 - Missing libraries in Rescue ISO causing executables to fail
+- [\#1977 PR](2018-11-21.1977.pr.merged.md) `merged`: Ignore relabeling of /boot/efi only if directory exists.
+- [\#1978 PR](2018-11-23.1978.pr.merged.md) `merged`: Fix for 'error:unrecognized number' when booting ISO on PPC
+- [\#1979 PR](2018-11-23.1979.pr.merged.md) `merged`: Fix broken 'make pacman'
+- [\#1980 PR](2018-11-26.1980.pr.merged.md) `merged`: Fix for \#1974 - NBU (Netbackup
+- [\#1981 PR](2018-11-26.1981.pr.merged.md) `merged`: Rearranged final build stage scripts so that "verify\_rootfs" runs after "fix\_broken\_links"
+- [\#1982 Issue](2018-11-26.1982.issue.closed.md) `closed`: alter network config at boot time
+- [\#1983 PR](2018-11-27.1983.pr.closed.md) `closed`: Moved 400\_guess\_kernel.sh to earlier stage
+- [\#1984 Issue](2018-11-27.1984.issue.closed.md) `closed`: REAR recovery issue with single ISO
+- [\#1985 PR](2018-11-28.1985.pr.merged.md) `merged`: Cleaned up how KERNEL\_FILE is set (issues 1851 and 1983
+- [\#1986 Issue](2018-11-28.1986.issue.closed.md) `closed`: DHCP client does not iterate through all interfaces
+- [\#1987 PR](2018-11-28.1987.pr.merged.md) `merged`: Fix for issue [https://github.com/rear/rear/issues/1986](https://github.com/rear/rear/issues/1986
+- [\#1988 PR](2018-11-30.1988.pr.merged.md) `merged`: Removed file command usage in 400\_guess\_kernel.sh because it is not reliably working to test if a file is actually a kernel
+- [\#1989 Issue](2018-11-30.1989.issue.closed.md) `closed`: Ubuntu 14.04 mkbackup does not backup anything
+- [\#1990 Issue](2018-12-03.1990.issue.closed.md) `closed`: error in logs: File changed as we read it
+- [\#1991 Issue](2018-12-03.1991.issue.closed.md) `closed`: $RUNTIME\_LOGFILE disappears one time after layout changes
+- [\#1992 PR](2018-12-04.1992.pr.merged.md) `merged`: Include UDF support in rescue ISO when backup is stored on the ISO itself
+- [\#1993 PR](2018-12-04.1993.pr.merged.md) `merged`: Automatically exclude $BUILD\_DIR from the backup
+- [\#1994 Issue](2018-12-04.1994.issue.closed.md) `closed`: Recovery from GRUB menu with Borg failed due to full disk in certain VM environment
+- [\#1995 PR](2018-12-04.1995.pr.merged.md) `merged`: NBU: exclude '/usr/openv/netbackup/baremetal' which is not needed
+- [\#1996 Issue](2018-12-04.1996.issue.closed.md) `closed`: ReaR fails on Fedora 29 with UEFI when grub2-efi-modules are missing
+- [\#1997 PR](2018-12-05.1997.pr.merged.md) `merged`: $TMP\_DIR parent directory was missing before initrd filename variable.
+- [\#1998 Issue](2018-12-06.1998.issue.closed.md) `closed`: SLE15 on ppcl: mkfs.xfs fails if sunit &gt; 0 but swidth = 0
+- [\#1999 Issue](2018-12-06.1999.issue.closed.md) `closed`: Serial console does not show automatic recovery scripts
+- [\#2000 Issue](2018-12-06.2000.issue.closed.md) `closed`: Trying to clone from rear backup of SLES12 SP3 SAP fails on Power lpar
+- [\#2001 PR](2018-12-10.2001.pr.merged.md) `merged`: fedora29 grub2-efi-x64-modules does not contain linuxefi module
+- [\#2002 Issue](2018-12-10.2002.issue.closed.md) `closed`: SLES12SP3 on Power - Getting disk layout recreation failed error and disk mapping to /dev/sda.
+- [\#2003 Issue](2018-12-13.2003.issue.closed.md) `closed`: ReaR does not preserve Grub install location
+- [\#2004 PR](2018-12-13.2004.pr.merged.md) `merged`: network: Automatically map device to its new name when device is found on the system with same MAC address but different name
+- [\#2005 PR](2018-12-14.2005.pr.merged.md) `merged`: Provide final power to the user for mkfs.xfs options if needed (issue 1998
+- [\#2006 Issue](2018-12-17.2006.issue.closed.md) `closed`: No code has been generated to recreate disk
+- [\#2007 Issue](2018-12-19.2007.issue.closed.md) `closed`: Borg stats do not appear in log file even in verbose mode
+- [\#2008 PR](2018-12-19.2008.pr.merged.md) `merged`: Add possibility to fine tune some of Borg output
+- [\#2009 Issue](2018-12-20.2009.issue.closed.md) `closed`: Recreating LVM not working with ReaR 2.4 on RHEL 7.6
+- [\#2010 Issue](2018-12-21.2010.issue.closed.md) `closed`: Provide final power to the user for mkfs options if needed
+- [\#2011 PR](2018-12-26.2011.pr.merged.md) `merged`: Allow non-interactive rsync authentication
+- [\#2012 Issue](2018-12-27.2012.issue.closed.md) `closed`: How to backup the large than 4GB system with archive files.
+- [\#2013 PR](2019-01-07.2013.pr.merged.md) `merged`: Error out when we cannot make a bootable EFI image of GRUB2 (issue 1193
+- [\#2014 PR](2019-01-10.2014.pr.merged.md) `merged`: Improve rear dump output to clearly distinguish array elements
+- [\#2015 Issue](2019-01-12.2015.issue.closed.md) `closed`: No DNS Lookups possible in rescue system when systemd-resolved is used
+- [\#2016 Issue](2019-01-14.2016.issue.closed.md) `closed`: Unable to clone Power Lpar from rear backup of SLES12 SP3 SAP
+- [\#2017 Issue](2019-01-15.2017.issue.closed.md) `closed`: 900\_create\_missing\_directories.sh fails calling chroot due to missing files in /mnt/local/ (with BACKUP=NSR
+- [\#2018 PR](2019-01-16.2018.pr.merged.md) `merged`: Improved setup of etc/resolv.conf in the recovery system (issue 2015
+- [\#2019 Issue](2019-01-17.2019.issue.closed.md) `closed`: Update to closed issue \#2016 (Unable to clone Power lpar from rear backup SLES 12
+- [\#2020 Issue](2019-01-18.2020.issue.closed.md) `closed`: Question about "fc\_transport.info"
+- [\#2021 PR](2019-01-21.2021.pr.merged.md) `merged`: Be safe against empty docker\_root\_dir (issue 1989
+- [\#2022 PR](2019-01-22.2022.pr.merged.md) `merged`: Fixed exit in usr/sbin/rear when getopt failed
+- [\#2023 Issue](2019-01-23.2023.issue.closed.md) `closed`: Question about disk layout limitations
+- [\#2024 PR](2019-01-24.2024.pr.merged.md) `merged`: Suppress dispensable 'set -x' debug output unless called with '--debugscripts x'
+- [\#2025 Issue](2019-01-29.2025.issue.closed.md) `closed`: rear.spec: Remove unneeded %clean section
+- [\#2026 Issue](2019-01-29.2026.issue.closed.md) `closed`: rear.spec: Remove obsolete BuildRoot tag
+- [\#2027 Issue](2019-01-29.2027.issue.closed.md) `closed`: rear.spec: Remove obsolete Group tag
+- [\#2028 Issue](2019-02-01.2028.issue.closed.md) `closed`: BTRFS Raid / Multi Disk setup is currently not supported
+- [\#2029 Issue](2019-02-01.2029.issue.closed.md) `closed`: No /verify/BORG/ script to verify a BORG backup can be restored
+- [\#2030 PR](2019-02-04.2030.pr.merged.md) `merged`: Basic support for EFISTUB booting.
+- [\#2031 PR](2019-02-04.2031.pr.merged.md) `merged`: Documentation for EFISTUB boot support.
+- [\#2032 Issue](2019-02-05.2032.issue.closed.md) `closed`: How to restore the system on a specific date with incremental backup
+- [\#2033 Issue](2019-02-05.2033.issue.closed.md) `closed`: Placeholder for new release of ReaR 2.5
+- [\#2034 PR](2019-02-06.2034.pr.merged.md) `merged`: Multipath optimizations
+- [\#2035 Issue](2019-02-08.2035.issue.closed.md) `closed`: 'rear recover' hangs while running mkinitrd (bind mount of /run missing in TARGET\_FS\_ROOT
+- [\#2036 Issue](2019-02-10.2036.issue.closed.md) `closed`: recover fails because no code generated to recreate /dev/mapper/cryptswap1 (eCryptfs is used
+- [\#2037 PR](2019-02-10.2037.pr.merged.md) `merged`: Restoring from Borg backup will now do test list of repository
+- [\#2038 PR](2019-02-11.2038.pr.merged.md) `merged`: small fix to the 58-start-dhclient.sh script
+- [\#2039 PR](2019-02-11.2039.pr.merged.md) `merged`: Fix for commit f9e53a33
+- [\#2040 Issue](2019-02-13.2040.issue.closed.md) `closed`: Missing basic executables in ReaR
+- [\#2041 Issue](2019-02-13.2041.issue.closed.md) `closed`: Have MODULES=( 'all\_modules' 
+- [\#2042 Issue](2019-02-14.2042.issue.closed.md) `closed`: Unable to restore to SLES12 SP4 on Power using Rear
+- [\#2043 PR](2019-02-15.2043.pr.merged.md) `merged`: adding clear to PROGS array
+- [\#2044 Issue](2019-02-16.2044.issue.closed.md) `closed`: WARNING: Failed to connect to lvmetad. Falling back to device scanning
+- [\#2045 Issue](2019-02-18.2045.issue.closed.md) `closed`: bind-mount proc sys dev and run at one central place in finalize stage
+- [\#2046 Issue](2019-02-18.2046.issue.closed.md) `closed`: 90-eno-fix.rules missing in RULE\_FILES for LAN interface MAC address changes
+- [\#2047 PR](2019-02-18.2047.pr.merged.md) `merged`: Bind mount proc sys dev run at one place issue2045
+- [\#2048 PR](2019-02-18.2048.pr.closed.md) `closed`: Do not patch $TARGET\_FS\_ROOT/etc/mtab if symbolic link.
+- [\#2049 PR](2019-02-20.2049.pr.merged.md) `merged`: add eno-fix.rules to the RULE\_FILES array \#2046
+- [\#2050 Issue](2019-02-20.2050.issue.closed.md) `closed`: Recovery enters Migration mode when multiple disks have same size
+- [\#2051 PR](2019-02-20.2051.pr.closed.md) `closed`: 630\_run\_efibootmgr.sh wrongly checks boot loader outside chroot
+- [\#2052 Issue](2019-02-22.2052.issue.closed.md) `closed`: kernel panic "VFS: Unable to mount root fs on unknown-block(0,0
+- [\#2053 Issue](2019-02-26.2053.issue.closed.md) `closed`: decrypt backup.tar.gz
+- [\#2054 Issue](2019-02-26.2054.issue.closed.md) `closed`: USB mount error Filesystem for device '''/dev/sdb1''' could not be found
+- [\#2055 PR](2019-02-26.2055.pr.merged.md) `merged`: skip patching absolute symlinks during finalize stage (related to issue 1338
+- [\#2056 Issue](2019-02-27.2056.issue.closed.md) `closed`: ld-2.17.so killed by SIGSEGV
+- [\#2057 Issue](2019-02-28.2057.issue.closed.md) `closed`: Support bcache in ReaR
+- [\#2058 PR](2019-02-28.2058.pr.merged.md) `merged`: Update 470\_safe\_filesystems.sh for NSR
+- [\#2059 Issue](2019-02-28.2059.issue.closed.md) `closed`: BUG: The disk layout recreation script failed
+- [\#2060 PR](2019-02-28.2060.pr.merged.md) `merged`: New verify disklayout file script 950\_verify\_disklayout\_file.sh
+- [\#2061 Issue](2019-03-01.2061.issue.closed.md) `closed`: ERROR: 'dsmc query filespace' failed
+- [\#2062 Issue](2019-03-01.2062.issue.closed.md) `closed`: After install SYMCsdcss on suse 11.4 the server reboots using rear
+- [\#2063 PR](2019-03-01.2063.pr.merged.md) `merged`: to avoid confusing in mkrescue run we do not print using archive \#1363
+- [\#2064 PR](2019-03-03.2064.pr.merged.md) `merged`: Udev before multipath
+- [\#2065 PR](2019-03-04.2065.pr.merged.md) `merged`: network: Record permanent mac address when device is enslaved in a Team, or else /etc/mac-addresses will record broken information
+- [\#2066 Issue](2019-03-05.2066.issue.closed.md) `closed`: BACKUP\_PROG\_EXCLUDE not working with BACKUP=NBU
+- [\#2067 Issue](2019-03-06.2067.issue.closed.md) `closed`: Restoring Btrfs file system fails if a snapshot has been used for rollback
+- [\#2068 PR](2019-03-06.2068.pr.closed.md) `closed`: Fix SSH root login on the recovery system with some configurations
+- [\#2069 PR](2019-03-06.2069.pr.merged.md) `merged`: Have MODULES all\_modules by default plus needed adaptions for that
+- [\#2070 PR](2019-03-06.2070.pr.merged.md) `merged`: Fix SSH root login on the recovery system with some configurations
+- [\#2071 PR](2019-03-06.2071.pr.merged.md) `merged`: RAWDISK output: improve device partition detection (e.g. Ubuntu 18.04
+- [\#2072 PR](2019-03-06.2072.pr.merged.md) `merged`: OPALPBA output fix: Do not include any PBA into another PBA
+- [\#2073 PR](2019-03-06.2073.pr.merged.md) `merged`: Debian packaging: downgrade syslinux from Depends to Suggests
+- [\#2074 Issue](2019-03-08.2074.issue.closed.md) `closed`: move RULE\_FILES to default.conf as UDEV\_NET\_MAC\_RULE\_FILES
+- [\#2075 Issue](2019-03-08.2075.issue.closed.md) `closed`: Merge conf/GNU/Linux.conf (and similar
+- [\#2076 PR](2019-03-11.2076.pr.merged.md) `merged`: Ignore broken resolv conf in case of use dhclient issue 2018
+- [\#2077 Issue](2019-03-11.2077.issue.closed.md) `closed`: NETFS backup fails if NETFS\_PREFIX contains spaces
+- [\#2078 PR](2019-03-11.2078.pr.merged.md) `merged`: system-setup: Exclude /etc/ssh/sshd\_config from md5sums verification
+- [\#2079 PR](2019-03-11.2079.pr.merged.md) `merged`: Add new implementation to recreate all mounted Btrfs subvolumes
+- [\#2080 PR](2019-03-12.2080.pr.merged.md) `merged`: Make both btrfs\_subvolumes\_setup implementations available (follow up of issue 2079
+- [\#2081 PR](2019-03-12.2081.pr.merged.md) `merged`: Enable creation of non consecutive partitions
+- [\#2082 PR](2019-03-13.2082.pr.merged.md) `merged`: Add 'net-tools' to Debian dependencies as required for 'route' command
+- [\#2083 PR](2019-03-14.2083.pr.merged.md) `merged`: Update OPALPBA workflow
+- [\#2084 PR](2019-03-15.2084.pr.merged.md) `merged`: Fixed comments and messages about '13X\_include\_...' scripts that had been renamed via issue 2080
+- [\#2085 Issue](2019-03-15.2085.issue.closed.md) `closed`: Enhance btrfs\_subvolumes\_setup\_generic(
+- [\#2086 Issue](2019-03-15.2086.issue.closed.md) `closed`: Support also appropriate\_dir/diskrestore.sh (similar as CONFIG\_DIR/disklayout.conf
+- [\#2087 Issue](2019-03-15.2087.issue.closed.md) `closed`: "rear mkrescue" fails for mmcblk0boot0/mmcblk0rpmb partitions (mmcblk/eMMC disk type
+- [\#2088 PR](2019-03-18.2088.pr.merged.md) `merged`: Error function must immediately exit (issue \#2089
+- [\#2089 Issue](2019-03-18.2089.issue.closed.md) `closed`: Error(
+- [\#2090 Issue](2019-03-19.2090.issue.closed.md) `closed`: Cleanup and adjust excessive subshell usage
+- [\#2091 PR](2019-03-19.2091.pr.merged.md) `merged`: Ignore invalid partitions on eMMC devices of type \*rpmb and *boot*
+- [\#2092 PR](2019-03-21.2092.pr.merged.md) `merged`: Call mktemp with sufficent XXXXXXXXXX where needed otherwise use the mktemp default
+- [\#2093 Issue](2019-03-21.2093.issue.closed.md) `closed`: partitial restore: grub2 won't boot
+- [\#2094 Issue](2019-03-21.2094.issue.closed.md) `closed`: Rear Recover finishes but system will not boot. SLES12 SP3 with BRTFS/ppc64le
+- [\#2095 Issue](2019-03-21.2095.issue.closed.md) `closed`: Creating UEFI Bootable USB stick hangs while reading /proc/mounts
+- [\#2096 PR](2019-03-22.2096.pr.merged.md) `merged`: fixed bootlist (special thanks to pcahyna++
+- [\#2097 PR](2019-03-22.2097.pr.merged.md) `merged`: \#1886 - LPAR/PPC64 bootlist is incorrectly set when having multiple '…
+- [\#2098 PR](2019-03-22.2098.pr.merged.md) `merged`: Use \[\*\] instead of \[@\] for array expansion inside a string
+- [\#2099 PR](2019-03-26.2099.pr.merged.md) `merged`: Use simplest way to get current PID in bash 3 (related to issue 2089
+- [\#2100 Issue](2019-03-27.2100.issue.closed.md) `closed`: "rear recover" mount.nfs failed with "rpc.statd is not running but is required for remote locking"
+- [\#2101 PR](2019-03-27.2101.pr.merged.md) `merged`: quick hack to copy the real resolv.conf file on ubuntu18.x
+- [\#2102 Issue](2019-03-29.2102.issue.closed.md) `closed`: Boot rescue image: no serial console output when migrating to another mac addresses
+- [\#2103 Issue](2019-03-29.2103.issue.closed.md) `closed`: rear recover fails to create UEFI boot entry for eMMC device
+- [\#2104 PR](2019-03-29.2104.pr.merged.md) `merged`: Fix disk device name in efibootmgr call for eMMC devices
+- [\#2105 Issue](2019-04-02.2105.issue.closed.md) `closed`: NBU libs in /usr/openv/netbackup/sec/at/lib not included
+- [\#2106 Issue](2019-04-02.2106.issue.closed.md) `closed`: SLES 12.3; BTRFS; "The disk layout recreation script failed"
+- [\#2107 PR](2019-04-03.2107.pr.merged.md) `merged`: adding 640\_verify\_lvm\_conf.sh script
+- [\#2108 PR](2019-04-04.2108.pr.merged.md) `merged`: Fixes for more than one disk
+- [\#2109 Issue](2019-04-08.2109.issue.closed.md) `closed`: Error in RequiredSharedOjects results in "Failed to copy '/$LIB/liboneagentproc.so'"
+- [\#2110 PR](2019-04-08.2110.pr.closed.md) `closed`: let each ldd output line match only once
+- [\#2111 Issue](2019-04-08.2111.issue.closed.md) `closed`: just one more issue with build/default/985\_fix\_broken\_links.sh
+- [\#2112 PR](2019-04-08.2112.pr.merged.md) `merged`: Do not copy symlink targets in proc sys dev run (issue\#2111
+- [\#2113 PR](2019-04-09.2113.pr.merged.md) `merged`: Revive old 100\_populate\_dev.sh code for SLES11 (follow up of issue 2045
+- [\#2114 Issue](2019-04-10.2114.issue.closed.md) `closed`: mount /dev/shm by default in recovery image?
+- [\#2115 PR](2019-04-11.2115.pr.merged.md) `merged`: Simplify awk constructs in 320\_include\_uefi\_env.sh (issue \#2095
+- [\#2116 Issue](2019-04-11.2116.issue.closed.md) `closed`: Leap15.0/UEFI fails to boot post-recovery for not calling shim-install
+- [\#2117 PR](2019-04-12.2117.pr.merged.md) `merged`: Fix for issue 2116: added new SUSE-specific script to call 'shim-inst…
+- [\#2118 Issue](2019-04-12.2118.issue.closed.md) `closed`: After booting from rear iso, it does not show testing server hard disk
+- [\#2119 PR](2019-04-16.2119.pr.merged.md) `merged`: btrfs subvolumes generic: fix 'subvolume set-default' for older versions
+- [\#2120 Issue](2019-04-16.2120.issue.closed.md) `closed`: rear mkrescue log contains "Welcome to Relax-and-Recover..." numerous times
+- [\#2121 Issue](2019-04-17.2121.issue.closed.md) `closed`: ReaR not deleting folders from /tmp
+- [\#2122 PR](2019-04-17.2122.pr.merged.md) `merged`: Address issue [https://github.com/rear/rear/issues/2105](https://github.com/rear/rear/issues/2105
+- [\#2123 PR](2019-04-19.2123.pr.merged.md) `merged`: replace RULE\_FILES with a global UDEV\_NET\_MAC\_RULE\_FILES
+- [\#2124 Issue](2019-04-26.2124.issue.closed.md) `closed`: Inconsistent TERM values in skel scripts
+- [\#2125 PR](2019-04-28.2125.pr.merged.md) `merged`: Fix \#2120: avoid unwanted "Welcome to" messages in log file
+- [\#2126 PR](2019-04-28.2126.pr.merged.md) `merged`: Fix layout mapping
+- [\#2127 Issue](2019-04-28.2127.issue.closed.md) `closed`: rescue system boots with "md5sum: ./path/to/some.file~: No such file or directory"
+- [\#2128 Issue](2019-04-29.2128.issue.closed.md) `closed`: PXE Boot starts at "GNU GRUB version 2.02"
+- [\#2129 Issue](2019-04-29.2129.issue.closed.md) `closed`: 985\_fix\_broken\_links.sh misses relative links
+- [\#2130 Issue](2019-04-29.2130.issue.closed.md) `closed`: 985\_fix\_broken\_links.sh reports "Failed to copy symlink target" for directories
+- [\#2131 PR](2019-04-30.2131.pr.merged.md) `merged`: Improve handling of broken symlinks (fix \#2129, fix \#2130
+- [\#2132 PR](2019-04-30.2132.pr.merged.md) `merged`: NBU: exclude '/usr/openv/netbackup/logs' directory instead of files in directory only
+- [\#2133 Issue](2019-05-02.2133.issue.closed.md) `closed`: 100\_copy\_as\_is.sh can get in conflict with what 010\_merge\_skeletons.sh did before
+- [\#2134 Issue](2019-05-03.2134.issue.closed.md) `closed`: 420\_autoresize\_last\_partitions.sh fails if a disk has no partition listed in disklayout.conf
+- [\#2135 Issue](2019-05-06.2135.issue.closed.md) `closed`: SLES11 and RHEL/CentOS 5 snapshot builds fail on OBS
+- [\#2136 PR](2019-05-06.2136.pr.merged.md) `merged`: reverted rear.spec changes for OBS build failures on SELS11 and RHEl5
+- [\#2137 Issue](2019-05-07.2137.issue.closed.md) `closed`: Support IBM Z architecture "s390x" (a.k.a. "z Systems" formerly "System/390"
+- [\#2138 Issue](2019-05-07.2138.issue.closed.md) `closed`: Rear restore under Debian 9 with systemV
+- [\#2139 Issue](2019-05-09.2139.issue.closed.md) `closed`: Provide a systemd service and timer to run "rear checklayout || rear mkrescue"
+- [\#2140 Issue](2019-05-09.2140.issue.closed.md) `closed`: Use "medium" (instead of "media"
+- [\#2141 Issue](2019-05-09.2141.issue.closed.md) `closed`: Save the entire system to the single ISO image
+- [\#2142 PR](2019-05-09.2142.pr.merged.md) `merged`: support for s390 (zLinux
+- [\#2143 Issue](2019-05-10.2143.issue.closed.md) `closed`: No "Saving RUNTIME\_LOGFILE as LOGFILE" when Error(
+- [\#2144 Issue](2019-05-14.2144.issue.closed.md) `closed`: Additional libraries needed for NBU
+- [\#2145 PR](2019-05-16.2145.pr.merged.md) `merged`: On-board packit.yaml
+- [\#2146 Issue](2019-05-16.2146.issue.closed.md) `closed`: should skel/Fedora/ 16 & 17 be removed?
+- [\#2147 PR](2019-05-23.2147.pr.merged.md) `merged`: Improvements and fixes for 950\_copy\_result\_files (related to issue2137
+- [\#2148 Issue](2019-05-23.2148.issue.closed.md) `closed`: 900\_copy\_ramdisk.sh seems to duplicate what 950\_copy\_result\_files.sh does
+- [\#2149 PR](2019-05-24.2149.pr.merged.md) `merged`: Cleanup OUTPUT=RAMDISK 900\_copy\_ramdisk.sh (issue2148
+- [\#2150 PR](2019-05-28.2150.pr.merged.md) `merged`: Enhancements for dasd disks and GRUB2 plus ZIPL bootloader on SLES on s390
+- [\#2151 Issue](2019-05-28.2151.issue.closed.md) `closed`: Recovery fails on LUKS-encrypted filesystem using simple password
+- [\#2152 Issue](2019-05-31.2152.issue.closed.md) `closed`: Bacula support for "bacula-enterprise-client" RPMs (different file locations
+- [\#2153 Issue](2019-06-03.2153.issue.closed.md) `closed`: Missing 'grubenv' after ReaR 2.5 recovery causes boot failure in RHEL 7
+- [\#2154 PR](2019-06-04.2154.pr.merged.md) `merged`: Fix for issue 2151: only the first 2 parameters in /etc/crypttab are …
+- [\#2155 Issue](2019-06-05.2155.issue.closed.md) `closed`: User's secret BACKUP\_PROG\_CRYPT\_KEY value is shown in backup.log
+- [\#2156 PR](2019-06-06.2156.pr.merged.md) `merged`: Do not log BACKUP\_PROG\_CRYPT\_KEY value (issue 2155
+- [\#2157 Issue](2019-06-07.2157.issue.closed.md) `closed`: Backup tar file 0 bytes if encryption enabled when BACKUP\_PROG\_CRYPT\_KEY contains special characters
+- [\#2158 Issue](2019-06-09.2158.issue.closed.md) `closed`: OOM when restoring with BACKUP=BAREOS
+- [\#2159 Issue](2019-06-10.2159.issue.closed.md) `closed`: "rear recover" fails with "mount /dev/by-label/RELAXANDRECOVER /tmp/rear.xxxx/outputfs failed"
+- [\#2160 PR](2019-06-10.2160.pr.merged.md) `merged`: Fix 4 issue 1564
+- [\#2161 Issue](2019-06-18.2161.issue.closed.md) `closed`: some 'rear' RPM package from some GitHub fork does not install well on openSUSE Leap
+- [\#2162 Issue](2019-06-26.2162.issue.closed.md) `closed`: NSRSERVER is missing
+- [\#2163 Issue](2019-06-26.2163.issue.closed.md) `closed`: Backup 0 bytes if encryption enabled with empty openssl password
+- [\#2164 Issue](2019-06-27.2164.issue.closed.md) `closed`: Creating a custom rescue system
+- [\#2165 Issue](2019-06-27.2165.issue.closed.md) `closed`: SLES15: rear recover fails due to missing chattr
+- [\#2166 PR](2019-06-27.2166.pr.merged.md) `merged`: RAWDISK and TCG Opal 2 Self-Encrypting Disks: add Secure Boot support
+- [\#2167 Issue](2019-06-28.2167.issue.closed.md) `closed`: \[Question\] Duplicate entries within 'releases'
+- [\#2168 Issue](2019-06-29.2168.issue.closed.md) `closed`: BORG: Unable to exclude swapfile from backup
+- [\#2169 Issue](2019-07-01.2169.issue.closed.md) `closed`: Cron Job Recovery Media not available
+- [\#2170 Issue](2019-07-01.2170.issue.closed.md) `closed`: 2.5 Can't Mount CIFS
+- [\#2171 Issue](2019-07-02.2171.issue.closed.md) `closed`: OUTPUT=USB neither works with BACKUP\_URL=nfs://... nor with whole disk USB\_DEVICE=/dev/sdc
+- [\#2172 PR](2019-07-02.2172.pr.merged.md) `merged`: usr/share/rear/prep/USB/Linux-i386/350\_check\_usb\_disk.sh - if we pass…
+- [\#2173 PR](2019-07-04.2173.pr.merged.md) `merged`: bacula: Fixed 'bconsole' prompt not displaying at all when doing a recover
+- [\#2174 PR](2019-07-05.2174.pr.merged.md) `merged`: Small linguistic fix
+- [\#2175 PR](2019-07-05.2175.pr.merged.md) `merged`: Typo fix 'Mulitpath' to 'Multipath' in file name RHEL7-PPC64LE-Multipath-PXE-GRUB.conf
+- [\#2176 Issue](2019-07-06.2176.issue.closed.md) `closed`: mount cifs problem - but mkbackuponly is working
+- [\#2177 Issue](2019-07-08.2177.issue.closed.md) `closed`: rear runs ldd on vdso.so kernel module which segfaults and generates a memory error
+- [\#2178 PR](2019-07-08.2178.pr.merged.md) `merged`: More fail safe BACKUP\_PROG\_CRYPT\_KEY handling (issue 2157
+- [\#2179 PR](2019-07-09.2179.pr.merged.md) `merged`: Skip the ldd test for kernel modules (issue \#2177
+- [\#2180 Issue](2019-07-13.2180.issue.closed.md) `closed`: Debian 10: during boot "rear udev" is called, causing delay during boot
+- [\#2181 Issue](2019-07-15.2181.issue.closed.md) `closed`: In case of disk mapping disks in var/lib/rear/layout/config/df.txt are not mapped
+- [\#2182 Issue](2019-07-15.2182.issue.closed.md) `closed`: When resizing 420\_autoresize\_last\_partitions.sh does not leave 33 blocks at end of GPT disk
+- [\#2183 Issue](2019-07-15.2183.issue.closed.md) `closed`: RFC: Should function apply\_layout\_mappings(
+- [\#2184 Issue](2019-07-15.2184.issue.closed.md) `closed`: USE\_DHCLIENT="yes" does not add a (non-empty
+- [\#2185 PR](2019-07-15.2185.pr.merged.md) `merged`: Error out when DHCLIENT\_BIN and DHCLIENT6\_BIN are empty and USE\_DHCLIENT is set
+- [\#2186 Issue](2019-07-16.2186.issue.closed.md) `closed`: Alternatively do kexec instead of regular boot to speed up booting
+- [\#2187 Issue](2019-07-17.2187.issue.closed.md) `closed`: disklayout.conf file contains duplicate lines
+- [\#2188 PR](2019-07-17.2188.pr.merged.md) `merged`: Let 420\_autoresize\_last\_partitions.sh leave 33 blocks at end of GPT disks (issue \#2182
+- [\#2189 PR](2019-07-18.2189.pr.merged.md) `merged`: In apply\_layout\_mappings it is no error when there are leftover replacement strings in comments
+- [\#2190 PR](2019-07-19.2190.pr.merged.md) `merged`: Apply layout mappings also to other relevant files
+- [\#2191 Issue](2019-07-21.2191.issue.closed.md) `closed`: BORG\_PASSPHRASE expands variables inside passphrase
+- [\#2192 Issue](2019-07-21.2192.issue.closed.md) `closed`: Cannot Backup Folder Mounted to /dev/fuse
+- [\#2193 Issue](2019-07-22.2193.issue.closed.md) `closed`: Booted into the USB, Can't Recover
+- [\#2194 PR](2019-07-22.2194.pr.merged.md) `merged`: Issue \#2187 - disklayout.conf file contains duplicate lines
+- [\#2195 PR](2019-07-23.2195.pr.merged.md) `merged`: Handle ppc64el kernel naming
+- [\#2196 PR](2019-07-29.2196.pr.merged.md) `merged`: Minor adjustments to \#2194
+- [\#2197 Issue](2019-07-31.2197.issue.closed.md) `closed`: cat: /sys/class/net/eth0/name\_assign\_type: Invalid argument
+- [\#2198 Issue](2019-08-02.2198.issue.closed.md) `closed`: Bug report on rear in /usr/share/rear/build/default/980\_verify\_rootfs.sh line 29
+- [\#2199 PR](2019-08-02.2199.pr.merged.md) `merged`: uefi: Search for Grub2 modules in /usr/lib/grub\*/x86\_64-efi and not in /boot
+- [\#2200 Issue](2019-08-02.2200.issue.closed.md) `closed`: New use-case for BLOCKCLONE backup method
+- [\#2201 PR](2019-08-05.2201.pr.merged.md) `merged`: Fix for issue 2200: support new use-case for BLOCKCLONE backup method…
+- [\#2202 Issue](2019-08-06.2202.issue.closed.md) `closed`: 2.4 CIFS Mount fail
+- [\#2203 Issue](2019-08-10.2203.issue.closed.md) `closed`: ReaR mkrescue stalls in Fedora 30 VM with no error
+- [\#2204 Issue](2019-08-11.2204.issue.closed.md) `closed`: Failed to recover LUKS version 2
+- [\#2205 PR](2019-08-11.2205.pr.merged.md) `merged`: Changed double quotes ("
+- [\#2206 Issue](2019-08-11.2206.issue.closed.md) `closed`: Error on recovery if REQUIRED\_PROGS specified with absolute path
+- [\#2207 Issue](2019-08-11.2207.issue.closed.md) `closed`: checklayout indicates layout change if USB external drive mounted
+- [\#2208 Issue](2019-08-12.2208.issue.closed.md) `closed`: Relax-and-Recover ERROR: Cannot find required programs: route
+- [\#2209 Issue](2019-08-13.2209.issue.closed.md) `closed`: Selecting default editor in ReaR
+- [\#2210 Issue](2019-08-13.2210.issue.closed.md) `closed`: Creating bootable USB from ReaR ISO
+- [\#2211 Issue](2019-08-13.2211.issue.closed.md) `closed`: ReaR mkrescue fails: multiboot.mod not found
+- [\#2212 Issue](2019-08-13.2212.issue.closed.md) `closed`: ERROR: Cannot find required programs: route
+- [\#2213 Issue](2019-08-13.2213.issue.closed.md) `closed`: WiFi with ReaR?
+- [\#2214 Issue](2019-08-13.2214.issue.closed.md) `closed`: Boot delay after attempting to start DHCP client daemon
+- [\#2215 Issue](2019-08-14.2215.issue.closed.md) `closed`: Exclude temporary/external drives and mountpoints from checklayout and mkrescue's disklayout
+- [\#2216 Issue](2019-08-16.2216.issue.closed.md) `closed`: $BACKUP\_OPTIONS missing for mount\_url in 800\_copy\_to\_tftp.sh and 810\_create\_pxelinux\_cfg.sh
+- [\#2217 Issue](2019-08-19.2217.issue.closed.md) `closed`: RHEL on Power different mpath Backup and Recovery.
+- [\#2218 PR](2019-08-22.2218.pr.merged.md) `merged`: Do not keep the build dir when used noninteractively
+- [\#2219 PR](2019-08-27.2219.pr.merged.md) `merged`: Added $BACKUP\_OPTIONS to the line with mount\_url in 800\_copy\_to\_tftp.…
+- [\#2220 Issue](2019-08-29.2220.issue.closed.md) `closed`: bash internal overflow because element zero of CLONE\_USERS array is "", resulting in rear doing 'getent passwd' following by 'getent group' for all GIDs
+- [\#2221 Issue](2019-09-01.2221.issue.closed.md) `closed`: calculate\_req\_space too dumb
+- [\#2222 Issue](2019-09-02.2222.issue.closed.md) `closed`: Thin pool recreation logic / use of vgcfgrestore is broken
+- [\#2223 PR](2019-09-03.2223.pr.merged.md) `merged`: Append to CLONE\_USERS and CLONE\_GROUPS by using +=
+- [\#2224 PR](2019-09-04.2224.pr.merged.md) `merged`: Fix for \#2222 - Thin pool recreation logic / use of vgcfgrestore is broken
+- [\#2225 PR](2019-09-04.2225.pr.merged.md) `merged`: Use mountpoint instead of mount|grep
+- [\#2226 PR](2019-09-05.2226.pr.merged.md) `merged`: Fix typo
+- [\#2227 Issue](2019-09-05.2227.issue.closed.md) `closed`: ERROR: No filesystem mounted on '/mnt/local'. Stopping
+- [\#2228 Issue](2019-09-05.2228.issue.closed.md) `closed`: Requesting PROGS fails
+- [\#2229 Issue](2019-09-05.2229.issue.closed.md) `closed`: Including components in disklayout.conf
+- [\#2230 Issue](2019-09-06.2230.issue.closed.md) `closed`: Question about defining values for predefined variables
+- [\#2231 PR](2019-09-10.2231.pr.closed.md) `closed`: Cosmetic fix for RHEL 6 and missing name\_assign\_type for LAN interfac…
+- [\#2232 PR](2019-09-11.2232.pr.closed.md) `closed`: Add possiblity to restore filesystems in parallel with TSM.
+- [\#2233 PR](2019-09-11.2233.pr.merged.md) `merged`: remove obsolete Fedora 16/17 skel systemd stuff
+- [\#2234 Issue](2019-09-12.2234.issue.closed.md) `closed`: Multipath disk restored with MBR instead of GPT
+- [\#2235 PR](2019-09-12.2235.pr.merged.md) `merged`: Improve handling of partition label type for multipath disks
+- [\#2236 Issue](2019-09-12.2236.issue.closed.md) `closed`: Multipath disk incorrectly excluded from backup
+- [\#2237 PR](2019-09-12.2237.pr.merged.md) `merged`: Fix including of multipath disks in backup
+- [\#2238 PR](2019-09-13.2238.pr.merged.md) `merged`: Add alternative for 'poweroff.com' ('poweroff.c32' on RHEL8
+- [\#2239 Issue](2019-09-13.2239.issue.closed.md) `closed`: Enhanced default for AUTOEXCLUDE\_PATH
+- [\#2240 Issue](2019-09-25.2240.issue.closed.md) `closed`: sshd segfault in ReaR recovery system (also segfaults in SLES15-SP1 system
+- [\#2241 Issue](2019-09-27.2241.issue.closed.md) `closed`: Backup restore fails for BACKUP\_PROG\_COMPRESS\_OPTIONS=("--zstd"
+- [\#2242 Issue](2019-09-27.2242.issue.closed.md) `closed`: Integration REAR and NetBackup. Script "400\_restore\_with\_nbu.sh". How to create a new variable "sdate"
+- [\#2243 Issue](2019-09-30.2243.issue.closed.md) `closed`: IBM Power8 BareMetal rescue USB boot kernel panic: VFS Unable to mount root fs on unknown-block(1,0
+- [\#2244 PR](2019-10-02.2244.pr.closed.md) `closed`: Enhanced AUTOEXCLUDE\_PATH in default.conf
+- [\#2245 Issue](2019-10-04.2245.issue.closed.md) `closed`: Use is\_true(
+- [\#2246 Issue](2019-10-04.2246.issue.closed.md) `closed`: Integration REAR and NetBackup. I cannot restore differentials and fulls backups with NetBackup backup types standard, BMR or True Image Restore and "ALL\_LOCAL\_DRIVES" selection
+- [\#2247 Issue](2019-10-04.2247.issue.closed.md) `closed`: Add new 'mountonly' workflow
+- [\#2248 Issue](2019-10-08.2248.issue.closed.md) `closed`: New BACKUP=CDM method to support Rubrik Cloud Data Management (CDM
+- [\#2249 PR](2019-10-08.2249.pr.merged.md) `merged`: Added new BACKUP=CDM method for Rubrik Cloud Data Management (CDM
+- [\#2250 Issue](2019-10-08.2250.issue.closed.md) `closed`: ReaR Restore Error : rpcbind unavailable
+- [\#2251 PR](2019-10-11.2251.pr.merged.md) `merged`: Accommodate logs from multiple FDR/Upstream services. Improve logging.
+- [\#2252 PR](2019-10-15.2252.pr.merged.md) `merged`: Remove dev null redirection where possible issue1395
+- [\#2253 Issue](2019-10-16.2253.issue.closed.md) `closed`: Do not abort 'rear recover' in case of invalid user input - let the user retry if possible
+- [\#2254 Issue](2019-10-17.2254.issue.closed.md) `closed`: ReaR must work independent of kernel device names
+- [\#2255 Issue](2019-10-18.2255.issue.closed.md) `closed`: Link to SuSE documentation in Rubrik User Guide is bad
+- [\#2256 PR](2019-10-18.2256.pr.merged.md) `merged`: Updated link to SuSE documentation
+- [\#2257 PR](2019-10-18.2257.pr.merged.md) `merged`: Do not abort in case of invalid user input but retry
+- [\#2258 Issue](2019-10-18.2258.issue.closed.md) `closed`: 500\_make\_backup.sh fails inexplicably because of a hidden 'no space left on device' error
+- [\#2259 Issue](2019-10-21.2259.issue.closed.md) `closed`: Recover fails to recreate LVM (lvmvol entries missing in disklayout.conf with older LVM that does not support 'pool\_lv' et al.
+- [\#2260 PR](2019-10-23.2260.pr.merged.md) `merged`: Use is\_true(
+- [\#2261 PR](2019-10-24.2261.pr.merged.md) `merged`: Enhanced AUTOEXCLUDE\_PATH /media /run /mnt and /tmp
+- [\#2262 Issue](2019-10-24.2262.issue.closed.md) `closed`: CDM: When the an incorrect IP address is specified for the new CDM cluster, ReaR should prompt the user again
+- [\#2263 Issue](2019-10-24.2263.issue.closed.md) `closed`: CDM: Recovery from alternate Rubrik cluster fails to copy certificate
+- [\#2264 Issue](2019-10-25.2264.issue.closed.md) `closed`: CDM: Needs method to perform unattended recovery
+- [\#2265 Issue](2019-10-25.2265.issue.closed.md) `closed`: Fishy NETFS 500\_make\_backup.sh and 400\_restore\_backup.sh
+- [\#2266 Issue](2019-10-25.2266.issue.closed.md) `closed`: In CentOS 7.7 and 8.0 certain programs (e.g. dhclient
+- [\#2267 PR](2019-10-25.2267.pr.merged.md) `merged`: Removed verbose option from find.
+- [\#2268 Issue](2019-10-26.2268.issue.closed.md) `closed`: Cannot recover from ISO in UEFI Mode
+- [\#2269 PR](2019-10-29.2269.pr.merged.md) `merged`: Issue 2247: draft implementation of 'mountonly' workflow.
+- [\#2270 PR](2019-10-30.2270.pr.closed.md) `closed`: Fix for CentOS 7.7 and 8.0 where certain programs (e.g. dhclient
+- [\#2271 PR](2019-11-01.2271.pr.merged.md) `merged`: Update 650\_check\_iso\_recoverable.sh
+- [\#2272 Issue](2019-11-06.2272.issue.closed.md) `closed`: Change network configuration during recovery
+- [\#2273 Issue](2019-11-10.2273.issue.closed.md) `closed`: Coredump during rear mkrescue
+- [\#2274 PR](2019-11-11.2274.pr.merged.md) `merged`: Enable copr builds for packit config
+- [\#2275 Issue](2019-11-11.2275.issue.closed.md) `closed`: "rear recover" cannot install GRUB2-EFI on CentOS 7 minimal installation
+- [\#2276 Issue](2019-11-13.2276.issue.closed.md) `closed`: How to modify recovery system UEFI bootloader to boot the "normal" system by default?
+- [\#2277 PR](2019-11-14.2277.pr.closed.md) `closed`: Search for grub2-mkimage or grub-mkimage in 270\_create\_grub2\_efi\_bootloader.sh
+- [\#2278 PR](2019-11-17.2278.pr.merged.md) `merged`: Feature rawdisk and opalpba improvements
+- [\#2279 Issue](2019-11-19.2279.issue.closed.md) `closed`: Do more when COPY\_AS\_IS misses required shared libraries?
+- [\#2280 PR](2019-11-19.2280.pr.merged.md) `merged`: Improved check for missing libraries in 990\_verify\_rootfs.sh (issue 2279
+- [\#2281 Issue](2019-11-22.2281.issue.closed.md) `closed`: Missing delete\_dummy\_partitions\_and\_resize\_real\_ones calls cause "rear recover" BugError
+- [\#2282 Issue](2019-11-22.2282.issue.closed.md) `closed`: "rear recover" over unstable ssh connection
+- [\#2283 PR](2019-11-22.2283.pr.merged.md) `merged`: Currently, ReaR is using hard-coded set of Grub2 modules for UEFI
+- [\#2284 PR](2019-11-23.2284.pr.merged.md) `merged`: Added support for CentOS 7.7 and 8.0 for Rubrik-CDM
+- [\#2285 Issue](2019-11-25.2285.issue.closed.md) `closed`: Show disklayout.conf and diskrestore.sh content in "rear -D recover" log
+- [\#2286 PR](2019-11-25.2286.pr.merged.md) `merged`: Do not ckeck untrusted files for missing libraries (issue 2279
+- [\#2287 Issue](2019-11-25.2287.issue.closed.md) `closed`: CloudLinux Server release 6.10 on raid wont load udev while booting on rear rescue image
+- [\#2288 Issue](2019-11-27.2288.issue.closed.md) `closed`: swap partition type changed after rear restore
+- [\#2289 Issue](2019-11-27.2289.issue.closed.md) `closed`: SLES 15 SP1: genisoimage has been renamed to mkisofs
+- [\#2290 Issue](2019-11-29.2290.issue.closed.md) `closed`: BACKUP type NSR fails with missing "mminfo" utility
+- [\#2291 PR](2019-12-02.2291.pr.merged.md) `merged`: Error out in case of insufficient LVM tools (issue 2259
+- [\#2292 PR](2019-12-05.2292.pr.merged.md) `merged`: Updated links to Borg documentation.
+- [\#2293 PR](2019-12-08.2293.pr.merged.md) `merged`: Use grub-mkstandalone instead of grub-mkimage for UEFI
+- [\#2294 Issue](2019-12-09.2294.issue.closed.md) `closed`: SUSE 12 (ppc64le
+- [\#2295 PR](2019-12-09.2295.pr.merged.md) `merged`: Issue 2281(missing delete\_dummy\_partitions\_and\_resize\_real\_ones calls
+- [\#2296 PR](2019-12-09.2296.pr.closed.md) `closed`: FDR application shared lib fix
+- [\#2297 PR](2019-12-10.2297.pr.merged.md) `merged`: Revert part of \#1961 : move route back from REQUIRED\_PROGS to PROGS
+- [\#2298 Issue](2019-12-11.2298.issue.closed.md) `closed`: Normal /dev/sda by "multipath -c /dev/sda" falsely recognized as multipath device (DM\_MULTIPATH\_DEVICE\_PATH="1"
+- [\#2299 PR](2019-12-11.2299.pr.merged.md) `merged`: Better is\_multipath\_path function (issue \#2298
+- [\#2300 Issue](2019-12-12.2300.issue.closed.md) `closed`: Add support for parted 'Disk Flags' (in particular 'Disk Flags: pmbr\_boot' to boot from GPT disk on BIOS system
+- [\#2301 Issue](2019-12-13.2301.issue.closed.md) `closed`: Outdated /root/rear-DATE-TIMESTAMP.log symlink points to wrong target
+- [\#2302 PR](2019-12-17.2302.pr.merged.md) `merged`: Remove outdated /root/rear-DATE-TIMESTAMP.log symlinks (issue\#2301
+- [\#2303 PR](2019-12-19.2303.pr.merged.md) `merged`: Enhanced recovery system BIOS boot default settings for USB and ISO (related to issue 2276
+- [\#2304 Issue](2019-12-20.2304.issue.closed.md) `closed`: ReaR at FOSDEM 2020 "Backup and Recovery" devroom (01. Feb. 2020
+- [\#2305 Issue](2020-01-03.2305.issue.closed.md) `closed`: ERROR: Could not find file 'mbr.bin'. Syslinux version 3.08 or newer is required, 4.x prefered!
+- [\#2306 Issue](2020-01-07.2306.issue.closed.md) `closed`: New backup software restic
+- [\#2307 Issue](2020-01-10.2307.issue.closed.md) `closed`: Under special circumstances commands in ReaR scripts are not run under bash (but e.g. under csh
+- [\#2308 Issue](2020-01-13.2308.issue.closed.md) `closed`: Download page lacks links for RHEL 8 family
+- [\#2309 Issue](2020-01-14.2309.issue.closed.md) `closed`: OBS signing key has expired
+- [\#2310 Issue](2020-01-14.2310.issue.closed.md) `closed`: Changing IP-addresses via mappings/ip\_addresses does not work
+- [\#2311 Issue](2020-01-15.2311.issue.closed.md) `closed`: 'rear -s' executes config files
+- [\#2312 Issue](2020-01-15.2312.issue.closed.md) `closed`: Provide complete basic network migration functionality during "rear recover"
+- [\#2313 PR](2020-01-15.2313.pr.merged.md) `merged`: Cleanup and enhance 320\_migrate\_network\_configuration\_files.sh (issue 2310
+- [\#2314 Issue](2020-01-16.2314.issue.closed.md) `closed`: Not enough memory to load specified image
+- [\#2315 Issue](2020-01-16.2315.issue.closed.md) `closed`: LVM: How to deal with orphaned PVs like 'lvmdev /dev/\#orphans\_lvm2'
+- [\#2316 Issue](2020-01-17.2316.issue.closed.md) `closed`: up
+- [\#2317 PR](2020-01-20.2317.pr.merged.md) `merged`: Update 010\_merge\_skeletons.sh
+- [\#2318 PR](2020-01-20.2318.pr.merged.md) `merged`: Added $FDRUPSTREAM\_DATA\_PATH/rear to $COPY\_AS\_IS\_EXCLUDE\_FDRUPSTREAM
+- [\#2319 Issue](2020-01-21.2319.issue.closed.md) `closed`: Recover Fails during Parted "Expecting partition Type"
+- [\#2320 PR](2020-01-21.2320.pr.merged.md) `merged`: create data path for s390 FDR backups if !exists
+- [\#2321 Issue](2020-01-22.2321.issue.closed.md) `closed`: During the restore, the message "No code has been generated to recreate pv:/dev/sda2 (lmdev
+- [\#2322 PR](2020-01-23.2322.pr.closed.md) `closed`: Verify that ReaR scripts are actually run under bash
+- [\#2323 Issue](2020-01-29.2323.issue.closed.md) `closed`: 58-start-dhclient.sh executes code even when USE\_DHCLIENT=no
+- [\#2324 Issue](2020-01-30.2324.issue.closed.md) `closed`: In general we must use local variables in functions (and also in scripts
+- [\#2325 PR](2020-01-31.2325.pr.merged.md) `merged`: Make USE\_DHCLIENT more fail-safe in ReaR recovery system.
+- [\#2326 PR](2020-02-03.2326.pr.merged.md) `merged`: Allow to boot original system from Grub menu (UEFI
+- [\#2327 Issue](2020-02-04.2327.issue.closed.md) `closed`: Backup directory in '/' filesystem forbidden with BACKUP\_URL="file:///..."
+- [\#2328 Issue](2020-02-05.2328.issue.closed.md) `closed`: How to change nfs IP address in bootable iso
+- [\#2329 Issue](2020-02-06.2329.issue.closed.md) `closed`: Backup Archive not readable
+- [\#2330 Issue](2020-02-06.2330.issue.closed.md) `closed`: rear dump fails and says "ERROR: EFI\_STUB="" is incorrect option value pair."
+- [\#2331 Issue](2020-02-07.2331.issue.closed.md) `closed`: Hard-coded home directory of root
+- [\#2332 Issue](2020-02-11.2332.issue.closed.md) `closed`: Help - confused about initial setup usage for USB
+- [\#2333 Issue](2020-02-17.2333.issue.closed.md) `closed`: Mapping disks doesn't map corresponding XFS information file
+- [\#2334 PR](2020-02-18.2334.pr.merged.md) `merged`: Home directory of root user is not hard-coded any more.
+- [\#2335 PR](2020-02-24.2335.pr.merged.md) `merged`: Data protector 10
+- [\#2336 Issue](2020-02-25.2336.issue.closed.md) `closed`: SLES15 SP1 PPCLE LPAR - rear 2.3 - ISO will not boot / kernel panic
+- [\#2337 Issue](2020-03-03.2337.issue.closed.md) `closed`: "rear recover" with BACKUP=CDM fails in 630\_install\_grub.sh because /mnt/local/boot/grub does not exist
+- [\#2338 Issue](2020-03-04.2338.issue.closed.md) `closed`: Testing only /usr/lib/grub\*/x86\_64-efi/moddep.lst is insufficient - could be also in /boot/grub\*/ or in /usr/share/grub\*/
+- [\#2339 Issue](2020-03-06.2339.issue.closed.md) `closed`: Recreating two disks with RAID1 onto a single disk does not work automatically
+- [\#2340 Issue](2020-03-11.2340.issue.closed.md) `closed`: SELinux failure upon restoration of system, when choosing the auto-recover option from the grub menu.
+- [\#2341 Issue](2020-03-17.2341.issue.closed.md) `closed`: RHEL7.6: rpcinfo -p fails when starting NFS
+- [\#2342 PR](2020-03-17.2342.pr.merged.md) `merged`: Add missing but required NFS users for proper rpcbind startup
+- [\#2343 Issue](2020-03-18.2343.issue.closed.md) `closed`: SLES 12.4 : backup keep running forever and doesn't end up
+- [\#2344 Issue](2020-03-18.2344.issue.closed.md) `closed`: OUTPUT=USB on PPC64le PowerVM not bootable (with RHEL 7.7
+- [\#2345 Issue](2020-03-19.2345.issue.closed.md) `closed`: Have CLONE\_ALL\_USERS\_GROUPS="yes" by default?
+- [\#2346 PR](2020-03-23.2346.pr.merged.md) `merged`: Have '-iso-level 3' option also for ppc64le
+- [\#2347 PR](2020-03-23.2347.pr.merged.md) `merged`: Overhauled ISO\_MAX\_SIZE implementation in 500\_make\_backup.sh
+- [\#2348 Issue](2020-03-27.2348.issue.closed.md) `closed`: OUTPUT=USB not supported on any architecture except PC 'Linux-i386' (in particular not on POWER
+- [\#2349 Issue](2020-03-30.2349.issue.closed.md) `closed`: OPALPBA: cannot change password on multiple self-encrypting drives at once
+- [\#2350 PR](2020-03-30.2350.pr.merged.md) `merged`: Fix \#2349: OPALPBA: cannot change password on multiple SEDs at once
+- [\#2351 Issue](2020-03-30.2351.issue.closed.md) `closed`: rear mkopalpba fails: ERROR: The BACKUP method 'OPALPBA' is not known to ReaR.
+- [\#2352 Issue](2020-03-30.2352.issue.closed.md) `closed`: rear mkrescue fails with ERROR: The BACKUP method 'INTERNAL' is not known to ReaR.
+- [\#2353 PR](2020-03-30.2353.pr.merged.md) `merged`: Fix \#2351, \#2352: relax checking for a valid BACKUP method
+- [\#2354 Issue](2020-04-02.2354.issue.closed.md) `closed`: 58-start-dhclient.sh fails to start dhclient unless USE\_STATIC\_NETWORKING=no
+- [\#2355 Issue](2020-04-09.2355.issue.closed.md) `closed`: ssh drops connection with "POSSIBLE BREAK-IN ATTEMPT" when another host with same IP appears
+- [\#2356 Issue](2020-04-09.2356.issue.closed.md) `closed`: rear mkrescue fails with "Cannot autodetect what is used as bootloader"
+- [\#2357 Issue](2020-04-13.2357.issue.closed.md) `closed`: Resizing /boot using REAR
+- [\#2358 Issue](2020-04-13.2358.issue.closed.md) `closed`: Booting systems using REAR backup
+- [\#2359 Issue](2020-04-13.2359.issue.closed.md) `closed`: ReaR PXE setup for RHEL/OEL 7 to boot with UEFI
+- [\#2360 Issue](2020-04-14.2360.issue.closed.md) `closed`: "rear mkrescue" fails to modify sshd\_config in recovery system if it is a symbolic link
+- [\#2361 PR](2020-04-14.2361.pr.merged.md) `merged`: Fix 2360: Apply xxx\_fix\_broken\_links.sh before files get modified in recovery system
+- [\#2362 Issue](2020-04-14.2362.issue.closed.md) `closed`: Match section at the end of sshd\_config prevents SSH root login
+- [\#2363 PR](2020-04-14.2363.pr.merged.md) `merged`: Fix/sshd config
+- [\#2364 Issue](2020-04-14.2364.issue.closed.md) `closed`: Use simpler, more fail-safe, and much faster syntax ARRAY+=( additional elements 
+- [\#2365 Issue](2020-04-14.2365.issue.closed.md) `closed`: Longhorn iscsi PVC devices should be excluded from savelayout
+- [\#2366 Issue](2020-04-14.2366.issue.closed.md) `closed`: REAR with EMC networker
+- [\#2367 Issue](2020-04-15.2367.issue.closed.md) `closed`: NETWORKER backing up only the ISO file?
+- [\#2368 Issue](2020-04-15.2368.issue.closed.md) `closed`: ReaR v2.6 Release Preps
+- [\#2369 Issue](2020-04-15.2369.issue.closed.md) `closed`: Set "dd ... bs=1M" blocksize for faster NETFS backup
+- [\#2370 PR](2020-04-15.2370.pr.merged.md) `merged`: Use "dd ... bs=1M" in backup/NETFS/default/500\_make\_backup.sh
+- [\#2371 Issue](2020-04-16.2371.issue.closed.md) `closed`: BACKUP=YUM scripts append BACKUP\_PROG\_OPTIONS as string but it is an array
+- [\#2372 Issue](2020-04-16.2372.issue.closed.md) `closed`: PROGS contains an empty string as its first element
+- [\#2373 PR](2020-04-16.2373.pr.merged.md) `merged`: Skip Longhorn Engine replica devices
+- [\#2374 Issue](2020-04-17.2374.issue.closed.md) `closed`: BACKUP=YUM does not support BACKUP\_PROG\_CRYPT\_ENABLED
+- [\#2375 Issue](2020-04-17.2375.issue.closed.md) `closed`: Add auto-detection of DHCP client with systemd-networkd
+- [\#2376 PR](2020-04-17.2376.pr.merged.md) `merged`: Auto-detect DHCP client with systemd-networkd (closes \#2375
+- [\#2377 Issue](2020-04-22.2377.issue.closed.md) `closed`: Remove duplicates in COPY\_AS\_IS PROGS REQUIRED\_PROGS LIBS before processing?
+- [\#2378 PR](2020-04-23.2378.pr.merged.md) `merged`: Filter out duplicates in COPY\_AS\_IS and copy\_as\_is\_filelist\_file
+- [\#2379 Issue](2020-04-23.2379.issue.closed.md) `closed`: mkisofs: Bad Option '-e' (error -1 BADFLAG
+- [\#2380 Issue](2020-04-24.2380.issue.closed.md) `closed`: Recover from mounted software raid disk
+- [\#2381 PR](2020-04-27.2381.pr.merged.md) `merged`: Error out when LUKS version 2 is used (issue \#2204
+- [\#2382 PR](2020-04-30.2382.pr.merged.md) `merged`: Improve borg integration into rear
+- [\#2383 Issue](2020-04-30.2383.issue.closed.md) `closed`: \[Question\] How to add lftp to rescue image when using duplicity?
+- [\#2384 PR](2020-05-01.2384.pr.merged.md) `merged`: New OUTPUT\_LFTP\_OPTIONS config variable for lftp custom parameters
+- [\#2385 Issue](2020-05-02.2385.issue.closed.md) `closed`: Setting OUTPUT\_PREFIX has no effect
+- [\#2386 Issue](2020-05-03.2386.issue.closed.md) `closed`: ReaR generating very large initrd of 3GB
+- [\#2387 Issue](2020-05-05.2387.issue.closed.md) `closed`: BTRFS and LXD restore problems
+- [\#2388 Issue](2020-05-06.2388.issue.closed.md) `closed`: "rear mkrescue" does not error out when required GRUB2 modules are missing
+- [\#2389 Issue](2020-05-07.2389.issue.closed.md) `closed`: Restore fails with LVM on LUKS encrypted volume
+- [\#2390 PR](2020-05-07.2390.pr.merged.md) `merged`: No longer load video\_bochs and video\_cirrus by the create\_grub2\_cfg function
+- [\#2391 Issue](2020-05-08.2391.issue.closed.md) `closed`: Cleanup of the code for "Installing GRUB2 as recovery system UEFI bootloader"
+- [\#2392 Issue](2020-05-08.2392.issue.closed.md) `closed`: Rename GRUB2\_MODULES and GRUB2\_MODULES\_LOAD into GRUB2\_MODULES\_UEFI and GRUB2\_MODULES\_UEFI\_LOAD
+- [\#2393 PR](2020-05-08.2393.pr.merged.md) `merged`: Make GRUB2\_MODULES variables having UEFI specific names (issue 2392
+- [\#2394 Issue](2020-05-11.2394.issue.closed.md) `closed`: GRUB2 required as recovery system UEFI bootloader
+- [\#2395 PR](2020-05-11.2395.pr.merged.md) `merged`: Error out for unsupported workflow in any case
+- [\#2396 PR](2020-05-12.2396.pr.merged.md) `merged`: Safeguard prep/USB/<non-i386-arch>/350\_safeguard\_error\_out.sh scripts (issue 2348
+- [\#2397 PR](2020-05-14.2397.pr.merged.md) `merged`: Update 950\_check\_missing\_programs.sh
+- [\#2398 Issue](2020-05-14.2398.issue.closed.md) `closed`: ReaR uses NFS4 with AIX mount
+- [\#2399 PR](2020-05-14.2399.pr.merged.md) `merged`: CLONE\_ALL\_USERS\_GROUPS="true" by default
+- [\#2400 Issue](2020-05-18.2400.issue.closed.md) `closed`: Include mounting nfs capability in rescue ISO to mount Amazon S3 like cloud storage buckets
+- [\#2401 PR](2020-05-18.2401.pr.merged.md) `merged`: Create destination directory schema when using lftp
+- [\#2402 PR](2020-05-21.2402.pr.merged.md) `merged`: Updated generated locale filename from "rear.UTF-8" to "en\_US.UTF-8" (BACKUP=BORG
+- [\#2403 Issue](2020-05-21.2403.issue.closed.md) `closed`: ReaR doesn't remove /tmp/rear.\* directory/files
+- [\#2404 Issue](2020-05-21.2404.issue.closed.md) `closed`: How recover process work and how to select from which incremental backup to recover?
+- [\#2405 PR](2020-05-24.2405.pr.closed.md) `closed`: Glob values in COPY\_AS\_IS shouldn't be quoted.
+- [\#2406 Issue](2020-05-25.2406.issue.closed.md) `closed`: OUTPUT\_LFTP\_OPTIONS does not work for setting connection details
+- [\#2407 Issue](2020-05-25.2407.issue.closed.md) `closed`: build/default/995\_md5sums\_rootfs.sh fails on filenames with spaces
+- [\#2408 PR](2020-05-25.2408.pr.merged.md) `merged`: Work on selecting the Borg archive to restore from.
+- [\#2409 PR](2020-05-26.2409.pr.merged.md) `merged`: Add proper comments of reason of these 2 scripts around SELinux \#1957
+- [\#2410 PR](2020-05-26.2410.pr.merged.md) `merged`: Evaluate OUTPUT\_LFTP\_OPTIONS at the beginning of lftp operations.
+- [\#2411 PR](2020-05-27.2411.pr.merged.md) `merged`: Adjust some doc files to use new `BORGBACKUP_PRUNE_KEEP_*` variables.
+- [\#2412 Issue](2020-05-29.2412.issue.closed.md) `closed`: Rear backup failed
+- [\#2413 Issue](2020-05-30.2413.issue.closed.md) `closed`: combining volumes
+- [\#2414 Issue](2020-05-30.2414.issue.closed.md) `closed`: fedora 32 mkbackup fails due to missing module file
+- [\#2415 Issue](2020-06-03.2415.issue.closed.md) `closed`: lsblk: invalid option -- 'p'
+- [\#2416 Issue](2020-06-03.2416.issue.closed.md) `closed`: Redirect stdout and stderr to the log only in debug modes - normally discard them to /dev/null
+- [\#2417 Issue](2020-06-03.2417.issue.closed.md) `closed`: Rear components/disk/mountpoint is not skipped during creating backup
+- [\#2418 Issue](2020-06-05.2418.issue.closed.md) `closed`: Is it possible to change the directory that mkrescue uses? as some of the server we have noexec on /tmp
+- [\#2419 Issue](2020-06-05.2419.issue.closed.md) `closed`: RAWDISK output fails to boot on Ubuntu &gt;=18.04.4 using Grub 2 + UEFI without Secure Boot
+- [\#2420 PR](2020-06-05.2420.pr.merged.md) `merged`: Fix \#2419: RAWDISK output fails to boot with Grub 2 on UEFI
+- [\#2421 Issue](2020-06-06.2421.issue.closed.md) `closed`: Expect include files in OpenSSH client (ssh
+- [\#2422 PR](2020-06-08.2422.pr.merged.md) `merged`: Also parse SSH Include files in 501\_check\_ssh\_keys.sh
+- [\#2423 Issue](2020-06-10.2423.issue.closed.md) `closed`: Recovering in graphical mode hangs on a Debian 10 VM in KVM with default video mode QXL.
+- [\#2424 Issue](2020-06-10.2424.issue.closed.md) `closed`: Missing disk entry in disklayout.conf leads to gpt disks beeing initialized as msdos
+- [\#2425 Issue](2020-06-15.2425.issue.closed.md) `closed`: OPALPBA: Reboot after unlocking self-encrpyting disks may hang on some UEFI systems
+- [\#2426 PR](2020-06-15.2426.pr.merged.md) `merged`: Fix \#2425: OPALPBA: Reboot after SED-unlocking may hang on UEFI systems
+- [\#2427 PR](2020-06-16.2427.pr.merged.md) `merged`: Add DHCP auto-configuration for Network Manager (Ubuntu 20.04 Desktop
+- [\#2428 Issue](2020-06-16.2428.issue.closed.md) `closed`: MIGRATION\_MODE: Autodetect when required disk mappings are missing
+- [\#2429 Issue](2020-06-17.2429.issue.closed.md) `closed`: Implement iSCSI support (currently iSCSI needs special manual setup
+- [\#2430 Issue](2020-06-17.2430.issue.closed.md) `closed`: How to interrupt the boot process using rescue image to manually set IP address when booting in UEFI mode?
+- [\#2431 PR](2020-06-20.2431.pr.merged.md) `merged`: Migrate XFS configuration files.
+- [\#2432 Issue](2020-06-22.2432.issue.closed.md) `closed`: Recovery of LUKS version 1 results in LUKS version 2 on newer systems
+- [\#2433 Issue](2020-06-22.2433.issue.closed.md) `closed`: rear-2.6 repo added to RHEL 8/ SLES15 repositories?
+- [\#2434 Issue](2020-06-22.2434.issue.closed.md) `closed`: UEFI ISO won't boot with rear 2.6
+- [\#2435 Issue](2020-06-23.2435.issue.closed.md) `closed`: For what architectures should we build ReaR packages?
+- [\#2436 Issue](2020-06-23.2436.issue.closed.md) `closed`: OPALPBA: COPY\_AS\_IS\_EXCLUDE+=( "$REAR\_DIR\_PREFIX" 
+- [\#2437 PR](2020-06-23.2437.pr.merged.md) `merged`: Add "--type luks1" to the default LUKS\_CRYPTSETUP\_OPTIONS
+- [\#2438 Issue](2020-06-24.2438.issue.closed.md) `closed`: SLES 12 SP4 - unable to backup serviguard files
+- [\#2439 Issue](2020-06-25.2439.issue.closed.md) `closed`: Boot from rescue ISO freezes at "pid\_max: default: 32768 minimum: 301" on "ESXi 6.7 Update 2 and later" virtual machine
+- [\#2440 Issue](2020-06-26.2440.issue.closed.md) `closed`: How to restore from a specific rear backup backup.tar.gz in rescue mode
+- [\#2441 Issue](2020-06-29.2441.issue.closed.md) `closed`: Rubrik CDM module fails to restore from remote cluster on newer Rubrik releases
+- [\#2442 Issue](2020-06-30.2442.issue.closed.md) `closed`: Adding host to Rubrik gives error: SSL handshake failed while connecting to &lt;IP\_Address&gt;:12801. Reason: tlsv1 alert unknown ca
+- [\#2443 PR](2020-06-30.2443.pr.merged.md) `merged`: Support for systemd and parallel restore with Data Protector (BACKUP=DP
+- [\#2444 PR](2020-06-30.2444.pr.closed.md) `closed`: Fix issue \#2442 Adding host to Rubrik gives error: SSL handshake failed while connecting to &lt;IP\_Address&gt;:12801. Reason: tlsv1 alert unknown ca
+- [\#2445 PR](2020-06-30.2445.pr.merged.md) `merged`: Fix issue \#2441 & \#2442
+- [\#2446 Issue](2020-06-30.2446.issue.closed.md) `closed`: FOG Project as PXE Boot Tool and REAR Rescue ISO
+- [\#2447 Issue](2020-06-30.2447.issue.closed.md) `closed`: How to stop REAR from bringing up the IP interface during migration
+- [\#2448 PR](2020-06-30.2448.pr.merged.md) `merged`: TCG Opal Improvements
+- [\#2449 PR](2020-07-02.2449.pr.closed.md) `closed`: Added PXE UEFI support to 810\_create\_pxelinux\_cfg.sh (issue 2359
+- [\#2450 Issue](2020-07-02.2450.issue.closed.md) `closed`: Download latest backup file from network (if there is newer
+- [\#2451 Issue](2020-07-02.2451.issue.closed.md) `closed`: Unable to see multipath devices during rear recover
+- [\#2452 PR](2020-07-03.2452.pr.merged.md) `merged`: Cleanup using $DATE
+- [\#2453 PR](2020-07-03.2453.pr.merged.md) `merged`: Supply default value for root in grub in UEFI ISO
+- [\#2454 Issue](2020-07-04.2454.issue.closed.md) `closed`: REAR with EFI USB - ESP too small (200 MiB
+- [\#2455 PR](2020-07-10.2455.pr.merged.md) `merged`: OPALPBA: Provide a permanent unlocking mode as a workaround
+- [\#2456 Issue](2020-07-15.2456.issue.closed.md) `closed`: RELAXRECOVE instead of RELAXRECOVER - Cannot restore backup - the path is wrong
+- [\#2457 PR](2020-07-15.2457.pr.merged.md) `merged`: default.conf change ISO\_VOLID="RELAXRECOVER" to ISO\_VOLID="REAR-ISO"
+- [\#2458 Issue](2020-07-20.2458.issue.closed.md) `closed`: Set "dd ... bs=1M" blocksize for faster NETFS recovery
+- [\#2459 PR](2020-07-20.2459.pr.merged.md) `merged`: Let 'dd' read and write up to 1M=1024\*1024 bytes at a time to speed up things
+- [\#2460 Issue](2020-07-21.2460.issue.closed.md) `closed`: Don't use hardcoded /tmp but $TMP\_DIR
+- [\#2461 Issue](2020-07-22.2461.issue.closed.md) `closed`: How to deal with 'cd /some/dir' in ReaR scripts?
+- [\#2462 PR](2020-07-24.2462.pr.merged.md) `merged`: Use ReaR specific TMP\_DIR (not TMPDIR or hardcoded /tmp
+- [\#2463 Issue](2020-07-28.2463.issue.closed.md) `closed`: REAR 2.6: UEFI Based systems fail to boot with "error: file \`/isolinux/kernel' not found"
+- [\#2464 Issue](2020-07-29.2464.issue.closed.md) `closed`: Relax-and-Recover needs real bash and uses 'type -P' to determine program files
+- [\#2465 Issue](2020-08-03.2465.issue.closed.md) `closed`: rear shows misleading "socket ignored" information when tar end with exit code 1
+- [\#2466 PR](2020-08-04.2466.pr.merged.md) `merged`: 500\_make\_backup.sh: filter informational tar messages from output
+- [\#2467 Issue](2020-08-04.2467.issue.closed.md) `closed`: Keep only 5 last backup
+- [\#2468 Issue](2020-08-04.2468.issue.closed.md) `closed`: Migrate network config files when more than 1 IP address is configured on same interface
+- [\#2469 PR](2020-08-05.2469.pr.merged.md) `merged`: In 400\_copy\_modules.sh skip copying kernel modules that are builtin modules (issue 2414
+- [\#2470 PR](2020-08-05.2470.pr.merged.md) `merged`: 500\_make\_backup.sh: fix exit code logic
+- [\#2471 Issue](2020-08-05.2471.issue.closed.md) `closed`: UEFI ISOLINUX boot failed with "Failed to load ldlinux.c32" on Ubuntu 18.04
+- [\#2472 PR](2020-08-05.2472.pr.closed.md) `closed`: Fixed exit logic in 500\_make\_backup.sh plus issue 2465
+- [\#2473 Issue](2020-08-06.2473.issue.closed.md) `closed`: function has\_binary sends misleading “type: foo: not found” messages to the log
+- [\#2474 Issue](2020-08-08.2474.issue.closed.md) `closed`: Opal PBA does not boot on AMD APU/GPU systems: Missing firmware for amdgpu module
+- [\#2475 Issue](2020-08-08.2475.issue.closed.md) `closed`: Opal PBA does not support NVMe drives
+- [\#2476 Issue](2020-08-10.2476.issue.closed.md) `closed`: How to include a customized shell script to ReaR before or after it kicks in?
+- [\#2477 Issue](2020-08-11.2477.issue.closed.md) `closed`: DRBD restore "failed to exec drbdadm-84: No such file or directory" on Ubuntu 18.04
+- [\#2478 PR](2020-08-13.2478.pr.merged.md) `merged`: Have 'cd WORKING\_DIR' in Source(
+- [\#2479 Issue](2020-08-14.2479.issue.closed.md) `closed`: zero exit code and ERROR at same time
+- [\#2480 Issue](2020-08-15.2480.issue.closed.md) `closed`: Dependancy failed for Login Service
+- [\#2481 Issue](2020-08-18.2481.issue.closed.md) `closed`: Unable to perform backup if the mounted path having space in directory name. Eg. "/run/media/vijay/disk 1 - vol"
+- [\#2482 Issue](2020-08-18.2482.issue.closed.md) `closed`: No code has been generated to recreate pv:/dev/sda2 (lvmdev
+- [\#2483 Issue](2020-08-20.2483.issue.closed.md) `closed`: Rubrik CDM agent missing after ReaR recovery
+- [\#2484 Issue](2020-08-20.2484.issue.closed.md) `closed`: Oracle related hugepage settings in sysctl config might mess up memory in recovery image
+- [\#2485 PR](2020-08-28.2485.pr.merged.md) `merged`: Adding arch:ppc64le
+- [\#2486 Issue](2020-09-02.2486.issue.closed.md) `closed`: Use REAR to backup a system to a local file system
+- [\#2487 Issue](2020-09-02.2487.issue.closed.md) `closed`: RPC Portmapper "rpcbind" unavailable - Proxmox Recovery
+- [\#2488 PR](2020-09-04.2488.pr.merged.md) `merged`: Support OPAL 2 self-encrypting NVMe disk drives (fix \#2475
+- [\#2489 PR](2020-09-10.2489.pr.merged.md) `merged`: Makefile: fix warning "jobserver unavailable: using -j1"
+- [\#2490 Issue](2020-09-11.2490.issue.closed.md) `closed`: Rear with Bareos service not running on Recovery
+- [\#2491 Issue](2020-09-15.2491.issue.closed.md) `closed`: LUKS2 error even if the device is excluded or not mounted
+- [\#2492 Issue](2020-09-15.2492.issue.closed.md) `closed`: Excluding LUKS filesystem does not exclude LUKS volume
+- [\#2493 PR](2020-09-16.2493.pr.merged.md) `merged`: Inform the user about unsupported LUKS2 volumes but do not error out
+- [\#2494 Issue](2020-09-17.2494.issue.closed.md) `closed`: Discussion: What Is The Right Way Of Error Checking in ReaR?
+- [\#2495 PR](2020-09-18.2495.pr.merged.md) `merged`: More verbose messages when components are excluded
+- [\#2496 Issue](2020-09-20.2496.issue.closed.md) `closed`: It's pretty important to note that OUTPUT=ISO with file:// will wipe everything on that device
+- [\#2497 Issue](2020-09-29.2497.issue.closed.md) `closed`: On RHEL 7.6 OUTPUT=PXE with UEFI needs 'linuxefi' and 'initrdefi' in function make\_pxelinux\_config\_grub
+- [\#2498 PR](2020-09-30.2498.pr.merged.md) `merged`: Redirect stdout and stderr to the log only in debug mode - normally they go to /dev/null (issue 2416
+- [\#2499 Issue](2020-10-07.2499.issue.closed.md) `closed`: Post recover system is not booting (systemd ends in "emergency mode"
+- [\#2500 Issue](2020-10-13.2500.issue.closed.md) `closed`: OUTPUT=USB fails to UEFI boot on Lenovo X390 but OUTPUT=RAWDISK works
+- [\#2501 Issue](2020-10-15.2501.issue.closed.md) `closed`: Unsupported OUTPUT value like OUTPUT=iso is silently ignored or may error out with misleading error messages.
+- [\#2502 Issue](2020-10-15.2502.issue.closed.md) `closed`: ReaR cannot create bootable USB stick
+- [\#2503 PR](2020-10-16.2503.pr.merged.md) `merged`: New 036\_valid\_output\_methods.sh to error out for unsupported OUTPUT methods
+- [\#2504 PR](2020-10-20.2504.pr.merged.md) `merged`: Add initial LUKS2 support
+- [\#2505 Issue](2020-10-26.2505.issue.closed.md) `closed`: Rear recovery fails to install boot loader on recovered system
+- [\#2506 PR](2020-11-02.2506.pr.merged.md) `merged`: Make recreating LUKS volumes work with optional cryptsetup options
+- [\#2507 PR](2020-11-03.2507.pr.merged.md) `merged`: Fix \#2474: add AMD firmware to OPAL PBA if necessary
+- [\#2508 Issue](2020-11-05.2508.issue.closed.md) `closed`: ERROR: Cannot autodetect what is used as bootloader plus LD\_LIBRARY\_PATH issue with BACKUP=TSM
+- [\#2509 Issue](2020-11-05.2509.issue.closed.md) `closed`: New finalize script to adapt /mnt/local/etc/crypttab to new LUKS UUIDs
+- [\#2510 Issue](2020-11-06.2510.issue.closed.md) `closed`: R&D: New 'storage' stage/code as future replacement of the 'layout' stage/code
+- [\#2511 Issue](2020-11-06.2511.issue.closed.md) `closed`: Improve TCG Opal 2 Documentation
+- [\#2512 PR](2020-11-08.2512.pr.merged.md) `merged`: Improve TCG Opal 2 Documentation, fix \#2511
+- [\#2513 Issue](2020-11-11.2513.issue.closed.md) `closed`: SLES11 with UEFI: Creating ISO image fails with "Cannot make bootable EFI image of GRUB2"
+- [\#2514 PR](2020-11-11.2514.pr.merged.md) `merged`: Wipe disks before recreating partitions/volumes/filesystems/...
+- [\#2515 PR](2020-11-12.2515.pr.merged.md) `merged`: Restore the LD\_LIBRARY\_PATH after reporting binaries with 'not found' shared objects
+- [\#2516 Issue](2020-11-12.2516.issue.closed.md) `closed`: GRUB\_RESCUE=1 fails "grub-mkstandalone: error: cannot open \`/boot/efi/EFI/BOOT/rear.efi': No such file or directory"
+- [\#2517 Issue](2020-11-13.2517.issue.closed.md) `closed`: Backup NBKDC is not compatible with NovaStora
+- [\#2518 Issue](2020-11-13.2518.issue.closed.md) `closed`: Backup NBKDC is not compatible with NovaStor DataCenter 8.0.0 or newer
+- [\#2519 Issue](2020-11-16.2519.issue.closed.md) `closed`: Misleading warnings about keyboard mappings (LogPrintError
+- [\#2520 PR](2020-11-18.2520.pr.merged.md) `merged`: Better wording in user messages about keyboard issues
+- [\#2521 Issue](2020-11-19.2521.issue.closed.md) `closed`: timestamp file not working anymore
+- [\#2522 Issue](2020-11-21.2522.issue.closed.md) `closed`: Very long path names corrupt display ESP if VNC is used
+- [\#2523 PR](2020-11-23.2523.pr.merged.md) `merged`: Completely overhauled ldd test in 990\_verify\_rootfs.sh
+- [\#2524 Issue](2020-11-24.2524.issue.closed.md) `closed`: ERROR: Failed to make bootable EFI image of GRUB2 (/usr/lib/grub/x86\_64-efi/modinfo.sh didn't exist because grub2-efi-x64-modules package missing
+- [\#2525 PR](2020-11-24.2525.pr.merged.md) `merged`: Error out when files greater or equal ISO\_FILE\_SIZE\_LIMIT should be included in the ISO
+- [\#2526 Issue](2020-11-24.2526.issue.closed.md) `closed`: Failed to create recovery system (too small ESP on USB device - no space for .../EFI/BOOT/initrd.cgz
+- [\#2527 Issue](2020-11-25.2527.issue.closed.md) `closed`: mkdir: cannot create directory '/mnt/local/boot': Read-only file system when recover
+- [\#2528 Issue](2020-11-26.2528.issue.closed.md) `closed`: Unable to boot the system post recover. System is moving to emergency mode
+- [\#2529 PR](2020-11-26.2529.pr.merged.md) `merged`: NBKDC: Fix ReaR backup and restore with NovaStor DataCenter 8.0 and higher
+- [\#2530 Issue](2020-11-27.2530.issue.closed.md) `closed`: How to create full-backup bootable ISO file using Relax-and-Recover app?
+- [\#2531 Issue](2020-11-27.2531.issue.closed.md) `closed`: Recover from HTTP Location
+- [\#2532 PR](2020-11-30.2532.pr.merged.md) `merged`: ppc64 support for BACKUP=DP
+- [\#2533 PR](2020-12-03.2533.pr.merged.md) `merged`: ISO\_FILE\_SIZE\_LIMIT: provide final power to the user to skip the ISO\_FILE\_SIZE\_LIMIT test
+- [\#2534 Issue](2020-12-04.2534.issue.closed.md) `closed`: Bad UX with OUTPUT=USB plus BACKUP\_URL=usb:/// : syslinux cannot boot ReaR recovery system
+- [\#2535 PR](2020-12-08.2535.pr.merged.md) `merged`: \#2152: make bacula aware of different location of config files
+- [\#2537 PR](2020-12-09.2537.pr.merged.md) `merged`: Completely overhauled USB filesystem kernel module handling
+- [\#2538 PR](2020-12-10.2538.pr.merged.md) `merged`: RAWDISK: Add local rescue partition installation capability
+- [\#2539 PR](2020-12-10.2539.pr.merged.md) `merged`: Add terminal password check via 'TTY\_ROOT\_PASSWORD'
+- [\#2540 Issue](2020-12-11.2540.issue.closed.md) `closed`: Various \*\_ROOT\_PASSWORD values must not appear in the log file
+- [\#2541 PR](2020-12-11.2541.pr.closed.md) `closed`: Avoid that \*\_ROOT\_PASSWORD values are shown in debugscript mode
+- [\#2542 Issue](2020-12-12.2542.issue.closed.md) `closed`: rear mountonly fails in LVM on top of LUKS environment
+- [\#2543 Issue](2020-12-12.2543.issue.closed.md) `closed`: Feature proposal: Prevent concurrent runs of OS sw package management tools and and ReaR
+- [\#2544 PR](2020-12-16.2544.pr.merged.md) `merged`: Changes for NetBackup (NBU
+- [\#2545 Issue](2020-12-16.2545.issue.closed.md) `closed`: grub menu does not contain rear -option although site.conf contains GRUB\_RESCUE=y
+- [\#2546 PR](2020-12-17.2546.pr.merged.md) `merged`: fixed vfat mkfs using uuid from layout if possible
+- [\#2547 Issue](2020-12-18.2547.issue.closed.md) `closed`: REAR-EFI lable should be configurable (multiple backup discs scenario
+- [\#2548 Issue](2020-12-21.2548.issue.closed.md) `closed`: GPT table creation does not recover old disk and partition GUIDs
+- [\#2549 PR](2020-12-23.2549.pr.merged.md) `merged`: Add DP\_LD\_LIBRARY\_PATH to include shared libraries used by BACKUP=DP
+- [\#2550 PR](2020-12-29.2550.pr.merged.md) `merged`: Correct travis parse error. Add additional steps
+- [\#2551 Issue](2021-01-05.2551.issue.closed.md) `closed`: ReaR backup fails due to "dd" input/ouput error
+- [\#2552 Issue](2021-01-13.2552.issue.closed.md) `closed`: ./EFI/BOOT/grub.cfg': No space left on device
+- [\#2553 Issue](2021-01-14.2553.issue.closed.md) `closed`: Support for Recovering A Partition From The Same Partition With No External Source
+- [\#2554 Issue](2021-01-15.2554.issue.closed.md) `closed`: SLES 15 SP2 grub2-install error (missing /dev/nvram
+- [\#2555 PR](2021-01-18.2555.pr.merged.md) `merged`: Support loop devices in format\_usb\_disk
+- [\#2556 Issue](2021-01-22.2556.issue.closed.md) `closed`: REAR not creating bootable USB on Dell XPS15-9500 dual boot Ubuntu 20.04 and Windows 10
+- [\#2557 Issue](2021-01-22.2557.issue.closed.md) `closed`: Feature: BACKUP=fsarchiver
+- [\#2558 Issue](2021-01-23.2558.issue.closed.md) `closed`: ERROR: Failed to copy initrd to /tmp/rear-efi...//EFI/BOOT/initrd.cgz
+- [\#2559 Issue](2021-01-28.2559.issue.closed.md) `closed`: Kaspersky Endpoint Security has to be stopped before running ReaR otherwise "ERROR: Unmounting '/tmp/rear.XXX/outputfs' failed."
+- [\#2560 Issue](2021-01-28.2560.issue.closed.md) `closed`: Missing support for /dev/emcpower\* devices: "No code has been generated to restore device pv:/dev/emcpowera2 (lvmdev
+- [\#2562 PR](2021-01-29.2562.pr.merged.md) `merged`: Add 2 more 32MiB blocks to efi\_img\_sz (issue 2552
+- [\#2563 Issue](2021-02-04.2563.issue.closed.md) `closed`: Trying to restore ZFS pool
+- [\#2564 PR](2021-02-05.2564.pr.merged.md) `merged`: Update 110\_include\_lvm\_code.sh to make sure vgremove is called before recreating the VG
+- [\#2565 Issue](2021-02-09.2565.issue.closed.md) `closed`: How to add proxy when restore using iso image ( backup/restore medium is RSYNC
+- [\#2566 Issue](2021-02-09.2566.issue.closed.md) `closed`: TSM restore fails because of impossible user input when stdout and stderr are redirected to the log
+- [\#2567 Issue](2021-02-12.2567.issue.closed.md) `closed`: rpm unpacking fails on SLE12 PPC64LE for rear 2.6 RPM built for openSUSE Factory PPC64LE
+- [\#2568 Issue](2021-02-12.2568.issue.closed.md) `closed`: Failed to connect network for static IP ( cent OS 7 
+- [\#2569 Issue](2021-02-15.2569.issue.closed.md) `closed`: REAR image does not boot in UEFI
+- [\#2570 Issue](2021-02-16.2570.issue.closed.md) `closed`: mount: /tmp/rear.xxxxxxxxxx/outputfs: no filesystem type specified.
+- [\#2571 Issue](2021-02-18.2571.issue.closed.md) `closed`: rear mkbackup ERROR: rsync failed with return code 23
+- [\#2572 PR](2021-02-20.2572.pr.closed.md) `closed`: Fixes docker\_root\_dir not being set when `docker info` writes to stderr.
+- [\#2573 Issue](2021-02-24.2573.issue.closed.md) `closed`: Editor Problems in ReaR Rescue System
+- [\#2574 Issue](2021-02-24.2574.issue.closed.md) `closed`: linux\_recovery.sh
+- [\#2575 Issue](2021-02-25.2575.issue.closed.md) `closed`: Possibly obsolete '-F 16' for mkfs.vfat and 'fat=16' mount option in 700\_create\_efibootimg.sh and 200\_mount\_bootimg.sh
+- [\#2576 PR](2021-02-25.2576.pr.merged.md) `merged`: Do not specify '-F 16' for mkfs.vfat and also no '-o fat=16' when mounting it
+- [\#2577 PR](2021-02-25.2577.pr.closed.md) `closed`: Fix rsync --fake-super option on remote server
+- [\#2578 Issue](2021-03-03.2578.issue.closed.md) `closed`: PowerPC repo in OBS not present for RHEL/CenOS 6,7 & 8
+- [\#2579 PR](2021-03-04.2579.pr.merged.md) `merged`: Make 400\_copy\_modules.sh fail-safe for newer modinfo output and always include MODULES\_LOAD
+- [\#2580 PR](2021-03-04.2580.pr.merged.md) `merged`: Load the nvram kernel module (if it is a module
+- [\#2581 Issue](2021-03-04.2581.issue.closed.md) `closed`: Write ISO to USB drive
+- [\#2582 Issue](2021-03-05.2582.issue.closed.md) `closed`: Rear recovery with borgbackup failed, no python3 in rescue image
+- [\#2583 Issue](2021-03-05.2583.issue.closed.md) `closed`: Unable to boot fedora 30 machine post recovery
+- [\#2584 Issue](2021-03-08.2584.issue.closed.md) `closed`: "rear recover" fails on sles15sp1 and sles15sp2 with btrfs on POWER P9 9009-42A--LPAR
+- [\#2585 Issue](2021-03-09.2585.issue.closed.md) `closed`: REAR image does not boot in UEFI ( only on physical machine 
+- [\#2586 Issue](2021-03-10.2586.issue.closed.md) `closed`: Define specific volumes / partitions to backup?
+- [\#2587 Issue](2021-03-23.2587.issue.closed.md) `closed`: USB mount error: /dev/disk/by-label/REAR-0000 \[sic!\] does not exist (which is true
+- [\#2588 Issue](2021-03-24.2588.issue.closed.md) `closed`: Replace possibly misleading "USB device" wording by generic "USB or disk device"
+- [\#2589 PR](2021-03-24.2589.pr.merged.md) `merged`: Replace possibly misleading "USB device" by generic "USB or disk device" wording
+- [\#2590 Issue](2021-03-24.2590.issue.closed.md) `closed`: failed to install the boot loader correctly during recovery process on my ubuntu LUKS disk encryption method
+- [\#2591 PR](2021-03-25.2591.pr.merged.md) `merged`: Automatically shrink LVs if needed during "rear recover"
+- [\#2592 Issue](2021-03-25.2592.issue.closed.md) `closed`: machine is not booting post restore UEFI model ( Ubuntu 20.04 
+- [\#2593 Issue](2021-03-30.2593.issue.closed.md) `closed`: Error: Could not create ISO image (with /bin/xorrisofs
+- [\#2594 Issue](2021-03-30.2594.issue.closed.md) `closed`: rsync connectivity check failed in auto recovery mode in centOS7 with latest rear 2.6 version
+- [\#2595 Issue](2021-04-02.2595.issue.closed.md) `closed`: Can't restore EFI system with Software Raid
+- [\#2596 Issue](2021-04-06.2596.issue.closed.md) `closed`: Unused RHEL Physical Volume aborts mkrescue
+- [\#2597 PR](2021-04-07.2597.pr.closed.md) `closed`: New ONLY\_INCLUDE\_DISKS variable
+- [\#2598 Issue](2021-04-08.2598.issue.closed.md) `closed`: Restore a single file from a REAR backup
+- [\#2599 PR](2021-04-15.2599.pr.merged.md) `merged`: \#2594 adding sleep period to give rsync daemon time to wake up
+- [\#2600 Issue](2021-04-15.2600.issue.closed.md) `closed`: Unable to create ISO image on Fedora-31 UEFI model ( used latest rear 2.6 version 
+- [\#2601 Issue](2021-04-15.2601.issue.closed.md) `closed`: KERNEL\_CMDLINE="netdev=eno1" ignored. Unattended recovery stopped at: original network interface eno1 \[...\] is not available
+- [\#2602 Issue](2021-04-20.2602.issue.closed.md) `closed`: EFI Partition too small?
+- [\#2603 PR](2021-04-21.2603.pr.merged.md) `merged`: \#2596 Have unused LVM PV devices only as comment in disklayout.conf file
+- [\#2604 Issue](2021-04-21.2604.issue.closed.md) `closed`: /home not included in NETFS backup when it is a btrfs subvolume
+- [\#2605 Issue](2021-04-23.2605.issue.closed.md) `closed`: Commit "Add SUPPORT section in README" is broken
+- [\#2606 Issue](2021-04-27.2606.issue.closed.md) `closed`: Remote unlock SED via PBA
+- [\#2607 Issue](2021-04-28.2607.issue.closed.md) `closed`: what are the options to restore rear backup with file:/// option
+- [\#2608 PR](2021-04-28.2608.pr.merged.md) `merged`: Fix setting boot path in case of UEFI partition (ESP
+- [\#2609 PR](2021-05-04.2609.pr.merged.md) `merged`: Better description and error checking for GRUB\_RESCUE with UEFI plus some alignment with create\_grub2\_cfg function
+- [\#2610 Issue](2021-05-05.2610.issue.closed.md) `closed`: Automounted NFS filesystems will cause rear to hang if NFS server fails
+- [\#2611 Issue](2021-05-05.2611.issue.closed.md) `closed`: ReaR configured with netfs backup can delete other/old folders on NFS at failure
+- [\#2612 Issue](2021-05-06.2612.issue.closed.md) `closed`: 400\_restore\_rsync\_backup.sh does not show an error when restore rsync archive failed
+- [\#2613 PR](2021-05-07.2613.pr.merged.md) `merged`: In 400\_save\_directories.sh also exclude mountpoints below mountpoints of "type autofs"
+- [\#2614 Issue](2021-05-08.2614.issue.closed.md) `closed`: rear savelayout on Centos 6.10 unknown lsblk parameter -p
+- [\#2615 Issue](2021-05-12.2615.issue.closed.md) `closed`: Regression: Opal PBA shuts down because of incomplete kernel modules related to MODULES=( 'loaded\_modules' 
+- [\#2616 Issue](2021-05-18.2616.issue.closed.md) `closed`: diskrestore.sh failed with "mdadm: layout -unknown- not understood for raid0"
+- [\#2617 Issue](2021-05-21.2617.issue.closed.md) `closed`: REAR image does not boot in UEFI ( centOS 7 
+- [\#2618 PR](2021-05-21.2618.pr.merged.md) `merged`: Treat RAID layout value '-unknown-' same as an empty value
+- [\#2619 Issue](2021-05-26.2619.issue.closed.md) `closed`: Missing BACKUP\_DUPLICITY\_OPTIONS in restore script
+- [\#2620 PR](2021-05-26.2620.pr.merged.md) `merged`: Add BACKUP\_DUPLICITY\_OPTIONS to restore script
+- [\#2621 Issue](2021-06-02.2621.issue.closed.md) `closed`: BTRFS RAID1 backup issues
+- [\#2622 Issue](2021-06-02.2622.issue.closed.md) `closed`: UserInput: Backspace does not erase characters
+- [\#2623 Issue](2021-06-02.2623.issue.closed.md) `closed`: Suppressing stderr by default decreases usability
+- [\#2624 Issue](2021-06-03.2624.issue.closed.md) `closed`: Carbon Black cybersecurity causes "ERROR: BUG BUG BUG! ROOTFS\_DIR ... is broken"
+- [\#2625 PR](2021-06-04.2625.pr.merged.md) `merged`: Fix backup removal in exit task and cleanup handling of URL mountpoints
+- [\#2626 PR](2021-06-05.2626.pr.merged.md) `merged`: Stop ReaR from overwriting its own disk and backup drives
+- [\#2627 PR](2021-06-07.2627.pr.closed.md) `closed`: Enable a clean log file without suppressing stderr unconditionally
+- [\#2630 Issue](2021-06-10.2630.issue.closed.md) `closed`: machine is not getting booting post recovery in physical machine (OS mirroring RAID 1
+- [\#2631 Issue](2021-06-10.2631.issue.closed.md) `closed`: rear mkbackup "ERROR: dd failed with return code 1" because of too little quota on NFS share
+- [\#2632 PR](2021-06-21.2632.pr.merged.md) `merged`: Cleanup rsync and fix error reporting
+- [\#2633 PR](2021-06-21.2633.pr.merged.md) `merged`: Have stdout and stderr also in non-debug modes
+- [\#2634 Issue](2021-06-22.2634.issue.closed.md) `closed`: DRBD9 restore issue, when trying to become primary
+- [\#2635 Issue](2021-06-22.2635.issue.closed.md) `closed`: Unable to perform recovery operation on physical machine - UEFI
+- [\#2636 PR](2021-06-22.2636.pr.merged.md) `merged`: Workaround against DRBD9 restore issue \#2634
+- [\#2637 Issue](2021-06-22.2637.issue.open.md) `open`: Don't deprecate OBDR because it still works and is in use
+- [\#2638 Issue](2021-06-22.2638.issue.closed.md) `closed`: diskrestore.sh fails on already used disk (works on empty disk
+- [\#2641 PR](2021-06-30.2641.pr.merged.md) `merged`: NSR - Enhancement with a new parameter and the ability of a point-in-time recovery.
+- [\#2642 Issue](2021-07-01.2642.issue.closed.md) `closed`: No /usr/share/rear when booting rescue system
+- [\#2643 PR](2021-07-01.2643.pr.merged.md) `merged`: Avoid false Error(
+- [\#2644 Issue](2021-07-02.2644.issue.closed.md) `closed`: Grub boot option for OUTPUT=USB (syslinux may not work with coreboot
+- [\#2645 Issue](2021-07-05.2645.issue.closed.md) `closed`: Missing snapshot releases - OpenSUSE Build Service packages
+- [\#2647 Issue](2021-07-05.2647.issue.closed.md) `closed`: LVM PV recreation fails: excluded by a filter.
+- [\#2648 Issue](2021-07-05.2648.issue.open.md) `open`: OUTPUT=USB bug summary
+- [\#2649 PR](2021-07-06.2649.pr.merged.md) `merged`: Update README file a little bit to test OBS
+- [\#2650 PR](2021-07-07.2650.pr.merged.md) `merged`: fixed serial console for syslinux
+- [\#2651 Issue](2021-07-08.2651.issue.closed.md) `closed`: Inappropriate filter in /etc/lvm/lvm.conf lets ReaR fail to make appropriate LVM entries in disklayout.conf
+- [\#2652 Issue](2021-07-09.2652.issue.closed.md) `closed`: Various segfaults 'chroot /mnt/local ... some\_program ...'
+- [\#2653 Issue](2021-07-10.2653.issue.closed.md) `closed`: Error on recover: RPC portmapper 'rpcbind' unavailable on Debian 10
+- [\#2654 Issue](2021-07-12.2654.issue.closed.md) `closed`: 'export TMPDIR' in etc/rear/...conf does no longer work since \#2633
+- [\#2655 PR](2021-07-12.2655.pr.merged.md) `merged`: added grub bootloader for USB
+- [\#2656 PR](2021-07-12.2656.pr.merged.md) `merged`: fixed output usb format script for none efi cases
+- [\#2657 Issue](2021-07-13.2657.issue.closed.md) `closed`: Currently only OUTPUT=PXE is supported on ARM
+- [\#2658 PR](2021-07-15.2658.pr.merged.md) `merged`: Better default USER\_INPUT\_MAX\_CHARS=0 makes correcting the input possible
+- [\#2659 PR](2021-07-20.2659.pr.merged.md) `merged`: Simplifications for USB\_BOOTLOADER="grub"
+- [\#2660 PR](2021-07-20.2660.pr.merged.md) `merged`: Cleanup USB format scripts
+- [\#2661 PR](2021-07-21.2661.pr.merged.md) `merged`: Fix grub config
+- [\#2662 PR](2021-07-27.2662.pr.merged.md) `merged`: Cleanup of GRUB2 config code in particular for OUTPUT=USB
+- [\#2663 Issue](2021-07-29.2663.issue.closed.md) `closed`: Serial config for kernel commandline
+- [\#2664 PR](2021-08-02.2664.pr.merged.md) `merged`: Default TMPDIR should be /var/tmp
+- [\#2665 PR](2021-08-03.2665.pr.merged.md) `merged`: On POWER require bootlist & ofpathname if needed
+- [\#2666 Issue](2021-08-06.2666.issue.open.md) `open`: Further enhancements and cleanup for GRUB2 with OUTPUT=USB
+- [\#2667 Issue](2021-08-06.2667.issue.closed.md) `closed`: 'rear recover' does not entirely remove build area (any more
+- [\#2668 Issue](2021-08-10.2668.issue.closed.md) `closed`: REAR ISO cannot be created as bootable
+- [\#2669 Issue](2021-08-12.2669.issue.closed.md) `closed`: ERROR: gdisk is missing librarys
+- [\#2670 Issue](2021-08-17.2670.issue.closed.md) `closed`: Please start the restore process on your backup host during recovery
+- [\#2671 Issue](2021-08-17.2671.issue.closed.md) `closed`: rear rescue over TFTP/NFS fails: Filestructure has wrong permission
+- [\#2672 Issue](2021-08-18.2672.issue.closed.md) `closed`: rpcbind not started
+- [\#2673 Issue](2021-08-26.2673.issue.closed.md) `closed`: We are trying to do Linux BMR and the "rear -v mkrescue" command is not running successfully and unable to find the library.
+- [\#2674 Issue](2021-08-26.2674.issue.closed.md) `closed`: Failed to make bootable EFI image of GRUB2
+- [\#2675 PR](2021-09-03.2675.pr.merged.md) `merged`: Use double quotes for remove\_temporary\_mountpoint "$BUILD\_DIR/..."
+- [\#2676 Issue](2021-09-07.2676.issue.closed.md) `closed`: False ERROR ".../outputfs not empty, cannot remove" when OUTPUT\_URL is unset
+- [\#2677 Issue](2021-09-14.2677.issue.closed.md) `closed`: Recovery system has all needed kernel modules but something hinders loading them: tg3 and smartpqi on HPE ProLiant DL360 Gen10
+- [\#2678 Issue](2021-09-14.2678.issue.closed.md) `closed`: ReaR 2.5, CentOS7.9, Rubrik CDM configuration not creating functional ISO. No specific error in debug log.
+- [\#2679 Issue](2021-09-23.2679.issue.closed.md) `closed`: Allow NETFS\_KEEP\_OLD\_BACKUP\_COPY=no
+- [\#2680 Issue](2021-09-27.2680.issue.closed.md) `closed`: Formatting USB drive for efi is broken
+- [\#2681 Issue](2021-09-27.2681.issue.closed.md) `closed`: Error when booting with rear uefi iso
+- [\#2682 Issue](2021-09-28.2682.issue.closed.md) `closed`: ERROR: Could not create ISO image
+- [\#2683 Issue](2021-09-29.2683.issue.closed.md) `closed`: mkbackup on uefi to USB drive error: Failed to copy KERNEL\_FILE (cp: failed to preserve ownership
+- [\#2684 PR](2021-09-29.2684.pr.merged.md) `merged`: Overhauled output/USB/Linux-i386/100\_create\_efiboot.sh
+- [\#2685 Issue](2021-09-29.2685.issue.closed.md) `closed`: BACKUP=CDM ldd test fails with "needs additional libraries"
+- [\#2686 Issue](2021-09-29.2686.issue.closed.md) `closed`: sbin/rear silently ignores when "Source CONFIG\_FILE" fails
+- [\#2687 Issue](2021-09-30.2687.issue.closed.md) `closed`: The "rear mkrescue" command does not put all of the neccessary files in the ISO image.
+- [\#2688 Issue](2021-09-30.2688.issue.closed.md) `closed`: Ubuntu 20.04 initrd "decoding failed" - needs special command to make initrd
+- [\#2689 PR](2021-10-01.2689.pr.merged.md) `merged`: Error out in sbin/rear when it failed to source or Source mandatory files
+- [\#2690 Issue](2021-10-04.2690.issue.closed.md) `closed`: 300\_map\_disks.sh insufficient to automatically find existing unique disk size mapping
+- [\#2691 PR](2021-10-04.2691.pr.merged.md) `merged`: Fix multiple vg recreation
+- [\#2692 Issue](2021-10-05.2692.issue.closed.md) `closed`: Gentoo: mkisofs misses -e flag to create ISO for UEFI (using ebiso works
+- [\#2693 PR](2021-10-05.2693.pr.merged.md) `merged`: Overhauled automapping in 300\_map\_disks.sh
+- [\#2694 Issue](2021-10-08.2694.issue.closed.md) `closed`: ReaR v2.6 not generating ISO, no explicit ERROR in debug log sections.
+- [\#2695 Issue](2021-10-12.2695.issue.closed.md) `closed`: RFC: No longer hardcoded enforced Error(
+- [\#2696 Issue](2021-10-13.2696.issue.closed.md) `closed`: 420\_autoresize\_last\_partitions.sh does not support RAID devices
+- [\#2697 PR](2021-10-15.2697.pr.merged.md) `merged`: more control over serial devices used
+- [\#2698 Issue](2021-10-18.2698.issue.open.md) `open`: OUTPUT=USB support for UEFI and BIOS dual boot (cf. OUTPUT=RAWDISK
+- [\#2699 PR](2021-10-19.2699.pr.merged.md) `merged`: Overhauled serial console support code
+- [\#2700 Issue](2021-10-20.2700.issue.closed.md) `closed`: /var/tmp running out of space during iso creation
+- [\#2701 Issue](2021-10-23.2701.issue.closed.md) `closed`: Help
+- [\#2702 PR](2021-10-25.2702.pr.closed.md) `closed`: Software RAID: IMSM support
+- [\#2703 PR](2021-10-27.2703.pr.merged.md) `merged`: Enhanced disk write-protection
+- [\#2704 Issue](2021-10-28.2704.issue.closed.md) `closed`: Impossible to force command rear format /dev/disk/by-label/USB-KEY-FOO-BAR
+- [\#2705 PR](2021-10-29.2705.pr.merged.md) `merged`: minimal changes needed for hybrid boot (bios+uefi
+- [\#2706 Issue](2021-11-05.2706.issue.closed.md) `closed`: Integration Rear with Bareos
+- [\#2707 Issue](2021-11-09.2707.issue.closed.md) `closed`: ReaR USB, error filesystem vfat will not be supported
+- [\#2708 PR](2021-11-11.2708.pr.merged.md) `merged`: New function is\_multipath\_used in layout-functions.sh
+- [\#2709 Issue](2021-11-11.2709.issue.closed.md) `closed`: Wiki about workflows and dir structure
+- [\#2710 PR](2021-11-14.2710.pr.closed.md) `closed`: Test actions (related to CI for ReaR
+- [\#2711 PR](2021-11-14.2711.pr.closed.md) `closed`: Change timeout (related to CI for ReaR
+- [\#2712 Issue](2021-11-15.2712.issue.closed.md) `closed`: Restore boots to prompt instead of coming up with menu
+- [\#2713 Issue](2021-11-16.2713.issue.closed.md) `closed`: Problems with 1TB SanDisk USB driver rear - v mkrescue
+- [\#2714 PR](2021-11-16.2714.pr.merged.md) `merged`: Overhauled RAID code
+- [\#2715 Issue](2021-11-19.2715.issue.closed.md) `closed`: 150\_wipe\_disks.sh does not work with RAID devices
+- [\#2716 Issue](2021-11-19.2716.issue.closed.md) `closed`: If selinux labels are not restored, the autorelabel is not enough in RHEL8.4 and recovered system does not boot
+- [\#2717 PR](2021-11-19.2717.pr.closed.md) `closed`: Add a prerelabel with setfiles before the first reboot, because autorelabel is not always reliable
+- [\#2718 Issue](2021-11-20.2718.issue.closed.md) `closed`: Insecure default NETFS encryption method BACKUP\_PROG\_\[DE\]CRYPT\_OPTIONS="... des3 ..."
+- [\#2719 Issue](2021-11-21.2719.issue.closed.md) `closed`: OUTPUT=ISO image cannot be dumped as is (with 'dd'
+- [\#2720 Issue](2021-11-22.2720.issue.closed.md) `closed`: disk reformatting issue during BMR on linux 7.9 physical server
+- [\#2721 PR](2021-12-01.2721.pr.merged.md) `merged`: Improved wiping disks
+- [\#2722 Issue](2021-12-03.2722.issue.closed.md) `closed`: Failed to create parition table with LVM and LUKS
+- [\#2723 PR](2021-12-06.2723.pr.merged.md) `merged`: fixed pxe file cp and permissions for sshfs target
+- [\#2724 Issue](2021-12-08.2724.issue.closed.md) `closed`: pxe boot with grub (from iso or plain
+- [\#2725 Issue](2021-12-09.2725.issue.closed.md) `closed`: WARNING: tar ended with return code 1 and below output
+- [\#2726 PR](2021-12-09.2726.pr.merged.md) `merged`: Automatically resize active last partition on RAID1
+- [\#2727 Issue](2021-12-15.2727.issue.closed.md) `closed`: MODULES=( 'loaded\_modules' 
+- [\#2728 PR](2021-12-15.2728.pr.merged.md) `merged`: Always include loaded kernel modules
+- [\#2729 PR](2021-12-15.2729.pr.merged.md) `merged`: also add ssh-add prog when ssh-agent is added
+- [\#2730 PR](2021-12-17.2730.pr.merged.md) `merged`: Automatically resize active last partition on RAID0
+- [\#2731 PR](2021-12-20.2731.pr.merged.md) `merged`: Fix function modinfo\_filename in 400\_copy\_modules.sh
+- [\#2732 Issue](2021-12-20.2732.issue.closed.md) `closed`: after restore server boot into dracut
+- [\#2733 Issue](2021-12-26.2733.issue.closed.md) `closed`: Support for http targets in PXE
+- [\#2734 Issue](2021-12-27.2734.issue.closed.md) `closed`: Set nano as default editor for rear recover
+- [\#2735 PR](2021-12-28.2735.pr.closed.md) `closed`: Evaluation enhancement of PRE\_RECOVERY/POST\_RECOVERY/PRE\_BACKUP/POST\_BACKUP scripts
+- [\#2736 PR](2021-12-28.2736.pr.merged.md) `merged`: New EXCLUDE\_IP\_ADDRESSES and EXCLUDE\_NETWORK\_INTERFACES directives
+- [\#2737 Issue](2022-01-03.2737.issue.closed.md) `closed`: ReaR- Testing BMR on Linux physical server so we need to know server hardware requirement
+- [\#2738 PR](2022-01-08.2738.pr.merged.md) `merged`: Support for http sources when using PXE
+- [\#2739 Issue](2022-01-13.2739.issue.closed.md) `closed`: Fails to copy all kernel modules if there are dangling symlinks in /lib/modules/...
+- [\#2740 Issue](2022-01-17.2740.issue.closed.md) `closed`: RFC: Copy symlinks as symlinks and add missing symlink targets at the end
+- [\#2741 Issue](2022-01-18.2741.issue.closed.md) `closed`: Unknown EFI bootloader (no grub-install or grub2-install found
+- [\#2742 Issue](2022-01-18.2742.issue.closed.md) `closed`: Backup failed due to Error in testing Recovery system in /tmp/.... (Fedora Rawhide
+- [\#2743 Issue](2022-01-21.2743.issue.open.md) `open`: Clean up not needed things in predefined LIBS entries
+- [\#2744 PR](2022-01-24.2744.pr.merged.md) `merged`: Skip unneeded /usr/lib\*/syslog-ng/loggen/ from the recovery system
+- [\#2747 PR](2022-01-25.2747.pr.merged.md) `merged`: Removed need for /usr/lib64
+- [\#2748 PR](2022-01-25.2748.pr.merged.md) `merged`: Include `dmsetup` and `dmeventd` unconditionally
+- [\#2749 PR](2022-01-26.2749.pr.merged.md) `merged`: Add `console=tty0` to cmdline only if no real serial device was found
+- [\#2750 PR](2022-02-01.2750.pr.merged.md) `merged`: multipath: fix exclusion of still wanted devices
+- [\#2751 Issue](2022-02-02.2751.issue.closed.md) `closed`: RFC: Preparations towards a ReaR 2.7 release
+- [\#2752 Issue](2022-02-03.2752.issue.closed.md) `closed`: ReaR backup error
+- [\#2753 Issue](2022-02-03.2753.issue.closed.md) `closed`: When OUTPUT\_URL is set OUTPUT\_OPTIONS does not inherit BACKUP\_OPTIONS
+- [\#2754 PR](2022-02-04.2754.pr.closed.md) `closed`: Prepare for Issue \#1040: add a fancy GitHub Action for 'shellcheck' for all pushes and PRs
+- [\#2756 PR](2022-02-04.2756.pr.closed.md) `closed`: Issue \#1040 shellcheck'ed version
+- [\#2757 Issue](2022-02-08.2757.issue.closed.md) `closed`: Ceased Travis CI testing.
+- [\#2758 PR](2022-02-08.2758.pr.closed.md) `closed`: Update README.adoc and removal of .travis.yml
+- [\#2759 Issue](2022-02-09.2759.issue.closed.md) `closed`: Rename disklayout.conf keyword 'raid' into 'raidarray'
+- [\#2760 Issue](2022-02-14.2760.issue.closed.md) `closed`: ERROR: Not enough disk space available on $RSYNC\_HOST:$RSYNC\_PATH
+- [\#2761 Issue](2022-02-15.2761.issue.closed.md) `closed`: USB formatting is really slow
+- [\#2762 Issue](2022-02-17.2762.issue.closed.md) `closed`: rear backup and TSM server
+- [\#2763 PR](2022-03-04.2763.pr.merged.md) `merged`: GRUB2\_SEARCH\_ROOT\_COMMAND variable to overrule Grub2 search string
+- [\#2764 Issue](2022-03-07.2764.issue.closed.md) `closed`: Unable to boot from USB image created
+- [\#2767 Issue](2022-03-08.2767.issue.closed.md) `closed`: Suddenly "no space left on device" where EFI partition is
+- [\#2768 PR](2022-03-08.2768.pr.merged.md) `merged`: Fixed the RAID10 layout support code
+- [\#2769 Issue](2022-03-10.2769.issue.closed.md) `closed`: Create only rear ISO with borg binary
+- [\#2770 Issue](2022-03-11.2770.issue.closed.md) `closed`: Ubuntu 20.04: mkrescue Fails w/ Permission Error
+- [\#2771 PR](2022-03-11.2771.pr.merged.md) `merged`: Avoid SC2068 and SC2145 in finalize/Fedora/i386/550\_rebuild\_initramfs.sh
+- [\#2772 Issue](2022-03-11.2772.issue.closed.md) `closed`: User guide: Missing info from layout configuration page
+- [\#2773 Issue](2022-03-13.2773.issue.closed.md) `closed`: ZFS support
+- [\#2774 PR](2022-03-16.2774.pr.merged.md) `merged`: increase USB\_UEFI\_PART\_SIZE to 1024 MiB
+- [\#2775 Issue](2022-03-16.2775.issue.closed.md) `closed`: mkbackup with Borg tries to backup /mnt/\* and dies
+- [\#2776 PR](2022-03-21.2776.pr.merged.md) `merged`: Fix SC2091 in 310\_network\_devices.sh
+- [\#2777 Issue](2022-03-21.2777.issue.closed.md) `closed`: XFS: diskrestore.sh failed at 'mount: /mnt/local: ...' because of wrong mount options
+- [\#2779 Issue](2022-03-25.2779.issue.closed.md) `closed`: DISA STIG secured Red Hat system: libraries failing to copy during mkrescue ('fapolicyd' hinders it
+- [\#2780 Issue](2022-03-29.2780.issue.closed.md) `closed`: Not able to increase EFI partition size
+- [\#2781 Issue](2022-03-30.2781.issue.closed.md) `closed`: Missing /usr/share/rear/output/PXE/default/820\_copy\_to\_net.sh and PXE output fails with rsync protocol - DRLM issue 189
+- [\#2782 Issue](2022-03-31.2782.issue.closed.md) `closed`: Question: Adequate REAR Validation Measures ?
+- [\#2783 Issue](2022-04-01.2783.issue.closed.md) `closed`: errors out due to missing grub module
+- [\#2784 PR](2022-04-04.2784.pr.closed.md) `closed`: Merge 2768, build in packit
+- [\#2785 Issue](2022-04-07.2785.issue.closed.md) `closed`: No error is printed if UUID are not updated during recover (no sed output
+- [\#2786 PR](2022-04-07.2786.pr.closed.md) `closed`: Print error if UUID not updated
+- [\#2787 Issue](2022-04-07.2787.issue.open.md) `open`: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency
+- [\#2788 PR](2022-04-11.2788.pr.closed.md) `closed`: Detect by UUIDs if restored config files do not match what was recreated
+- [\#2789 PR](2022-04-13.2789.pr.closed.md) `closed`: Show the users the starting point of the execution of the PRE/POS\_RECOVERY\_SCRIPTs
+- [\#2790 PR](2022-04-13.2790.pr.merged.md) `merged`: Remove Travis related configuration and link.
+- [\#2791 PR](2022-04-13.2791.pr.merged.md) `merged`: For GRUB\_RESCUE set 'root=/dev/ram0 vga=normal rw' as for other boot media
+- [\#2792 Issue](2022-04-15.2792.issue.closed.md) `closed`: 'find /usr' several hours delay in 300\_create\_isolinux.sh with RHEL 8 on some servers
+- [\#2793 Issue](2022-04-16.2793.issue.closed.md) `closed`: Unable to restore with incremental backup - 'backup.tar.gz' not found
+- [\#2794 PR](2022-04-21.2794.pr.closed.md) `closed`: Clean up USB backups before creating a new one on the USB drive
+- [\#2795 PR](2022-04-26.2795.pr.merged.md) `merged`: Verify file hashes at the end of recover after file restore from backup
+- [\#2796 PR](2022-05-03.2796.pr.closed.md) `closed`: Overhauled layout/compare/default/510\_compare\_files.sh
+- [\#2797 PR](2022-05-05.2797.pr.merged.md) `merged`: Comment out remote space check with rsync \#2760
+- [\#2798 Issue](2022-05-05.2798.issue.closed.md) `closed`: TrendMicro ds\_am module cause system crash by touching dev/watchdog in ReaR's build area
+- [\#2799 Issue](2022-05-05.2799.issue.closed.md) `closed`: Clean up and unify code about CHECK\_CONFIG\_FILES and FILES\_TO\_PATCH\_PATTERNS
+- [\#2800 PR](2022-05-06.2800.pr.merged.md) `merged`: Use disklayout.conf keyword 'raidarray' instead of 'raid'
+- [\#2801 Issue](2022-05-09.2801.issue.closed.md) `closed`: Broken 'part' entries in disklayout.conf in case of 'unknown' partition table
+- [\#2802 PR](2022-05-10.2802.pr.closed.md) `closed`: More failsafe 200\_partition\_layout.sh
+- [\#2803 PR](2022-05-10.2803.pr.merged.md) `merged`: Ensure supported partition tables
+- [\#2804 PR](2022-05-10.2804.pr.merged.md) `merged`: Ensure syntactically correct 'disk' and 'part' entries in disklayout.conf
+- [\#2805 Issue](2022-05-12.2805.issue.closed.md) `closed`: rear-backup is failing with "... recovery system ... is broken: 'bash -c true' failed"
+- [\#2806 Issue](2022-05-12.2806.issue.closed.md) `closed`: Recover RHEL 7.9 backup on different machine with new MAC addresses for Network Interfaces. Doesn't keep old Network Interface names.
+- [\#2807 Issue](2022-05-13.2807.issue.closed.md) `closed`: Wrong 'df' program (third-party 'Dialafile'
+- [\#2808 PR](2022-05-17.2808.pr.merged.md) `merged`: Exclude dev/watchdog\* from recovery system
+- [\#2809 Issue](2022-05-18.2809.issue.closed.md) `closed`: ReaR recover aborting du to error failed to remove /tmp/rear.xxxx/outputfs
+- [\#2810 Issue](2022-05-23.2810.issue.open.md) `open`: Empty SD card slot appears as /dev/sdb disk without partition type
+- [\#2811 PR](2022-05-23.2811.pr.merged.md) `merged`: Add PRE\_RECOVERY\_COMMANDS and POST\_RECOVERY\_COMMANDS
+- [\#2812 Issue](2022-05-23.2812.issue.open.md) `open`: Migrating to other PowerVM LPAR with different disks: Restore multipath problem: no WWIDs
+- [\#2813 PR](2022-05-31.2813.pr.merged.md) `merged`: Update the ISO volume label in comments
+- [\#2814 PR](2022-06-01.2814.pr.merged.md) `merged`: Replace 'RELAXRECOVER' in variable names
+- [\#2815 PR](2022-06-01.2815.pr.merged.md) `merged`: Describe USB\_BOOT\_PART\_SIZE and USB\_DEVICE\_BOOT\_LABEL
+- [\#2816 PR](2022-06-04.2816.pr.merged.md) `merged`: RPM spec: update build requirement for Fedora to unblock Packit build and run make validate after build
+- [\#2817 Issue](2022-06-06.2817.issue.closed.md) `closed`: Setting the bootloader
+- [\#2818 Issue](2022-06-07.2818.issue.closed.md) `closed`: EFI rescue system automatically boots into host last saved (leaving no choice between different hosts
+- [\#2819 PR](2022-06-09.2819.pr.merged.md) `merged`: Preparations for ReaR 2.7
+- [\#2820 Issue](2022-06-10.2820.issue.closed.md) `closed`: wipefs will fail - Follow-up error: "/var/lib/rear/layout/diskrestore.sh: line 280: 3560 Aborted (core dumped
+- [\#2821 PR](2022-06-13.2821.pr.closed.md) `closed`: Pipe as many 'y' as asked for into "lvm lvcreate"
+- [\#2822 PR](2022-06-16.2822.pr.merged.md) `merged`: Fix vi in the rescue system on Fedora and RHEL 9
+- [\#2823 PR](2022-06-16.2823.pr.merged.md) `merged`: Update and extend Packit build targets
+- [\#2824 Issue](2022-06-19.2824.issue.closed.md) `closed`: LFTP asks for password that is not needed (SSH and SFTP connect without password prompt
+- [\#2825 PR](2022-06-21.2825.pr.merged.md) `merged`: Replace `mkinitrd` with `dracut` on Fedora and RHEL
+- [\#2826 Issue](2022-06-21.2826.issue.closed.md) `closed`: RedHatEnterpriseServer/8 - There is no code to install a boot loader on the recovered system
+- [\#2827 PR](2022-06-22.2827.pr.merged.md) `merged`: Use fail-safe 'yes' pipe for "lvm lvcreate"
+- [\#2828 PR](2022-06-22.2828.pr.merged.md) `merged`: Recognise `-b`/`--bios` options in `format` workflow
+- [\#2829 PR](2022-06-24.2829.pr.merged.md) `merged`: Set USB\_DEVICE\_PARTED\_LABEL to match format-workflow.sh
+- [\#2830 PR](2022-06-24.2830.pr.merged.md) `merged`: Support creation of EFI system partition on systems with older `parted`
+- [\#2831 PR](2022-06-29.2831.pr.merged.md) `merged`: Refactor rsync URL support, fixes rsync OUTPUT\_URL
+- [\#2832 Issue](2022-06-30.2832.issue.closed.md) `closed`: New users cannot subscribe to mailing list
+- [\#2833 Issue](2022-07-01.2833.issue.closed.md) `closed`: Issue with ReaR and Borg
+- [\#2834 PR](2022-07-01.2834.pr.merged.md) `merged`: Add yes to REQUIRED\_PROGS
+- [\#2835 Issue](2022-07-03.2835.issue.closed.md) `closed`: E-mail notification
+- [\#2836 Issue](2022-07-06.2836.issue.closed.md) `closed`: WARNING: tar ended with return code 1
+- [\#2837 Issue](2022-07-08.2837.issue.closed.md) `closed`: P2V Restore RHEL 8 - Remove ioctl on mpathc failed: device busy
+- [\#2838 Issue](2022-07-14.2838.issue.closed.md) `closed`: How to perform restore via sshfs when target environment is different to the source
+- [\#2839 PR](2022-07-14.2839.pr.merged.md) `merged`: Pass -y to lvcreate instead of piping the output of yes
+- [\#2842 PR](2022-07-25.2842.pr.merged.md) `merged`: Modernize Packit configuration
+- [\#2843 Issue](2022-07-26.2843.issue.open.md) `open`: No recovery system startup messages (inappropriate kernel 'console' setting
+- [\#2844 PR](2022-07-28.2844.pr.merged.md) `merged`: Overhauled rescue/GNU/Linux/290\_kernel\_cmdline.sh
+- [\#2845 Issue](2022-07-31.2845.issue.closed.md) `closed`: Password-less Borg backup via ssh (without BORGBACKUP\_USERNAME
+- [\#2846 PR](2022-08-04.2846.pr.merged.md) `merged`: implement BORGBACKUP\_IGNORE\_WARNING
+- [\#2847 PR](2022-08-05.2847.pr.merged.md) `merged`: Add Shell linter - Differential-ShellCheck
+- [\#2848 Issue](2022-08-09.2848.issue.closed.md) `closed`: Use simpler and faster syntax STRING+=" additional words" everywhere
+- [\#2849 PR](2022-08-09.2849.pr.merged.md) `merged`: Use STRING+=" additional words" everywhere
+- [\#2850 Issue](2022-08-12.2850.issue.closed.md) `closed`: mkrescue with PXE\_CREATE\_LINKS=MAC does not respect PXE\_CONFIG\_GRUB\_STYLE=y
+- [\#2851 PR](2022-08-12.2851.pr.merged.md) `merged`: insert missing prefix to fix \#2850
+- [\#2852 Issue](2022-08-19.2852.issue.closed.md) `closed`: cannot recover on clean install system
+- [\#2853 Issue](2022-08-31.2853.issue.open.md) `open`: Let ReaR deal with LVM VGs without LVs
+- [\#2854 PR](2022-08-31.2854.pr.closed.md) `closed`: skip LVM PVs mounted on /dev/loop
+- [\#2855 PR](2022-09-01.2855.pr.merged.md) `merged`: GitHub Workflows security hardening
+- [\#2856 Issue](2022-09-06.2856.issue.closed.md) `closed`: restore failed at Oracle Linux 8.5
+- [\#2857 PR](2022-09-07.2857.pr.merged.md) `merged`: Insert '$pxe\_link\_prefix' also "if has\_binary gethostip" in the IP case
+- [\#2858 Issue](2022-09-07.2858.issue.closed.md) `closed`: after recover system error with python module
+- [\#2859 PR](2022-09-12.2859.pr.merged.md) `merged`: By default let "rear recover" wipe disks that get completely recreated
+- [\#2862 Issue](2022-09-15.2862.issue.closed.md) `closed`: FOSDEM 2023 4th and 5th Feb. 2023 aiming for a physical conference in Brussels
+- [\#2863 Issue](2022-09-16.2863.issue.closed.md) `closed`: Add basic 'barrel' support to ReaR
+- [\#2864 Issue](2022-09-16.2864.issue.closed.md) `closed`: EFI boot stick freezes reproducable on systems other than the originating one
+- [\#2865 Issue](2022-09-19.2865.issue.closed.md) `closed`: RCF: Should ReaR skip mounted loop devices?
+- [\#2866 Issue](2022-09-21.2866.issue.closed.md) `closed`: Hitting ENTER too often lets subsequent "rear recover" user dialogs proceed unintendedly
+- [\#2867 Issue](2022-09-22.2867.issue.open.md) `open`: ReaR connects to rsync server over ssh even if configured to use the rsync protocol without ssh
+- [\#2868 PR](2022-09-22.2868.pr.merged.md) `merged`: In the UserInput function drain stdin if stdin is a terminal
+- [\#2869 Issue](2022-09-27.2869.issue.closed.md) `closed`: Unable to boot ISO because of initrd size
+- [\#2870 Issue](2022-09-28.2870.issue.closed.md) `closed`: EXTERNAL\_IGNORE\_ERRORS not checked against RSYNC
+- [\#2871 Issue](2022-09-28.2871.issue.open.md) `open`: Customizing RSYNC\_PORT
+- [\#2872 PR](2022-09-29.2872.pr.merged.md) `merged`: Improved comments in default.conf
+- [\#2873 PR](2022-09-29.2873.pr.merged.md) `merged`: Fix initrd regeneration on s390x and Fedora/RHEL
+- [\#2874 PR](2022-09-30.2874.pr.closed.md) `closed`: Update default.conf to manage Veritas
+- [\#2875 Issue](2022-09-30.2875.issue.open.md) `open`: Optimizing for speed when rsync is in use
+- [\#2876 PR](2022-10-04.2876.pr.merged.md) `merged`: Implement basic 'barrel' support
+- [\#2877 Issue](2022-10-06.2877.issue.closed.md) `closed`: Add a test option '-t' to run specific scripts with 'set -eu -o pipefail'
+- [\#2878 PR](2022-10-06.2878.pr.merged.md) `merged`: Exclusions for Veritas
+- [\#2879 PR](2022-10-09.2879.pr.closed.md) `closed`: Add differential-shellcheck GitHub action
+- [\#2880 Issue](2022-10-12.2880.issue.closed.md) `closed`: Borg wil not work anymore after updating to rear 2.7-1 (github
+- [\#2881 Issue](2022-10-17.2881.issue.closed.md) `closed`: Could not copy /tmp/rear.EuPg57S6kXbLPM9/tmp/initrd.cgz to /tmp/rear-efi.yegNr//EFI/BOOT/initrd.cgz
+- [\#2882 PR](2022-10-20.2882.pr.merged.md) `merged`: change debhelpers compat level to 10
+- [\#2883 Issue](2022-10-26.2883.issue.closed.md) `closed`: bootloader grub for output usb is not working for some uefi cases
+- [\#2884 Issue](2022-10-26.2884.issue.closed.md) `closed`: bootloader extlinux for output usb is not working for a vfat boot partition
+- [\#2885 Issue](2022-11-02.2885.issue.closed.md) `closed`: USB formatting is really slow
+- [\#2886 Issue](2022-11-02.2886.issue.closed.md) `closed`: Losing backups after performing local restore
+- [\#2887 Issue](2022-11-03.2887.issue.closed.md) `closed`: RFC: Investigate read-only mounting during "rear recover"
+- [\#2888 Issue](2022-11-13.2888.issue.closed.md) `closed`: Recovery environment not booting
+- [\#2889 Issue](2022-11-13.2889.issue.closed.md) `closed`: Test restore failed - recovery environment trashed
+- [\#2890 Issue](2022-11-22.2890.issue.closed.md) `closed`: SUSE sle 15 SP4
+- [\#2891 Issue](2022-11-29.2891.issue.closed.md) `closed`: Attempting to Automate Relax and Recovery (ReaR
+- [\#2892 Issue](2022-11-30.2892.issue.closed.md) `closed`: Relax and Recover "the disk layout recreation script failed" after trying recovering
+- [\#2893 Issue](2022-12-03.2893.issue.closed.md) `closed`: RHEL 9.1: UEFI ISO: "type: grub2-mkstandalone: not found" (it is provided by the grub2-tools-extra RPM
+- [\#2894 PR](2022-12-04.2894.pr.merged.md) `merged`: fix rear mkrescue with sesam 5.x
+- [\#2895 Issue](2022-12-05.2895.issue.closed.md) `closed`: No further output during rear automatic recovery
+- [\#2896 Issue](2022-12-05.2896.issue.closed.md) `closed`: Ubuntu 22.04: rear recover: "Failed to install GRUB2 on /dev/vda" (no BIOS Boot Partition
+- [\#2897 Issue](2022-12-13.2897.issue.closed.md) `closed`: ERROR: Failed to make bootable EFI image of GRUB2 on Oracle linux 8.7 (/usr/lib/grub/x86\_64-efi/modinfo.sh doesn't exist
+- [\#2898 Issue](2022-12-23.2898.issue.closed.md) `closed`: How to configure remote user other than root?
+- [\#2899 Issue](2022-12-28.2899.issue.closed.md) `closed`: Not finding ldd?
+- [\#2900 Issue](2022-12-28.2900.issue.closed.md) `closed`: Bareos 22 bconsole switch parsing breaking change
+- [\#2901 PR](2022-12-28.2901.pr.merged.md) `merged`: BACKUP=BAREOS: fix bconsole CLI argument format
+- [\#2902 Issue](2022-12-30.2902.issue.closed.md) `closed`: Rescue/recovery networking does not work with IPv6 only NICs.
+- [\#2903 PR](2023-01-02.2903.pr.merged.md) `merged`: Protect against colons in pvdisplay output
+- [\#2904 PR](2023-01-03.2904.pr.merged.md) `merged`: Install extlinux for OUTPUT=USB for a vfat boot partition
+- [\#2905 PR](2023-01-03.2905.pr.merged.md) `merged`: OUTPUT=USB: Use target=i386-pc for legacy BIOS GRUB2 install on EFI systems
+- [\#2906 Issue](2023-01-03.2906.issue.closed.md) `closed`: Usage of "EXCLUDE\_BACKUP"
+- [\#2907 PR](2023-01-08.2907.pr.merged.md) `merged`: Update 310\_network\_devices.sh
+- [\#2908 Issue](2023-01-09.2908.issue.closed.md) `closed`: ReaR 2.7 on SLES15SP2: inexplicable regular umount failure
+- [\#2909 PR](2023-01-10.2909.pr.merged.md) `merged`: Inform the user when it could not umount something
+- [\#2910 PR](2023-01-10.2910.pr.merged.md) `merged`: Addendum for issue 2045 for Linux-ppc64le/660\_install\_grub2.sh
+- [\#2911 Issue](2023-01-16.2911.issue.closed.md) `closed`: BACKUP\_PROG\_COMPRESS\_OPTIONS="" makes 'tar ... -C /mnt/local/' untar in $(pwd
+- [\#2912 Issue](2023-01-17.2912.issue.closed.md) `closed`: relax-and-recover connot be shrinked (new disk more than 2% smaller
+- [\#2913 Issue](2023-01-17.2913.issue.closed.md) `closed`: How to modify the disklayout.conf file to add AUTOINCREASE\_DISK\_SIZE\_THRESHOLD\_PERCENTAGE=50 I can't modify this file
+- [\#2914 Issue](2023-01-18.2914.issue.closed.md) `closed`: Raspberry Pi: serial-functions.sh BugError when no /dev/ttyS\[0-9\]\* exists
+- [\#2915 PR](2023-01-20.2915.pr.merged.md) `merged`: Make get\_serial\_console\_devices(
+- [\#2917 Issue](2023-01-30.2917.issue.open.md) `open`: EL 9 after "rear recover" to different HW reboot hangs at "A Start Job is running for /dev/mapper/vg01-..."
+- [\#2918 Issue](2023-02-07.2918.issue.closed.md) `closed`: Implement support for Commvault 11
+- [\#2920 Issue](2023-02-10.2920.issue.closed.md) `closed`: HYPER-V: Rescue ISO media stuk/freeze at "Loading kernel ... / Loading initial ramdisk ..."
+- [\#2921 Issue](2023-02-10.2921.issue.closed.md) `closed`: Ubuntu 22.10: ERROR: Could not find 'isolinux.bin'. Installing 'isolinux' helps.
+- [\#2922 Issue](2023-02-12.2922.issue.closed.md) `closed`: Missing RPM dependencies for "usual programs"
+- [\#2923 Issue](2023-02-13.2923.issue.closed.md) `closed`: Missing rear packages in the obs repository
+- [\#2924 Issue](2023-02-13.2924.issue.closed.md) `closed`: OUTPUT=USB: REAL\_USB\_DEVICE mounted both below /tmp/rear... and /var/tmp/rear...
+- [\#2925 Issue](2023-02-13.2925.issue.closed.md) `closed`: "rear mkrescue" does not error out when COPY\_AS\_IS="/some/dir" results broken recovery system
+- [\#2926 Issue](2023-02-13.2926.issue.closed.md) `closed`: ERROR 420\_autoresize\_last\_partitions.sh: line 73: 10: command not found
+- [\#2927 Issue](2023-02-14.2927.issue.closed.md) `closed`: SUSE 15.4 layout recreation fails due to missing chattr binary
+- [\#2928 Issue](2023-02-14.2928.issue.open.md) `open`: NETFS tar backup no btrfs subvolumes by default
+- [\#2929 Issue](2023-02-14.2929.issue.closed.md) `closed`: Automatic recovery should not wait for user input
+- [\#2930 Issue](2023-02-14.2930.issue.closed.md) `closed`: Ensure config array variables are specified as arrays by the user
+- [\#2931 PR](2023-02-14.2931.pr.merged.md) `merged`: packit: production\_build job type was renamed to upstream\_koji\_build
+- [\#2932 PR](2023-02-15.2932.pr.merged.md) `merged`: check for wrong array assignment in user configs
+- [\#2933 Issue](2023-02-15.2933.issue.open.md) `open`: Oracle VM VirtualBox: ReaR Rescue ISO media stuk/freeze at "Probing EDD (edd=off to disable
+- [\#2934 PR](2023-02-15.2934.pr.merged.md) `merged`: Adding all ReaR validations I got in the last 2 years
+- [\#2936 Issue](2023-02-16.2936.issue.closed.md) `closed`: "rear mkrescue -C ..." option setting is not automatically used by "rear recover"
+- [\#2937 PR](2023-02-17.2937.pr.merged.md) `merged`: Add support for Commvault Galaxy 11
+- [\#2938 Issue](2023-02-18.2938.issue.closed.md) `closed`: Creating a bootable usb stick from a .iso file saved on a disk
+- [\#2939 Issue](2023-02-19.2939.issue.closed.md) `closed`: Automatic restore doesn't write progress output to the screen
+- [\#2940 Issue](2023-02-20.2940.issue.closed.md) `closed`: Stop supporting SLES10 and SLES11
+- [\#2941 Issue](2023-02-21.2941.issue.open.md) `open`: RFC: switch from bash 3 to bash 4 as minimum required bash version
+- [\#2942 Issue](2023-02-21.2942.issue.open.md) `open`: '-c' and '-C' options are ignored with 'automatic/auto\_recover' and 'unattended' modes
+- [\#2943 PR](2023-02-21.2943.pr.merged.md) `merged`: s390x (IBM Z
+- [\#2944 Issue](2023-02-22.2944.issue.closed.md) `closed`: Deprecate MBR/BIOS boot in favour of UEFI boot?
+- [\#2945 Issue](2023-02-22.2945.issue.closed.md) `closed`: Fix ReaR source download links in packaging / drop SourceForge?
+- [\#2946 PR](2023-02-22.2946.pr.merged.md) `merged`: Makefile improvements
+- [\#2947 PR](2023-02-24.2947.pr.merged.md) `merged`: Replace subshell redirection by group command redirection
+- [\#2949 PR](2023-02-28.2949.pr.merged.md) `merged`: Uptodate Source pointing to GitHub in RPM spec
+- [\#2950 PR](2023-03-01.2950.pr.merged.md) `merged`: ReaR in Docker for development & fix package dependencies
+- [\#2951 Issue](2023-03-04.2951.issue.open.md) `open`: Scripts in prep stage shouldn't touch ROOTFS\_DIR
+- [\#2952 Issue](2023-03-05.2952.issue.closed.md) `closed`: Confusing error about checksum mismatch after recovery
+- [\#2953 PR](2023-03-06.2953.pr.merged.md) `merged`: New 990\_verify\_empty\_rootfs.sh to verify untouched ROOTFS\_DIR at the end of 'prep'
+- [\#2954 PR](2023-03-07.2954.pr.merged.md) `merged`: Better user messages for finalize/default/060\_compare\_files.sh
+- [\#2955 Issue](2023-03-07.2955.issue.closed.md) `closed`: Devuan 4 + ReaR Not Able to Recover
+- [\#2956 PR](2023-03-12.2956.pr.merged.md) `merged`: Opalpba authtoken
+- [\#2957 Issue](2023-03-15.2957.issue.closed.md) `closed`: Improve documentation for AI tools?
+- [\#2958 Issue](2023-03-20.2958.issue.open.md) `open`: ReaR fails while verifying the disklayout when a disk has a 0 size
+- [\#2959 Issue](2023-03-23.2959.issue.closed.md) `closed`: ZFS Filesystems are not backed up
+- [\#2961 PR](2023-03-28.2961.pr.open.md) `open`: Copy the console= kernel arguments from the original system
+- [\#2962 Issue](2023-03-28.2962.issue.closed.md) `closed`: Automatic recover should be set as default or via user input in local.conf
+- [\#2963 PR](2023-03-28.2963.pr.merged.md) `merged`: OBDR fixes
+- [\#2964 Issue](2023-03-30.2964.issue.closed.md) `closed`: setup/default/005\_ssh\_agent\_start.sh wrongly assumes that /root/.ssh/config exists
+- [\#2965 PR](2023-04-02.2965.pr.merged.md) `merged`: Add proper python support / fix GALAXY11-related issues
+- [\#2966 Issue](2023-04-04.2966.issue.open.md) `open`: STDOUT\_STDERR\_FILE used but never defined - /rear.help.stdout\_stderr file shouldn't be there
+- [\#2967 Issue](2023-04-05.2967.issue.open.md) `open`: Confidential values leaked into log file in debug mode
+- [\#2968 Issue](2023-04-05.2968.issue.closed.md) `closed`: HP ProLiant XL420 Gen10: Recovery stuck at "Loading intial ramdisk"
+- [\#2970 Issue](2023-04-12.2970.issue.open.md) `open`: Automate ReaR with GRUB w/o user intervention (ISO\_DEFAULT not supported for GRUB
+- [\#2971 Issue](2023-04-21.2971.issue.open.md) `open`: RHEL: GRUB2 can't find command 'echo' 'linux' 'initrd' 'linuxefi' 'initrdefi' 'search' 'chainloader' 'reboot' 'exit'
+- [\#2972 Issue](2023-04-23.2972.issue.open.md) `open`: Cannot create rescue image on Ubuntu Server 23.04 - Confirmed bug in cp 9.x
+- [\#2973 PR](2023-04-25.2973.pr.merged.md) `merged`: nfs\_server as new restore method
+- [\#2974 PR](2023-04-27.2974.pr.merged.md) `merged`: Bump actions/stale from 1 to 8
+- [\#2975 PR](2023-04-27.2975.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.0.2 to 4.2.1
+- [\#2976 PR](2023-04-28.2976.pr.merged.md) `merged`: Add .shellcheckrc adapted for ReaR
+- [\#2977 Issue](2023-05-02.2977.issue.open.md) `open`: Exclude SAN disk from the rear mkrescue process
+- [\#2978 Issue](2023-05-03.2978.issue.open.md) `open`: BACKUP=RSYNC: BACKUP\_PROG\_ARCHIVE does not set backup destination (but sets backup logfile
+- [\#2979 PR](2023-05-04.2979.pr.closed.md) `closed`: superseded: non-interactive mode for ReaR
+- [\#2980 PR](2023-05-05.2980.pr.merged.md) `merged`: SYSLINUX timeout configurable
+- [\#2981 PR](2023-05-05.2981.pr.merged.md) `merged`: Increase USER\_INPUT\_INTERRUPT\_TIMEOUT default from 10 to 30 seconds
+- [\#2982 PR](2023-05-09.2982.pr.merged.md) `merged`: Update default.conf
+- [\#2983 Issue](2023-05-09.2983.issue.open.md) `open`: remote webdav cloud storage not applicable for TMPDIR on low HD space?
+- [\#2984 Issue](2023-05-10.2984.issue.closed.md) `closed`: Automatic re-run disk creation shouldn't run forever
+- [\#2985 PR](2023-05-11.2985.pr.merged.md) `merged`: Do not leak the GALAXY11\_PASSWORD value into the log file
+- [\#2986 PR](2023-05-12.2986.pr.merged.md) `merged`: Do not leak the SSH\_ROOT\_PASSWORD value into the log file
+- [\#2987 Issue](2023-05-12.2987.issue.open.md) `open`: Error with `sudo rear mkopalpba`
+- [\#2988 PR](2023-05-14.2988.pr.merged.md) `merged`: Implement non-interactive mode
+- [\#2989 Issue](2023-05-17.2989.issue.closed.md) `closed`: ERROR: Failed to create '/tmp/rear.zzz/outputfs/server directory for OUTPUT\_URL=sshfs://...
+- [\#2990 Issue](2023-05-19.2990.issue.open.md) `open`: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config
+- [\#2991 PR](2023-05-24.2991.pr.merged.md) `merged`: ISO OUTPUT Improvements
+- [\#2992 Issue](2023-05-25.2992.issue.open.md) `open`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
+- [\#2993 Issue](2023-05-25.2993.issue.open.md) `open`: Rubrik CDM agent missing after ReaR recovery
+- [\#2994 Issue](2023-05-25.2994.issue.closed.md) `closed`: RFC: Should we activate security bug reports for ReaR?
+- [\#2995 Issue](2023-05-25.2995.issue.open.md) `open`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
+- [\#2996 PR](2023-05-26.2996.pr.merged.md) `merged`: Add -f (force
+- [\#2997 Issue](2023-05-26.2997.issue.open.md) `open`: Improve docs for manual excludes
+- [\#2998 PR](2023-05-29.2998.pr.merged.md) `merged`: Add fully automated restore to REQUESTRESTORE
+- [\#2999 Issue](2023-05-31.2999.issue.closed.md) `closed`: NETFS shouldn't store /var/tmp
+- [\#3000 Issue](2023-06-01.3000.issue.closed.md) `closed`: rear restore issue
+- [\#3001 PR](2023-06-01.3001.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 1.1.0 to 4.3.0
+- [\#3002 PR](2023-06-01.3002.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.1 to 4.2.2
+- [\#3003 PR](2023-06-02.3003.pr.merged.md) `merged`: Improvements of the Makefile distribution targets
+- [\#3004 Issue](2023-06-05.3004.issue.open.md) `open`: Merge / Rebase master before merging PRs?
+- [\#3005 Issue](2023-06-05.3005.issue.open.md) `open`: USE\_RESOLV\_CONF should default to "no" for USB backups (or update quickstart guide to cover this
+- [\#3006 PR](2023-06-06.3006.pr.open.md) `open`: New --expose-secrets option plus SECRET\_OUTPUT\_DEV
+- [\#3007 Issue](2023-06-07.3007.issue.open.md) `open`: Disaster Recovery for our own ReaR upstream project
+- [\#3008 Issue](2023-06-08.3008.issue.closed.md) `closed`: When using xorriso, if the ISO\_DIR specification includes a schema, it will not work.
+- [\#3009 PR](2023-06-08.3009.pr.merged.md) `merged`: More general RPM build
+- [\#3010 Issue](2023-06-09.3010.issue.open.md) `open`: Auto-Resizing Extended Partitions Fails
+- [\#3011 Issue](2023-06-09.3011.issue.open.md) `open`: Suggested tweaks to the initial `rear recover` menu
+- [\#3012 Issue](2023-06-09.3012.issue.open.md) `open`: Problems with the initial `rear recover` menu
+- [\#3013 Issue](2023-06-12.3013.issue.open.md) `open`: rear backup recover error
+- # Issues History of Relax-and-Recover (index.md)
