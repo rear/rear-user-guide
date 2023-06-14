@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>2022 08 05.2847.pr.merged - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2022 08 05.2847.pr.merged";
+        var mkdocs_page_input_path = "issues/2022-08-05.2847.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '366986045', 'auto');
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>2022 08 05.2847.pr.merged</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2847_pr_merged_add_shell_linter_-_differential-shellcheck"><a href="https://github.com/rear/rear/pull/2847">#2847 PR</a> <code>merged</code>: Add Shell linter - Differential-ShellCheck<a class="headerlink" href="#2847_pr_merged_add_shell_linter_-_differential-shellcheck" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>, <code>ReaR Project</code></p>
+<h4 id="jamacku_opened_issue_at_2022-08-05_1302"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> opened issue at <a href="https://github.com/rear/rear/pull/2847">2022-08-05 13:02</a>:<a class="headerlink" href="#jamacku_opened_issue_at_2022-08-05_1302" title="Permanent link">&para;</a></h4>
+<p>Differential ShellCheck is a GitHub action that performs differential
+ShellCheck scans on files changed via PR and reports results directly in
+PR.</p>
+<p>Since this repository contains a lot of shell scripts I think you might
+find it useful.</p>
+<p>Documentation is available at:
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck#readme">@redhat-plumbers-in-action/differential-shellcheck</a>.
+Let me know If you are missing some feature or setting. I'm always happy
+to extend functionality.</p>
+<p>Examples -
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/tree/main/docs/images">screenshots</a></p>
+<hr />
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #1040</p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<blockquote>
+<p>Manually, status should be showed below.</p>
+<p>It is deployed and running on a <a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/network/dependents">few
+repositories</a>
+already and it's working as expected.</p>
+</blockquote>
+<ul>
+<li>Brief description of the changes in this pull request:</li>
+</ul>
+<blockquote>
+<p>Adding workflow that executes <code>differential-shellcheck</code> action when PR
+is opened against <code>master</code> branch.</p>
+</blockquote>
+<p>Alternative to: #2754 and #2756</p>
+<p>/cc @lzaoral @pcahyna</p>
+<h4 id="jsmeix_commented_at_2022-08-08_1122"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1207998832">2022-08-08 11:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-08-08_1122" title="Permanent link">&para;</a></h4>
+<p>A general note on using ShellCheck for ReaR scripts:<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062932894">https://github.com/rear/rear/issues/1040#issuecomment-1062932894</a></p>
+<p>Conditions for using ShellCheck for ReaR scripts:<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1034278415">https://github.com/rear/rear/issues/1040#issuecomment-1034278415</a></p>
+<pre><code>* show only newly introduced problems
+...
+* do not produce too many false positives
+</code></pre>
+<p>According to "How does it work"<br />
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck#readme">https://github.com/redhat-plumbers-in-action/differential-shellcheck#readme</a><br />
+it seems "differential ShellCheck scans on files changed via PR"<br />
+means that only the differences in ShellCheck output are reported<br />
+so that old / already existing ShellCheck issues are not reported<br />
+but only new ShellCheck issues because of changes in a PR.</p>
+<p>If this is true the first condition<br />
+"show only newly introduced problems"<br />
+should be fulfilled with Differential-ShellCheck.</p>
+<p>Regarding the second condition<br />
+"do not produce too many false positives"<br />
+see in particular<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1034576705">https://github.com/rear/rear/issues/1040#issuecomment-1034576705</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1034978519">https://github.com/rear/rear/issues/1040#issuecomment-1034978519</a></p>
+<pre><code>Efficiency is what actually matters.
+</code></pre>
+<p>How to get efficiency see<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062945160">https://github.com/rear/rear/issues/1040#issuecomment-1062945160</a></p>
+<pre><code># for e in error warning info style ; \
+do for s in usr/sbin/rear $( find usr/share/rear/ -type f -name '*.sh' ) ; \
+   do shellcheck -s bash -S $e $s ;
+
+...
+
+shellcheck.error.out
+685
+shellcheck.warning.out
+2192
+shellcheck.info.out
+6313
+shellcheck.style.out
+6588
+
+...
+
+start with what ShellCheck considers to be an "error"
+and afterwards step by step as time permits
+we can proceed with "warning" then "info"
+and finally perhaps even "style" issues.
+</code></pre>
+<p>So what I want mandatory is that one can see<br />
+the severity ('error' 'warning' 'info' 'style')<br />
+of each reported ShellCheck issue.</p>
+<p>E.g. we may initially limit reported ShellCheck issues<br />
+only to what ShellCheck considers to be an "error"<br />
+(if this is possible with Differential-ShellCheck)<br />
+and watch how things behave with that for some time.</p>
+<h4 id="pcahyna_commented_at_2022-08-08_1215"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1208050080">2022-08-08 12:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-08-08_1215" title="Permanent link">&para;</a></h4>
+<p>I propose to leave this PR open and let @antonvoznia experiment with it
+and report results (it is one of the topics of his thesis).</p>
+<h4 id="jsmeix_commented_at_2022-08-08_1300"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1208097580">2022-08-08 13:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-08-08_1300" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I had no plans to close this issue.</p>
+<p>In general I appreciate automated ShellCheck tests, cf.<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062932894">https://github.com/rear/rear/issues/1040#issuecomment-1062932894</a><br />
+provided it is carefully implemented so it provides<br />
+real net value to ReaR developers and ReaR users.</p>
+<p>I dared to assign this issue to you<br />
+because @jamacku @lzaoral and @antonvoznia<br />
+belong to your organization.</p>
+<h4 id="pcahyna_commented_at_2022-08-08_1316"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1208117197">2022-08-08 13:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-08-08_1316" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I had no plans to close this issue.</p>
+</blockquote>
+<p>I meant that the PR should not be merged yet, not that I expected it to
+be closed without merging :-)</p>
+<h4 id="jamacku_commented_at_2022-08-09_0750"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1209036103">2022-08-09 07:50</a>:<a class="headerlink" href="#jamacku_commented_at_2022-08-09_0750" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>So what I want mandatory is that one can see the severity ('error'
+'warning' 'info' 'style') of each reported ShellCheck issue.</p>
+<p>E.g. we may initially limit reported ShellCheck issues only to what
+ShellCheck considers to be an "error" (if this is possible with
+Differential-ShellCheck) and watch how things behave with that for
+some time.</p>
+</blockquote>
+<p><code>differential-shellcheck</code> currently doesn't support severity option, but
+it is planned to implement it and it should be really easy -
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/issues/75">https://github.com/redhat-plumbers-in-action/differential-shellcheck/issues/75</a></p>
+<h4 id="jsmeix_commented_at_2022-08-09_1008"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1209182045">2022-08-09 10:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-08-09_1008" title="Permanent link">&para;</a></h4>
+<p>@jamacku<br />
+wow! - thank you for<br />
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/issues/75">https://github.com/redhat-plumbers-in-action/differential-shellcheck/issues/75</a></p>
+<h4 id="jamacku_commented_at_2022-08-16_1315"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1216623735">2022-08-16 13:15</a>:<a class="headerlink" href="#jamacku_commented_at_2022-08-16_1315" title="Permanent link">&para;</a></h4>
+<p>Differential ShellCheck now allows to define minimal defect severity to
+be reported -
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck#severity">https://github.com/redhat-plumbers-in-action/differential-shellcheck#severity</a></p>
+<h4 id="antonvoznia_commented_at_2022-10-02_1301"><img src="https://avatars.githubusercontent.com/u/16565605?u=e1a7ac48dde521e3e67c55abd866c247275e9a86&v=4" width="50"><a href="https://github.com/antonvoznia">antonvoznia</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1264638179">2022-10-02 13:01</a>:<a class="headerlink" href="#antonvoznia_commented_at_2022-10-02_1301" title="Permanent link">&para;</a></h4>
+<p>Hi @jamacku ,<br />
+Thank you for doing it.<br />
+I've tried this configuration, and I've got the message:<br />
+Warning: Unexpected input(s) 'severity', valid inputs are
+['entryPoint', 'args', 'base', 'head', 'ignored-codes',
+'shell-scripts', 'token']</p>
+<p>Do you know why it prints such warnings?</p>
+<h4 id="jamacku_commented_at_2022-10-03_0735"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1265049512">2022-10-03 07:35</a>:<a class="headerlink" href="#jamacku_commented_at_2022-10-03_0735" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi @jamacku , Thank you for doing it. I've tried this configuration,
+and I've got the message: Warning: Unexpected input(s) 'severity',
+valid inputs are ['entryPoint', 'args', 'base', 'head',
+'ignored-codes', 'shell-scripts', 'token']</p>
+</blockquote>
+<p>The <code>severity</code> option was introduced in <code>differential-shellcheck@v2.5.0</code>
+but the workflow was still using <code>@v2.4.0</code>. I have updated the SHA. Now
+it should work correctly.</p>
+<h4 id="github-actions_commented_at_2022-12-03_0225"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1336017065">2022-12-03 02:25</a>:<a class="headerlink" href="#github-actions_commented_at_2022-12-03_0225" title="Permanent link">&para;</a></h4>
+<p>Stale pull request message</p>
+<h4 id="jamacku_commented_at_2022-12-04_1141"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1336390142">2022-12-04 11:41</a>:<a class="headerlink" href="#jamacku_commented_at_2022-12-04_1141" title="Permanent link">&para;</a></h4>
+<p>@antonvoznia, Any updates?</p>
+<h4 id="thomasmerz_commented_at_2022-12-13_1551"><img src="https://avatars.githubusercontent.com/u/18568381?u=520aed8f7e665d9d1caee6358db291489a99ef03&v=4" width="50"><a href="https://github.com/thomasmerz">thomasmerz</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1348868045">2022-12-13 15:51</a>:<a class="headerlink" href="#thomasmerz_commented_at_2022-12-13_1551" title="Permanent link">&para;</a></h4>
+<p>@jamacku , what's the difference or what is better than my PR
+<a href="https://github.com/rear/rear/pull/2754">https://github.com/rear/rear/pull/2754</a>
+?</p>
+<h4 id="jamacku_commented_at_2022-12-14_0832"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1350629324">2022-12-14 08:32</a>:<a class="headerlink" href="#jamacku_commented_at_2022-12-14_0832" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@jamacku , what's the difference or what is better than my PR #2754 ?</p>
+</blockquote>
+<p>Hi @thomasmerz, looking at your PR, I see the following differences:</p>
+<ul>
+<li>
+<p>In your workflow, you are manually downloading ShellCheck sources,
+    unpacking them, and executing them. This isn't the best practice, in
+    my opinion. ShellCheck provides a container with everything you
+    need, or you can use ShellCheck supplied by your distro. After that,
+    you manually look for shell scripts in the repo and execute
+    ShellCheck. All these manual steps could require future maintainers
+    attention if they stop working or they want to take advantage of
+    some new ShellCheck features. On the other hand, the ShellCheck
+    workflow proposed in this PR uses <a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck">dedicated GitHub
+    Action</a>,
+    and maintainers of the rear don't have to maintain the code and
+    logic behind it. It is constantly developed and updated, and new
+    features are added.</p>
+</li>
+<li>
+<p>I have also noticed that your ShellCheck workflow performs full
+    scans. That is why you need to <a href="https://github.com/rear/rear/pull/2756">fix all
+    "defects"</a> to make it pass.
+    This is usually quite challenging for most bigger projects since
+    ShellCheck can produce a lot of "defects". Also, fixing existing
+    defects in some cases could result in regressions. Meanwhile,
+    ShellCheck from this PR performs differential scans and reports only
+    newly added defects. This makes it easy for maintainers to adopt
+    ShellCheck early and start linting incoming changes. It doesn't
+    force them to fix or mute all "defects" reported by ShellCheck if
+    they have existed in some cases for years, and they can focus on
+    fixing real issues and defects.</p>
+</li>
+<li>
+<p>From what I can tell, your workflow produces only text output into
+    the runner's console. But this ShellCheck workflow can produce SARIF
+    format and upload it directly into GitHub. You can see an example in
+    the first comment of this PR.</p>
+</li>
+</ul>
+<h4 id="thomasmerz_commented_at_2022-12-14_2057"><img src="https://avatars.githubusercontent.com/u/18568381?u=520aed8f7e665d9d1caee6358db291489a99ef03&v=4" width="50"><a href="https://github.com/thomasmerz">thomasmerz</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1352164152">2022-12-14 20:57</a>:<a class="headerlink" href="#thomasmerz_commented_at_2022-12-14_2057" title="Permanent link">&para;</a></h4>
+<p>@jamacku , now you really got me (plus after having a look at your GH
+profile). You @jamacku are a full-time-developer at Red Hat, I'm just a
+linux sysadm (@thomas-merz is my business account) and no developer.
+BTW: I've heard of your co-workers Lukáš and Kamil from @timogoebel at
+work 😃</p>
+<p>Therefore I totally agree that your solution and maintenance will be
+much better for the ReaR project over here 👍🏼<br />
+I really like "my" workflow for my personal and much smaller projects
+very well. But for this enterprise solution we really need a more
+professional and better supported workflow as you can and will
+provide.<br />
+I'm really glad that I started some discussions about assuring code
+quality by <code>shellcheck</code> and I really want to hand over to your solution.
+So I will close my PR #2754 to honor your PR. Please respond/give
+feedback ( @gdha @jsmeix @schlomo ) if you also prefer this PR over
+mine?</p>
+<p>Just some final question:<br />
+Will your workflow use latest <code>shellcheck</code>
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/blob/1a854266f67dca1ce56debca470a1ba321d4e9d8/Dockerfile#L11">version</a>
+shortly after it has been released? My workflow always use latest (which
+some people like and others might dislike) because I don't want to care
+about updating versions.</p>
+<p>I will have a look if your workflow can also replace mine in my personal
+(and other contributed) projects 🤷🏼‍♂️</p>
+<h4 id="antonvoznia_commented_at_2022-12-14_2104"><img src="https://avatars.githubusercontent.com/u/16565605?u=e1a7ac48dde521e3e67c55abd866c247275e9a86&v=4" width="50"><a href="https://github.com/antonvoznia">antonvoznia</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1352174391">2022-12-14 21:04</a>:<a class="headerlink" href="#antonvoznia_commented_at_2022-12-14_2104" title="Permanent link">&para;</a></h4>
+<p>Hi @jamacku,<br />
+I'm still working with it and testing the Differential Shellcheck.<br />
+The Differential Shellcheck looks good. We want to test it more
+carefully for the ReaR project.</p>
+<p>@pcahyna sent me some interesting PRs that had been merged.<br />
+I executed them with enabled Differential SHellcheck. So I verified if
+Differential Shellcheck find fixed errors.<br />
+And the same but in reverse way, I added the errors back and verify if
+Differential Shellcheck recognize it.<br />
+Also, I tested it with different severeties.<br />
+There some examples for original PR
+<a href="https://github.com/rear/rear/pull/2831">https://github.com/rear/rear/pull/2831</a>:</p>
+<p><a href="https://github.com/antonvoznia/rear/pull/336">https://github.com/antonvoznia/rear/pull/336</a><br />
+<a href="https://github.com/antonvoznia/rear/pull/333">https://github.com/antonvoznia/rear/pull/333</a></p>
+<p>I sent more examples to @pcahyna and @jsmeix.</p>
+<p>Also, I added exceptions of rules into .shllcheckrc:<br />
+<a href="https://github.com/antonvoznia/rear/pull/71">https://github.com/antonvoznia/rear/pull/71</a><br />
+Please, ignore the fact that I disabled Packit for the testing.</p>
+<p>Thank you,<br />
+Anton</p>
+<h4 id="pcahyna_commented_at_2022-12-16_1037"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354533516">2022-12-16 10:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-12-16_1037" title="Permanent link">&para;</a></h4>
+<p>Hi @jamacku , thank you for taking the time to explain the advantages of
+your solution better than I would. From my point of view, this is the
+key point:</p>
+<blockquote>
+<ul>
+<li>I have also noticed that your ShellCheck workflow performs full
+    scans. That is why you need to <a href="https://github.com/rear/rear/pull/2756">fix all
+    "defects"</a> to make it
+    pass. This is usually quite challenging for most bigger projects
+    since ShellCheck can produce a lot of "defects". Also, fixing
+    existing defects in some cases could result in regressions.
+    Meanwhile, ShellCheck from this PR performs differential scans and
+    reports only newly added defects. This makes it easy for
+    maintainers to adopt ShellCheck early and start linting incoming
+    changes. It doesn't force them to fix or mute all "defects"
+    reported by ShellCheck if they have existed in some cases for
+    years, and they can focus on fixing real issues and defects.</li>
+</ul>
+</blockquote>
+<p>The solution of examining all existing defects or "defects" is really
+not feasible. I recall that the original issue #1040 triggered cleanups
+of RAID code by @jsmeix and it took me lots of work to test just this
+chnage (PR #2768) because indeed, when fixing linter warnings en masse,
+one risks introducing regressions, often more serious than the original
+defects.</p>
+<h4 id="schlomo_commented_at_2022-12-16_1100"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354556640">2022-12-16 11:00</a>:<a class="headerlink" href="#schlomo_commented_at_2022-12-16_1100" title="Permanent link">&para;</a></h4>
+<p>I really like this approach of checking only new stuff, thanks a lot
+@jamacku for this PR.</p>
+<p>Can you maybe also add a dependabot entry to update the pinned GitHub
+actions versions? That way we won't "forget" to update.</p>
+<p>Besides that I'd like to encourage everybody to accept this PR and to
+see how it works out in "real life". I think that the risk is very low
+as we can always change the configuration if there is too much pain in
+future PRs. I think it wouldn't hurt ReaR as a project to be a little
+bit more daring with such changes, as reverting them or modifying them
+to be less problematic is not much work. And maybe it just works out
+well and then everybody will be happy.</p>
+<h4 id="jsmeix_commented_at_2022-12-16_1130"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354596459">2022-12-16 11:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-12-16_1130" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+when I visited Prague (triggered by Ubuntu Summit 7-9 Nov.)<br />
+I talked in person with @pcahyna and @antonvoznia<br />
+in particular about the "ShellCheck for ReaR" topic.</p>
+<p>We all agree here (as far as I see).</p>
+<p>Because "ShellCheck for ReaR" is implemented by Red Hat people<br />
+and @pcahyna is a ReaR maintainer, he leads that whole thing.<br />
+As far as I know he is currently rather busy with other things<br />
+that have higher priority so I ask for patience until he gets time<br />
+(after all "ShellCheck for ReaR" is not an urgent issue).</p>
+<h4 id="jamacku_commented_at_2022-12-16_1133"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354599509">2022-12-16 11:33</a>:<a class="headerlink" href="#jamacku_commented_at_2022-12-16_1133" title="Permanent link">&para;</a></h4>
+<p>Hi @thomasmerz, Thanks a lot for your constructive approach and
+discussion. It's nice to see such a great community of developers.</p>
+<blockquote>
+<p>Just some final question: Will your workflow use latest <code>shellcheck</code>
+<a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/blob/1a854266f67dca1ce56debca470a1ba321d4e9d8/Dockerfile#L11">version</a>
+shortly after it has been released? My workflow always use latest
+(which some people like and others might dislike) because I don't want
+to care about updating versions.</p>
+</blockquote>
+<p>In the current solution, I use the <a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/blob/df26fb4b57b0350fe07735a8b432d0d97296cb2b/Dockerfile#L3">latest stable Fedora
+container</a>
+as the base image for my Action. I'm using Fedora since there are a
+couple more packages that I need and are currently packaged only for
+Fedora. So I use the ShellCheck version that comes with Fedora. Now, my
+Action uses <a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/blob/df26fb4b57b0350fe07735a8b432d0d97296cb2b/Dockerfile#L11">ShellCheck
+0.8.0</a>.
+But I have already created <a href="https://github.com/redhat-plumbers-in-action/differential-shellcheck/issues/158">request to update to ShellCheck
+0.9.0</a>
+once it's available in Fedora 37.</p>
+<p>Regarding updates, I usually release a new minor release (e.g. <code>v3.x.0</code>)
+when I update to a new ShellCheck version. So it depends on how you are
+using my Action. If you pin to a major version (e.g. <code>v3</code>), you should
+always use "latest ShellCheck". If you are pinning to SHA or the exact
+version, then you probably would need some dependency manager to take
+care of updating.</p>
+<blockquote>
+<p>I will have a look if your workflow can also replace mine in my
+personal (and other contributed) projects 🤷🏼‍♂️</p>
+</blockquote>
+<p>Feel free to reach out to me in case of any questions or requests.
+:slightly_smiling_face:</p>
+<h4 id="jamacku_commented_at_2022-12-16_1136"><img src="https://avatars.githubusercontent.com/u/2879818?v=4" width="50"><a href="https://github.com/jamacku">jamacku</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354602609">2022-12-16 11:36</a>:<a class="headerlink" href="#jamacku_commented_at_2022-12-16_1136" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Can you maybe also add a dependabot entry to update the pinned GitHub
+actions versions? That way we won't "forget" to update.</p>
+</blockquote>
+<p>Sure, I'll add the Dependabot config.</p>
+<h4 id="jsmeix_commented_at_2022-12-16_1146"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354612714">2022-12-16 11:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-12-16_1146" title="Permanent link">&para;</a></h4>
+<p>FYI:</p>
+<p><a href="https://github.com/rear/rear/pull/2768">https://github.com/rear/rear/pull/2768</a><br />
+is a very good example for what I wrote in<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062932894">https://github.com/rear/rear/issues/1040#issuecomment-1062932894</a></p>
+<p>See in particular my comment on Mar 18<br />
+<a href="https://github.com/rear/rear/pull/2768#issuecomment-1072387116">https://github.com/rear/rear/pull/2768#issuecomment-1072387116</a></p>
+<pre><code>... now I do at least understand what the code should do
+</code></pre>
+<p>which was 10 days after my initial comment there on Mar 8.<br />
+Before Mar 18 my attempts to fix it made things worse<br />
+(i.e. I introduced regressions) because I did not<br />
+understand what the code actually does.</p>
+<p>So what is more important in practice<br />
+than a coding style checking tool is<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<pre><code>Make yourself understood
+...
+Code must be easy to read
+...
+Code must be easy to understand (answer the WHY)
+...
+Provide comprehensive comments that
+tell what the computer should do and
+also explain why it should do it
+so others understand the intent behind
+so that they can properly fix issues
+or adapt and enhance things as needed
+at any time later.
+</code></pre>
+<h4 id="jsmeix_commented_at_2022-12-16_1218"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354680339">2022-12-16 12:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-12-16_1218" title="Permanent link">&para;</a></h4>
+<p>Regarding "mute defects reported by ShellCheck":</p>
+<p>In general I am against muting what ShellCheck reports.</p>
+<p>My reasoning:<br />
+With muting ShellCheck the issue gets only concealed<br />
+which makes things worse because then the real issue<br />
+will never again be reported so it will never get fixed.<br />
+Furthermore those <code>shellcheck disable=SC...</code> comments<br />
+encourage others to "just do the same" to deal with ShellCheck.<br />
+In the end bad code becomes even more bad with tons of<br />
+ugly <code>shellcheck disable=SC...</code> comments all over the place<br />
+instead of actually fixing the root causes of issues.</p>
+<p>Only when something reported by ShellCheck is a false positive,<br />
+muting ShellCheck is OK but then only with an explanatory<br />
+comment that tells WHY the particular case is as false positive.</p>
+<p>Unfortunately it seems muting things reported by ShellCheck<br />
+is often the immediate way how ShellCheck issues are handled<br />
+which makes in the end all only worse (in practice nobody<br />
+will later care about muted ShellCheck issues).</p>
+<h4 id="pcahyna_commented_at_2022-12-16_1231"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354699546">2022-12-16 12:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-12-16_1231" title="Permanent link">&para;</a></h4>
+<p>@antonvoznia is now producing examples of how will ShellCheck work in
+practice (by redoing old PRs with ShellCheck turned on). See selected
+examples in his reply. My plan is to take those examples and identify
+which real defects have been found by ShellCheck and which "defects" are
+uninteresting, or just false positives. Then he will produce statistics
+of the ratio between useful and useless warnings depending on the
+severity level of the tool.<br />
+In addition, I would like to have also statistics for more PRs about the
+amount of warnings and the frequency of every warning (without knowing
+whether they are valid or not). This will get us some idea about the
+amount of warnings we should expect from future changes.<br />
+According to the findings we will then decide what severity level and
+perhaps other settings of ShellCheck are the most appropriate, and merge
+the PR. My ETA for that is half of January.</p>
+<p>The first task (identifying which warnings are real defects and which
+ones are useless) will need manual work and I expect to do that myself
+(it needs someone who is familiar with the code base, so @antonvoznia
+ca'nt do it by himself). (That's why the plan is to do it only for a
+subset of selected PRs.) If someone else wants to contribute to this
+effort, help is welcome!</p>
+<h4 id="pcahyna_commented_at_2022-12-16_1300"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354732887">2022-12-16 13:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-12-16_1300" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>In general I am against muting what ShellCheck reports.</p>
+</blockquote>
+<p>Me too, and that's another good aspect of having differential checks:
+you can simply ignore the results if they are not relevant and
+ShellCheck won't bother you again (but in case someone decides to do a
+scan in non-differential mode, ShellCheck will report the problems again
+and one can reexamine them - they will not get concealed).</p>
+<blockquote>
+<p>Only when something reported by ShellCheck is a false positive,<br />
+muting ShellCheck is OK but then only with an explanatory<br />
+comment that tells WHY the particular case is as false positive.</p>
+</blockquote>
+<p>We will eventually need to decide what to do in these cases. A typical
+example will be the unquoted expansion <code>$v</code> (v is a variable that is
+either <code>-v</code> or nothing). If ShellCheck warns about unquoted expansion,
+it is a false positive. But annotating every occurrence of this with a
+"shellcheck disable" comment and an explanation will lead to lots of
+such annotations in the code.</p>
+<h4 id="jsmeix_commented_at_2022-12-16_1343"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1354798686">2022-12-16 13:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-12-16_1343" title="Permanent link">&para;</a></h4>
+<p>Regarding unquoted variables:</p>
+<p>According to<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1034870262">https://github.com/rear/rear/issues/1040#issuecomment-1034870262</a><br />
+we had on Feb 10</p>
+<pre><code>3717 SC2086
+</code></pre>
+<p>where SC2086<br />
+<a href="https://github.com/koalaman/shellcheck/wiki/SC2086">https://github.com/koalaman/shellcheck/wiki/SC2086</a><br />
+is "Double quote to prevent globbing and word splitting"</p>
+<p>According to<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062945160">https://github.com/rear/rear/issues/1040#issuecomment-1062945160</a></p>
+<pre><code>shellcheck.info.out
+...
+3717 SC2086
+</code></pre>
+<p>SC2086 is only of <code>info</code> severity for ShellCheck.</p>
+<p>I think at least for now we don't need to care about it<br />
+because I think we should start with what ShellCheck<br />
+considers to be an "error" and afterwards<br />
+step by step as time permits we can proceed<br />
+with "warning" and later perhaps "info" and<br />
+finally perhaps even "style" but "style" sounds<br />
+questionable (if not even "calling for dispute").</p>
+<p>In particular regarding</p>
+<pre><code>command $v ...
+</code></pre>
+<p><a href="https://github.com/koalaman/shellcheck/wiki/SC2086">https://github.com/koalaman/shellcheck/wiki/SC2086</a><br />
+shows how one could make safe code for it via</p>
+<pre><code>command "${v[@]}" ...
+</code></pre>
+<p>or</p>
+<pre><code>command ${v:+"-v"} ...
+</code></pre>
+<p>but now the code looks ugly which contradicts<br />
+"Code must be easy to read" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a><br />
+and<br />
+it is likely even inexplicable for unexperienced users</p>
+<pre><code>What the heck does that "${v[@]}" or ${v:+"-v"} thingy do
+and why the hell do they need to use that stuff here?
+</code></pre>
+<p>which contadicts<br />
+"Code must be easy to understand (answer the WHY)" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a><br />
+and I don't want to have a lengthy explanation comment<br />
+at each code place where e.g. '$v' is used unquoted.</p>
+<h4 id="github-actions_commented_at_2023-02-15_0239"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1430670703">2023-02-15 02:39</a>:<a class="headerlink" href="#github-actions_commented_at_2023-02-15_0239" title="Permanent link">&para;</a></h4>
+<p>Stale pull request message</p>
+<h4 id="pcahyna_commented_at_2023-02-15_1454"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1431497212">2023-02-15 14:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-02-15_1454" title="Permanent link">&para;</a></h4>
+<p>My plan for integrating this is as follows:<br />
+@antonvoznia did some research on configuration adjustements needed. I
+will let him clean up and rebase his branch (
+<a href="https://github.com/antonvoznia/rear/tree/differential-shellcheck">https://github.com/antonvoznia/rear/tree/differential-shellcheck</a>
+). Once this is done, I will merge this PR ( if it is ready ) and let
+@antonvoznia open another PR with his changes on top of the merged
+master branch.</p>
+<h4 id="schlomo_commented_at_2023-02-22_2143"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1440843109">2023-02-22 21:43</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-22_2143" title="Permanent link">&para;</a></h4>
+<p>I have three main questions:</p>
+<ol>
+<li>where to we maintain and discuss our shellcheck rules?</li>
+<li>how do we teach shellcheck to consider Bash 4.1 as "reference" as we
+    will support those old versions for quite some time?</li>
+<li>we use a large amount of Bashism that shellcheck complains about,
+    and where I really don't see a benefit to follow the recommendation.
+    Do we plan to exclude all those rules, or will we plaster ReaR code
+    with shellcheck overrides? Or adapt ReaR code to match shellchecks
+    coding guidelines?</li>
+</ol>
+<p>I was quiet so far on this topic due to lack of practical experience,
+but recently I wrote some more ReaR code in VS Code with shellcheck
+active and I found it more annoying then helpful.</p>
+<p>Some examples for that:</p>
+<ul>
+<li>nearly every variable is marked as "unused" because it is used in
+    another file that shellcheck of course can't know about</li>
+<li>every unquoted variable is an error, but in many cases we actually
+    know that we don't need to quote it because it is a system path or
+    has other content where we created it and know that it won't contain
+    spaces. Unquoted variables however are still easier to read and
+    faster to type</li>
+<li>every use of <code>local</code> is an error because shellcheck can't know that
+    all our scripts are run inside a function</li>
+<li>every beginning of a script file is an error because there is no
+    shebang</li>
+<li>we use <code>var=( $(something))</code> in many - many - places and the word
+    splitting happening there is often quite intentional. I personally
+    don't see the value of alternatives like
+    <code>read -a var &lt; &lt;(something)</code>. Quite the opposite, our syntax
+    preserves potential errors while the <code>read</code> syntax doesn't:</li>
+</ul>
+<!-- -->
+
+<pre><code>$ var=($(uname -a ; false)); echo $PIPESTATUS
+1
+$ read -a var &lt; &lt;(uname -a ; false); echo $PIPESTATUS
+0
+</code></pre>
+<p>There is probably more, my point is that as much as I love code quality,
+I really don't know how much useful stuff will be left if we globally
+disable all the rules that I touched in this short list of things which
+annoyed me recently.</p>
+<p>What I would like to see for this PR is therefore also the part of the
+global shellcheck rules, or at least deciding where we maintain those.</p>
+<p>Also a big shout out of thank you for those who spent already so much
+time fixing shellcheck issues, as marked in our <a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">release
+notes</a></p>
+<h4 id="jsmeix_commented_at_2023-02-27_1003"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1446039151">2023-02-27 10:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-27_1003" title="Permanent link">&para;</a></h4>
+<p>From my experience, cf.<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062932894">https://github.com/rear/rear/issues/1040#issuecomment-1062932894</a><br />
+I think when we globally disable all ShellCheck codes<br />
+where ShellCheck reports too many false positives,<br />
+a lot will still be left where things that ShellCheck reports<br />
+point to real issues (usually "point to" but not "are").</p>
+<p>I think automated usage of ShellCheck does not require<br />
+that ShellCheck must detect very most of real issues.<br />
+I think it is already helpful when automated ShellCheck<br />
+detects "some" issues (for some reasonable amount of "some").<br />
+I.e. better some automated help than none at all.</p>
+<h4 id="jsmeix_commented_at_2023-02-27_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1446253316">2023-02-27 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-27_1235" title="Permanent link">&para;</a></h4>
+<p>The most often reported ShellCheck codes<br />
+in our current GitHub master *.sh files:</p>
+<pre><code># for s in usr/sbin/rear $( find usr/share/rear/ -type f -name '*.sh' ) ; \
+  do shellcheck -s bash $s ; \
+  done &gt;shellcheck.out
+
+# grep -o "SC.... (.*): " shellcheck.out | sort | uniq -c | sort -n -r
+
+   3700 SC2086 (info): 
+    593 SC2168 (error): 
+    313 SC2034 (warning): 
+    240 SC2155 (warning): 
+    207 SC2162 (info): 
+    180 SC2154 (warning): 
+    146 SC2046 (warning): 
+    130 SC2207 (warning): 
+    119 SC2206 (warning): 
+     75 SC2164 (warning): 
+     69 SC2254 (warning): 
+     69 SC2015 (info): 
+     63 SC2219 (style): 
+     51 SC2128 (warning): 
+     47 SC2145 (error): 
+     35 SC2231 (info): 
+     35 SC2196 (info): 
+     34 SC2166 (warning): 
+     33 SC2004 (style): 
+     32 SC2006 (style): 
+     30 SC2181 (style): 
+     27 SC2001 (style): 
+     21 SC2174 (warning): 
+     18 SC2236 (style): 
+     18 SC1091 (info): 
+     18 SC1090 (warning): 
+     16 SC2295 (info): 
+     16 SC2116 (style): 
+     15 SC2153 (info): 
+      9 SC2188 (warning): 
+      9 SC2013 (info): 
+      9 SC2012 (info): 
+      8 SC2294 (warning): 
+      8 SC2005 (style): 
+      8 SC2002 (style): 
+      7 SC2223 (info): 
+      7 SC2044 (warning): 
+      7 SC2043 (warning): 
+      7 SC2009 (info): 
+      6 SC2129 (style): 
+      6 SC2124 (warning): 
+      6 SC2094 (info): 
+      6 SC2027 (warning): 
+      6 SC2021 (info): 
+      5 SC2090 (warning): 
+      5 SC2089 (warning): 
+      5 SC2029 (info): 
+      4 SC2125 (warning): 
+      4 SC2115 (warning): 
+      4 SC2053 (warning): 
+      4 SC2016 (info): 
+      4 SC2010 (warning): 
+      3 SC2140 (warning): 
+      3 SC2064 (warning): 
+      3 SC2059 (info): 
+      2 SC2268 (style): 
+      2 SC2234 (style): 
+      2 SC2229 (warning): 
+      2 SC2143 (style): 
+      2 SC2126 (style): 
+      2 SC2063 (warning): 
+      2 SC2045 (warning): 
+      2 SC2038 (warning): 
+      2 SC2003 (style): 
+      2 SC1007 (warning): 
+      2 SC1001 (info): 
+      1 SC2048 (warning): 
+      1 SC2031 (info): 
+      1 SC2030 (info):
+</code></pre>
+<p>The most often reported ShellCheck code</p>
+<pre><code>SC2086 (info): Double quote to prevent globbing and word splitting.
+</code></pre>
+<p>is in very most cases a false positive<br />
+(I did not check which ones are not false positives).<br />
+Because it is only 'info' we may care about it only<br />
+after we first and foremost cared about 'error'<br />
+and then as time permits about 'warning',<br />
+cf. at the bottom of<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062945160">https://github.com/rear/rear/issues/1040#issuecomment-1062945160</a><br />
+see also what I wrote about 'SC2086' here in the above<br />
+<a href="https://github.com/rear/rear/pull/2847#issuecomment-1354798686">https://github.com/rear/rear/pull/2847#issuecomment-1354798686</a></p>
+<p>The most often reported ShellCheck 'error' codes are</p>
+<pre><code>    593 SC2168 (error): 
+     47 SC2145 (error):
+</code></pre>
+<p>which are</p>
+<pre><code>SC2168 (error): 'local' is only valid in functions.
+SC2145 (error): Argument mixes string and array. Use * or separate argument.
+</code></pre>
+<p>where SC2168 is almost always a false positive<br />
+(I did not check if there one that is not a false positive)<br />
+and regarding SC2145 see<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1109782792">https://github.com/rear/rear/issues/1040#issuecomment-1109782792</a><br />
+(back then I had no longer time to fix all of those).</p>
+<p>The most often reported ShellCheck 'warning' code</p>
+<pre><code>SC2034 (warning): VARIABLE appears unused. Verify use (or export if used externally).
+</code></pre>
+<p>is in very most cases a false positive<br />
+(I did not check which ones are not false positives).</p>
+<p>Regarding the second most often reported ShellCheck 'warning' code</p>
+<pre><code>VARIABLE=$( COMMAND )
+^------^ SC2155 (warning): Declare and assign separately to avoid masking return values.
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a></p>
+<pre><code>Avoid
+local bar="$( COMMAND1 )"
+because 'set -e' will not exit if COMMAND1 exits with a non-zero status.
+Also
+local baz="$( COMMAND2 )" || Error "COMMAND2 failed"
+will not error out if COMMAND2 failed.
+See https://github.com/koalaman/shellcheck/wiki/SC2155
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-02-27_1256"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1446277337">2023-02-27 12:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-27_1256" title="Permanent link">&para;</a></h4>
+<p>By the way via<br />
+<a href="https://github.com/rear/rear/commit/1db54d1b95b44698d7aaf37d2ca0d1c8808e8418">https://github.com/rear/rear/commit/1db54d1b95b44698d7aaf37d2ca0d1c8808e8418</a><br />
+I fixed right now</p>
+<pre><code>In usr/sbin/rear line 232:
+            echo "$PROGNAME: unrecognized option '$option'"
+                                                  ^-----^ SC2154 (warning): option is referenced but not assigned.
+</code></pre>
+<p>so some ShellCheck 'warning' reports are actually bugs<br />
+which proves<br />
+<a href="https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a></p>
+<pre><code>As a programmer I might not want to decide
+for the user if some problem is an ERROR or not.
+The obvious solution is to issue a WARNING in an attempt
+to shed the responsibility of making a decision.
+...
+But in an automated world ... WARNINGS for most cases only create
+extra manual work because somebody needs to go and check
+</code></pre>
+<p>I don't know if theoretically a perfect ShellCheck could be made<br />
+that can decide if a referenced but not assigned variable is an error<br />
+or if this is impossible for the bash scripting language.</p>
+<h4 id="thomasmerz_commented_at_2023-02-27_1317"><img src="https://avatars.githubusercontent.com/u/18568381?u=520aed8f7e665d9d1caee6358db291489a99ef03&v=4" width="50"><a href="https://github.com/thomasmerz">thomasmerz</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1446310475">2023-02-27 13:17</a>:<a class="headerlink" href="#thomasmerz_commented_at_2023-02-27_1317" title="Permanent link">&para;</a></h4>
+<p>@jsmeix , you should concentrate on "important" severity of errors as an
+top-down-approach: error, warning; but not info, style for the
+beginning.</p>
+<h4 id="jsmeix_commented_at_2023-02-27_1412"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1446393289">2023-02-27 14:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-27_1412" title="Permanent link">&para;</a></h4>
+<p>@thomasmerz<br />
+I think you misunderstood what I meant.</p>
+<p>I meant that we can neither rely on that<br />
+a ShellCheck 'error' is actually an error<br />
+(because SC2168 is almost always a false positive)<br />
+nor that a ShellCheck 'warning' is not an error but only a warning.</p>
+<p>Even a ShellCheck 'info' can be an actual error, see<br />
+<a href="https://github.com/rear/rear/issues/2927#issuecomment-1446322275">https://github.com/rear/rear/issues/2927#issuecomment-1446322275</a></p>
+<p>Regardless that we cannot rely on ShellCheck's severity rating<br />
+in practice we can only do what is possible with reasonable effort<br />
+which is what I explained in<br />
+<a href="https://github.com/rear/rear/issues/1040">https://github.com/rear/rear/issues/1040</a><br />
+therein in particular<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1062932894">https://github.com/rear/rear/issues/1040#issuecomment-1062932894</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/1040#issuecomment-1060704029">https://github.com/rear/rear/issues/1040#issuecomment-1060704029</a><br />
+and what I wrote above here</p>
+<pre><code>Because it is only 'info' we may care about it only
+after we first and foremost cared about 'error'
+and then as time permits about 'warning',
+cf. at the bottom of
+https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+</code></pre>
+<h4 id="schlomo_commented_at_2023-02-28_0841"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1447782347">2023-02-28 08:41</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-28_0841" title="Permanent link">&para;</a></h4>
+<p>Huge thanks @jsmeix for this detailed analysis!</p>
+<p>What I take away from it is the following:</p>
+<ol>
+<li>we need to create a <code>.shellcheckrc</code> file (or maybe <code>shellcheckrc</code> to
+    support running it as snap) with our specific configuration of<ul>
+<li><code>shell=bash</code></li>
+<li>disabling checks we don't want to get alerts for, e.g. those
+    that are mostly false positives</li>
+</ul>
+</li>
+<li>it will take a bit of fine-tuning the rules as more commits/PRs come
+    in and we shouldn't be worried about it but simply do it</li>
+</ol>
+<p>I'd like to propose merging this PR as soon as the RC file is added so
+that we get started. It won't prevent anything but add valuable
+visibility, improving the quality of ReaR.</p>
+<h4 id="schlomo_commented_at_2023-04-23_0910"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1519004877">2023-04-23 09:10</a>:<a class="headerlink" href="#schlomo_commented_at_2023-04-23_0910" title="Permanent link">&para;</a></h4>
+<p>Any progress on this? I'm leaning towards being bold and moving forward
+vs. waiting for a miracle to happen. @jamacku could you please be so
+kind to also add the Shellcheck RC file with meaningful defaults?</p>
+<h4 id="lzaoral_commented_at_2023-04-23_0937"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1519012760">2023-04-23 09:37</a>:<a class="headerlink" href="#lzaoral_commented_at_2023-04-23_0937" title="Permanent link">&para;</a></h4>
+<p>@schlomo The creation of meaningful ShellCheck defaults has nothing to
+do with @jamacku who is just the author of Differential ShellCheck.
+AFAIK, the defaults should be/have been created by @antonvoznia as part
+of his master thesis which @pcahyna supervised [1]. So we should wait
+on their input instead.</p>
+<p>[1] See chapter 6:
+<a href="https://dspace.cvut.cz/bitstream/handle/10467/107238/F3-DP-2023-Voznia-Anton-dip_thesis-2.pdf">https://dspace.cvut.cz/bitstream/handle/10467/107238/F3-DP-2023-Voznia-Anton-dip_thesis-2.pdf</a></p>
+<h4 id="gdha_commented_at_2023-04-24_0717"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1519519265">2023-04-24 07:17</a>:<a class="headerlink" href="#gdha_commented_at_2023-04-24_0717" title="Permanent link">&para;</a></h4>
+<p>Nice to have link of a thesis - thanks for that and keep up with the
+good (of students)</p>
+<h4 id="pcahyna_commented_at_2023-04-24_0852"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1519652251">2023-04-24 08:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-04-24_0852" title="Permanent link">&para;</a></h4>
+<p>Hi, I will meet with @antonvoznia this week to discuss the merging of
+his work and if there is no progress, I will take care of merging it
+myself.<br />
+(Sorry @schlomo , I agree that it is rather overdue.)</p>
+<h4 id="pcahyna_commented_at_2023-04-27_1627"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1525998354">2023-04-27 16:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-04-27_1627" title="Permanent link">&para;</a></h4>
+<p>merging - @antonvoznia please prepare a PR with your shellcheck
+configuration additions.</p>
+<h4 id="pcahyna_commented_at_2023-04-28_2312"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1528183262">2023-04-28 23:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-04-28_2312" title="Permanent link">&para;</a></h4>
+<p>@schlomo the ShellCheck RC files are in #2976. I will merge it without
+much delay, because I don't want to keep ShellCheck enabled without
+configuration for too long - it would lead to annoying noise in any
+future PRs. We can discuss further adjustments separately.</p>
+<h4 id="schlomo_commented_at_2023-04-29_1936"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2847#issuecomment-1528857636">2023-04-29 19:36</a>:<a class="headerlink" href="#schlomo_commented_at_2023-04-29_1936" title="Permanent link">&para;</a></h4>
+<p>Thanks, fully agree with your approach</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2022 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2022-08-05.2847.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

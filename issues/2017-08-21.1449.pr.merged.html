@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>2017 08 21.1449.pr.merged - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2017 08 21.1449.pr.merged";
+        var mkdocs_page_input_path = "issues/2017-08-21.1449.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '366986045', 'auto');
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>2017 08 21.1449.pr.merged</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="1449_pr_merged_add_non_blocking_userprompt_with_timeout_if_no_multipath_device_detected"><a href="https://github.com/rear/rear/pull/1449">#1449 PR</a> <code>merged</code>: Add non blocking userprompt with timeout if no multipath device detected.<a class="headerlink" href="#1449_pr_merged_add_non_blocking_userprompt_with_timeout_if_no_multipath_device_detected" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="schabrolles_opened_issue_at_2017-08-21_0708"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> opened issue at <a href="https://github.com/rear/rear/pull/1449">2017-08-21 07:08</a>:<a class="headerlink" href="#schabrolles_opened_issue_at_2017-08-21_0708" title="Permanent link">&para;</a></h4>
+<p>Some Linux distribution (like sles11) has a version of multipath which
+return an error when <code>dm-multipath</code> kernel module is loaded but no
+multipath devices are detected.</p>
+<p>This produce an exit to <code>rear_shell</code> waiting for UserInput.</p>
+<p>I propose to change it to a UserInput with 30s delay in order to avoid
+to block the recovery process when <code>BOOT_ON_SAN=yes</code> but no multipath
+device are found (in case of migration for example).</p>
+<h4 id="schabrolles_commented_at_2017-08-21_1012"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-323704719">2017-08-21 10:12</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-21_1012" title="Permanent link">&para;</a></h4>
+<p>@gdha <code>UserInput</code> message updated.<br />
+Thanks for your feedback.</p>
+<h4 id="schabrolles_commented_at_2017-08-21_1130"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-323720236">2017-08-21 11:30</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-21_1130" title="Permanent link">&para;</a></h4>
+<p>@schlomo,</p>
+<ul>
+<li>originally, this script only activate multipath if the Backup system
+    was multipath (which was not enough in case of V2P).<br />
+    The following line was already present is this version of script and
+    was activated if multipath loading return a non 0 value.</li>
+</ul>
+<!-- -->
+
+<pre><code>rear_shell "Did you activate the multipath devices?"
+</code></pre>
+<p>My concern here is that on some older Linux distribution (like sles11)
+multipath return an non 0 value if no multipath device is discovered. It
+is not the case with rhel7 or ubuntu16.04.<br />
+It could be a normal situation (as you said P2V). In this case, during
+recovery sles11 will exit to rear-shell after the following LogPrompt,
+and wait for user action (no other explanation/guidance).</p>
+<pre><code>Failed to activate multipath, or no multipath device found.
+rear&gt;
+</code></pre>
+<p>Again, there is no issue with newer multipath version (rhel7 for
+example). multipath return 0 if it runs without error and no multipath
+device discovered.</p>
+<p>I just would like to improve the user experience by having a better
+message for this "non critical" error (no multipath discovered) and
+avoid to block a recovery (with a timeout).</p>
+<p>What about this one :</p>
+<pre><code>Failed to activate multipath, or no multipath device found.
+Choice: 
+1) multipath is not needed, please continue recovery. (you should update your rear conf to remove BOOT_ON_SAN). 
+2) Enter into rear-shell to debug multipath. (manually run "multipath -r" command)
+(default 1) 
+(timeout 30 seconds)
+</code></pre>
+<h4 id="gdha_commented_at_2017-08-21_1143"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-323722758">2017-08-21 11:43</a>:<a class="headerlink" href="#gdha_commented_at_2017-08-21_1143" title="Permanent link">&para;</a></h4>
+<p>@schabrolles Yes - that is indeed much better to understand for me and
+the end-user ;-)</p>
+<h4 id="schabrolles_commented_at_2017-08-21_1619"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-323789500">2017-08-21 16:19</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-21_1619" title="Permanent link">&para;</a></h4>
+<p>Here is an updated version with menu (inspired from @jsmeix work on
+<code>300_map_disk.sh</code>).</p>
+<p>if <code>multipath</code> command failed, user will get this menu:</p>
+<pre><code>Activating multipath
+Failed to activate multipath, or no multipath device found.
+
+Choice:
+1) Multipath is not needed, please continue recovery.
+2) Run multipath with debug options.
+3) Enter into rear-shell to manually debug multipath.
+4) Abort 'rear recover'
+(default 1 timeout 30 seconds)
+</code></pre>
+<p>If user press 1) a message advice him to remove BOOT_ON_SAN parameter
+if multipath is not needed on this system.</p>
+<pre><code>...
+Continuing 'rear recover' by default
+If you don't need multipath on this server, you should consider removing BOOT_ON_SAN parameter from your rear configuration file.
+multipath activated
+No devices found
+...
+</code></pre>
+<p>Here is an example of a recovery on a sles11 which migrate from P2V
+(multipath =&gt; single path).</p>
+<pre><code>Relax-and-Recover 2.2 / Git
+Using log file: /var/log/rear/rear-rear-sles11-144.log
+Running workflow recover within the ReaR rescue/recovery system
+Starting required daemons for NFS: RPC portmapper (portmap or rpcbind) and rpc.statd if available.
+Started RPC portmapper 'rpcbind'.
+RPC portmapper 'rpcbind' available.
+RPC status rpc.statd available.
+Using backup archive '/tmp/rear.sjcrkAKIQO08Uo5/outputfs/rear-sles11-144/backup.tar.gz'
+Will do driver migration (recreating initramfs/initrd)
+Calculating backup archive size
+Backup archive size is 1.6G     /tmp/rear.sjcrkAKIQO08Uo5/outputfs/rear-sles11-144/backup.tar.gz (compressed)
+Setting up multipathing
+Activating multipath
+Failed to activate multipath, or no multipath device found.
+
+Choice:
+1) Multipath is not needed, please continue recovery.
+2) Run multipath with debug options.
+3) Enter into rear-shell to manually debug multipath.
+4) Abort 'rear recover'
+(default 1 timeout 30 seconds)
+2
+starting multipath -v3 (debug mode)
+Aug 21 17:44:26 | libdevmapper version 1.03.01 (2011-10-15)
+Aug 21 17:44:26 | DM multipath kernel driver v1.6.0
+Aug 21 17:44:26 | loading /lib64/multipath/libcheckdirectio.so checker
+Aug 21 17:44:26 | loading /lib64/multipath/libprioconst.so prioritizer
+Aug 21 17:44:26 | vda: blacklisted, udev property missing
+Aug 21 17:44:26 | sr0: udev property ID_SCSI_VPD whitelisted
+Aug 21 17:44:26 | sr0: device node name blacklisted
+Aug 21 17:44:26 | unloading const prioritizer
+Aug 21 17:44:26 | unloading directio checker
+
+Choice:
+1) Multipath is not needed, please continue recovery.
+2) Run multipath with debug options.
+3) Enter into rear-shell to manually debug multipath.
+4) Abort 'rear recover'
+(default 1 timeout 30 seconds)
+3
+
+Welcome to Relax-and-Recover.
+
+rear&gt; multipath -ll
+rear&gt; exit
+Do you want to go back to 'rear recover' ? y
+exit
+
+Choice:
+1) Multipath is not needed, please continue recovery.
+2) Run multipath with debug options.
+3) Enter into rear-shell to manually debug multipath.
+4) Abort 'rear recover'
+(default 1 timeout 30 seconds)
+Continuing 'rear recover' by default
+If you don't need multipath on this server, you should consider removing BOOT_ON_SAN parameter from your rear configuration file.
+multipath activated
+No devices found
+Comparing disks.
+Disk configuration is identical, proceeding with restore.
+Start system layout restoration.
+Creating partitions for disk /dev/vda (msdos)
+Creating LVM PV /dev/vda3
+  0 logical volume(s) in volume group "rootvg" now active
+Restoring LVM VG rootvg
+Sleeping 3 seconds to let udev or systemd-udevd create their devices...
+Creating filesystem of type ext3 with mount point / on /dev/mapper/rootvg-lvroot.
+2 bytes [53 ef] erased at offset 0x438 (ext3)
+Mounting filesystem /
+Creating filesystem of type ext3 with mount point /boot on /dev/vda2.
+2 bytes [53 ef] erased at offset 0x438 (ext3)
+Mounting filesystem /boot
+Creating swap on /dev/mapper/rootvg-lv_swap
+Disk layout created.
+Restoring from '/tmp/rear.sjcrkAKIQO08Uo5/outputfs/rear-sles11-144/backup.tar.gz'...
+Restored 4070 MiB [avg. 78645 KiB/sec] OK
+Restored 4108 MiB in 54 seconds [avg. 77901 KiB/sec]
+Restoring finished.
+Restore the Mountpoints (with permissions) from /var/lib/rear/recovery/mountpoint_permissions
+Running mkinitrd...
+Recreated initrd (/sbin/mkinitrd).
+Installing PPC PReP Boot partition.
+Boot partion found in lilo.conf:  /dev/vda1
+Running LILO ...
+running on chrp
+/dev/vda
+/dev/vda1
+Boot target is /dev/vda1
+add note section for RS6K
+Using built-in yaboot.conf
+Prepending  '/pci@800000020000000/scsi@4' to open firmware variable boot-device
+Finished recovering your system. You can explore it under '/mnt/local'.
+RESCUE rear-sles11-144:~ #
+</code></pre>
+<h4 id="schabrolles_commented_at_2017-08-22_1035"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-323987601">2017-08-22 10:35</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-22_1035" title="Permanent link">&para;</a></h4>
+<p>@schlomo you are absolutely right. Here is a slight update with your
+suggestion applied.<br />
+thanks.</p>
+<h4 id="jsmeix_commented_at_2017-08-23_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324350589">2017-08-23 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-23_1424" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+I do appreciate it so much that you use the new UserInput<br />
+function because I need testing and feedback to improve it.</p>
+<p>Ideally I would like to have the UserInput function in a stable<br />
+and well usable state for the ReaR 2.3 release but if we need<br />
+more time for testing and enhancing it until it really works<br />
+sufficiently well for us it is also perfectly o.k. for me.</p>
+<h4 id="jsmeix_commented_at_2017-08-23_1453"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324361684">2017-08-23 14:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-23_1453" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I think I found something for you:</p>
+<pre>
+LogPrint "WARNING: ..."
+</pre>
+
+<p>;-)</p>
+<p>@schabrolles<br />
+for background information what I am talking about see<br />
+<a href="http://blog.schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">http://blog.schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a></p>
+<h4 id="schabrolles_commented_at_2017-08-23_1504"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324365206">2017-08-23 15:04</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-23_1504" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @schlomo</p>
+<p>The objective here was to really "warn" the user about a possible
+configuration cleanup. (after a P2V for example). It is a "literally"
+warning :-) ... But I'm open to suggestion.</p>
+<h4 id="schlomo_commented_at_2017-08-23_1507"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324366080">2017-08-23 15:07</a>:<a class="headerlink" href="#schlomo_commented_at_2017-08-23_1507" title="Permanent link">&para;</a></h4>
+<p>@schabrolles simple: remove the word <code>WARNING:</code></p>
+<h4 id="schabrolles_commented_at_2017-08-23_1516"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324368798">2017-08-23 15:16</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-23_1516" title="Permanent link">&para;</a></h4>
+<p>Ok, but I just found it was not visible enough.</p>
+<h4 id="schlomo_commented_at_2017-08-23_1525"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324371641">2017-08-23 15:25</a>:<a class="headerlink" href="#schlomo_commented_at_2017-08-23_1525" title="Permanent link">&para;</a></h4>
+<p>Messages to the user should be either informational or actionable.
+WARNING is neither nor so it doesn't help the user. IMHO in this
+specific case we should mention it but not make a fuss. If the user gets
+tired of the manual step in his recovery he will also notice the message
+and act. If he doesn't care then we also don't care.</p>
+<h4 id="schlomo_commented_at_2017-08-23_1641"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324393351">2017-08-23 16:41</a>:<a class="headerlink" href="#schlomo_commented_at_2017-08-23_1641" title="Permanent link">&para;</a></h4>
+<p>If it is important then add this log output to the UserInput function
+for<br />
+everybody</p>
+<p>Am 23.08.2017 6:31 nachm. schrieb "Johannes Meixner" &lt;<br />
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#111;&#116;&#105;&#102;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#110;&#111;&#116;&#105;&#102;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a>&gt;:</p>
+<blockquote>
+<h2 id="jsmeix_commented_on_this_pull_request"><em>@jsmeix</em> commented on this pull request.<a class="headerlink" href="#jsmeix_commented_on_this_pull_request" title="Permanent link">&para;</a></h2>
+<p>In usr/share/rear/layout/prepare/GNU/Linux/210_load_multipath.sh<br />
+<a href="https://github.com/rear/rear/pull/1449#discussion_r134803306">https://github.com/rear/rear/pull/1449#discussion_r134803306</a>:</p>
+<blockquote>
+<ul>
+<li>
+<p>choices[1]="Run multipath with debug options."</p>
+</li>
+<li>
+<p>choices[2]="Enter into rear-shell to manually debug multipath."</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>choices[3]="Abort '$rear_workflow'"</p>
+</li>
+<li>
+<p>prompt="Choice:"</p>
+</li>
+<li>
+<p>choice=""</p>
+</li>
+<li>
+<p>wilful_input=""</p>
+</li>
+<li>
+<ul>
+<li>
+<h1 id="looping_on_this_menu_while_multipath_failed_to_list_device">looping on this menu while multipath failed to list device.<a class="headerlink" href="#looping_on_this_menu_while_multipath_failed_to_list_device" title="Permanent link">&para;</a></h1>
+</li>
+</ul>
+</li>
+<li>
+<h1 id="note_on_sles11rhel6_multipath_failed_if_no_multipath_device_is_found">Note: On sles11/rhel6, multipath failed if no multipath device is found.<a class="headerlink" href="#note_on_sles11rhel6_multipath_failed_if_no_multipath_device_is_found" title="Permanent link">&para;</a></h1>
+</li>
+<li>
+<p>while ! multipath ; do</p>
+</li>
+<li>
+<p>echo</p>
+</li>
+<li>
+<p>choice="$( UserInput -t 30 -p "$prompt" -D "${choices[0]}" "${choices[@]}")"&amp;&amp; wilful_input="yes" || wilful_input="no"</p>
+</li>
+<li>
+<p>case "$choice" in</p>
+</li>
+<li>
+<p>(${choices[0]})</p>
+</li>
+<li>
+<h1 id="continue_recovery_without_multipath">continue recovery without multipath<a class="headerlink" href="#continue_recovery_without_multipath" title="Permanent link">&para;</a></h1>
+</li>
+<li>
+<p>is_true "$wilful_input" &amp;&amp; LogPrint "User confirmed continuing without multipath" || LogPrint "Continuing '$rear_workflow' by default"</p>
+</li>
+</ul>
+<p>I do care ;-)<br />
+I like to have it visible in the log file<br />
+whether or not the user actively confirmed the default action<br />
+or if the user basically ignored the input request and the default<br />
+action "just happened".<br />
+A precondition is that there is plenty of time so that the user<br />
+can read and understand what he is asked and make a<br />
+delibarate decision (sooner than the automated timeout acts).</p>
+<p>—<br />
+You are receiving this because you were mentioned.<br />
+Reply to this email directly, view it on GitHub<br />
+<a href="https://github.com/rear/rear/pull/1449#discussion_r134803306">https://github.com/rear/rear/pull/1449#discussion_r134803306</a>,
+or mute<br />
+the thread<br />
+<a href="https://github.com/notifications/unsubscribe-auth/AAGMCJtx2fmHwT06PqH8OipY-vAHcJ5Rks5sbFPCgaJpZM4O89WF">https://github.com/notifications/unsubscribe-auth/AAGMCJtx2fmHwT06PqH8OipY-vAHcJ5Rks5sbFPCgaJpZM4O89WF</a><br />
+.</p>
+</blockquote>
+<h4 id="schabrolles_commented_at_2017-08-23_1650"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324395757">2017-08-23 16:50</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-23_1650" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @schlomo<br />
+changes (use default timeout 300s) and (remove WARING) applied and
+tested.</p>
+<h4 id="jsmeix_commented_at_2017-08-23_1709"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324401086">2017-08-23 17:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-23_1709" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+thanks for your<br />
+<a href="https://github.com/rear/rear/pull/1449#issuecomment-324393351">https://github.com/rear/rear/pull/1449#issuecomment-324393351</a><br />
+I will enhance the UserInput function so that no "wilful_input" stuff<br />
+is needed for each and every call of the UserInput function.</p>
+<h4 id="jsmeix_commented_at_2017-08-23_1717"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324403234">2017-08-23 17:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-23_1717" title="Permanent link">&para;</a></h4>
+<p>The outer</p>
+<pre>
+    multipath >&2
+        if [ $? -ne 0 ] ; then
+            ...
+            LogPrint "multipath activated"
+            dmsetup ls --target multipath
+            multipath -l
+        else
+            LogPrint "multipath activated"
+            dmsetup ls --target multipath
+</pre>
+
+<p>still looks somehow suspicious to me, cf.<br />
+<a href="https://github.com/rear/rear/pull/1449/files#r134810570">https://github.com/rear/rear/pull/1449/files#r134810570</a></p>
+<p>Simply put:<br />
+I think currently the "Multipath is not needed" case<br />
+does not behave well, see also in the "rear recover" log in<br />
+<a href="https://github.com/rear/rear/pull/1449#issuecomment-323789500">https://github.com/rear/rear/pull/1449#issuecomment-323789500</a></p>
+<pre>
+Choice:
+1) Multipath is not needed, please continue recovery.
+...
+Continuing 'rear recover' by default
+...
+multipath activated
+</pre>
+
+<p>i.e. the "multipath activated" message that does not match<br />
+the decision that "Multipath is not needed" indicates<br />
+that things do not work perfectly clean in this case.</p>
+<h4 id="schabrolles_commented_at_2017-08-23_2231"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324481348">2017-08-23 22:31</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-23_2231" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @schlomo<br />
+Last update for today, I've re-written a bit the
+<code>UserPrompt while loop</code>.<br />
+Now the "Multipath activated" is only print on purpose.</p>
+<h4 id="jsmeix_commented_at_2017-08-24_0907"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324578476">2017-08-24 09:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-24_0907" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+many thanks for all your efforts with all our various<br />
+comments and improvement requests.<br />
+Not it looks o.k. from my point of view<br />
+so that you could merge it if you like.</p>
+<p>Unfortunately (for you) I cannot restrain<br />
+to add one more comment:</p>
+<p>I wonder about the outermost 'if' clause.<br />
+Currently the script has the form</p>
+<pre>
+if CONDITION1 || CONDITION2 ; then
+    # Setting up multipathing
+fi
+function create_multipath() {
+   ...
+}
+</pre>
+
+<p>The trailing function definition looks somewhat strange to me.</p>
+<p>What looks even more strange to me is that I can find<br />
+'create_multipath' only in that function definition<br />
+but I cannot find where it is ever called.</p>
+<p>@schabrolles<br />
+could you add a comment why the create_multipath function<br />
+is defined (i.e. needed) in any case even if neither CONDITION1<br />
+nor CONDITION2 is fulfilled or remove that create_multipath<br />
+function definition if it is really nowhere needed.</p>
+<h4 id="jsmeix_commented_at_2017-08-24_0917"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324580968">2017-08-24 09:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-24_0917" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+for bigger changes I always look at the whole resulting file<br />
+because usually my understanding gets lost in bigger diffs ;-)</p>
+<h4 id="jsmeix_commented_at_2017-08-24_0925"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324583010">2017-08-24 09:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-24_0925" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+I assume your request for changes in<br />
+<a href="https://github.com/rear/rear/pull/1449#pullrequestreview-57441577">https://github.com/rear/rear/pull/1449#pullrequestreview-57441577</a><br />
+got meanwhile perfecty fulfilled so that you should also accept it.</p>
+<h4 id="jsmeix_commented_at_2017-08-24_1159"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324615037">2017-08-24 11:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-24_1159" title="Permanent link">&para;</a></h4>
+<p>@schabrolles see<br />
+<a href="https://github.com/rear/rear/pull/1449#discussion_r134994017">https://github.com/rear/rear/pull/1449#discussion_r134994017</a></p>
+<p>Summary how to output stuff and have it also in the log:</p>
+<p>For all commands where you like to show<br />
+only the command STDOUT to the user<br />
+when ReaR is run in verbose mode (rear -v)<br />
+and have both STDOUT and STDERR also in the log use</p>
+<pre>
+LogPrint "$( COMMAND )"
+</pre>
+
+<p>For all commands where you like to show<br />
+both the command STDOUT and STDERR to the user<br />
+when ReaR is run in verbose mode (rear -v)<br />
+and have both STDOUT and STDERR also in the log use</p>
+<pre>
+LogPrint "$( COMMAND 2>&1 )"
+</pre>
+
+<p>For all commands where you like to show<br />
+only the command STDOUT to the user in any case<br />
+(i.e. regardless if ReaR is run in verbose mode)<br />
+and have both STDOUT and STDERR also in the log use</p>
+<pre>
+LogUserOutput "$( COMMAND )"
+</pre>
+
+<p>For all commands where you like to show<br />
+both the command STDOUT and STDERR to the user<br />
+in any case (i.e. regardless if ReaR is run in verbose mode)<br />
+and have both STDOUT and STDERR also in the log use</p>
+<pre>
+LogUserOutput "$( COMMAND 2>&1 )"
+</pre>
+
+<h4 id="jsmeix_commented_at_2017-08-24_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324619332">2017-08-24 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-24_1221" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I tried to also use LogPrint/LogUserOutput as wrapper<br />
+for commands that need unser input with</p>
+<pre>
+touch /tmp/foo
+LogUserOutput "$( rm -vi /tmp/qqq /tmp/foo /tmp/QQQ 0<&6 2>&1 )"
+</pre>
+
+<p>but that let ReaR fail (it just exits at that rm command).<br />
+I have to use</p>
+<pre>
+touch /tmp/foo
+LogUserOutput "$( rm -vi /tmp/qqq /tmp/foo /tmp/QQQ 0<&6 1>/dev/tty 2>&1 )"
+</pre>
+
+<p>which works on the terminal</p>
+<pre>
+e205:~/rear.master # usr/sbin/rear mkrescue
+rm: cannot remove '/tmp/qqq': No such file or directory
+rm: remove regular empty file '/tmp/foo'? y
+removed '/tmp/foo'
+rm: cannot remove '/tmp/QQQ': No such file or directory
+</pre>
+
+<p>but that does of course no longer produce agruments<br />
+for the LogUserOutput function so that there is<br />
+nothing in the log.</p>
+<p>Do you have an idea how to get STDOUT and STDERR<br />
+also in the log when commands need user input?</p>
+<h4 id="schabrolles_commented_at_2017-08-24_1830"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324718692">2017-08-24 18:30</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-24_1830" title="Permanent link">&para;</a></h4>
+<p>@jsmeix you are right regarding <code>creat_multipath()</code> function.<br />
+This function was there before I start working on ReaR... But no script
+is calling it....</p>
+<p>I remove it and made a test with sles11-sp4 (V2P: non-multipath to
+multipath) =&gt; OK</p>
+<h4 id="schlomo_commented_at_2017-08-25_0639"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324836426">2017-08-25 06:39</a>:<a class="headerlink" href="#schlomo_commented_at_2017-08-25_0639" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I would have expected something like <code>1&gt;&amp;7 2&gt;&amp;8</code> or such in your
+<code>rm</code> example. Although for me this doesn't make much sense, I would
+expect us to use <code>LogPrint</code> only for stuff that doesn't need user input
+because that would be user input that ReaR cannot automate.</p>
+<p>If we have the need to <code>LogPrint</code> the result of a command more often
+then I would suggest to create a new function <code>LogPrintExec</code> or
+<code>LogPrintCommand</code> or <code>LogPrintRun</code> that simply runs <code>$@</code></p>
+<h4 id="jsmeix_commented_at_2017-08-25_0953"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324874100">2017-08-25 09:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-25_0953" title="Permanent link">&para;</a></h4>
+<p>As usual sleeping over it helped:</p>
+<p>Caution with 'create_...' functions!</p>
+<p>Many of them look as if they were only defined<br />
+because one cannot find where they are callled,<br />
+for example also the create_disk function:</p>
+<pre>
+# find usr/sbin/rear usr/share/rear/ | xargs grep 'create_disk'
+
+usr/share/rear/layout/prepare/GNU/Linux
+/100_include_partition_code.sh:create_disk() {
+</pre>
+
+<p>Many 'create_...' functions are not called by their full name.<br />
+Instead the are called indirectly via things like 'create_$type'<br />
+where $type evaluates e.g. to 'disk' 'part' 'fs' 'swap'<br />
+(i.e. $type is a component type in disklayout.conf)<br />
+by more generic 'create_...' functions<br />
+in lib/layout-functions.sh for example like</p>
+<pre>
+create_device() {
+    local device="$1"
+    local type="$2"
+    ...
+    if type -t create_$type >/dev/null ; then
+        create_$type "$device"
+    fi
+</pre>
+
+<p>By the way:<br />
+This is another nice example for RFC 1925 item 6a<br />
+cf.
+<a href="https://www.ietf.org/rfc/rfc1925.txt">https://www.ietf.org/rfc/rfc1925.txt</a><br />
+"It is always possible to add another level of indirection."<br />
+Personally I think that is the ultimate root cause<br />
+of 90% of the problems and the other ultimate root cause<br />
+for also 90% of the problems is RFC 1925 item 5<br />
+which means (assuming stochastical independence)<br />
+that 81% of the problems have RFC 1925 items 5 and 6a<br />
+together as their ultimate root cause...</p>
+<p>In a "rear -d -D recover" log file things look like<br />
+(excerpts that show only the 'create_...' functions):</p>
+<pre>
++ source /usr/share/rear/layout/prepare/default/540_generate_device_code.sh
+++ create_device /dev/sda disk
+++ type -t create_disk
+++ create_disk /dev/sda
+++ create_partitions /dev/sda msdos
+++ create_device /dev/sda1 part
+++ type -t create_part
+++ create_device /dev/sda2 part
+++ type -t create_part
+++ create_device fs:/ fs
+++ type -t create_fs
+++ create_fs fs:/
+++ create_device swap:/dev/sda1 swap
+++ type -t create_swap
+++ create_swap swap:/dev/sda1
+
++ source /usr/share/rear/layout/recreate/default/200_run_script.sh
++++ create_component vgchange rear
++++ create_component /dev/sda disk
++++ create_component /dev/sda1 part
++++ create_component /dev/sda2 part
++++ create_component fs:/ fs
++++ create_component swap:/dev/sda1 swap
+</pre>
+
+<p>@schabrolles<br />
+accordingly you need to carefully double-check that the<br />
+create_multipath function is really no longer ever needed<br />
+in particular on a system that uses multipath<br />
+or more generally when there are active components</p>
+<pre>
+multipath ...
+</pre>
+
+<p>in disklayout.conf (the line starts with 'multipath ').</p>
+<p>Note that components in disklayout.conf can be<br />
+deactivated by commenting them out e.g. like</p>
+<pre>
+# multipath ...
+</pre>
+
+<p>Deactivating components in disklayout.conf can happen<br />
+automatically by "rear recover" (e.g. when the original system<br />
+had multipath but on the replacement hardware or after a<br />
+system migration multipath is no longer needed.<br />
+Deactivating components in disklayout.conf can also be<br />
+done manually by the user either by manual editing disklayout.conf<br />
+in the ReaR recovery system before he runs "rear recover" or<br />
+during "rear recover" in migration mode when there are those<br />
+dialogs that let the user edit disklayout.conf.</p>
+<p>Deactivated components must be ignored<br />
+which is - as far as I see - a bug in</p>
+<pre>
+create_multipath() {
+    local multipath device
+    read multipath device junk < <(grep "multipath $1 " "$LAYOUT_FILE")
+    create_partitions "$device"
+}
+</pre>
+
+<p>because it greps for "multipath" which also finds "# multipath".<br />
+Normally I would expect it to be</p>
+<pre>
+    read multipath device junk < <(grep "^multipath $1 " "$LAYOUT_FILE")
+</pre>
+
+<p>to get only the active '^multipath ' components in disklayout.conf.</p>
+<h4 id="jsmeix_commented_at_2017-08-25_1007"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324876856">2017-08-25 10:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-25_1007" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+yes, to run an interactive command with the original STDIN,<br />
+STDOUT, and STDERR one should use e.g. as in</p>
+<pre>
+touch /tmp/foo
+rm -vi /tmp/qqq /tmp/foo /tmp/QQQ 0<&6 1>&7 2>&8
+</pre>
+
+<p>The '0&lt;&amp;6' is currently not needed because STDIN is not<br />
+redirected - I prefer the whole '0&lt;&amp;6 1&gt;&amp;7 2&gt;&amp;8' term<br />
+to be on the safe side and to make it 100% clear<br />
+that "all I/O via the original FDs" is meant.</p>
+<p>This way it "just works" on the user's terminal</p>
+<pre>
+# usr/sbin/rear mkrescue
+rm: cannot remove '/tmp/qqq': No such file or directory
+rm: remove regular empty file '/tmp/foo'? y
+removed '/tmp/foo'
+rm: cannot remove '/tmp/QQQ': No such file or directory
+</pre>
+
+<p>but then nothing is in the log.</p>
+<p>Things get somewhat tricky when one wants to have<br />
+all output both on the user's terminal and in the log.<br />
+Then a 'tee' process in between is needed.</p>
+<h4 id="jsmeix_commented_at_2017-08-25_1022"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324880035">2017-08-25 10:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-25_1022" title="Permanent link">&para;</a></h4>
+<p>@schabrolles</p>
+<p>another special thing in ReaR in verbose mode (rear -v)<br />
+is that then in usr/sbin/rear theer is</p>
+<pre>
+# Set the variables v and verbose to be used in called programs
+# that support the '-v' or '--verbose' options like
+# "cp $v ..." or "rm $verbose ..." and so on:
+v=""
+verbose=""
+if test "$VERBOSE" ; then
+    v="-v"
+    verbose="--verbose"
+fi
+</pre>
+
+<p>Accordingly commands that support '-v' or '--verbose'<br />
+should usually be called as</p>
+<pre>
+COMMAND $v
+</pre>
+
+<p>or</p>
+<pre>
+COMMAND $verbose
+</pre>
+
+<p>Because on my SLES11 and SLES12 systems<br />
+"man dmsetup" shows "-v" and "--verbose"<br />
+I suggest you may call dmsetup with $verbose like</p>
+<pre>
+    # Search and list mpath device.
+    if is_true $list_mpath_device ; then
+        LogPrint "Listing multipath device found"
+        LogPrint "$(dmsetup ls --target multipath $verbose 2>&1)"
+    fi
+</pre>
+
+<p>except dmsetup verbosity is explicitly not wanted in this case<br />
+(perhaps then dmsetup may show too much that is not helpful).</p>
+<h4 id="jsmeix_commented_at_2017-08-25_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-324894415">2017-08-25 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-25_1139" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+initially you had started this with 5 lines of code changed<br />
+and it had become some kind of a monstrous thing<br />
+because of all our comments, improvement requests,<br />
+and side-topics.</p>
+<p>I do very much appreciate your endurance here<br />
+that in the end results a totally overhauled script<br />
+that looks now very nice and clear.</p>
+<p>I hope you agree that this result is worth all those efforts.</p>
+<p>Feel free to merge it when it is o.k. for you!</p>
+<h4 id="schabrolles_commented_at_2017-08-25_1958"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325021108">2017-08-25 19:58</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-25_1958" title="Permanent link">&para;</a></h4>
+<p>@jsmeix no problem at all... I do appreciate your careful review /
+feedback (same for you @schlomo)</p>
+<ul>
+<li>
+<p>you are right regarding <code>create_multipath()</code> function... we finally
+    REALLY need it.<br />
+    I do additional test which confirm it cannot work without it
+    (partition are not created)<br />
+    In fact my server reboot properly after my previous test because the
+    partition were already there (no need to recreate them) But If I
+    wipe the disk before the recovery with <code>dd</code>, it fails to create LVM
+    because no partition are created ... which is normal ....</p>
+</li>
+<li>
+<p>Thanks for the info about <code>$v</code> and <code>$verbose</code>. I try
+    <code>dmsetup ls --target multipath -v</code> but it seems to have no impact on
+    the output (sles11-sp4):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code># dmsetup ls --target multipath
+mpatha  (252, 0)
+# dmsetup ls --target multipath -v
+mpatha  (252, 0)
+</code></pre>
+<p>I commit again with the function <code>create_multipath</code> back in place.</p>
+<h4 id="jsmeix_commented_at_2017-08-28_0932"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325307310">2017-08-28 09:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-28_0932" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+I think if we already had the early "cleanupdisk" script<br />
+as proposed in
+<a href="https://github.com/rear/rear/issues/799">https://github.com/rear/rear/issues/799</a><br />
+such kind of accidentally positive testing results<br />
+would no longer happen.</p>
+<h4 id="jsmeix_commented_at_2017-08-28_1030"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325318925">2017-08-28 10:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-28_1030" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+what about the possible bug in the create_multipath()<br />
+function as I wrote in<br />
+<a href="https://github.com/rear/rear/pull/1449#issuecomment-324874100">https://github.com/rear/rear/pull/1449#issuecomment-324874100</a></p>
+<p>For me the current create_multipath() function looks strange<br />
+(somehow knotted regrading $1 and $device).<br />
+As far as I understand what it should do<br />
+I would use something like</p>
+<pre>
+# Define the create_multipath() function in any case
+# even if there is neither '^multipath' in disklayout.conf
+# nor BOOT_OVER_SAN is true (cf. the above condition)
+# to be on the safe side if create_multipath() might be
+# also needed in whatever other circumstances:
+function create_multipath () {
+    local device=$1
+    if grep "^multipath $device " "$LAYOUT_FILE" 1>&2 ; then
+        Log "Found multipath device $device: Creating partitions on it"
+        create_partitions "$device"
+    fi
+}
+</pre>
+
+<h4 id="schabrolles_commented_at_2017-08-28_1057"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325323378">2017-08-28 10:57</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-28_1057" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<ul>
+<li>Agree that the way this function was written is strange and should
+    be re-written as you propose</li>
+</ul>
+<p>2 additional question:</p>
+<ul>
+<li>Why do you redirect output of <code>grep</code> to stderr ? (I guess it should
+    be related to the logging...)</li>
+<li>In some circumstance, the log message "Found multipath device
+    $device: Creating partitions on it" could be strange....</li>
+</ul>
+<p>if you migrate from Multipathed to Not Multipathed system,</p>
+<ul>
+<li>
+<p>entry "multipath mpatha ....." is created in layout.conf</p>
+</li>
+<li>
+<p>After booting to the Rescue media on the target system (not
+    multipathed) and starting the recovery, the device <code>mpatha</code> in the
+    layout file is migrated to <code>sda</code> by the device-migration scripts.<br />
+    Then the message "Found multipath device <strong>sda</strong>: Creating
+    partitions on it".... The weird thing is that sda is technically NOT
+    a multipath device ... Everything is working fine : we need to
+    create the partition on a device (multipath or not). It is just the
+    Log message generated that is a bit strange in this case.</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2017-08-28_1134"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325329450">2017-08-28 11:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-28_1134" title="Permanent link">&para;</a></h4>
+<p>@schabrolles<br />
+in general I redirect STDOUT to STDERR to get<br />
+command output that is not really meant for the user<br />
+not on the user's terminal but instead in the log file.<br />
+I perefer '1&gt;&amp;2' over '1&gt;/dev/null' because in general<br />
+ReaR should not destroy information.<br />
+In general the intent is to have all information<br />
+of a "rear ..." run in the log file so that reading the log file<br />
+(and only the log file) is sufficient to get full information<br />
+what happened.<br />
+Therefore I prefer e.g. 'grep ... 1&gt;&amp;2' over 'grep -q ...'.<br />
+Only if a command output is really not useful or even<br />
+misleading, then '1&gt;/dev/null' and/or '2&gt;/dev/null'<br />
+should be used preferably together with a comment why<br />
+redirection to /dev/null makes sense in this case, cf.<br />
+<a href="https://github.com/rear/rear/issues/1395#issuecomment-311916095">https://github.com/rear/rear/issues/1395#issuecomment-311916095</a></p>
+<p>Thanks for your explanation how the Log message<br />
+could become plain wong and therefore misleading.<br />
+Feel free to adapt it as you like, e.g.</p>
+<pre>
+Log "Found device $device: Creating partitions on it"
+</pre>
+
+<p>or</p>
+<pre>
+Log "Found current or former multipath device $device: Creating partitions on it"
+</pre>
+
+<p>or whatever you prefer (ultimately it is your code).<br />
+In general misleading Log messages are not critical<br />
+because Log messages are not shown directly to the user<br />
+in contrast to LogPrint or even LogUserOutput messages.</p>
+<h4 id="schabrolles_commented_at_2017-08-30_0820"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325918850">2017-08-30 08:20</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-30_0820" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @gdha @schlomo Last review before I merge this one.</p>
+<h4 id="jsmeix_commented_at_2017-08-30_0916"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-325933214">2017-08-30 09:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2017-08-30_0916" title="Permanent link">&para;</a></h4>
+<p>I think this is another example how one can make "good" code<br />
+even with the bash programming language where I often<br />
+hear from colleagues when I tell them about ReaR that<br />
+the first thing they would do is to completely rewrite it<br />
+in a "real programming language" - of course they never<br />
+contributed anything to ReaR - they are blabbering rubbish<br />
+without understanding anything about why bash is perfectly<br />
+"the right thing" for ReaR.</p>
+<h4 id="schabrolles_commented_at_2017-08-30_1929"><img src="https://avatars.githubusercontent.com/u/19491077?u=0021b16ab426902cbe676f6831f41607bbe4d441&v=4" width="50"><a href="https://github.com/schabrolles">schabrolles</a> commented at <a href="https://github.com/rear/rear/pull/1449#issuecomment-326094606">2017-08-30 19:29</a>:<a class="headerlink" href="#schabrolles_commented_at_2017-08-30_1929" title="Permanent link">&para;</a></h4>
+<p>@gdha are you now satisfied with this PR ?</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2022 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2017-08-21.1449.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

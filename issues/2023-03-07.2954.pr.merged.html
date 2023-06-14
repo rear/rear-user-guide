@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>2023 03 07.2954.pr.merged - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2023 03 07.2954.pr.merged";
+        var mkdocs_page_input_path = "issues/2023-03-07.2954.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '366986045', 'auto');
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>2023 03 07.2954.pr.merged</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2954_pr_merged_better_user_messages_for_finalizedefault060_compare_filessh"><a href="https://github.com/rear/rear/pull/2954">#2954 PR</a> <code>merged</code>: Better user messages for finalize/default/060_compare_files.sh<a class="headerlink" href="#2954_pr_merged_better_user_messages_for_finalizedefault060_compare_filessh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-03-07_1246"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/2954">2023-03-07 12:46</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-03-07_1246" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/2952#issuecomment-1458094671">https://github.com/rear/rear/issues/2952#issuecomment-1458094671</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    see
+    <a href="https://github.com/rear/rear/pull/2954#issuecomment-1463864769">https://github.com/rear/rear/pull/2954#issuecomment-1463864769</a></p>
+</li>
+<li>
+<p>Brief description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In finalize/default/060_compare_files.sh show what will be done so the
+user understands what possibly subsequent error messages mean</p>
+<h4 id="jsmeix_commented_at_2023-03-09_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1462056360">2023-03-09 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-09_1319" title="Permanent link">&para;</a></h4>
+<p>With my latest (but not yet tested) changes<br />
+it should now look like:</p>
+<pre><code># rear -D recover
+...
+Recreating directories ...
+Checking if certain restored files are consistent with the recreated system
+See /var/lib/rear/layout/config/files.md5sum what files are checked
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /etc/rear/local.conf: FAILED
+  /etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files ...
+</code></pre>
+<p>Now it is no longer judged to be an actual 'Error' and<br />
+'do not fully match' instead of hard 'do not match'<br />
+and it is explained what the actual facts are<br />
+'files in the backup are not same as ...' and<br />
+it is made explicit that it is the user's task to decide<br />
+if those changed files cause issues in his recreated system.</p>
+<h4 id="jsmeix_commented_at_2023-03-10_1414"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1463864769">2023-03-10 14:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-10_1414" title="Permanent link">&para;</a></h4>
+<p>I tested it on KVM/QEMU VMs:</p>
+<p>On the original system VM:</p>
+<p>I work on a GitHub master checkout</p>
+<pre><code># git clone https://github.com/rear/rear.git
+
+# mv rear rear.github.master
+
+# cd rear.github.master
+
+# git checkout jsmeix-show-when-checking-files
+
+# vi etc/rear/local.conf
+</code></pre>
+<p>In etc/rear/local.conf I need</p>
+<pre><code>CHECK_CONFIG_FILES+=( "$CONFIG_DIR" )
+</code></pre>
+<p>because in default.conf there is hardcoded '/etc/rear/' in</p>
+<pre><code>CHECK_CONFIG_FILES=( '/etc/drbd/' '/etc/drbd.conf' '/etc/lvm/lvm.conf' '/etc/multipath.conf' '/etc/rear/' '/etc/udev/udev.conf' )
+</code></pre>
+<p>but on a GitHub master checkout the ReaR config<br />
+is not in '/etc/rear/' but in '$(pwd)/etc/rear/'<br />
+so this hardcoded '/etc/rear/' in default.conf<br />
+should be replaced by "$CONFIG_DIR".</p>
+<p>Then I did:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+
+# echo '# comment' &gt;&gt;etc/rear/local.conf
+
+# usr/sbin/rear -D mkbackuponly
+...
+</code></pre>
+<p>On the replacement VM:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Running 'finalize' stage ======================
+Checking if certain restored files are consistent with the recreated system
+See /var/lib/rear/layout/config/files.md5sum what files are checked
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /root/rear.github.master/etc/rear/local.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+
+RESCUE localhost:~ # cat /var/lib/rear/layout/config/files.md5sum
+9129df91cf65ad4f6b3e5459aa4b92d9  /etc/lvm/lvm.conf
+bf60be80a4cc51271a1618edf5a6d66f  /etc/udev/udev.conf
+89e4602238c8f6d3aec2ba7adea8dafe  /root/rear.github.master/etc/rear/local.conf
+0a37bb12518797a3cc2ef76105dfc626  /root/rear.github.master/etc/rear/os.conf
+b631a22b67e2315a8e3ef4073d6883aa  /boot/grub2/grub.cfg
+a1f277cc217edd984cb4bc6bf6ac2e88  /etc/sysconfig/network/ifcfg-eth0
+f0fc7dd78da5a4b54e18c4b6948770e2  /etc/sysconfig/network/ifcfg-lo
+649dafa97b51bee5f5b9fa3657c4dc8e  /etc/grub.d/00_header
+55d58a46aeb002408fea67ed9a0a7d5c  /etc/grub.d/10_linux
+5386ae9dde85d00d298eb4a24510034e  /etc/grub.d/20_linux_xen
+0dfad6405eeeaedb2bf96f11e5d52dc0  /etc/grub.d/20_memtest86+
+8b3cb2149b06a1f1b6500fb612f28beb  /etc/grub.d/30_os-prober
+babe7de352fe18de5a238569cf4b8a11  /etc/grub.d/40_custom
+7bb4eb43ee7cb6d6f52df3dd2bde84e9  /etc/grub.d/41_custom
+cd81a9cad06de59dfc33f8c49596f60f  /etc/grub.d/90_persistent
+b326c91e90280bf45d2fc8564d14fb4f  /etc/grub.d/95_textmode
+be58f42dfe74feb6eeb98c6a843c743f  /etc/grub.d/README
+ea7b2372453a311a6f14f08051d74ed3  /etc/grub.d/80_suse_btrfs_snapshot
+942086a4a6784497ed863ab154eb0767  /etc/sysconfig/bootloader
+3e4eabe3bae31838cb02b4bbebd72955  /etc/fstab
+8fd7fce8dbb757bc622c7c214d2cd721  /etc/smartd.conf
+c7277b87f798aac207a5d25e6baa67e9  /etc/sysconfig/smartmontools
+
+RESCUE localhost:~ # md5sum /mnt/local/root/rear.github.master/etc/rear/local.conf
+93cb24f14a6665f3e4c353e5791200cf  /mnt/local/root/rear.github.master/etc/rear/local.conf
+</code></pre>
+<p>Excerpts from /var/log/rear/rear-localhost.log</p>
+<pre><code>+ source /usr/share/rear/finalize/default/060_compare_files.sh
+++ test -s /var/lib/rear/layout/config/files.md5sum
+++ LogPrint 'Checking if certain restored files are consistent with the recreated system'
+...
+++ DebugPrint 'See /var/lib/rear/layout/config/files.md5sum what files are checked'
+...
+++ local md5sum_stdout
++++ chroot /mnt/local md5sum -c --quiet
+md5sum: WARNING: 1 computed checksum did NOT match
+++ md5sum_stdout='/root/rear.github.master/etc/rear/local.conf: FAILED'
+++ LogPrintError 'Restored files do not fully match the recreated system in /mnt/local'
+...
+++ LogPrintError '(files in the backup are not same as when the ReaR rescue/recovery system was made)'
++++ sed -e 's/^/  /'
+++ LogPrintError '  /root/rear.github.master/etc/rear/local.conf: FAILED'
+...
+++ LogPrintError 'Manually check if those changed files cause issues in your recreated system'
+...
+++ return 1
++ source_return_code=1
++ test 0 -eq 1
++ Debug 'Source function: '\''source /usr/share/rear/finalize/default/060_compare_files.sh'\'' returns 1'
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-03-13_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1466199337">2023-03-13 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-13_1400" title="Permanent link">&para;</a></h4>
+<p>How it looks with the current changes here including<br />
+<a href="https://github.com/rear/rear/pull/2954/commits/37e87cbf07e1696662d648cb7e867dd09e94196d">https://github.com/rear/rear/pull/2954/commits/37e87cbf07e1696662d648cb7e867dd09e94196d</a><br />
+with on the original system only<br />
+i.e. without CHECK_CONFIG_FILES+=( "$CONFIG_DIR" ) in local.conf</p>
+<pre><code># rear -D mkrescue
+...
+
+# echo '# comment' &gt;&gt;etc/rear/local.conf
+
+# echo '# comment' &gt;&gt;etc/rear/os.conf
+
+# rear -D mkbackuponly
+...
+</code></pre>
+<p>and then on the replacement system:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Running 'finalize' stage ======================
+Checking if certain restored files are consistent with the recreated system
+See /var/lib/rear/layout/config/files.md5sum what files are checked
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /root/rear.github.master/etc/rear/local.conf: FAILED
+  /root/rear.github.master/etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-03-13_1411"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1466217643">2023-03-13 14:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-13_1411" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it tomorrow afternoon<br />
+unless there are objections.</p>
+<p>Perhaps this one is not a final solution<br />
+because it does not change the actual functionality<br />
+but at least it should make it more clear to the user<br />
+what the actual functionality behind is meant to provide.</p>
+<h4 id="pcahyna_commented_at_2023-03-13_1429"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1466249904">2023-03-13 14:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-03-13_1429" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix , can you please show what the output looks like with
+<code>rear recover</code> (without -D) ? The original idea was that the errors
+appear out of context, we should check how they look in the default
+mode.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467633025">2023-03-14 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0831" title="Permanent link">&para;</a></h4>
+<p>How it looks with plain 'rear recover'</p>
+<pre><code>RESCUE localhost:~ # rear recover
+...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Checking if certain restored files are consistent with the recreated system
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /root/rear.github.master/etc/rear/local.conf: FAILED
+  /root/rear.github.master/etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-03-14_0840"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467645338">2023-03-14 08:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0840" title="Permanent link">&para;</a></h4>
+<p>I see now a possible issue:</p>
+<p>It shows</p>
+<pre><code>(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /root/rear.github.master/etc/rear/local.conf: FAILED
+  /root/rear.github.master/etc/rear/os.conf: FAILED
+</code></pre>
+<p>but the shown files are not those from the backup.</p>
+<p>Within the ReaR recovery system those files from the backup are</p>
+<pre><code>/mnt/local/root/rear.github.master/etc/rear/local.conf
+/mnt/local/root/rear.github.master/etc/rear/os.conf
+</code></pre>
+<p>so I suggest that I adapt finalize/default/060_compare_files.sh to</p>
+<pre><code>LogPrintError "$( sed -e "s|^|  $TARGET_FS_ROOT|" &lt;&lt;&lt; "$md5sum_stdout" )"
+</code></pre>
+<p>to make the "rear recover" output look as follows</p>
+<pre><code>...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Checking if certain restored files are consistent with the recreated system
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /mnt/local/root/rear.github.master/etc/rear/local.conf: FAILED
+  /mnt/local/root/rear.github.master/etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+<p>@pcahyna @schlomo<br />
+what do you think?</p>
+<h4 id="jsmeix_commented_at_2023-03-14_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467649068">2023-03-14 08:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0843" title="Permanent link">&para;</a></h4>
+<p>Alternatively I could remove the leading slash via</p>
+<pre><code>LogPrintError "$( sed -e 's|^/|  |' &lt;&lt;&lt; "$md5sum_stdout" )"
+</code></pre>
+<p>to make the "rear recover" output look as follows</p>
+<pre><code>...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Checking if certain restored files are consistent with the recreated system
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  root/rear.github.master/etc/rear/local.conf: FAILED
+  root/rear.github.master/etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+<p>so that it shows a relative path (i.e. relative to /mnt/local)</p>
+<h4 id="jsmeix_commented_at_2023-03-14_0855"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467664845">2023-03-14 08:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0855" title="Permanent link">&para;</a></h4>
+<p>The issue is that within the ReaR recovery system<br />
+there exist two kind of these files:</p>
+<p>The ones in the ReaR recovery system</p>
+<pre><code>/etc/rear/local.conf
+/etc/rear/os.conf
+</code></pre>
+<p>and the ones from the backup restore<br />
+which are in my case</p>
+<pre><code>/mnt/local/root/rear.github.master/etc/rear/local.conf
+/mnt/local/root/rear.github.master/etc/rear/os.conf
+</code></pre>
+<p>but usually those are</p>
+<pre><code>/mnt/local/etc/rear/local.conf
+/mnt/local/etc/rear/os.conf
+</code></pre>
+<p>so usually the only difference is the '/mnt/local' prefix.</p>
+<p>Those in the ReaR recovery system match the stored md5sums<br />
+in /var/lib/rear/layout/config/files.md5sum.<br />
+Only those from the backup restore do not match the stored<br />
+md5sums in /var/lib/rear/layout/config/files.md5sum:</p>
+<pre><code>RESCUE localhost:~ # grep 'etc/rear' /var/lib/rear/layout/config/files.md5sum 
+0c26e503364b45315699c6ea5f3a7281  /root/rear.github.master/etc/rear/local.conf
+0a37bb12518797a3cc2ef76105dfc626  /root/rear.github.master/etc/rear/os.conf
+
+RESCUE localhost:~ # md5sum /etc/rear/local.conf /etc/rear/os.conf
+0c26e503364b45315699c6ea5f3a7281  /etc/rear/local.conf
+07cc16f9a6296665e9631941f6f7904d  /etc/rear/os.conf
+
+RESCUE localhost:~ # md5sum /mnt/local/root/rear.github.master/etc/rear/local.conf /mnt/local/root/rear.github.master/etc/rear/os.conf 
+b9a4490739fa9d0e5f6a05a0f99ae036  /mnt/local/root/rear.github.master/etc/rear/local.conf
+50221671982b1ee304a265cc466c5e2f  /mnt/local/root/rear.github.master/etc/rear/os.conf
+</code></pre>
+<p>So I think it is important to show exactly those<br />
+that do not match the stored md5sums<br />
+with their full path as valid in the user's<br />
+currently running ReaR recovery system as in<br />
+<a href="https://github.com/rear/rear/pull/2954#issuecomment-1467645338">https://github.com/rear/rear/pull/2954#issuecomment-1467645338</a></p>
+<h4 id="jsmeix_commented_at_2023-03-14_0905"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467681569">2023-03-14 09:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0905" title="Permanent link">&para;</a></h4>
+<p>Showing</p>
+<pre><code>  /root/rear.github.master/etc/rear/local.conf: FAILED
+  /root/rear.github.master/etc/rear/os.conf: FAILED
+</code></pre>
+<p>is plain wrong because those files do not exist<br />
+in the ReaR recovery system:</p>
+<pre><code>RESCUE localhost:~ # ls /root/rear.github.master/etc/rear/local.conf /root/rear.github.master/etc/rear/os.conf 
+ls: cannot access '/root/rear.github.master/etc/rear/local.conf': No such file or directory
+ls: cannot access '/root/rear.github.master/etc/rear/os.conf': No such file or directory
+</code></pre>
+<p>This is because of how '$CONFIG_DIR/.' gets copied into<br />
+the ReaR recovery system into hardcoded 'etc/rear' by<br />
+build/GNU/Linux/100_copy_as_is.sh</p>
+<pre><code>cp $v -r -L $CONFIG_DIR/. $ROOTFS_DIR/etc/rear/
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/build/GNU/Linux/100_copy_as_is.sh#L165">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/build/GNU/Linux/100_copy_as_is.sh#L165</a></p>
+<h4 id="schlomo_commented_at_2023-03-14_0920"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467709496">2023-03-14 09:20</a>:<a class="headerlink" href="#schlomo_commented_at_2023-03-14_0920" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I'd prefer to show the full path in the Rescue system, .e.
+<code>/mnt/local/...</code> so that users can simply copy-paste that to look at it.</p>
+<p>FYI,<br />
+in #2950 I made a change to the <code>COPY_AS_IS</code> copy function<br />
+<a href="https://github.com/rear/rear/pull/2950/files#diff-e3614c8ae81bb8a1d792f1a3016e99ff7f12295d47a41d3a21f7f4faca14830c">https://github.com/rear/rear/pull/2950/files#diff-e3614c8ae81bb8a1d792f1a3016e99ff7f12295d47a41d3a21f7f4faca14830c</a><br />
+and in #2937 too at<br />
+<a href="https://github.com/rear/rear/pull/2937/files#diff-e3614c8ae81bb8a1d792f1a3016e99ff7f12295d47a41d3a21f7f4faca14830c">https://github.com/rear/rear/pull/2937/files#diff-e3614c8ae81bb8a1d792f1a3016e99ff7f12295d47a41d3a21f7f4faca14830c</a>.</p>
+<p>My goal is to</p>
+<ul>
+<li>support running from checkout while using the real configuration in
+    <code>/etc/rear</code> to make it simple to try a different ReaR from the
+    installed one without first installing it.</li>
+<li>support creating the <code>VAR_DIR</code> outside of the checkout area so that
+    my git checkout won't be polluted by files that only <code>root</code> can
+    delete - and to make it simpler to run the same git checkout on
+    multiple VMs without interference.</li>
+</ul>
+<h4 id="jsmeix_commented_at_2023-03-14_0934"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467734134">2023-03-14 09:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_0934" title="Permanent link">&para;</a></h4>
+<p>Yes, the full path in the recovery system<br />
+is the only correct way and it also matches<br />
+what the code actually does via 'chroot /mnt/local'<br />
+i.e. the code is working on files in '/mnt/local'.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1015"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467805131">2023-03-14 10:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1015" title="Permanent link">&para;</a></h4>
+<p>FYI:</p>
+<p>Now I see in<br />
+<a href="https://github.com/rear/rear/pull/2954#issuecomment-1467664845">https://github.com/rear/rear/pull/2954#issuecomment-1467664845</a><br />
+that /etc/rear/os.conf in the ReaR recovery system<br />
+does not match the stored md5sums in<br />
+/var/lib/rear/layout/config/files.md5sum</p>
+<p>This is because the stored md5sum during "rear mkrescue" time<br />
+for /root/rear.github.master/etc/rear/os.conf is for this content</p>
+<pre><code>OS_VENDOR=SUSE_LINUX
+OS_VERSION=15.3
+</code></pre>
+<p>but the /etc/rear/os.conf in the ReaR recovery system is</p>
+<pre><code>OS_VENDOR=SUSE_LINUX
+OS_VERSION=15.3
+# The following information was added automatically by the mkrescue workflow:
+ARCH='Linux-i386'
+OS='GNU/Linux'
+OS_VERSION='15.3'
+OS_VENDOR='SUSE_LINUX'
+OS_VENDOR_VERSION='SUSE_LINUX/15.3'
+OS_VENDOR_ARCH='SUSE_LINUX/i386'
+OS_MASTER_VENDOR='SUSE'
+# End of what was added automatically by the mkrescue workflow.
+</code></pre>
+<p>which is done by<br />
+usr/share/rear/build/default/975_update_os_conf.sh<br />
+that adds only to "$ROOTFS_DIR/etc/rear/os.conf"<br />
+so /etc/rear/os.conf in the ReaR recovery system<br />
+always differs from what is in the backup.</p>
+<p>"Fortunately" the md5sum check does not compare<br />
+what is in the backup with what is in the recovery system.<br />
+The md5sum check compares what is in the backup<br />
+with what there was on the original system<br />
+at the time when "rear mkrescue" was run.</p>
+<h4 id="pcahyna_commented_at_2023-03-14_1037"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467840642">2023-03-14 10:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-03-14_1037" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>How it looks with plain 'rear recover'</p>
+<pre><code>RESCUE localhost:~ # rear recover
+...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Checking if certain restored files are consistent with the recreated system
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /root/rear.github.master/etc/rear/local.conf: FAILED
+  /root/rear.github.master/etc/rear/os.conf: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+</blockquote>
+<p>Thanks, I am now thinking about another issue - is it clear what
+"Restored files do not fully match the recreated system in /mnt/local"
+means? It does not seem obvious what is the difference between "restored
+system" and "recreated files". Especially when "restored files" are also
+restored under /mnt/local.<br />
+I know, the idea is that the system (including disk layout etc) was
+restored using different files than those in the backup, so the various
+IDs embedded in the storage components do not match, but is it
+understandable? (The "(files in the backup are not same as when the ReaR
+rescue/recovery system was made)" note clarifies it a bit.)</p>
+<h4 id="schlomo_commented_at_2023-03-14_1102"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467884934">2023-03-14 11:02</a>:<a class="headerlink" href="#schlomo_commented_at_2023-03-14_1102" title="Permanent link">&para;</a></h4>
+<p>About <code>/etc/rear/os.conf</code>, I really would like to move this file to
+exists <em>only in the Rescue system</em>, see
+<a href="https://github.com/rear/rear/pull/1713#issuecomment-1456020891">https://github.com/rear/rear/pull/1713#issuecomment-1456020891</a>
+as I believe that it causes much more problems than it solves.</p>
+<p>So for me, feel free to move the creation of this file to the <code>build</code>
+stage or such and moving it to the Rescue system only.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1107"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467894622">2023-03-14 11:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1107" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+nice to see that also you get confused here (same as I do :-)<br />
+because you wrote "restored system" and "recreated files"<br />
+but actually it is "restored files" and "recreated system" ;-)</p>
+<p>I think we should not show lengthy explanations on the<br />
+user's terminal because they let other info scroll away<br />
+(e.g. I don't know how things behave on a serial console)<br />
+so I tried to keep the messages not too long.</p>
+<p>In the three information message lines</p>
+<pre><code>Checking if certain restored files are consistent with the recreated system
+Restored files do not fully match the recreated system in /mnt/local
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+</code></pre>
+<p>I tried to show various different keywords that apply here<br />
+to the user to trigger some (hopefully) right idea in his mind<br />
+what this stuff actually is about:<br />
+Consistency of what was recreated with his restored backup.</p>
+<p>I.e. consistency of "rear mkrescue" with "rear mkbackuponly"<br />
+(or with whatever external backup method).</p>
+<p>The "certain" in "certain restored files" is crucial<br />
+because this is not a global consistency check<br />
+which is why there is the DebugPrint message</p>
+<pre><code>See /var/lib/rear/layout/config/files.md5sum what files are checked
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-03-14_1118"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467910938">2023-03-14 11:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-03-14_1118" title="Permanent link">&para;</a></h4>
+<p>@jsmeix would it make sense to change<br />
+<code>Restored files do not fully match the recreated system in /mnt/local</code><br />
+to<br />
+<code>Restored files in /mnt/local do not fully match the recreated system</code><br />
+because it is the restored files that can be found under <code>/mnt/local</code>,
+the "recreated system" is more nebulous concept (the stuff that may not
+match is usually not in any files but in filesystem/LVM/RAID/whatever
+metadata, or even disk firmware in case of disk IDs)?</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1132"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467929248">2023-03-14 11:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1132" title="Permanent link">&para;</a></h4>
+<p>Regarding /etc/rear/os.conf:</p>
+<p>I don't know the reason what it exists at all.<br />
+I.e. the reason why such variables are stored in a file?</p>
+<p>Why is it not sufficient to call SetOSVendorAndVersion in sbin/rear<br />
+so ReaR runs according to the current actual runtime environment<br />
+(and not according to something possibly outdated stored in a file).</p>
+<p>In my ReaR recovery system I have /etc/os-release.</p>
+<p>I changed bin/rear in my ReaR recovery system to</p>
+<pre><code>set -x
+SetOSVendorAndVersion
+exit 99
+</code></pre>
+<p>With that I did</p>
+<pre><code>RESCUE localhost:~ # rear -D help
+Exiting rear help (PID 10662) and its descendant processes ...
+Running exit tasks
+rear help failed, check /var/log/rear/rear-localhost.log.lockless for details
+</code></pre>
+<p>and got in /var/log/rear/rear-localhost.log.lockless</p>
+<pre><code>+ source /etc/rear/os.conf
+++ OS_VENDOR=SUSE_LINUX
+++ OS_VERSION=15.3
+++ ARCH=Linux-i386
+++ OS=GNU/Linux
+++ OS_VERSION=15.3
+++ OS_VENDOR=SUSE_LINUX
+++ OS_VENDOR_VERSION=SUSE_LINUX/15.3
+++ OS_VENDOR_ARCH=SUSE_LINUX/i386
+++ OS_MASTER_VENDOR=SUSE
++ source_return_code=0
++ test 0 -eq 0
++ cd /root
++ test 1
++ Debug 'Leaving debugscript mode (back to previous bash flags and options settings).'
++ test 1
++ Log 'Leaving debugscript mode (back to previous bash flags and options settings).'
++ test -w /var/log/rear/rear-localhost.log.lockless
++ echo '2023-03-14 12:26:44.572808888 Leaving debugscript mode (back to previous bash flags and options settings).'
+2023-03-14 12:26:44.572808888 Leaving debugscript mode (back to previous bash flags and options settings).
++ SetOSVendorAndVersion
++ test SUSE_LINUX = generic -o 15.3 = none
++ OS_VENDOR_VERSION=SUSE_LINUX/15.3
++ OS_VENDOR_ARCH=SUSE_LINUX/i386
++ OS_VENDOR_VERSION_ARCH=SUSE_LINUX/15.3/i386
++ case "$( echo $OS_VENDOR_VERSION | tr '[A-Z]' '[a-z]' )" in
+++ tr '[A-Z]' '[a-z]'
+++ echo SUSE_LINUX/15.3
++ OS_MASTER_VENDOR=SUSE
++ OS_MASTER_VERSION=15
++ '[' SUSE ']'
++ OS_MASTER_VENDOR_VERSION=SUSE/15
++ OS_MASTER_VENDOR_ARCH=SUSE/i386
++ OS_MASTER_VENDOR_VERSION_ARCH=SUSE/15/i386
++ exit 99
+</code></pre>
+<p>Then I did</p>
+<pre><code>RESCUE localhost:~ # mv /etc/rear/os.conf /etc/rear/os.conf.away
+
+RESCUE localhost:~ # rear -D help
+</code></pre>
+<p>and got in /var/log/rear/rear-localhost.log.lockless</p>
+<pre><code>+ SetOSVendorAndVersion
++ test generic = generic -o none = none
++ [[ -f /etc/os-release ]]
++ grep -q -i fedora /etc/os-release
++ grep -q -i -E '(centos|redhat|scientific|oracle)' /etc/os-release
++ grep -q -i suse /etc/os-release
++ OS_VENDOR=SUSE_LINUX
++ grep -q -i debian /etc/os-release
++ grep -q -i -E '(ubuntu|linuxmint)' /etc/os-release
++ grep -q -i arch /etc/os-release
+++ cut '-d"' -f2
+++ grep '^VERSION_ID=' /etc/os-release
++ OS_VERSION=15.3
++ test SUSE_LINUX = generic
++ test SUSE_LINUX = generic
++ test SUSE_LINUX = generic
++ OS_VENDOR_VERSION=SUSE_LINUX/15.3
++ OS_VENDOR_ARCH=SUSE_LINUX/i386
++ OS_VENDOR_VERSION_ARCH=SUSE_LINUX/15.3/i386
++ case "$( echo $OS_VENDOR_VERSION | tr '[A-Z]' '[a-z]' )" in
+++ tr '[A-Z]' '[a-z]'
+++ echo SUSE_LINUX/15.3
++ OS_MASTER_VENDOR=SUSE
++ OS_MASTER_VERSION=15
++ '[' SUSE ']'
++ OS_MASTER_VENDOR_VERSION=SUSE/15
++ OS_MASTER_VENDOR_ARCH=SUSE/i386
++ OS_MASTER_VENDOR_VERSION_ARCH=SUSE/15/i386
++ exit 99
+</code></pre>
+<p>ARCH is always set in default.conf regardless<br />
+what is stored in etc/rear/os.conf</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1154"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467961402">2023-03-14 11:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1154" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+why is /etc/rear/os.conf needed in the recovery system<br />
+when it is not needed on the original system?</p>
+<p>I.e. what is missing in the recovery system<br />
+that running sbin/rear in the recovery system<br />
+needs a /etc/rear/os.conf file?</p>
+<h4 id="schlomo_commented_at_2023-03-14_1208"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467981879">2023-03-14 12:08</a>:<a class="headerlink" href="#schlomo_commented_at_2023-03-14_1208" title="Permanent link">&para;</a></h4>
+<p>I agree with you @jsmeix, I also don't know what for we need the
+<code>os.conf</code> in the original system. For the Rescue system I can only
+imagine that it helps on systems where <code>/etc/os-release</code> is not present,
+which seems to be only CentOS 6:<br />
+<img width="930" alt="image" src="https://user-images.githubusercontent.com/101384/224996226-75bdc93d-c765-4bcf-8e72-5bc4307dd281.png"></p>
+<p>@gdha introduced it in #1713 so maybe he can say more about it.</p>
+<p>I'd hope that moving it to exist in the Rescue system <em>only</em> would be a
+step towards getting rid of it.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1213"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1467992680">2023-03-14 12:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1213" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your better wording in<br />
+<a href="https://github.com/rear/rear/pull/2954#issuecomment-1467910938">https://github.com/rear/rear/pull/2954#issuecomment-1467910938</a></p>
+<p>I changed it via<br />
+<a href="https://github.com/rear/rear/pull/2954/commits/11fd6f6b61333b4463c7b239841a70519f5cae78">https://github.com/rear/rear/pull/2954/commits/11fd6f6b61333b4463c7b239841a70519f5cae78</a></p>
+<p>Only a side note FYI:<br />
+Usually I prefer to have human readable text at the beginning<br />
+and the technical stuff at the end of a message like</p>
+<pre><code>Cannot access mystuff.conf in /longer/path/to/some/deeply/nested/directory
+</code></pre>
+<p>instead of</p>
+<pre><code>mystuff.conf in /longer/path/to/some/deeply/nested/directory inaccessible
+</code></pre>
+<p>so usually I try to evaluate variables at the end of a message<br />
+but $TARGET_FS_ROOT evaluates to a short value so it is<br />
+perfectly fine to have it in the middle of the message.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1223"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468009990">2023-03-14 12:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1223" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I assume the function SetOSVendorAndVersion()<br />
+in lib/config-functions.sh supports CentOS 6<br />
+(e.g. via /etc/system-release or other files or via lsb_release).</p>
+<p>Currently I fail to see how files like /etc/os-release<br />
+and other ...-release files get copied into the recovery system?</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1226"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468013966">2023-03-14 12:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1226" title="Permanent link">&para;</a></h4>
+<p>Oh!<br />
+I see now basically the same was already discussed in<br />
+<a href="https://github.com/rear/rear/pull/1713">https://github.com/rear/rear/pull/1713</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/1639">https://github.com/rear/rear/issues/1639</a></p>
+<h4 id="schlomo_commented_at_2023-03-14_1228"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468015485">2023-03-14 12:28</a>:<a class="headerlink" href="#schlomo_commented_at_2023-03-14_1228" title="Permanent link">&para;</a></h4>
+<p>Back in the days the original idea was to do an "expensive" calculation
+of the <code>OS_*</code> variables during <code>mkrescue</code> and then use that during
+<code>recover</code> as well. I'd still say that instead of copying all kinds of
+OS-specific files to the rescue system I'd rather store the result in a
+config file and that is it - hence the thought to create the
+<code>/etc/rear/os.conf</code> in the rescue system only. If it is present and
+filled with meaningful variable content then the OS discovery will be
+skipped.</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1528"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468319506">2023-03-14 15:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1528" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+let's do further /etc/rear/os.conf related things<br />
+outside of this pull request as needed.</p>
+<h4 id="schlomo_commented_at_2023-03-14_1531"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468324495">2023-03-14 15:31</a>:<a class="headerlink" href="#schlomo_commented_at_2023-03-14_1531" title="Permanent link">&para;</a></h4>
+<p>Yes, please merge this one here</p>
+<h4 id="jsmeix_commented_at_2023-03-14_1534"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468331109">2023-03-14 15:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1534" title="Permanent link">&para;</a></h4>
+<p>With the latest code in this pull request I get:</p>
+<p>On my original system VM:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+
+# cat var/lib/rear/layout/config/files.md5sum
+9129df91cf65ad4f6b3e5459aa4b92d9  /etc/lvm/lvm.conf
+bf60be80a4cc51271a1618edf5a6d66f  /etc/udev/udev.conf
+0c26e503364b45315699c6ea5f3a7281  /root/rear.github.master/etc/rear/local.conf
+0a37bb12518797a3cc2ef76105dfc626  /root/rear.github.master/etc/rear/os.conf
+b631a22b67e2315a8e3ef4073d6883aa  /boot/grub2/grub.cfg
+a1f277cc217edd984cb4bc6bf6ac2e88  /etc/sysconfig/network/ifcfg-eth0
+f0fc7dd78da5a4b54e18c4b6948770e2  /etc/sysconfig/network/ifcfg-lo
+649dafa97b51bee5f5b9fa3657c4dc8e  /etc/grub.d/00_header
+55d58a46aeb002408fea67ed9a0a7d5c  /etc/grub.d/10_linux
+5386ae9dde85d00d298eb4a24510034e  /etc/grub.d/20_linux_xen
+0dfad6405eeeaedb2bf96f11e5d52dc0  /etc/grub.d/20_memtest86+
+8b3cb2149b06a1f1b6500fb612f28beb  /etc/grub.d/30_os-prober
+babe7de352fe18de5a238569cf4b8a11  /etc/grub.d/40_custom
+7bb4eb43ee7cb6d6f52df3dd2bde84e9  /etc/grub.d/41_custom
+cd81a9cad06de59dfc33f8c49596f60f  /etc/grub.d/90_persistent
+b326c91e90280bf45d2fc8564d14fb4f  /etc/grub.d/95_textmode
+be58f42dfe74feb6eeb98c6a843c743f  /etc/grub.d/README
+ea7b2372453a311a6f14f08051d74ed3  /etc/grub.d/80_suse_btrfs_snapshot
+942086a4a6784497ed863ab154eb0767  /etc/sysconfig/bootloader
+3e4eabe3bae31838cb02b4bbebd72955  /etc/fstab
+8fd7fce8dbb757bc622c7c214d2cd721  /etc/smartd.conf
+c7277b87f798aac207a5d25e6baa67e9  /etc/sysconfig/smartmontools
+
+# echo '# comment' &gt;&gt;etc/rear/local.conf
+
+# echo '# comment' &gt;&gt;/etc/grub.d/README
+
+# usr/sbin/rear -D mkbackuponly
+...
+</code></pre>
+<p>On my replacement VM:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Running 'finalize' stage ======================
+Checking if certain restored files are consistent with the recreated system
+See /var/lib/rear/layout/config/files.md5sum what files are checked
+Restored files in /mnt/local do not fully match the recreated system
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+  /mnt/local/root/rear.github.master/etc/rear/local.conf: FAILED
+  /mnt/local/etc/grub.d/README: FAILED
+Manually check if those changed files cause issues in your recreated system
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-03-14_1536"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1468335666">2023-03-14 15:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-14_1536" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it tomorrow afternoon<br />
+unless there are objections.</p>
+<h4 id="jsmeix_commented_at_2023-03-15_1419"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1470094593">2023-03-15 14:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-15_1419" title="Permanent link">&para;</a></h4>
+<p>No time today for it - postponing...</p>
+<h4 id="jsmeix_commented_at_2023-03-16_1000"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471645269">2023-03-16 10:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-16_1000" title="Permanent link">&para;</a></h4>
+<p>What is the actual effect of 'return 1' in a ReaR script:</p>
+<p>First and foremost in general<br />
+no piece of code that does not finish successfully<br />
+should lie to its caller and return a success code<br />
+regardless if a caller of a piece of code<br />
+cares about the return code.</p>
+<p>In particular regaring the return code of a ReaR script see<br />
+<a href="https://github.com/rear/rear/pull/1970">https://github.com/rear/rear/pull/1970</a></p>
+<h4 id="pcahyna_commented_at_2023-03-16_1010"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471662363">2023-03-16 10:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-03-16_1010" title="Permanent link">&para;</a></h4>
+<p>Return code was discussed here:
+<a href="https://github.com/rear/rear/pull/2608#issuecomment-831929130">https://github.com/rear/rear/pull/2608#issuecomment-831929130</a></p>
+<h4 id="jsmeix_commented_at_2023-03-16_1029"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471689999">2023-03-16 10:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-16_1029" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for the link to another place where I also explained it.</p>
+<h4 id="jsmeix_commented_at_2023-03-16_1030"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471691485">2023-03-16 10:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-16_1030" title="Permanent link">&para;</a></h4>
+<p>Phew!<br />
+Now - first things first - it's brunch time,<br />
+afterwards it's merge time ;-)</p>
+<h4 id="jsmeix_commented_at_2023-03-16_1214"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471845270">2023-03-16 12:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-16_1214" title="Permanent link">&para;</a></h4>
+<p>Only FYI:</p>
+<p>During brunch time I was wondering<br />
+if I may improve the current user info message</p>
+<pre><code>files in the backup are not same as when the ReaR rescue/recovery system was made
+</code></pre>
+<p>where the part "when the ReaR rescue/recovery system was made"<br />
+might be perceived by the user as somewhat "nebulous", cf.<br />
+<a href="https://github.com/rear/rear/pull/2954#issuecomment-1467910938">https://github.com/rear/rear/pull/2954#issuecomment-1467910938</a><br />
+to a shorter and more explicit text</p>
+<pre><code>files in the backup are not same as when 'rear mkrescue' was run
+</code></pre>
+<p>because when the user did "rear mkbackup" then there is consistency<br />
+of what is in the recovery system with what is in the backup<br />
+at least with sufficent high probability that we can sufficently<br />
+safely assume that with "rear mkbackup" there will be no such<br />
+user messages about inconsistencies.</p>
+<p>BUT<br />
+then I remembered<br />
+<a href="https://github.com/rear/rear/issues/2951#issuecomment-1456051265">https://github.com/rear/rear/issues/2951#issuecomment-1456051265</a><br />
+that reads (excerpt)</p>
+<pre><code>... 'mkrescue' and 'mkbackup' and 'mkopalpba'
+... make a ReaR recovery system
+</code></pre>
+<p>so such user messages about inconsistencies<br />
+may (I don't know any TCG Opal 2 details)<br />
+also appear when TCG Opal 2 disks are used<br />
+which means the generic but somewhat "nebulous" wording</p>
+<pre><code>files in the backup are not same as when the ReaR rescue/recovery system was made
+</code></pre>
+<p>is the better one.</p>
+<h4 id="pcahyna_commented_at_2023-03-16_1335"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1471965830">2023-03-16 13:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-03-16_1335" title="Permanent link">&para;</a></h4>
+<p>@jsmeix this wording is totally OK for me. What seemed "nebulous" to me
+was the "recreated system" concept as distinct from restored files, not
+the "when the ReaR rescue/recovery system was made" part.</p>
+<h4 id="jsmeix_commented_at_2023-03-16_1437"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2954#issuecomment-1472103573">2023-03-16 14:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-16_1437" title="Permanent link">&para;</a></h4>
+<p>The longer one stares at an issue the more likely ghosts appear,<br />
+or in other worlds: "Don't dig too deep!"<br />
+<a href="https://en.wikipedia.org/wiki/Moria,_Middle-earth">https://en.wikipedia.org/wiki/Moria,_Middle-earth</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2022 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-03-07.2954.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
