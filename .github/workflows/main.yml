@@ -19,12 +19,13 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip     # install pip
-          python3 -m pip install mkdocs            # install mkdocs 
-          python3 -m pip install mkdocs-material   # install material theme
-          python3 -m pip install mkdocs-redirects  # install mkdocs-redirects
-          python3 -m pip install markdown <3.4     # to avoid issue 3
-          python3 -m pip install markdown-fenced-code-tabs
-          python3 -m pip install mkdocs-rtd-dropdown
+          python3 -m pip install -r requirements.txt
+          #python3 -m pip install mkdocs            # install mkdocs 
+          #python3 -m pip install mkdocs-material   # install material theme
+          #python3 -m pip install mkdocs-redirects  # install mkdocs-redirects
+          #python3 -m pip install markdown <3.4     # to avoid issue 3
+          #python3 -m pip install markdown-fenced-code-tabs
+          #python3 -m pip install mkdocs-rtd-dropdown
       - name: Build site
         run: mkdocs build
       - name: Deploy
