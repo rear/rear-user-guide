@@ -2910,6 +2910,7 @@
 - [\#2930 Issue](2023-02-14.2930.issue.closed.md) `closed`: Ensure config array variables are specified as arrays by the user
 - [\#2931 PR](2023-02-14.2931.pr.merged.md) `merged`: packit: production\_build job type was renamed to upstream\_koji\_build
 - [\#2932 PR](2023-02-15.2932.pr.merged.md) `merged`: check for wrong array assignment in user configs
+- [\#2933 Issue](2023-02-15.2933.issue.closed.md) `closed`: Oracle VM VirtualBox: ReaR Rescue ISO media stuk/freeze at "Probing EDD (edd=off to disable
 - [\#2933 Issue](2023-02-15.2933.issue.open.md) `open`: Oracle VM VirtualBox: ReaR Rescue ISO media stuk/freeze at "Probing EDD (edd=off to disable
 - [\#2934 PR](2023-02-15.2934.pr.merged.md) `merged`: Adding all ReaR validations I got in the last 2 years
 - [\#2936 Issue](2023-02-16.2936.issue.closed.md) `closed`: "rear mkrescue -C ..." option setting is not automatically used by "rear recover"
@@ -2950,21 +2951,25 @@
 - [\#2974 PR](2023-04-27.2974.pr.merged.md) `merged`: Bump actions/stale from 1 to 8
 - [\#2975 PR](2023-04-27.2975.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.0.2 to 4.2.1
 - [\#2976 PR](2023-04-28.2976.pr.merged.md) `merged`: Add .shellcheckrc adapted for ReaR
+- [\#2977 Issue](2023-05-02.2977.issue.closed.md) `closed`: Exclude SAN disk from the rear mkrescue process
 - [\#2977 Issue](2023-05-02.2977.issue.open.md) `open`: Exclude SAN disk from the rear mkrescue process
 - [\#2978 Issue](2023-05-03.2978.issue.open.md) `open`: BACKUP=RSYNC: BACKUP\_PROG\_ARCHIVE does not set backup destination (but sets backup logfile
 - [\#2979 PR](2023-05-04.2979.pr.closed.md) `closed`: superseded: non-interactive mode for ReaR
 - [\#2980 PR](2023-05-05.2980.pr.merged.md) `merged`: SYSLINUX timeout configurable
 - [\#2981 PR](2023-05-05.2981.pr.merged.md) `merged`: Increase USER\_INPUT\_INTERRUPT\_TIMEOUT default from 10 to 30 seconds
 - [\#2982 PR](2023-05-09.2982.pr.merged.md) `merged`: Update default.conf
+- [\#2983 Issue](2023-05-09.2983.issue.closed.md) `closed`: remote webdav cloud storage not applicable for TMPDIR on low HD space?
 - [\#2983 Issue](2023-05-09.2983.issue.open.md) `open`: remote webdav cloud storage not applicable for TMPDIR on low HD space?
 - [\#2984 Issue](2023-05-10.2984.issue.closed.md) `closed`: Automatic re-run disk creation shouldn't run forever
 - [\#2985 PR](2023-05-11.2985.pr.merged.md) `merged`: Do not leak the GALAXY11\_PASSWORD value into the log file
 - [\#2986 PR](2023-05-12.2986.pr.merged.md) `merged`: Do not leak the SSH\_ROOT\_PASSWORD value into the log file
+- [\#2987 Issue](2023-05-12.2987.issue.closed.md) `closed`: Error with `sudo rear mkopalpba`
 - [\#2987 Issue](2023-05-12.2987.issue.open.md) `open`: Error with `sudo rear mkopalpba`
 - [\#2988 PR](2023-05-14.2988.pr.merged.md) `merged`: Implement non-interactive mode
 - [\#2989 Issue](2023-05-17.2989.issue.closed.md) `closed`: ERROR: Failed to create '/tmp/rear.zzz/outputfs/server directory for OUTPUT\_URL=sshfs://...
 - [\#2990 Issue](2023-05-19.2990.issue.open.md) `open`: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config
 - [\#2991 PR](2023-05-24.2991.pr.merged.md) `merged`: ISO OUTPUT Improvements
+- [\#2992 Issue](2023-05-25.2992.issue.closed.md) `closed`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
 - [\#2992 Issue](2023-05-25.2992.issue.open.md) `open`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
 - [\#2993 Issue](2023-05-25.2993.issue.open.md) `open`: Rubrik CDM agent missing after ReaR recovery
 - [\#2994 Issue](2023-05-25.2994.issue.closed.md) `closed`: RFC: Should we activate security bug reports for ReaR?
@@ -2979,6 +2984,7 @@
 - [\#3003 PR](2023-06-02.3003.pr.merged.md) `merged`: Improvements of the Makefile distribution targets
 - [\#3004 Issue](2023-06-05.3004.issue.open.md) `open`: Merge / Rebase master before merging PRs?
 - [\#3005 Issue](2023-06-05.3005.issue.open.md) `open`: USE\_RESOLV\_CONF should default to "no" for USB backups (or update quickstart guide to cover this
+- [\#3006 PR](2023-06-06.3006.pr.merged.md) `merged`: New --expose-secrets option plus SECRET\_OUTPUT\_DEV
 - [\#3006 PR](2023-06-06.3006.pr.open.md) `open`: New --expose-secrets option plus SECRET\_OUTPUT\_DEV
 - [\#3007 Issue](2023-06-07.3007.issue.open.md) `open`: Disaster Recovery for our own ReaR upstream project
 - [\#3008 Issue](2023-06-08.3008.issue.closed.md) `closed`: When using xorriso, if the ISO\_DIR specification includes a schema, it will not work.
@@ -2987,4 +2993,23 @@
 - [\#3011 Issue](2023-06-09.3011.issue.open.md) `open`: Suggested tweaks to the initial `rear recover` menu
 - [\#3012 Issue](2023-06-09.3012.issue.open.md) `open`: Problems with the initial `rear recover` menu
 - [\#3013 Issue](2023-06-12.3013.issue.open.md) `open`: rear backup recover error
+- [\#3014 Issue](2023-06-19.3014.issue.open.md) `open`: RFC: enabling automatic backup and restore test
+- [\#3016 Issue](2023-06-22.3016.issue.open.md) `open`: Multiple Disk
+- [\#3017 Issue](2023-06-25.3017.issue.open.md) `open`: Recovery system fails to start up on Fedora 39 (systemd errors
+- [\#3018 Issue](2023-06-26.3018.issue.closed.md) `closed`: BACKUP=SESAM default excludes dysfunctional
+- [\#3019 PR](2023-06-26.3019.pr.merged.md) `merged`: issue: \#3018: fix sesam default exlude pathes
+- [\#3021 Issue](2023-06-27.3021.issue.open.md) `open`: libsystemd-shared-252.so not found
+- [\#3022 Issue](2023-06-27.3022.issue.closed.md) `closed`: Where can I find the public GPG keys used to verfiy packages published?
+- [\#3023 PR](2023-07-03.3023.pr.merged.md) `merged`: issue: \#3018: remove $SESAM\_WORK\_DIR from excludes
+- [\#3024 Issue](2023-07-04.3024.issue.closed.md) `closed`: GRUB2 on ISO with UEFI has 'root' hardcoded set to 'cd0' so booting from 'cd1' fails (regression from \#2662
+- [\#3025 PR](2023-07-11.3025.pr.merged.md) `merged`: Fix create\_grub2\_cfg function usage
+- [\#3026 Issue](2023-07-15.3026.issue.open.md) `open`: Rsync backup method with backup url on a Windows server
+- [\#3027 PR](2023-07-19.3027.pr.merged.md) `merged`: Make sure rescue contains all COPY\_AS\_IS files
+- [\#3028 Issue](2023-07-19.3028.issue.open.md) `open`: RFC: Do we still need COPY\_AS\_IS+=( /dev ... 
+- [\#3029 Issue](2023-07-24.3029.issue.closed.md) `closed`: ReaR should issue an error message and exit if USB\_DEVICE\_FILESYSTEM is invalid
+- [\#3030 PR](2023-07-24.3030.pr.merged.md) `merged`: Update 200\_check\_usb\_layout.sh
+- [\#3031 PR](2023-07-25.3031.pr.open.md) `open`: Secure Boot support for OUTPUT=USB
+- [\#3032 Issue](2023-07-27.3032.issue.open.md) `open`: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found
+- [\#3033 Issue](2023-07-28.3033.issue.open.md) `open`: Rear boots Linux system to recovery screen
+- [\#3034 PR](2023-08-02.3034.pr.open.md) `open`: Use '2&gt;&gt;/dev/$SECRET\_OUTPUT\_DEV'
 - # Issues History of Relax-and-Recover (index.md)
