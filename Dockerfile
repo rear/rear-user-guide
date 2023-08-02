@@ -19,6 +19,7 @@ FROM ubuntu:20.04
 ARG local_user=gdha
 ARG local_id=1002
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+COPY *requirements.txt ./
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -41,11 +42,7 @@ RUN apt-get update \
 RUN curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py \ 
     && python3 /tmp/get-pip.py \
     && pip install --upgrade pip \
-    && pip install mkdocs \
-    && pip install mkdocs-ivory \
-    && pip install mkdocs-redirects \
-    && pip install markdown-fenced-code-tabs \
-    && pip install mkdocs-rtd-dropdown \
+    && pip install -r requirements.txt \
     && apt autoremove \
     && apt-get -y remove gcc
 
