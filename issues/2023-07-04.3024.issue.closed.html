@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3024 Issue closed: GRUB2 on ISO with UEFI has 'root' hardcoded set to 'cd0' so booting from 'cd1' fails (regression from #2662) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3024 Issue closed: GRUB2 on ISO with UEFI has \u0027root\u0027 hardcoded set to \u0027cd0\u0027 so booting from \u0027cd1\u0027 fails (regression from #2662)";
+        var mkdocs_page_input_path = "issues/2023-07-04.3024.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">#3024 Issue closed: GRUB2 on ISO with UEFI has 'root' hardcoded set to 'cd0' so booting from 'cd1' fails (regression from #2662)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3024_issue_closed_grub2_on_iso_with_uefi_has_root_hardcoded_set_to_cd0_so_booting_from_cd1_fails_regression_from_2662"><a href="https://github.com/rear/rear/issues/3024">#3024 Issue</a> <code>closed</code>: GRUB2 on ISO with UEFI has 'root' hardcoded set to 'cd0' so booting from 'cd1' fails (regression from #2662)<a class="headerlink" href="#3024_issue_closed_grub2_on_iso_with_uefi_has_root_hardcoded_set_to_cd0_so_booting_from_cd1_fails_regression_from_2662" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="prontok_opened_issue_at_2023-07-04_1945"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> opened issue at <a href="https://github.com/rear/rear/issues/3024">2023-07-04 19:45</a>:<a class="headerlink" href="#prontok_opened_issue_at_2023-07-04_1945" title="Permanent link">&para;</a></h4>
+<p>Hello,<br />
+I am getting a problem at the GRUB loading stage</p>
+<p><img alt="изображение" src="https://github.com/rear/rear/assets/90829636/cc725552-8974-4a0a-b93f-ff5c61549246" /></p>
+<ol>
+<li>Relax-and-Recover 2.7 / 2022-07-13</li>
+<li>OS: Ubuntu Server 22.04</li>
+<li>LUKS1 (LUKS1/2 there is not much difference)</li>
+<li>UEFI</li>
+</ol>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=null
+BACKUP=NETFS
+BACKUP_URL="iso:///etc/rear/"
+ISO_DIR="/etc/rear"
+REAR_INITRD_COMPRESSION=fast
+USE_DHCLIENT=yes
+ISO_FILE_SIZE_LIMIT=0
+USER_INPUT_TIMEOUT=40
+LUKS_CRYPTSETUP_OPTIONS+=" --align-payload 32768"
+</code></pre>
+<p>P.S. If I use Bios Legacy with LUKS, then there are no such errors.</p>
+<p>Please help.</p>
+<h4 id="jsmeix_commented_at_2023-07-05_1202"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1621621011">2023-07-05 12:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-05_1202" title="Permanent link">&para;</a></h4>
+<p>@prontok<br />
+see<br />
+<a href="https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md">https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md</a><br />
+therein in particular</p>
+<pre><code>* Storage layout ("lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT")
+...
+* Attachments, as applicable ("rear -D mkrescue/mkbackup/recover" debug log files)
+</code></pre>
+<p>At least a "rear -D mkrescue" or a "rear -D mkbackup"<br />
+debug log file is needed plus the output of</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+</code></pre>
+<p>on your original system.</p>
+<p>FYI, see<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-i386/820_create_iso_image.sh#L7">https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-i386/820_create_iso_image.sh#L7</a></p>
+<h4 id="prontok_commented_at_2023-07-06_0734"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1623141366">2023-07-06 07:34</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-06_0734" title="Permanent link">&para;</a></h4>
+<p>Hello,<br />
+I collected the debug log and lsblk command<br />
+<a href="https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log">rear-ubuntu-server.log</a><br />
+<a href="https://github.com/rear/rear/files/11965618/lsblk.zip">lsblk.zip</a></p>
+<h4 id="jsmeix_commented_at_2023-07-06_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1623235464">2023-07-06 08:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-06_0843" title="Permanent link">&para;</a></h4>
+<p>@prontok<br />
+I think LUKS has nothing to do with this issue here<br />
+because the ReaR recovery system does not use LUKS.<br />
+The ReaR recovery system is unencrypted in ReaR's initrd.</p>
+<p>What fails here - as far as I see - is that the<br />
+ReaR recovery system bootloader cannot load<br />
+the ReaR recovery system kernel '/isolinux/kernel'<br />
+because of 'unknown filesystem'.</p>
+<p>In your log file<br />
+<a href="https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log">https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log</a><br />
+I don't see something obviously wrong,<br />
+in particular I don't see something obviously wrong<br />
+while the /usr/share/rear/output/*.sh scripts are run,<br />
+no real errors as far as I see - I think the many<br />
+grub-mkstandalone info messages</p>
+<pre><code>grub-mkstandalone: info: cannot open '/usr/share/locale/.../LC_MESSAGES/grub.mo': No such file or directory.
+</code></pre>
+<p>can be ignored because I think
+'/usr/share/locale/.../LC_MESSAGES/grub.mo'<br />
+are only optional localization messages.</p>
+<p>For an easier overview here excerpts from that log file:</p>
+<pre><code># egrep -o "Print '.*| source /usr/share/rear/output/.*" rear-ubuntu-server.log | uniq
+
+Print 'Running workflow mkbackup on the normal/original system'
+Print 'Using backup archive '\''/var/tmp/rear.qMnV9Tz7ac3UMgh/tmp/isofs/etc/rear//backup.tar.gz'\'''
+Print 'Found EFI system partition /dev/sda1 on /boot/efi type vfat'
+Print 'Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)'
+Print 'Using '\''/usr/bin/mkisofs'\'' to create ISO filesystem images'
+Print 'Using autodetected kernel '\''/boot/vmlinuz-5.15.0-76-generic'\'' as kernel in the recovery system'
+Print 'Creating disk layout'
+Print 'Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf'
+Print 'Disabling excluded components in /var/lib/rear/layout/disklayout.conf'
+Print 'Using guessed bootloader '\''EFI'\'' for '\''rear recover'\'' (found in first bytes on /dev/sda)'
+Print 'Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct'
+Print 'Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)'
+Print 'Creating recovery system root filesystem skeleton layout'
+Print 'Handling network interface '\''enp0s3'\'''
+Print 'enp0s3 is a physical device'
+Print 'Handled network interface '\''enp0s3'\'''
+Print 'Included current keyboard mapping (via '\''dumpkeys -f'\'')'
+Print 'No default US keyboard mapping included (no KEYMAPS_DEFAULT_DIRECTORY specified)'
+Print 'No support for different keyboard layouts (neither KEYMAPS_DEFAULT_DIRECTORY nor KEYMAPS_DIRECTORIES specified)'
+Print 'Trying to find what to use as UEFI bootloader...'
+Print 'Trying to find a '\''well known file'\'' to be used as UEFI bootloader...'
+Print 'Using '\''/boot/efi/EFI/ubuntu/grubx64.efi'\'' as UEFI bootloader file'
+Print 'Copying logfile /var/log/rear/rear-ubuntu-server.log into initramfs as '\''/tmp/rear-ubuntu-server-partial-2023-07-06T07:04:49+00:00.log'\'''
+Print 'Copying files and directories'
+Print 'Copying binaries and libraries'
+Print 'Copying all kernel modules in /lib/modules/5.15.0-76-generic (MODULES contains '\''all_modules'\'')'
+Print 'Copying all files in /lib*/firmware/'
+Print 'Skip copying broken symlink '\''/etc/resolv.conf'\'' target '\''/run/systemd/resolve/stub-resolv.conf'\'' on /proc/ /sys/ /dev/ or /run/'
+Print 'Skip copying broken symlink '\''/etc/mtab'\'' target '\''/proc/63937/mounts'\'' on /proc/ /sys/ /dev/ or /run/'
+Print 'Testing that the recovery system in /var/tmp/rear.qMnV9Tz7ac3UMgh/rootfs contains a usable system'
+Print 'Testing each binary with '\''ldd'\'' and look for '\''not found'\'' libraries within the recovery system'
+Print 'Testing that the existing programs in the PROGS array can be found as executable command within the recovery system'
+Print 'Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system'
+Print 'Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip fast compression'
+Print 'Created initrd.cgz with gzip fast compression (711074778 bytes) in 42 seconds'
+Print 'Making backup (using backup method NETFS)'
+Print 'Creating tar archive '\''/var/tmp/rear.qMnV9Tz7ac3UMgh/tmp/isofs/etc/rear//backup.tar.gz'\'''
+Print 'Archived 1241 MiB in 183 seconds [avg 6948 KiB/sec]'
+ source /usr/share/rear/output/default/010_set_umask.sh
+ source /usr/share/rear/output/default/100_mount_output_path.sh
+ source /usr/share/rear/output/default/150_save_copy_of_prefix_dir.sh
+ source /usr/share/rear/output/default/200_make_boot_dir.sh
+ source /usr/share/rear/output/default/200_make_prefix_dir.sh
+ source /usr/share/rear/output/default/250_create_lock.sh
+ source /usr/share/rear/output/ISO/Linux-i386/250_populate_efibootimg.sh
+Print 'Configuring GRUB2 kernel /isolinux/kernel'
+Print 'Configuring GRUB2 initrd /isolinux/initrd.cgz'
+Print 'Configuring GRUB2 root device as '\''set root=cd0'\'''
+Print 'GRUB2 modules to load: ext2 fat part_gpt part_msdos'
+Print 'Did not find /boot/grub/locale files (minor issue for UEFI ISO boot)'
+ source /usr/share/rear/output/ISO/Linux-i386/260_EFISTUB_populate.sh
+ source /usr/share/rear/output/ISO/Linux-i386/300_create_isolinux.sh
+ source /usr/share/rear/output/default/400_copy_disk_struct_files.sh
+ source /usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh
+ source /usr/share/rear/output/ISO/Linux-i386/800_create_isofs.sh
+ source /usr/share/rear/output/ISO/Linux-i386/810_prepare_multiple_iso.sh
+ source /usr/share/rear/output/ISO/Linux-i386/820_create_iso_image.sh
+Print 'Making ISO image'
+Print 'Wrote ISO image: /etc/rear/rear-ubuntu-server.iso (2.1G)'
+ source /usr/share/rear/output/ISO/Linux-i386/830_create_iso_image_EFISTUB.sh
+ source /usr/share/rear/output/ISO/Linux-i386/850_check_for_errors.sh
+ source /usr/share/rear/output/default/940_grub2_rescue.sh
+ source /usr/share/rear/output/default/940_grub_rescue.sh
+ source /usr/share/rear/output/default/950_copy_result_files.sh
+ source /usr/share/rear/output/default/950_email_result_files.sh
+ source /usr/share/rear/output/default/970_remove_lock.sh
+ source /usr/share/rear/output/default/980_umount_output_dir.sh
+Print 'Exiting rear mkbackup (PID 53813) and its descendant processes ...'
+Print 'Running exit tasks'
+Print 'To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.qMnV9Tz7ac3UMgh'
+</code></pre>
+<p>In particular<br />
+"Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)"<br />
+and<br />
+"Using /boot/efi/EFI/ubuntu/grubx64.efi as UEFI bootloader file"<br />
+are properly autodetected.</p>
+<p>I am not at all a sufficient expert in the ReaR recovery system<br />
+bootloader area or the ISO generation area to be able to imagine<br />
+what may go wrong in this specific case here.</p>
+<p>In particular regarding Ubuntu:<br />
+I am not a Ubuntu user (and I won't find time<br />
+to test ReaR with Ubuntu) and we at ReaR upstream<br />
+do not have an active maintainer who uses Ubuntu<br />
+(it seems Canonical is not interested to support ReaR)<br />
+so ReaR support for Ubuntu can be only as good as voluntary<br />
+contributors who use Ubuntu contribute - which is much appreciated!</p>
+<h4 id="jsmeix_commented_at_2023-07-06_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1623671480">2023-07-06 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-06_1319" title="Permanent link">&para;</a></h4>
+<p>Only an offhanded guess (I am not at all a GRUB expert):<br />
+When I read</p>
+<pre><code>Print 'Configuring GRUB2 kernel /isolinux/kernel'
+Print 'Configuring GRUB2 initrd /isolinux/initrd.cgz'
+Print 'Configuring GRUB2 root device as '\''set root=cd0'\'''
+Print 'GRUB2 modules to load: ext2 fat part_gpt part_msdos'
+</code></pre>
+<p>I am wondering on what filesystem /isolinux/kernel<br />
+and /isolinux/initrd.cgz are?<br />
+Perhaps for GRUB2 that filesystem is<br />
+an 'unknown filesystem' (neither ext2 nor fat)?</p>
+<h4 id="prontok_commented_at_2023-07-07_0653"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1624844434">2023-07-07 06:53</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-07_0653" title="Permanent link">&para;</a></h4>
+<p>Good afternoon,<br />
+I think i found the problem while recovery.<br />
+Ubuntu has been using ext4 file system on /boot, but R&amp;R load "ext2 fat
+part_gpt part_msdos" modules at the time of creation an iso image. R&amp;R
+doesn't use ext4 module.<br />
+I tried to use this environment:<br />
+GRUB2_MODULES_UEFI_LOAD=( ext4 fat part_gpt part_msdos ), but it
+didn't work out.</p>
+<h4 id="prontok_commented_at_2023-07-07_0659"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1624850231">2023-07-07 06:59</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-07_0659" title="Permanent link">&para;</a></h4>
+<p>By the way, R&amp;R successfully collected the image from Debian (LUKS2,
+UEFI) because Debian use "ext2 /boot"</p>
+<h4 id="jsmeix_commented_at_2023-07-07_0837"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1625052816">2023-07-07 08:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-07_0837" title="Permanent link">&para;</a></h4>
+<p>By "googling" for 'grub ext2 module'<br />
+I found this 10 years old info<br />
+<a href="https://unix.stackexchange.com/questions/59332/how-is-grub-able-to-read-its-config-file-on-ext3-fileystem">https://unix.stackexchange.com/questions/59332/how-is-grub-able-to-read-its-config-file-on-ext3-fileystem</a><br />
+which tells (excerpts)</p>
+<pre><code>The grub ext2 module also understands ext3 and ext4
+
+Grub (0.9x) supports ext2 and ext3 but not ext4
+(unless backward-incompatible features are turned-off).
+Whereas, Grub2 (since 1.97) supports ext2, ext3 and ext4
+with the same module [ext2.mod] ...
+</code></pre>
+<p>Accordingly on my openSUSE Leap system I don't have<br />
+a GRUB module named 'ext4' - I only have</p>
+<pre><code>/usr/share/grub2/i386-pc/ext2.mod
+/usr/share/grub2/x86_64-efi/ext2.mod
+</code></pre>
+<p>and your<br />
+<a href="https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log">https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log</a><br />
+contains</p>
+<pre><code>grub-mkstandalone: info: copying `/usr/lib/grub/x86_64-efi/ext2.mod' -&gt; `/var/tmp/grub.5prE3u/boot/grub/x86_64-efi/ext2.mod'.
+...
+grub-mkstandalone: info: grub-mkimage --directory '/usr/lib/grub/x86_64-efi' --prefix '(memdisk)/boot/grub' --output '/var/tmp/rear.qMnV9Tz7ac3UMg
+h/tmp/mnt/EFI/BOOT/BOOTX64.efi'  --dtb '' --sbat '' --format 'x86_64-efi' --compression 'auto'   --memdisk '/var/tmp/grub.70v7P0' 'ext2' 'fat' 'pa
+rt_gpt' 'part_msdos' 'memdisk' 'tar'
+...
+grub-mkstandalone: info: reading /usr/lib/grub/x86_64-efi/ext2.mod.
+</code></pre>
+<p>so things look good regarding ext2/3/4 support in GRUB2<br />
+but actually things aren't good.</p>
+<p>My blind guess is that in this case the filesystem<br />
+(or whatever kind of "filesystem" is used in an ISO)<br />
+where /isolinux/kernel and /isolinux/initrd.cgz are<br />
+is not ext2 ext3 ext4 or fat but "something different"?</p>
+<p>E.g. on my my openSUSE Leap system I have</p>
+<pre><code>/usr/share/grub2/i386-pc/iso9660.mod
+/usr/share/grub2/x86_64-efi/iso9660.mod
+</code></pre>
+<p>Perhaps the GRUB module 'iso9660' is needed on ISO?<br />
+Cf.<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-ppc64/310_create_grub2.sh#L39">https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-ppc64/310_create_grub2.sh#L39</a><br />
+and<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-ppc64le/300_create_grub2.sh#L34">https://github.com/rear/rear/blob/master/usr/share/rear/output/ISO/Linux-ppc64le/300_create_grub2.sh#L34</a></p>
+<p>But if the GRUB module 'iso9660' is needed on ISO<br />
+why does it then work with BIOS?</p>
+<p>Probably the reason why it fails with UEFI is "something else".</p>
+<h4 id="pcahyna_commented_at_2023-07-10_1347"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1629006262">2023-07-10 13:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-10_1347" title="Permanent link">&para;</a></h4>
+<p>"GRUB2 modules to load: ext2 fat part_gpt part_msdos" means that these
+modules are loaded by default, but other modules should be available as
+well embedded in the GRUB image, and should be autoloaded as needed, so
+I wonder what the problem is (see
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/uefi-functions.sh#L123">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/uefi-functions.sh#L123</a>).
+Can you please execute the <code>set</code> command and the <code>lsmod</code> on the GRUB
+command line and show us the result? To find whether the module is
+available, please execute <code>ls (memdisk)/boot/grub/x86_64-efi/</code> and also
+report the result. You can also try <code>insmod iso9660</code> manually and if it
+works, try to boot again.</p>
+<h4 id="prontok_commented_at_2023-07-11_0652"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630249153">2023-07-11 06:52</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_0652" title="Permanent link">&para;</a></h4>
+<p>Hello,<br />
+Our EFI boot partition has VFAT filesystem type.<br />
+I have a guess - Ubuntu or Linux Mint kernels have embedded support of
+fat/vfat file systems and subsequently don't use fat/vfat modules for
+mounting such partitions (it can be detected by lsmod command - no
+modules with name fat/vfat will be shown in Ubuntu)<br />
+And I think that rear try to use vfat module for addressing to efi
+partition but can't do it due to missing that module.<br />
+It just a guess and I can be mistaken after all.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_0917"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630462163">2023-07-11 09:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_0917" title="Permanent link">&para;</a></h4>
+<p>@prontok</p>
+<p>my current understanding is according to those excerpts from<br />
+<a href="https://github.com/rear/rear/issues/3024#issuecomment-1623235464">https://github.com/rear/rear/issues/3024#issuecomment-1623235464</a></p>
+<pre><code>What fails here - as far as I see - is that the
+ReaR recovery system bootloader cannot load
+the ReaR recovery system kernel '/isolinux/kernel'
+because of 'unknown filesystem'.
+...
+Print 'Configuring GRUB2 kernel /isolinux/kernel'
+Print 'Configuring GRUB2 initrd /isolinux/initrd.cgz'
+</code></pre>
+<p>GRUB2 is used as bootloader in the recovery system and<br />
+GRUB2 cannot load the Linux kernel '/isolinux/kernel'<br />
+because of 'unknown filesystem'.</p>
+<p>So talking about "modules" above means GRUB2 modules<br />
+but not Linux kernel modules because there is<br />
+no Linux kernel running at that point in time.</p>
+<h4 id="pcahyna_commented_at_2023-07-11_0924"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630472384">2023-07-11 09:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_0924" title="Permanent link">&para;</a></h4>
+<p>@prontok</p>
+<blockquote>
+<p>Our EFI boot partition has VFAT filesystem type.</p>
+</blockquote>
+<p>In addition to what @jsmeix wrote, aren't you booting from a ReaR rescue
+DVD? How is the EFI boot partition (on a hard disk) related to the
+inability to read the kernel from the DVD? Or does the DVD also contain
+an EFI boot partition?</p>
+<h4 id="pcahyna_commented_at_2023-07-11_0926"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630474409">2023-07-11 09:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_0926" title="Permanent link">&para;</a></h4>
+<p>@prontok have you tried anything of what I suggested in
+<a href="https://github.com/rear/rear/issues/3024#issuecomment-1629006262">https://github.com/rear/rear/issues/3024#issuecomment-1629006262</a>
+?</p>
+<h4 id="prontok_commented_at_2023-07-11_1137"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630663869">2023-07-11 11:37</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1137" title="Permanent link">&para;</a></h4>
+<p>I prepared the screenshots<br />
+<a href="https://github.com/rear/rear/files/12014091/grub2.tar.gz">grub2.tar.gz</a></p>
+<h4 id="prontok_commented_at_2023-07-11_1159"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630694476">2023-07-11 11:59</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1159" title="Permanent link">&para;</a></h4>
+<p>In Debian system:<br />
+<strong>grub&gt; ls<br />
+(proc) (memdisk) (hd0) (hd0,gpt3) (hd0,gpt2) (hd0,gpt1) (cd0)<br />
+grub&gt;</strong></p>
+<p>In Ubuntu system:<br />
+<strong>grub&gt; ls<br />
+(proc) (memdisk) (hd0) (cd0) (cd1)<br />
+grub&gt;</strong></p>
+<h4 id="pcahyna_commented_at_2023-07-11_1208"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630706633">2023-07-11 12:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1208" title="Permanent link">&para;</a></h4>
+<p>@prontok thanks, I believe we can make progress thanks to this.</p>
+<p>Everything looks good, except that your <code>root</code> is set to <code>cd0</code> and you
+have two DVD drives apparently and your rescue DVD is <code>cd1</code>, not <code>cd0</code>
+(note that this is not the case in Debian, thats IMO why Debian works).
+Try <code>set root=cd1</code> and then <code>ls /isolinux</code> and if it succeeds, return to
+the menu (ESC) and boot again.</p>
+<h4 id="prontok_commented_at_2023-07-11_1349"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630871765">2023-07-11 13:49</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1349" title="Permanent link">&para;</a></h4>
+<p>@pcahyna I applied <strong>set root=cd1</strong> and after that the system has been
+normal restored.<br />
+The original system has one cdrom (cd1) device and it is not used by
+default in ISO image during restore, but uses some cd0 device.<br />
+I don't understand why there are two cdrom devices during restore
+process.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1406"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630899474">2023-07-11 14:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1406" title="Permanent link">&para;</a></h4>
+<p>I found some reason (perhaps not the root cause)<br />
+why it fails:</p>
+<p>In output/ISO/Linux-i386/250_populate_efibootimg.sh<br />
+there is hardcoded <code>grub2_set_root=cd0</code> in</p>
+<pre><code>    grub2_set_root=cd0
+    create_grub2_cfg /isolinux/kernel /isolinux/$REAR_INITRD_FILENAME &gt; $efi_boot_tmp_dir/grub.cfg
+</code></pre>
+<p>The <code>create_grub2_cfg</code> function<br />
+in lib/bootloader-functions.sh works appropriately<br />
+to respect when <code>grub2_set_root</code> is set which means<br />
+the config variable GRUB2_SEARCH_ROOT_COMMAND is ignored<br />
+(which is against "final power to the user")</p>
+<pre><code>function create_grub2_cfg {
+...
+    local grub2_search_root_command="$3"
+    if ! test "$grub2_search_root_command" ; then
+        test "$grub2_set_root" &amp;&amp; grub2_search_root_command="set root=$grub2_set_root"
+    fi
+    if ! test "$grub2_search_root_command" ; then
+        test "$GRUB2_SEARCH_ROOT_COMMAND" &amp;&amp; grub2_search_root_command="$GRUB2_SEARCH_ROOT_COMMAND"
+    fi
+    test "$grub2_search_root_command" || grub2_search_root_command="search --no-floppy --set=root --file /boot/efiboot.img"
+    DebugPrint "Configuring GRUB2 root device as '$grub2_search_root_command'"
+</code></pre>
+<p>This appears in<br />
+<a href="https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log">https://github.com/rear/rear/files/11965596/rear-ubuntu-server.log</a><br />
+as</p>
+<pre><code>+ source /usr/share/rear/output/ISO/Linux-i386/250_populate_efibootimg.sh
+...
+++ grub2_set_root=cd0
+++ create_grub2_cfg /isolinux/kernel /isolinux/initrd.cgz
+...
+++ local grub2_search_root_command=
+++ test ''
+++ test cd0
+++ grub2_search_root_command='set root=cd0'
+++ test 'set root=cd0'
+++ test 'set root=cd0'
+++ DebugPrint 'Configuring GRUB2 root device as '\''set root=cd0'\'''
+++ Debug 'Configuring GRUB2 root device as '\''set root=cd0'\'''
+++ test 1
+++ Log 'Configuring GRUB2 root device as '\''set root=cd0'\'''
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-07-11_1418"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630920353">2023-07-11 14:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1418" title="Permanent link">&para;</a></h4>
+<p>@prontok<br />
+your<br />
+<a href="https://github.com/rear/rear/files/11965618/lsblk.zip">https://github.com/rear/rear/files/11965618/lsblk.zip</a><br />
+shows only one device '/dev/sr0' of lsblk TYPE 'rom'.</p>
+<p>So during "rear mkrescue/mkbackup" it would be impossible<br />
+to autodetect that later during ReaR recovery system boot<br />
+there are two devices of lsblk TYPE 'rom' and that the<br />
+ReaR recovery system bootloader boots from the second one.</p>
+<p>As far as I see I think your case is a very special case<br />
+where the only way to boot the ReaR recovery system<br />
+is to manually set in GRUB2 the right 'root' for GRUB2.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1421"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630926324">2023-07-11 14:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1421" title="Permanent link">&para;</a></h4>
+<p>@prontok<br />
+are your systems (the original and the replacement)<br />
+both real hardware or are they virtual machines?</p>
+<h4 id="prontok_commented_at_2023-07-11_1433"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630945658">2023-07-11 14:33</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1433" title="Permanent link">&para;</a></h4>
+<p>Both the original and replacement systems are running on VirtualBox
+virtual machines.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1436"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630951877">2023-07-11 14:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1436" title="Permanent link">&para;</a></h4>
+<p>Then I guess that the second CDROM device was added by accident<br />
+instead of assigning the ReaR recovery system ISO image<br />
+to the already existing first CDROM device<br />
+or something like that.</p>
+<p>I am not a VirtualBox user.<br />
+I only use QEMU/KVM virtual machines.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1443"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630963778">2023-07-11 14:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1443" title="Permanent link">&para;</a></h4>
+<p>Because GRUB2_SEARCH_ROOT_COMMAND is empty in default.conf<br />
+I can improve the code of the create_grub2_cfg function<br />
+to provide final power to the user and always respect<br />
+GRUB2_SEARCH_ROOT_COMMAND when the user has set it.</p>
+<h4 id="prontok_commented_at_2023-07-11_1454"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1630982693">2023-07-11 14:54</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1454" title="Permanent link">&para;</a></h4>
+<p>Our main goal is to create "gold" image using R&amp;R from VirtualBox
+virtual machine and then distribute it on hardware PC computer park. But
+at the current stage we are testing it just on VirtualBox and allready
+faced to problems.</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1523"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631030406">2023-07-11 15:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1523" title="Permanent link">&para;</a></h4>
+<p>Perhaps a GRUB2 expert could make a GRUB2_SEARCH_ROOT_COMMAND<br />
+which works reasonably well in practice "out there"<br />
+to let GRUB2 automatically find its right 'root'<br />
+regardless from what device GRUB2 is booting?</p>
+<p>In default.conf</p>
+<pre><code># GRUB2_SEARCH_ROOT_COMMAND="search --no-floppy --set=root --file /EFI/BOOT/BOOTX64.efi"
+</code></pre>
+<p>looks interesting.<br />
+Perhaps we could place a special file at "the right place"<br />
+in the ReaR recovery system so that GRUB2 could automatically<br />
+find the right 'root' to boot the ReaR recovery system?</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1523"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631031557">2023-07-11 15:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1523" title="Permanent link">&para;</a></h4>
+<p>That's the point, it should be working already. not sure what's wrong.</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1535"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631050401">2023-07-11 15:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1535" title="Permanent link">&para;</a></h4>
+<p>Ooops. In create_grub2_cfg‎<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L549">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L549</a><br />
+but this function is never called with 3 arguments AFAICT.<br />
+<code>GRUB2_SEARCH_ROOT_COMMAND</code> is set here:<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh#L99">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh#L99</a><br />
+and here:<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/USB/Linux-i386/300_create_grub.sh#L83">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/USB/Linux-i386/300_create_grub.sh#L83</a><br />
+but this is valid only for USB output and I can't find any corresponding
+code for ISO.<br />
+This explains what I wrote in #2453 "Sometimes the search command in
+GRUB2 used in UEFI ISO does not find the root device." - no <code>search</code>
+command gets executed in the first place. Seems strange that there was
+no search command executed at all at the time when I made that PR. Maybe
+the code has changed since then?</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1542"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631062319">2023-07-11 15:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1542" title="Permanent link">&para;</a></h4>
+<p>Now, the line<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L556">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L556</a><br />
+would set <code>grub2_search_root_command</code> to a sensible default. But since
+<code>grub2_set_root</code> is set already here:<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/ISO/Linux-i386/250_populate_efibootimg.sh#L73">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/output/ISO/Linux-i386/250_populate_efibootimg.sh#L73</a><br />
+the sensible default is never reached, as <code>grub2_search_root_command</code> is
+set before:<br />
+<a href="https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L551">https://github.com/rear/rear/blob/23977a19101b6e6eaeebbe8ce013332ddf9ea517/usr/share/rear/lib/bootloader-functions.sh#L551</a></p>
+<h4 id="pcahyna_commented_at_2023-07-11_1544"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631064739">2023-07-11 15:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1544" title="Permanent link">&para;</a></h4>
+<p>@prontok could I ask you to boot the DVD again and when it drops to the
+GRUB prompt, try this command</p>
+<pre><code>search --no-floppy --set=root --file /boot/efiboot.img
+</code></pre>
+<p>and then examine the value of <code>root</code> again? This command should set it
+to <code>cd1</code>.</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1607"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631102003">2023-07-11 16:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1607" title="Permanent link">&para;</a></h4>
+<p>It seems that the problem was introduced here:<br />
+<a href="https://github.com/rear/rear/pull/2662/files#diff-0f08921736e9ccdea612e80a0fa8c57bee8e07b1a70cb25da4700b3017ff00cdL624">https://github.com/rear/rear/pull/2662/files#diff-0f08921736e9ccdea612e80a0fa8c57bee8e07b1a70cb25da4700b3017ff00cdL624</a><br />
+previously, <code>search --no-floppy --file /boot/efiboot.img --set</code> was
+introduced unconditionally after <code>set root=$grub2_set_root</code>
+<a href="https://github.com/rear/rear/pull/2662/files#diff-0f08921736e9ccdea612e80a0fa8c57bee8e07b1a70cb25da4700b3017ff00cdL609">https://github.com/rear/rear/pull/2662/files#diff-0f08921736e9ccdea612e80a0fa8c57bee8e07b1a70cb25da4700b3017ff00cdL609</a></p>
+<p>But now, it is executed only if <code>$grub2_set_root</code> is empty (which it is
+not).</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1615"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631113551">2023-07-11 16:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1615" title="Permanent link">&para;</a></h4>
+<p>I see I was asked for review on #2662 and never did it. My bad.</p>
+<h4 id="prontok_commented_at_2023-07-11_1915"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631378682">2023-07-11 19:15</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-11_1915" title="Permanent link">&para;</a></h4>
+<p>@pcahyna It is worked, I entered the command <strong>search --no-floppy
+--set=root --file /boot/efiboot.img</strong> in Grub commandline and root value
+has become <strong>root=cd1</strong> and after that recovery is being carried out
+correctly</p>
+<p><img alt="изображение" src="https://github.com/rear/rear/assets/90829636/a1ed6e0f-d847-4d97-92f1-7275bc13f271" /></p>
+<h4 id="jsmeix_commented_at_2023-07-12_0533"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1631876311">2023-07-12 05:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-12_0533" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for finding the root cause!</p>
+<h4 id="jsmeix_commented_at_2023-07-13_1151"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1634107179">2023-07-13 11:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-13_1151" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3025">https://github.com/rear/rear/pull/3025</a><br />
+should fix this issue,<br />
+see in particular boot/grub/grub.cfg inside the ISO<br />
+in my tests<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1634049686">https://github.com/rear/rear/pull/3025#issuecomment-1634049686</a><br />
+and (with two CDROM drivers)<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1634118226">https://github.com/rear/rear/pull/3025#issuecomment-1634118226</a></p>
+<h4 id="prontok_commented_at_2023-07-18_1426"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1640332926">2023-07-18 14:26</a>:<a class="headerlink" href="#prontok_commented_at_2023-07-18_1426" title="Permanent link">&para;</a></h4>
+<p>Hello,<br />
+Draw your attention! This problem "<strong>GRUB2 on ISO with UEFI has 'root'
+hardcoded set to 'cd0' so booting from 'cd1' fails</strong>" only occurs when
+using LUKS on the original operating system.<br />
+Without the use of LUKS, this problem does not exist !</p>
+<h4 id="jsmeix_commented_at_2023-07-19_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1642163189">2023-07-19 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-19_1410" title="Permanent link">&para;</a></h4>
+<p>@prontok<br />
+can you provide evidence why it depends on LUKS?<br />
+Cf. my above<br />
+<a href="https://github.com/rear/rear/issues/3024#issuecomment-1623235464">https://github.com/rear/rear/issues/3024#issuecomment-1623235464</a></p>
+<h4 id="jsmeix_commented_at_2023-07-21_1257"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3024#issuecomment-1645545379">2023-07-21 12:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-21_1257" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/3025">https://github.com/rear/rear/pull/3025</a>
+merged<br />
+this regression should be fixed.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-07-04.3024.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

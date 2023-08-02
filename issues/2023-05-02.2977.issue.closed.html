@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2977 Issue closed: Exclude SAN disk from the rear mkrescue process - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2977 Issue closed: Exclude SAN disk from the rear mkrescue process";
+        var mkdocs_page_input_path = "issues/2023-05-02.2977.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">#2977 Issue closed: Exclude SAN disk from the rear mkrescue process</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2977_issue_closed_exclude_san_disk_from_the_rear_mkrescue_process"><a href="https://github.com/rear/rear/issues/2977">#2977 Issue</a> <code>closed</code>: Exclude SAN disk from the rear mkrescue process<a class="headerlink" href="#2977_issue_closed_exclude_san_disk_from_the_rear_mkrescue_process" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="itguyatwork_opened_issue_at_2023-05-02_2008"><img src="https://avatars.githubusercontent.com/u/132390278?v=4" width="50"><a href="https://github.com/ITGuyAtWork">ITGuyAtWork</a> opened issue at <a href="https://github.com/rear/rear/issues/2977">2023-05-02 20:08</a>:<a class="headerlink" href="#itguyatwork_opened_issue_at_2023-05-02_2008" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+
+Fill in the following items before submitting a new issue.
+(quick response is not guaranteed with free support):
+
+Please use proper GitHub Flavoured Markdown,
+see "Basic writing and formatting syntax" at
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+-- You can safely remove this comment block
+-->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recovery 2.7 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OS_VENDOR=RedHatEnterpriseServer
+OS_VERSION=6.9
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+BACKUP=CMD
+ISO_DIR=/var/rearISO
+AUTOEXCLUDE_PATH=(/dev/sdaa)  ** Try to exclude the /dev/sdaa disk 
+AUTOEXCLUDE_MULTIPATH=y
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    HP DL 360 G10</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86 compatible</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    Local disk, SAN (FC)</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):<br />
+    See the log attached</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>Hi.<br />
+Trying to create the ISO file with the "rear -v mkrescue" command.<br />
+The goal is just to create ISO file;<br />
+then we will create the bootable USB stick with this ISO.<br />
+The data backup and recover will be done with Rubrik instead of rear.<br />
+However, the process keep reporting the error below and mkrescue is not
+able to generate the ISO file:</p>
+<pre><code>No partition label type for 'disk /dev/sdaa' (may cause 'rear recover' failure)
+Unsupported partition table '' (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')**
+</code></pre>
+<p>The "disk /dev/sdaa" is one of the SAN storage<br />
+connected through FC on this physical server;<br />
+this physical server has multiple SAN storage connected through FC.</p>
+<p>Checked the "/var/lib/rear/layout/disklayout.conf" file,<br />
+and it shows rest of the SAN storage were excluded<br />
+(guess this is excluded by default with the AUTOEXCLUDE parameter),<br />
+except /dev/sdaa</p>
+<p>How can we configure the mkrescue process to exclude /dev/sdaa<br />
+so it can generate the ISO file we need?<br />
+Thank you.</p>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<p><a href="https://github.com/rear/rear/files/11377230/layout.txt">layout.txt</a><br />
+<a href="https://github.com/rear/rear/files/11377231/rear-toro-vsaa-p001.log">rear-toro-vsaa-p001.log</a><br />
+<a href="https://github.com/rear/rear/files/11377295/disklayout.txt">disklayout.txt</a></p>
+<h4 id="abbbi_commented_at_2023-05-03_0814"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/2977#issuecomment-1532622164">2023-05-03 08:14</a>:<a class="headerlink" href="#abbbi_commented_at_2023-05-03_0814" title="Permanent link">&para;</a></h4>
+<p>AUTOEXCLUDE_PATH refers to path of the mointpoint for the device, not
+the device itself. So adding /dev/sdaa to this option wont solve your
+issue. If the system uses multipath, output of multipath -ll probably
+helps and rear log with debug option to get detailed debug output.</p>
+<h4 id="itguyatwork_commented_at_2023-05-05_1544"><img src="https://avatars.githubusercontent.com/u/132390278?v=4" width="50"><a href="https://github.com/ITGuyAtWork">ITGuyAtWork</a> commented at <a href="https://github.com/rear/rear/issues/2977#issuecomment-1536446131">2023-05-05 15:44</a>:<a class="headerlink" href="#itguyatwork_commented_at_2023-05-05_1544" title="Permanent link">&para;</a></h4>
+<p>Hi.<br />
+Thanks for the response.<br />
+Looks like the multipath package wasn't installed on this Linux machine;
+the multipath access to the SAN storage might have been provided by the
+SAN client agent installed on this machine.<br />
+In this case, is there other option that I can try to exclude this
+specific disk from the mkrescue process?</p>
+<p>This is the debug log I've generated:<br />
+<a href="https://github.com/rear/rear/files/11407912/rear-toro-vsaa-p001.log">rear-toro-vsaa-p001.log</a></p>
+<p>Thanks.</p>
+<h4 id="github-actions_commented_at_2023-07-05_0248"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2977#issuecomment-1620941395">2023-07-05 02:48</a>:<a class="headerlink" href="#github-actions_commented_at_2023-07-05_0248" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-05-02.2977.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

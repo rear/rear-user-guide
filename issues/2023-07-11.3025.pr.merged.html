@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3025 PR merged: Fix create_grub2_cfg function usage - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3025 PR merged: Fix create_grub2_cfg function usage";
+        var mkdocs_page_input_path = "issues/2023-07-11.3025.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">#3025 PR merged: Fix create_grub2_cfg function usage</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3025_pr_merged_fix_create_grub2_cfg_function_usage"><a href="https://github.com/rear/rear/pull/3025">#3025 PR</a> <code>merged</code>: Fix create_grub2_cfg function usage<a class="headerlink" href="#3025_pr_merged_fix_create_grub2_cfg_function_usage" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-07-11_1459"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3025">2023-07-11 14:59</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-07-11_1459" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>Cleanup</strong> / <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3024#issuecomment-1630963778">https://github.com/rear/rear/issues/3024#issuecomment-1630963778</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    I did some basic tests, see<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1634049686">https://github.com/rear/rear/pull/3025#issuecomment-1634049686</a><br />
+    and<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1634118226">https://github.com/rear/rear/pull/3025#issuecomment-1634118226</a><br />
+    It even works reasonably well with Secure Boot for me, see<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1635876186">https://github.com/rear/rear/pull/3025#issuecomment-1635876186</a><br />
+    I verified that OUTPUT=USB still works, see<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1643774477">https://github.com/rear/rear/pull/3025#issuecomment-1643774477</a></p>
+</li>
+<li>
+<p>Brief description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Fix create_grub2_cfg function usage</p>
+<h4 id="jsmeix_commented_at_2023-07-11_1507"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1631005099">2023-07-11 15:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-11_1507" title="Permanent link">&para;</a></h4>
+<p>Found same kind of issue against "final power to the user"<br />
+in output/USB/Linux-i386/300_create_grub.sh<br />
+by hardcoded setting of GRUB2_SEARCH_ROOT_COMMAND<br />
+regardless what the user may have specified.</p>
+<h4 id="pcahyna_commented_at_2023-07-11_1614"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1631111416">2023-07-11 16:14</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-11_1614" title="Permanent link">&para;</a></h4>
+<p>The code being changed misses the intent of the code before #2662 .
+<code>set root=cd0</code> and
+<code>search --no-floppy --set=root --file /boot/efiboot.img</code> should be both
+executed (<code>set root=cd0</code> sets a sensible default that works in most
+cases and applies when
+<code>search --no-floppy --set=root --file /boot/efiboot.img</code> fails to do its
+job properly), but right now one executes only one of them ( with
+<code>set root=cd0</code> taking precedence), which fails as soon as the DVD is not
+in the first DVD drive.</p>
+<h4 id="jsmeix_commented_at_2023-07-13_1106"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1634049686">2023-07-13 11:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-13_1106" title="Permanent link">&para;</a></h4>
+<p>With the current state of this pull request up to<br />
+<a href="https://github.com/rear/rear/pull/3025/commits/28fdbd8c7e1d5604ede1c7a73644e0e428c456ce">https://github.com/rear/rear/pull/3025/commits/28fdbd8c7e1d5604ede1c7a73644e0e428c456ce</a><br />
+I works OK for my personal test case<br />
+(which does not mean much because I am not an expert in this area).</p>
+<p>My original system is a KVM/QEMU VM<br />
+with OVMF "TianoCore" UEFI firmware:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME     PKNAME   TRAN   TYPE FSTYPE  LABEL                             SIZE MOUNTPOINT
+/dev/sr0    /dev/sr0           sata   rom  iso9660 SLE-15-SP4-Full-x86_64151.11.001 12.1G 
+/dev/vda    /dev/vda                  disk                                            15G 
+|-/dev/vda1 /dev/vda1 /dev/vda        part vfat                                      512M /boot/efi
+|-/dev/vda2 /dev/vda2 /dev/vda        part ext4                                     12.5G /
+`-/dev/vda3 /dev/vda3 /dev/vda        part swap                                        2G [SWAP]
+
+# grep -v '^$' etc/rear/local.conf 
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+USE_SERIAL_CONSOLE="no"
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.122.1/nfs
+
+# usr/sbin/rear -D mkrescue
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+Using autodetected kernel '/boot/vmlinuz-5.14.21-150400.22-default' as kernel in the recovery system
+...
+Trying to find what to use as UEFI bootloader...
+Trying to find a 'well known file' to be used as UEFI bootloader...
+Using '/boot/efi/EFI/sles/grubx64.efi' as UEFI bootloader file
+...
+Let GRUB2 load kernel /isolinux/kernel
+Let GRUB2 load initrd /isolinux/initrd.cgz
+Set GRUB2 default root device via 'set root=cd0'
+Let GRUB2 search root device via 'search --no-floppy --set=root --file /boot/efiboot.img'
+No serial console in GRUB2 (USE_SERIAL_CONSOLE is not true)
+GRUB2 modules to load: ext2 fat part_gpt part_msdos
+Making ISO image
+Wrote ISO image: /root/rear/var/lib/rear/output/rear-localhost.iso (186M)
+...
+
+# mount -o loop /root/rear/var/lib/rear/output/rear-localhost.iso /tmp/iso
+
+# mount
+...
+/root/rear/var/lib/rear/output/rear-localhost.iso on /tmp/iso type iso9660 (ro,relatime,nojoliet,check=s,map=n,blocksize=2048,iocharset=utf8)
+
+# cat /tmp/iso/boot/grub/grub.cfg
+set root=cd0
+search --no-floppy --set=root --file /boot/efiboot.img
+echo "Using root device $root from those available devices:"
+ls
+insmod all_video
+set gfxpayload=keep
+insmod part_gpt
+insmod part_msdos
+insmod ext2
+echo 'No serial console (USE_SERIAL_CONSOLE was not true)'
+set timeout="300"
+set default="chainloader"
+set fallback="chainloader"
+echo 'Switching to GRUB boot menu...'
+sleep --verbose --interruptible 30
+menuentry "Relax-and-Recover (BIOS or UEFI without Secure Boot)" --id=rear {
+    insmod gzio
+    insmod xzio
+    echo 'Loading kernel /isolinux/kernel ...'
+    linux /isolinux/kernel root=UUID=7620c942-d8c0-45a8-9f8f-241e02f6f0c0  selinux=0
+    echo 'Loading initial ramdisk /isolinux/initrd.cgz ...'
+    initrd /isolinux/initrd.cgz
+}
+menuentry "Relax-and-Recover (UEFI and Secure Boot)" --id=rear_secure_boot {
+    insmod gzio
+    insmod xzio
+    echo 'Loading kernel /isolinux/kernel ...'
+    linuxefi /isolinux/kernel root=UUID=7620c942-d8c0-45a8-9f8f-241e02f6f0c0  selinux=0
+    echo 'Loading initial ramdisk /isolinux/initrd.cgz ...'
+    initrdefi /isolinux/initrd.cgz
+}
+menuentry "Boot next EFI" --id=chainloader {
+    insmod chain
+    search --fs-uuid --no-floppy --set=esp 8AD9-1260
+    chainloader ($esp)/EFI/sles/grubx64.efi
+}
+menuentry "Reboot" --id=reboot {
+    reboot
+}
+menuentry "Exit to EFI shell" --id=exit {
+    exit
+}
+
+# find /tmp/iso/
+/tmp/iso/
+/tmp/iso/boot
+/tmp/iso/boot/efiboot.img
+/tmp/iso/boot/grub
+/tmp/iso/boot/grub/grub.cfg
+/tmp/iso/EFI
+/tmp/iso/EFI/BOOT
+/tmp/iso/EFI/BOOT/BOOTX64.efi
+/tmp/iso/EFI/BOOT/fonts
+/tmp/iso/EFI/BOOT/fonts/unicode.pf2
+/tmp/iso/EFI/BOOT/grub.cfg
+/tmp/iso/EFI/BOOT/locale
+/tmp/iso/EFI/BOOT/locale/ast.mo
+...
+/tmp/iso/EFI/BOOT/locale/zh_TW.mo
+/tmp/iso/isolinux
+/tmp/iso/isolinux/boot.cat
+/tmp/iso/isolinux/chain.c32
+/tmp/iso/isolinux/hdt.c32
+/tmp/iso/isolinux/initrd.cgz
+/tmp/iso/isolinux/isolinux.bin
+/tmp/iso/isolinux/isolinux.cfg
+/tmp/iso/isolinux/kernel
+/tmp/iso/isolinux/menu.c32
+/tmp/iso/isolinux/message
+/tmp/iso/isolinux/pci.ids
+/tmp/iso/isolinux/poweroff.com
+/tmp/iso/isolinux/rear.help
+/tmp/iso/isolinux/reboot.c32
+/tmp/iso/isolinux/vesamenu.c32
+</code></pre>
+<p>Excerpts from var/log/rear/rear-localhost.log</p>
+<pre><code>+ source /root/rear/usr/share/rear/output/ISO/Linux-i386/250_populate_efibootimg.sh
+...
+++ cp -v /boot/efi/EFI/sles/grubx64.efi /var/tmp/rear.SEIjjZqoarZFztm/tmp/mnt/EFI/BOOT/BOOTX64.efi
+...
+++ GRUB2_SET_ROOT_COMMAND='set root=cd0'
+...
+++ GRUB2_SEARCH_ROOT_COMMAND='search --no-floppy --set=root --file /boot/efiboot.img'
+++ create_grub2_cfg /isolinux/kernel /isolinux/initrd.cgz
+...
+++ grub2-mkstandalone -v '--modules=ext2 fat part_gpt part_msdos' -O x86_64-efi -o /var/tmp/rear.SEIjjZqoarZFztm/tmp/mnt/EFI/BOOT/BOOTX64.efi /boot/grub/grub.cfg=/var/tmp/rear.SEIjjZqoarZFztm/tmp/mnt/EFI/BOOT/grub.cfg
+</code></pre>
+<p>Using the resulting ISO file in a virtual CDROM drive<br />
+on my replacement system which is another<br />
+same KVM/QEMU VM with OVMF "TianoCore" UEFI firmware<br />
+it boots the ReaR recovery system for me.</p>
+<p>I only tried UEFI without secure boot.</p>
+<p>Inside the ReaR recovery system:</p>
+<pre><code>RESCUE localhost:~ # lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME     PKNAME   TRAN   TYPE FSTYPE  LABEL      SIZE MOUNTPOINT
+/dev/sr0    /dev/sr0           sata   rom  iso9660 REAR-ISO 185.2M 
+/dev/vda    /dev/vda                  disk                     15G 
+|-/dev/vda1 /dev/vda1 /dev/vda        part vfat               512M 
+|-/dev/vda2 /dev/vda2 /dev/vda        part ext4              12.5G 
+`-/dev/vda3 /dev/vda3 /dev/vda        part swap                 2G
+</code></pre>
+<p>I also did a test with "rear mkbackup" and "rear recover"<br />
+which worked for me.</p>
+<h4 id="jsmeix_commented_at_2023-07-13_1120"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1634068353">2023-07-13 11:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-13_1120" title="Permanent link">&para;</a></h4>
+<p><img alt="Screenshot from 2023-07-13
+13-11-20" src="https://github.com/rear/rear/assets/1788608/f576d7cb-31bf-4468-9269-3bfeb5903d9d" /></p>
+<p>What I personally like most is that now<br />
+GRUB2 shows which 'root' device it uses<br />
+and which devices are available.</p>
+<p>Hopefully this avoids lengthy confusions as in<br />
+<a href="https://github.com/rear/rear/issues/3024">https://github.com/rear/rear/issues/3024</a><br />
+until finally (thanks to @pcahyna who found it out)<br />
+it became clear what the actual issue was, see<br />
+<a href="https://github.com/rear/rear/issues/3024#issuecomment-1630706633">https://github.com/rear/rear/issues/3024#issuecomment-1630706633</a></p>
+<h4 id="jsmeix_commented_at_2023-07-13_1159"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1634118226">2023-07-13 11:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-13_1159" title="Permanent link">&para;</a></h4>
+<p>Tested how it behaves with two CDROM drives<br />
+on the replacement system using the same ISO as above<br />
+but now the ISO is in the second CDROM drive<br />
+(the first CDROM drive is empty):</p>
+<p><img alt="Screenshot from 2023-07-13
+14-28-58" src="https://github.com/rear/rear/assets/1788608/1e52c3ad-469f-4318-91e8-c8a8dad15e06" /></p>
+<p>GRUB2 now uses 'cd1' as 'root' device<br />
+and it boots well from it.</p>
+<p>Inside the ReaR recovery system:</p>
+<pre><code>RESCUE localhost:~ # lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME     PKNAME   TRAN   TYPE FSTYPE  LABEL      SIZE MOUNTPOINT
+/dev/sr0    /dev/sr0           sata   rom                    1024M 
+/dev/sr1    /dev/sr1           sata   rom  iso9660 REAR-ISO 185.2M 
+/dev/vda    /dev/vda                  disk                     15G 
+|-/dev/vda1 /dev/vda1 /dev/vda        part vfat               512M 
+|-/dev/vda2 /dev/vda2 /dev/vda        part ext4              12.5G 
+`-/dev/vda3 /dev/vda3 /dev/vda        part swap                 2G
+</code></pre>
+<p>Also <code>rear recover</code> worked well and<br />
+the recreated system boots normally.</p>
+<h4 id="jsmeix_commented_at_2023-07-14_0622"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1635340530">2023-07-14 06:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-14_0622" title="Permanent link">&para;</a></h4>
+<p>First things first:<br />
+I will not clean up the whole create_grub2_cfg() usage<br />
+via this pull request.<br />
+Via this pull request the create_grub2_cfg() usage<br />
+should only get fixed where it was actually wrong.<br />
+The implementation of the fix introduces the additional<br />
+GRUB2_SET_ROOT_COMMAND config variable to get consistency<br />
+regarding how GRUB2 sets and/or searches its 'root' device.<br />
+A general cleanup of the whole create_grub2_cfg() usage<br />
+should be done via a subsequent separated pull request.</p>
+<h4 id="jsmeix_commented_at_2023-07-14_1335"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1635876186">2023-07-14 13:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-14_1335" title="Permanent link">&para;</a></h4>
+<p>With my recent changes here up to<br />
+<a href="https://github.com/rear/rear/pull/3025/commits/b1d80997dcb083d632f2c8ec6db0e4cc306b41d9">https://github.com/rear/rear/pull/3025/commits/b1d80997dcb083d632f2c8ec6db0e4cc306b41d9</a><br />
+it even works reasonably well with Secure Boot for me:</p>
+<p>Same original system as above<br />
+but with Secure Boot enabled:</p>
+<pre><code># grep -v '^$' etc/rear/local.conf 
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+USE_SERIAL_CONSOLE="no"
+SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/sles/shim.efi"
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.122.1/nfs
+
+# usr/sbin/rear -D mkrescue
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+...
+Using '/boot/efi/EFI/sles/shim.efi' as UEFI Secure Boot bootloader file
+...
+Using Shim '/boot/efi/EFI/sles/shim.efi' as first stage UEFI bootloader BOOTX64.efi
+Using second stage UEFI bootloader files for Shim: /boot/efi/EFI/sles/grub.efi /boot/efi/EFI/sles/grubx64.efi
+Let GRUB2 load kernel /isolinux/kernel
+Let GRUB2 load initrd /isolinux/initrd.cgz
+Set GRUB2 default root device via 'set root=cd0'
+Let GRUB2 search root device via 'search --no-floppy --set=root --file /boot/efiboot.img'
+No serial console in GRUB2 (USE_SERIAL_CONSOLE is not true)
+Making ISO image
+Wrote ISO image: /root/rear/var/lib/rear/output/rear-localhost.iso (180M)
+...
+
+# mount -o loop /root/rear/var/lib/rear/output/rear-localhost.iso /tmp/iso
+mount: /tmp/iso: WARNING: source write-protected, mounted read-only.
+
+# mount /tmp/iso/boot/efiboot.img /tmp/fat
+
+# find /tmp/iso /tmp/fat -ls | grep -v locale | grep '\.efi'
+     1606    913 -rwx------   1 root     root        934680 Jul 14 14:52 /tmp/iso/EFI/BOOT/BOOTX64.efi
+     1617   1206 -rwx------   1 root     root       1234944 Jul 14 14:52 /tmp/iso/EFI/BOOT/grub.efi
+     1620    140 -rwx------   1 root     root        143360 Jul 14 14:52 /tmp/iso/EFI/BOOT/grubx64.efi
+       85    914 -rwxr-xr-x   1 root     root        934680 Jul 14 14:52 /tmp/fat/EFI/BOOT/BOOTX64.efi
+       86   1206 -rwxr-xr-x   1 root     root       1234944 Jul 14 14:52 /tmp/fat/EFI/BOOT/grub.efi
+       87    140 -rwxr-xr-x   1 root     root        143360 Jul 14 14:52 /tmp/fat/EFI/BOOT/grubx64.efi
+
+# ls -l /boot/efi/EFI/sles/shim.efi /boot/efi/EFI/sles/grub.efi /boot/efi/EFI/sles/grubx64.efi
+-rwxr-xr-x 1 root root 1234944 Jul 12 15:12 /boot/efi/EFI/sles/grub.efi
+-rwxr-xr-x 1 root root  143360 Jul 12 15:12 /boot/efi/EFI/sles/grubx64.efi
+-rwxr-xr-x 1 root root  934680 Jul 12 15:12 /boot/efi/EFI/sles/shim.efi
+</code></pre>
+<p>I also did "rear mkbackup".</p>
+<p>Same replacement system as above<br />
+but with Secure Boot enabled:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Running 'finalize' stage ======================
+...
+Running mkinitrd...
+Recreated initrd (/sbin/mkinitrd).
+Creating EFI Boot Manager entries...
+Creating  EFI Boot Manager entry 'SUSE_LINUX 15.4' for 'EFI\sles\shim.efi' (UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi') 
+Installing secure boot loader (shim)...
+...
+</code></pre>
+<p>When rebooting the recreated system<br />
+with the ReaR ISO still in its CDROM drive it booted from the ISO<br />
+but then via the default GRUB menu entry <code>Boot next EFI</code><br />
+it loaded my SLES15 SP4 system but then that aborted to boot<br />
+with some "system is compromised" Secure Boot message<br />
+so I removed the ISO from the CDROM drive so that<br />
+it boots the recreated system directly from its harddisk<br />
+and that "just worked" for me (in Secure Boot mode).</p>
+<h4 id="jsmeix_commented_at_2023-07-17_1333"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1638156038">2023-07-17 13:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-17_1333" title="Permanent link">&para;</a></h4>
+<p>I did some generic cleanup of the create_grub2_cfg function usage<br />
+with my recent commits up to<br />
+<a href="https://github.com/rear/rear/pull/3025/commits/c5eb197aa6f3aa88cd2a98874e56bdb2277ee21b">https://github.com/rear/rear/pull/3025/commits/c5eb197aa6f3aa88cd2a98874e56bdb2277ee21b</a><br />
+in particular with<br />
+<a href="https://github.com/rear/rear/pull/3025/commits/e368c4200cce9bfb4bf60d0862497ff467282304">https://github.com/rear/rear/pull/3025/commits/e368c4200cce9bfb4bf60d0862497ff467282304</a><br />
+create_grub2_cfg() no longer accepts a third argument<br />
+(nowhere is create_grub2_cfg() called with a third argument)<br />
+that could be a "search GRUB2 'root' device command" string.<br />
+Now create_grub2_cfg() uses GRUB2_SET_ROOT_COMMAND and<br />
+GRUB2_SEARCH_ROOT_COMMAND directly as usual with other config
+variables.<br />
+Therefore the lower case variables <code>grub2_set_root_command</code><br />
+and <code>grub2_search_root_command</code> are no longer needed, cf.<br />
+<a href="https://github.com/rear/rear/pull/3025#discussion_r1262376052">https://github.com/rear/rear/pull/3025#discussion_r1262376052</a></p>
+<p>I still won't do a general cleanup via this pull request.</p>
+<h4 id="jsmeix_commented_at_2023-07-17_1348"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1638185115">2023-07-17 13:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-17_1348" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+as far as I can imagine currently I think I am now done<br />
+with fixing the create_grub2_cfg function usage<br />
+to the extent what I could reasonably do<br />
+within one single pull request.</p>
+<p>If you like you may have a look at my current changes.<br />
+Perhaps you may spot some obvious mistakes.</p>
+<p>Tomorrow I will redo my above tests with my latest changes.</p>
+<p>Ideally - if all goes well - I would like to merge it<br />
+later this week (Thursday afternoon at the earliest).</p>
+<h4 id="jsmeix_commented_at_2023-07-18_0835"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1639766074">2023-07-18 08:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-18_0835" title="Permanent link">&para;</a></h4>
+<p>I did my above tests with my latest changes<br />
+and my tests worked again as before.</p>
+<p>Two remarks:</p>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1635876186">https://github.com/rear/rear/pull/3025#issuecomment-1635876186</a></p>
+<pre><code>When rebooting the recreated system
+with the ReaR ISO still in its CDROM drive it booted from the ISO
+but then via the default GRUB menu entry 'Boot next EFI'
+it loaded my SLES15 SP4 system but then that aborted to boot
+with some "system is compromised" Secure Boot message
+so I removed the ISO from the CDROM drive so that
+it boots the recreated system directly from its harddisk
+and that "just worked" for me (in Secure Boot mode).
+</code></pre>
+<p>It also works to set in the OVMF "TianoCore" UEFI firmware<br />
+to use the harddisk as first boot device.</p>
+<p>This time I made a screenshot how it looks when<br />
+it shows the "system is compromised" Secure Boot message:</p>
+<p><img alt="Screenshot from 2023-07-18
+10-19-06" src="https://github.com/rear/rear/assets/1788608/659920dd-324c-4023-94f6-5b6c4cbaf47c" /></p>
+<h4 id="jsmeix_commented_at_2023-07-18_0845"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1639798077">2023-07-18 08:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-18_0845" title="Permanent link">&para;</a></h4>
+<p>The second remark is about the<br />
+reinstalled bootloader during "rear recover":</p>
+<p>What one gets after reboot after "rear recover"<br />
+are those two boot options</p>
+<pre><code>SLES 15-SP4
+Advanced options for SLES 15-SP4
+</code></pre>
+<p>(see the above screenshot).</p>
+<p>What is not there after "rear recover" is</p>
+<pre><code>UEFI Firmware Settings
+</code></pre>
+<p>which is normally there on SLES 15-SP4 which leads<br />
+into the OVMF "TianoCore" UEFI firmware setup menu.</p>
+<p>To get the <code>UEFI Firmware Settings</code> entry<br />
+I did run the YaST bootloader module,<br />
+therein I changed an unimportant setting<br />
+(I changed in "bootloader options" the timeout)<br />
+so that YaST did actually reinstall the bootloader.<br />
+Now I get again the usual SLES 15-SP4 bootloader screen:</p>
+<p><img alt="Screenshot from 2023-07-18
+10-24-16" src="https://github.com/rear/rear/assets/1788608/8f79b6fe-fdb8-4650-8641-b960bd2146bc" /></p>
+<h4 id="jsmeix_commented_at_2023-07-18_0850"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1639805291">2023-07-18 08:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-18_0850" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+all looks OK now from my point of view with my tests.<br />
+I would much appreciate it if you could review my changes.</p>
+<h4 id="jsmeix_commented_at_2023-07-20_1143"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1643774477">2023-07-20 11:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-20_1143" title="Permanent link">&para;</a></h4>
+<p>I also tested</p>
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/sles/shim.efi"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+USE_SERIAL_CONSOLE="no"
+</code></pre>
+<p>on my above original system (UEFI with Secure Boot)<br />
+with /dev/vdb as disk for "OUTPUT=USB"<br />
+and default hybrid formatting via</p>
+<pre><code># usr/sbin/rear -D format /dev/vdb
+...
+Creating partition table of type gpt on /dev/vdb
+Making a BIOS bootable device /dev/vdb
+Creating BIOS boot partition /dev/vdb1
+Setting 'bios_grub' flag on BIOS boot partition /dev/vdb1
+Making an EFI bootable device /dev/vdb
+Creating EFI system partition /dev/vdb2 with size 1024 MiB aligned at 8 MiB
+Setting 'esp' flag on EFI partition /dev/vdb2
+Creating ReaR data partition /dev/vdb3 up to 100% of /dev/vdb
+Setting 'legacy_boot' flag on ReaR data partition /dev/vdb3
+Creating vfat filesystem on EFI system partition on /dev/vdb2
+Creating ext3 filesystem with label 'REAR-000' on ReaR data partition /dev/vdb3
+Adjusting filesystem parameters on ReaR data partition /dev/vdb3
+
+# lsblk -ipo NAME,TYPE,FSTYPE,LABEL,SIZE /dev/vdb
+NAME        TYPE FSTYPE LABEL    SIZE
+/dev/vdb    disk                   4G
+|-/dev/vdb1 part                   8M
+|-/dev/vdb2 part vfat   REAR-EFI   1G
+`-/dev/vdb3 part ext3   REAR-000   3G
+
+# parted -s /dev/vdb unit MiB print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vdb: 4096MiB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+Number  Start    End      Size     File system  Name     Flags
+ 1      0.02MiB  8.00MiB  7.98MiB               primary  bios_grub
+ 2      8.00MiB  1032MiB  1024MiB  fat32        primary  boot, esp
+ 3      1032MiB  4095MiB  3063MiB  ext3         primary  legacy_boot
+
+# usr/sbin/rear -D mkbackup
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+...
+Using '/boot/efi/EFI/sles/shim.efi' as UEFI Secure Boot bootloader file
+...
+Running 'output' stage ======================
+Configuring EFI partition '/dev/disk/by-label/REAR-EFI' for EFI boot with 'shim.efi'
+Configuring GRUB2 for EFI boot
+Let GRUB2 load kernel /EFI/BOOT/kernel
+Let GRUB2 load initrd /EFI/BOOT/initrd.cgz
+Let GRUB2 search root device via 'search --no-floppy --set=root --label REAR-EFI'
+No serial console in GRUB2 (USE_SERIAL_CONSOLE is not true)
+GRUB2 modules to load: ext2 fat part_gpt part_msdos
+...
+Making /dev/vdb bootable with syslinux/extlinux
+Writing syslinux MBR /usr/share/syslinux/gptmbr.bin of type gpt to /dev/vdb
+Running 'backup' stage ======================
+...
+</code></pre>
+<p>As far as I see Secure Boot of the ReaR recovery system<br />
+is not yet supported for OUTPUT=USB because it seems<br />
+for OUTPUT=USB it does not use Shim<br />
+(SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/sles/shim.efi")<br />
+as first stage UEFI bootloader 'BOOTX64.efi'<br />
+and no second stage UEFI bootloader files for Shim like<br />
+/boot/efi/EFI/sles/grub.efi /boot/efi/EFI/sles/grubx64.efi<br />
+get copied into the directory where Shim (BOOTX64.efi) is<br />
+as done in output/ISO/Linux-i386/250_populate_efibootimg.sh<br />
+cf.
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1635876186">https://github.com/rear/rear/pull/3025#issuecomment-1635876186</a></p>
+<p>But UEFI without Secure Boot works for me.</p>
+<p>So I had to switch off Secure Boot<br />
+on my replacement system (same as above)<br />
+to get the ReaR recovery system booted.</p>
+<p>I did "rear recover" and rebooted to verify<br />
+that the recreated system works.</p>
+<p>Then I shut down the replacement system and switched on again<br />
+Secure Boot in its OVMF TianoCore UEFI firmware setup menu<br />
+and booted it which also works, i.e. the recreated system<br />
+also boots with Secure Boot.</p>
+<p>So "rear recover" did "the right thing" to also reinstall Shim,<br />
+cf. usr/share/rear/finalize/SUSE_LINUX/i386/675_install_shim.sh<br />
+in my case because I use SLES 15-SP4.<br />
+I didn't test if "rear recover" reinstalls Shim also<br />
+for other Linux distributions.</p>
+<h4 id="pcahyna_commented_at_2023-07-20_1146"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1643778679">2023-07-20 11:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-20_1146" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna all looks OK now from my point of view with my tests. I would
+much appreciate it if you could review my changes.</p>
+</blockquote>
+<p>@jsmeix looking ...</p>
+<h4 id="pcahyna_commented_at_2023-07-20_1521"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1644125846">2023-07-20 15:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-20_1521" title="Permanent link">&para;</a></h4>
+<p>Looks good. The only potentially questionable part is the use of</p>
+<pre><code>contains_visible_char "$GRUB2_SET_ROOT_COMMAND"
+contains_visible_char "$GRUB2_SEARCH_ROOT_COMMAND"
+</code></pre>
+<p>which, IIUC, prevents setting the variables to e.g. <code>" "</code> as a way to
+avoid using any set/search command at all.<br />
+As an example for another option, I have recently recommended the use of
+<code>MKFS_XFS_OPTIONS=" "</code> as a way to disable all XFS options (and thus
+using mkfs.xfs defaults), which is very useful in some situations.</p>
+<h4 id="jsmeix_commented_at_2023-07-21_1133"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1645441763">2023-07-21 11:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-21_1133" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your review!</p>
+<p>Regarding questionable 'contains_visible_char' usage:</p>
+<p>I introduced it because of<br />
+<a href="https://github.com/rear/rear/pull/3025#discussion_r1260972359">https://github.com/rear/rear/pull/3025#discussion_r1260972359</a></p>
+<p>First I thought it would be against "final power to the user"<br />
+if the user could not specify to not use any set/search command.</p>
+<p>But then I tested in etc/rear/local.conf</p>
+<pre><code>GRUB2_SET_ROOT_COMMAND="echo 'No set root command'"
+GRUB2_SEARCH_ROOT_COMMAND="echo 'No search root command'"
+</code></pre>
+<p>which works for me to get the GRUB2 default 'memdisk'<br />
+but this cannot boot the recovery system<br />
+(because its kernel and initrd is not on 'memdisk').</p>
+<p>Because it cannot work without any set/search command<br />
+I think the 'contains_visible_char' usage is OK here<br />
+to avoid that things don't work.</p>
+<p>What is still questionable is if ReaR should<br />
+try to silently "correct" a user specified value<br />
+like "only blank characters" == "no characters",<br />
+cf. "sequence of zero bytes" == "end of file" in<br />
+<a href="https://github.com/rear/rear/pull/3027#issuecomment-1641940634">https://github.com/rear/rear/pull/3027#issuecomment-1641940634</a><br />
+or<br />
+if ReaR should not try to "correct" user specified values?</p>
+<h4 id="jsmeix_commented_at_2023-07-21_1134"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3025#issuecomment-1645443087">2023-07-21 11:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-21_1134" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I will merge it in about one hour today<br />
+unless objections appear.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-07-11.3025.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
