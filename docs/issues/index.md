@@ -2895,6 +2895,7 @@
 - [\#2913 Issue](2023-01-17.2913.issue.closed.md) `closed`: How to modify the disklayout.conf file to add AUTOINCREASE\_DISK\_SIZE\_THRESHOLD\_PERCENTAGE=50 I can't modify this file
 - [\#2914 Issue](2023-01-18.2914.issue.closed.md) `closed`: Raspberry Pi: serial-functions.sh BugError when no /dev/ttyS\[0-9\]\* exists
 - [\#2915 PR](2023-01-20.2915.pr.merged.md) `merged`: Make get\_serial\_console\_devices(
+- [\#2917 Issue](2023-01-30.2917.issue.closed.md) `closed`: EL 9 after "rear recover" to different HW reboot hangs at "A Start Job is running for /dev/mapper/vg01-..."
 - [\#2917 Issue](2023-01-30.2917.issue.open.md) `open`: EL 9 after "rear recover" to different HW reboot hangs at "A Start Job is running for /dev/mapper/vg01-..."
 - [\#2918 Issue](2023-02-07.2918.issue.closed.md) `closed`: Implement support for Commvault 11
 - [\#2920 Issue](2023-02-10.2920.issue.closed.md) `closed`: HYPER-V: Rescue ISO media stuk/freeze at "Loading kernel ... / Loading initial ramdisk ..."
@@ -2927,6 +2928,7 @@
 - [\#2947 PR](2023-02-24.2947.pr.merged.md) `merged`: Replace subshell redirection by group command redirection
 - [\#2949 PR](2023-02-28.2949.pr.merged.md) `merged`: Uptodate Source pointing to GitHub in RPM spec
 - [\#2950 PR](2023-03-01.2950.pr.merged.md) `merged`: ReaR in Docker for development & fix package dependencies
+- [\#2951 Issue](2023-03-04.2951.issue.closed.md) `closed`: Scripts in prep stage shouldn't touch ROOTFS\_DIR
 - [\#2951 Issue](2023-03-04.2951.issue.open.md) `open`: Scripts in prep stage shouldn't touch ROOTFS\_DIR
 - [\#2952 Issue](2023-03-05.2952.issue.closed.md) `closed`: Confusing error about checksum mismatch after recovery
 - [\#2953 PR](2023-03-06.2953.pr.merged.md) `merged`: New 990\_verify\_empty\_rootfs.sh to verify untouched ROOTFS\_DIR at the end of 'prep'
@@ -2934,6 +2936,7 @@
 - [\#2955 Issue](2023-03-07.2955.issue.closed.md) `closed`: Devuan 4 + ReaR Not Able to Recover
 - [\#2956 PR](2023-03-12.2956.pr.merged.md) `merged`: Opalpba authtoken
 - [\#2957 Issue](2023-03-15.2957.issue.closed.md) `closed`: Improve documentation for AI tools?
+- [\#2958 Issue](2023-03-20.2958.issue.closed.md) `closed`: ReaR fails while verifying the disklayout when a disk has a 0 size
 - [\#2958 Issue](2023-03-20.2958.issue.open.md) `open`: ReaR fails while verifying the disklayout when a disk has a 0 size
 - [\#2959 Issue](2023-03-23.2959.issue.closed.md) `closed`: ZFS Filesystems are not backed up
 - [\#2961 PR](2023-03-28.2961.pr.open.md) `open`: Copy the console= kernel arguments from the original system
@@ -2941,7 +2944,9 @@
 - [\#2963 PR](2023-03-28.2963.pr.merged.md) `merged`: OBDR fixes
 - [\#2964 Issue](2023-03-30.2964.issue.closed.md) `closed`: setup/default/005\_ssh\_agent\_start.sh wrongly assumes that /root/.ssh/config exists
 - [\#2965 PR](2023-04-02.2965.pr.merged.md) `merged`: Add proper python support / fix GALAXY11-related issues
+- [\#2966 Issue](2023-04-04.2966.issue.closed.md) `closed`: STDOUT\_STDERR\_FILE used but never defined - /rear.help.stdout\_stderr file shouldn't be there
 - [\#2966 Issue](2023-04-04.2966.issue.open.md) `open`: STDOUT\_STDERR\_FILE used but never defined - /rear.help.stdout\_stderr file shouldn't be there
+- [\#2967 Issue](2023-04-05.2967.issue.closed.md) `closed`: Confidential values leaked into log file in debug mode
 - [\#2967 Issue](2023-04-05.2967.issue.open.md) `open`: Confidential values leaked into log file in debug mode
 - [\#2968 Issue](2023-04-05.2968.issue.closed.md) `closed`: HP ProLiant XL420 Gen10: Recovery stuck at "Loading intial ramdisk"
 - [\#2970 Issue](2023-04-12.2970.issue.open.md) `open`: Automate ReaR with GRUB w/o user intervention (ISO\_DEFAULT not supported for GRUB
@@ -2967,12 +2972,14 @@
 - [\#2987 Issue](2023-05-12.2987.issue.open.md) `open`: Error with `sudo rear mkopalpba`
 - [\#2988 PR](2023-05-14.2988.pr.merged.md) `merged`: Implement non-interactive mode
 - [\#2989 Issue](2023-05-17.2989.issue.closed.md) `closed`: ERROR: Failed to create '/tmp/rear.zzz/outputfs/server directory for OUTPUT\_URL=sshfs://...
+- [\#2990 Issue](2023-05-19.2990.issue.closed.md) `closed`: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config
 - [\#2990 Issue](2023-05-19.2990.issue.open.md) `open`: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config
 - [\#2991 PR](2023-05-24.2991.pr.merged.md) `merged`: ISO OUTPUT Improvements
 - [\#2992 Issue](2023-05-25.2992.issue.closed.md) `closed`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
 - [\#2992 Issue](2023-05-25.2992.issue.open.md) `open`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
 - [\#2993 Issue](2023-05-25.2993.issue.open.md) `open`: Rubrik CDM agent missing after ReaR recovery
 - [\#2994 Issue](2023-05-25.2994.issue.closed.md) `closed`: RFC: Should we activate security bug reports for ReaR?
+- [\#2995 Issue](2023-05-25.2995.issue.closed.md) `closed`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
 - [\#2995 Issue](2023-05-25.2995.issue.open.md) `open`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
 - [\#2996 PR](2023-05-26.2996.pr.merged.md) `merged`: Add -f (force
 - [\#2997 Issue](2023-05-26.2997.issue.open.md) `open`: Improve docs for manual excludes
@@ -2982,18 +2989,27 @@
 - [\#3001 PR](2023-06-01.3001.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 1.1.0 to 4.3.0
 - [\#3002 PR](2023-06-01.3002.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.1 to 4.2.2
 - [\#3003 PR](2023-06-02.3003.pr.merged.md) `merged`: Improvements of the Makefile distribution targets
+- [\#3004 Issue](2023-06-05.3004.issue.closed.md) `closed`: Merge / Rebase master before merging PRs?
 - [\#3004 Issue](2023-06-05.3004.issue.open.md) `open`: Merge / Rebase master before merging PRs?
+- [\#3005 Issue](2023-06-05.3005.issue.closed.md) `closed`: USE\_RESOLV\_CONF should default to "no" for USB backups (or update quickstart guide to cover this
 - [\#3005 Issue](2023-06-05.3005.issue.open.md) `open`: USE\_RESOLV\_CONF should default to "no" for USB backups (or update quickstart guide to cover this
 - [\#3006 PR](2023-06-06.3006.pr.merged.md) `merged`: New --expose-secrets option plus SECRET\_OUTPUT\_DEV
 - [\#3006 PR](2023-06-06.3006.pr.open.md) `open`: New --expose-secrets option plus SECRET\_OUTPUT\_DEV
+- [\#3007 Issue](2023-06-07.3007.issue.closed.md) `closed`: Disaster Recovery for our own ReaR upstream project
 - [\#3007 Issue](2023-06-07.3007.issue.open.md) `open`: Disaster Recovery for our own ReaR upstream project
 - [\#3008 Issue](2023-06-08.3008.issue.closed.md) `closed`: When using xorriso, if the ISO\_DIR specification includes a schema, it will not work.
 - [\#3009 PR](2023-06-08.3009.pr.merged.md) `merged`: More general RPM build
+- [\#3010 Issue](2023-06-09.3010.issue.closed.md) `closed`: Auto-Resizing Extended Partitions Fails
 - [\#3010 Issue](2023-06-09.3010.issue.open.md) `open`: Auto-Resizing Extended Partitions Fails
+- [\#3011 Issue](2023-06-09.3011.issue.closed.md) `closed`: Suggested tweaks to the initial `rear recover` menu
 - [\#3011 Issue](2023-06-09.3011.issue.open.md) `open`: Suggested tweaks to the initial `rear recover` menu
+- [\#3012 Issue](2023-06-09.3012.issue.closed.md) `closed`: Problems with the initial `rear recover` menu
 - [\#3012 Issue](2023-06-09.3012.issue.open.md) `open`: Problems with the initial `rear recover` menu
+- [\#3013 Issue](2023-06-12.3013.issue.closed.md) `closed`: rear backup recover error
 - [\#3013 Issue](2023-06-12.3013.issue.open.md) `open`: rear backup recover error
+- [\#3014 Issue](2023-06-19.3014.issue.closed.md) `closed`: RFC: enabling automatic backup and restore test
 - [\#3014 Issue](2023-06-19.3014.issue.open.md) `open`: RFC: enabling automatic backup and restore test
+- [\#3016 Issue](2023-06-22.3016.issue.closed.md) `closed`: Multiple Disk
 - [\#3016 Issue](2023-06-22.3016.issue.open.md) `open`: Multiple Disk
 - [\#3017 Issue](2023-06-25.3017.issue.open.md) `open`: Recovery system fails to start up on Fedora 39 (systemd errors
 - [\#3018 Issue](2023-06-26.3018.issue.closed.md) `closed`: BACKUP=SESAM default excludes dysfunctional
@@ -3003,13 +3019,37 @@
 - [\#3023 PR](2023-07-03.3023.pr.merged.md) `merged`: issue: \#3018: remove $SESAM\_WORK\_DIR from excludes
 - [\#3024 Issue](2023-07-04.3024.issue.closed.md) `closed`: GRUB2 on ISO with UEFI has 'root' hardcoded set to 'cd0' so booting from 'cd1' fails (regression from \#2662
 - [\#3025 PR](2023-07-11.3025.pr.merged.md) `merged`: Fix create\_grub2\_cfg function usage
+- [\#3026 Issue](2023-07-15.3026.issue.closed.md) `closed`: Rsync backup method with backup url on a Windows server
 - [\#3026 Issue](2023-07-15.3026.issue.open.md) `open`: Rsync backup method with backup url on a Windows server
 - [\#3027 PR](2023-07-19.3027.pr.merged.md) `merged`: Make sure rescue contains all COPY\_AS\_IS files
 - [\#3028 Issue](2023-07-19.3028.issue.open.md) `open`: RFC: Do we still need COPY\_AS\_IS+=( /dev ... 
 - [\#3029 Issue](2023-07-24.3029.issue.closed.md) `closed`: ReaR should issue an error message and exit if USB\_DEVICE\_FILESYSTEM is invalid
 - [\#3030 PR](2023-07-24.3030.pr.merged.md) `merged`: Update 200\_check\_usb\_layout.sh
+- [\#3031 PR](2023-07-25.3031.pr.merged.md) `merged`: Secure Boot support for OUTPUT=USB
 - [\#3031 PR](2023-07-25.3031.pr.open.md) `open`: Secure Boot support for OUTPUT=USB
+- [\#3032 Issue](2023-07-27.3032.issue.closed.md) `closed`: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found
 - [\#3032 Issue](2023-07-27.3032.issue.open.md) `open`: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found
+- [\#3033 Issue](2023-07-28.3033.issue.closed.md) `closed`: Rear boots Linux system to recovery screen
 - [\#3033 Issue](2023-07-28.3033.issue.open.md) `open`: Rear boots Linux system to recovery screen
+- [\#3034 PR](2023-08-02.3034.pr.merged.md) `merged`: Use '2&gt;&gt;/dev/$SECRET\_OUTPUT\_DEV'
 - [\#3034 PR](2023-08-02.3034.pr.open.md) `open`: Use '2&gt;&gt;/dev/$SECRET\_OUTPUT\_DEV'
+- [\#3035 Issue](2023-08-02.3035.issue.closed.md) `closed`: lib/authtoken-functions.sh seems to leak secrets with 'set -x'
+- [\#3036 PR](2023-08-04.3036.pr.merged.md) `merged`: Update 998\_dump\_variables.sh
+- [\#3037 PR](2023-08-07.3037.pr.merged.md) `merged`: Avoid multiple 'set -x' messages for one message output function call (like LogPrint
+- [\#3038 PR](2023-08-07.3038.pr.merged.md) `merged`: In DoExitTasks(
+- [\#3039 PR](2023-08-07.3039.pr.merged.md) `merged`: Describe expose-secrets in rear.8.adoc
+- [\#3040 Issue](2023-08-11.3040.issue.open.md) `open`: Failed to boot ReaR ISO on a new VM in VMware with vCenter
+- [\#3041 PR](2023-08-11.3041.pr.open.md) `open`: Reorder systemd units in the rescue system and make sure syslog is started
+- [\#3042 Issue](2023-08-17.3042.issue.closed.md) `closed`: use\_devicesfile in RHEL9
+- [\#3043 PR](2023-08-24.3043.pr.merged.md) `merged`: Remove the lvmdevices file at the end of recovery
+- [\#3045 Issue](2023-09-04.3045.issue.open.md) `open`: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
+- [\#3046 PR](2023-09-08.3046.pr.merged.md) `merged`: Remove unnecessary curly braces in var expansion
+- [\#3047 PR](2023-09-11.3047.pr.merged.md) `merged`: Skip invalid disk drives (zero sized, no media
+- [\#3048 Issue](2023-09-12.3048.issue.open.md) `open`: no room on backup medium - selectively purge backup sets
+- [\#3049 Issue](2023-09-22.3049.issue.open.md) `open`: Open Build Service fails building Ubuntu 22/23 deb packages
+- [\#3050 Issue](2023-09-27.3050.issue.open.md) `open`: ReaR and NFS version 4
+- [\#3051 PR](2023-10-01.3051.pr.open.md) `open`: Bump actions/checkout from 3 to 4
+- [\#3052 PR](2023-10-04.3052.pr.merged.md) `merged`: Enable automated backup & recovery test in CI on PRs
+- [\#3053 PR](2023-10-05.3053.pr.merged.md) `merged`: Update RBME description in default.conf
+- [\#3054 PR](2023-10-10.3054.pr.merged.md) `merged`: Fail safe USB\_DEVICE\_BOOT\_LABEL setting and fallback
 - # Issues History of Relax-and-Recover (index.md)
