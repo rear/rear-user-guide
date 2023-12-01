@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3035 Issue closed: lib/authtoken-functions.sh seems to leak secrets with 'set -x' - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3035 Issue closed: lib/authtoken-functions.sh seems to leak secrets with \u0027set -x\u0027";
+        var mkdocs_page_input_path = "issues/2023-08-02.3035.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3035 Issue closed: lib/authtoken-functions.sh seems to leak secrets with 'set -x'</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3035_issue_closed_libauthtoken-functionssh_seems_to_leak_secrets_with_set_-x"><a href="https://github.com/rear/rear/issues/3035">#3035 Issue</a> <code>closed</code>: lib/authtoken-functions.sh seems to leak secrets with 'set -x'<a class="headerlink" href="#3035_issue_closed_libauthtoken-functionssh_seems_to_leak_secrets_with_set_-x" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>documentation</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-08-02_1222"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3035">2023-08-02 12:22</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-08-02_1222" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    current master code</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>Since<br />
+<a href="https://github.com/rear/rear/pull/2956">https://github.com/rear/rear/pull/2956</a><br />
+there is<br />
+lib/authtoken-functions.sh<br />
+which seems to leak secrets with 'set -x', cf.<br />
+<a href="https://github.com/rear/rear/pull/3034#issuecomment-1662077184">https://github.com/rear/rear/pull/3034#issuecomment-1662077184</a></p>
+<p>For example the function encrypt_base64 contains</p>
+<pre><code>ciphertext=$(openssl aes-256-cbc -a -pbkdf2 -pass pass:"$2" &lt;&lt;&lt; "$plaintext" 2&gt;&amp;1); ret=$?
+</code></pre>
+<p>which leaks the password <code>$2</code> when 'set -x' is set<br />
+like</p>
+<pre><code># ( set -x ; \
+ password=PASSWORD ; \
+ plaintext=plain_text ; \
+ ciphertext=$(openssl aes-256-cbc -a -pbkdf2 -pass pass:"$password" &lt;&lt;&lt; "$plaintext" 2&gt;&amp;1) ; \
+ ret=$? ; \
+ echo $ret ; \
+ echo $ciphertext )
+
++ password=PASSWORD
++ plaintext=plain_text
+++ openssl aes-256-cbc -a -pbkdf2 -pass pass:PASSWORD
++ ciphertext=U2FsdGVkX1/cEmESpmJJr0cblyHQ1AvAXvTkI9qArqk=
++ ret=0
++ echo 0
+0
++ echo U2FsdGVkX1/cEmESpmJJr0cblyHQ1AvAXvTkI9qArqk=
+</code></pre>
+<p>versus with proper stderr redirection to /dev/null for the openssl
+command</p>
+<pre><code># ( set -x ; \
+ password=PASSWORD ; \
+ plaintext=plain_text ; \
+ { ciphertext=$( openssl aes-256-cbc -a -pbkdf2 -pass pass:"$password" &lt;&lt;&lt; "$plaintext" 2&gt;&amp;1 ) ; } 2&gt;/dev/null ; \
+ ret=$? ; \
+ echo $ret ; \
+ echo $ciphertext )
+
++ password=PASSWORD
++ plaintext=plain_text
++ ret=0
++ echo 0
+0
++ echo U2FsdGVkX19ou3CqOsY3kQ3LDePzNIVeFVs3IPjcgpw=
+U2FsdGVkX19ou3CqOsY3kQ3LDePzNIVeFVs3IPjcgpw=
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-08-02_1228"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1662121623">2023-08-02 12:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-02_1228" title="Permanent link">&para;</a></h4>
+<p>@kernins<br />
+could you have a look here because you implemented<br />
+authtoken-functions.sh<br />
+via
+<a href="https://github.com/rear/rear/pull/2956">https://github.com/rear/rear/pull/2956</a></p>
+<p>As an example I think the above command should be</p>
+<pre><code>{ ciphertext=$( openssl aes-256-cbc -a -pbkdf2 -pass pass:"$2" &lt;&lt;&lt; "$plaintext" 2&gt;&amp;1 ) ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV ; ret=$?
+</code></pre>
+<p>Regarding</p>
+<pre><code>{ SECRET COMMAND ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/pull/3006">https://github.com/rear/rear/pull/3006</a></p>
+<p>Currently SECRET_OUTPUT_DEV is only set in usr/sbin/rear<br />
+so when ReaR system startup scripts in skel/default/etc/scripts<br />
+call functions in lib/authtoken-functions.sh<br />
+we must set SECRET_OUTPUT_DEV also for ReaR system startup scripts.</p>
+<p>In particular encrypt_base64() is called in<br />
+skel/default/etc/scripts/unlock-opal-disks</p>
+<p>So probably it is better - at least for now -<br />
+to use hardcoded /dev/null to be fail-safe like</p>
+<pre><code>{ ciphertext=$( openssl aes-256-cbc -a -pbkdf2 -pass pass:"$2" &lt;&lt;&lt; "$plaintext" 2&gt;&amp;1 ) ; } 2&gt;/dev/null ; ret=$?
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-08-02_1257"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1662166739">2023-08-02 12:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-02_1257" title="Permanent link">&para;</a></h4>
+<p>Regarding 'set -x' for ReaR system startup scripts:</p>
+<p>'set -x' is set for the ReaR system startup<br />
+scripts in /etc/scripts/system-setup.d/*.sh<br />
+by the initial startup script /etc/scripts/system-setup<br />
+when "debug" is a kernel command line parameter<br />
+which can be specified by the user when he boots<br />
+the ReaR recovery system.</p>
+<p>I don't know how scripts like<br />
+/etc/scripts/unlock-opal-disks<br />
+are called.<br />
+I.e. I don't know if 'set -x' can be set<br />
+for /etc/scripts/unlock-opal-disks</p>
+<h4 id="jsmeix_commented_at_2023-08-02_1306"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1662179539">2023-08-02 13:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-02_1306" title="Permanent link">&para;</a></h4>
+<p>According to</p>
+<pre><code># for f in $( grep '^function ' usr/share/rear/lib/authtoken-functions.sh | cut -d ' ' -f2 | cut -d '(' -f1 ) ; do echo $f found in ; find usr/sbin/rear usr/share/rear -type f | xargs grep -l $f ; echo ; done
+
+authtkn_load found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+authtkn_store found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+authtkn_wipe found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+token_read found in
+usr/share/rear/lib/authtoken-functions.sh
+
+token_write found in
+usr/share/rear/lib/authtoken-functions.sh
+
+blkdev_hash found in
+usr/share/rear/lib/authtoken-functions.sh
+
+blkdev_read found in
+usr/share/rear/lib/authtoken-functions.sh
+
+blkdev_write found in
+usr/share/rear/lib/authtoken-functions.sh
+
+blkdev_model found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+blkdev_wait found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+encrypt_base64 found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+decrypt_base64 found in
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+usr/share/rear/lib/authtoken-functions.sh
+
+garbage_base64 found in
+usr/share/rear/lib/authtoken-functions.sh
+</code></pre>
+<p>all functions in lib/authtoken-functions.sh<br />
+are only called in<br />
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks</p>
+<p>So when 'set -x ' cannot be set for<br />
+/etc/scripts/unlock-opal-disks<br />
+then it seems all is OK regarding leaking with 'set -x'.</p>
+<p>But I did not check possible leaking without 'set -x'.</p>
+<h4 id="kernins_commented_at_2023-08-02_1342"><img src="https://avatars.githubusercontent.com/u/2327512?v=4" width="50"><a href="https://github.com/kernins">kernins</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1662239427">2023-08-02 13:42</a>:<a class="headerlink" href="#kernins_commented_at_2023-08-02_1342" title="Permanent link">&para;</a></h4>
+<p>Thanks for your finding!<br />
+I'll take a closer look at it when the time permits, no ETA
+unfortunately.</p>
+<p>At a first glance, the only real/practical leak case I see theoretically
+possible is that when attacker already has an access to both token &amp;
+device it was generated on (if token is TPM-bound) and/or token 2FA
+password, which would mean he already can decrypt/unlock the drive. Then
+either <code>set -x</code> leak (if it can be set) or manual token decryption in
+CLI (if enabled, which shouldn't be the case) can reveal the actual Opal
+passphrase.</p>
+<p><code>unlock-opal-disks</code> is run only in pre-boot volatile environment, all
+secret user-input happens only in that pre-boot environment, and the
+image is immutable (PBA-area is RO on locked drive)</p>
+<h4 id="jsmeix_commented_at_2023-08-03_0650"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1663389715">2023-08-03 06:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_0650" title="Permanent link">&para;</a></h4>
+<p>@kernins<br />
+thank you for your prompt reply<br />
+and for your explanation.</p>
+<p>I found another reason why the current sate is OK:</p>
+<p>There is no log file for the ReaR system startup scripts.<br />
+While the ReaR system startup scripts are running<br />
+their stdin/stdout/stderr is the user's terminal<br />
+(usually keyboard and screen).</p>
+<p>In particular when 'set -x' is set for the ReaR system<br />
+startup scripts, the 'set -x' messages appear only<br />
+on the user's terminal.</p>
+<p>So only the user who runs ReaR may see his own secrets<br />
+on his own terminal.</p>
+<p>If the user who runs ReaR works from remote<br />
+he has to care himself as usual about the security<br />
+of his remote connection (e.g. by using an encrypted<br />
+remote connection method like 'ssh').</p>
+<h4 id="jsmeix_commented_at_2023-08-03_0658"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1663398075">2023-08-03 06:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_0658" title="Permanent link">&para;</a></h4>
+<p>There is one thing left to do for me:</p>
+<p>Because @kernins wrote in<br />
+<a href="https://github.com/rear/rear/pull/2956#discussion_r1134731456">https://github.com/rear/rear/pull/2956#discussion_r1134731456</a></p>
+<pre><code>Although authtoken-functions.sh are generic enough
+to possibly find some use also in ReaR context over time,
+I'd prefer to keep them self-contained and
+easily reusable outside of ReaR
+</code></pre>
+<p>As long as the functions in lib/authtoken-functions.sh<br />
+are only called in<br />
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks<br />
+things are OK according to the reasoning above.</p>
+<p>But if the functions in lib/authtoken-functions.sh<br />
+would be called in other ReaR scripts,<br />
+then those functions would leak secrets with 'set -x'.</p>
+<p>So currently the functions in lib/authtoken-functions.sh<br />
+are not properly implemented to be called in other ReaR scripts<br />
+or even generically in whatever environment outside of ReaR.</p>
+<p>Therefore I will add a comment at the beginning of<br />
+lib/authtoken-functions.sh<br />
+that explains the current state.</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1128"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3035#issuecomment-1663813938">2023-08-03 11:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1128" title="Permanent link">&para;</a></h4>
+<p>With<br />
+<a href="https://github.com/rear/rear/commit/1f839f776bf4af0812d9acdbf41c425419b5875b">https://github.com/rear/rear/commit/1f839f776bf4af0812d9acdbf41c425419b5875b</a><br />
+this issue should be reasonably solved (at least for now).</p>
+<p>@kernins<br />
+again thank you for your prompt reply<br />
+that helped me a lot to get this issue solved.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-08-02.3035.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

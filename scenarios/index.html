@@ -86,6 +86,8 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Scenarios Overview</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#use_nas_share_to_archive_rear_image_and_os_with_zstandard_as_compression_algorithm">Use NAS share to archive rear image and OS with zstandard as compression algorithm</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -143,6 +145,32 @@
               
                 <h1 id="scenarios_overview">Scenarios Overview<a class="headerlink" href="#scenarios_overview" title="Permanent link">&para;</a></h1>
 <p>In this chapter will be go over some simple and more complex examples used with ReaR.</p>
+<h2 id="use_nas_share_to_archive_rear_image_and_os_with_zstandard_as_compression_algorithm">Use NAS share to archive rear image and OS with zstandard as compression algorithm<a class="headerlink" href="#use_nas_share_to_archive_rear_image_and_os_with_zstandard_as_compression_algorithm" title="Permanent link">&para;</a></h2>
+<p>Also, we use as temporary file system to create the ISO image not /tmp, but /oem - see <code>export TMPDIR=/oem</code></p>
+<p>Furthermore, all file systems and volume groups will be part of the OS archive and therefore, also for the recovery process. We commented out the variable setting <code># ONLY_INCLUDE_VG=( "vg00" )</code> and explicit defined variable <code>AUTOEXCLUDE_DISKS=no</code> to achieve this.</p>
+<p>To force the zstandard as compression algorithm instead of the default gzip we added the <code>zstd</code> executable to the <code>COPY_AS_IS</code> variable array and defined the variables <code>BACKUP_PROG_COMPRESS_OPTIONS</code> and <code>BACKUP_PROG_COMPRESS_SUFFIX</code>.</p>
+<p> <pre><code class=bash>export TMPDIR=/oem
+# ONLY_INCLUDE_VG=( &quot;vg00&quot; )
+BACKUP=NETFS
+NETFS_PREFIX=image
+NETFS_KEEP_OLD_BACKUP_COPY=yes
+CLONE_USERS=( &quot;${CLONE_USERS[@]}&quot; oracle )
+CLONE_GROUPS=( &quot;${CLONE_GROUPS[@]}&quot; dba )
+TIMESYNC=CHRONY
+TIMESYNC_SOURCE=10.255.255.10
+SSH_ROOT_PASSWORD=&quot;rear&quot;
+COPY_AS_IS=( &quot;${COPY_AS_IS[@]}&quot; /etc/oratab clear $(which zstd) )
+POST_RECOVERY_SCRIPT=/mnt/local/u02/restore_oracle_u02_database_directory.sh
+AUTOEXCLUDE_DISKS=no
+BACKUP_PROG_EXCLUDE=( ${BACKUP_PROG_EXCLUDE[@]} '/u02/ora*' '/u02/recoveryarea01' '/u01/app/oracle/admin/JHHD0173/diag/rdbms/*' '/u01/app/oracle/admin/JHHD0173/RMAN/logs/*' '/app/scm-dvl/SCM-Releases/*' )
+BACKUP_OPTIONS=&quot;nfsvers=4,nolock&quot;
+BACKUP_URL=nfs://mynas.example.com/rear_backups/linux_images/my-server.example.com;
+PRE_BACKUP_SCRIPT=( 'rm -rf /tmp/cfg2html*' )
+USE_CFG2HTML=no
+FIRMWARE_FILES=( 'no' )
+BACKUP_PROG_COMPRESS_OPTIONS=( '--use-compress-program=zstd' )
+BACKUP_PROG_COMPRESS_SUFFIX=&quot;.zst&quot;
+</code></pre></p>
               
             </div>
           </div>

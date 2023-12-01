@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3072 PR merged: Add USER_INPUT_UNATTENDED_TIMEOUT config variable - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3072 PR merged: Add USER_INPUT_UNATTENDED_TIMEOUT config variable";
+        var mkdocs_page_input_path = "issues/2023-11-09.3072.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3072 PR merged: Add USER_INPUT_UNATTENDED_TIMEOUT config variable</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3072_pr_merged_add_user_input_unattended_timeout_config_variable"><a href="https://github.com/rear/rear/pull/3072">#3072 PR</a> <code>merged</code>: Add USER_INPUT_UNATTENDED_TIMEOUT config variable<a class="headerlink" href="#3072_pr_merged_add_user_input_unattended_timeout_config_variable" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-11-09_0937"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3072">2023-11-09 09:37</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-11-09_0937" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p>While testing<br />
+<a href="https://github.com/rear/rear/pull/3070">https://github.com/rear/rear/pull/3070</a><br />
+I noticed that UserInput() timeout is 3 seconds<br />
+but I had no idea where that came from<br />
+(default UserInput() timeout is 300 or 30 seconds)<br />
+until I found out that in unattended recovery mode<br />
+skel/default/etc/scripts/system-setup<br />
+calls <code>rear --non-interactive recover</code><br />
+and in non-interactive mode UserInput() does</p>
+<pre><code># set timeouts to low but acceptable 3 seconds for non-interactive mode:
+timeout=3
+automated_input_interrupt_timeout=3
+</code></pre>
+<p>with a hardcoded '3' that I could not find easily<br />
+in the whole ReaR code (without knowing where to look for).<br />
+I think having it hardcoded is wrong because for example<br />
+why should UserInput() wait at all when there is no user<br />
+who could see any input request or ever respond to it<br />
+so it should be possible to set it to 1 if needed<br />
+(e.g. for 'unattended' recovery).<br />
+A timeout of 0 would get complicated to be implemented because<br />
+'read -t 0' returns immediately without trying to read any data<br />
+so it seems when 'read' should time out the minimum is '1',<br />
+cf. the "Drain stdin" comment in the UserInput function:</p>
+<pre><code># That the 'read' timeout can be a fractional number requires bash 4.x
+# see https://github.com/rear/rear/issues/2866#issuecomment-1254908270
+# but in general ReaR should still work with bash 3.x so we use '-t 1'
+</code></pre>
+<p>and I think a 'read' timeout fractional number is not a sufficient<br />
+reason to require bash 4.x mandatorily for the UserInput function.</p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>Works well for me so far...</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>Added USER_INPUT_UNATTENDED_TIMEOUT<br />
+to specify the timeout in seconds (by default 3)<br />
+for how long UserInput() waits for user input<br />
+when ReaR is run in 'unattended' or 'non-interactive' mode.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_0746"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805246120">2023-11-10 07:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_0746" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+provided there are no objections<br />
+I would like to merge this soon</p>
+<h4 id="schlomo_commented_at_2023-11-10_1033"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805476703">2023-11-10 10:33</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-10_1033" title="Permanent link">&para;</a></h4>
+<p>@jsmeix side note: Didn't we recently determine that all actively
+supported distros use Bash 4.x nowadays?</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1229"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805652177">2023-11-10 12:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1229" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+yes, all actively ReaR upstream supported distros use Bash 4.x<br />
+but in general I do not like to "just break" backward compatibility<br />
+unless there is a reasonable reason for it.</p>
+<p>In this particular case support for fractional numbers<br />
+for the 'read' timeout values would require several<br />
+other code changes because</p>
+<pre><code># USER_INPUT_INTERRUPT_TIMEOUT=1
+
+# test "$USER_INPUT_INTERRUPT_TIMEOUT" -ge 1 &amp;&amp; echo OK
+OK
+
+# USER_INPUT_INTERRUPT_TIMEOUT=1.1
+
+# test "$USER_INPUT_INTERRUPT_TIMEOUT" -ge 1 &amp;&amp; echo OK
+bash: test: 1.1: integer expression expected
+</code></pre>
+<p>Currently I think this is not worth the effort, cf.<br />
+<a href="https://github.com/rear/rear/issues/2866#issuecomment-1254908270">https://github.com/rear/rear/issues/2866#issuecomment-1254908270</a></p>
+<pre><code>I tested it and for me the one second delay
+is hardly noticeable in interactive mode
+so I think it is acceptable.
+</code></pre>
+<h4 id="schlomo_commented_at_2023-11-10_1234"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805657453">2023-11-10 12:34</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-10_1234" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I agree with your reasoning about this particular case, I'd just
+like to remove the "must work with Bash 3.x" from our minds.</p>
+<p>I find it totally fine if Bash 3.x distros will be locked into ReaR 2.7.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1245"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805670609">2023-11-10 12:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1245" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I fully agree with your<br />
+<a href="https://github.com/rear/rear/pull/3072#issuecomment-1805657453">https://github.com/rear/rear/pull/3072#issuecomment-1805657453</a></p>
+<h4 id="jsmeix_commented_at_2023-11-10_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805730694">2023-11-10 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1331" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3072#issuecomment-1805657453">https://github.com/rear/rear/pull/3072#issuecomment-1805657453</a><br />
+I edited<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a><br />
+so that it reads now</p>
+<pre><code>Why
+
+Relax-and-Recover is written in Bash (Bash version 4 is needed)
+</code></pre>
+<p>and in the section "Maintain backward compatibility" the part</p>
+<pre><code>In particular avoid special bash version 4 features
+(Relax-and-Recover code should also work with bash version 3).
+</code></pre>
+<p>is now removed, see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style/_compare/b79eca6ebc97a75d16e349fe6bf22c6c734be400...52e427de85f2ea36ab888164b992b62c48cdec9a">https://github.com/rear/rear/wiki/Coding-Style/_compare/b79eca6ebc97a75d16e349fe6bf22c6c734be400...52e427de85f2ea36ab888164b992b62c48cdec9a</a></p>
+<p>I see now that openSUSE Factory / Tumbleweed has bash-5.2.tar.gz<br />
+but I don't know how far Bash 5 is backward compatible with Bash 4<br />
+so for now I leave the statement "Bash version 4 is needed" as is<br />
+and leave it to Bash 5 users to test and find out on their own<br />
+what that means for their particular ReaR use cases.<br />
+Cf. what I wrote about openSUSE Tumbleweed in our release notes:</p>
+<pre><code>In theory ReaR 2.7 should work on openSUSE Tumbleweed but in practice
+arbitrary failures could happen at any time because the Tumbleweed
+distribution is a pure rolling release version of openSUSE containing the
+latest stable versions of all software
+(cf. https://en.opensuse.org/Portal:Tumbleweed) so arbitrary changes of any
+software are possible at any time that could arbitrarily break how ReaR works.
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a></p>
+<p>FYI: SLE15 has Bash version 4.4</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1352"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1805769724">2023-11-10 13:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1352" title="Permanent link">&para;</a></h4>
+<p>@schlomo @pcahyna<br />
+thank you for your prompt review!</p>
+<h4 id="schlomo_commented_at_2023-11-12_1855"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3072#issuecomment-1807210321">2023-11-12 18:55</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-12_1855" title="Permanent link">&para;</a></h4>
+<p>Thanks for updating the docs, good thinking!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-09.3072.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

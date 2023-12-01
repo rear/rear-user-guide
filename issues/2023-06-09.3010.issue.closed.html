@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3010 Issue closed: Auto-Resizing Extended Partitions Fails - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3010 Issue closed: Auto-Resizing Extended Partitions Fails";
+        var mkdocs_page_input_path = "issues/2023-06-09.3010.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3010 Issue closed: Auto-Resizing Extended Partitions Fails</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3010_issue_closed_auto-resizing_extended_partitions_fails"><a href="https://github.com/rear/rear/issues/3010">#3010 Issue</a> <code>closed</code>: Auto-Resizing Extended Partitions Fails<a class="headerlink" href="#3010_issue_closed_auto-resizing_extended_partitions_fails" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="pantaray_opened_issue_at_2023-06-09_0942"><img src="https://avatars.githubusercontent.com/u/7227141?u=53cdd005eba6905369912e35ce8b5e7f696ae660&v=4" width="50"><a href="https://github.com/pantaray">pantaray</a> opened issue at <a href="https://github.com/rear/rear/issues/3010">2023-06-09 09:42</a>:<a class="headerlink" href="#pantaray_opened_issue_at_2023-06-09_0942" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"): Relax-and-Recover
+    2.7-git.5183.29f51855.master / 2023-06-06</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade: N/A</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+<pre><code>OS_VENDOR=RedHatEnterpriseServer
+OS_VERSION=8.1
+</code></pre>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    We don't use a <code>site.conf</code>, here's the contents of our <code>local.conf</code>:</p>
+<pre><code># This file etc/rear/local.conf is intended for the user's
+# manual configuration of Relax-and-Recover (ReaR).
+# For configuration through packages and other automated means
+# we recommend a separated file named site.conf next to this file
+# and leave local.conf as is (ReaR upstream will never ship a site.conf).
+# The default OUTPUT=ISO creates the ReaR rescue medium as ISO image.
+# You need to specify your particular backup and restore method for your data
+# as the default BACKUP=REQUESTRESTORE does not really do that (see "man rear").
+# Configuration variables are documented in /usr/share/rear/conf/default.conf
+# and the examples in /usr/share/rear/conf/examples/ can be used as templates.
+# ReaR reads the configuration files via the bash builtin command 'source'
+# so bash syntax like VARIABLE="value" (no spaces at '=') is mandatory.
+# Because 'source' executes the content as bash scripts you can run commands
+# within your configuration files, in particular commands to set different
+# configuration values depending on certain conditions as you need like
+# CONDITION_COMMAND &amp;&amp; VARIABLE="special_value" || VARIABLE="usual_value"
+# but that means CONDITION_COMMAND gets always executed when 'rear' is run
+# so ensure nothing can go wrong if you run commands in configuration files.
+
+OUTPUT=ISO
+OUTPUT=RAMDISK
+OUTPUT_URL="nfs://1x.1xx.x.1xx/mnt/rear/backup"
+
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3"
+BACKUP_URL="nfs://1x.1xx.x.1xx/mnt/rear/backup"
+
+AUTOEXCLUDE_MULTIPATH=n
+BOOT_OVER_SAN=y
+AUTORESIZE_PARTITIONS=true
+
+AUTOEXCLUDE_DISKS=y
+</code></pre>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    PowerVM LPAR</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    PPC64LE</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    IBM HMC with GRUB bootloader</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SAN FC with multipath DM</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):<br />
+    Original layout of the machine:</p>
+<pre><code>NAME                    KNAME     PKNAME    TRAN TYPE  FSTYPE       LABEL  SIZE MOUNTPOINT
+/dev/sda                /dev/sda                 disk  mpath_member        100G
+`-/dev/mapper/mpatha    /dev/dm-0 /dev/sda       mpath                     100G
+  |-/dev/mapper/mpatha1 /dev/dm-1 /dev/dm-0      part                        4M
+  |-/dev/mapper/mpatha2 /dev/dm-2 /dev/dm-0      part  xfs                   1G /boot
+  |-/dev/mapper/mpatha3 /dev/dm-3 /dev/dm-0      part  swap                  8G [SWAP]
+  |-/dev/mapper/mpatha4 /dev/dm-4 /dev/dm-0      part                        1K
+  |-/dev/mapper/mpatha5 /dev/dm-5 /dev/dm-0      part  xfs                  50G /
+  `-/dev/mapper/mpatha6 /dev/dm-6 /dev/dm-0      part  xfs                  41G /home
+/dev/sdb                /dev/sdb                 disk  mpath_member        100G
+`-/dev/mapper/mpatha    /dev/dm-0 /dev/sdb       mpath                     100G
+  |-/dev/mapper/mpatha1 /dev/dm-1 /dev/dm-0      part                        4M
+  |-/dev/mapper/mpatha2 /dev/dm-2 /dev/dm-0      part  xfs                   1G /boot
+  |-/dev/mapper/mpatha3 /dev/dm-3 /dev/dm-0      part  swap                  8G [SWAP]
+  |-/dev/mapper/mpatha4 /dev/dm-4 /dev/dm-0      part                        1K
+  |-/dev/mapper/mpatha5 /dev/dm-5 /dev/dm-0      part  xfs                  50G /
+  `-/dev/mapper/mpatha6 /dev/dm-6 /dev/dm-0      part  xfs                  41G /home
+/dev/sdc                /dev/sdc                 disk  mpath_member        100G
+`-/dev/mapper/mpatha    /dev/dm-0 /dev/sdc       mpath                     100G
+  |-/dev/mapper/mpatha1 /dev/dm-1 /dev/dm-0      part                        4M
+  |-/dev/mapper/mpatha2 /dev/dm-2 /dev/dm-0      part  xfs                   1G /boot
+  |-/dev/mapper/mpatha3 /dev/dm-3 /dev/dm-0      part  swap                  8G [SWAP]
+  |-/dev/mapper/mpatha4 /dev/dm-4 /dev/dm-0      part                        1K
+  |-/dev/mapper/mpatha5 /dev/dm-5 /dev/dm-0      part  xfs                  50G /
+  `-/dev/mapper/mpatha6 /dev/dm-6 /dev/dm-0      part  xfs                  41G /home
+/dev/sdd                /dev/sdd                 disk  mpath_member        100G
+`-/dev/mapper/mpatha    /dev/dm-0 /dev/sdd       mpath                     100G
+  |-/dev/mapper/mpatha1 /dev/dm-1 /dev/dm-0      part                        4M
+  |-/dev/mapper/mpatha2 /dev/dm-2 /dev/dm-0      part  xfs                   1G /boot
+  |-/dev/mapper/mpatha3 /dev/dm-3 /dev/dm-0      part  swap                  8G [SWAP]
+  |-/dev/mapper/mpatha4 /dev/dm-4 /dev/dm-0      part                        1K
+  |-/dev/mapper/mpatha5 /dev/dm-5 /dev/dm-0      part  xfs                  50G /
+  `-/dev/mapper/mpatha6 /dev/dm-6 /dev/dm-0      part  xfs                  41G /home
+</code></pre>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    We initiated a backup of the system using</p>
+<pre><code>rear -v mkbackup
+</code></pre>
+<p>with the settings given above (NFS backup target). We created an
+LPAR with a smaller backing device (going from 100GB with 10GB used
+space to 20GB total), then booted from the backed up ISO and started
+the recover process:</p>
+<pre><code>RESCUE hostname:~ # rear -v recover
+
+...
+
+# Disk layout dated 20230606195041 (YYYYmmddHHMMSS)
+# NAME                    KNAME     PKNAME    TRAN TYPE  FSTYPE       LABEL  SIZE MOUNTPOINT UUID                                 WWN
+# /dev/sda                /dev/sda                 disk  mpath_member        100G                                                 0x600a098000d2e26600008e735e452553
+# `-/dev/mapper/mpathb    /dev/dm-0 /dev/sda       mpath                     100G
+#   |-/dev/mapper/mpathb1 /dev/dm-1 /dev/dm-0      part                        4M
+#   |-/dev/mapper/mpathb2 /dev/dm-2 /dev/dm-0      part  xfs                   1G /boot      808ae050-103f-424b-b648-5a5b5cdf1826
+#   |-/dev/mapper/mpathb3 /dev/dm-3 /dev/dm-0      part  swap                  8G [SWAP]     8644d3f1-b037-4a05-8237-d8aa461628f6
+#   |-/dev/mapper/mpathb4 /dev/dm-4 /dev/dm-0      part                        1K
+#   |-/dev/mapper/mpathb5 /dev/dm-5 /dev/dm-0      part  xfs                  50G /          9d1c54a0-2ab5-4c6c-b9e0-c790661773c0
+#   `-/dev/mapper/mpathb6 /dev/dm-6 /dev/dm-0      part  xfs                  41G /home      dad16105-df3b-4d8d-973f-6ceeb2e4e803
+# /dev/sdb                /dev/sdb                 disk  mpath_member        100G                                                 0x600a098000d2e26600008e735e452553
+
+...
+
+# Format: multipath &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt; &lt;slaves&gt;
+sdd
+part /dev/mapper/mpathb 4194304 1048576 primary boot,prep /dev/mapper/mpathb1
+part /dev/mapper/mpathb 1073741824 5242880 primary none /dev/mapper/mpathb2
+part /dev/mapper/mpathb 8621391872 1078984704 primary none /dev/mapper/mpathb3
+part /dev/mapper/mpathb 53687091200 9701425152 logical none /dev/mapper/mpathb5
+
+my_udevsettle
+create_disk_partition "/dev/mapper/mpathb" "primary" 2 6295552 1080037375
+create_disk_partition "/dev/mapper/mpathb" "primary" 3 1080041472 9701433343
+create_disk_partition "/dev/mapper/mpathb" "extended" 4 9701437440 21474836479
+create_disk_partition "/dev/mapper/mpathb" "logical" 5 107375247360 21474836479
+create_disk_partition "/dev/mapper/mpathb" "logical" 6 161062342656 21474836479
+</code></pre>
+<p>Looking at the start-/end-blocks, the extended partition is created
+correctly, however, the logical partitions are not. The partition
+layout of the original machine looks like this:</p>
+<pre><code>[root@hostname ~]# parted /dev/mapper/mpatha
+GNU Parted 3.2
+Using /dev/mapper/mpatha
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) print
+Model: Linux device-mapper (multipath) (dm)
+Disk /dev/mapper/mpatha: 107GB
+Sector size (logical/physical): 512B/4096B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type      File system     Flags
+1      1049kB  5243kB  4194kB  primary                   boot, prep
+2      5243kB  1079MB  1074MB  primary   xfs
+3      1079MB  9700MB  8621MB  primary   linux-swap(v1)
+4      9700MB  107GB   97.7GB  extended
+5      9701MB  63.4GB  53.7GB  logical   xfs
+6      63.4GB  107GB   44.0GB  logical   xfs
+</code></pre>
+<p>The partition table auto-created by REAR does not contain the
+logical partitions:</p>
+<pre><code>RESCUE esi-svftp001:/var/lib/rear/layout # parted /dev/mapper/mpathb
+GNU Parted 3.2
+Using /dev/mapper/mpathb
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) p
+Model: Linux device-mapper (multipath) (dm)
+Disk /dev/mapper/mpathb: 21.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type      File system  Flags
+1      2097kB  6291kB  4194kB  primary                boot, prep
+2      6296kB  1080MB  1074MB  primary
+3      1080MB  9701MB  8621MB  primary
+4      9701MB  21.5GB  11.8GB  extended               lba
+</code></pre>
+</li>
+<li>
+<p>Workaround, if any:<br />
+    Manually editing the the <code>create_disk_partition</code> calls fixes the
+    problem.<br />
+    Changing this</p>
+<pre><code>create_disk_partition "/dev/mapper/mpathb" "primary" 3   1080041472  9701433343
+create_disk_partition "/dev/mapper/mpathb" "extended" 4  9701437440 21474836479
+create_disk_partition "/dev/mapper/mpathb" "logical" 5 107375247360 21474836479
+create_disk_partition "/dev/mapper/mpathb" "logical" 6 161062342656 21474836479
+</code></pre>
+<p>to that</p>
+<pre><code>create_disk_partition "/dev/mapper/mpathb" "primary" 3   1080041472  9701433343
+create_disk_partition "/dev/mapper/mpathb" "extended" 4  9701437440 21474836479
+create_disk_partition "/dev/mapper/mpathb" "logical" 5   9701441537 17588141056
+create_disk_partition "/dev/mapper/mpathb" "logical" 6  17588145153 2147483647
+</code></pre>
+<p>fixes the resizing and system recovery works</p>
+<pre><code>Failed to wipe first  1024 bytes of /dev/dm-4 ('dd if=/dev/zero of=/dev/dm-4 count= 1024 iflag=count_bytes' failed)
+Start system layout restoration.
+Disk '/dev/mapper/mpathb': creating 'msdos' partition table
+Disk '/dev/mapper/mpathb': creating partition number 1 with name 'primary'
+Disk '/dev/mapper/mpathb': creating partition number 2 with name 'primary'
+Disk '/dev/mapper/mpathb': creating partition number 3 with name 'primary'
+Disk '/dev/mapper/mpathb': creating partition number 4 with name 'extended'
+Disk '/dev/mapper/mpathb': creating partition number 5 with name 'logical'
+Disk '/dev/mapper/mpathb': creating partition number 6 with name 'logical'
+Creating swap on /dev/mapper/mpathb3
+Creating filesystem of type xfs with mount point / on /dev/mapper/mpathb5.
+Mounting filesystem /
+Creating filesystem of type xfs with mount point /boot on /dev/mapper/mpathb2.
+Mounting filesystem /boot
+Creating filesystem of type xfs with mount point /home on /dev/mapper/mpathb6.
+Mounting filesystem /home
+Disk layout created.
+Recreated storage layout:
+NAME                    KNAME     TRAN TYPE  FSTYPE       LABEL  SIZE MOUNTPOINT
+/dev/sda                /dev/sda       disk  mpath_member         20G
+|-/dev/sda1             /dev/sda1      part  none                  4M
+|-/dev/sda2             /dev/sda2      part  none                  1G
+|-/dev/sda3             /dev/sda3      part  none                  8G
+|-/dev/sda4             /dev/sda4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdb                /dev/sdb       disk  mpath_member         20G
+|-/dev/sdb1             /dev/sdb1      part  none                  4M
+|-/dev/sdb2             /dev/sdb2      part  none                  1G
+|-/dev/sdb3             /dev/sdb3      part  none                  8G
+|-/dev/sdb4             /dev/sdb4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdc                /dev/sdc       disk  mpath_member         20G
+|-/dev/sdc1             /dev/sdc1      part  none                  4M
+|-/dev/sdc2             /dev/sdc2      part  none                  1G
+|-/dev/sdc3             /dev/sdc3      part  none                  8G
+|-/dev/sdc4             /dev/sdc4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdd                /dev/sdd       disk  mpath_member         20G
+|-/dev/sdd1             /dev/sdd1      part  none                  4M
+|-/dev/sdd2             /dev/sdd2      part  none                  1G
+|-/dev/sdd3             /dev/sdd3      part  none                  8G
+|-/dev/sdd4             /dev/sdd4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sde                /dev/sde       disk  mpath_member         20G
+|-/dev/sde1             /dev/sde1      part  none                  4M
+|-/dev/sde2             /dev/sde2      part  none                  1G
+|-/dev/sde3             /dev/sde3      part  none                  8G
+|-/dev/sde4             /dev/sde4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdf                /dev/sdf       disk  mpath_member         20G
+|-/dev/sdf1             /dev/sdf1      part  none                  4M
+|-/dev/sdf2             /dev/sdf2      part  none                  1G
+|-/dev/sdf3             /dev/sdf3      part  none                  8G
+|-/dev/sdf4             /dev/sdf4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdg                /dev/sdg       disk  mpath_member         20G
+|-/dev/sdg1             /dev/sdg1      part  none                  4M
+|-/dev/sdg2             /dev/sdg2      part  none                  1G
+|-/dev/sdg3             /dev/sdg3      part  none                  8G
+|-/dev/sdg4             /dev/sdg4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdh                /dev/sdh       disk  mpath_member         20G
+|-/dev/sdh1             /dev/sdh1      part  none                  4M
+|-/dev/sdh2             /dev/sdh2      part  none                  1G
+|-/dev/sdh3             /dev/sdh3      part  none                  8G
+|-/dev/sdh4             /dev/sdh4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdi                /dev/sdi       disk  mpath_member         20G
+|-/dev/sdi1             /dev/sdi1      part  none                  4M
+|-/dev/sdi2             /dev/sdi2      part  none                  1G
+|-/dev/sdi3             /dev/sdi3      part  none                  8G
+|-/dev/sdi4             /dev/sdi4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdj                /dev/sdj       disk  mpath_member         20G
+|-/dev/sdj1             /dev/sdj1      part  none                  4M
+|-/dev/sdj2             /dev/sdj2      part  none                  1G
+|-/dev/sdj3             /dev/sdj3      part  none                  8G
+|-/dev/sdj4             /dev/sdj4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdk                /dev/sdk       disk  mpath_member         20G
+|-/dev/sdk1             /dev/sdk1      part  none                  4M
+|-/dev/sdk2             /dev/sdk2      part  none                  1G
+|-/dev/sdk3             /dev/sdk3      part  none                  8G
+|-/dev/sdk4             /dev/sdk4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdl                /dev/sdl       disk  mpath_member         20G
+|-/dev/sdl1             /dev/sdl1      part  none                  4M
+|-/dev/sdl2             /dev/sdl2      part  none                  1G
+|-/dev/sdl3             /dev/sdl3      part  none                  8G
+|-/dev/sdl4             /dev/sdl4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdm                /dev/sdm       disk  mpath_member         20G
+|-/dev/sdm1             /dev/sdm1      part  none                  4M
+|-/dev/sdm2             /dev/sdm2      part  none                  1G
+|-/dev/sdm3             /dev/sdm3      part  none                  8G
+|-/dev/sdm4             /dev/sdm4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdn                /dev/sdn       disk  mpath_member         20G
+|-/dev/sdn1             /dev/sdn1      part  none                  4M
+|-/dev/sdn2             /dev/sdn2      part  none                  1G
+|-/dev/sdn3             /dev/sdn3      part  none                  8G
+|-/dev/sdn4             /dev/sdn4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdo                /dev/sdo       disk  mpath_member         20G
+|-/dev/sdo1             /dev/sdo1      part  none                  4M
+|-/dev/sdo2             /dev/sdo2      part  none                  1G
+|-/dev/sdo3             /dev/sdo3      part  none                  8G
+|-/dev/sdo4             /dev/sdo4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+/dev/sdp                /dev/sdp       disk  mpath_member         20G
+|-/dev/sdp1             /dev/sdp1      part  none                  4M
+|-/dev/sdp2             /dev/sdp2      part  none                  1G
+|-/dev/sdp3             /dev/sdp3      part  none                  8G
+|-/dev/sdp4             /dev/sdp4      part  none                  1K
+`-/dev/mapper/mpathb    /dev/dm-0      mpath                      20G
+|-/dev/mapper/mpathb1 /dev/dm-1      part                          4M
+|-/dev/mapper/mpathb2 /dev/dm-2      part  xfs                     1G /mnt/local/boot
+|-/dev/mapper/mpathb3 /dev/dm-3      part  swap                    8G
+|-/dev/mapper/mpathb4 /dev/dm-4      part                          1K
+|-/dev/mapper/mpathb5 /dev/dm-5      part  xfs                   7.4G /mnt/local
+`-/dev/mapper/mpathb6 /dev/dm-6      part  xfs                   3.6G /mnt/local/home
+</code></pre>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):<br />
+    See output above.</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2023-06-12_0936"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1586963638">2023-06-12 09:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-06-12_0936" title="Permanent link">&para;</a></h4>
+<p>I did not yet look at the details here but in general</p>
+<pre><code>AUTORESIZE_PARTITIONS=true
+</code></pre>
+<p>is old functionality that is implemented in<br />
+layout/prepare/default/430_autoresize_all_partitions.sh<br />
+which does not and never did work properly.</p>
+<p>See the description about</p>
+<pre><code># AUTORESIZE_PARTITIONS
+# AUTORESIZE_EXCLUDE_PARTITIONS
+# AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE
+# AUTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
+</code></pre>
+<p>in usr/share/rear/conf/default.conf<br />
+for ReaR 2.7 starting at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L475">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L475</a></p>
+<p>See also<br />
+<a href="https://github.com/rear/rear/issues/1731">https://github.com/rear/rear/issues/1731</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/1733">https://github.com/rear/rear/pull/1733</a></p>
+<h4 id="prontok_commented_at_2023-06-21_1435"><img src="https://avatars.githubusercontent.com/u/90829636?u=b8929c8a3164f5f225dbef496eea9fa84d00659e&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1600956784">2023-06-21 14:35</a>:<a class="headerlink" href="#prontok_commented_at_2023-06-21_1435" title="Permanent link">&para;</a></h4>
+<p>Hello,<br />
+I use to this case configurations:</p>
+<p>AUTORESIZE_PARTITIONS=( /dev/sda5 )<br />
+AUTORESIZE_EXCLUDE_PARTITIONS=( boot swap efi /dev/sda1 /dev/sda2 )<br />
+POST_RECOVERY_COMMANDS=(<br />
+'chroot /mnt/local /usr/sbin/lvextend -l +100%FREE /dev/root_vg/root'<br />
+'chroot /mnt/local /usr/sbin/resize2fs /dev/root_vg/root'<br />
+)</p>
+<p>#LVM#<br />
+/dev/sda5 root_vg (LV - /dev/root_vg/root)</p>
+<p>Parted layout</p>
+<pre><code>Number  Start   End     Size    Type      File system  Flags
+ 1      1049kB  512MB   511MB   primary   ext2         boot
+ 2      513MB   21,5GB  21,0GB  extended
+ 5      513MB   21,5GB  21,0GB  logical                lvm
+</code></pre>
+<p>P.S. i hope i helped you</p>
+<h4 id="pantaray_commented_at_2023-06-23_1206"><img src="https://avatars.githubusercontent.com/u/7227141?u=53cdd005eba6905369912e35ce8b5e7f696ae660&v=4" width="50"><a href="https://github.com/pantaray">pantaray</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1604188632">2023-06-23 12:06</a>:<a class="headerlink" href="#pantaray_commented_at_2023-06-23_1206" title="Permanent link">&para;</a></h4>
+<p>Hi!</p>
+<p>Thanks for the pointers @jsmeix !<br />
+We're currently trying to make<br />
+<code>layout/prepare/default/430_autoresize_all_partitions.sh</code><br />
+work with logical partitions.<br />
+No luck so far, but we keep on digging.</p>
+<p>And thank you @prontok for the hint!<br />
+I'll report back as soon as we make some progress.</p>
+<h4 id="protonk_commented_at_2023-06-23_2229"><img src="https://avatars.githubusercontent.com/u/390863?u=2d68ef2c2221bfc1b1454efa62e4f4c5fce3d8f0&v=4" width="50"><a href="https://github.com/Protonk">Protonk</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1605059839">2023-06-23 22:29</a>:<a class="headerlink" href="#protonk_commented_at_2023-06-23_2229" title="Permanent link">&para;</a></h4>
+<p>No prob, but I think you mean @prontok. Common mistake. ;)Adam Hyland,
+work in progressOn Jun 23, 2023, at 5:06 AM, Stefan Fuertinger
+***@***.***&gt; wrote:﻿<br />
+Hi!<br />
+Thanks for the pointers @jsmeix ! We're currently trying to make
+layout/prepare/default/430_autoresize_all_partitions.sh work with
+logical partitions. No luck so far, but we keep on digging. And thank
+you @Protonk for the hint! I'll report back as soon as we make some
+progress.</p>
+<p>—Reply to this email directly, view it on GitHub, or unsubscribe.You are
+receiving this because you were mentioned.Message ID:
+***@***.***&gt;</p>
+<h4 id="pantaray_commented_at_2023-06-26_0908"><img src="https://avatars.githubusercontent.com/u/7227141?u=53cdd005eba6905369912e35ce8b5e7f696ae660&v=4" width="50"><a href="https://github.com/pantaray">pantaray</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1607036387">2023-06-26 09:08</a>:<a class="headerlink" href="#pantaray_commented_at_2023-06-26_0908" title="Permanent link">&para;</a></h4>
+<p>@protonk Sorry for the confusion! Yes, I meant @prontok - thanks again,
+this time with the correct handle ;)</p>
+<h4 id="github-actions_commented_at_2023-08-26_0158"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3010#issuecomment-1694113385">2023-08-26 01:58</a>:<a class="headerlink" href="#github-actions_commented_at_2023-08-26_0158" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-06-09.3010.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

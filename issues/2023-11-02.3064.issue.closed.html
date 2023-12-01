@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3064 Issue closed: Missing libraries in the recovery system for symlinks in COPY_AS_IS - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3064 Issue closed: Missing libraries in the recovery system for symlinks in COPY_AS_IS";
+        var mkdocs_page_input_path = "issues/2023-11-02.3064.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3064 Issue closed: Missing libraries in the recovery system for symlinks in COPY_AS_IS</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3064_issue_closed_missing_libraries_in_the_recovery_system_for_symlinks_in_copy_as_is"><a href="https://github.com/rear/rear/issues/3064">#3064 Issue</a> <code>closed</code>: Missing libraries in the recovery system for symlinks in COPY_AS_IS<a class="headerlink" href="#3064_issue_closed_missing_libraries_in_the_recovery_system_for_symlinks_in_copy_as_is" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2023-11-02_1358"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/issues/3064">2023-11-02 13:58</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2023-11-02_1358" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"): Relax-and-Recover 2.7 / Git</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    NAME="Red Hat Enterprise Linux"<br />
+    VERSION="9.4 (Plow)"<br />
+    ID="rhel"<br />
+    ID_LIKE="fedora"<br />
+    VERSION_ID="9.4"<br />
+    PLATFORM_ID="platform:el9"<br />
+    PRETTY_NAME="Red Hat Enterprise Linux 9.4 Beta (Plow)"<br />
+    ANSI_COLOR="0;31"<br />
+    LOGO="fedora-logo-icon"<br />
+    CPE_NAME="cpe:/o:redhat:enterprise_linux:9::baseos"</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    empty</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    When <code>chkconfig</code> is installed, <code>rear mkrescue</code> aborts when
+    validating libraries in the recovery system:</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/5.14.0-380.el9.x86_64 (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Skip copying broken symlink '/etc/mtab' target '/proc/68455/mounts' on /proc/ /sys/ /dev/ or /run/
+Testing that the recovery system in /var/tmp/rear.OlQzDSRNwPCduIQ/rootfs contains a usable system
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+/bin/chkconfig requires additional libraries (fatal error)
+        libpopt.so.0 =&gt; not found
+/usr/lib64/systemd/libsystemd-core-252.so requires additional libraries
+        libsystemd-shared-252.so =&gt; not found
+ReaR recovery system in '/var/tmp/rear.OlQzDSRNwPCduIQ/rootfs' needs additional libraries, check /root/rear/var/log/rear/rear-vm-10-0-187-79.log for details
+Build area kept for investigation in /var/tmp/rear.OlQzDSRNwPCduIQ, remove it when not needed
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+ERROR: ReaR recovery system in '/var/tmp/rear.OlQzDSRNwPCduIQ/rootfs' not usable (required libraries are missing)
+</code></pre>
+<p>libpopt.so.0 is missing. In order to reproduce the problem, no other
+binary that requires libpopt should be included in the recovery system,
+otherwise it would pull libpopt and the problem would be hidden. In
+particular, <code>rsync</code> and <code>cryptsetup</code> use libpopt. Remove them before
+reproducing the problem.</p>
+<p>The underlying issue is that <code>chkconfig</code> got there as the symlink target
+of <code>/usr/lib/systemd/systemd-sysv-install</code>
+(<code>build/default/490_fix_broken_links.sh</code>), which got there in
+<code>build/GNU/Linux/100_copy_as_is.sh</code> because <code>/usr/lib/systemd/systemd-*</code>
+is in COPY_AS_IS (see <code>prep/GNU/Linux/280_include_systemd.sh</code>).</p>
+<pre><code># ls -l /usr/lib/systemd/systemd-sysv-install
+lrwxrwxrwx. 1 root root 27 May 23 08:59 /usr/lib/systemd/systemd-sysv-install -&gt; ../../../usr/sbin/chkconfig
+</code></pre>
+<p>and unlike other code that adds binaries to the recovery system, the
+<code>build/GNU/Linux/100_copy_as_is.sh</code> and
+<code>build/default/490_fix_broken_links.sh</code> tandem does not add required
+libraries if COPY_AS_IS contains a symlink.</p>
+<p>The problematic code is here:
+<a href="https://github.com/rear/rear/pull/1521/files#r1377909379">https://github.com/rear/rear/pull/1521/files#r1377909379</a>
+- it skips library dependency resolution for COPY_AS_IS items that are
+symlinks.</p>
+<p>To trigger the problem, several condition must be met:</p>
+<ul>
+<li>a binary shoud be added to recovery system via a symlink</li>
+<li>the symlink is in <code>COPY_AS_IS</code> (OTOH <code>PROGS</code> handles symlinks
+    properly)</li>
+<li>the binary needs additional libraries</li>
+<li>no other binary added to the recovery system causes the libraries to
+    be added (cf. the remark about <code>rsync</code> and <code>cryptsetup</code> above)</li>
+</ul>
+<p>The problem is thus quite rare (<code>PROGS</code> are the preferred way to add
+executables to the recovery system, which works fine), but one can
+trigger it using something else than <code>chkconfig</code>. For example,
+<code>COPY_AS_IS+=( /usr/bin/cdrecord )</code>. On RHEL, <code>cdrecord</code> is a symlink to
+<code>xorriso</code>, which needs quite special libraries, so:</p>
+<pre><code># usr/sbin/rear mkrescue
+/bin/xorriso requires additional libraries (fatal error)
+        libisoburn.so.1 =&gt; not found
+</code></pre>
+<p><code>PROGS+=( cdrecord )</code> works fine.</p>
+<ul>
+<li>
+<p>Workaround, if any:<br />
+    Add <code>chkconfig</code> to <code>PROGS</code> - this will trigger library dependency
+    resolution for it</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<p>Relevant parts of debug log:</p>
+<pre><code>2023-11-02 09:15:44.001826257 Including build/GNU/Linux/100_copy_as_is.sh
+2023-11-02 09:15:44.004404528 Entering debugscript mode via 'set -x'.
++ source /root/rear/usr/share/rear/build/GNU/Linux/100_copy_as_is.sh
+(...)
+2023-11-02 09:15:44.032533864 Files being copied: /root/rear/usr/share/rear /root/rear/var/lib/rear /dev /etc/inputrc /etc/protocols /etc/services /etc/rpc /etc/termcap /etc/terminfo /usr/share/terminfo /etc/netconfig /etc/mke2fs.conf /etc/os-release /etc/redhat-release /etc/system-release /etc/localtime /etc/magic /usr/share/misc/magic /etc/dracut.conf /etc/dracut.conf.d /usr/lib/dracut /sbin/modprobe.ksplice-orig /etc/sysctl.conf /etc/sysctl.d /etc/e2fsck.conf /usr/libexec/vi /etc/ssl/certs/* /etc/pki/* /usr/lib/ssl/* /usr/share/ca-certificates/* /etc/ca-certificates/* /usr/lib/dhcpcd/* /usr/share/systemd /etc/dbus-1 /usr/lib/systemd/systemd-ac-power /usr/lib/systemd/systemd-backlight /usr/lib/systemd/systemd-binfmt /usr/lib/systemd/systemd-bless-boot /usr/lib/systemd/systemd-boot-check-no-failures /usr/lib/systemd/systemd-cgroups-agent /usr/lib/systemd/systemd-coredump /usr/lib/systemd/systemd-cryptsetup /usr/lib/systemd/systemd-export /usr/lib/systemd/systemd-fsck /usr/lib/systemd/systemd-growfs /usr/lib/systemd/systemd-hibernate-resume /usr/lib/systemd/systemd-hostnamed /usr/lib/systemd/systemd-initctl /usr/lib/systemd/systemd-integritysetup /usr/lib/systemd/systemd-journald /usr/lib/systemd/systemd-localed /usr/lib/systemd/systemd-logind /usr/lib/systemd/systemd-makefs /usr/lib/systemd/systemd-measure /usr/lib/systemd/systemd-modules-load /usr/lib/systemd/systemd-network-generator /usr/lib/systemd/systemd-pcrphase /usr/lib/systemd/systemd-pstore /usr/lib/systemd/systemd-quotacheck /usr/lib/systemd/systemd-random-seed /usr/lib/systemd/systemd-remount-fs /usr/lib/systemd/systemd-reply-password /usr/lib/systemd/systemd-rfkill /usr/lib/systemd/systemd-shutdown /usr/lib/systemd/systemd-sleep /usr/lib/systemd/systemd-socket-proxyd /usr/lib/systemd/systemd-sulogin-shell /usr/lib/systemd/systemd-sysctl /usr/lib/systemd/systemd-sysroot-fstab-check /usr/lib/systemd/systemd-sysupdate /usr/lib/systemd/systemd-sysv-install (...)
+2023-11-02 09:15:46.241542887 copy_as_is_executables = (... ) (does not contain /usr/lib/systemd/systemd-sysv-install )
+(...)
+2023-11-02 09:16:01.446960166 Including build/default/490_fix_broken_links.sh
+2023-11-02 09:16:01.449411488 Entering debugscript mode via 'set -x'.
++ source /root/rear/usr/share/rear/build/default/490_fix_broken_links.sh
+(...)
+++ for broken_symlink in $broken_symlinks
++++ readlink -v -e /usr/lib/systemd/systemd-sysv-install
+++ link_target=/usr/sbin/chkconfig
+++ [[ -d /usr/sbin/chkconfig ]]
+++ test /usr/sbin/chkconfig
+++ egrep -q '^/(proc|sys|dev|run)/'
+++ echo /usr/sbin/chkconfig
++++ dirname /usr/sbin/chkconfig
+++ mkdir -v -p ./usr/sbin
+++ cp -v --preserve=all /usr/sbin/chkconfig ./usr/sbin/chkconfig
+'/usr/sbin/chkconfig' -&gt; './usr/sbin/chkconfig'
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-11-02_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790810804">2023-11-02 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-02_1410" title="Permanent link">&para;</a></h4>
+<p>For now "discuss / RFC" until we came to a conclusion<br />
+how COPY_AS_IS versus PROGS are meant to work.</p>
+<p>Regardless that I did a lot of code changes related<br />
+to COPY_AS_IS, I do not really know how COPY_AS_IS<br />
+is or was actually meant to work from the beginning.<br />
+Perhaps COPY_AS_IS means "only copy 'as is' but nothing more"?</p>
+<p>Excerpt from default.conf:</p>
+<pre><code># Files and directories to copy as-is (with tar) into the ReaR recovery system.
+# As its name tells COPY_AS_IS is primarily meant to "only copy as is".
+# In particular tar does not follow symlinks when copying
+# (for the reason behind see the build/GNU/Linux/100_copy_as_is.sh script).
+# To get libraries into the recovery system, use the LIBS array.
+# To get non-mandatory programs into the recovery system, use the PROGS array.
+# To get mandatory programs into the recovery system, use the REQUIRED_PROGS array.
+# For elements in the LIBS, PROGS, and REQUIRED_PROGS arrays
+# the RequiredSharedObjects function is called to determine required
+# shared objects (libraries) that get also copied into the recovery system.
+# For what is specified via the COPY_AS_IS array there is an exception to the
+# above "only copy as is" rule that for executables RequiredSharedObjects is called
+# to also get their needed libraries copied into the recovery system.
+# But when libraries are specified via COPY_AS_IS that are not executable
+# no required other libraries get automatically copied into the recovery system.
+# The reasoning behind is when programs are specified via COPY_AS_IS they
+# should be handled gracefully but COPY_AS_IS is not meant for libraries.
+...
+</code></pre>
+<p>I fear that <code>exception to the above "only copy as is" rule</code> bites us<br />
+because it makes the original intent vague so things are expected<br />
+to "always work" because such things "sometimes work" because<br />
+we try to behave "gracefully" :-(</p>
+<h4 id="pcahyna_commented_at_2023-11-02_1418"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790824591">2023-11-02 14:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-02_1418" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps COPY_AS_IS means "only copy 'as is' but nothing more"?</p>
+</blockquote>
+<p>The problem is, even if <code>COPY_AS_IS</code> copies the symlink as it is and
+leaves a dangling symlink, <code>build/default/490_fix_broken_links.sh</code> then
+copies the target. So, if <code>COPY_AS_IS</code> is really meant to just "copy as
+is", <code>build/default/490_fix_broken_links.sh</code> should not exist.</p>
+<h4 id="pcahyna_commented_at_2023-11-02_1419"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790826209">2023-11-02 14:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-02_1419" title="Permanent link">&para;</a></h4>
+<p>@jsmeix without this exception, we would have the same problem even for
+non-symlinks and ReaR would fail all the time.</p>
+<h4 id="jsmeix_commented_at_2023-11-02_1421"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790830590">2023-11-02 14:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-02_1421" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+welcome to the shadowy world how ReaR behaves in practice :-)</p>
+<p>I do not argue against further enhancing the COPY_AS_IS code<br />
+to make it behave more reliable and fail-safe.</p>
+<p>I only like to provide some reasoning for the current behaviour.</p>
+<h4 id="jsmeix_commented_at_2023-11-02_1428"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790844193">2023-11-02 14:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-02_1428" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you provide an (artificial) example for your</p>
+<pre><code>without this exception, we would have the same problem
+even for non-symlinks and ReaR would fail all the time
+</code></pre>
+<p>I think you see and understand this shortcoming<br />
+of the COPY_AS_IS code much better than I do.<br />
+I like to also see and understand what is<br />
+generically wrong with our current COPY_AS_IS code.<br />
+I.e. when it even fails (under special conditions)<br />
+when COPY_AS_IS is used as it is primarily meant to be used.</p>
+<h4 id="pcahyna_commented_at_2023-11-02_1443"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790870106">2023-11-02 14:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-02_1443" title="Permanent link">&para;</a></h4>
+<p>@jsmeix, maybe I was wrong. Without this exception, what I get are these
+additional messages (which are not fatal errors):</p>
+<pre><code>/usr/lib/systemd/systemd-cryptsetup requires additional libraries
+        libcryptsetup.so.12 =&gt; not found
+/usr/lib/systemd/systemd-integritysetup requires additional libraries
+        libcryptsetup.so.12 =&gt; not found
+/usr/lib/systemd/systemd-veritysetup requires additional libraries
+        libcryptsetup.so.12 =&gt; not found
+/usr/lib/udev/rename_device requires additional libraries
+        libglib-2.0.so.0 =&gt; not found
+</code></pre>
+<p>I don't know whether this indicates a real problem in the recovery
+system or not (that is, whether e.g. <code>/usr/lib/udev/rename_device</code> is
+actually used during the recovery system operation or not).</p>
+<h4 id="pcahyna_commented_at_2023-11-02_1445"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1790873812">2023-11-02 14:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-02_1445" title="Permanent link">&para;</a></h4>
+<p>I would say though that by default executables under <code>/usr/lib</code> or
+<code>/usr/libexec</code> copied via COPY_AS_IS should be assumed to be useful
+and not including their required libraries seems dangerous.</p>
+<h4 id="jsmeix_commented_at_2023-11-09_0818"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1803350556">2023-11-09 08:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-09_0818" title="Permanent link">&para;</a></h4>
+<p>A totally offhanded and untested idea<br />
+how to possibly get rid of the complications<br />
+with executables in the COPY_AS_IS code:</p>
+<p>Copy executables in COPY_AS_IS to PROGS<br />
+and handle them via PROGS<br />
+instead of handling them in COPY_AS_IS.</p>
+<p>My assumption is that handling arbitrary files<br />
+that are executable (i.e. where 'test -x' is true)<br />
+via PROGS works well (i.e. sufficiently fail-safe).</p>
+<p>If my assumption holds, this could much clean up<br />
+the COPY_AS_IS code and make things behave more<br />
+consistent because then it makes no difference<br />
+if a program was specified in COPY_AS_IS or in PROGS<br />
+and we would have only one code place that deals<br />
+with programs or executables and their libraries:<br />
+build/GNU/Linux/390_copy_binaries_libraries.sh</p>
+<p>I think duplicate entries should be filtered out<br />
+in the 'all_binaries' and 'all_libs arrays' in<br />
+build/GNU/Linux/390_copy_binaries_libraries.sh<br />
+as currently done with COPY_AS_IS.</p>
+<h4 id="pcahyna_commented_at_2023-11-09_2130"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1804714205">2023-11-09 21:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-09_2130" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>A totally offhanded and untested idea how to possibly get rid of the
+complications with executables in the COPY_AS_IS code:</p>
+<p>Copy executables in COPY_AS_IS to PROGS and handle them via PROGS
+instead of handling them in COPY_AS_IS.</p>
+<p>My assumption is that handling arbitrary files that are executable
+(i.e. where 'test -x' is true) via PROGS works well (i.e. sufficiently
+fail-safe).</p>
+</blockquote>
+<p>The problem is, PROGS is intended for executables in $PATH, while we are
+using COPY_AS_IS for helper executables outside $PATH (under
+<code>/usr/libexec</code> or <code>/usr/lib</code> or similar).</p>
+<p>A program in PROGS will be unconditionally copied to <code>/bin</code> (see the use
+of <code>copy_binaries</code> in
+build/GNU/Linux/390_copy_binaries_libraries.sh), but the COPY_AS_IS
+items need to be copied to the same path as in the original system.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_0734"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1805234767">2023-11-10 07:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_0734" title="Permanent link">&para;</a></h4>
+<p>Yes, sigh!<br />
+While sleeping on my "totally offhanded and untested idea"<br />
+I also saw that this cannot work because of how PROGS behaves<br />
+(i.e. handling arbitrary files that are executable<br />
+via PROGS will not work well).</p>
+<p>So currently our only way out is to more and more enhance<br />
+the COPY_AS_IS code so that it behaves sufficiently OK<br />
+for arbitrary files that are executable.</p>
+<p>@pcahyna<br />
+I would appreciate it if you would implement<br />
+what you think works OK for your current case<br />
+with reasonable effort (i.e. make a pull request).</p>
+<p>Then let's just wait and see how things behave in general<br />
+and when new issues appear let's just fix them one by one<br />
+as usual as far as possible with reasonable effort.</p>
+<p>A general addedum:</p>
+<p>From my curent point of view our whole "copy things" code<br />
+looks like a (long grown over time) pile of mess.</p>
+<p>I think the root cause is that currently the ReaR recovery system<br />
+is in general not a truthful and self-consistent copy<br />
+of the needed parts from the original system.<br />
+It works sufficiently OK for our known cases but the current<br />
+implementation is insufficient in this or that special cases.</p>
+<p>This leads to the (apparently at least in practice unsolvable?)<br />
+problem how to truthfully and self-consistently copy "something".</p>
+<p>Cf. the part about symbolic links<br />
+<a href="https://github.com/rear/rear/issues/2972#issuecomment-1669295963">https://github.com/rear/rear/issues/2972#issuecomment-1669295963</a></p>
+<pre><code>... investigate how to really properly copy "something"
+also when there are symbolic links "in between"
+so that the whole structure is copied to a new place
+i.e. that after copying
+the link target with its owner,group,permissions,...
+and its name plus the symlink exist at the new place.
+</code></pre>
+<p>A self-consistent copy also means that linked libraries<br />
+get automatically copied.<br />
+I think our RequiredSharedObjects function is sufficient<br />
+for that.</p>
+<p>I think other required things to get a self-consistent copy<br />
+like other files that are neded which are not linked<br />
+is not possible in an automated way.</p>
+<h4 id="pcahyna_commented_at_2023-11-10_0957"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1805426606">2023-11-10 09:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-10_0957" title="Permanent link">&para;</a></h4>
+<p>@jsmeix (or anyone else), have you ever considered using dracut to
+generate the ReaR initrd? It is a tool that generates the initrd on
+Fedora (and probably some other distros).</p>
+<p>I would prefer to focus on areas where ReaR is really unique (mainly,
+layout saving and restoration) and leave the "boring work" of
+constructing the initrd to something else, if possible.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1218"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1805637689">2023-11-10 12:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1218" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your encouraging proposal!</p>
+<p>I fully agree with you to use as much as possible<br />
+already existing tools for certain functionality in ReaR<br />
+instead of reimplementing this or that functionality in ReaR.</p>
+<p>I never considered using dracut to generate the ReaR initrd.<br />
+Also SUSE/openSUSE uses dracut to generate its initrd for<br />
+normal system boot and system startup.</p>
+<p>Caution! ;-)<br />
+here my next "totally offhanded and untested idea":</p>
+<p>Based on our findings and assumptions in<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1668940477">https://github.com/rear/rear/pull/3031#issuecomment-1668940477</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1669490742">https://github.com/rear/rear/pull/3031#issuecomment-1669490742</a><br />
+we might do something similar for ReaR's initrd:</p>
+<p>Make ReaR's initrd as an enhancement of the already existing<br />
+initrd for boot and startup of the original system,<br />
+for example somehow like<br />
+<a href="https://github.com/rear/rear/issues/3017#issuecomment-1645348480">https://github.com/rear/rear/issues/3017#issuecomment-1645348480</a><br />
+i.e. basically something like</p>
+<ol>
+<li>unpack the already existing initrd into some directory</li>
+<li>add ReaR's specific additional stuff to that directory</li>
+<li>pack that directory as ReaR's initrd</li>
+</ol>
+<p>My reasoning is same as in<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1668940477">https://github.com/rear/rear/pull/3031#issuecomment-1668940477</a></p>
+<p>When the initrd of the Linux distribution<br />
+makes the original system start up,<br />
+then the contents of that initrd<br />
+should also make the ReaR recovery system start up<br />
+on replacement hardware<br />
+because replacement hardware must be sufficiently<br />
+compatible with the original system hardware.</p>
+<p>Another (hopefully reasonable) assumption is that<br />
+the initrd of the Linux distribution<br />
+should be sufficiently feature complete<br />
+to start up the original system on various hardware.</p>
+<p>So only adding ReaR's specific additional stuff<br />
+to the initrd of the Linux distribution<br />
+should be (hopefully) sufficient<br />
+to make ReaR's things work in the ReaR recovery system.</p>
+<p>I.e. my "totally offhanded and untested idea" is<br />
+to not use dracut and generate a ReaR initrd from scratch<br />
+but perhaps simpler and perhaps even more fail-safe and<br />
+hopefully more generically working on various Linux distributions<br />
+because it does not depend on dracut - provided a sufficiently<br />
+"normal" initrd already exists for system boot and startup.</p>
+<h4 id="pcahyna_commented_at_2023-11-13_1448"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3064#issuecomment-1808305629">2023-11-13 14:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-13_1448" title="Permanent link">&para;</a></h4>
+<p>@jsmeix using an already existing initrd would have the advantage of not
+relying on a specific tool (dracut), but I am afraid that the original
+initrd is not just feature complete (although that might be a problem as
+well, for example I suspect that it does not have the all the kernel
+modules and firmware), but that it does in fact too much. It needs to
+activate all the storage on the original disks, mount the rootfs and
+pivot to it. We need to avoid all this (activating the original storage
+components should be preferably avoided if you are going to wipe them in
+the next step), which means that we would not need to just "add ReaR's
+specific additional stuff" but to remove lots of stuff as well. This
+would require us to have a good knowledge of the specifics of the
+particular initrd.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-02.3064.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

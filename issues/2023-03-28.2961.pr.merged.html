@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2961 PR merged: Copy the console= kernel arguments from the original system - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2961 PR merged: Copy the console= kernel arguments from the original system";
+        var mkdocs_page_input_path = "issues/2023-03-28.2961.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2961 PR merged: Copy the console= kernel arguments from the original system</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2961_pr_merged_copy_the_console_kernel_arguments_from_the_original_system"><a href="https://github.com/rear/rear/pull/2961">#2961 PR</a> <code>merged</code>: Copy the console= kernel arguments from the original system<a class="headerlink" href="#2961_pr_merged_copy_the_console_kernel_arguments_from_the_original_system" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code>,
+<code>minor bug</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-03-28_1219"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/2961">2023-03-28 12:19</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-03-28_1219" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>Cleanup</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/2749#issuecomment-1196650631">https://github.com/rear/rear/pull/2749#issuecomment-1196650631</a><br />
+<a href="https://github.com/rear/rear/issues/2843">https://github.com/rear/rear/issues/2843</a><br />
+<a href="https://github.com/rear/rear/pull/2844#issuecomment-1202307444">https://github.com/rear/rear/pull/2844#issuecomment-1202307444</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    See below<br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1488329126">https://github.com/rear/rear/pull/2961#issuecomment-1488329126</a><br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1488420876">https://github.com/rear/rear/pull/2961#issuecomment-1488420876</a><br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1737300701">https://github.com/rear/rear/pull/2961#issuecomment-1737300701</a><br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1738746776">https://github.com/rear/rear/pull/2961#issuecomment-1738746776</a><br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1738920877">https://github.com/rear/rear/pull/2961#issuecomment-1738920877</a><br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1738960521">https://github.com/rear/rear/pull/2961#issuecomment-1738960521</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Overhauled the whole automated serial console setup<br />
+for the recovery system in particular<br />
+prep/GNU/Linux/200_include_serial_console.sh<br />
+and lib/serial-functions.sh which results that<br />
+rescue/GNU/Linux/400_use_serial_console.sh is obsolete, see<br />
+<a href="https://github.com/rear/rear/pull/2749#issuecomment-1196650631">https://github.com/rear/rear/pull/2749#issuecomment-1196650631</a></p>
+<p>According to that the basic idea is by default to only</p>
+<pre><code>copy all the console= kernel arguments from the running system
+</code></pre>
+<p>which means to no longer auto-enable serial consoles<br />
+for all "real serial devices" in the ReaR recovery system.</p>
+<p>That new default behaviour is described in default.conf</p>
+<p>A "real serial device" is one where its kernel device node<br />
+is a /dev/ttyS* or /dev/hvsi* character device and where</p>
+<pre><code># stty -F /dev/tty...
+</code></pre>
+<p>results a 'speed' line,<br />
+e.g. on my test VM /dev/ttyS0 is a "real serial device"<br />
+(regarless that /dev/ttyS0 is only a virtual serial device)<br />
+but /dev/ttyS1 is not a "real serial device":</p>
+<pre><code># stty -F /dev/ttyS0
+speed 9600 baud; line = 0;
+-brkint -imaxbel
+
+# stty -F /dev/ttyS1
+stty: /dev/ttyS1: Input/output error
+</code></pre>
+<p>What did not change is when the user explicitly specified<br />
+SERIAL_CONSOLE_DEVICES<br />
+SERIAL_CONSOLE_DEVICES_KERNEL<br />
+SERIAL_CONSOLE_DEVICE_SYSLINUX<br />
+SERIAL_CONSOLE_DEVICE_GRUB<br />
+What the user specified there is used or set up as specified.</p>
+<p>There are no new configuration variables.</p>
+<h4 id="jsmeix_commented_at_2023-03-28_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1486800692">2023-03-28 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-28_1230" title="Permanent link">&para;</a></h4>
+<p>Tomorrow I will do some initial testing.</p>
+<h4 id="jsmeix_commented_at_2023-03-29_1019"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1488329126">2023-03-29 10:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-29_1019" title="Permanent link">&para;</a></h4>
+<p>My first test result of the new default behaviour<br />
+(i.e. when no SERIAL_CONSOLE config variables are specified):</p>
+<p>I booted the original system (a QEMU/KVM virtual machine)<br />
+with artificial (I do not have serial port hardware)<br />
+additional kernel 'console' command line options:</p>
+<pre><code>... console=ttyS1,9600n8 ... console=ttyS3 ... console=tty0 ...
+</code></pre>
+<p>and got</p>
+<pre><code># dmesg | grep console
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 resume=/dev/system/swap console=ttyS3 crashkernel=203M,high console=tty0 mitigations=off
+[    0.122561] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 resume=/dev/system/swap console=ttyS3 crashkernel=203M,high console=tty0 mitigations=off
+[    0.146431] printk: console [tty0] enabled
+[    0.219572] printk: console [ttyS1] enabled
+[    5.980855] qxl 0000:00:02.0: vgaarb: deactivate vga console
+
+# ls -l /dev/ttyS[0-9]
+crw-rw---- 1 root dialout 4, 64 Mar 29 11:10 /dev/ttyS0
+crw-rw---- 1 root dialout 4, 65 Mar 29 11:10 /dev/ttyS1
+crw-rw---- 1 root dialout 4, 66 Mar 29 11:10 /dev/ttyS2
+crw-rw---- 1 root dialout 4, 67 Mar 29 11:10 /dev/ttyS3
+crw-rw---- 1 root dialout 4, 68 Mar 29 11:10 /dev/ttyS4
+crw-rw---- 1 root dialout 4, 69 Mar 29 11:10 /dev/ttyS5
+crw-rw---- 1 root dialout 4, 70 Mar 29 11:10 /dev/ttyS6
+crw-rw---- 1 root dialout 4, 71 Mar 29 11:10 /dev/ttyS7
+crw-rw---- 1 root dialout 4, 72 Mar 29 11:10 /dev/ttyS8
+crw-rw---- 1 root dialout 4, 73 Mar 29 11:10 /dev/ttyS9
+
+# uname -a
+Linux localhost 5.3.18-57-default #1 SMP Wed Apr 28 10:54:41 UTC 2021 (ba3c2e9) x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>That there is first <code>console [tty0] enabled</code><br />
+and then <code>console [ttyS1] enabled</code><br />
+but no 'console [ttyS3] enabled' matches what<br />
+<a href="https://www.kernel.org/doc/html/v5.3/admin-guide/serial-console.html">https://www.kernel.org/doc/html/v5.3/admin-guide/serial-console.html</a><br />
+reads (excerpts)</p>
+<pre><code>So, for example:
+
+console=ttyS1,9600 console=tty0
+
+defines that opening /dev/console will get you the
+current foreground virtual console, and kernel messages
+will appear on both the VGA console and
+the 2nd serial port (ttyS1 or COM2) at 9600 baud.
+
+Note that you can only define one console
+per device type (serial, video).
+
+If no console device is specified, the first device found
+capable of acting as a system console will be used.
+At this time, the system first looks for a VGA card and
+then for a serial port.
+So if you don't have a VGA card in your system
+the first serial port will automatically become the console.
+</code></pre>
+<p>ReaR on the original system (which runs SLES15 SP3):</p>
+<pre><code># egrep -v '^#|^$' etc/rear/local.conf
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.122.1/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/x86_64-efi /boot/grub2/i386-pc /opt /srv /usr/local /root /tmp /var ) 
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD='rear'
+USE_DHCLIENT="yes"
+
+# usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.9suWIs5VRXA4OhL
+...
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Adding 'console=ttyS1,9600n8' to KERNEL_CMDLINE
+Adding 'console=ttyS3' to KERNEL_CMDLINE
+Adding 'console=tty0' to KERNEL_CMDLINE
+Handling network interface 'eth0'
+eth0 is a physical device
+Handled network interface 'eth0'
+Skipping 'lo': not bound to any physical interface.
+skipping usr/share/rear/rescue/GNU/Linux/400_use_serial_console.sh
+...
+
+# find /var/tmp/rear.9suWIs5VRXA4OhL -xdev -type f | xargs grep 'console=ttyS1,9600n8'
+...
+/var/tmp/rear.9suWIs5VRXA4OhL/tmp/isofs/isolinux/isolinux.cfg:
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0
+/var/tmp/rear.9suWIs5VRXA4OhL/tmp/isofs/isolinux/isolinux.cfg:
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0 auto_recover
+</code></pre>
+<p>Excerpt from the ReaR log file:</p>
+<pre><code>+ source /root/rear.github.master/usr/share/rear/prep/GNU/Linux/200_include_serial_console.sh
+...
++++ cat /proc/cmdline
+++ for kernel_option in $( cat /proc/cmdline )
+++ test BOOT_IMAGE = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test root = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test console = console
+++ USE_SERIAL_CONSOLE=yes
+++ COPY_KERNEL_PARAMETERS+=(console)
+++ break
++ source_return_code=0
+</code></pre>
+<p>ReaR recovery system on replacement hardware/VM:</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep console
+[    0.000000] Command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0 debug BOOT_IMAGE=kernel 
+[    0.147923] Kernel command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0 debug BOOT_IMAGE=kernel 
+[    0.278021] printk: console [tty0] enabled
+[    0.398808] printk: console [ttyS1] enabled
+[    5.186534] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<p>All recovery system startup messages appear for me<br />
+so the new default behaviour seems in particular to fix<br />
+<a href="https://github.com/rear/rear/issues/2843">https://github.com/rear/rear/issues/2843</a></p>
+<p>I will verify this in a second test where I do not use<br />
+any kernel 'console' command line options...</p>
+<h4 id="jsmeix_commented_at_2023-03-29_1126"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1488420876">2023-03-29 11:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-03-29_1126" title="Permanent link">&para;</a></h4>
+<p>Second test where I do not use<br />
+any kernel 'console' command line options<br />
+on the original system:</p>
+<pre><code># dmesg | egrep 'Kernel command line|console'
+[    0.149486] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root resume=/dev/system/swap crashkernel=203M,high mitigations=off
+[    0.173618] printk: console [tty0] enabled
+[    5.807052] qxl 0000:00:02.0: vgaarb: deactivate vga console
+
+# usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.Vdrk58sZjJRSsc9
+...
+
+# grep 'root=' /var/tmp/rear.Vdrk58sZjJRSsc9/tmp/isofs/isolinux/isolinux.cfg
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 auto_recover
+</code></pre>
+<p>so there is also no kernel 'console' command line option set<br />
+for the ReaR recovery system.</p>
+<p>Excerpt from the ReaR log file:</p>
+<pre><code>+ source /root/rear.github.master/usr/share/rear/prep/GNU/Linux/200_include_serial_console.sh
+...
++++ cat /proc/cmdline
+++ for kernel_option in $( cat /proc/cmdline )
+++ test BOOT_IMAGE = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test root = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test resume = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test crashkernel = console
+++ for kernel_option in $( cat /proc/cmdline )
+++ test mitigations = console
++ source_return_code=0
+</code></pre>
+<p>ReaR recovery system on replacement hardware/VM:</p>
+<pre><code>RESCUE localhost:~ # dmesg | egrep 'Kernel command line|console'
+[    0.132793] Kernel command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 BOOT_IMAGE=kernel 
+[    0.216293] printk: console [tty0] enabled
+[    4.087957] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<p>All recovery system startup messages appear for me<br />
+so the new default behaviour fixes<br />
+<a href="https://github.com/rear/rear/issues/2843">https://github.com/rear/rear/issues/2843</a><br />
+in particular when no kernel 'console' command line options<br />
+are used on the original system.</p>
+<h4 id="jsmeix_commented_at_2023-04-24_0557"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1519423651">2023-04-24 05:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-04-24_0557" title="Permanent link">&para;</a></h4>
+<p>This pull request is currently in a not yet finished sate.<br />
+I was interrupted to work on this one by other things.<br />
+I will continue here as time permits.</p>
+<h4 id="schlomo_commented_at_2023-04-24_0700"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1519494732">2023-04-24 07:00</a>:<a class="headerlink" href="#schlomo_commented_at_2023-04-24_0700" title="Permanent link">&para;</a></h4>
+<p>Ah, sorry. Please kindly set it to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request">draft
+mode</a>
+for everybody to see the not-yet-ready state right away.</p>
+<h4 id="jsmeix_commented_at_2023-04-24_0729"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1519533932">2023-04-24 07:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-04-24_0729" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+thank you for the link to the matching GitHub documentation!<br />
+(I had noticed that "convert to draft" button since some time<br />
+but never found time to find out what that actually means.)</p>
+<h4 id="github-actions_commented_at_2023-06-24_0248"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1605241697">2023-06-24 02:48</a>:<a class="headerlink" href="#github-actions_commented_at_2023-06-24_0248" title="Permanent link">&para;</a></h4>
+<p>Stale pull request message</p>
+<h4 id="github-actions_commented_at_2023-08-26_0158"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1694113399">2023-08-26 01:58</a>:<a class="headerlink" href="#github-actions_commented_at_2023-08-26_0158" title="Permanent link">&para;</a></h4>
+<p>Stale pull request message</p>
+<h4 id="jsmeix_commented_at_2023-09-27_1231"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1737300701">2023-09-27 12:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-27_1231" title="Permanent link">&para;</a></h4>
+<p>With latest changes<br />
+when I neither use any kernel 'console' option on the original system<br />
+nor any ...SERIAL_CONSOLE... config variables in local.conf<br />
+things look OK to me in the booted recovery system:</p>
+<pre><code>RESCUE localhost:~ # dmesg | egrep 'Kernel command line|console'
+[    0.122326] Kernel command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 BOOT_IMAGE=kernel 
+[    0.198826] printk: console [tty0] enabled
+[    3.548304] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<p>and all recovery system startup messages appear for me.</p>
+<h4 id="jsmeix_commented_at_2023-09-27_1309"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1737369860">2023-09-27 13:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-27_1309" title="Permanent link">&para;</a></h4>
+<p>With latest changes<br />
+when I use those kernel 'console' option on the original system</p>
+<pre><code># dmesg | egrep 'Kernel command line|console'
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 console=ttyS3 resume=/dev/system/swap console=tty0 crashkernel=203M,high mitigations=off
+[    0.122261] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 console=ttyS3 resume=/dev/system/swap console=tty0 crashkernel=203M,high mitigations=off
+[    0.146570] printk: console [tty0] enabled
+[    0.220130] printk: console [ttyS1] enabled
+[    5.803066] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<p>bot not any ...SERIAL_CONSOLE... config variables in local.conf<br />
+things look OK to me after "rear mkrescue" with OUTPUT=ISO:</p>
+<p>/var/tmp/rear.WE9BOXnDTf0jksX/tmp/isolinux/isolinux.cfg<br />
+and its identical copy<br />
+/var/tmp/rear.WE9BOXnDTf0jksX/tmp/isofs/isolinux/isolinux.cfg<br />
+contain</p>
+<pre><code>append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0
+...
+initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS1,9600n8 console=ttyS3 console=tty0 auto_recover
+</code></pre>
+<p>What I cannot test is that the SYSLINUX bootloader<br />
+also gets some <code>serial 1 9600</code> setting because<br />
+none of my /dev/ttyS* devices on my test VM<br />
+is a real serial device and accordingly<br />
+in the function make_syslinux_config()<br />
+in lib/bootloader-functions.sh<br />
+in the code</p>
+<pre><code>    for devnode in $( get_serial_console_devices ) ; do
+        # Add SYSLINUX serial console config for real serial devices:
+        if speed=$( get_serial_device_speed $devnode ) ; then
+            ...
+            echo "serial $port $speed"
+</code></pre>
+<p>the <code>if speed=$( get_serial_device_speed $devnode )</code><br />
+never becomes true.</p>
+<h4 id="jsmeix_commented_at_2023-09-27_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1737378898">2023-09-27 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-27_1315" title="Permanent link">&para;</a></h4>
+<p>Oh - wait!<br />
+/dev/ttyS0 on my test VM seems to behave like a "real" serial device<br />
+cf. the function get_serial_device_speed() in lib/serial-functions.sh</p>
+<pre><code># ( set -o pipefail ; stty -F /dev/ttyS0 | awk '/^speed / { print $2 }' ) &amp;&amp; echo OK || echo FAIL
+
+9600
+OK
+</code></pre>
+<p>in contrast to /dev/ttyS1 on my test VM</p>
+<pre><code># ( set -o pipefail ; stty -F /dev/ttyS1 | awk '/^speed / { print $2 }' ) &amp;&amp; echo OK || echo FAIL
+
+stty: /dev/ttyS1: Input/output error
+FAIL
+</code></pre>
+<p>Tomorrow I will re-test with kernel command line option
+<code>console=ttyS0,9600n8</code></p>
+<h4 id="jsmeix_commented_at_2023-09-28_0858"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1738746776">2023-09-28 08:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-28_0858" title="Permanent link">&para;</a></h4>
+<p>Auto-enabling serial console support<br />
+for the recovery system bootloader SYSLINUX/EXTLINUX<br />
+seems to work for me (I use plain 'OUTPUT=ISO' without<br />
+any ...SERIAL_CONSOLE... config variables in local.conf).</p>
+<p>With kernel command line option 'console=ttyS0,9600n8'<br />
+on the original system<br />
+I get in isolinux/isolinux.cfg an additional first line</p>
+<pre><code>serial 0 9600
+</code></pre>
+<p>Details:</p>
+<p>I use those kernel 'console' options on the original system</p>
+<pre><code># dmesg | grep 'console'
+
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS0,9600n8 resume=/dev/system/swap console=tty0 crashkernel=203M,high mitigations=off
+[    0.126268] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS0,9600n8 resume=/dev/system/swap console=tty0 crashkernel=203M,high mitigations=off
+[    0.155543] printk: console [tty0] enabled
+[    0.279798] printk: console [ttyS0] enabled
+[    5.922218] qxl 0000:00:02.0: vgaarb: deactivate vga console
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'rescue' stage ======================
+...
+Adding 'console=ttyS0,9600n8' to KERNEL_CMDLINE
+Adding 'console=tty0' to KERNEL_CMDLINE
+</code></pre>
+<p>/var/tmp/rear.wcQCs4TpMP7m9zv/tmp/isolinux/isolinux.cfg<br />
+and its identical copy<br />
+/var/tmp/rear.wcQCs4TpMP7m9zv/tmp/isofs/isolinux/isolinux.cfg<br />
+contain</p>
+<pre><code>serial 0 9600
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS0,9600n8 console=tty0
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS0,9600n8 console=tty0 auto_recover
+</code></pre>
+<p>var/log/rear/rear-localhost.log<br />
+contains</p>
+<pre><code>+ source /root/rear.pull2961/usr/share/rear/output/ISO/Linux-i386/300_create_isolinux.sh
+...
++++ get_serial_console_devices
+...
++++ for kernel_option in $( cat /proc/cmdline )
++++ test console = console
++++ console_option_value=ttyS0,9600n8
++++ console_option_device=ttyS0
++++ [[ ttyS0 == ttyS* ]]
++++ test -c /dev/ttyS0
++++ echo /dev/ttyS0
+...
+++ for devnode in $( get_serial_console_devices )
++++ get_serial_device_speed /dev/ttyS0
++++ local devnode=/dev/ttyS0
++++ test -c /dev/ttyS0
++++ set -o pipefail
++++ awk '/^speed / { print $2 }'
++++ stty -F /dev/ttyS0
+++ speed=9600
++++ grep -o -E '[0-9]+$'
++++ echo /dev/ttyS0
+++ port=0
+++ test 0 -lt 4
+++ echo 'serial 0 9600'
+++ break
+</code></pre>
+<p>I cannot test if the serial console actually works<br />
+in the recovery system bootloader SYSLINUX/EXTLINUX<br />
+because I don't know (yet) how to access a serial console<br />
+that runs in a QEMU/KVM VM from its host system<br />
+(I use virt-manager for my VMs).</p>
+<p>But this recovery system boots well for me,<br />
+in particular the SYSLINUX/EXTLINUX boot menue<br />
+and all recovery system startup messages appear for me.</p>
+<p>In the booted recovery system:</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep 'console'
+
+[    0.000000] Command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS0,9600n8 console=tty0 BOOT_IMAGE=kernel 
+[    0.148959] Kernel command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=ttyS0,9600n8 console=tty0 BOOT_IMAGE=kernel 
+[    0.239802] printk: console [tty0] enabled
+[    0.349881] printk: console [ttyS0] enabled
+[    4.881906] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-28_0903"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1738754580">2023-09-28 09:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-28_0903" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look,<br />
+at least only a look at my changed code,<br />
+perhaps you spot some obvious mistakes?<br />
+Ideally in particular if you have a serial console<br />
+please test how it works in reality (as time permits).<br />
+Many thanks in advance!</p>
+<h4 id="jsmeix_commented_at_2023-09-28_1055"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1738920877">2023-09-28 10:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-28_1055" title="Permanent link">&para;</a></h4>
+<p>Tested 'OUTPUT=ISO'<br />
+with ...SERIAL_CONSOLE... config variables in local.conf<br />
+(but without 'USE_SERIAL_CONSOLE=yes' in local.conf):</p>
+<pre><code>SERIAL_CONSOLE_DEVICES="/dev/ttyS1 /dev/ttyS2"
+SERIAL_CONSOLE_DEVICES_KERNEL="/dev/tty0 console=ttyS3,9600"
+SERIAL_CONSOLE_DEVICE_SYSLINUX="/dev/ttyS0"
+OUTPUT=ISO
+</code></pre>
+<p>I still have the kernel command line options</p>
+<pre><code>console=ttyS0,9600n8 ... console=tty0
+</code></pre>
+<p>on the original system.</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'prep' stage ======================
+Appended ' console=tty0,38400 console=ttyS3,9600' to KERNEL_CMDLINE
+...
+</code></pre>
+<p>/var/tmp/rear.aqE5a3dPrA3CxXh/tmp/isolinux/isolinux.cfg<br />
+contains</p>
+<pre><code>serial 0 9600
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=tty0,38400 console=ttyS3,9600
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=tty0,38400 console=ttyS3,9600 auto_recover
+</code></pre>
+<p>var/log/rear/rear-localhost.log<br />
+contains</p>
+<pre><code>+ source /root/rear.pull2961/usr/share/rear/prep/GNU/Linux/200_include_serial_console.sh
+...
+++ test '/dev/ttyS1 /dev/ttyS2'
+++ serial_console_devices='/dev/ttyS1 /dev/ttyS2'
+++ test '/dev/tty0 console=ttyS3,9600'
+++ serial_console_devices='/dev/tty0 console=ttyS3,9600'
+...
+++ for serial_console in $serial_console_devices
+++ test -c /dev/tty0
++++ get_serial_device_speed /dev/tty0
++++ local devnode=/dev/tty0
++++ test -c /dev/tty0
++++ set -o pipefail
++++ awk '/^speed / { print $2 }'
++++ stty -F /dev/tty0
+++ speed=38400
+++ cmdline_add_console+=' console=tty0,38400'
+++ for serial_console in $serial_console_devices
+++ test -c console=ttyS3,9600
+++ cmdline_add_console+=' console=ttyS3,9600'
+++ test ' console=tty0,38400 console=ttyS3,9600'
+++ KERNEL_CMDLINE+=' console=tty0,38400 console=ttyS3,9600'
+++ DebugPrint 'Appended '\'' console=tty0,38400 console=ttyS3,9600'\'' to KERNEL_CMDLINE'
+...
+++ USE_SERIAL_CONSOLE=yes
+.
+.
+.
++ source /root/rear.pull2961/usr/share/rear/output/ISO/Linux-i386/300_create_isolinux.sh
+...
+++ make_syslinux_config /var/tmp/rear.aqE5a3dPrA3CxXh/tmp/isolinux isolinux
+...
+++ is_true yes
+++ case "$1" in
+++ return 0
+++ test /dev/ttyS0
+++ test -c /dev/ttyS0
++++ grep -o -E '[0-9]+$'
++++ echo /dev/ttyS0
+++ port=0
+++ test 0 -lt 4
++++ get_serial_device_speed /dev/ttyS0
++++ local devnode=/dev/ttyS0
++++ test -c /dev/ttyS0
++++ set -o pipefail
++++ awk '/^speed / { print $2 }'
++++ stty -F /dev/ttyS0
+++ speed=9600
+++ echo 'serial 0 9600'
+</code></pre>
+<p>That <code>console=tty0,38400</code> was appended to KERNEL_CMDLINE<br />
+may look unexpected because in local.conf</p>
+<pre><code>SERIAL_CONSOLE_DEVICES_KERNEL="/dev/tty0 ..."
+</code></pre>
+<p>was specified (i.e. plain '/dev/tty0' without speed)<br />
+but this is how the automatism works<br />
+when <code>stty -F /dev/tty0</code> outputs a 'speed':</p>
+<pre><code># stty -F /dev/tty0 | awk '/^speed / { print $2 }'
+
+38400
+</code></pre>
+<p>When the automated speed setting is not wanted,<br />
+the user can specify exactly what he needs like</p>
+<pre><code>SERIAL_CONSOLE_DEVICES_KERNEL="console=tty0 console=ttyS3,9600"
+</code></pre>
+<p>which results</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Appended ' console=tty0 console=ttyS3,9600' to KERNEL_CMDLINE
+</code></pre>
+<p>and /var/tmp/rear.Ju1JhZsYWExbgYC/tmp/isolinux/isolinux.cfg<br />
+contains</p>
+<pre><code>serial 0 9600
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=tty0 console=ttyS3,9600
+...
+append initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 console=tty0 console=ttyS3,9600 auto_recover
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-28_1123"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1738960521">2023-09-28 11:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-28_1123" title="Permanent link">&para;</a></h4>
+<p>Testing disabling serial console support:</p>
+<pre><code>USE_SERIAL_CONSOLE='no'
+SERIAL_CONSOLE_DEVICES="/dev/ttyS1 /dev/ttyS2"
+SERIAL_CONSOLE_DEVICES_KERNEL="console=tty0 console=ttyS3,9600"
+SERIAL_CONSOLE_DEVICE_SYSLINUX="/dev/ttyS0"
+</code></pre>
+<p>I still have the kernel command line options</p>
+<pre><code>console=ttyS0,9600n8 ... console=tty0
+</code></pre>
+<p>on the original system.</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.OfMaitQfo5N03qX
+...
+[no output about 'serial' or 'console']
+
+# egrep 'serial|console' /var/tmp/rear.OfMaitQfo5N03qX/tmp/isolinux/isolinux.cfg
+[no output]
+
+# find /var/tmp/rear.OfMaitQfo5N03qX/rootfs/
+...
+/var/tmp/rear.OfMaitQfo5N03qX/rootfs/bin/agetty
+...
+/var/tmp/rear.OfMaitQfo5N03qX/rootfs/bin/stty
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-10-03_1057"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1744725570">2023-10-03 10:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-03_1057" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay of review due to holidays last week, I plan
+to have a look at this later this week.</p>
+<h4 id="jsmeix_commented_at_2023-10-04_1428"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1746993508">2023-10-04 14:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-04_1428" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+no worries - I was also on vacation.<br />
+There was a long weekend in Germany<br />
+with Monday vacation and Tuesday public holiday.</p>
+<h4 id="jsmeix_commented_at_2023-10-09_1121"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1752821558">2023-10-09 11:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-09_1121" title="Permanent link">&para;</a></h4>
+<p>Testing with OUTPUT=USB and USB_BOOTLOADER="grub":</p>
+<p>On my original VM (with BIOS)<br />
+I have no 'console' kernel command line option set.<br />
+I use a virtual 10 GiB IDE disk /dev/sdb for OUTPUT=USB.</p>
+<p>etc/rear/local.conf (excerpts):</p>
+<pre><code>SERIAL_CONSOLE_DEVICES="/dev/ttyS1 /dev/ttyS2"
+SERIAL_CONSOLE_DEVICES_KERNEL="console=tty0 console=ttyS3,9600"
+SERIAL_CONSOLE_DEVICE_SYSLINUX="/dev/ttyS4"
+SERIAL_CONSOLE_DEVICE_GRUB="/dev/ttyS0"
+OUTPUT=USB
+USB_DEVICE_FILESYSTEM_PERCENTAGE=90
+USB_DEVICE_FILESYSTEM_LABEL='MY-DATA'
+USB_BOOT_PART_SIZE=2048
+USB_BOOTLOADER="grub"
+USB_DEVICE_BOOT_LABEL=MY-BOOT
+OUTPUT_URL=usb:///dev/disk/by-label/MY-BOOT
+USB_DEVICE_PARTED_LABEL=gpt
+USB_BOOTLOADER="grub"
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/MY-DATA
+
+# usr/sbin/rear -D format /dev/sdb
+...
+Repartitioning /dev/sdb
+Creating partition table of type gpt on /dev/sdb
+Making a BIOS bootable device /dev/sdb
+Creating BIOS boot partition /dev/sdb1
+Setting 'bios_grub' flag on BIOS boot partition /dev/sdb1
+Making an EFI bootable device /dev/sdb
+Creating EFI system partition /dev/sdb2 with size 1024 MiB aligned at 8 MiB
+Setting 'esp' flag on EFI partition /dev/sdb2
+Creating boot partition /dev/sdb3 with size 2048 MiB aligned at 8 MiB
+Setting 'legacy_boot' flag on boot partition /dev/sdb3
+Creating ReaR data partition /dev/sdb4 up to 90% of /dev/sdb
+Creating vfat filesystem on EFI system partition on /dev/sdb2
+Creating ext2 filesystem with label 'MY-BOOT' on boot partition /dev/sdb3
+Creating ext3 filesystem with label 'MY-DATA' on ReaR data partition /dev/sdb4
+
+# parted -s /dev/sdb unit GiB print
+
+Model: ATA QEMU HARDDISK (scsi)
+Disk /dev/sdb: 10.0GiB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+Number  Start    End      Size     File system  Name     Flags
+ 1      0.00GiB  0.01GiB  0.01GiB               primary  bios_grub
+ 2      0.01GiB  1.01GiB  1.00GiB  fat32        primary  boot, esp
+ 3      1.01GiB  3.01GiB  2.00GiB  ext2         primary  legacy_boot
+ 4      3.01GiB  9.00GiB  5.99GiB  ext3         primary
+</code></pre>
+<p>By the way I made via<br />
+<a href="https://github.com/rear/rear/commit/d725000f4613a702fef3eac065912c743a3ee9f8">https://github.com/rear/rear/commit/d725000f4613a702fef3eac065912c743a3ee9f8</a><br />
+a better (more generic) description in default.conf<br />
+of USB_DEVICE_FILESYSTEM_PERCENTAGE<br />
+that also takes a possible 'bios_grub' partition<br />
+and an optional boot partition into account.</p>
+<pre><code># usr/sbin/rear -D mkbackup
+...
+Running 'prep' stage ======================
+Appended ' console=tty0 console=ttyS3,9600' to KERNEL_CMDLINE
+...
+Running 'output' stage ======================
+Skip configuring EFI partition '/dev/disk/by-label/REAR-EFI' for EFI boot (USING_UEFI_BOOTLOADER is not 'true')
+Using GRUB2 as USB bootloader for legacy BIOS boot on /dev/sdb (USB_BOOTLOADER='grub')
+Installing GRUB2 as USB bootloader on /dev/sdb
+Creating GRUB2 config for legacy BIOS boot as USB bootloader
+Configuring GRUB2 kernel /rear/localhost/20231009.1306/kernel
+Configuring GRUB2 initrd /rear/localhost/20231009.1306/initrd.cgz
+Configuring GRUB2 root device as 'search --no-floppy --set=root --label MY-BOOT'
+...
+
+# mount /dev/sdb3 /tmp/MY-BOOT
+
+# egrep 'serial|console' /tmp/MY-BOOT/boot/grub2/grub.cfg
+
+serial --unit=0 --speed=9600
+    linux /rear/localhost/20231009.1306/kernel root=UUID=2fda6d6f-3d6e-4da9-8509-dd829d41434b  selinux=0 console=tty0 console=ttyS3,9600
+</code></pre>
+<p>"rear recover" works for me.</p>
+<p>But with the (artificial and only for this test specified)<br />
+"console=tty0 console=ttyS3,9600" kernel command line options<br />
+I don't get the ReaR recovery system startup messages.<br />
+By default (without specified console kernel command line options)<br />
+I get the ReaR recovery system startup messages.</p>
+<h4 id="pcahyna_commented_at_2023-10-09_1152"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1752864212">2023-10-09 11:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-09_1152" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay, looking now.<br />
+Can you please edit the description to describe what is the new behavior
+intended by the PR ?<br />
+Does the PR introduce any new configuration variables, or change in
+meaning of existing configuration variables ?</p>
+<h4 id="jsmeix_commented_at_2023-10-09_1224"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1752911954">2023-10-09 12:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-09_1224" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I enhanced the description of this pull request<br />
+to describe what the new behavior is<br />
+and what did not change.</p>
+<p>Related to that is<br />
+<a href="https://github.com/rear/rear/commit/d27cdabaeb7d3d23e437a8c3d554de57683e3597">https://github.com/rear/rear/commit/d27cdabaeb7d3d23e437a8c3d554de57683e3597</a></p>
+<h4 id="pcahyna_commented_at_2023-10-09_1319"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1753000349">2023-10-09 13:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-09_1319" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I have not looked at the code yet, only at default.conf - this
+is intentional, the behavior should be easy to understand from the
+comments in default.conf only.</p>
+<h4 id="jsmeix_commented_at_2023-10-09_1325"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1753011360">2023-10-09 13:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-09_1325" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+now I do no longer understand anything here.<br />
+I became totally confused now.<br />
+I give up for now.</p>
+<h4 id="pcahyna_commented_at_2023-10-09_1327"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1753014825">2023-10-09 13:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-09_1327" title="Permanent link">&para;</a></h4>
+<p>@jsmeix oops, sorry for that :-(</p>
+<h4 id="jsmeix_commented_at_2023-10-09_1336"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1753029589">2023-10-09 13:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-09_1336" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+don't worry - I will try again tomorrow.<br />
+If I continue now I probably mess up things.</p>
+<h4 id="jsmeix_commented_at_2023-10-10_0953"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1754851748">2023-10-10 09:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-10_0953" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/c108f0dd57782dde92ba4e9af5895ddb9bed46d8">https://github.com/rear/rear/pull/2961/commits/c108f0dd57782dde92ba4e9af5895ddb9bed46d8</a><br />
+I made in default.conf a better description<br />
+how SERIAL_CONSOLE_DEVICES works in particular<br />
+together with SERIAL_CONSOLE_DEVICES_KERNEL</p>
+<p>Example:<br />
+Provided USE_SERIAL_CONSOLE is not set to 'no'<br />
+and 'getty' or 'agetty' and 'stty' can be found,<br />
+then when there are<br />
+'console=ttyS1,9600' and 'console=tty0' in /proc/cmdline<br />
+then by default<br />
+'console=ttyS1,9600' and 'console=tty0'<br />
+get copied for the recovery system kernel and<br />
+only /dev/ttyS1 is used as serial console<br />
+for the recovery system bootloader (SYSLINUX or GRUB).</p>
+<p>I added this example (but with /dev/ttyS0) to default.conf via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/12174397d9cd6264189699ce9a0c341aa306d098">https://github.com/rear/rear/pull/2961/commits/12174397d9cd6264189699ce9a0c341aa306d098</a></p>
+<h4 id="jsmeix_commented_at_2023-10-10_1042"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1754987492">2023-10-10 10:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-10_1042" title="Permanent link">&para;</a></h4>
+<p>Tested latest code with</p>
+<pre><code>OUTPUT=USB
+USB_BOOTLOADER="grub"
+USB_DEVICE_PARTED_LABEL=gpt
+USB_BOOTLOADER="grub"
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+</code></pre>
+<p>with all ...SERIAL_CONSOLE... config variables empty by default.</p>
+<p>Without a 'console' kernel command line option:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'prep' stage ======================
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+...
+</code></pre>
+<p>With 'console' kernel command line options:</p>
+<pre><code># cat /proc/cmdline 
+BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS0,9600 resume=/dev/system/swap crashkernel=203M,high console=tty0 mitigations=off
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'rescue' stage ======================
+...
+Adding 'console=ttyS0,9600' to KERNEL_CMDLINE
+Adding 'console=tty0' to KERNEL_CMDLINE
+...
+
+# mount /dev/sdb3 /tmp/REAR-000
+
+# cat /tmp/REAR-000/boot/grub2/grub.cfg
+...
+serial --unit=0 --speed=9600
+...
+    linux /rear/localhost/20231010.1234/kernel root=UUID=2fda6d6f-3d6e-4da9-8509-dd829d41434b  selinux=0 console=ttyS0,9600 console=tty0
+...
+</code></pre>
+<p>Excerpts from var/log/rear/rear-localhost.log</p>
+<pre><code>+ source /root/rear.pull2961/usr/share/rear/output/USB/Linux-i386/300_create_grub.sh
+...
++++ create_grub2_serial_entry
+...
+++++ get_serial_console_devices
+...
+++++ for kernel_option in $( cat /proc/cmdline )
+++++ test console = console
+++++ console_option_value=ttyS0,9600
+++++ console_option_device=ttyS0
+++++ [[ ttyS0 == ttyS* ]]
+++++ test -c /dev/ttyS0
+++++ echo /dev/ttyS0
+...
+++++ for kernel_option in $( cat /proc/cmdline )
+++++ test console = console
+++++ console_option_value=tty0
+++++ console_option_device=tty0
+++++ [[ tty0 == ttyS* ]]
+++++ [[ tty0 == hvsi* ]]
+++++ continue
+...
++++ for devnode in $( get_serial_console_devices )
+++++ get_serial_device_speed /dev/ttyS0
+++++ local devnode=/dev/ttyS0
+++++ test -c /dev/ttyS0
+++++ set -o pipefail
+++++ stty -F /dev/ttyS0
+++++ awk '/^speed / { print $2 }'
++++ speed=9600
+++++ grep -o -E '[0-9]+$'
+++++ echo /dev/ttyS0
++++ unit=0
++++ test 0 -lt 4
++++ echo 'serial --unit=0 --speed=9600'
++++ break
+</code></pre>
+<p>The speed '9600' that is used for /dev/ttyS0 for the bootloader<br />
+is not the speed value of the kernel 'console=ttyS0,9600' option<br />
+but what <code>stty -F /dev/ttyS0</code> shows</p>
+<pre><code># stty -F /dev/ttyS0
+speed 9600 baud; line = 0;
+min = 1; time = 0;
+-brkint -icrnl -imaxbel iutf8
+-isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+</code></pre>
+<p>Both speed values are the same in my case so all looks well.<br />
+But I don't know how things behave on other systems.<br />
+Regardless how things behave on other systems:<br />
+In general when ReaR's serial console setup automatism<br />
+does not result what is needed in a specific case,<br />
+what is needed can be explicitly specified<br />
+via the ...SERIAL_CONSOLE... config variables.</p>
+<h4 id="jsmeix_commented_at_2023-10-11_1009"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1757322999">2023-10-11 10:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-11_1009" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/478355980e80eecab90fe586f2ce7a49738c9839">https://github.com/rear/rear/pull/2961/commits/478355980e80eecab90fe586f2ce7a49738c9839</a><br />
+I described in default.conf what it means when the user specifies<br />
+USE_SERIAL_CONSOLE="yes" or USE_SERIAL_CONSOLE="no" and<br />
+I fixed a false description that<br />
+SERIAL_CONSOLE_DEVICE_SYSLINUX and SERIAL_CONSOLE_DEVICE_GRUB<br />
+work when USE_SERIAL_CONSOLE is not specified as 'no'<br />
+because actually SERIAL_CONSOLE_DEVICE_SYSLINUX<br />
+and SERIAL_CONSOLE_DEVICE_GRUB work only<br />
+when USE_SERIAL_CONSOLE is 'yes'.</p>
+<p>See the code parts that are mentioned in the comment about<br />
+"auto-enable serial console support for the recovery system
+bootloader"<br />
+in prep/GNU/Linux/200_include_serial_console.sh in this pull request.</p>
+<h4 id="jsmeix_commented_at_2023-10-11_1224"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1757575580">2023-10-11 12:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-11_1224" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/21ab8065936998230f61412e7ed701cc2fc975de">https://github.com/rear/rear/pull/2961/commits/21ab8065936998230f61412e7ed701cc2fc975de</a><br />
+I describe in default.conf more explicitly that</p>
+<pre><code>With USE_SERIAL_CONSOLE="yes" plus appropriate SERIAL_CONSOLE_DEVICE... settings
+serial consoles can be specified for the recovery system kernel and bootloader
+for example when there is no 'console=...' option in /proc/cmdline
+or when serial consoles for the recovery system kernel and bootloader
+should differ from what 'console=...' options in /proc/cmdline tell.
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-10-12_0607"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1758968386">2023-10-12 06:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-12_0607" title="Permanent link">&para;</a></h4>
+<p>What is strange is that it seems GitHub somehow<br />
+hides or removes review conversations automatically:</p>
+<p>There was a review conversation between<br />
+@pcahyna and me about possibly confusing<br />
+"USE_SERIAL_CONSOLE is not set to 'no'"<br />
+for SERIAL_CONSOLE_DEVICES and SERIAL_CONSOLE_DEVICES_KERNEL<br />
+versus "USE_SERIAL_CONSOLE is 'yes'" for<br />
+SERIAL_CONSOLE_DEVICE_SYSLINUX and SERIAL_CONSOLE_DEVICE_GRUB.</p>
+<p>But now this conversation seems to be somehow lost?<br />
+At least I cannot find it anymore in<br />
+<a href="https://github.com/rear/rear/pull/2961/files">https://github.com/rear/rear/pull/2961/files</a><br />
+(it is not one of the two that are marked as resolved).</p>
+<p>Ah!<br />
+Now I noticed that "Conversations [v]" dropdown menu on<br />
+<a href="https://github.com/rear/rear/pull/2961/files">https://github.com/rear/rear/pull/2961/files</a><br />
+There a missing conversation is shown as "unresolved"<br />
+which I set to "resolved" right now (hopefully my latest<br />
+enhanced and fixed description in default.conf is OK now).</p>
+<p>But the above mentioned conversation about "possibly confusing ..."<br />
+is not shown by this "Conversations [v]" dropdown menu<br />
+so currently this conversation still seems to be lost.</p>
+<p>At least on first glance it looks as if<br />
+<a href="https://github.com/isaacs/github/issues/1786">https://github.com/isaacs/github/issues/1786</a><br />
+is somehow related (but I did not actively rebase).</p>
+<h4 id="jsmeix_commented_at_2023-10-12_0837"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1759178419">2023-10-12 08:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-12_0837" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+if you kept the GitHub notifications mails<br />
+of our above mentioned conversation about<br />
+"possibly confusing ..."<br />
+then please post our conversation comments directly here<br />
+(i.e. here in the pull request "Conversation" tab<br />
+but not as code comments via the "Files changed" tab)<br />
+so we still have that conversation.</p>
+<h4 id="pcahyna_commented_at_2023-10-13_1031"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1761289329">2023-10-13 10:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-13_1031" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the late reply, I was offline yesterday.</p>
+<p>Is the missing conversation here?
+<a href="https://github.com/rear/rear/commit/478355980e80eecab90fe586f2ce7a49738c9839">https://github.com/rear/rear/commit/478355980e80eecab90fe586f2ce7a49738c9839</a></p>
+<p>If so, it is because I commented on a specific commit and not in the PR
+(but, the commit is part of the PR). Not very intuitive though. I
+supposed that comments on one commit in a PR would show up in the
+general PR review/comment thread as well, but apparently that's not the
+case.</p>
+<h4 id="pcahyna_commented_at_2023-10-13_1034"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1761292809">2023-10-13 10:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-13_1034" title="Permanent link">&para;</a></h4>
+<p>And I suspect that the comment thread will be lost if you rebase the
+branch and thus lose the original commit.</p>
+<h4 id="pcahyna_commented_at_2023-10-13_1039"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1761299959">2023-10-13 10:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-13_1039" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna if you kept the GitHub notifications mails of our above
+mentioned conversation about "possibly confusing ..." then please post
+our conversation comments directly here (i.e. here in the pull request
+"Conversation" tab but not as code comments via the "Files changed"
+tab) so we still have that conversation.</p>
+</blockquote>
+<p>I just tried to do this via the "Files chaged" tab anyway. Let's see if
+that's enough to preserve the thread.</p>
+<h4 id="jsmeix_commented_at_2023-10-13_1129"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1761360571">2023-10-13 11:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-13_1129" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you!<br />
+Yes<br />
+<a href="https://github.com/rear/rear/commit/478355980e80eecab90fe586f2ce7a49738c9839">https://github.com/rear/rear/commit/478355980e80eecab90fe586f2ce7a49738c9839</a><br />
+still contains the conversation that I missed.</p>
+<h4 id="jsmeix_commented_at_2023-10-16_1156"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1764310436">2023-10-16 11:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-16_1156" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+in<br />
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1358300539">https://github.com/rear/rear/pull/2961#discussion_r1358300539</a><br />
+you wrote</p>
+<pre><code>I fully understand the motivation of not wanting
+to change behavior except when it is needed
+to fix the bug that motivated this change.
+For the future (ReaR 3.0) though, I would like
+to think again about the semantics and possibly change it.
+</code></pre>
+<p>Do I understand you right that you do not object<br />
+when I merge this pull request in its current state?</p>
+<p>To make things clear to me clould you please<br />
+explicitly "Approve" or explicitly "Request Changes"<br />
+at "Finish your review" in a pull request review?</p>
+<h4 id="jsmeix_commented_at_2023-10-16_1209"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1764337424">2023-10-16 12:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-16_1209" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+in your<br />
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1358300539">https://github.com/rear/rear/pull/2961#discussion_r1358300539</a><br />
+you wrote</p>
+<pre><code>In particular, I don't like that there are conditions stated as
+  "provided USE_SERIAL_CONSOLE is not set to 'no':"
+while other conditions are stated as:
+  "provided USE_SERIAL_CONSOLE is 'yes':"
+which makes harder to understand the impact of settings
+when reading default.conf (the same empty value has a
+different consequence in one place than in another place).
+Would it make sense to change it to
+  "provided USE_SERIAL_CONSOLE is 'yes':"
+everywhere (and also in the code) in a future version,
+for consistency and simplicity?
+</code></pre>
+<p>Assume default.conf would read</p>
+<pre><code># Which serial devices should be used for serial consoles
+# provided USE_SERIAL_CONSOLE is 'yes':
+# E.g. SERIAL_CONSOLE_DEVICES="/dev/ttyS0 /dev/ttyS1"
+# By default (when empty) the devices of the 'console=...' options in /proc/cmdline
+# that exist as /dev/ttyS* or /dev/hvsi* character device nodes are used
+# (which excludes /dev/tty0 when there is 'console=tty0' in /proc/cmdline):
+SERIAL_CONSOLE_DEVICES=
+#
+# Serial consoles for the kernel of the recovery system
+# provided USE_SERIAL_CONSOLE is 'yes':
+# By default (when SERIAL_CONSOLE_DEVICES_KERNEL and SERIAL_CONSOLE_DEVICES are empty)
+# serial consoles get enabled for the recovery system kernel via COPY_KERNEL_PARAMETERS
+# for all 'console=...' options that are found in /proc/cmdline.
+# SERIAL_CONSOLE_DEVICES_KERNEL can be device nodes like "/dev/ttyS0 /dev/ttyS1"
+# or 'console=...' kernel parameters like "console=ttyS1,9600 console=tty0" or both like
+# SERIAL_CONSOLE_DEVICES_KERNEL="/dev/ttyS0 console=ttyS1,9600 console=tty0"
+# When SERIAL_CONSOLE_DEVICES_KERNEL is empty but SERIAL_CONSOLE_DEVICES is specified
+# then the specified SERIAL_CONSOLE_DEVICES are used for the kernel:
+SERIAL_CONSOLE_DEVICES_KERNEL=
+</code></pre>
+<p>Now it contradicts because "is 'yes'"<br />
+contradicts "By default (when [...] empty)".</p>
+<p>Some setting(s) must match the empty default case.</p>
+<p>I still think the logic in the code is "perfectly right", cf.<br />
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1358150770">https://github.com/rear/rear/pull/2961#discussion_r1358150770</a></p>
+<p>I think what could be further improved is how default.conf<br />
+explains this "pefrectly right" logic sufficiently well<br />
+to the user.</p>
+<h4 id="pcahyna_commented_at_2023-10-16_1259"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1764434553">2023-10-16 12:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-16_1259" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>@pcahyna in <a href="https://github.com/rear/rear/pull/2961#discussion_r1358300539">#2961
+(comment)</a>
+you wrote</p>
+<pre><code>I fully understand the motivation of not wanting
+to change behavior except when it is needed
+to fix the bug that motivated this change.
+For the future (ReaR 3.0) though, I would like
+to think again about the semantics and possibly change it.
+</code></pre>
+<p>Do I understand you right that you do not object when I merge this
+pull request in its current state?</p>
+</blockquote>
+<p>I don't object to this part (if the semantics does not change from the
+previous state). Let's not discuss this part further here, because I
+need to focus on other parts of the PR (I have not yet reviewed all of
+it, sorry for the slow progress).</p>
+<p>I need to think more about this discussion after the PR is merged, and
+perhaps open a separate issue for it.</p>
+<h4 id="jsmeix_commented_at_2023-10-17_0920"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1766015789">2023-10-17 09:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-17_0920" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+please tell me when you finished<br />
+your review of the other parts of this PR<br />
+because then I would like to merge it<br />
+provided you do not "Request Changes".</p>
+<h4 id="pcahyna_commented_at_2023-10-18_0839"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1767967722">2023-10-18 08:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-18_0839" title="Permanent link">&para;</a></h4>
+<p>GitHub has hidden this conversation
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1350293254">https://github.com/rear/rear/pull/2961#discussion_r1350293254</a>
+because the code has changed, but it is still relevant. Let me copy the
+last relevant comment:</p>
+<p>This is a reasonable behavior. It is hard to see from the rules
+described in default.conf comments why it works this, though.</p>
+<pre><code>By default (when empty) the devices of the 'console=...' options in /proc/cmdline
+that exist as /dev/ttyS* or /dev/hvsi* character device nodes are used
+(which excludes /dev/tty0 when there is 'console=tty0' in /proc/cmdline):
+</code></pre>
+<p>this sounds that the example above (console=ttyS1,9600 console=tty0)
+SERIAL_CONSOLE_DEVICES gets set to /dev/ttyS1 only and /dev/tty0 is
+excluded.</p>
+<pre><code>When SERIAL_CONSOLE_DEVICES_KERNEL is empty but SERIAL_CONSOLE_DEVICES is specified
+then the specified SERIAL_CONSOLE_DEVICES are used for the kernel:
+</code></pre>
+<p>this sounds that only /dev/ttyS1 will then be used as the console=
+device, not /dev/tty0. But actually, according to your comment above,
+both will be used, which seems to contradict the description.</p>
+<p>Maybe the lines</p>
+<pre><code>By default (when empty) the devices of the 'console=...' options in /proc/cmdline
+that exist as /dev/ttyS* or /dev/hvsi* character device nodes are used
+(which excludes /dev/tty0 when there is 'console=tty0' in /proc/cmdline):
+</code></pre>
+<p>apply only to SERIAL_CONSOLE_DEVICE_SYSLINUX and
+SERIAL_CONSOLE_DEVICE_GRUB, but not to SERIAL_CONSOLE_DEVICE
+itself. (i.e. only console= arguments matching /dev/ttyS* or
+/dev/hvsi* will be used for the bootloader, but all arguments will be
+used for the kernel)? In that case, the description should be moved to
+the bootloader part?</p>
+<h4 id="pcahyna_commented_at_2023-10-18_1014"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1768130317">2023-10-18 10:14</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-18_1014" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Maybe the lines</p>
+<pre><code>By default (when empty) the devices of the 'console=...' options in /proc/cmdline
+that exist as /dev/ttyS* or /dev/hvsi* character device nodes are used
+(which excludes /dev/tty0 when there is 'console=tty0' in /proc/cmdline):
+</code></pre>
+<p>apply only to SERIAL_CONSOLE_DEVICE_SYSLINUX and
+SERIAL_CONSOLE_DEVICE_GRUB, but not to SERIAL_CONSOLE_DEVICE
+itself. (i.e. only console= arguments matching /dev/ttyS* or
+/dev/hvsi* will be used for the bootloader, but all arguments will be
+used for the kernel)? In that case, the description should be moved to
+the bootloader part?</p>
+</blockquote>
+<p>I have now checked the code and this seems to be indeed the case. See my
+<a href="https://github.com/rear/rear/pull/2961/files#r1363613310">https://github.com/rear/rear/pull/2961/files#r1363613310</a>
+suggestion.</p>
+<h4 id="jsmeix_commented_at_2023-10-18_1053"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1768195458">2023-10-18 10:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-18_1053" title="Permanent link">&para;</a></h4>
+<p>Argh!<br />
+I don't see your<br />
+<a href="https://github.com/rear/rear/pull/2961/files#r1363613310">https://github.com/rear/rear/pull/2961/files#r1363613310</a><br />
+suggestion :-(</p>
+<p>I was working on my<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/6d410a2fda92d763bc2f27736ae37bd5b144460a">https://github.com/rear/rear/pull/2961/commits/6d410a2fda92d763bc2f27736ae37bd5b144460a</a><br />
+that I committed right now.</p>
+<p>It seems because of my commit GitHub (again)<br />
+deleted user data (i.e. your suggestion).<br />
+If this is true it would be really bad<br />
+because user data has to be sacrosanct for programs<br />
+(i.e. in this case what runs on the GitHub server).</p>
+<h4 id="pcahyna_commented_at_2023-10-18_1103"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1768215038">2023-10-18 11:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-18_1103" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Argh! I don't see your
+<a href="https://github.com/rear/rear/pull/2961/files#r1363613310">https://github.com/rear/rear/pull/2961/files#r1363613310</a>
+suggestion :-(</p>
+<p>I was working on my
+<a href="https://github.com/rear/rear/commit/6d410a2fda92d763bc2f27736ae37bd5b144460a">6d410a2</a>
+that I committed right now.</p>
+<p>It seems because of my commit GitHub (again) deleted user data (i.e.
+your suggestion). If this is true it would be really bad because user
+data has to be sacrosanct for programs (i.e. in this case what runs on
+the GitHub server).</p>
+</blockquote>
+<p>I don't see the comment either myself. That's because your
+<a href="https://github.com/rear/rear/commit/6d410a2fda92d763bc2f27736ae37bd5b144460a">https://github.com/rear/rear/commit/6d410a2fda92d763bc2f27736ae37bd5b144460a</a>
+deleted the code lines where the comment was anchored.</p>
+<p>Apparently the comment is preserved in the discussion thread, here
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1363613310">https://github.com/rear/rear/pull/2961#discussion_r1363613310</a>
+, can you see it?</p>
+<h4 id="jsmeix_commented_at_2023-10-18_1110"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1768224051">2023-10-18 11:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-18_1110" title="Permanent link">&para;</a></h4>
+<p>Yes, I can see it in<br />
+<a href="https://github.com/rear/rear/pull/2961#discussion_r1363613310">https://github.com/rear/rear/pull/2961#discussion_r1363613310</a><br />
+and I think I resolved the description issues properly now via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/6d410a2fda92d763bc2f27736ae37bd5b144460a">https://github.com/rear/rear/pull/2961/commits/6d410a2fda92d763bc2f27736ae37bd5b144460a</a></p>
+<h4 id="jsmeix_commented_at_2023-10-18_1120"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1768238835">2023-10-18 11:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-18_1120" title="Permanent link">&para;</a></h4>
+<p>For ReaR 3.0 we may (provided we agree on it)<br />
+remove the SERIAL_CONSOLE_DEVICES config variable<br />
+because it is not needed for the default cases<br />
+(i.e. where /proc/cmdline tells correctly about consoles)<br />
+and in special cases it makes all more complicated<br />
+(our code and for the user to understand how things work)<br />
+without actual benefit - for example</p>
+<pre><code>SERIAL_CONSOLE_DEVICES="/dev/ttyS0 /dev/tty0"
+</code></pre>
+<p>is less clear what that actually means<br />
+compared to the equivalent but explicit</p>
+<pre><code>SERIAL_CONSOLE_DEVICES_KERNEL="/dev/ttyS0 /dev/tty0"
+SERIAL_CONSOLE_DEVICE_SYSLINUX="/dev/ttyS0"
+SERIAL_CONSOLE_DEVICE_GRUB="/dev/ttyS0"
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-10-19_1111"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770627607">2023-10-19 11:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-19_1111" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I believe that at least for the kernel part, we should rename it to
+something like just <code>CONSOLE_DEVICES_KERNEL</code>, because there is nothing
+serial port specific (/dev/tty0 is not a serial port).</p>
+<p>Regarding the unified <code>SERIAL_CONSOLE_DEVICES</code>, I suppose the motivation
+was to govern all places with a single variable, which is understandable
+from the usability point of view. One usually wants to have the system
+console on the same console device as the bootloader console. It is not
+very useful to see bootloader messages but then not the system output or
+vice-versa. Implementing this properly is difficult though and I doubt
+that it is done properly now. For example, on the kernel command line,
+the last <code>console=</code> argument determines what will be used as the system
+console, but for the bootloader, we use the first device in the list,
+which is inconsistent. (Actually, it is even more complicated, see<br />
+<a href="https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html">https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html</a>
+)</p>
+<p>I would like to at least unify the setting between bootloaders, i.e.
+have a single <code>SERIAL_CONSOLE_DEVICE_BOOTLOADER</code> instead of
+<code>SERIAL_CONSOLE_DEVICE_SYSLINUX</code> and <code>SERIAL_CONSOLE_DEVICE_GRUB</code>. One
+should not worry too much about what bootloader to use. But since one
+can specify direct bootloader commands there, even this will be
+difficult.</p>
+<p>I also suspect that the current automatism with default values does not
+do the right thing with respect to the bootloader, e.g. if console
+settings are <code>console=ttyS1,9600 console=tty0</code>, serial console will be
+enabled and the bootloader will use ttyS1 as the console, but the kernel
+uses and will use tty0 (because it is the last). I suppose it has been
+this way before your changes though, so it it should not be fixed in
+this PR, even if it is really the case.</p>
+<h4 id="pcahyna_commented_at_2023-10-19_1133"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770703077">2023-10-19 11:33</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-19_1133" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I also suspect that the current automatism with default values does
+not do the right thing with respect to the bootloader, e.g. if console
+settings are <code>console=ttyS1,9600 console=tty0</code>, serial console will be
+enabled and the bootloader will use ttyS1 as the console, but the
+kernel uses and will use tty0 (because it is the last). I suppose it
+has been this way before your changes though, so it it should not be
+fixed in this PR, even if it is really the case.</p>
+</blockquote>
+<p>now I am thinking, is it true what I wrote? The previous code seems to
+enable <code>USE_SERIAL_CONSOLE</code> only if there is a serial device on the
+system and the serial device seems to be usable (via
+<code>get_serial_device_speed ()</code>, while the new code enables
+<code>USE_SERIAL_CONSOLE</code> whenever it sees a <code>console=</code> kernel argument,
+regardless of whether it points to a serial device or whether the device
+is usable.</p>
+<p>OTOH, it probably does not make any difference for the bootloader,
+because the bootloader code in bootloader-functions.sh takes care of
+skipping serial devices that are not usable, and without any usable
+serial device, the bootloader code will behave the same way regardless
+of whether <code>USE_SERIAL_CONSOLE</code> is true or false.</p>
+<h4 id="jsmeix_commented_at_2023-10-19_1155"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770747444">2023-10-19 11:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-19_1155" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+but I don't want to do backward incompatible changes<br />
+like changed config variable names or their meaning<br />
+in this pull request, cf. "What did not change"<br />
+in the initial description of this pull request<br />
+<a href="https://github.com/rear/rear/pull/2961#issue-1643830703">https://github.com/rear/rear/pull/2961#issue-1643830703</a></p>
+<p>So if the current state of this pull request<br />
+is acceptable for you I would like to merge it,<br />
+preferably tomorrow afternoon (unless you object).</p>
+<h4 id="pcahyna_commented_at_2023-10-19_1158"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770752119">2023-10-19 11:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-19_1158" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I agree - my first comment was a reaction to</p>
+<blockquote>
+<p>For ReaR 3.0 we may (provided we agree on it)<br />
+remove the SERIAL_CONSOLE_DEVICES config variable<br />
+because it is not needed for the default cases</p>
+</blockquote>
+<h4 id="jsmeix_commented_at_2023-10-19_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770755128">2023-10-19 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-19_1200" title="Permanent link">&para;</a></h4>
+<p>I made two separated SERIAL_CONSOLE_DEVICE_SYSLINUX<br />
+and SERIAL_CONSOLE_DEVICE_GRUB because of my generic<br />
+"final power to the user" principle and as a positive side-effect<br />
+the user can specify direct bootloader commands there if needed<br />
+and as needed for each bootloader so the user could use one same<br />
+settings (i.e. one same local.conf) on different systems<br />
+regardless what bootloader he uses on a particular system.<br />
+Users with many systems (e.h hundreds of servers) may like that.</p>
+<h4 id="jsmeix_commented_at_2023-10-19_1257"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1770937461">2023-10-19 12:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-19_1257" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless there are objections<br />
+I would like to merge it<br />
+tomorrow (Friday) afternoon.</p>
+<h4 id="pcahyna_commented_at_2023-10-19_1748"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1771450364">2023-10-19 17:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-19_1748" title="Permanent link">&para;</a></h4>
+<p>I am thinking whether this behavior change for bootloader</p>
+<blockquote>
+<p>The previous code seems to enable USE_SERIAL_CONSOLE only if there
+is a serial device on the system and the serial device seems to be
+usable (via get_serial_device_speed (), while the new code enables
+USE_SERIAL_CONSOLE whenever it sees a console= kernel argument,
+regardless of whether it points to a serial device or whether the
+device is usable.</p>
+</blockquote>
+<p>has any practical impact. Right now I think the only case where it would
+make a difference is a headless machine (without any VGA card and thus
+not having /dev/tty0) that would have no <code>console=</code> kernel argument and
+would choose <code>/dev/ttyS0</code> as its console automatically. In that case,
+the automatism would not set <code>USE_SERIAL_CONSOLE</code> to yes and would not
+enable serial console in bootloader, while the previous version would. I
+don't currently have such a setup to test it, though.</p>
+<h4 id="jsmeix_commented_at_2023-10-20_0841"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1772323382">2023-10-20 08:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-20_0841" title="Permanent link">&para;</a></h4>
+<p>Yes, I see in<br />
+<a href="https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html">https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html</a></p>
+<pre><code>If no console device is specified, the first device
+found capable of acting as a system console will be used.
+At this time, the system first looks for a VGA card
+and then for a serial port.
+So if you don't have a VGA card in your system
+the first serial port will automatically become the console.
+</code></pre>
+<p>So we may further enhance the autodetection (but not in this PR)<br />
+what is actually used as console(s) by the kernel on the original
+system<br />
+by also inspecting the kernel messages ('dmesg')<br />
+and perhaps other things (e.g. /proc/consoles).</p>
+<p>For example on my homeoffice laptop I have</p>
+<pre><code># cat /proc/cmdline | grep -i console
+[no output]
+
+# dmesg | grep -i console
+[    0.000000] Console: colour VGA+ 80x25
+[    0.000000] printk: console [tty0] enabled
+[    4.412715] systemd[1]: Starting Setup Virtual Console...
+[    5.245630] i915 0000:00:02.0: vgaarb: deactivate vga console
+[    5.247161] Console: switching to colour dummy device 80x25
+[    7.441732] Console: switching to colour frame buffer device 200x56
+[   29.629040] systemd[1]: Condition check resulted in Dispatch Password Requests to Console Directory Watch being skipped.
+</code></pre>
+<p>Unfortunately it seems to be impossible to find out<br />
+which more or less "real" device(s) belong to /dev/console<br />
+(nowadays /dev/console is no longer a link but a character device)<br />
+cf.<br />
+<a href="https://www.kernel.org/doc/html/latest/admin-guide/devices.html">https://www.kernel.org/doc/html/latest/admin-guide/devices.html</a></p>
+<pre><code>Virtual consoles and the console device
+...
+The console device, /dev/console, is the device
+to which system messages should be sent, and
+on which logins should be permitted in single-user mode.
+Starting with Linux 2.1.71, /dev/console is managed by the kernel;
+for previous versions it should be a symbolic link
+to either /dev/tty0 ...
+</code></pre>
+<p>Perhaps /proc/consoles is nowadays the best source of information<br />
+to tell what device(s) are actually used as console(s)?<br />
+For example on my homeoffice laptop I have</p>
+<pre><code># cat /proc/consoles 
+tty0                 -WU (EC p  )    4:2
+</code></pre>
+<p><a href="https://unix.stackexchange.com/questions/485156/what-is-dev-console-used-for">https://unix.stackexchange.com/questions/485156/what-is-dev-console-used-for</a><br />
+states</p>
+<pre><code>The “list of consoles” is indeed the list of consoles
+defined by the console= boot parameters
+(or the default console, if there are none).
+You can see the consoles defined in this way
+by looking at /proc/consoles.
+/dev/console does indeed provide access [to the last of these]
+(https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html)
+</code></pre>
+<p>where<br />
+<a href="https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html">https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html</a><br />
+reads</p>
+<pre><code>You can specify multiple console= options on the kernel command line.
+The behavior is well defined when each device type is mentioned only once.
+In this case, the output will appear on all requested consoles.
+And the last device will be used when you open /dev/console.
+So, for example:
+  console=ttyS1,9600 console=tty0
+defines that opening /dev/console will get you
+the current foreground virtual console,
+and kernel messages will appear on both the VGA console
+and the 2nd serial port (ttyS1 or COM2) at 9600 baud.
+</code></pre>
+<p>Now there is the question if /proc/consoles shows<br />
+the 'console' kernel options as specified<br />
+or if /proc/consoles shows what the kernel actually<br />
+uses as consoles?<br />
+Cf.<br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1488329126">https://github.com/rear/rear/pull/2961#issuecomment-1488329126</a></p>
+<pre><code>... kernel 'console' command line options:
+
+... console=ttyS1,9600n8 ... console=ttyS3 ... console=tty0 ...
+
+# dmesg | grep console
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 resume=/dev/system/swap console=ttyS3 crashkernel=203M,high console=tty0 mitigations=off
+[    0.122561] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.3.18-57-default root=/dev/mapper/system-root console=ttyS1,9600n8 resume=/dev/system/swap console=ttyS3 crashkernel=203M,high console=tty0 mitigations=off
+[    0.146431] printk: console [tty0] enabled
+[    0.219572] printk: console [ttyS1] enabled
+[    5.980855] qxl 0000:00:02.0: vgaarb: deactivate vga console
+</code></pre>
+<p>By the way:<br />
+<a href="https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html">https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html</a><br />
+seems rather old because it talks about LILO<br />
+and at the bottom there is "11-Jun-2000"<br />
+so perhaps meanwhile some details could be different?</p>
+<h4 id="pcahyna_commented_at_2023-10-20_1028"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1772489560">2023-10-20 10:28</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-20_1028" title="Permanent link">&para;</a></h4>
+<p>I believe the best place to look at is <code>/sys/class/tty/console/active</code>.
+See
+<a href="https://github.com/rear/rear/pull/2749#issuecomment-1196760461">https://github.com/rear/rear/pull/2749#issuecomment-1196760461</a></p>
+<h4 id="jsmeix_commented_at_2023-10-20_1125"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1772562995">2023-10-20 11:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-20_1125" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/2961/commits/75a23e7942a0d5e4c8f1f6012d7c043fc2838db0">https://github.com/rear/rear/pull/2961/commits/75a23e7942a0d5e4c8f1f6012d7c043fc2838db0</a><br />
+I additionally describe now in default.conf<br />
+when manual console setup is needed<br />
+for the example of a headless machine<br />
+(without VGA card but with /dev/ttyS0), cf.<br />
+<a href="https://github.com/rear/rear/pull/2961#issuecomment-1771450364">https://github.com/rear/rear/pull/2961#issuecomment-1771450364</a></p>
+<h4 id="jsmeix_commented_at_2023-10-20_1126"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1772563826">2023-10-20 11:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-20_1126" title="Permanent link">&para;</a></h4>
+<p>I will merge this PR soon...</p>
+<h4 id="pcahyna_commented_at_2023-10-20_1637"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/2961#issuecomment-1773055375">2023-10-20 16:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-20_1637" title="Permanent link">&para;</a></h4>
+<p>Thank you @jsmeix a lot for this enhancement, I think that it can
+greatly improve the user experience in some situations. I now also
+understand much better what is the intent of the code.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-03-28.2961.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3060 Issue closed: Configuring bacula recovery environment to use bextract - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3060 Issue closed: Configuring bacula recovery environment to use bextract";
+        var mkdocs_page_input_path = "issues/2023-10-29.3060.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3060 Issue closed: Configuring bacula recovery environment to use bextract</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3060_issue_closed_configuring_bacula_recovery_environment_to_use_bextract"><a href="https://github.com/rear/rear/issues/3060">#3060 Issue</a> <code>closed</code>: Configuring bacula recovery environment to use bextract<a class="headerlink" href="#3060_issue_closed_configuring_bacula_recovery_environment_to_use_bextract" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>, <code>old version</code></p>
+<h4 id="zenadmin-ops_opened_issue_at_2023-10-29_0311"><img src="https://avatars.githubusercontent.com/u/62083231?v=4" width="50"><a href="https://github.com/ZENAdmin-Ops">ZENAdmin-Ops</a> opened issue at <a href="https://github.com/rear/rear/issues/3060">2023-10-29 03:11</a>:<a class="headerlink" href="#zenadmin-ops_opened_issue_at_2023-10-29_0311" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    2.6</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    Debian 11 (bullseye)</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=file:///home/zen/debian11-recovery.iso
+BACKUP=BACULA
+BACULA_CONF_DIR=”/opt/bacula/etc”
+BACULA_BIN_DIR=”/opt/bacula/bin”
+PROGS_BACULA=( bacula-fd bconsole bacula-console bextract bls bscan btape smartctl )
+USE_STATIC_NETWORKING="Yes"
+IP=192.168.200.41
+NM=255.255.255.0
+GW=192.168.200.200
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    Hyper-V VM</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>Currently when I try:</p>
+<pre><code>sudo rear mkrescue -v
+</code></pre>
+<p>I am seeing error:</p>
+<pre><code>ERROR: Bacula File Daemon is missing
+Some latest log messages since the last called script 450_check_BACULA_client_configured.sh:
+  2023-10-29 14:05:17.322313872 Including prep/BACULA/default/450_check_BACULA_client_configured.sh
+  /usr/share/rear/lib/_input-output-functions.sh: line 476: type: bacula-fd: not found
+</code></pre>
+<p>I am sure that this is not a bug, rather an error in my current
+configuration.</p>
+<p>I'm hoping to obtain some advice.</p>
+<p>My long-term goal is to be able to perform a restore using bextract as
+described here:<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.adoc</a></p>
+<p>Perhaps ideally, a largely automated restore.</p>
+<p>However, at the moment, as I'm still working out the steps, I want to
+perform the restore manually, step-by-step.</p>
+<p>And specifically, right now, understand what I need to do to resolve the
+above error.</p>
+<p>Thank you.<br />
+VW</p>
+<h4 id="zenadmin-ops_commented_at_2023-10-29_0328"><img src="https://avatars.githubusercontent.com/u/62083231?v=4" width="50"><a href="https://github.com/ZENAdmin-Ops">ZENAdmin-Ops</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1783988009">2023-10-29 03:28</a>:<a class="headerlink" href="#zenadmin-ops_commented_at_2023-10-29_0328" title="Permanent link">&para;</a></h4>
+<p>I'm not sure what is going on here, all my entered information is
+missing?</p>
+<h4 id="zenadmin-ops_commented_at_2023-10-29_2153"><img src="https://avatars.githubusercontent.com/u/62083231?v=4" width="50"><a href="https://github.com/ZENAdmin-Ops">ZENAdmin-Ops</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1784235288">2023-10-29 21:53</a>:<a class="headerlink" href="#zenadmin-ops_commented_at_2023-10-29_2153" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+
+-->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"): 2.6</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"): Debian 11 (bullseye)</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=file:///home/zen/debian11-recovery.iso
+BACKUP=BACULA
+BACULA_CONF_DIR=”/opt/bacula/etc”
+BACULA_BIN_DIR=”/opt/bacula/bin”
+PROGS_BACULA=( bacula-fd bconsole bacula-console bextract bls bscan btape smartctl )
+USE_STATIC_NETWORKING="Yes"
+IP=192.168.200.41
+NM=255.255.255.0
+GW=192.168.200.200
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR): HyperV</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>Hello,</p>
+<p>I'm sure that this is not a bug, rather it is a configuration issue.</p>
+<p>I'm trying to configure a Bacula recovery environment as per the
+scenario described here using
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.adoc</a>
+using bextract.</p>
+<p>After advice on how to complete the configuration.</p>
+<p>Thanks</p>
+<p>VW</p>
+<ul>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>sudo rear mkrescue -v
+Relax-and-Recover 2.6 / Git
+Running rear mkrescue (PID 249644)
+Using log file: /var/log/rear/rear-debian11.log
+Running workflow mkrescue on the normal/original system
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using autodetected kernel '/boot/vmlinuz-5.10.0-26-amd64' as kernel in the recovery system
+ERROR: Bacula File Daemon is missing
+Some latest log messages since the last called script 450_check_BACULA_client_configured.sh:
+  2023-10-30 08:48:45.315230953 Including prep/BACULA/default/450_check_BACULA_client_configured.sh
+  /usr/share/rear/lib/_input-output-functions.sh: line 476: type: bacula-fd: not found
+Aborting due to an error, check /var/log/rear/rear-debian11.log for details
+Exiting rear mkrescue (PID 249644) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-10-30_0806"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1784670197">2023-10-30 08:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-30_0806" title="Permanent link">&para;</a></h4>
+<p>@ZENAdmin-Ops<br />
+only FYI (I did not yet have a look at your issue):<br />
+I found out what went wrong why<br />
+all your entered information was "missing"<br />
+in your initial description here.<br />
+Your entered information was not lost.<br />
+You changed our template Markdown source text<br />
+<a href="https://raw.githubusercontent.com/rear/rear/master/.github/ISSUE_TEMPLATE.md">https://raw.githubusercontent.com/rear/rear/master/.github/ISSUE_TEMPLATE.md</a><br />
+to something like</p>
+<pre><code>&lt;!-- Relax-and-Recover (ReaR) Issue Template
+
+[your entered information]
+</code></pre>
+<p>where the initial <code>&lt;!--</code> is Markdown syntax<br />
+for "begin of comment block" so all your entered information<br />
+became a Markdown comment which is not shown.<br />
+I fixed it by removing the initial line</p>
+<pre><code>&lt;!-- Relax-and-Recover (ReaR) Issue Template
+</code></pre>
+<p>When you remove that comment block</p>
+<pre><code>&lt;!-- Relax-and-Recover (ReaR) Issue Template
+
+Fill in the following items before submitting a new issue.
+(quick response is not guaranteed with free support):
+
+Please use proper GitHub Flavoured Markdown,
+see "Basic writing and formatting syntax" at
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+-- You can safely remove this comment block
+--&gt;
+</code></pre>
+<p>you must remove that whole comment block.</p>
+<h4 id="jsmeix_commented_at_2023-10-30_0913"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1784773530">2023-10-30 09:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-30_0913" title="Permanent link">&para;</a></h4>
+<p>@ZENAdmin-Ops<br />
+I am not a BACKUP=BACULA user so I cannot actually help<br />
+with Bacula backup specific issues.</p>
+<p>In general regarding issues with third-party backup tools:<br />
+Usually we at ReaR upstream do not use third-party backup tools<br />
+so usually we cannot reproduce issues with third-party backup tools.</p>
+<p>Nevertheless we try to help as good as we can from plain looking at the
+code.</p>
+<p>In your case I guess the reason might be that you have</p>
+<pre><code>PROGS_BACULA=( ... )
+</code></pre>
+<p>which overwrites the defaults contents of the PROGS_BACULA array<br />
+from usr/share/rear/conf/default.conf and possibly other places<br />
+in ReaR with only what you specified.</p>
+<p>Normally users won't overwrite ReaR's defaults<br />
+but only append additional things if needed like</p>
+<pre><code>PROGS_BACULA+=( this_additional_program that_additional_program )
+</code></pre>
+<p>I see that your</p>
+<pre><code>PROGS_BACULA=( ... )
+</code></pre>
+<p>is the same as in usr/share/rear/conf/default.conf<br />
+so theoretically this should work, in particular<br />
+because both contain 'bacula-fd' so the error message</p>
+<pre><code>bacula-fd: not found
+</code></pre>
+<p>seems to indicate that either you don't have a 'bacula-fd'<br />
+program installed or you have it installed at a place<br />
+where ReaR cannot find it.</p>
+<p>I don't know where (i.e. in which path/directory)<br />
+the 'bacula-fd' program is normally installed.</p>
+<p>The matching piece of code in<br />
+prep/BACULA/default/450_check_BACULA_client_configured.sh<br />
+in ReaR 2.6 is</p>
+<pre><code>has_binary bacula-fd
+StopIfError "Bacula File Daemon is missing"
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.6/usr/share/rear/prep/BACULA/default/450_check_BACULA_client_configured.sh">https://github.com/rear/rear/blob/rear-2.6/usr/share/rear/prep/BACULA/default/450_check_BACULA_client_configured.sh</a><br />
+and the has_binary function in lib/_input-output-functions.sh runs</p>
+<pre><code>type $bin 1&gt;/dev/null &amp;&amp; return 0
+</code></pre>
+<p>so 'type bacula-fd' does not find a 'bacula-fd' command.</p>
+<h4 id="zenadmin-ops_commented_at_2023-10-30_2332"><img src="https://avatars.githubusercontent.com/u/62083231?v=4" width="50"><a href="https://github.com/ZENAdmin-Ops">ZENAdmin-Ops</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1786204840">2023-10-30 23:32</a>:<a class="headerlink" href="#zenadmin-ops_commented_at_2023-10-30_2332" title="Permanent link">&para;</a></h4>
+<p>Hello,</p>
+<p>bacula-fd is located at:<br />
+/opt/bacula/bin</p>
+<p>And I have this entry in local.conf:<br />
+BACULA_BIN_DIR=”/opt/bacula/bin”</p>
+<p>I have tried commenting out this line:<br />
+PROGS_BACULA=( bacula-fd bconsole bacula-console bextract bls bscan
+btape smartctl )</p>
+<p>Has made no difference</p>
+<h4 id="jsmeix_commented_at_2023-10-31_1457"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1787388172">2023-10-31 14:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-31_1457" title="Permanent link">&para;</a></h4>
+<p>@ZENAdmin-Ops<br />
+you use ReaR 2.6 where in particular<br />
+prep/BACULA/default/400_prep_bacula.sh<br />
+<a href="https://github.com/rear/rear/blob/rear-2.6/usr/share/rear/prep/BACULA/default/400_prep_bacula.sh">https://github.com/rear/rear/blob/rear-2.6/usr/share/rear/prep/BACULA/default/400_prep_bacula.sh</a><br />
+does not yet contain <code>export PATH=$PATH:$BACULA_BIN_DIR</code><br />
+which is in the current one (with much other enhancements)<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/BACULA/default/400_prep_bacula.sh">https://github.com/rear/rear/blob/master/usr/share/rear/prep/BACULA/default/400_prep_bacula.sh</a><br />
+via<br />
+<a href="https://github.com/rear/rear/commit/d6681f2ed16d2506e89326d4acf403406931d617">https://github.com/rear/rear/commit/d6681f2ed16d2506e89326d4acf403406931d617</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2152">https://github.com/rear/rear/issues/2152</a></p>
+<p>So you need to upgrade to the current ReaR 2.7.</p>
+<p>See<br />
+<a href="http://relax-and-recover.org/download/">http://relax-and-recover.org/download/</a></p>
+<p>Additionally see the section<br />
+"Testing current ReaR upstream GitHub master code" on<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can have several ReaR versions in parallel<br />
+each one in its own separated directory<br />
+without conflicts between each other.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>In general I recommend to try out our latest GitHub master code<br />
+because the GitHub master code is the only place where we fix things<br />
+and if there are issues it helps when you use exactly the code<br />
+where we could fix things.</p>
+<h4 id="zenadmin-ops_commented_at_2023-11-01_0023"><img src="https://avatars.githubusercontent.com/u/62083231?v=4" width="50"><a href="https://github.com/ZENAdmin-Ops">ZENAdmin-Ops</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1788212103">2023-11-01 00:23</a>:<a class="headerlink" href="#zenadmin-ops_commented_at_2023-11-01_0023" title="Permanent link">&para;</a></h4>
+<p>Hello,</p>
+<p>I have downloaded Rear 2.7</p>
+<p>According to the readme I can install manually via: make install</p>
+<p>I try:<br />
+sudo make install</p>
+<p>I get:<br />
+Command not found</p>
+<p>I had a look at Makefile, which looks like a script.</p>
+<p>So, I tried:<br />
+chmod +x Makefile<br />
+sudo ./Makefile install</p>
+<p>I get:<br />
+./Makefile: 4: SHELL: not found<br />
+./Makefile: 7: .NOTPARALLEL:: not found<br />
+./Makefile: 9: DESTDIR: not found<br />
+./Makefile: 10: OFFICIAL: not found<br />
+./Makefile: 11: DIST_CONTENT: not found<br />
+./Makefile: 14: rearbin: not found<br />
+./Makefile: 15: name: not found<br />
+./Makefile: 16: rearbin: not found<br />
+./Makefile: 16: shell: not found<br />
+./Makefile: 16: version: not found<br />
+./Makefile: 18: name: not found<br />
+./Makefile: 18: version: not found<br />
+./Makefile: 18: BUILD_DIR: not found<br />
+./Makefile: 20: Syntax error: word unexpected (expecting ")")</p>
+<p>Can you clarify how I install this release?</p>
+<p>Thanks</p>
+<h4 id="jsmeix_commented_at_2023-11-02_0829"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3060#issuecomment-1790277043">2023-11-02 08:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-02_0829" title="Permanent link">&para;</a></h4>
+<p>@ZENAdmin-Ops</p>
+<p>neither<br />
+<a href="http://relax-and-recover.org/download/">http://relax-and-recover.org/download/</a><br />
+nor<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+talks about <code>make install</code>.<br />
+The program 'make' is a software development tool<br />
+which is primarily meant for software developers.</p>
+<p>When you don't have <code>make</code> installed<br />
+try an alternative installation method<br />
+that works in your particular environment,<br />
+for examples see the above URLs.</p>
+<p>I am not a Debian user so I cannot tell you<br />
+how to install software on Debian.</p>
+<p>For example ReaR 2.7<br />
+as openSUSE Build Service package<br />
+for Debian 11 for 64-bit x86_64 "amd64" systems<br />
+seems to be available as <code>rear_2.7-0_amd64.deb</code> at<br />
+<a href="http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_11/amd64/">http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_11/amd64/</a></p>
+<p>Cf. "openSUSE Build Service packages" on<br />
+<a href="http://relax-and-recover.org/download/">http://relax-and-recover.org/download/</a></p>
+<p>But for testing something I would recommend<br />
+"Testing current ReaR upstream GitHub master code",<br />
+see what I wrote above.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-10-29.3060.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3032 Issue closed: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3032 Issue closed: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found";
+        var mkdocs_page_input_path = "issues/2023-07-27.3032.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3032 Issue closed: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3032_issue_closed_having_issues_creating_iso_for_boot_testing_on_ubuntu_1804_with_libraries_not_being_found"><a href="https://github.com/rear/rear/issues/3032">#3032 Issue</a> <code>closed</code>: Having issues creating ISO for boot testing on Ubuntu 18.04 with libraries not being found<a class="headerlink" href="#3032_issue_closed_having_issues_creating_iso_for_boot_testing_on_ubuntu_1804_with_libraries_not_being_found" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="gramps269_opened_issue_at_2023-07-27_1814"><img src="https://avatars.githubusercontent.com/u/58610550?u=beec1bb4d39fba15d39d70b2aa5b71ee9f6f4242&v=4" width="50"><a href="https://github.com/gramps269">gramps269</a> opened issue at <a href="https://github.com/rear/rear/issues/3032">2023-07-27 18:14</a>:<a class="headerlink" href="#gramps269_opened_issue_at_2023-07-27_1814" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version:<br />
+    Relax-and-Recover 2.6 / Git</p>
+</li>
+<li>
+<p>Using 2.6 currently due to I couldn't get 2.7 to work.</p>
+</li>
+<li>
+<p>OS version:<br />
+    DISTRIB_ID=Ubuntu<br />
+    DISTRIB_RELEASE=18.04<br />
+    DISTRIB_CODENAME=bionic<br />
+    DISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    BACKUP=CDM<br />
+    OUTPUT=ISO</p>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    EXXACT<br />
+    Baremetal</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI<br />
+    GRUB</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    1xNVME 2TB<br />
+    1x16TB HDD</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME             KNAME          PKNAME       TRAN   TYPE FSTYPE LABEL  SIZE MOUNTPOINT
+/dev/sda         /dev/sda                    sata   disk              14.6T
+`-/dev/sda1      /dev/sda1      /dev/sda            part ext4         14.6T /data
+/dev/nvme0n1     /dev/nvme0n1                nvme   disk               1.9T
+|-/dev/nvme0n1p1 /dev/nvme0n1p1 /dev/nvme0n1 nvme   part ext4          476M /boot
+|-/dev/nvme0n1p2 /dev/nvme0n1p2 /dev/nvme0n1 nvme   part vfat          477M /boot/efi
+|-/dev/nvme0n1p3 /dev/nvme0n1p3 /dev/nvme0n1 nvme   part swap          9.3G [SWAP]
+`-/dev/nvme0n1p4 /dev/nvme0n1p4 /dev/nvme0n1 nvme   part ext4          1.9T /
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    Unable to create an ISO file with command <code>/usr/sbin/rear mkrescue</code></li>
+</ul>
+<p>Partial output:</p>
+<pre><code>/bin/openssl requires additional libraries (fatal error)
+        libssl.so.1.1 =&gt; not found
+/bin/dbus-uuidgen requires additional libraries (fatal error)
+/bin/dbus-uuidgen: /lib/x86_64-linux-gnu/libdbus-1.so.3: version `LIBDBUS_PRIVATE_1.13.18' not found (required by /bin/dbus-uuidgen)
+/bin/clear requires additional libraries (fatal error)
+        libtinfow.so.6 =&gt; not found
+/bin/dbus-daemon requires additional libraries (fatal error)
+/bin/dbus-daemon: /lib/x86_64-linux-gnu/libdbus-1.so.3: version `LIBDBUS_PRIVATE_1.13.18' not found (required by /bin/dbus-daemon)
+        libexpat.so.1 =&gt; not found
+/bin/dbus-send requires additional libraries (fatal error)
+/bin/dbus-send: /lib/x86_64-linux-gnu/libdbus-1.so.3: version `LIBDBUS_PRIVATE_1.13.18' not found (required by /bin/dbus-send)
+/bin/curl requires additional libraries (fatal error)
+        libcurl.so.4 =&gt; not found
+ReaR recovery system in '/tmp/rear.KbJOztogi7Yxxwj/rootfs' needs additional libraries, check /var/log/rear/rear-exxact01.log for details
+Build area kept for investigation in /tmp/rear.KbJOztogi7Yxxwj, remove it when not needed
+ERROR: ReaR recovery system in '/tmp/rear.KbJOztogi7Yxxwj/rootfs' not usable (required libraries are missing)
+Some latest log messages since the last called script 990_verify_rootfs.sh:
+  2023-07-27 13:12:36.334443301 /bin/curl requires additional libraries (fatal error)
+  2023-07-27 13:12:36.347399758         linux-vdso.so.1 (0x00007ffe1fa80000)
+        libcurl.so.4 =&gt; not found
+        libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fddb3c1e000)
+        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007fddb382d000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fddb3e3d000)
+  2023-07-27 13:12:38.437583659 ReaR recovery system in '/tmp/rear.KbJOztogi7Yxxwj/rootfs' needs additional libraries, check /var/log/rear/rear-exxact01.log for details
+  2023-07-27 13:12:38.439462899 Build area kept for investigation in /tmp/rear.KbJOztogi7Yxxwj, remove it when not needed
+Aborting due to an error, check /var/log/rear/rear-exxact01.log for details
+</code></pre>
+<ul>
+<li>Workaround, if any:<br />
+    Unable to find a workaround as of yet.</li>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="gramps269_commented_at_2023-07-27_2008"><img src="https://avatars.githubusercontent.com/u/58610550?u=beec1bb4d39fba15d39d70b2aa5b71ee9f6f4242&v=4" width="50"><a href="https://github.com/gramps269">gramps269</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1654485181">2023-07-27 20:08</a>:<a class="headerlink" href="#gramps269_commented_at_2023-07-27_2008" title="Permanent link">&para;</a></h4>
+<p>I found another location for the libraries and added that to my
+LD_LIBRARY_PATH and I was able to create the ISO file. I will now see
+if it will boot.</p>
+<h4 id="gramps269_commented_at_2023-07-27_2143"><img src="https://avatars.githubusercontent.com/u/58610550?u=beec1bb4d39fba15d39d70b2aa5b71ee9f6f4242&v=4" width="50"><a href="https://github.com/gramps269">gramps269</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1654625357">2023-07-27 21:43</a>:<a class="headerlink" href="#gramps269_commented_at_2023-07-27_2143" title="Permanent link">&para;</a></h4>
+<p>Still doesn't boot as the kernel isn't getting created and placed in the
+ISO. Any ideas?</p>
+<h4 id="pcahyna_commented_at_2023-07-31_1624"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1658721598">2023-07-31 16:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-31_1624" title="Permanent link">&para;</a></h4>
+<p>Can you please attach a log file?</p>
+<h4 id="gramps269_commented_at_2023-07-31_2010"><img src="https://avatars.githubusercontent.com/u/58610550?u=beec1bb4d39fba15d39d70b2aa5b71ee9f6f4242&v=4" width="50"><a href="https://github.com/gramps269">gramps269</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1659062013">2023-07-31 20:10</a>:<a class="headerlink" href="#gramps269_commented_at_2023-07-31_2010" title="Permanent link">&para;</a></h4>
+<p>I uninstalled v2.6 and installed v2.7 and added an extra library path to
+my /etc/rear/local.conf file and the iso doubled in size. I haven't had
+a chance to boot the iso yet. I plan to run into the office tomorrow and
+see if it will boot up on a spare machine.<br />
+<a href="https://github.com/rear/rear/files/12221707/rear-exxact01.log">rear-exxact01.log</a><br />
+The log file contains some libraries that are "not found", which is
+true, as they do not exist on the server - so I don't understand why.<br />
+Hopefully the iso will boot and get me to a ReaR main menu.</p>
+<p>Thanks for replying,<br />
+Bruce</p>
+<h4 id="gramps269_commented_at_2023-08-03_1314"><img src="https://avatars.githubusercontent.com/u/58610550?u=beec1bb4d39fba15d39d70b2aa5b71ee9f6f4242&v=4" width="50"><a href="https://github.com/gramps269">gramps269</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1663964073">2023-08-03 13:14</a>:<a class="headerlink" href="#gramps269_commented_at_2023-08-03_1314" title="Permanent link">&para;</a></h4>
+<p>I'm still unable to get the iso to boot, so I'm switching products.</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1321"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3032#issuecomment-1663975493">2023-08-03 13:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1321" title="Permanent link">&para;</a></h4>
+<p>Only as an addendum<br />
+because this issue is also about using LD_LIBRARY_PATH<br />
+see<br />
+<a href="https://github.com/rear/rear/pull/2270#issuecomment-551832257">https://github.com/rear/rear/pull/2270#issuecomment-551832257</a><br />
+cf.<br />
+<a href="https://github.com/rear/rear/issues/2314#issuecomment-575529364">https://github.com/rear/rear/issues/2314#issuecomment-575529364</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-07-27.3032.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

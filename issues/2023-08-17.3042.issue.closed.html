@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3042 Issue closed: use_devicesfile in RHEL9 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3042 Issue closed: use_devicesfile in RHEL9";
+        var mkdocs_page_input_path = "issues/2023-08-17.3042.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3042 Issue closed: use_devicesfile in RHEL9</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3042_issue_closed_use_devicesfile_in_rhel9"><a href="https://github.com/rear/rear/issues/3042">#3042 Issue</a> <code>closed</code>: use_devicesfile in RHEL9<a class="headerlink" href="#3042_issue_closed_use_devicesfile_in_rhel9" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="miguelsanders_opened_issue_at_2023-08-17_1529"><img src="https://avatars.githubusercontent.com/u/24568402?v=4" width="50"><a href="https://github.com/MiguelSanders">MiguelSanders</a> opened issue at <a href="https://github.com/rear/rear/issues/3042">2023-08-17 15:29</a>:<a class="headerlink" href="#miguelsanders_opened_issue_at_2023-08-17_1529" title="Permanent link">&para;</a></h4>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+rear-2.6-17.el9.x86_64</p>
+<p>If your ReaR version is not the current version, explain why you can't
+upgrade:</p>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+/etc/rear/os.conf"):<br />
+Red Hat Enterprise Linux release 9.2 (Plow)</p>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+/etc/rear/local.conf"):<br />
+BACKUP=NETFS<br />
+BACKUP_URL=nfs://XXX.uniforce.eu/GPFS/var/rear<br />
+OUTPUT=ISO<br />
+ONLY_INCLUDE_VG=('rootvg')</p>
+<p>Hardware vendor/product:</p>
+<p>System architecture:<br />
+x86_64</p>
+<p>Firmware:<br />
+BIOS, GRUB2</p>
+<p>Storage :<br />
+Local Disk</p>
+<p>Storage layout: Not able to get any log for the disk layout</p>
+<p>Description of the issue:</p>
+<p>As of RHEL9, use_devicesfile in LVM seems to be enabled by default. The
+devices file contains information on the allowed PVIDs.<br />
+As we may be restoring on a different PV, the devices file needs to be
+recreated prior to rebooting after the restore.</p>
+<p>Possible fix</p>
+<p>chroot /mnt/local /bin/bash -c "rm /etc/lvm/devices/system.devices &amp;&amp;
+/usr/sbin/vgimportdevices -a"</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1314"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1691653726">2023-08-24 13:14</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1314" title="Permanent link">&para;</a></h4>
+<p>See also #2917 . I don't think one can do
+<code>/usr/sbin/vgimportdevices -a</code>. The problem is, imagine you have several
+volume groups. One for the system (rootvg) and one for data (datavg), on
+different disks. Now you system is broken and you want to recover it,
+but the data are unaffected and you want them to survive the recovery
+procedure. For this, it is advisable to disconnect the data disks during
+the recovery procedure to avoid being accidentally reformatting them.
+But, as they are not connected, <code>/usr/sbin/vgimportdevices -a</code> will not
+find datavg, therefore it will not add them to the devices file and when
+you reboot after recovery with the disks attached again, they will not
+be found by LVM and datavg will not be activated.<br />
+I was thinking about some automated procedure to update only the
+obsolete entries in lvmdevices and keep all others, but I have not found
+anything simple. I therefore believe the only reliable solution is to
+remove the devices file at the end of recovery, since running without it
+is preferable to a broken system due to some fragile attempt at an
+"ideal" solution.</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1642"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692050026">2023-08-24 16:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1642" title="Permanent link">&para;</a></h4>
+<p>@MiguelSanders is it a problem for you if the devices file is removed at
+the end of recovery and thus missing from the recovered system?</p>
+<h4 id="miguelsanders_commented_at_2023-08-24_1736"><img src="https://avatars.githubusercontent.com/u/24568402?v=4" width="50"><a href="https://github.com/MiguelSanders">MiguelSanders</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692144329">2023-08-24 17:36</a>:<a class="headerlink" href="#miguelsanders_commented_at_2023-08-24_1736" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Just a thought but can't we just merge
+/etc/lvm/devices/system.devices from the recovery environment with the
+actual /etc/lvm/devices/system.devices from the backup?</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1742"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692151723">2023-08-24 17:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1742" title="Permanent link">&para;</a></h4>
+<p>@MiguelSanders I thought about that too, but that would leave duplicate
+entries in the resulting system.devices (old possibly invalid and new
+valid) and every LVM command will then complain about it. It will not be
+broken, but it will be quite annoying.</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1744"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692154200">2023-08-24 17:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1744" title="Permanent link">&para;</a></h4>
+<p>If by "merge" you mean something more sophisticated than merely
+concatenate them (like using PVID as the merge key and removing
+duplicates), I would love to do that, but there is no tool to perform
+this ATM.</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1748"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692158821">2023-08-24 17:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1748" title="Permanent link">&para;</a></h4>
+<p>See the discussion in
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2196688">https://bugzilla.redhat.com/show_bug.cgi?id=2196688</a></p>
+<h4 id="miguelsanders_commented_at_2023-08-24_2150"><img src="https://avatars.githubusercontent.com/u/24568402?v=4" width="50"><a href="https://github.com/MiguelSanders">MiguelSanders</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1692459652">2023-08-24 21:50</a>:<a class="headerlink" href="#miguelsanders_commented_at_2023-08-24_2150" title="Permanent link">&para;</a></h4>
+<p>@pcahyna If we decided to disconnect unaffected VGs before we initiate
+the recovery phase, we could still</p>
+<ol>
+<li>Remove /etc/lvm/devices/system.devices inside the chroot after the
+    recovery</li>
+<li>Run vgimportdevices -a inside the chroot after the recovery.</li>
+<li>Run vgimportdevices -a again once we have reattached the other PVs
+    after we booted the recovered system. Importing existing VGs should
+    be considered a BAU operation. I don't believe ReaR has to take any
+    responsibility for this step.</li>
+</ol>
+<p>Alternatively we could also do a simple merge of the (A)
+/etc/lvm/devices/system.devices (from ramdisk) with the (B)
+/etc/lvm/devices/system.devices (from chroot) as follows<br />
+EXCLUDE=$(echo $(for i in $ ( cat A | grep PVID | awk '{print $4}' | cut
+-d'=' -f2); do echo $i; done) | tr ' ' '|')<br />
+cat B | grep PVID | grep -Ev "$EXCLUDE" &gt;&gt; A<br />
+cp A B<br />
+Of course, if we are missing PVs, LVM commands will complain about those
+but I consider this a good thing as this will tell us that the LVM
+layout of our recovered system differs from the source system and needs
+to be amended/corrected.</p>
+<p>I can give this a try tomorrow if you want.<br />
+Let me know your thoughts.</p>
+<h4 id="pcahyna_commented_at_2023-08-25_0951"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1693098426">2023-08-25 09:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-25_0951" title="Permanent link">&para;</a></h4>
+<p>@MiguelSanders</p>
+<blockquote>
+<p>@pcahyna If we decided to disconnect unaffected VGs before we initiate
+the recovery phase, we could still</p>
+<pre><code>1. Remove /etc/lvm/devices/system.devices inside the chroot after the recovery
+
+2. Run vgimportdevices -a inside the chroot after the recovery.
+
+3. Run vgimportdevices -a again once we have reattached the other PVs after we booted the recovered system. Importing existing VGs should be considered a BAU operation. I don't believe ReaR has to take any responsibility for this step.
+</code></pre>
+</blockquote>
+<p>I see at least two problems with this approach:</p>
+<ol>
+<li>will the recovered system even boot if you reattach the data drives
+    but the data VG will not be found? Usually systemd drops to
+    emergency mode when volumes referenced from fstab can't be found.
+    This could cause lots of admin frustration.</li>
+<li>is it widely known that importing existing VGs is a BAU operation? I
+    have encountered several bug reports already that show lack of
+    awareness about the lvmdevices "feature" and its implications
+    especially in case of moving content to new disk, including system
+    cloning (and not just with ReaR).</li>
+</ol>
+<blockquote>
+<p>Alternatively we could also do a simple merge of the (A)
+/etc/lvm/devices/system.devices (from ramdisk) with the (B)
+/etc/lvm/devices/system.devices (from chroot) as follows
+EXCLUDE=$(echo $(for i in $ ( cat A | grep PVID | awk '{print $4}' |
+cut -d'=' -f2); do echo $i; done) | tr ' ' '|') cat B | grep PVID |
+grep -Ev "$EXCLUDE" &gt;&gt; A cp A B Of course, if we are missing
+PVs, LVM commands will complain about those but I consider this a good
+thing as this will tell us that the LVM layout of our recovered system
+differs from the source system and needs to be amended/corrected.</p>
+<p>I can give this a try tomorrow if you want. Let me know your thoughts.</p>
+</blockquote>
+<p>Thank you for your thoughts and the offer to help. Writing a parser in
+shell for this (undocumented) format was exactly what I wanted to avoid,
+though, as I would consider it to be very fragile. For example, where
+does the <code>print $4</code> in your awk statement come from? How do you know
+that the thing you are interested in is the 4th column? You don't take
+comments into account (although this does not seem to be a problem with
+the usual file content, who knows what might appear in a comment).</p>
+<p>As simplicity and reliability are my highest priorities (there is
+already too much complicated and fragile code in ReaR making lots of
+assumptions about how things look like), I strongly prefer to remove the
+file, with simple concatenation and resulting duplicates (and warnings)
+as the only viable alternative. Concatenation is not without its
+pitfalls, though. Is it guaranteed that two files can be simply
+concatenated like that with preserving the meaning of entries in both? A
+simple problem like a missing terminal newline will ruin it. Or consider
+this scenario:</p>
+<ul>
+<li>new version of LVM introduces a new incompatible format for the file</li>
+<li>as it needs to support the old format in existing installations, it
+    recognizes the new format using a header at the top</li>
+<li>your system uses the old format, but your LVM tools are upgraded to
+    ones that use the new format</li>
+<li>you recover the system, the LVM tools create a new file in
+    ramdisk (A) in the new format, but the file in chroot (B) remains in
+    the old format</li>
+<li>you concatenate them and the result is now broken, because it
+    contains a mixture of entries in different formats</li>
+</ul>
+<p>There is even no guarantee that the file format supports concatenation
+in the future - the format may be changed to something like a binary
+database, XML, or JSON. Undocumented formats can be changed any time.</p>
+<p>Last but not least, removal of the LVM devices file is not a solution
+that I made up myself. It is one of the operations performed by
+virt-sysprep as a preparation of a VM for cloning, so there is a prior
+art. See the description of lvm-system-devices under
+<a href="https://man.archlinux.org/man/virt-sysprep.1.en#OPERATIONS">https://man.archlinux.org/man/virt-sysprep.1.en#OPERATIONS</a>
+(it is marked with an asterisk, meaning that it is enabled by default).</p>
+<h4 id="miguelsanders_commented_at_2023-08-25_0958"><img src="https://avatars.githubusercontent.com/u/24568402?v=4" width="50"><a href="https://github.com/MiguelSanders">MiguelSanders</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1693107766">2023-08-25 09:58</a>:<a class="headerlink" href="#miguelsanders_commented_at_2023-08-25_0958" title="Permanent link">&para;</a></h4>
+<p>@pcahyna I completely agree on the fact that the format might change at
+any time. As long as there is no option to lvmdevices that could help
+us, I also believe that the safest thing to do right now is to simply
+remove the system.devices file.</p>
+<p>Thanks for your feedback.</p>
+<h4 id="pcahyna_commented_at_2023-08-25_1735"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3042#issuecomment-1693712276">2023-08-25 17:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-25_1735" title="Permanent link">&para;</a></h4>
+<p>@MiguelSanders thank you for your review.</p>
+<p>Indeed, if one wants to be perfect and keep correct lvmdevices, the
+correct way to do it is to have some option of lvmdevices(8) or
+vgimportdevices(8) that would do what we need without having to touch
+the file ourselves (i.e. treat it as opaque, which is the right way of
+dealing with undocumented and thus internal file formats).</p>
+<p>I now realized that one such option (which does not rely on yet
+unimplemented features of lvmdevices(8) or vgimportdevices(8)) could be
+to keep the old lvmdevices in the rescue ramdisk. This way, the pvcreate
+commands will update it with new IDs, while keeping the old entries. We
+could then copy it to the recovered chroot at the end.</p>
+<p>This approach is not without its own problems. The file could not have
+come from backup, since we recreate the layout before extracting the
+backup. It would need to be embedded in the ramdisk (in upstream ReaR it
+is actually already there). This would be a problem if the file changes
+between creating the rescue media (<code>rear mkrescue</code>) and taking the
+backup (<code>rear mkbackuponly</code>) as these operations are in principle
+independent. This is a solvable problem as we already have a check for
+inconsistencies of this type. Another pitfall is that pvcreate used to
+crash if it found an existing PVID already in the file - see
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2117937">https://bugzilla.redhat.com/show_bug.cgi?id=2117937</a>
+, and therefore we are excluding the file from the rescue ramdisk in
+RHEL as a workaround - I realize I should submit this patch to ReaR
+upstream too, although the bug in LVM is fortunately fixed now, but some
+distributions/versions might have a buggy version. The patch will be
+then incompatible with this approach.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-08-17.3042.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

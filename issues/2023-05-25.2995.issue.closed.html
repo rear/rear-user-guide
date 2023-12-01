@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2995 Issue closed: rear mkrescue fails due to unknown partition table on supposedly excluded device - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2995 Issue closed: rear mkrescue fails due to unknown partition table on supposedly excluded device";
+        var mkdocs_page_input_path = "issues/2023-05-25.2995.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2995 Issue closed: rear mkrescue fails due to unknown partition table on supposedly excluded device</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2995_issue_closed_rear_mkrescue_fails_due_to_unknown_partition_table_on_supposedly_excluded_device"><a href="https://github.com/rear/rear/issues/2995">#2995 Issue</a> <code>closed</code>: <code>rear mkrescue</code> fails due to unknown partition table on supposedly excluded device<a class="headerlink" href="#2995_issue_closed_rear_mkrescue_fails_due_to_unknown_partition_table_on_supposedly_excluded_device" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="danboid_opened_issue_at_2023-05-25_1557"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> opened issue at <a href="https://github.com/rear/rear/issues/2995">2023-05-25 15:57</a>:<a class="headerlink" href="#danboid_opened_issue_at_2023-05-25_1557" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>2.7</p>
+<ul>
+<li>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</li>
+</ul>
+<p>Ubuntu 20.04.6 LTS</p>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>### write the rescue initramfs to USB and update the USB bootloader
+OUTPUT=USB
+
+### create a backup using the internal NETFS method, using 'tar'
+BACKUP=NETFS
+
+### write both rescue image and backup to the device labeled REAR-000
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+
+EXCLUDE_COMPONENTS=( "${EXCLUDE_COMPONENTS[@]}" "/dev/nvme0n1" "/dev/nvme1n1" "/dev/nvme0n1p1" "/dev/nvme0n1p9" "/dev/nvme1n1p1" "/dev/nvme1n1p9" )
+#ONLY_INCLUDE_VG=( "vg1" )
+</code></pre>
+<ul>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</li>
+</ul>
+<p>Dell Poweredge</p>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<p>amd64</p>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</li>
+</ul>
+<p>BIOS</p>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<p>local disks</p>
+<ul>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME             KNAME          PKNAME       TRAN   TYPE   FSTYPE     LABEL                             SIZE MOUNTPOINT
+/dev/loop0       /dev/loop0                         loop   squashfs                                    63.3M /snap/core
+/dev/loop1       /dev/loop1                         loop   squashfs                                    55.6M /snap/core
+/dev/loop2       /dev/loop2                         loop   squashfs                                    55.7M /snap/core
+/dev/loop3       /dev/loop3                         loop   squashfs                                    91.9M /snap/lxd/
+/dev/loop4       /dev/loop4                         loop   squashfs                                    63.5M /snap/core
+/dev/loop5       /dev/loop5                         loop   squashfs                                    91.8M /snap/lxd/
+/dev/loop6       /dev/loop6                         loop   squashfs                                    53.2M /snap/snap
+/dev/loop7       /dev/loop7                         loop   squashfs                                    53.2M /snap/snap
+/dev/sda         /dev/sda                    usb    disk   iso9660    Ubuntu-Server 20.04.2 LTS amd64    15G 
+|-/dev/sda1      /dev/sda1      /dev/sda            part   iso9660    Ubuntu-Server 20.04.2 LTS amd64   1.1G 
+|-/dev/sda2      /dev/sda2      /dev/sda            part   vfat                                         3.9M 
+`-/dev/sda3      /dev/sda3      /dev/sda            part   ext4       writable                         13.8G 
+/dev/sdb         /dev/sdb                           disk                                              931.5G 
+|-/dev/sdb1      /dev/sdb1      /dev/sdb            part                                                  1M 
+`-/dev/sdb2      /dev/sdb2      /dev/sdb            part   linux_raid ubuntu-server:0                 931.5G 
+  `-/dev/md0     /dev/md0       /dev/sdb2           raid10 LVM2_membe                                   1.8T 
+    `-/dev/mapper/vg1-lv--0
+                 /dev/dm-0      /dev/md0            lvm    ext4                                         1.8T /
+/dev/sdc         /dev/sdc                           disk                                              931.5G 
+|-/dev/sdc1      /dev/sdc1      /dev/sdc            part                                                  1M 
+`-/dev/sdc2      /dev/sdc2      /dev/sdc            part   linux_raid ubuntu-server:0                 931.5G 
+  `-/dev/md0     /dev/md0       /dev/sdc2           raid10 LVM2_membe                                   1.8T 
+    `-/dev/mapper/vg1-lv--0
+                 /dev/dm-0      /dev/md0            lvm    ext4                                         1.8T /
+/dev/sdd         /dev/sdd                           disk                                              931.5G 
+|-/dev/sdd1      /dev/sdd1      /dev/sdd            part                                                  1M 
+`-/dev/sdd2      /dev/sdd2      /dev/sdd            part   linux_raid ubuntu-server:0                 931.5G 
+  `-/dev/md0     /dev/md0       /dev/sdd2           raid10 LVM2_membe                                   1.8T 
+    `-/dev/mapper/vg1-lv--0
+                 /dev/dm-0      /dev/md0            lvm    ext4                                         1.8T /
+/dev/sde         /dev/sde                           disk                                              931.5G 
+|-/dev/sde1      /dev/sde1      /dev/sde            part                                                  1M 
+`-/dev/sde2      /dev/sde2      /dev/sde            part   linux_raid ubuntu-server:0                 931.5G 
+  `-/dev/md0     /dev/md0       /dev/sde2           raid10 LVM2_membe                                   1.8T 
+    `-/dev/mapper/vg1-lv--0
+                 /dev/dm-0      /dev/md0            lvm    ext4                                         1.8T /
+/dev/sdf         /dev/sdf                           disk                                                1.8T 
+/dev/sdg         /dev/sdg                           disk                                                1.8T 
+/dev/sdh         /dev/sdh                           disk                                                1.8T 
+/dev/sdi         /dev/sdi                    usb    disk                                              931.5G 
+|-/dev/sdi1      /dev/sdi1      /dev/sdi            part                                                  8M 
+|-/dev/sdi2      /dev/sdi2      /dev/sdi            part   vfat       REAR-EFI                            1G 
+`-/dev/sdi3      /dev/sdi3      /dev/sdi            part   ext3       REAR-000                        930.5G 
+/dev/sr0         /dev/sr0                    sata   rom                                                1024M 
+/dev/nvme0n1     /dev/nvme0n1                nvme   disk                                              931.5G 
+|-/dev/nvme0n1p1 /dev/nvme0n1p1 /dev/nvme0n1 nvme   part   zfs_member lxdpool                         931.5G 
+`-/dev/nvme0n1p9 /dev/nvme0n1p9 /dev/nvme0n1 nvme   part                                                  8M 
+/dev/nvme1n1     /dev/nvme1n1                nvme   disk                                              931.5G 
+|-/dev/nvme1n1p1 /dev/nvme1n1p1 /dev/nvme1n1 nvme   part   zfs_member lxdpool                         931.5G 
+`-/dev/nvme1n1p9 /dev/nvme1n1p9 /dev/nvme1n1 nvme   part                                                  8M
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p><code>rear mkrescue</code> is failing:</p>
+<pre><code># rear -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 376711 date 2023-05-25 16:47:26)
+Using log file: /var/log/rear/rear-dionysus.log
+Running workflow mkrescue on the normal/original system
+Using autodetected kernel '/boot/vmlinuz-5.4.0-149-generic' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2023-05-25 16:47:32.465629559 Saving disks and their partitions
+Some messages from /var/tmp/rear.8wI1FCmFKs5AaWk/tmp/rear.mkrescue.stdout_stderr since the last called script 200_partition_layout.sh:
+  blockdev: cannot open /dev/nvme0n1p9: No such file or directory
+  Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+  Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Error exit of rear mkrescue (PID 376711) and its descendant processes
+Exiting subshell 1 (where the actual error happened)
+Aborting due to an error, check /var/log/rear/rear-dionysus.log for details
+Exiting rear mkrescue (PID 376711) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<p>I know that REAR cannot backup or restore ZFS partitions. That's fine, I
+use syncoid to backup and restore ZFS but here it seems <code>rear mkrescue</code>
+is failing because <code>/dev/nvme0n1p9</code> (and /dev/nvme1n1p9 ) have an
+unknown partition table. It is just an empty placeholder partition that
+I definitely don't want to backup because I couldn't anyway.</p>
+<p>My understanding of rear is that EXCLUDE_COMPONENTS is used to exclude
+certain devices from being backed up but nothing that I've tried so far
+stops <code>mkrescue</code> from analysing the nmve devices, which are formatted
+with ZFS, and then aborting <code>mkrescue</code> because of the unknown
+partitions.</p>
+<ul>
+<li>Workaround, if any:</li>
+</ul>
+<p>Under rear 2.5 I was successful in getting this machine to backup (and
+hence mkrescue worked too) by using <code>ONLY_INCLUDE_VG=( "vg1" )</code> in my
+<code>/etc/rear/local.conf</code> because it uses LVM but that doesn't work any
+more under 2.7. rear 2.5 also didn't produce bootable USB drives under
+Ubuntu 20.04.</p>
+<p>Thanks</p>
+<h4 id="jsmeix_commented_at_2023-05-26_0641"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1563882543">2023-05-26 06:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-26_0641" title="Permanent link">&para;</a></h4>
+<p>@danboid<br />
+in general for an analysis we need a full debug ReaR log file,<br />
+see<br />
+<a href="https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md">https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md</a></p>
+<pre><code>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover" debug log files)
+</code></pre>
+<p>Caution with possible secrets in a full debug log file:<br />
+When 'rear' is run via '-D' in debugscript mode<br />
+it logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed<br />
+so in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.<br />
+Also secrets may be stored in some other files<br />
+like /var/lib/rear/layout/disklayout.conf<br />
+or /var/lib/rear/layout/diskrestore.sh<br />
+cf. <code>[password=&lt;password&gt;]</code> in the section<br />
+"Disk layout file syntax" in<br />
+doc/user-guide/06-layout-configuration.adoc<br />
+online at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc">https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc</a><br />
+So before you attach your full debug log file and other files<br />
+here (GitHub is a public accessible place) inspect your files<br />
+and verify that they do not accidentally cointain secrets.</p>
+<h4 id="danboid_commented_at_2023-05-26_1025"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564173216">2023-05-26 10:25</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-26_1025" title="Permanent link">&para;</a></h4>
+<p>Debug log attached</p>
+<p><a href="https://github.com/rear/rear/files/11574203/rear-dionysus.log">rear-dionysus.log</a></p>
+<h4 id="jsmeix_commented_at_2023-05-26_1239"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564331312">2023-05-26 12:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-26_1239" title="Permanent link">&para;</a></h4>
+<p>@danboid<br />
+as far as I see in your<br />
+<a href="https://github.com/rear/rear/files/11574203/rear-dionysus.log">https://github.com/rear/rear/files/11574203/rear-dionysus.log</a></p>
+<pre><code># grep -A10000 ' source /usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh' rear-dionysus.log | egrep 'extract_partitions|disk_label='
+
+++ extract_partitions /dev/nvme0n1
+++ disk_label=gpt
+++ extract_partitions /dev/nvme1n1
+++ disk_label=gpt
+++ extract_partitions /dev/sda
+++ disk_label=unknown
+</code></pre>
+<p>the problematic disk where the</p>
+<pre><code>ERROR: Unsupported partition table 'unknown' ...
+</code></pre>
+<p>happens is</p>
+<pre><code>/dev/sda
+</code></pre>
+<p>which is according to your 'lsblk' output</p>
+<pre><code>NAME             KNAME          PKNAME       TRAN   TYPE   FSTYPE     LABEL                             SIZE MOUNTPOINT
+/dev/sda         /dev/sda                    usb    disk   iso9660    Ubuntu-Server 20.04.2 LTS amd64    15G 
+|-/dev/sda1      /dev/sda1      /dev/sda            part   iso9660    Ubuntu-Server 20.04.2 LTS amd64   1.1G 
+|-/dev/sda2      /dev/sda2      /dev/sda            part   vfat                                         3.9M 
+`-/dev/sda3      /dev/sda3      /dev/sda            part   ext4       writable                         13.8G
+</code></pre>
+<p>a USB device.</p>
+<p>So I wonder if you could (at least as a workaround for now)<br />
+disconnect this USB device while you run "rear mkrescue"?</p>
+<h4 id="jsmeix_commented_at_2023-05-26_1241"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564333091">2023-05-26 12:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-26_1241" title="Permanent link">&para;</a></h4>
+<p>By the way:<br />
+I did right now<br />
+<a href="https://github.com/rear/rear/commit/2aaa1967710314c7bc12ccacac67dcf76b10b95a">https://github.com/rear/rear/commit/2aaa1967710314c7bc12ccacac67dcf76b10b95a</a><br />
+to make that "Unsupported partition table" error message meaningful<br />
+in particular for systems with more than a single disk ;-)</p>
+<h4 id="danboid_commented_at_2023-05-26_1312"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564375581">2023-05-26 13:12</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-26_1312" title="Permanent link">&para;</a></h4>
+<p>I can't physically remove that disk now but if it is that causing the
+error then I would've expected changing to:</p>
+<pre><code>EXCLUDE_COMPONENTS=( "${EXCLUDE_COMPONENTS[@]}" "/dev/nvme0n1" "/dev/nvme1n1" "/dev/nvme0n1p1" "/dev/nvme0n1p9" "/dev/nvme1n1p1" "/dev/nvme1n1p9" "/dev/sda" )
+</code></pre>
+<p>Should fix my problem but I still get:</p>
+<pre><code>rear -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 1247546 date 2023-05-26 14:09:05)
+Using log file: /var/log/rear/rear-dionysus.log
+Running workflow mkrescue on the normal/original system
+Using autodetected kernel '/boot/vmlinuz-5.4.0-149-generic' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2023-05-26 14:09:14.858195493 Saving disks and their partitions
+Some messages from /var/tmp/rear.f7X59f7QErCnxcV/tmp/rear.mkrescue.stdout_stderr since the last called script 200_partition_layout.sh:
+  blockdev: cannot open /dev/nvme0n1p9: No such file or directory
+  Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+  Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Error exit of rear mkrescue (PID 1247546) and its descendant processes
+Exiting subshell 1 (where the actual error happened)
+Aborting due to an error, check /var/log/rear/rear-dionysus.log for details
+Exiting rear mkrescue (PID 1247546) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<h4 id="danboid_commented_at_2023-05-26_1319"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564384575">2023-05-26 13:19</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-26_1319" title="Permanent link">&para;</a></h4>
+<p>My amateur, not knowing rear well guess is that the $device array as fed
+into 200_partition_layout.sh doesn't exclude the devices listed in the
+$EXCLUDE_COMPONENTS array so it tries to fetch the label/ partition
+type of ALL partitions regardless.</p>
+<h4 id="jsmeix_commented_at_2023-05-26_1329"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564397149">2023-05-26 13:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-26_1329" title="Permanent link">&para;</a></h4>
+<p>Yes, this is how it currently behaves.<br />
+The exclusion happens afterwards.<br />
+Basically for normal disks<br />
+layout/save/GNU/Linux/200_partition_layout.sh<br />
+does</p>
+<pre><code>    for disk in /sys/block/* ; do
+...
+                extract_partitions "$devname"
+...
+    done
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-05-26_1335"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564406329">2023-05-26 13:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-26_1335" title="Permanent link">&para;</a></h4>
+<p>Remember my<br />
+<a href="https://github.com/rear/rear/issues/2772#issuecomment-1069119836">https://github.com/rear/rear/issues/2772#issuecomment-1069119836</a><br />
+with its link to my<br />
+<a href="https://github.com/rear/rear/issues/2229#issuecomment-531474858">https://github.com/rear/rear/issues/2229#issuecomment-531474858</a></p>
+<h4 id="danboid_commented_at_2023-05-26_1507"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1564535997">2023-05-26 15:07</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-26_1507" title="Permanent link">&para;</a></h4>
+<p>I removed the Ubuntu install USB disk, rebooted and that did fix
+<code>mkrescue</code> and <code>mkbackup</code> as rear is backing it up now but why did
+adding "/dev/sda" to the $EXCLUDE_COMPONENTS array not fix that error
+if that was the disk causing trouble?</p>
+<h4 id="jsmeix_commented_at_2023-05-31_1205"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1570082935">2023-05-31 12:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-31_1205" title="Permanent link">&para;</a></h4>
+<p>As far as I see<br />
+adding "/dev/sda" to any EXCLUDE variable<br />
+cannot help here because of<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1564384575">https://github.com/rear/rear/issues/2995#issuecomment-1564384575</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1564397149">https://github.com/rear/rear/issues/2995#issuecomment-1564397149</a></p>
+<h4 id="pcahyna_commented_at_2023-06-20_1323"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1598782245">2023-06-20 13:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-20_1323" title="Permanent link">&para;</a></h4>
+<p>I downloaded the "Ubuntu-Server 20.04.2 LTS amd64" image and set it up
+as a disk (should be equivalent to dd-ing it to a empty disk):</p>
+<pre><code>losetup -P -f ~pcahyna/Downloads/ubuntu-20.04-beta-live-server-amd64.iso
+</code></pre>
+<p>and I examined how it behaves:</p>
+<pre><code># lsblk
+NAME                                      MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+loop0                                       7:0    0   918M  0 loop  
+├─loop0p1                                 259:0    0   918M  0 part  
+└─loop0p2                                 259:1    0   3.9M  0 part  
+# file -s /dev/loop0
+/dev/loop0: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Ubuntu-Server 20.04 LTS amd64' (bootable)
+# parted -m -s /dev/loop0 print
+Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+BYT;
+/dev/loop0:963MB:loopback:512:512:unknown:Loopback device:;
+# fdisk -l /dev/loop0
+Disk /dev/loop0: 918 MiB, 962592768 bytes, 1880064 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x53c95e79
+
+Device       Boot Start     End Sectors  Size Id Type
+/dev/loop0p1 *        0 1880063 1880064  918M  0 Empty
+/dev/loop0p2      20464   28463    8000  3.9M ef EFI (FAT-12/16/32)
+</code></pre>
+<p>so, the root problem seems to be that parted does not recognize the
+partition table that is recognized both by the kernel and fdisk.</p>
+<h4 id="danboid_commented_at_2023-06-22_1927"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1603201529">2023-06-22 19:27</a>:<a class="headerlink" href="#danboid_commented_at_2023-06-22_1927" title="Permanent link">&para;</a></h4>
+<p>Thanks for explaining the root of this error. I had no intention of
+backing up that disk/iso but I was unable to get rear to exclude
+(examining) the disk. I had to physically remove the disk to get
+<code>mkrecover</code> to work and I don't think that should've been necessary.</p>
+<p>I opened a separate ticket regarding the "exclude from backup" section
+of the docs, which I regard as a key and lacking section of the docs so
+I will eventually read the source and document it if no-one else does it
+before me.</p>
+<p><a href="https://github.com/rear/rear/issues/2997">https://github.com/rear/rear/issues/2997</a></p>
+<h4 id="github-actions_commented_at_2023-08-22_0201"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2995#issuecomment-1687301585">2023-08-22 02:01</a>:<a class="headerlink" href="#github-actions_commented_at_2023-08-22_0201" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-05-25.2995.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

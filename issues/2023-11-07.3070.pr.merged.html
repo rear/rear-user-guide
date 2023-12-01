@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3070 PR merged: Add REBOOT_COMMANDS (issue 3068) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3070 PR merged: Add REBOOT_COMMANDS (issue 3068)";
+        var mkdocs_page_input_path = "issues/2023-11-07.3070.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3070 PR merged: Add REBOOT_COMMANDS (issue 3068)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3070_pr_merged_add_reboot_commands_issue_3068"><a href="https://github.com/rear/rear/pull/3070">#3070 PR</a> <code>merged</code>: Add REBOOT_COMMANDS (issue 3068)<a class="headerlink" href="#3070_pr_merged_add_reboot_commands_issue_3068" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-11-07_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3070">2023-11-07 12:50</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-11-07_1250" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3068">https://github.com/rear/rear/issues/3068</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    See
+    <a href="https://github.com/rear/rear/pull/3070#issuecomment-1801948014">https://github.com/rear/rear/pull/3070#issuecomment-1801948014</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In skel/default/etc/scripts/system-setup<br />
+replaced the hardcoded 'reboot'<br />
+by using a <code>REBOOT_COMMANDS</code> array<br />
+(plus REBOOT_COMMANDS_LABEL string)<br />
+so the user could specify a alternative command<br />
+like 'shutdown' or 'poweroff'<br />
+(see
+<a href="https://github.com/rear/rear/issues/3068">https://github.com/rear/rear/issues/3068</a>)<br />
+or a sequence of commands if needed<br />
+(plus a label that is shown to the user).</p>
+<p>Use USER_INPUT_INTERRUPT_TIMEOUT<br />
+and USER_INPUT_UNATTENDED_TIMEOUT<br />
+instead of hardcoded 'sleep' timeout values<br />
+to speed up things in unattended_recovery mode.</p>
+<p>Show non-zero exit codes to the user<br />
+when sourcing config files failed.</p>
+<p>Abort when /usr/share/rear/conf/default.conf<br />
+does not exist (or is empty).</p>
+<p>Set <code>SECRET_OUTPUT_DEV="null"</code> in any case<br />
+(not only when sourcing default.conf)<br />
+because also in other config files (e.g. local.conf)<br />
+secret default values could be set via</p>
+<pre><code>{ VARIABLE='secret value' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+</code></pre>
+<p>cf.
+<a href="https://github.com/rear/rear/commit/9629b29dbbb73efb6229c4bfc509d1fcb70b29e3">https://github.com/rear/rear/commit/9629b29dbbb73efb6229c4bfc509d1fcb70b29e3</a></p>
+<h4 id="jsmeix_commented_at_2023-11-07_1322"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1798499469">2023-11-07 13:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-07_1322" title="Permanent link">&para;</a></h4>
+<p>I will test it tomorrow (as time permits).</p>
+<h4 id="gitarplayer_commented_at_2023-11-07_2146"><img src="https://avatars.githubusercontent.com/u/51920729?v=4" width="50"><a href="https://github.com/GitarPlayer">GitarPlayer</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1800231206">2023-11-07 21:46</a>:<a class="headerlink" href="#gitarplayer_commented_at_2023-11-07_2146" title="Permanent link">&para;</a></h4>
+<p>I did test it too and it would close my issue. Thanks for your work.</p>
+<h4 id="jsmeix_commented_at_2023-11-08_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1801948014">2023-11-08 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-08_1400" title="Permanent link">&para;</a></h4>
+<p>It works well for me with</p>
+<pre><code>ISO_RECOVER_MODE=unattended
+ISO_DEFAULT=automatic
+RECOVERY_REBOOT_COMMAND=poweroff
+USER_INPUT_INTERRUPT_TIMEOUT=5
+
+OUTPUT=ISO
+BACKUP=NETFS
+...
+</code></pre>
+<p>I mean I get a full automated and unattended recovery<br />
+with 'poweroff' after recovery.</p>
+<h4 id="jsmeix_commented_at_2023-11-08_1402"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1801952028">2023-11-08 14:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-08_1402" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+could you please review it (as time permits)<br />
+or at least have a look if you spot some obvious mistake?</p>
+<h4 id="pcahyna_commented_at_2023-11-08_1434"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1802012035">2023-11-08 14:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-08_1434" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix , I will have a look. At first glance: I would call it
+<code>..._COMMANDS</code> and accept an array of commands, for symmetry with #2811
+.</p>
+<h4 id="pcahyna_commented_at_2023-11-08_2334"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1802901263">2023-11-08 23:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-08_2334" title="Permanent link">&para;</a></h4>
+<p>If you wonder why would anyone want anything else than a simple command
+for reboot - on machines with more sophisticated firmware one may need
+some complicated dance with firmware settings, as we currently do in our
+PowerVM test here
+<a href="https://github.com/lzaoral/rear-testing/blob/22e4a4ec12ff88d0b55836854db1d4a0cefdbf09/Sanity/make-backup-and-restore-powervm/runtest.sh#L135">https://github.com/lzaoral/rear-testing/blob/22e4a4ec12ff88d0b55836854db1d4a0cefdbf09/Sanity/make-backup-and-restore-powervm/runtest.sh#L135</a>
+and UEFI test here :
+<a href="https://github.com/lzaoral/rear-testing/blob/22e4a4ec12ff88d0b55836854db1d4a0cefdbf09/Sanity/make-backup-and-restore-uefi/runtest.sh#L124">https://github.com/lzaoral/rear-testing/blob/22e4a4ec12ff88d0b55836854db1d4a0cefdbf09/Sanity/make-backup-and-restore-uefi/runtest.sh#L124</a></p>
+<h4 id="pcahyna_commented_at_2023-11-08_2335"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1802903304">2023-11-08 23:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-08_2335" title="Permanent link">&para;</a></h4>
+<p>Regarding the name - wouldn't <code>UNATTENDED_REBOOT_COMMANDS</code> for example
+be more descriptive? The setting seems to be used only in the unattended
+case.</p>
+<h4 id="jsmeix_commented_at_2023-11-09_0727"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1803290981">2023-11-09 07:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-09_0727" title="Permanent link">&para;</a></h4>
+<p>The current RECOVERY_REBOOT_COMMAND is used<br />
+both in the 'automatic_recovery'<br />
+and in the 'unattended_recovery' cases<br />
+via</p>
+<pre><code>reboot_command="${RECOVERY_REBOOT_COMMAND:-reboot}"
+...
+if automatic_recovery ; then
+...
+        choices+=( "$reboot_command" )
+...
+            (3)
+                $reboot_command
+...
+if unattended_recovery ; then
+...
+        echo -e "\n'$reboot_command' in $timeout seconds (Ctrl-C to interrupt)\n"
+...
+        $reboot_command
+</code></pre>
+<p>(see its description in default.conf).</p>
+<p>So UNATTENDED_REBOOT_COMMANDS would be a too specific name<br />
+and AUTOMATIC_OR_UNATTENDED_REBOOT_COMMANDS looks oververbose<br />
+and perhaps the current RECOVERY_REBOOT_COMMAND might become<br />
+useful later also for other (currently unknown) use cases.</p>
+<p>So I think the current generic name is future-proof and<br />
+it still tells sufficiently what that thingy is about.<br />
+That RECOVERY_REBOOT_COMMAND does not matter when the user<br />
+manually types in his reboot command should be obvious.</p>
+<p>@pcahyna<br />
+in your example<br />
+<a href="https://github.com/rear/rear/pull/3070#issuecomment-1802901263">https://github.com/rear/rear/pull/3070#issuecomment-1802901263</a><br />
+it seems POST_RECOVERY_SCRIPT or POST_RECOVERY_COMMANDS<br />
+are sufficient for your needs so I am still wondering<br />
+if more than a simple command is ever needed<br />
+for the actual "reboot" call?</p>
+<p>The only reason I can imagine right now is that some<br />
+reboot preparation commands are needed but then I wonder<br />
+why POST_RECOVERY_COMMANDS could ever be not sufficient.<br />
+I.e. I am wondering if ever reboot preparation commands<br />
+cannot be run "inside" 'rear' via POST_RECOVERY_COMMANDS<br />
+but must be run after "rear recover" had finished.</p>
+<p>I ask because a RECOVERY_REBOOT_COMMANDS array<br />
+would make the code (a bit) more complicated and<br />
+unless there is a reason I would prefer the KISS principle.</p>
+<p>On the other hand a RECOVERY_REBOOT_COMMANDS array<br />
+would make it even more future-proof for other<br />
+(currently unknown) use cases.</p>
+<h4 id="pcahyna_commented_at_2023-11-10_1247"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1805672857">2023-11-10 12:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-10_1247" title="Permanent link">&para;</a></h4>
+<p>regarding the errored backup &amp; recovery CI test, I am discussing with
+the Testing Farm people to provide us access to the console logs for
+each test run. This way we will be able to debug such errors.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1253"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1805680390">2023-11-10 12:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1253" title="Permanent link">&para;</a></h4>
+<p>Next week I will enhance it to use<br />
+a RECOVERY_REBOOT_COMMANDS array.</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1255"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1805682931">2023-11-10 12:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1255" title="Permanent link">&para;</a></h4>
+<p>Because "rear recover" won't work without default.conf<br />
+I will abort in etc/scripts/system-setup<br />
+when there is no default.conf</p>
+<h4 id="jsmeix_commented_at_2023-11-10_1354"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1805772128">2023-11-10 13:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-10_1354" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @schlomo<br />
+thank you for your valuable review comments!</p>
+<p>I which you and all @rear/contributors<br />
+a relaxed and recovering weekend!</p>
+<h4 id="pcahyna_commented_at_2023-11-13_1615"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1808481674">2023-11-13 16:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-13_1615" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna in your example <a href="https://github.com/rear/rear/pull/3070#issuecomment-1802901263">#3070
+(comment)</a>
+it seems POST_RECOVERY_SCRIPT or POST_RECOVERY_COMMANDS are
+sufficient for your needs so I am still wondering if more than a
+simple command is ever needed for the actual "reboot" call?</p>
+<p>The only reason I can imagine right now is that some reboot
+preparation commands are needed but then I wonder why
+POST_RECOVERY_COMMANDS could ever be not sufficient. I.e. I am
+wondering if ever reboot preparation commands cannot be run "inside"
+'rear' via POST_RECOVERY_COMMANDS but must be run after "rear
+recover" had finished.</p>
+</blockquote>
+<p>Preparation steps can be done in POST_RECOVERY_COMMANDS and only the
+actual reboot in RECOVERY_REBOOT_COMMAND. But to me it looks more
+logical to keep related things in one place. Otherwise, one has to think
+about stuff like, what if ReaR fails, won't it lead to the execution of
+one command without the other? (It would not, by the way, as I
+understand it, because if there is an error exit,
+POST_RECOVERY_COMMANDS are skipped, and the script which runs
+RECOVERY_REBOOT_COMMAND skips it as well in case of a non-zero exit
+code. But one has to think about it, while if one puts it into one
+variable, the relation is obvious.)</p>
+<p>An user who will investigate how to automate things will see both
+POST_RECOVERY_COMMANDS and RECOVERY_REBOOT_COMMAND and it will be
+easier to use if both are named the same way (without the subtle
+COMMANDS vs. COMMAND difference) and use the same semantics (array of
+commands).</p>
+<blockquote>
+<p>I ask because a RECOVERY_REBOOT_COMMANDS array would make the code
+(a bit) more complicated and unless there is a reason I would prefer
+the KISS principle.</p>
+<p>On the other hand a RECOVERY_REBOOT_COMMANDS array would make it
+even more future-proof for other (currently unknown) use cases.</p>
+</blockquote>
+<p>Yes, we don't know what the users' use case will be, so an array is more
+flexible, especially if users want to set the variable at multiple
+places (think site.conf vs. local.conf or managing local.conf by
+appending multiple pieces of content). That was the reason of preferring
+<code>*_COMMANDS</code> over <code>*_SCRIPT</code>: with a single script like it is difficult
+to append (or in the case of reboot, prepend) commands to a preexisting
+setting: one has to do some complicated dance with semicolons to get it
+right.</p>
+<h4 id="pcahyna_commented_at_2023-11-13_1634"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1808516268">2023-11-13 16:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-13_1634" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>So UNATTENDED_REBOOT_COMMANDS would be a too specific name<br />
+and AUTOMATIC_OR_UNATTENDED_REBOOT_COMMANDS looks oververbose<br />
+and perhaps the current RECOVERY_REBOOT_COMMAND might become<br />
+useful later also for other (currently unknown) use cases.</p>
+</blockquote>
+<p>Thank you for pointing out that the command is also for the automatic
+but not unattended case. Still, to me it does not look obvious that
+RECOVERY_REBOOT_COMMAND is run after ReaR terminates (somehow one
+would expect a POST_RECOVERY thing to be run after a RECOVERY thing,
+not before). OTOH, I am not able to find a better name now and maybe the
+REBOOT part makes it clear enough (reboot must be the last thing to be
+done).</p>
+<h4 id="schlomo_commented_at_2023-11-13_1649"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1808554381">2023-11-13 16:49</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1649" title="Permanent link">&para;</a></h4>
+<p>Maybe something like <code>RESCUE_SYSTEM_REBOOT_COMMANDS</code> as it is actually
+run by the rescue system and not ReaR itself? <code>POST_RECOVERY_COMMANDS</code>
+and <code>RECOVERY_REBOOT_COMMANDS</code> would also work for me, or maybe
+<code>RESCUE_REBOOT_COMMANDS</code>?</p>
+<p>Maybe most important is to stick with the naming scheme of <code>*_COMMANDS</code>
+that makes finding those options simpler and trusting users to read the
+explanation we put into our <code>default.conf</code> for each of those.</p>
+<h4 id="jsmeix_commented_at_2023-11-14_1348"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1810236914">2023-11-14 13:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-14_1348" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @schlomo<br />
+thank you for your valuable comments.</p>
+<p>Perhaps the simplest and most clear name is</p>
+<pre><code>REBOOT_COMMANDS
+</code></pre>
+<p>without additional things like "RECOVERY" or "POST"<br />
+because REBOOT alone makes it clear what it is about.</p>
+<p>My assumption is that users who think about setting<br />
+'REBOOT_COMMANDS' read its description in default.conf<br />
+and normally the default <code>REBOOT_COMMANDS=( reboot )</code><br />
+"just works" unnoticed by users so in particular users<br />
+won't falsely fear that e.g. "rear mkbackup" may 'reboot'.</p>
+<h4 id="schlomo_commented_at_2023-11-14_1349"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1810238679">2023-11-14 13:49</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-14_1349" title="Permanent link">&para;</a></h4>
+<p>Good idea, simple is better, and rebooting is sort of very final for a
+program to do, so that the exact context doesn't matter so much. :-)</p>
+<h4 id="jsmeix_commented_at_2023-11-14_1404"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1810268094">2023-11-14 14:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-14_1404" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you in particular for your</p>
+<pre><code>Preparation steps can be done in POST_RECOVERY_COMMANDS
+and only the actual reboot in RECOVERY_REBOOT_COMMAND.
+But to me it looks more logical to
+keep related things in one place.
+</code></pre>
+<p>I mention RFC1925 so often,<br />
+in particular RFC1925 items (5) and (6) and<br />
+I tell so often to Keep Separated Issues Separated ("KSIS")<br />
+but here I was about to implement RFC1925 items (5) and (6),<br />
+so lesson learned<br />
+(could be RFC1925 additional item (13) - its number tells all :-)</p>
+<pre><code>(13)
+No matter how hard you try, in practice you can't avoid
+to implement item (5) and/or (6) of this RFC1925
+(unless others care and show you your fault).
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-11-14_1527"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1810454717">2023-11-14 15:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-14_1527" title="Permanent link">&para;</a></h4>
+<p>My last two commits<br />
+<a href="https://github.com/rear/rear/pull/3070/commits/961b4883f9a241d4b92882293c197ce25835fda5">https://github.com/rear/rear/pull/3070/commits/961b4883f9a241d4b92882293c197ce25835fda5</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3070/commits/4ff2862092a1334e57ff75a0108de1f0d67561d5">https://github.com/rear/rear/pull/3070/commits/4ff2862092a1334e57ff75a0108de1f0d67561d5</a><br />
+is a currently totally untested attempt<br />
+to implement the REBOOT_COMMANDS array.</p>
+<p>If you like you may have a first look,<br />
+perhaps you spot some obvious mistake.</p>
+<p>I will try to test it tomorrow (as time permits).</p>
+<h4 id="pcahyna_commented_at_2023-11-16_1137"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1814276681">2023-11-16 11:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-16_1137" title="Permanent link">&para;</a></h4>
+<p>looking... generally I like the <code>REBOOT_COMMANDS</code> name, it clearly sets
+it apart from the various PRE_/POST_ stuff, indicating that it is a
+different kind of stuff</p>
+<h4 id="jsmeix_commented_at_2023-11-16_1328"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1814438146">2023-11-16 13:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-16_1328" title="Permanent link">&para;</a></h4>
+<p>With the last changes here<br />
+things seem to work OK at least for me<br />
+but I will have to test a bit more tomorrow.<br />
+Sigh - there are so many different cases to test...</p>
+<h4 id="jsmeix_commented_at_2023-11-17_1340"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1816451582">2023-11-17 13:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-17_1340" title="Permanent link">&para;</a></h4>
+<p>I could not do anything here today because<br />
+"other things" appeared so I will continue next week.</p>
+<h4 id="jsmeix_commented_at_2023-11-20_1342"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1819087850">2023-11-20 13:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-20_1342" title="Permanent link">&para;</a></h4>
+<p>Things seem to work OK at least for me<br />
+so I would like to merge it tomorrow afternoon<br />
+unless there are objections.</p>
+<h4 id="pcahyna_commented_at_2023-11-23_1533"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1824624038">2023-11-23 15:33</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-23_1533" title="Permanent link">&para;</a></h4>
+<p>Thank you @jsmeix for this improvement. I have found another use for it
+: copy logs like /var/log/messages and the systemd journal to /mnt/local
+for later inspection. It would be more logical to do it in
+POST_RECOVERY_COMMANDS in fact, but it may be better to copy logs as
+late as possible to capture the most of them.</p>
+<h4 id="jsmeix_commented_at_2023-11-27_0646"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1827214198">2023-11-27 06:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_0646" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+currently REBOOT_COMMANDS are only useful when "rear recover"<br />
+is run in 'auto_recover'/'automatic' or 'unattended' mode.<br />
+I am thinking about how to make REBOOT_COMMANDS also useful<br />
+when "rear recover" is run manually.<br />
+The problem is how to make ReaR's internal REBOOT_COMMANDS data<br />
+available outside of ReaR so that the user could call them<br />
+on his commandline.</p>
+<h4 id="schlomo_commented_at_2023-11-27_0651"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1827221729">2023-11-27 06:51</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-27_0651" title="Permanent link">&para;</a></h4>
+<p>We don't know what happens between a user running <code>rear recover</code>
+manually and eventually rebooting the system - and we don't know if
+<code>/mnt/local</code> is still the recovered system or maybe something else.</p>
+<p>Therefore I'd be careful about assuming too much and copying logs there.</p>
+<p>The situation of running the recovery fully automated is much more
+controlled so that in that case it is safe to make those assumptions.</p>
+<p>I think that this PR is a very good iteration and improvement for ReaR,
+big thanks to @jsmeix for working on this.</p>
+<h4 id="pcahyna_commented_at_2023-11-27_1200"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1827697233">2023-11-27 12:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1200" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>currently REBOOT_COMMANDS are only useful when "rear recover"<br />
+is run in 'auto_recover'/'automatic' or 'unattended' mode.</p>
+</blockquote>
+<p>This is not a problem for the case I mentioned, because I need this to
+collect data in automated testing, which runs unattended. (It could be a
+ReaR enhancement to copy systems logs at the end of recovery though. We
+are already doing the same with the recovery log.)</p>
+<h4 id="pcahyna_commented_at_2023-11-27_1201"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1827699789">2023-11-27 12:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1201" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I am thinking about how to make REBOOT_COMMANDS also useful<br />
+when "rear recover" is run manually.</p>
+</blockquote>
+<p>what do you mean by "making them useful"? I would not execute them
+automatically at the end, that's what <code>POST_RECOVERY_COMMANDS</code> are for.
+One could preload the shell history with the commands or something
+similar.</p>
+<h4 id="jsmeix_commented_at_2023-11-27_1459"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3070#issuecomment-1828001179">2023-11-27 14:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1459" title="Permanent link">&para;</a></h4>
+<p>With "making them useful when 'rear recover' is run manually"<br />
+I mean that the user could relatively easily<br />
+run the REBOOT_COMMANDS manually from his<br />
+recovery system commandline prompt.</p>
+<p>What I am currently thinking about is something like a script<br />
+e.g. /bin/reboot_commands.sh inside the recovery system<br />
+that gets generated during "rear mkrescue" so that<br />
+the user could alternatively call that script<br />
+instead of "reboot" if he wants.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-07.3070.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

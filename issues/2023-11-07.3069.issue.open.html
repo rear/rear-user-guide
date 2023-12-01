@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3069 Issue open: BACKUP=NSR: "rear checklayout" always results exit code 1 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3069 Issue open: BACKUP=NSR: \"rear checklayout\" always results exit code 1";
+        var mkdocs_page_input_path = "issues/2023-11-07.3069.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3069 Issue open: BACKUP=NSR: "rear checklayout" always results exit code 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3069_issue_open_backupnsr_rear_checklayout_always_results_exit_code_1"><a href="https://github.com/rear/rear/issues/3069">#3069 Issue</a> <code>open</code>: BACKUP=NSR: "rear checklayout" always results exit code 1<a class="headerlink" href="#3069_issue_open_backupnsr_rear_checklayout_always_results_exit_code_1" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>waiting for info</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-11-07_1027"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3069">2023-11-07 10:27</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-11-07_1027" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version:<br />
+    2.7</p>
+</li>
+<li>
+<p>OS version:<br />
+    SLES15 SP3</p>
+</li>
+<li>
+<p>ReaR configuration file:<br />
+    local.conf excerpt for what is needed here</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+BACKUP=NSR
+</code></pre>
+<ul>
+<li>
+<p>System architecture:<br />
+    x86_64</p>
+</li>
+<li>
+<p>Related issues<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+<a href="https://github.com/rear/rear/pull/2271">https://github.com/rear/rear/pull/2271</a><br />
+<a href="https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af">https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af</a></p>
+</li>
+<li>
+<p>Description of the issue:</p>
+</li>
+</ul>
+<p>I ( @jsmeix ) would like to report an issue with BACKUP=NSR<br />
+that a SUSE customer reported to us.</p>
+<p>Regarding BACKUP=NSR:<br />
+In general there is nothing what I could do<br />
+in case of issues with third-party backup tools<br />
+because I do not have such software<br />
+so I can neither test nor reproduce anything.</p>
+<p>A SUSE customer is using ReaR version 2.7</p>
+<p>The customer got the following issue:</p>
+<p>With BACKUP=NSR "rear checklayout" always results exit code 1<br />
+even if nothing of the disk layout has changed.<br />
+So "rear checklayout" would create a new ISO every day<br />
+even if this is not necessary.</p>
+<p>The customer found<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+that tells (excerpts):</p>
+<pre><code>So IMHO removing the line
+NSRSERVER=$(cat $VAR_DIR/recovery/nsr_server )
+from the script 650_check_iso_recoverable.sh in the existing code
+will not harm the execution of the NSR workflow
+</code></pre>
+<p>and</p>
+<pre><code>Log "NSRSERVER ($NSRSERVER) was defined in $CONFIG_DIR/local.conf"
+</code></pre>
+<p>The customer does not want to set a fixed NSRSERVER in local.conf<br />
+because NSRSERVER is dynamically determined via "rear mkrescue"<br />
+and stored in /var/lib/rear/recovery/nsr_server,<br />
+see rear/rescue/NSR/default/460_save_nsr_server_name.sh</p>
+<p>In<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+there were 2 proposed workarounds:</p>
+<pre><code>Proposed workaround(s):
+In 650_check_iso_recoverable.sh comment in the line as follows
+#NSRSERVER=$(cat $VAR_DIR/recovery/nsr_server )
+or
+use the more sofisticated code snippet taken from 400_verify_nsr.sh instead:
+[...]
+
+if [[ ! -z "$NSRSERVER" ]]; then
+    Log "NSRSERVER ($NSRSERVER) was defined in $CONFIG_DIR/local.conf"
+elif [[ -f $VAR_DIR/recovery/nsr_server ]]; then
+    NSRSERVER=$( cat $VAR_DIR/recovery/nsr_server )
+else
+    Error "Could not retrieve the EMC NetWorker Server name. Define NSRSERVER in $CONFIG_DIR/local.conf file"
+fi
+
+[...]
+</code></pre>
+<p>The first workaround was implemented but it causes that now<br />
+with BACKUP=NSR "rear checklayout" always results exit code 1<br />
+even if nothing of the disk layout has changed.</p>
+<p>The customer tried the second workaround which works as expected.<br />
+In particular with the second workaround it works again as before<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a></p>
+<p>Furthermore the customer just linked it</p>
+<pre><code>usr/share/rear/layout/save/NSR/default # ls -l
+total 4
+lrwxrwxrwx 1 ... 400_verify_nsr.sh -&gt; ../../../../verify/NSR/default/400_verify_nsr.sh
+-rw-r--r-- 1 ... 650_check_iso_recoverable.sh
+</code></pre>
+<p>which also works for the customer<br />
+so this could be a third possible workaround.</p>
+<p>So the questions are:</p>
+<p>Is the customer right, that the second workaround should be used?<br />
+If yes, could ReaR be fixed this way?<br />
+Or would the second workaround cause other unwanted side effects?<br />
+Or could the third possible workaround be the best solution?</p>
+<p>The customer would prefer the third possible workaround<br />
+provided this does not cause unwanted side effects.</p>
+<ul>
+<li>Workaround:</li>
+</ul>
+<p>Create<br />
+<code>usr/share/rear/layout/save/NSR/default/400_verify_nsr.sh</code><br />
+as relative symlink that points to<br />
+<code>../../../../verify/NSR/default/400_verify_nsr.sh</code></p>
+<h4 id="jsmeix_commented_at_2023-11-07_1033"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1798238554">2023-11-07 10:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-07_1033" title="Permanent link">&para;</a></h4>
+<p>@hpannenb @gdha @viper1986<br />
+could you please have a look here.</p>
+<p>In particular I would be interested to know if reverting the fix<br />
+<a href="https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af">https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af</a><br />
+for the issue<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+and instead creating</p>
+<pre><code>usr/share/rear/layout/save/NSR/default/400_verify_nsr.sh
+</code></pre>
+<p>as relative symlink that points to</p>
+<pre><code>../../../../verify/NSR/default/400_verify_nsr.sh
+</code></pre>
+<p>would also still fix<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+plus make "rear checklayout" again result exit code 1<br />
+only when the disk layout has changed.</p>
+<h4 id="jsmeix_commented_at_2023-11-07_1050"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1798264655">2023-11-07 10:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-07_1050" title="Permanent link">&para;</a></h4>
+<p>Hmm - wait! - perhaps I misunderstand things:</p>
+<p>Perhaps the third possible workaround is<br />
+to leave the fix<br />
+<a href="https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af">https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af</a><br />
+for<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+as is<br />
+and only add</p>
+<pre><code>usr/share/rear/layout/save/NSR/default/400_verify_nsr.sh
+</code></pre>
+<p>as relative symlink that points to</p>
+<pre><code>../../../../verify/NSR/default/400_verify_nsr.sh
+</code></pre>
+<p>to have<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a><br />
+still fixed<br />
+plus make "rear checklayout" again result exit code 1<br />
+only when the disk layout has changed.</p>
+<h4 id="schlomo_commented_at_2023-11-12_1903"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1807212008">2023-11-12 19:03</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-12_1903" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I guess to verify potential fixes and to evaluate the right
+approach somebody will need to run some tests on a system with NSR
+installed.</p>
+<p>If a personal and direct interaction with this SUSE customer is possible
+to do so, then please reach out to @gdha or me as this might yield the
+fastest results.</p>
+<p>Do I understand correctly that upstream ReaR already behaves well and
+you are now looking for a potential back-port for SUSE?</p>
+<h4 id="jsmeix_commented_at_2023-11-13_0832"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1807673059">2023-11-13 08:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_0832" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+current upstream ReaR does not behave well<br />
+because it contains the change<br />
+<a href="https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af">https://github.com/rear/rear/commit/420c177d446abec8a64b9683c1a3a3088eae11af</a><br />
+of<br />
+<a href="https://github.com/rear/rear/issues/2162">https://github.com/rear/rear/issues/2162</a></p>
+<p>ReaR from before that change behaved well for what<br />
+our customer needs but that does not behave well<br />
+for what @viper1986 needs according to<br />
+<a href="https://github.com/rear/rear/issues/2162#issue-460949301">https://github.com/rear/rear/issues/2162#issue-460949301</a></p>
+<p>Our customer has already a workaround for his needs in place.</p>
+<p>This issue is about to get a proper ReaR upstream fix<br />
+that makes things behave well for both use cases,<br />
+the one our customer has and the one @viper1986 has.</p>
+<p>In<br />
+<a href="https://github.com/rear/rear/issues/2162#issuecomment-541343374">https://github.com/rear/rear/issues/2162#issuecomment-541343374</a><br />
+@hpannenb proposed two "workarounds"<br />
+where the first one was implemented<br />
+which causes the issue for our customer<br />
+but for the more sophisticated second one<br />
+our customer reported that this works for him.</p>
+<p>So it seems the more sophisticated second one<br />
+makes things behave well for both use cases,<br />
+the one our customer has and the one @viper1986 has.</p>
+<p>Accordingy I will implement that second workaround now<br />
+as a GitHub pull request to somehow move this issue forward...</p>
+<h4 id="jsmeix_commented_at_2023-11-13_0847"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1807694108">2023-11-13 08:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_0847" title="Permanent link">&para;</a></h4>
+<p>@hpannenb @viper1986<br />
+could you please have a look at<br />
+<a href="https://github.com/rear/rear/pull/3077">https://github.com/rear/rear/pull/3077</a></p>
+<h4 id="jsmeix_commented_at_2023-11-13_1242"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1808094949">2023-11-13 12:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1242" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3077">https://github.com/rear/rear/pull/3077</a><br />
+didn't work.</p>
+<h4 id="schlomo_commented_at_2023-11-13_1300"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1808121160">2023-11-13 13:00</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1300" title="Permanent link">&para;</a></h4>
+<p>The suggestion from the discussion in #3077 is to actually remove the
+check for NSR backups from the <code>checklayout</code> workflow and instead adding
+support for easily running custom code as part of the <code>checklayout</code>
+workflow.</p>
+<p>Specifically this would also mean removing the complete
+<code>650_check_iso_recoverable.sh</code><br />
+<a href="https://github.com/rear/rear/blob/01f503ed05beef78d8397719b9dce25fcdb211c6/usr/share/rear/layout/save/NSR/default/650_check_iso_recoverable.sh#L1-L18">https://github.com/rear/rear/blob/01f503ed05beef78d8397719b9dce25fcdb211c6/usr/share/rear/layout/save/NSR/default/650_check_iso_recoverable.sh#L1-L18</a></p>
+<p>Any thoughts on implementing that? Wouldn't that actually solve the
+customer problem, too?</p>
+<p>I know that this essentially reverts #653 and might force users like
+@tomglx to adjust the way how they use ReaR. However I hope that this is
+acceptable if it will prevent troubles for other NSR users.</p>
+<h4 id="schlomo_commented_at_2023-11-13_1347"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3069#issuecomment-1808196982">2023-11-13 13:47</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1347" title="Permanent link">&para;</a></h4>
+<p>BTW, looking at the non-default code paths in <code>layout/save</code> it seems
+like only NSR has that type of additional backup monitoring
+functionality:<br />
+<img width="1131" alt="image" src="https://github.com/rear/rear/assets/101384/2007fb0b-f757-4a0d-91a2-03b353a63cc2"></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-07.3069.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

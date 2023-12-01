@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3077 PR closed: BACKUP=NSR set NSRSERVER properly in 650_check_iso_recoverable.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3077 PR closed: BACKUP=NSR set NSRSERVER properly in 650_check_iso_recoverable.sh";
+        var mkdocs_page_input_path = "issues/2023-11-13.3077.pr.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3077 PR closed: BACKUP=NSR set NSRSERVER properly in 650_check_iso_recoverable.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3077_pr_closed_backupnsr_set_nsrserver_properly_in_650_check_iso_recoverablesh"><a href="https://github.com/rear/rear/pull/3077">#3077 PR</a> <code>closed</code>: BACKUP=NSR set NSRSERVER properly in 650_check_iso_recoverable.sh<a class="headerlink" href="#3077_pr_closed_backupnsr_set_nsrserver_properly_in_650_check_iso_recoverablesh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-11-13_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3077">2023-11-13 08:43</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-11-13_0843" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3069">https://github.com/rear/rear/issues/3069</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    I cannot test it because I do not use BACKUP=NSR</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In layout/save/NSR/default/650_check_iso_recoverable.sh<br />
+also read NSR server name from var/lib/rear/recovery/nsr_server<br />
+by using the same code snippet as in
+verify/NSR/default/400_verify_nsr.sh<br />
+see
+<a href="https://github.com/rear/rear/issues/2162#issuecomment-541343374">https://github.com/rear/rear/issues/2162#issuecomment-541343374</a><br />
+and
+<a href="https://github.com/rear/rear/issues/3069">https://github.com/rear/rear/issues/3069</a></p>
+<h4 id="jsmeix_commented_at_2023-11-13_0846"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807692173">2023-11-13 08:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_0846" title="Permanent link">&para;</a></h4>
+<p>@hpannenb @viper1986<br />
+could you please have a look here<br />
+and ideally could you test<br />
+if things still work for you with this changes<br />
+as you need it in your particular use cases?</p>
+<p>@rear/contributors<br />
+could you please also have a look here<br />
+perhaps you could spot some obvious mistake?</p>
+<h4 id="jsmeix_commented_at_2023-11-13_0917"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807742605">2023-11-13 09:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_0917" title="Permanent link">&para;</a></h4>
+<p>As far as I currently see<br />
+from plain looking at the NSR related code<br />
+I think the curent changes here still do not set<br />
+NSRSERVER properly in 650_check_iso_recoverable.sh</p>
+<p>Reason (a far as I see):</p>
+<p><code>$VAR_DIR/recovery/nsr_server</code> is written in<br />
+rescue/NSR/default/460_save_nsr_server_name.sh via</p>
+<pre><code>echo "$NSRSERVER" &gt; $VAR_DIR/recovery/nsr_server
+</code></pre>
+<p>which is (as far as I see) the only place where<br />
+<code>$VAR_DIR/recovery/nsr_server</code> is written.</p>
+<p>But during "rear mkrescue"<br />
+layout/save/NSR/default/650_check_iso_recoverable.sh<br />
+is run before<br />
+rescue/NSR/default/460_save_nsr_server_name.sh<br />
+(the 'layout' stage runs before the 'rescue' stage).</p>
+<p>So<br />
+for the very first run of "rear mkrescue"<br />
+<code>$VAR_DIR/recovery/nsr_server</code><br />
+would not exist<br />
+and<br />
+if the NSR server name changes then<br />
+layout/save/NSR/default/650_check_iso_recoverable.sh<br />
+would read an old/outdated NSR server name<br />
+in <code>$VAR_DIR/recovery/nsr_server</code><br />
+from the previous run of "rear mkrescue".</p>
+<h4 id="schlomo_commented_at_2023-11-13_0959"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807828407">2023-11-13 09:59</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_0959" title="Permanent link">&para;</a></h4>
+<p>Looking at this whole code area again I'm starting to wonder what we are
+trying to achieve there. Most other <code>layout/save</code> additions for backup
+software actually only go and extend the <code>CHECK_CONFIG_FILES</code> variable
+with the configuration directories of the backup software, for example
+like this:<br />
+<a href="https://github.com/rear/rear/blob/e035d18034137b30b7b47fe2863fb578f0e9933d/usr/share/rear/layout/save/GALAXY11/default/400_check_galaxy11_configuration.sh#L3">https://github.com/rear/rear/blob/e035d18034137b30b7b47fe2863fb578f0e9933d/usr/share/rear/layout/save/GALAXY11/default/400_check_galaxy11_configuration.sh#L3</a></p>
+<p>Can we maybe clarify why we try to do much more for NSR? Why do we need
+to verify the client or server configuration or the existence of backups
+<em>in</em> NSR during the <code>checklayout</code> workflow? I'd expect this to happen
+during the <code>mkrescue</code> workflow, if at all.</p>
+<p>Maybe the actual "fix" would be getting rid of this all together?</p>
+<h4 id="jsmeix_commented_at_2023-11-13_1023"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807879073">2023-11-13 10:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1023" title="Permanent link">&para;</a></h4>
+<p>As far as I see from the</p>
+<pre><code>git log --follow -p usr/share/rear/layout/save/NSR/default/650_check_iso_recoverable.sh
+</code></pre>
+<p>output<br />
+layout/save/NSR/default/650_check_iso_recoverable.sh<br />
+was created (as .../65_check_iso_recoverable.sh)<br />
+because of<br />
+<a href="https://github.com/rear/rear/issues/653">https://github.com/rear/rear/issues/653</a></p>
+<h4 id="jsmeix_commented_at_2023-11-13_1031"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807891301">2023-11-13 10:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1031" title="Permanent link">&para;</a></h4>
+<p>As far as I understand what @tomglx requested in<br />
+<a href="https://github.com/rear/rear/issues/653">https://github.com/rear/rear/issues/653</a><br />
+is basically that the checklayout workflow<br />
+should be enhanced to also check if the backup still exists.</p>
+<p>It think this is (as far as I understand it) bad<br />
+because is mixes up to check the disk layout<br />
+with checking the backup<br />
+so it implements RFC 1925 item (5)</p>
+<pre><code>It is always possible to aglutenate [sic]
+multiple separate problems into a single
+complex interdependent solution.
+In most cases this is a bad idea.
+</code></pre>
+<h4 id="schlomo_commented_at_2023-11-13_1032"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807892913">2023-11-13 10:32</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1032" title="Permanent link">&para;</a></h4>
+<p>Thanks @jsmeix for finding it, I apparently wasn't part of the
+conversation back then.</p>
+<p>Looking at it again I'd like to either</p>
+<ul>
+<li>remove this functionality as it is actually not really part of the
+    ReaR job</li>
+<li>make it optionally behind a configuration flag
+    <code>NSR_CHECKLAYOUT_CHECK_BACKUPS</code> that is <em>off</em> by default</li>
+<li>maybe add <code>CHECKLAYOUT_CUSTOM_COMMANDS</code> to simplify running extra
+    code as part of <code>checklayout</code> workflows.</li>
+</ul>
+<p>My reasoning is that ReaR <code>checklayout</code> main purpose is alerting for the
+need to re-create the rescue image because the <em>layout</em> of the local
+system changed. Using it to monitor the backup software is in my opinion
+another problem that ReaR cannot fulfil well, as it depends on a lot
+more context than what ReaR typically has.</p>
+<p>therefore I'd like to make backup monitoring at least optional, and
+simplify integrating custom code for this purpose.</p>
+<p>WDYT @rear/contributors ?</p>
+<h4 id="jsmeix_commented_at_2023-11-13_1045"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807915038">2023-11-13 10:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1045" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I fully agree with your reasoning<br />
+but I would not even make that optional,<br />
+at least not in the check_LAYOUT_ workflow<br />
+because check_BACKUP_ tasks do not belong there<br />
+so if at all a well separated checkbackup workflow<br />
+might be implemented if someone implements it.</p>
+<p>So I vote for</p>
+<pre><code>remove this functionality as it is actually not really part of the ReaR job
+</code></pre>
+<p>I described my personal reasoning in the section<br />
+"Relax-and-Recover versus backup and restore" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<h4 id="schlomo_commented_at_2023-11-13_1050"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807923104">2023-11-13 10:50</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1050" title="Permanent link">&para;</a></h4>
+<p>I think we should try to be nice to our users, which is why I suggest to
+remove the functionality from <code>checklayout</code> and add a new feature to run
+custom code during <code>checklayout</code>.</p>
+<p>It seems that for users it is simpler to refer to a custom script or put
+custom code in ReaR config compared to plugging their script into the
+ReaR filesystem hierarchy to be executed as part of a workflow. That was
+the original idea of ReaR extensibility that apparently doesn't find
+much acceptance from users.</p>
+<h4 id="jsmeix_commented_at_2023-11-13_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1807995301">2023-11-13 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1139" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I can confirm that at least certain customers<br />
+do not want to add own scripts into ReaR directories<br />
+or adapt existing ReaR scripts as they need it<br />
+but only can specify things in config files.<br />
+I never got a reason or even an explanation why.<br />
+My blind guess is that they perhaps in general<br />
+do not want or cannot touch what is installed as RPMs?<br />
+I guess perhaps because of issues with RPM package updates<br />
+or issues with support for "touched" software ('rpm -V' checks)?<br />
+So it seems at least for certain customers the whole idea of<br />
+"enhance and adapt the software as needed"<br />
+does not fit?<br />
+Perhaps actually many customers appreciate it that they can<br />
+"enhance and adapt the ReaR scripts as needed"<br />
+but I never hear something from them?</p>
+<h4 id="schlomo_commented_at_2023-11-13_1211"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1808043588">2023-11-13 12:11</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1211" title="Permanent link">&para;</a></h4>
+<p>I'd guess that it mostly an aversion to go and patch 3rd party software,
+even though it is intended to be used that way.</p>
+<p>Adding a file into the ReaR directories will <em>not</em> break RPM or DEB
+validation, which is why I proposed it as the original way of extending
+ReaR (via a <code>custom-rear</code> package that ships some files to extend ReaR
+and depends on the <code>rear</code> package to bring in ReaR)</p>
+<p>Anyway, would you like to rework this PR as discussed here?</p>
+<h4 id="jsmeix_commented_at_2023-11-13_1241"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3077#issuecomment-1808093634">2023-11-13 12:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-13_1241" title="Permanent link">&para;</a></h4>
+<p>No, I cannot.<br />
+Reason:<br />
+In general there is nothing what I could do<br />
+in case of issues with third-party backup tools<br />
+because I do not have such software<br />
+so I can neither test nor reproduce anything.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-13.3077.pr.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

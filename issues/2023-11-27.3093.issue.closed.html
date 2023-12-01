@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3093 Issue closed: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3093 Issue closed: AWS EC2 Xen based Amazon Linux 2 : ReaR won\u0027t consider BIOS boot partition (/dev/xvda128 was not created by kernel \u0026lt; 5.14)";
+        var mkdocs_page_input_path = "issues/2023-11-27.3093.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3093 Issue closed: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3093_issue_closed_aws_ec2_xen_based_amazon_linux_2_rear_wont_consider_bios_boot_partition_devxvda128_was_not_created_by_kernel_514"><a href="https://github.com/rear/rear/issues/3093">#3093 Issue</a> <code>closed</code>: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14)<a class="headerlink" href="#3093_issue_closed_aws_ec2_xen_based_amazon_linux_2_rear_wont_consider_bios_boot_partition_devxvda128_was_not_created_by_kernel_514" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>,
+<code>not ReaR / invalid</code>, <code>special hardware or VM</code></p>
+<h4 id="ramzcode_opened_issue_at_2023-11-27_0713"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> opened issue at <a href="https://github.com/rear/rear/issues/3093">2023-11-27 07:13</a>:<a class="headerlink" href="#ramzcode_opened_issue_at_2023-11-27_0713" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    2.7</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    Amazon Linux 2</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code># Default is to create Relax-and-Recover rescue media as ISO image
+# set OUTPUT to change that
+# set BACKUP to activate an automated (backup and) restore of your data
+# Possible configuration values can be found in /usr/share/rear/conf/default.conf
+#
+# This file (local.conf) is intended for manual configuration. For configuration
+# through packages and other automated means we recommend creating a new
+# file named site.conf next to this file and to leave the local.conf as it is.
+# Our packages will never ship with a site.conf.
+RAWDISK_IMAGE_NAME="NEW-TESTRAWV2"
+OUTPUT=RAWDISK
+KEEP_BUILD_DIR="yes"
+BACKUP=NETFS
+USE_DHCLIENT=yes
+OUTPUT_URL=nfs://172.31.3.205/backup/linux
+BACKUP_URL=nfs://172.31.3.205/backup/linux
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    AWS</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    BIOS</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    NVMe Local Drives</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME         KNAME      PKNAME    TRAN TYPE FSTYPE LABEL SIZE MOUNTPOINT
+/dev/xvda    /dev/xvda                 disk                8G
+`-/dev/xvda1 /dev/xvda1 /dev/xvda      part xfs    /       8G /
+</code></pre>
+<ul>
+<li>Fdisk Output ("fdisk -l /dev/DEVICENAME")</li>
+</ul>
+<!-- -->
+
+<pre><code>Device       Start      End  Sectors Size Type
+/dev/xvda1    4096 16777182 16773087   8G Linux filesystem
+/dev/xvda128  2048     4095     2048   1M BIOS boot
+</code></pre>
+<p>Partition table entries are not in disk order.</p>
+<pre><code>    Device                                       Start                      End                  Sectors                 Size Type
+&gt;&gt;  /dev/xvda1                                    4096                 16777182                 16773087                   8G Linux filesystem
+    /dev/xvda128                                  2048                     4095                     2048                   1M BIOS boot
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>ReaR ignores or fails to record the Boot or Partition that is not listed
+under lsblk but available under fdisk or cfdisk</p>
+<ul>
+<li>Workaround, if any:<br />
+    Still not available</li>
+</ul>
+<h4 id="jsmeix_commented_at_2023-11-27_1124"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827645159">2023-11-27 11:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1124" title="Permanent link">&para;</a></h4>
+<p>I have neither a AWS EC2 system nor do I use Amazon Linux 2<br />
+so I canot tell how ReaR behaves with that.</p>
+<p>To have at least a chance to imagine<br />
+what goes on on your particular system<br />
+we need at least a "rear -D mkrescue" debug log file, cf.<br />
+<a href="https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md">https://github.com/rear/rear/blob/master/.github/ISSUE_TEMPLATE.md</a></p>
+<h4 id="jsmeix_commented_at_2023-11-27_1133"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827658354">2023-11-27 11:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1133" title="Permanent link">&para;</a></h4>
+<p>In contrast to this issue here<br />
+the similar issue there<br />
+<a href="https://github.com/rear/rear/issues/3090#issue-2006425127">https://github.com/rear/rear/issues/3090#issue-2006425127</a><br />
+shows '/dev/nvme0n1p128' in the 'lsblk' output.<br />
+A difference seems to be that<br />
+here it is on a virtual disk '/dev/xvda128'<br />
+while there it is on real hardware '/dev/nvme0n1p128'.</p>
+<h4 id="ramzcode_commented_at_2023-11-27_1151"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827682900">2023-11-27 11:51</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-11-27_1151" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Yes, you are correct, nvme** based VM's are fine but with XVDA
+it is not.</p>
+<p>Debug Log:</p>
+<pre><code>shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+pwd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 15607 date 2023-11-27 11:48:05)
+Command line options: /usr/sbin/rear -D mkrescue
+Using log file: /var/log/rear/rear-ip-172-31-5-70.log
+Using build area: /var/tmp/rear.LmaHbT3FNaxrYVs
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+Running 'prep' stage ======================
+Using autodetected kernel '/boot/vmlinuz-5.10.199-190.747.amzn2.x86_64' as kernel in the recovery system
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+Using guessed bootloader 'EFI' for 'rear recover' (found in first bytes on /dev/xvda)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Adding net.ifnames=0 to KERNEL_CMDLINE
+Adding biosdevname=0 to KERNEL_CMDLINE
+Handling network interface 'eth0'
+eth0 is a physical device
+Handled network interface 'eth0'
+Skipping 'virbr0': not bound to any physical interface.
+Included current keyboard mapping (via 'dumpkeys -f')
+Included default US keyboard mapping /lib/kbd/keymaps/legacy/i386/qwerty/defkeymap.map.gz
+Included other keyboard mappings in /lib/kbd/keymaps
+Copying logfile /var/log/rear/rear-ip-172-31-5-70.log into initramfs as '/tmp/rear-ip-172-31-5-70-partial-2023-11-27T11:48:09+0000.log'
+Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/5.10.199-190.747.amzn2.x86_64 (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Skip copying broken symlink '/etc/mtab' target '/proc/3968/mounts' on /proc/ /sys/ /dev/ or /run/
+Removed SSH key files without passphrase from recovery system (SSH_UNPROTECTED_PRIVATE_KEYS not true): etc/ssh/ssh_host_ecdsa_key etc/ssh/ssh_host_ed25519_key etc/ssh/ssh_host_rsa_key
+Testing that the recovery system in /var/tmp/rear.LmaHbT3FNaxrYVs/rootfs contains a usable system
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (185261172 bytes) in 29 seconds
+Running 'output' stage ======================
+Creating 202 MiB raw disk image "trianz-ip-172-31-5-70.raw"
+Using syslinux to install a Legacy BIOS bootloader
+Copying resulting files to nfs location
+Saving /var/log/rear/rear-ip-172-31-5-70.log as rear-ip-172-31-5-70.log to nfs location
+Copying result files '/var/tmp/rear.LmaHbT3FNaxrYVs/tmp/trianz-ip-172-31-5-70.raw /var/tmp/rear.LmaHbT3FNaxrYVs/tmp/VERSION /var/tmp/rear.LmaHbT3FNaxrYVs/tmp/README /var/tmp/rear.LmaHbT3FNaxrYVs/tmp/rear-ip-172-31-5-70.log' to /var/tmp/rear.LmaHbT3FNaxrYVs/outputfs/ip-172-31-5-70 at nfs location
+Exiting rear mkrescue (PID 15607) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.LmaHbT3FNaxrYVs
+</code></pre>
+<p>Conf File:</p>
+<pre><code>RAWDISK_IMAGE_COMPRESSION_COMMAND=''
+RAWDISK_IMAGE_NAME="trianz-$HOSTNAME"
+OUTPUT=RAWDISK
+BACKUP=NETFS
+USE_DHCLIENT=yes
+OUTPUT_URL=nfs://172.31.3.205/backup/linux
+BACKUP_URL=nfs://172.31.3.205/backup/linux
+FULLBACKUPDAY=(`date +%a`)
+BACKUP_TYPE=incremental
+CLONE_ALL_USERS_GROUPS="false"
+CLONE_USERS=('rearusernew')
+PROGS=( "${PROGS[@]}" 'sudo' 'python' 'su' 'lsattr' 'lzop' 'gzip' )
+BACKUP_PROG_EXCLUDE=( "${BACKUP_PROG_EXCLUDE[@]}" '/var/tmp/rear.*' '/usr/lib/systemd/system/gce*' '/usr/lib/systemd/system/google*' '/etc/dhcp/dhclient.d/google_hostname.sh' '/etc/wicked/extensions/hostname')
+COPY_AS_IS=( "${COPY_AS_IS[@]}" '/etc/security/*' '/var/log/btmp' '/usr/bin/nohup' '/usr/bin/sudo' '/usr/sbin/mount.cifs' '/usr/lib64/libcrypto*' '/usr/libexec/sudo/*' '/usr/libexec/*python*' '/etc/alternatives/*python*' '/usr/lib64/*python*' '/usr/lib64/libyaml-0.so.2*' '/usr/bin/pyvenv*' '/usr/bin/python*' '/usr/libexec/os-probes/*' '/usr/lib/grub/i386-pc/*' '/usr/bin/os-prober' '/usr/sbin/mount*' '/usr/lib*/*python*' '/var/lib/ca-certificates/*' '/usr/lib*/*pam*' '/usr/lib*/security/pam*' '/etc/security/pam_env.conf' '/etc/pam*' '/etc/sudoers' '/rearusernew' '/etc/shadow' '/etc/ssh/*' '/etc/security/limits.conf' '/etc/authselect' '/etc/apparmor.d/abstractions/libpam-systemd' '/usr/lib/x86_64-linux-gnu/libpam*' '/usr/lib/x86_64-linux-gnu/security/pam*' '/lib/x86_64-linux-gnu/security/pam*' '/usr/share/pam*' '/var/lib/pam' '/lib64/security/*pam*' '/lib64/*pam*' '/usr/lib/sudo' '/usr/lib/snapper/installation-helper' '/etc/snapper/config-templates/default' '/etc/login.defs' '/etc/environment' '/etc/securetty' '/etc/default/locale' '/boot/*')
+KEEP_BUILD_DIR="yes"
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-11-27_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827701816">2023-11-27 12:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1203" title="Permanent link">&para;</a></h4>
+<p>@ramzcode<br />
+in your<br />
+<a href="https://github.com/rear/rear/issues/3093#issuecomment-1827682900">https://github.com/rear/rear/issues/3093#issuecomment-1827682900</a><br />
+your "Debug Log" is only the screen output<br />
+but we need the "rear -D mkrescue" debug log <em>file</em><br />
+i.e. your "log file: /var/log/rear/rear-ip-172-31-5-70.log".</p>
+<p>In general:<br />
+Caution with possible secrets in a full debug log file:<br />
+When 'rear' is run via '-D' in debugscript mode<br />
+it logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed<br />
+so in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.<br />
+Also secrets may be stored in some other files<br />
+like /var/lib/rear/layout/disklayout.conf<br />
+or /var/lib/rear/layout/diskrestore.sh<br />
+cf. <code>[password=&lt;password&gt;]</code> in the section<br />
+"Disk layout file syntax" in<br />
+doc/user-guide/06-layout-configuration.adoc<br />
+online at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc">https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc</a><br />
+So before you attach your full debug log file and other files<br />
+here (GitHub is a public accessible place) inspect your files<br />
+and verify that they do not accidentally cointain secrets.</p>
+<h4 id="ramzcode_commented_at_2023-11-27_1321"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827822976">2023-11-27 13:21</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-11-27_1321" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Sorry for the confusion, my bad mistook the question. Attached
+the full log file for your reference. I just want to highlight my
+finding that the /dev/xvda128 don't even exist as well. and i don't see
+it under the dmesg log as well.</p>
+<p><a href="https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log">rear-ip-172-31-5-70.log</a></p>
+<h4 id="pcahyna_commented_at_2023-11-27_1339"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827851862">2023-11-27 13:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1339" title="Permanent link">&para;</a></h4>
+<p>Hi @ramzcode what problem do you actually encounter? Is it the rescue
+image not booting? Failing to recover? Recovering but then not being
+able to boot the recovered system? Please specify. What does it mean
+that "ReaR ignores or fails to record the Boot or Partition that is not
+listed under lsblk but available under fdisk or cfdisk" ? How does the
+problem manifest?</p>
+<p>Please also attach the file <code>/var/lib/rear/layout/disklayout.conf</code> if
+you believe that ReaR failed to record some partition.</p>
+<h4 id="ramzcode_commented_at_2023-11-27_1419"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1827924710">2023-11-27 14:19</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-11-27_1419" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Hi, I have included my query in the first block of this thread.
+Backup and Recovery via RAW based disk image boots, but while setting up
+the disk layout and installing the boot loader on target VM ReaR
+complains that no BIOS type partitions found. This is because from the
+source the Disk Layout builder of ReaR failed to identify the BIOS boot
+Partition i.e. /dev/xvda128.</p>
+<p>Now the prob is recovery works but it won't boot due to improper
+partition structure on the target.</p>
+<p>NOTE: If you notice LSBLK will not list the 128 Partition that is boot
+type. and ReaR relies on lsblk for building Disk layout as of my
+understanding.</p>
+<p><img width="551" alt="image" src="https://github.com/rear/rear/assets/76745955/fee220ea-8332-4306-8042-912ffa828b95"></p>
+<h4 id="pcahyna_commented_at_2023-11-27_1506"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828015552">2023-11-27 15:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1506" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>NOTE: If you notice LSBLK will not list the 128 Partition that is boot
+type. and ReaR relies on lsblk for building Disk layout as of my
+understanding.</p>
+</blockquote>
+<p>My understanding is that ReaR uses parted, not lsblk. Please provide the
+output of <code>parted -m -s /dev/xvda print</code> and also the
+<code>/var/lib/rear/layout/disklayout.conf</code> file.</p>
+<p>It is indeed weird that lsblk does not show <code>/dev/xvda128</code>. Does this
+device node exist? What does <code>ls -l /dev/xvda128</code> show?</p>
+<h4 id="jsmeix_commented_at_2023-11-27_1546"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828089183">2023-11-27 15:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1546" title="Permanent link">&para;</a></h4>
+<p>As far as I see in<br />
+<a href="https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log">https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log</a><br />
+the reason is that /dev/xvda128 is not in /sys/block/*<br />
+(excerpts)</p>
+<pre><code>+ source /usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop0
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop1
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop2
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop3
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop4
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop5
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop6
+...
+++ for disk in '/sys/block/*'
+++ blockd=loop7
+...
+++ for disk in '/sys/block/*'
+++ blockd=xvda
+++ devname=/dev/xvda
+</code></pre>
+<p>so '/sys/block/xvda' is the only one in '/sys/block/*'<br />
+that has a matching disk device '/dev/xvda'.</p>
+<p>From my current point of view it is<br />
+no issue in ReaR when basic system tools (like 'lsblk')<br />
+and basic system files and directories (like '/sys/block/')<br />
+do not show or contain "usually expected" things.</p>
+<p>From my current point of view in such cases it means<br />
+the system is somehow not sufficiently normal or<br />
+not sufficiently in compliance with common standards.</p>
+<p>See in particular the section "Inappropriate expectations" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<h4 id="jsmeix_commented_at_2023-11-27_1558"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828121935">2023-11-27 15:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1558" title="Permanent link">&para;</a></h4>
+<p>@ramzcode<br />
+as far as I currently see<br />
+ReaR won't work with that kind of system<br />
+(and likely lots of other stuff won't work too).<br />
+So I would recommend that you find out how to setup<br />
+a system in AWS that behaves sufficiently in compliance<br />
+with common standards.</p>
+<p>By the way:<br />
+I do not understand what the reason for that strange<br />
+partition number 128 for a boot partition could be.<br />
+Normally boot partitions (e.g. bios_grub, ESP, '/boot')<br />
+are the first partitions on a disk and not the very last one<br />
+that is possible with standard GPT.</p>
+<h4 id="pcahyna_commented_at_2023-11-27_1609"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828145575">2023-11-27 16:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1609" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>so '/sys/block/xvda' is the only one in '/sys/block/*'<br />
+that has a matching disk device '/dev/xvda'.</p>
+</blockquote>
+<p>If that's the reason, ReaR would not find <code>/dev/xvda1</code> either (the
+partition with the root filesystem).</p>
+<h4 id="ramzcode_commented_at_2023-11-27_1628"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828179350">2023-11-27 16:28</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-11-27_1628" title="Permanent link">&para;</a></h4>
+<p>Yes /dev/xvda1 is the root XFS filesystem, and it is recorded.<br />
+Below is the output of all Parted related Disk layout captured by ReaR.</p>
+<pre><code>[root@ip-172-31-5-70 tmp]# cat part*
+BYT;
+/dev/xvda:8590MB:xvd:512:512:gpt:Xen Virtual Block Device:;
+128:1049kB:2097kB:1049kB::BIOS Boot Partition:bios_grub;
+1:2097kB:8590MB:8588MB:xfs:Linux:;
+
+1 8587820544 2097152 Linux none
+
+1 8587820544 2097152
+
+1 8587820544 2097152
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-11-27_1709"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1828270161">2023-11-27 17:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-27_1709" title="Permanent link">&para;</a></h4>
+<p>Please also attach the file /var/lib/rear/layout/disklayout.conf</p>
+<h4 id="jsmeix_commented_at_2023-11-28_0814"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1829308224">2023-11-28 08:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_0814" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding '/dev/xvda1' in your<br />
+<a href="https://github.com/rear/rear/issues/3093#issuecomment-1828145575">https://github.com/rear/rear/issues/3093#issuecomment-1828145575</a></p>
+<p>Partitions are not like /sys/block/sda1 but /sys/block/sda/sda1<br />
+so here it is /sys/block/xvda/xvda1 which exists according to<br />
+<a href="https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log">https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log</a></p>
+<h4 id="jsmeix_commented_at_2023-11-28_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1829330996">2023-11-28 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_0831" title="Permanent link">&para;</a></h4>
+<p>I confused myself with disks and partitions in /sys/block/<br />
+versus disks and partitions in /dev/</p>
+<p>Actually it is here that<br />
+/sys/block/xvda/ and /sys/block/xvda/xvda1 exist<br />
+but /sys/block/xvda/xvda128 does not exist according to<br />
+<a href="https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log">https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log</a><br />
+(excerpts)</p>
+<pre><code>+ source /usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh
+...
+++ extract_partitions /dev/xvda
+...
+++ declare sysfs_name=xvda
+++ sysfs_paths_unfiltered=(/sys/block/$sysfs_name/$sysfs_name*)
+...
+++ for possible_sysfs_partition in '"${sysfs_paths_unfiltered[@]}"'
+++ [[ /sys/block/xvda/xvda1 = ...
+</code></pre>
+<p>which is the only found partition in /sys/block/</p>
+<p>'xvda128' does not appear in<br />
+<a href="https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log">https://github.com/rear/rear/files/13474729/rear-ip-172-31-5-70.log</a></p>
+<h4 id="ramzcode_commented_at_2023-11-28_0841"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1829346042">2023-11-28 08:41</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-11-28_0841" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Yes, the underlying problem was due to the driver it seems,<br />
+Now after upgrading the kernel to 5.14<br />
+for Amazon Linux 2 on Xen hypervisor typed instance,<br />
+the lsblk is now listing it correctly.<br />
+below is the issue for the same with Amazon Linux Team with more
+clarity.</p>
+<p><a href="https://github.com/amazonlinux/amazon-ec2-utils/issues/31">https://github.com/amazonlinux/amazon-ec2-utils/issues/31</a></p>
+<h4 id="jsmeix_commented_at_2023-11-28_0850"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3093#issuecomment-1829359716">2023-11-28 08:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_0850" title="Permanent link">&para;</a></h4>
+<p>@ramzcode<br />
+thank you for your information what the root cause was!<br />
+From<br />
+<a href="https://github.com/amazonlinux/amazon-ec2-utils/issues/31">https://github.com/amazonlinux/amazon-ec2-utils/issues/31</a><br />
+(excerpts):</p>
+<pre><code>underlying was the /dev/xvda128 itself not created.
+
+an issue with the xen block driver on earlier kernels
+</code></pre>
+<p>In particular<br />
+<a href="https://github.com/amazonlinux/amazon-ec2-utils/issues/31#issuecomment-1828928217">https://github.com/amazonlinux/amazon-ec2-utils/issues/31#issuecomment-1828928217</a><br />
+(excerpt)</p>
+<pre><code>The partitions being in the wrong order is actually intentional.
+For historical reasons, a lot of things out there
+assume root to be partition 1 on Amazon Linux,
+but since it needs to be resized at boot, it has to be at the end.
+</code></pre>
+<p>is interesting for me because it answers my question in<br />
+<a href="https://github.com/rear/rear/issues/3093#issuecomment-1828121935">https://github.com/rear/rear/issues/3093#issuecomment-1828121935</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-27.3093.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

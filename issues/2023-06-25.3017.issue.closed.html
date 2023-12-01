@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3017 Issue closed: Recovery system fails to start up on Fedora 39 (systemd errors) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3017 Issue closed: Recovery system fails to start up on Fedora 39 (systemd errors)";
+        var mkdocs_page_input_path = "issues/2023-06-25.3017.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3017 Issue closed: Recovery system fails to start up on Fedora 39 (systemd errors)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3017_issue_closed_recovery_system_fails_to_start_up_on_fedora_39_systemd_errors"><a href="https://github.com/rear/rear/issues/3017">#3017 Issue</a> <code>closed</code>: Recovery system fails to start up on Fedora 39 (systemd errors)<a class="headerlink" href="#3017_issue_closed_recovery_system_fails_to_start_up_on_fedora_39_systemd_errors" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="greasymonkee_opened_issue_at_2023-06-25_0912"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> opened issue at <a href="https://github.com/rear/rear/issues/3017">2023-06-25 09:12</a>:<a class="headerlink" href="#greasymonkee_opened_issue_at_2023-06-25_0912" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    rear-2.6-9.fc38.x86_64</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+<li>
+<p>Hardware vendor/product:<br />
+    HPE DL380p</p>
+</li>
+<li>
+<p>System architecture:<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware:<br />
+    BIOS, GRUB2</p>
+</li>
+<li>
+<p>Storage :<br />
+    Local Disk</p>
+</li>
+<li>
+<p>Storage layout: Not able to get any log for the disk layout</p>
+</li>
+<li>
+<p>Description of the issue:</p>
+</li>
+</ul>
+<p>After re-creating the RAID 5 array (6 x 2TB WD Green HDD's),<br />
+same settings as used for the previous 12 months<br />
+(including the generation of the three ReaR backup copies),<br />
+the server fails to boot using either the backup or backup with
+Autorecover,<br />
+with Kernel 6.3.0.0.rc5 or 6.4.0-0.rc2.<br />
+In all cases I cannot get it to progress past <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#101;&#116;&#116;&#121;&#64;&#46;&#115;&#101;&#114;&#118;&#105;&#99;&#101;">&#103;&#101;&#116;&#116;&#121;&#64;&#46;&#115;&#101;&#114;&#118;&#105;&#99;&#101;</a>,<br />
+with it failing with the following message:</p>
+<pre><code>[$TIME] systemd [1]: /usr/lib/systemd/system/getty@.service:44: Failed to resolve instance name in DefaultInstance="%I": Invalid slot
+</code></pre>
+<p>I am not clear where the problem is coming from,<br />
+or where the DefaultInstance %I is referring to,<br />
+so I am seeking the assistance of some more knowledgable folks here<br />
+to try and find out the next steps in solving this.</p>
+<p>It is clear that it is referring to line 44 of the file that is found
+at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/usr/lib/systemd/system/getty%40.service">https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/usr/lib/systemd/system/getty%40.service</a></p>
+<p>however I am not clear on where or what it is looking at for the
+"DefaultInstance" - the "Invalid slot" appears to indicate it is looking
+at some hardware-related location in the server, however I am not sure
+why that may have changed, as there has been no hardware changes for the
+past 12 months</p>
+<ul>
+<li>
+<p>Workaround, if any:<br />
+    None - I have not found a way to get the server to start. It is not
+    able to start even with Recovery.Target or Emergency.Target added
+    into the GRUB config line via the ReaR terminal acreen (TAB at the
+    selection)</p>
+</li>
+<li>
+<p>Attachments, as applicable : Images captured from screen</p>
+</li>
+</ul>
+<p><img alt="Boot_from_ReaR" src="https://github.com/rear/rear/assets/13631259/65c291de-c7c4-4aac-bb43-6a1fda620b91" /></p>
+<p><img alt="Bootfail_ReaR" src="https://github.com/rear/rear/assets/13631259/9e01def4-1798-494b-8159-aa7168facc20" /></p>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-06-26_0937"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607087222">2023-06-26 09:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_0937" title="Permanent link">&para;</a></h4>
+<p>Does the problem appear when booting the ReaR rescue system, or after a
+recovery when booting the recovered system?</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1108"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607232901">2023-06-26 11:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1108" title="Permanent link">&para;</a></h4>
+<p>I suppose that "the server fails to boot using either the backup or
+backup with Autorecover" means booting the rescue image, but this is not
+entirely clear. In this case, you should not add emergency.target nor
+rescue.target to the kernel command line, because the rescue image does
+not support those targets AFAIK. I suspect that the getty messages are
+related to a terminal that can not be found, but getty.service is
+referred to only as
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/usr/lib/systemd/system/getty.target.wants/getty%40tty0.service">getty@tty0.service</a>,
+and tty0 should exist always ...</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1205"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607331142">2023-06-26 12:05</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1205" title="Permanent link">&para;</a></h4>
+<p>Correct - it is whilst trying to recover the server due to a "collection
+of things going wrong", with DNF5 upgrade, php8.2, etc - so my decision
+was "well, I have got three back-ups, so wipe the disk array and
+re-load", but lo and behold, not are working......</p>
+<p>I have just tried all the saved images on another machine that has a
+functional load of Fedora 37 Server, and the same errors occur on that
+machine.</p>
+<p>So given that the backups also fail on a second machine, in the same
+way, it does not appear to be a hardware or Array configuration issue on
+my main machine.</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1220"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607356774">2023-06-26 12:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1220" title="Permanent link">&para;</a></h4>
+<p>Have you ever booted the rescue image successfully on that server in the
+past?</p>
+<p>And what happens when you don't add the emergency.target part to the
+command line?</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1221"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607358953">2023-06-26 12:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1221" title="Permanent link">&para;</a></h4>
+<p>I suppose that you could ssh to the rescue system even if getty on its
+console does not start.</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1222"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607360127">2023-06-26 12:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1222" title="Permanent link">&para;</a></h4>
+<p>and indeed, it does not look related to the RAID array change.</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1229"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607371973">2023-06-26 12:29</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1229" title="Permanent link">&para;</a></h4>
+<pre><code>Have you ever booted the rescue image successfully on that server in the past?
+</code></pre>
+<p>Yes, I have restored from a ReaR backup multiple occasions on the same
+hardware, including after re-building the disk array, when additional
+disks were added in.</p>
+<pre><code>And what happens when you don't add the emergency.target part to the command line?
+</code></pre>
+<p>The last logs I can see are that sysinit.service fails, and it appears
+to be related to the fact the <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#71;&#101;&#116;&#116;&#121;&#64;&#46;&#115;&#101;&#114;&#118;&#105;&#99;&#101;">&#71;&#101;&#116;&#116;&#121;&#64;&#46;&#115;&#101;&#114;&#118;&#105;&#99;&#101;</a> is failing, the machine
+locks up and will not respond to any keyboard commands (as expected, for
+a Getty problem)</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1233"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607377583">2023-06-26 12:33</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1233" title="Permanent link">&para;</a></h4>
+<pre><code>I suppose that you could ssh to the rescue system
+even if getty on its console does not start?
+</code></pre>
+<p>That is a good question - I will need to explore that. I an no guru on
+SSH and such, if you have any guidance on how that could be done. The
+machine has no OS, or configuration on it, so how could I get the rescue
+image to the dead machine?</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1236"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607382011">2023-06-26 12:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1236" title="Permanent link">&para;</a></h4>
+<p>The rescue image is the thing that you are booting, so I see you have
+been able to get that to the machine. After you boot, try ssh to the
+machine, it could respond even if the console is locked up (assuming
+that you have network configured of course).</p>
+<blockquote>
+<p>sysinit.service fails</p>
+</blockquote>
+<p>do you have the error messages from sysinit.service? It should run even
+before getty is started.</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1258"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607416274">2023-06-26 12:58</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1258" title="Permanent link">&para;</a></h4>
+<p>I will try to SSH into it later today, tied up with real work at the
+moment.</p>
+<p>sysinit.service only gave a fail message, I tried to get more verbosity
+to see more clues, but I could not get any more.</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1516"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607700424">2023-06-26 15:16</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1516" title="Permanent link">&para;</a></h4>
+<p>I attempted to SSH into from another device (laptop), there is no
+Network up after 5 minutes (PING: Host unreachable)</p>
+<p>Below is the image from the final messages seen in the startup, where it
+just "stops".</p>
+<p><img alt="Final
+fail-point" src="https://github.com/rear/rear/assets/13631259/acad280b-a37d-4f08-8267-ebce40f88504" /></p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1517"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607701983">2023-06-26 15:17</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1517" title="Permanent link">&para;</a></h4>
+<p>Any ideas from the team would be greatly appreciated.</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1559"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607777304">2023-06-26 15:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1559" title="Permanent link">&para;</a></h4>
+<p>I would try to pass some systemd debug options on the kernel command
+line to find out what's wrong. E.g.
+<code>systemd.log_level=debug systemd.log_target=console</code>. I have never used
+this though - I have never seen before a case where ReaRs
+sysinit.service fails and even getty.service does not work.<br />
+Note that
+<code>Failed to resolve instance name in DefaultInstance="%I": Invalid slot</code>
+does not appear anymore - I suspect it was related to your attempt with
+emergency.target.<br />
+By the way, do you have a way to attach a serial console to the system?</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1705"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607879522">2023-06-26 17:05</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1705" title="Permanent link">&para;</a></h4>
+<p>I am running Fedora headless, through the serial console - I share
+office space with the server cabinet.......</p>
+<p>Shall see what I can get on the console as a capture, but my SysAdmin
+skills are very poor (I sill consider my self as a "noob")</p>
+<h4 id="pcahyna_commented_at_2023-06-26_1715"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607897733">2023-06-26 17:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-26_1715" title="Permanent link">&para;</a></h4>
+<p>Ah, the screen pictures are from the serial console? I thought that it
+is was PC console (monitor on VGA + keyboard). And what is the serial
+console device, is it ttyS0? In that case edit the kernel command line
+to remove console=tty0 (because tty0 is the PC console, not the serial
+console).</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1734"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1607926256">2023-06-26 17:34</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1734" title="Permanent link">&para;</a></h4>
+<p>Yes - sorry, my bad for not being clear...... I checked another Fedora
+server that is all at default, the serial terminal is tty1, so I am
+assuming that it should be the same as the one I am trying to ressurect,
+as I had not changed it from the default</p>
+<h4 id="greasymonkee_commented_at_2023-06-26_1844"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1608040613">2023-06-26 18:44</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-26_1844" title="Permanent link">&para;</a></h4>
+<p>I have managed to get my terminal to scroll back through the logs.....
+finally.</p>
+<p>Below it can be seen that the problem with DefaultInstance="%I" is still
+present when the target is not set to emergency.target or
+recovery.target.</p>
+<p>This appears to be the problem, as it is causing /etc to not be
+populated, and it fails to start.</p>
+<p><img alt="Startup_Page0" src="https://github.com/rear/rear/assets/13631259/d519d36a-0dc6-4e0d-9b82-8c59ac4d46ed" /></p>
+<p><img alt="Startup_Page1" src="https://github.com/rear/rear/assets/13631259/79204340-9175-4210-8f12-0f3030c95e13" /></p>
+<h4 id="pcahyna_commented_at_2023-06-27_0845"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609060767">2023-06-27 08:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-27_0845" title="Permanent link">&para;</a></h4>
+<p>I checked notes from my experiments with the ReaR rescue image bootup...
+there were messages</p>
+<pre><code>systemd[1]: /usr/lib/systemd/system/getty@.service:46: Failed to resolve instance name in DefaultInstance="%I": Invalid slot 
+systemd[1]: /usr/lib/systemd/system/getty@.service:46: Failed to resolve instance name in DefaultInstance="%I": Invalid slot 
+systemd[1]: Failed to populate /etc with preset unit settings, ignoring: Invalid slot
+</code></pre>
+<p>and the rescue system was working properly nevertheless. From this I
+conclude that the messages are harmless and not the source of your
+problem.</p>
+<h4 id="pcahyna_commented_at_2023-06-27_0847"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609065586">2023-06-27 08:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-27_0847" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>serial terminal is tty1</p>
+</blockquote>
+<p>tty1 is not a serial terminal, it is the first virtual console. So, are
+you using a serial terminal or not?</p>
+<h4 id="greasymonkee_commented_at_2023-06-27_0918"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609114748">2023-06-27 09:18</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-27_0918" title="Permanent link">&para;</a></h4>
+<p>My apologies - I am not a Sys Admin, so maybe I am using the wrong
+terminology.</p>
+<p>I know that I have a plugged into the multi-pin D socket for a VGA
+terminal on the server box - it has always worked, and when I run the
+command "tty" on a different server, running Fedora 37, it replies
+"/dev/tty1". I assume that the system with the problems that I am
+experiencing is likewise, as it was set up and configured in the same
+manner.</p>
+<p>Thanks for all of your input, and your notes/experiments, so I will
+consider that to not be the source of my problems.</p>
+<p>I have tried to load the backup (all three from different dates) onto
+the secondary server, I get the same result, so I conclude it is not
+something related to hardware.</p>
+<p>I will need to keep digging.</p>
+<h4 id="pcahyna_commented_at_2023-06-27_1255"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609448349">2023-06-27 12:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-27_1255" title="Permanent link">&para;</a></h4>
+<p>Have you tried the <code>systemd.log_level=debug systemd.log_target=console</code>
+parameters to get more details on what's wrong?</p>
+<h4 id="greasymonkee_commented_at_2023-06-27_1302"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609461423">2023-06-27 13:02</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-27_1302" title="Permanent link">&para;</a></h4>
+<p>When I tried it, the console did not show anything - probably that I was
+not looking at "console" but something else (I need to investigate more,
+and see what I can pull up)</p>
+<p>I am sure the answers are there, just that I am not looking in the right
+place......</p>
+<h4 id="pcahyna_commented_at_2023-06-27_1305"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1609465852">2023-06-27 13:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-27_1305" title="Permanent link">&para;</a></h4>
+<p>Maybe only <code>systemd.log_level=debug</code> then? Also, try deleting all the
+<code>console=ttyS</code>whathever stuff as obviously you are not using a serial
+console.</p>
+<h4 id="greasymonkee_commented_at_2023-06-27_2250"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1610323373">2023-06-27 22:50</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-27_2250" title="Permanent link">&para;</a></h4>
+<p>Small steps forward.....</p>
+<p>On another HP server, I ran ReaR, got quite a few errors about various
+files not found, etc, however that gave me another ReaR backup file that
+I could try on my main machine, and YES, it booted up :-)</p>
+<p>Also I found the backup logs from the three backups that fail, so now I
+have a "recipe" for a backup that has worked, I will have to go through
+line-by-line to see where things are going wrong.</p>
+<p>One thing of note was that in the backup that worked, there was no
+"CONSOLE=" entries in the bootloader execute line - I am baffled as to
+where they came from or why they appear in the other three backups.</p>
+<p>I also manually set the VGA Mode setting "VGA=" to 795, that gave a much
+more readable set of text for the logs,</p>
+<p><img alt="No_CONSOLE_VGA795" src="https://github.com/rear/rear/assets/13631259/eb35d33a-36fb-428e-8439-cf95c8006fd9" /></p>
+<p>From here it looks like the first thing that fails is
+systemd-udevd.service.</p>
+<p>Thanks you very much pcahyna, for nudging me along the path to a point
+where I am starting to see the "forest instead of trees" and with the
+working and non-working logs, hopefully I can make progress toward
+resolving this issue.</p>
+<p><strong>UPDATE</strong>: I found this Red Hat issue</p>
+<p><a href="https://access.redhat.com/solutions/6317011">https://access.redhat.com/solutions/6317011</a></p>
+<p>which looks remarkably similar, however I do not know how I might be
+able to edit the .conf file that is refered to when it is within a
+backup - any suggestions on how this may be done would be greatly
+appreciated.</p>
+<p>I will leave this open at present, so I can post updates or ask further
+questions on this specific topic.</p>
+<p>Cheers.</p>
+<h4 id="greasymonkee_commented_at_2023-06-28_1226"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1611309756">2023-06-28 12:26</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-06-28_1226" title="Permanent link">&para;</a></h4>
+<p>Is there any way of getting the machine to start (using fedora live USB
+or similar), to be able to access/read the journalctl or systemctl
+messages, whilst trying to boot off the ReaR recovery USB?</p>
+<p>With all of the Console entries deleted, I have tried
+systemd.log_level=debug and also init=/bin/bash to try and see further
+messages than what I have added above, but I still get the same set of
+messages returned, without and further verbosity or way of accessing
+further information?</p>
+<h4 id="greasymonkee_commented_at_2023-07-03_1536"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1618694973">2023-07-03 15:36</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-03_1536" title="Permanent link">&para;</a></h4>
+<p>@jsmeix - Seeking your support for this problem.</p>
+<p>I have three ReaR back-ups, which appear to have all been successful,
+however after a complete hard-disk array re-creation (due to later
+problems with DNF and PHP, not related to this issue), none of the
+backups will restore to the same disk arrangement from which the
+back-ups were taken.</p>
+<p>I have had no issue at all with restoring backups in the same manner
+over many years with ReaR, on the same machine, as well as previous
+servers, so it is confusing to me why it will now not restore.</p>
+<p>I am not able to get any debug logs, however I do have the complete logs
+that were saved on the USB drive with the created backup
+(rear-servnet.log), the latest instance is attached for your reference.</p>
+<p><a href="https://github.com/rear/rear/files/11938341/rear-servnet.log">rear-servnet.log</a></p>
+<p>If there is any further information required, or if I can assist your
+efforts in any way, please feel free to contact me at
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#97;&#116;&#104;&#114;&#101;&#101;&#115;&#49;&#57;&#54;&#48;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#103;&#97;&#116;&#104;&#114;&#101;&#101;&#115;&#49;&#57;&#54;&#48;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> - your knowledge and expertise is always
+appreciated.</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1042"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620006837">2023-07-04 10:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1042" title="Permanent link">&para;</a></h4>
+<p>Hi @GreasyMonkee sorry for the late reply. If you have an image that
+boots on your server, you could restore your server by using
+/var/lib/rear/layout and the backup (backup.tar.gz if you are using
+NETFS) from your non-working image inside your working image.
+(/var/lib/rear/layout encodes the storage layout of the system that you
+need to recreate and backup.tar.gz contains the backup of the files.)</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1127"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620070691">2023-07-04 11:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1127" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>UPDATE</strong>: I found this Red Hat issue</p>
+<p><a href="https://access.redhat.com/solutions/6317011">https://access.redhat.com/solutions/6317011</a></p>
+<p>which looks remarkably similar, however I do not know how I might be
+able to edit the .conf file that is refered to when it is within a
+backup - any suggestions on how this may be done would be greatly
+appreciated.</p>
+</blockquote>
+<p>It should not be the case - ReaR uses this nsswitch.conf file:
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/etc/nsswitch.conf">https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/etc/nsswitch.conf</a></p>
+<h4 id="jsmeix_commented_at_2023-07-04_1334"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620264574">2023-07-04 13:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-04_1334" title="Permanent link">&para;</a></h4>
+<p>I am not a Red Hat or Fedora user so I cannot actually help<br />
+when issues are specific for Red Hat or Fedora.</p>
+<p>This issue is not really clear to me<br />
+but as far as I see it seems it is about<br />
+that the ReaR recovery system fails to start up<br />
+on replacement hardware that is somewhat different<br />
+(in particular with a re-created RAID array)<br />
+compared to the original system where "rear mkbackup" was run.</p>
+<p>What happens is that on the replacement hardware<br />
+the ReaR recovery system boot menu is shown and<br />
+GRUB loads the ReaR recovery system kernel and initrd<br />
+and the ReaR recovery system kernel starts but then<br />
+during systemd startup phase various things go wrong<br />
+with various inexplicable systemd error messages.</p>
+<p>A very generic thing that I am wondering about is<br />
+whether or not that replacement hardware can<br />
+successfully start up any other installation system?</p>
+<p>For example an original Fedora installation image<br />
+or an installation image of another Linux distribution?</p>
+<p>@GreasyMonkee<br />
+does it work - only as a test - to install Fedora<br />
+from scratch with an original Fedora installation image<br />
+on that replacement hardware?</p>
+<p>If this works, you may (as some kind of "last resort")<br />
+install the exact right Fedora version that matches exactly<br />
+the one on your original system where "rear mkbackup" was run<br />
+from scratch with an original Fedora installation image<br />
+on that replacement hardware and afterwards "overwrite" that<br />
+by restoring the backup of the files that you made with ReaR.<br />
+Probably this may not result a perfectly clean system<br />
+but perhaps (or hopefully) it may result a usable system.</p>
+<p>By the way:<br />
+In your<br />
+<a href="https://github.com/rear/rear/files/11938341/rear-servnet.log">https://github.com/rear/rear/files/11938341/rear-servnet.log</a><br />
+it seems you run "rear mkbackup"<br />
+but no "backup" stage is run because:</p>
+<pre><code># grep ' Running ' rear-servnet.log
+
+2023-06-04 18:45:09.578362732 Running rear mkbackup (PID 3483910)
+2023-06-04 18:45:09.692531050 Running 'init' stage
+2023-06-04 18:45:09.731380685 Running workflow mkbackup on the normal/original system
+2023-06-04 18:45:09.758998908 Running mkbackup workflow
+2023-06-04 18:45:09.766836060 Running 'prep' stage
+2023-06-04 18:45:16.104897140 Running 'layout/save' stage
+2023-06-04 18:45:22.648027996 Running 'rescue' stage
+2023-06-04 18:45:26.676248229 Running 'build' stage
+2023-06-04 18:46:20.800012709 Running 'pack' stage
+2023-06-04 18:46:46.039429233 Running 'output' stage
+</code></pre>
+<p>Perhaps all is well - but at least it looks strange.<br />
+In contrast for example on my system I get:</p>
+<pre><code># usr/sbin/rear mkbackup
+
+# grep ' Running ' var/log/rear/rear-linux-h9wr.log
+2023-07-04 15:27:34.072253131 Running rear mkbackup (PID 31280 date 2023-07-04 15:27:33)
+2023-07-04 15:27:35.685224693 Running 'init' stage
+2023-07-04 15:27:36.041051624 Running workflow mkbackup on the normal/original system
+2023-07-04 15:27:36.068516253 Running mkbackup workflow
+2023-07-04 15:27:36.077492471 Running 'prep' stage
+2023-07-04 15:27:37.209541443 Running 'layout/save' stage
+2023-07-04 15:27:40.338678498 Running 'rescue' stage
+2023-07-04 15:27:42.114612502 Running 'build' stage
+2023-07-04 15:28:09.402770255 Running 'pack' stage
+2023-07-04 15:28:22.380478272 Running 'output' stage
+2023-07-04 15:28:23.611574736 Running 'backup' stage
+2023-07-04 15:28:33.904032065 Running exit tasks
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-07-04_1350"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620288979">2023-07-04 13:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1350" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>it seems you run "rear mkbackup"<br />
+but no "backup" stage is run because:</p>
+</blockquote>
+<p>I suspect the log ends here because it is at this point that it gets
+copied to the medium.</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1354"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620294204">2023-07-04 13:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1354" title="Permanent link">&para;</a></h4>
+<p>which is here:<br />
+<a href="https://github.com/rear/rear/blob/0ab7f19455c599335beedda7300ae5ea752fab71/usr/share/rear/output/USB/Linux-i386/830_copy_kernel_initrd.sh#L16">https://github.com/rear/rear/blob/0ab7f19455c599335beedda7300ae5ea752fab71/usr/share/rear/output/USB/Linux-i386/830_copy_kernel_initrd.sh#L16</a></p>
+<h4 id="greasymonkee_commented_at_2023-07-04_1414"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620326611">2023-07-04 14:14</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-04_1414" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>This issue is not really clear to me<br />
+but as far as I see it seems it is about<br />
+that the ReaR recovery system fails to start up<br />
+on replacement hardware that is somewhat different<br />
+(in particular with a re-created RAID array)<br />
+compared to the original system where "rear mkbackup" was run.</p>
+</blockquote>
+<p>Sorry, I may not have been clear in my writing - the hardware layout is
+identical, nothing was changed - it was that the array was cleared and
+re-created to remove the image which was damaged (due to PHP upgrade and
+the new DNF_5 - which has no roll-back for history in the initial
+release......)</p>
+<p>I have installed a clean Fedora 37 version which is working as a test. I
+had tried to install a Fedora Rawhide (Fedora 39) image, but there are
+some apparently known issues with GRUB boot-loader (tried different
+versions of RUFUS.exe to create the bootable image, all result in "452 -
+out of range" error).</p>
+<p>As suggested, as a last resort I am moving everything over from the
+de-compressed "backup.tar.gz" from the latest backup, t o this work able
+version so that I can hopefully recover most of the functions.</p>
+<p>I will also try pcahyna's suggestions as well.</p>
+<p>Thanks to you both for your time, shall update if I find anything</p>
+<h4 id="greasymonkee_commented_at_2023-07-04_1421"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620337284">2023-07-04 14:21</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-04_1421" title="Permanent link">&para;</a></h4>
+<p>An "off-topic" rant by someone else who is also experiencing, and
+troubleshooting the "452 - out of range" issue<br />
+<a href="https://github.com/pbatard/rufus/issues/2233">https://github.com/pbatard/rufus/issues/2233</a></p>
+<h4 id="jsmeix_commented_at_2023-07-04_1444"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620385835">2023-07-04 14:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-04_1444" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for the explanation<br />
+why that log file looks bad but is OK!</p>
+<p>I will fix that piece of code (I know it but I had no idea<br />
+that this piece of code has such bad effects when one does<br />
+not have it in mind when looking at a log file from a user)<br />
+to make it clear that this log file is an unfinished stub.</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1448"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620392305">2023-07-04 14:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1448" title="Permanent link">&para;</a></h4>
+<p>@jsmeix does the file need to be an unfinished stub? Perhaps the copy
+could happen later, immediately before unmounting the medium?</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1450"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620394930">2023-07-04 14:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1450" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps the copy could happen later, immediately before unmounting the
+medium?</p>
+</blockquote>
+<p>... which would not help much, because, IIUC, the "rescue" stage
+unmounts it and "backup" mounts it again. Sigh.</p>
+<h4 id="pcahyna_commented_at_2023-07-04_1453"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620399516">2023-07-04 14:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-04_1453" title="Permanent link">&para;</a></h4>
+<p>I believe that the log is being copied again later, here:<br />
+<a href="https://github.com/rear/rear/blob/0ab7f19455c599335beedda7300ae5ea752fab71/usr/share/rear/output/default/950_copy_result_files.sh#L46">https://github.com/rear/rear/blob/0ab7f19455c599335beedda7300ae5ea752fab71/usr/share/rear/output/default/950_copy_result_files.sh#L46</a></p>
+<h4 id="jsmeix_commented_at_2023-07-04_1503"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620414005">2023-07-04 15:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-04_1503" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/81db19ff4f4f2e9a97b195834ae4a4226a1342c3">https://github.com/rear/rear/commit/81db19ff4f4f2e9a97b195834ae4a4226a1342c3</a><br />
+I fixed things for now with a minimal code change in<br />
+output/USB/Linux-i386/830_copy_kernel_initrd.sh<br />
+i.e. simply have the</p>
+<pre><code>LogPrint "Saving current (unfinished) $RUNTIME_LOGFILE as $USB_PREFIX/$logfile_basename"
+</code></pre>
+<p>before the current (unfinished) RUNTIME_LOGFILE gets copied<br />
+so the last message in the copied log file should<br />
+hopefully sufficiently indicate that it is<br />
+an unfinished copy of RUNTIME_LOGFILE.</p>
+<h4 id="greasymonkee_commented_at_2023-07-04_1829"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1620608868">2023-07-04 18:29</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-04_1829" title="Permanent link">&para;</a></h4>
+<p>From the other thread I referenced from Pete Batard, there are some
+serious issues with Fedora (and Ubuntu) together with GRUB, so that may
+well be precipitating the issue.</p>
+<p>If it is indeed an issue with GRUB, is there a way that the modified
+GRUB files can be "inserted" or such for an existing ReaR backup?</p>
+<p>I know it is a long-shot, but I am prepared to give anything a
+try.......</p>
+<h4 id="greasymonkee_commented_at_2023-07-09_0908"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1627655311">2023-07-09 09:08</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-09_0908" title="Permanent link">&para;</a></h4>
+<p>UPDATE 08-07-2023.</p>
+<p>I created a completely new installation of Fedora Rawhide (FC39), and
+added a couple of applications, plus required ones for running ReaR.</p>
+<p>I then created a ReaR backup using a new USB drive, formatted using
+"rear format". When I attempted to boot from the created backup, the
+exact same behaviour as documented above has occurred.</p>
+<p>Fedora Rawhide is still using Relax and Recover version 2.6, not sure if
+there is an issue from the use of this slightly older release (latest is
+2.7 from the ReaR documentation I have found)</p>
+<p>The config file used was site.conf, with the following options set:</p>
+<p>OUTPUT=USB<br />
+BACKUP=NETFS<br />
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000</p>
+<p>Attached below is the debug log (using -D to capture all the messages).</p>
+<p><a href="https://github.com/rear/rear/files/11994807/20230708-1723_servnet_rear_debug.log">20230708-1723_servnet_rear_debug.log</a></p>
+<p>I can provide the complete backup file, if required for de-bugging
+purposes.</p>
+<p>I am submitting this is the hope that whatever is the issue may be
+identified and corrected - I no longer am hopeful of recovering the data
+from the original backups where the problem first occurred, but to save
+others the same pain of rebuilding a system from "scratch" when the
+backups do not work.</p>
+<h4 id="jsmeix_commented_at_2023-07-10_0606"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1628298449">2023-07-10 06:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-10_0606" title="Permanent link">&para;</a></h4>
+<p>@GreasyMonkee<br />
+thank you for reproducing it with a<br />
+completely new installation of Fedora Rawhide (FC39)!</p>
+<p>I assume when you reproduced it in your "UPDATE 08-07-2023"<br />
+<a href="https://github.com/rear/rear/issues/3017#issuecomment-1627655311">https://github.com/rear/rear/issues/3017#issuecomment-1627655311</a><br />
+you did not do some "disk array re-creation" on the<br />
+replacement hardware (or replacement virtual machine)<br />
+where you booted the ReaR recovery system?</p>
+<p>I.e. I assume when you reproduced it in your "UPDATE 08-07-2023"<br />
+your replacement system was not somewhat different<br />
+compared to the original system where "rear mkbackup" was run?</p>
+<p>When my assumption is true it means this issue changes<br />
+from a special one<br />
+"ReaR image(s) will not load after disk array re-creation"<br />
+to a generic one<br />
+"Recovery system fails to start up on FC39 (systemd errors)"</p>
+<h4 id="greasymonkee_commented_at_2023-07-10_1058"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1628713765">2023-07-10 10:58</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-10_1058" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>you did not do some "disk array re-creation" on the<br />
+replacement hardware (or replacement virtual machine)<br />
+where you booted the ReaR recovery system?</p>
+</blockquote>
+<p>Correct, no changes, or anything between the taking of the logs and
+attempting to reboot with the ReaR backup.</p>
+<blockquote>
+<p>When my assumption is true it means this issue changes<br />
+from a special one<br />
+"ReaR image(s) will not load after disk array re-creation"<br />
+to a generic one<br />
+"Recovery system fails to start up on FC39 (systemd errors)"</p>
+</blockquote>
+<p>Yes, feel free to change the name of the issue to accurately reflect the
+situation (or do I need to do that?)</p>
+<h4 id="pcahyna_commented_at_2023-07-19_1051"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1641861499">2023-07-19 10:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-19_1051" title="Permanent link">&para;</a></h4>
+<p>I am able to reproduce the issue myself now - not sure yet what the root
+cause is.</p>
+<h4 id="pcahyna_commented_at_2023-07-20_1724"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1644309465">2023-07-20 17:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-20_1724" title="Permanent link">&para;</a></h4>
+<p>ok I know what's wrong. After mounting /sys in the recovery system, all
+systemd units fail with <code>status=219/CGROUP</code>. Quick and dirty fix is
+here:
+<a href="https://github.com/pcahyna/rear/pull/12/commits/29c6f3c57727c4c6bb8cbeb0d41baca56145c6b7">https://github.com/pcahyna/rear/pull/12/commits/29c6f3c57727c4c6bb8cbeb0d41baca56145c6b7</a></p>
+<h4 id="pcahyna_commented_at_2023-07-20_1727"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1644313843">2023-07-20 17:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-20_1727" title="Permanent link">&para;</a></h4>
+<p>FTR: I debugged this by setting
+<code>console=tty1 systemd.debug-shell=1 systemd.unit=getty@tty1.service</code> on
+the kernel command line and when I got shell, I started the units one by
+one.</p>
+<h4 id="greasymonkee_commented_at_2023-07-20_1843"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1644419873">2023-07-20 18:43</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-20_1843" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>ok I know what's wrong. After mounting /sys in the recovery system,
+all systemd units fail with status=219/CGROUP. Quick and dirty fix is
+here:
+<a href="https://github.com/pcahyna/rear/commit/29c6f3c57727c4c6bb8cbeb0d41baca56145c6b7">https://github.com/pcahyna/rear/commit/29c6f3c57727c4c6bb8cbeb0d41baca56145c6b7</a></p>
+</blockquote>
+<p>Great :-)</p>
+<p>I will test that change later tonight and let you know how it goes.</p>
+<h4 id="greasymonkee_commented_at_2023-07-20_2137"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1644639019">2023-07-20 21:37</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-20_2137" title="Permanent link">&para;</a></h4>
+<p>To clarify, did you do the change on a functional system, make a new
+backup and then able to restore that file, or</p>
+<p>you modified the result contained within the backup.tar.gz file of a
+backup which failed to restore, and then able to successfully restore
+it?</p>
+<p>I tried the latter, and it was not successful.</p>
+<h4 id="pcahyna_commented_at_2023-07-21_0952"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1645318292">2023-07-21 09:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-21_0952" title="Permanent link">&para;</a></h4>
+<p>I made a completely new backup. To use your existing backup, you should
+not modify the content of backup.tar.gz, but of initrd. Let me find out
+how to do this</p>
+<h4 id="pcahyna_commented_at_2023-07-21_1016"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1645348480">2023-07-21 10:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-21_1016" title="Permanent link">&para;</a></h4>
+<p>So the recipe is: find initrd.cgz from your bootable medium and unpack
+it somewhere:</p>
+<pre><code>cd /var/tmp
+mkdir rear-root
+cd rear-root
+zcat ~/initrd.cgz | cpio -i
+</code></pre>
+<p>change the file</p>
+<pre><code>vi etc/scripts/boot
+</code></pre>
+<p>and repack the initrd</p>
+<pre><code>find . ! -name "*~" | cpio -H newc --create --quiet | gzip &gt; ~/initrd-new.cgz
+</code></pre>
+<p>replace <code>initrd.cgz</code> on your bootable medium by <code>initrd-new.cgz</code> and
+boot (keep a backup copy of the original bootable medium of course).</p>
+<h4 id="greasymonkee_commented_at_2023-07-21_1512"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1645742968">2023-07-21 15:12</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-21_1512" title="Permanent link">&para;</a></h4>
+<p>Many thanks for the procedure to go through, will run it later tonight
+and let you know :-)</p>
+<h4 id="pcahyna_commented_at_2023-07-26_1607"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1652113500">2023-07-26 16:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-26_1607" title="Permanent link">&para;</a></h4>
+<p>@GreasyMonkee did you succeed?</p>
+<h4 id="greasymonkee_commented_at_2023-07-26_1624"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1652138964">2023-07-26 16:24</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-26_1624" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@GreasyMonkee did you succeed?</p>
+</blockquote>
+<p>Yes, with some twists and turns......</p>
+<p>By changing the initrd contents, the checksum fails.</p>
+<p>for some reason I could not nail down, I was getting a situation where
+there was no bootloader being created on the recovered system.</p>
+<p>To get around that issue, I then loaded another one of the three backups
+on the menu selection from ReaR following the intial boot.</p>
+<p>I have confirmed that the modification of "commenting out" the line in
+the skeleton file, and generating a new backup, that restores correctly
+without any modification of the saved initrd file.</p>
+<h4 id="pcahyna_commented_at_2023-07-27_1524"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1653845611">2023-07-27 15:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-27_1524" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>By changing the initrd contents, the checksum fails.</p>
+</blockquote>
+<p>Oops, I have not thought of that. Otherwise, are you satisfied with the
+outcome now?</p>
+<h4 id="greasymonkee_commented_at_2023-07-27_1948"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1654451740">2023-07-27 19:48</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-27_1948" title="Permanent link">&para;</a></h4>
+<p>Yes.</p>
+<p>Thank you very much for your assistance, with your help I have managed
+to:</p>
+<ul>
+<li>Recover files and databases that were critical</li>
+<li>found a resolution to address the issue which caused the problem</li>
+</ul>
+<p>If I understood correctly, there has been a change in the Fedora rawhide
+package, to ReaR 2.6-11.fc39 ?</p>
+<p>I am OK for this topic to be closed.</p>
+<h4 id="pcahyna_commented_at_2023-07-28_0926"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1655366798">2023-07-28 09:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-28_0926" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If I understood correctly, there has been a change in the Fedora
+rawhide package, to ReaR 2.6-11.fc39</p>
+</blockquote>
+<p>There has been no meaningful change, what you are seeing is just a dummy
+Release number bump. The Fedora maintainer is unresponsive.</p>
+<p>I will reopen the issue, just not as a support question, because it is
+still a bug.</p>
+<h4 id="pcahyna_commented_at_2023-07-28_0927"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1655367918">2023-07-28 09:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-07-28_0927" title="Permanent link">&para;</a></h4>
+<p>Glad to hear that you managed to recover the system.</p>
+<h4 id="greasymonkee_commented_at_2023-07-29_0748"><img src="https://avatars.githubusercontent.com/u/13631259?v=4" width="50"><a href="https://github.com/GreasyMonkee">GreasyMonkee</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1656588591">2023-07-29 07:48</a>:<a class="headerlink" href="#greasymonkee_commented_at_2023-07-29_0748" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>There has been no meaningful change, what you are seeing is just a
+dummy Release number bump. The Fedora maintainer is unresponsive.</p>
+<p>I will reopen the issue, just not as a support question, because it is
+still a bug.</p>
+</blockquote>
+<p>If you wish I will open a Bugzilla report for it, and reference this
+thread?</p>
+<h4 id="github-actions_commented_at_2023-09-28_0203"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1738334640">2023-09-28 02:03</a>:<a class="headerlink" href="#github-actions_commented_at_2023-09-28_0203" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="schlomo_commented_at_2023-11-12_1912"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1807214028">2023-11-12 19:12</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-12_1912" title="Permanent link">&para;</a></h4>
+<p>@pcahyna could you finally understand why mounting <code>/sys</code> causes a
+problem? Can we just disable mounting it or does it get auto-mounted
+somewhere else?</p>
+<h4 id="pcahyna_commented_at_2023-11-13_1648"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1808550849">2023-11-13 16:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-13_1648" title="Permanent link">&para;</a></h4>
+<p>@schlomo I don't know unfortunately, I haven't investigated this. Since
+it is affecting more and more users (probably it is a feature of some
+recent systemd version that is getting into distros), I think I will
+just change the code to something like <code>mountpoint /sys || mount /sys</code>.</p>
+<h4 id="schlomo_commented_at_2023-11-13_1652"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1808563167">2023-11-13 16:52</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-13_1652" title="Permanent link">&para;</a></h4>
+<p>@pcahyna if a fix is that simple then let's do it. It won't harm
+anything AFAIK.</p>
+<h4 id="pcahyna_commented_at_2023-11-16_1915"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1815160493">2023-11-16 19:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-16_1915" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna if a fix is that simple then let's do it. It won't harm
+anything AFAIK.</p>
+</blockquote>
+<p>@schlomo
+<a href="https://github.com/rear/rear/pull/3079">https://github.com/rear/rear/pull/3079</a></p>
+<h4 id="jsmeix_commented_at_2023-11-20_0733"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3017#issuecomment-1818378930">2023-11-20 07:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-20_0733" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your simple and backward compatible fix<br />
+(cf.
+<a href="https://github.com/rear/rear/issues/3017#issuecomment-1808550849">https://github.com/rear/rear/issues/3017#issuecomment-1808550849</a>)<br />
+of this severe issue!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-06-25.3017.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

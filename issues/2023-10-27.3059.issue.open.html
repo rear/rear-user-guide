@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3059 Issue open: Make "rear recover" robust against problematic mount options - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3059 Issue open: Make \"rear recover\" robust against problematic mount options";
+        var mkdocs_page_input_path = "issues/2023-10-27.3059.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3059 Issue open: Make "rear recover" robust against problematic mount options</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3059_issue_open_make_rear_recover_robust_against_problematic_mount_options"><a href="https://github.com/rear/rear/issues/3059">#3059 Issue</a> <code>open</code>: Make "rear recover" robust against problematic mount options<a class="headerlink" href="#3059_issue_open_make_rear_recover_robust_against_problematic_mount_options" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-10-27_0804"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3059">2023-10-27 08:04</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-10-27_0804" title="Permanent link">&para;</a></h4>
+<p>For the reason behind see in particular<br />
+<a href="https://github.com/rear/rear/issues/2777#issuecomment-1077600797">https://github.com/rear/rear/issues/2777#issuecomment-1077600797</a></p>
+<p>Currently during "rear recover" it mounts filesystems<br />
+with all mount options that have been reported by<br />
+<code>mount -t ...</code> and/or<br />
+<code>findmnt -mnrv -o SOURCE,TARGET,FSTYPE,OPTIONS -t ...</code><br />
+at the time when "rear mkrescue/mkbackup" was run on the original
+system<br />
+except for 'vfat', see<br />
+<a href="https://github.com/rear/rear/issues/576">https://github.com/rear/rear/issues/576</a></p>
+<p>In some cases mounting with all those mount options fails<br />
+and then "rear recover" also fails, e.g. see<br />
+<a href="https://github.com/rear/rear/issues/2777">https://github.com/rear/rear/issues/2777</a></p>
+<p>Probably in most cases all those mount options are not needed<br />
+to mount the recreated filesystems during "rear recover"<br />
+because all what is needed during "rear recover" is to get<br />
+the filesystems mounted "sufficiently OK" so that it works<br />
+to restore the files from backup into the empty recreated<br />
+filesystems, for an example see<br />
+<a href="https://github.com/rear/rear/issues/576">https://github.com/rear/rear/issues/576</a></p>
+<p>After "rear recover" the recreated system will be rebooted<br />
+and then its filesystems get mounted according to what is<br />
+stored in the restored config files from the backup.</p>
+<p>So a possible way to make "rear recover" robust<br />
+against problematic mount options could be to<br />
+first try to mount the recreated filesystems<br />
+with all those mount options<br />
+but when this fails<br />
+then try to mount it without any options as fallback<br />
+and only if also this fails stop with an error,<br />
+cf. "Dirty hacks welcome" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<p>So in the mount_fs() function in<br />
+layout/prepare/GNU/Linux/133_include_mount_filesystem_code.sh<br />
+we may add a separated case for each <code>$fstype</code><br />
+for example like (totally untested offhanded proposal):</p>
+<pre><code>(&lt;fstype&gt;)
+    ( echo "mkdir -p $TARGET_FS_ROOT$mountpoint"
+      echo "if ! mount $mountopts $device $TARGET_FS_ROOT$mountpoint ; then"
+      echo "    # Trying to mount without mount options as fallback"
+      echo "    mount $device $TARGET_FS_ROOT$mountpoint"
+      echo "fi"
+    ) &gt;&gt; "$LAYOUT_CODE"
+    ;;
+</code></pre>
+<p>I cannot imagine what could go worse with such a fallback attempt.<br />
+If the fallback works to get the backup restored things should be OK,<br />
+if not "rear recover" behaves as before i.e. it also fails<br />
+(only later at a different place).</p>
+<p>Perhaps some standard mount options might be useful<br />
+also in the fallback case?<br />
+For example mount options to ensure mandatory behaviour<br />
+like 'rw' because write access is needed to restore the backup.<br />
+On the other hand it might be perhaps better to leave out 'rw'<br />
+('rw' is the default) and proceed "bona fide" in the fallback case.<br />
+When later the backup cannot be restored, "rear recover" would fail<br />
+there at the right place where the actual error happened.<br />
+Perhaps some filesystem gets mounted 'ro' in the fallback case<br />
+but no backup files will be restored into that filesystem?</p>
+<h4 id="pcahyna_commented_at_2023-10-27_0931"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1782600616">2023-10-27 09:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-27_0931" title="Permanent link">&para;</a></h4>
+<p>👍 , at the same time I would remove the special handling of VFAT
+introduced because of #576</p>
+<h4 id="jsmeix_commented_at_2023-10-27_0944"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1782618603">2023-10-27 09:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-27_0944" title="Permanent link">&para;</a></h4>
+<p>Yes of course I planned to remove the special handling of VFAT<br />
+(except for VFAT it never works with those mount options).</p>
+<h4 id="jsmeix_commented_at_2023-10-27_1346"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1782949603">2023-10-27 13:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-27_1346" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+while looking at the mount_fs() function in<br />
+layout/prepare/GNU/Linux/133_include_mount_filesystem_code.sh<br />
+I noticed</p>
+<pre><code>(ext2 | ext3 | ext4)
+    (
+    echo "mkdir -p $TARGET_FS_ROOT$mountpoint"
+    echo "mount $mountopts $device $TARGET_FS_ROOT$mountpoint"
+    # try remount for xattr
+    # mount and then try remount for systems supporting xattr
+    # add a second mount for extended attr (selinux) 
+    # the first mount will do perform the basic mount, the second mount (remount) will try for xattr
+    # if xattr are not support, the mount will fail, however, the first mount will still be in effect and not cause any errors
+    echo "mount $mountopts,remount,user_xattr $device $TARGET_FS_ROOT$mountpoint"
+    ) &gt;&gt; "$LAYOUT_CODE"
+    ;;
+</code></pre>
+<p>where I think that in contrast to what the comment states<br />
+"rear recover" will fail when the second mount (remount) fails<br />
+(i.e. when the second mount results a non-zero exit code)<br />
+because LAYOUT_CODE="$VAR_DIR/layout/diskrestore.sh"<br />
+runs with 'set -e' see<br />
+layout/prepare/default/540_generate_device_code.sh</p>
+<h4 id="pcahyna_commented_at_2023-10-27_1351"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1782956140">2023-10-27 13:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-27_1351" title="Permanent link">&para;</a></h4>
+<p>@jsmeix good catch, I looked at this code, but I have not realized this.
+Note that we never had any report about the problem occurring in
+practice, IIRC. So I suspect that this special handling is unnecessary,
+but we need to check why it was introduced.</p>
+<h4 id="pcahyna_commented_at_2023-10-27_1354"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1782960333">2023-10-27 13:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-27_1354" title="Permanent link">&para;</a></h4>
+<p>commit 2011f0af2cffa02be5c6889d806664cfcfeb40bd PR #2142</p>
+<h4 id="jsmeix_commented_at_2023-10-27_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1783007017">2023-10-27 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-27_1424" title="Permanent link">&para;</a></h4>
+<p>From the comment at that code place follows<br />
+that also 'user_xattr' should be considered<br />
+as a "problematic" mount option (i.e. a<br />
+mount option that could let 'mount' fail)<br />
+so this issue also applies to that part.</p>
+<h4 id="pcahyna_commented_at_2023-10-27_2013"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1783453912">2023-10-27 20:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-27_2013" title="Permanent link">&para;</a></h4>
+<p>@jsmeix but you have found that the code is not as fail-safe as it
+seems, due to use of <code>set -e</code>. So, given the notable lack of actual
+reports of failures at this code spot, I suspect that the implied
+judgement that '<code>user_xattr</code>' should be considered<br />
+as a "problematic" mount option in your sense was simply a wrong
+judgement from the code's author. Note also the lack of explanation of
+what actual problem was the code supposed to solve, or even why is it
+necessary to enable '<code>user_xattr</code>' even if it has not been present among
+the original mount options (one would normally assume that if the
+original system has not had it, it is not needed - this is general
+assumption of the whole ReaR operation, we attempt to reproduce the
+original system faithfully, not to improve it).</p>
+<h4 id="pcahyna_commented_at_2023-10-27_2016"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3059#issuecomment-1783456489">2023-10-27 20:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-10-27_2016" title="Permanent link">&para;</a></h4>
+<p>IOW: if 'user_xattr' were really as problematic as the code implies, we
+would have seen reports of failures due to <code>set -e</code> already.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-10-27.3059.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

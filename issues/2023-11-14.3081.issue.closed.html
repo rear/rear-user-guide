@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3081 Issue closed: Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3081 Issue closed: Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices)";
+        var mkdocs_page_input_path = "issues/2023-11-14.3081.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3081 Issue closed: Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3081_issue_closed_cannot_create_efi_boot_manager_entry_unable_to_find_esp_mntlocalbootefi_among_mounted_devices"><a href="https://github.com/rear/rear/issues/3081">#3081 Issue</a> <code>closed</code>: Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices)<a class="headerlink" href="#3081_issue_closed_cannot_create_efi_boot_manager_entry_unable_to_find_esp_mntlocalbootefi_among_mounted_devices" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>, <code>old version</code></p>
+<h4 id="lcascales_opened_issue_at_2023-11-14_1612"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> opened issue at <a href="https://github.com/rear/rear/issues/3081">2023-11-14 16:12</a>:<a class="headerlink" href="#lcascales_opened_issue_at_2023-11-14_1612" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.4 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:<br />
+    the backup package we received to test the recovery came with this
+    version of ReaR</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Oracle Linux Server"
+VERSION="7.9"
+ID="ol"
+ID_LIKE="fedora"
+VARIANT="Server"
+VARIANT_ID="server"
+VERSION_ID="7.9"
+PRETTY_NAME="Oracle Linux Server 7.9"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:oracle:linux:7:9:server"
+HOME_URL="https://linux.oracle.com/"
+BUG_REPORT_URL="https://bugzilla.oracle.com/"
+
+ORACLE_BUGZILLA_PRODUCT="Oracle Linux 7"
+ORACLE_BUGZILLA_PRODUCT_VERSION=7.9
+ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+ORACLE_SUPPORT_PRODUCT_VERSION=7.9
+######
+OS_VENDOR=OracleServer
+OS_VERSION=7
+# The following information was added automatically by the mkbackup workflow:
+ARCH='Linux-i386'
+OS='GNU/Linux'
+OS_VERSION='7'
+OS_VENDOR='OracleServer'
+OS_VENDOR_VERSION='OracleServer/7'
+OS_VENDOR_ARCH='OracleServer/i386'
+# End of what was added automatically by the mkbackup workflow.
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=nfs://172.30.161.126/volume14/ol_backups_nfs
+ISO_DEFAULT=manual
+BACKUP=NETFS
+BACKUP_URL=nfs://172.30.161.126/volume14/ol_backups_nfs
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash' '/prdgpodb2c_mysql' '/postgres' '/pg_wal_archive' '/mnt')
+BACKUP_TYPE=differential
+FULLBACKUPDAY="Sun"
+USE_STATIC_NETWORKING=y
+TIMESYNC=NTP
+SSH_ROOT_PASSWORD=xxxxxxxxx
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    VMware</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code># uname -p
+x86_64
+</code></pre>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    EFI and GRUB2 supposedly</li>
+</ul>
+<!-- -->
+
+<pre><code>RESCUE xxxxxxxx:/mnt/local # ls -ltrh /mnt/local/boot/
+total 192M
+drwx------. 3 root root   17 Jan  1  1970 efi
+-rw-r--r--. 1 root root 150K Oct  2  2020 config-3.10.0-1160.el7.x86_64
+-rw-------. 1 root root 3.5M Oct  2  2020 System.map-3.10.0-1160.el7.x86_64
+-rwxr-xr-x. 1 root root 6.5M Oct  2  2020 vmlinuz-3.10.0-1160.el7.x86_64
+-rw-r--r--. 1 root root 314K Oct  2  2020 symvers-3.10.0-1160.el7.x86_64.gz
+-rw-r--r--. 1 root root 213K Apr 23  2021 config-5.4.17-2102.201.3.el7uek.x86_64
+-rw-r--r--. 1 root root 4.1M Apr 23  2021 System.map-5.4.17-2102.201.3.el7uek.x86_64
+-rwxr-xr-x. 1 root root 8.6M Apr 23  2021 vmlinuz-5.4.17-2102.201.3.el7uek.x86_64
+-rw-r--r--. 1 root root 376K Apr 23  2021 symvers-5.4.17-2102.201.3.el7uek.x86_64.gz
+-rw-r--r--. 1 root root 214K Apr 14  2023 config-5.4.17-2136.318.7.1.el7uek.x86_64
+-rw-r--r--. 1 root root 4.2M Apr 14  2023 System.map-5.4.17-2136.318.7.1.el7uek.x86_64
+-rwxr-xr-x. 1 root root  11M Apr 14  2023 vmlinuz-5.4.17-2136.318.7.1.el7uek.x86_64
+-rw-r--r--. 1 root root 381K Apr 14  2023 symvers-5.4.17-2136.318.7.1.el7uek.x86_64.gz
+-rw-------. 1 root root  60M Oct 24 19:21 initramfs-0-rescue-8a08aa20fb684869b0b7918c2b5bfccb.img
+-rwxr-xr-x. 1 root root 6.5M Oct 24 19:21 vmlinuz-0-rescue-8a08aa20fb684869b0b7918c2b5bfccb
+-rw-------. 1 root root  16M Oct 24 19:29 initramfs-5.4.17-2102.201.3.el7uek.x86_64kdump.img
+-rw-------. 1 root root  17M Oct 25 19:19 initramfs-5.4.17-2136.318.7.1.el7uek.x86_64kdump.img
+drwx------. 2 root root   21 Nov  8 12:10 grub2
+-rw-------  1 root root  18M Nov 14 11:31 initramfs-3.10.0-1160.el7.x86_64.img
+-rw-------  1 root root  18M Nov 14 11:32 initramfs-5.4.17-2102.201.3.el7uek.x86_64.img
+-rw-------  1 root root  19M Nov 14 11:32 initramfs-5.4.17-2136.318.7.1.el7uek.x86_64.img
+RESCUE prdmxedb2c:/mnt/local #
+</code></pre>
+<ul>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    local disk</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>RESCUE prdmxedb2c:/mnt/local # lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME     PKNAME   TRAN   TYPE FSTYPE  LABEL          SIZE MOUNTPOINT
+/dev/sr0    /dev/sr0           sata   rom  iso9660 RELAXRECOVER 527.1M
+/dev/sda    /dev/sda                  disk                         80G
+`-/dev/sda1 /dev/sda1 /dev/sda        part xfs                     80G /mnt/local
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<!-- -->
+
+<pre><code>Creating EFI Boot Manager entries...
+Unable to find ESP /boot/efi in layout
+Trying to determine device currently mounted at /mnt/local/boot/efi as fallback
+Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices)
+WARNING:
+For this system
+OracleServer/7 on Linux-i386 (based on Fedora/7/i386)
+there is no code to install a boot loader on the recovered system
+or the code that we have failed to install the boot loader correctly.
+Please contribute appropriate code to the Relax-and-Recover project,
+see http://relax-and-recover.org/development/
+Take a look at the scripts in /usr/share/rear/finalize,
+for example see the scripts
+/usr/share/rear/finalize/Linux-i386/210_install_grub.sh
+/usr/share/rear/finalize/Linux-i386/220_install_grub2.sh
+
+---------------------------------------------------
+|  IF YOU DO NOT INSTALL A BOOT LOADER MANUALLY,  |
+|  THEN YOUR SYSTEM WILL NOT BE ABLE TO BOOT.     |
+---------------------------------------------------
+
+You can use 'chroot /mnt/local bash --login'
+to change into the recovered system.
+You should at least mount /proc in the recovered system
+e.g. via 'mount -t proc none /mnt/local/proc'
+before you change into the recovered system
+and manually install a boot loader therein.
+
+Finished recovering your system. You can explore it under '/mnt/local'.
+Exiting rear recover (PID 2362) and its descendant processes
+Running exit tasks
+You should also rm -Rf --one-file-system /tmp/rear.2GCs8lruvbzdZUX
+
+RESCUE prdmxedb2c:/mnt/local # mount --bind /dev /mnt/local/dev
+RESCUE prdmxedb2c:/mnt/local #
+RESCUE prdmxedb2c:/mnt/local # mount -t proc none /mnt/local/proc
+RESCUE prdmxedb2c:/mnt/local #
+RESCUE prdmxedb2c:/mnt/local # mount -t sysfs none /mnt/local/sys
+RESCUE prdmxedb2c:/mnt/local #
+RESCUE prdmxedb2c:/mnt/local # mount -o bind /dev /mnt/local/dev
+RESCUE prdmxedb2c:/mnt/local #
+RESCUE prdmxedb2c:/mnt/local # mount -o bind /dev/pts /mnt/local/dev/pts
+RESCUE prdmxedb2c:/mnt/local #
+RESCUE prdmxedb2c:/mnt/local # chroot /mnt/local/ bash --login
+
+[root@prdmxedb2c /]# grub2-install /dev/sda
+Installing for x86_64-efi platform.
+[root@prdmxedb2c /]# grub2-install --efi-directory=/boot/efi/EFI/
+Installing for x86_64-efi platform.
+grub2-install: error: /boot/efi/EFI/ doesn't look like an EFI partition.
+[root@prdmxedb2c /]# mount |grep /boot/efi
+[root@prdmxedb2c /]#
+</code></pre>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):<br />
+<a href="https://github.com/rear/rear/files/13353707/rear-prdmxedb2c.log">rear-prdmxedb2c.log</a></p>
+</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-11-14_1854"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1810958489">2023-11-14 18:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-14_1854" title="Permanent link">&para;</a></h4>
+<p>Something is strange here with the disk layout. The log file
+rear-prdmxedb2c.log from rear mkbackup that you have provided contains
+this:</p>
+<pre><code>2023-11-10 09:31:00.808093903 Including layout/save/GNU/Linux/200_partition_layout.sh
+2023-11-10 09:31:00.816095728 Saving disk partitions.
+2023-11-10 09:31:00.848321299 No partitions found on /dev/sda.
+2023-11-10 09:31:00.853154007 Ignoring sdaa: it is a path of a multipath device
+2023-11-10 09:31:00.857753511 Ignoring sdab: it is a path of a multipath device
+2023-11-10 09:31:00.998488620 No partitions found on /dev/sdc.
+blockdev: cannot open /dev/sdd: No medium found
+Error: Error opening /dev/sdd: No medium found
+2023-11-10 09:31:01.018947740 No partitions found on /dev/sdd.
+2023-11-10 09:31:01.023260842 Ignoring sde: it is a path of a multipath device
+2023-11-10 09:31:01.027483774 Ignoring sdf: it is a path of a multipath device
+2023-11-10 09:31:01.031766858 Ignoring sdg: it is a path of a multipath device
+2023-11-10 09:31:01.035916230 Ignoring sdh: it is a path of a multipath device
+2023-11-10 09:31:01.040546538 Ignoring sdi: it is a path of a multipath device
+2023-11-10 09:31:01.045318859 Ignoring sdj: it is a path of a multipath device
+2023-11-10 09:31:01.049686416 Ignoring sdk: it is a path of a multipath device
+2023-11-10 09:31:01.053950752 Ignoring sdl: it is a path of a multipath device
+2023-11-10 09:31:01.058101938 Ignoring sdm: it is a path of a multipath device
+2023-11-10 09:31:01.062242676 Ignoring sdn: it is a path of a multipath device
+2023-11-10 09:31:01.066522726 Ignoring sdo: it is a path of a multipath device
+2023-11-10 09:31:01.070624857 Ignoring sdp: it is a path of a multipath device
+2023-11-10 09:31:01.074737913 Ignoring sdq: it is a path of a multipath device
+2023-11-10 09:31:01.078826746 Ignoring sdr: it is a path of a multipath device
+2023-11-10 09:31:01.082833970 Ignoring sds: it is a path of a multipath device
+2023-11-10 09:31:01.086917017 Ignoring sdt: it is a path of a multipath device
+2023-11-10 09:31:01.091054416 Ignoring sdu: it is a path of a multipath device
+2023-11-10 09:31:01.095243958 Ignoring sdv: it is a path of a multipath device
+2023-11-10 09:31:01.099458738 Ignoring sdw: it is a path of a multipath device
+2023-11-10 09:31:01.103570195 Ignoring sdx: it is a path of a multipath device
+2023-11-10 09:31:01.107793229 Ignoring sdy: it is a path of a multipath device
+2023-11-10 09:31:01.111910121 Ignoring sdz: it is a path of a multipath device
+2023-11-10 09:31:01.115785995 Including layout/save/GNU/Linux/210_raid_layout.sh
+2023-11-10 09:31:01.120199989 Including layout/save/GNU/Linux/220_lvm_layout.sh
+2023-11-10 09:31:01.121547523 Saving LVM layout.
+2023-11-10 09:31:01.339994070 Including layout/save/GNU/Linux/230_filesystem_layout.sh
+2023-11-10 09:31:01.341408633 Begin saving filesystem layout
+2023-11-10 09:31:01.343919660 Saving filesystem layout (using the findmnt command).
+2023-11-10 09:31:01.365768321 Processing filesystem 'xfs' on '/dev/mapper/3624a9370ed4226a2973a4882000113e6' mounted at '/pg_wal_archive'
+2023-11-10 09:31:01.384817687 Processing filesystem 'xfs' on '/dev/mapper/3624a9370ed4226a2973a4882000113e8' mounted at '/postgres'
+2023-11-10 09:31:01.403827442 Processing filesystem 'xfs' on '/dev/mapper/3624a9370ed4226a2973a4882000113e9' mounted at '/prdgpodb2c_mysql'
+2023-11-10 09:31:01.425108659 Processing filesystem 'xfs' on '/dev/mapper/ol-opt' mounted at '/opt'
+2023-11-10 09:31:01.460249459 Processing filesystem 'xfs' on '/dev/mapper/ol-root' mounted at '/'
+2023-11-10 09:31:01.494324116 Processing filesystem 'xfs' on '/dev/mapper/ol-var' mounted at '/var'
+2023-11-10 09:31:01.527943142 Processing filesystem 'vfat' on '/dev/sdb1' mounted at '/boot/efi'
+2023-11-10 09:31:01.564461921 Processing filesystem 'xfs' on '/dev/sdb2' mounted at '/boot'
+2023-11-10 09:31:01.591135727 End saving filesystem layout
+</code></pre>
+<p>I see several discrepancies with what you have in the recovered system:
+your system seems to be on <code>/dev/sda</code> while the original system was on
+<code>/dev/sdb</code> (ok, the disks may have changed order) and the root
+filesystem is XFS on the <code>/dev/sda1</code> partition, while in the original
+system it was on LVM, the <code>/dev/mapper/ol-root</code> LV, not on a partition
+(the first partition was the missing EFI system partition in fact). This
+should not happen. Can you please provide your disklayout.conf file
+under <code>/var/lib/rear/layout</code>? And is there anything relevant in the
+<code>rear recover</code> output before <code>Creating EFI Boot Manager entries...</code> ?
+Can you please provide also the recovery log?</p>
+<h4 id="lcascales_commented_at_2023-11-14_1924"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1811049834">2023-11-14 19:24</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-14_1924" title="Permanent link">&para;</a></h4>
+<p>Hi, as I noticed the mapping stated 2 disks , I was told to remove
+<code>/dev/sdb</code> as the objective was to check if the recover would proceed,
+as the 2nd disk also had 1.5TB and there wasn't enough space in the test
+environment storage. And when I see the recovered system <code>/etc/fstab</code>
+when I chroot into it , it did show something wasn't right. I can
+provide those once I get on the office in the morning, and yes I have
+the full output of the "rear recover" command.</p>
+<h4 id="lcascales_commented_at_2023-11-15_0810"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1811984210">2023-11-15 08:10</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_0810" title="Permanent link">&para;</a></h4>
+<p>so I'll just put the whole outpupt of "rear recover"</p>
+<pre><code>RESCUE prdmxedb2c:~ # rear -d -v recover
+Relax-and-Recover 2.4 / Git
+Using log file: /var/log/rear/rear-prdmxedb2c.log
+Running workflow recover within the ReaR rescue/recovery system
+Starting required daemons for NFS: RPC portmapper (portmap or rpcbind) and rpc.statd if available.
+Started RPC portmapper 'rpcbind'.
+RPC portmapper 'rpcbind' available.
+RPC status rpc.statd available.
+Started rpc.idmapd.
+For backup restore using  2023-11-08-1546-F.tar.gz 2023-11-10-0930-D.tar.gz
+Will do driver migration (recreating initramfs/initrd)
+Calculating backup archive size
+Backup archive size is 2.8G /tmp/rear.GorR1ZzNvfZCrV8/outputfs/prdmxedb2c/2023-11-08-1546-F.tar.gz (compressed)
+Calculating backup archive size
+Backup archive size is 72M  /tmp/rear.GorR1ZzNvfZCrV8/outputfs/prdmxedb2c/2023-11-10-0930-D.tar.gz (compressed)
+Comparing disks
+Device sdb does not exist (manual configuration needed)
+Switching to manual disk layout configuration
+Original disk /dev/sdb does not exist (with same size) in the target system
+Using /dev/sda (the only appropriate) for recreating /dev/sdb
+Current disk mapping table (source -&gt; target):
+    /dev/sdb /dev/sda
+UserInput -I LAYOUT_MIGRATION_CONFIRM_MAPPINGS needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 211
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+2
+UserInput: Valid choice number result 'Edit disk mapping (/var/lib/rear/layout/disk_mappings)'
+
+/dev/sda
+~
+~
+:wq
+
+
+"/var/lib/rear/layout/disk_mappings" 1 line, 9 characters written
+
+
+Current disk mapping table (source -&gt; target):
+    /dev/sda
+UserInput -I LAYOUT_MIGRATION_CONFIRM_MAPPINGS needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 211
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+UserInput: Valid choice number result 'Confirm disk mapping and continue 'rear recover''
+User confirmed disk mapping
+Disk /dev/sdb and all dependant devices will not be recreated
+ERROR:
+====================
+BUG in /usr/share/rear/lib/layout-functions.sh line 784:
+'get_part_device_name_format function called without argument (device)'
+--------------------
+Please report this issue at https://github.com/rear/rear/issues
+and include the relevant parts from /var/log/rear/rear-prdmxedb2c.log
+preferably with full debug information via 'rear -d -D recover'
+====================
+Aborting due to an error, check /var/log/rear/rear-prdmxedb2c.log for details
+Exiting rear recover (PID 1388) and its descendant processes
+Running exit tasks
+You should also rm -Rf --one-file-system /tmp/rear.GorR1ZzNvfZCrV8
+Terminated
+RESCUE prdmxedb2c:~ # rm -Rf --one-file-system /tmp/rear.GorR1ZzNvfZCrV8
+RESCUE prdmxedb2c:~ # rear -d -v recover
+Relax-and-Recover 2.4 / Git
+Using log file: /var/log/rear/rear-prdmxedb2c.log
+Running workflow recover within the ReaR rescue/recovery system
+Starting required daemons for NFS: RPC portmapper (portmap or rpcbind) and rpc.statd if available.
+Started RPC portmapper 'rpcbind'.
+RPC portmapper 'rpcbind' available.
+RPC status rpc.statd available.
+Started rpc.idmapd.
+For backup restore using  2023-11-08-1546-F.tar.gz 2023-11-10-0930-D.tar.gz
+Will do driver migration (recreating initramfs/initrd)
+Calculating backup archive size
+Backup archive size is 2.8G /tmp/rear.2GCs8lruvbzdZUX/outputfs/prdmxedb2c/2023-11-08-1546-F.tar.gz (compressed)
+Calculating backup archive size
+Backup archive size is 72M  /tmp/rear.2GCs8lruvbzdZUX/outputfs/prdmxedb2c/2023-11-10-0930-D.tar.gz (compressed)
+Comparing disks
+Disk configuration looks identical
+UserInput -I DISK_LAYOUT_PROCEED_RECOVERY needed in /usr/share/rear/layout/prepare/default/250_compare_disks.sh line 146
+Proceed with recovery (yes) otherwise manual disk layout configuration is enforced
+(default 'yes' timeout 30 seconds)
+
+UserInput: No real user input (empty or only spaces) - using default input
+UserInput: No choices - result is 'yes'
+User confirmed to proceed with recovery
+Start system layout restoration.
+Disk layout created.
+Restoring from '/tmp/rear.2GCs8lruvbzdZUX/outputfs/prdmxedb2c/2023-11-08-1546-F.tar.gz' (restore log in /var/lib/rear/restore/recover.2023-11-08-1546-F.tar.gz.2362.restore.log) ...
+Restoring var/log/rear/rear-prdmxedb2c.log OK
+Restored 6739 MiB in 76 seconds [avg. 90809 KiB/sec]
+Restoring from '/tmp/rear.2GCs8lruvbzdZUX/outputfs/prdmxedb2c/2023-11-10-0930-D.tar.gz' (restore log in /var/lib/rear/restore/recover.2023-11-10-0930-D.tar.gz.2362.restore.log) ...
+Restored 181 MiB [avg. 92975 KiB/sec] OK
+Restored 300 MiB in 3 seconds [avg. 102604 KiB/sec]
+Restoring finished (verify backup restore log messages in /var/lib/rear/restore/recover.2023-11-10-0930-D.tar.gz.2362.restore.log)
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+Failed to 'chown UNKNOWN:UNKNOWN prdgpodb2c_mysql'
+Running mkinitrd...
+Updated initrd with new drivers for kernel 3.10.0-1160.el7.x86_64.
+Running mkinitrd...
+Updated initrd with new drivers for kernel 5.4.17-2102.201.3.el7uek.x86_64.
+Running mkinitrd...
+Updated initrd with new drivers for kernel 5.4.17-2136.318.7.1.el7uek.x86_64.
+Creating EFI Boot Manager entries...
+Unable to find ESP /boot/efi in layout
+Trying to determine device currently mounted at /mnt/local/boot/efi as fallback
+Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices)
+WARNING:
+For this system
+OracleServer/7 on Linux-i386 (based on Fedora/7/i386)
+there is no code to install a boot loader on the recovered system
+or the code that we have failed to install the boot loader correctly.
+Please contribute appropriate code to the Relax-and-Recover project,
+see http://relax-and-recover.org/development/
+Take a look at the scripts in /usr/share/rear/finalize,
+for example see the scripts
+/usr/share/rear/finalize/Linux-i386/210_install_grub.sh
+/usr/share/rear/finalize/Linux-i386/220_install_grub2.sh
+
+---------------------------------------------------
+|  IF YOU DO NOT INSTALL A BOOT LOADER MANUALLY,  |
+|  THEN YOUR SYSTEM WILL NOT BE ABLE TO BOOT.     |
+---------------------------------------------------
+
+You can use 'chroot /mnt/local bash --login'
+to change into the recovered system.
+You should at least mount /proc in the recovered system
+e.g. via 'mount -t proc none /mnt/local/proc'
+before you change into the recovered system
+and manually install a boot loader therein.
+
+Finished recovering your system. You can explore it under '/mnt/local'.
+Exiting rear recover (PID 2362) and its descendant processes
+Running exit tasks
+You should also rm -Rf --one-file-system /tmp/rear.2GCs8lruvbzdZUX
+</code></pre>
+<p>Listing the content of <code>disklayout.conf</code> :</p>
+<pre><code>:/var/lib/rear/layout # cat disklayout.conf
+# Disk /dev/sda
+# Format: disk &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt;
+#disk /dev/sda 900151926784 gpt
+# Partitions on /dev/sda
+# Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+# Disk /dev/sdb
+# Format: disk &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt;
+disk /dev/sdb 1600287760384 gpt
+# Partitions on /dev/sdb
+# Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+part /dev/sdb 209715200 1048576 EFI%20System%20Partition boot /dev/sdb1
+part /dev/sdb 1073741824 210763776 rear-noname none /dev/sdb2
+part /dev/sdb 201867657216 1284505600 rear-noname lvm /dev/sdb3
+part /dev/sdb 1397135580672 203152162816 rear-noname none /dev/sdb4
+# Disk /dev/sdc
+# Format: disk &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt;
+#disk /dev/sdc 6001048248320 gpt
+# Partitions on /dev/sdc
+# Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+# Disk /dev/sdd
+# Format: disk &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt;
+#disk /dev/sdd 0
+# Partitions on /dev/sdd
+# Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+# Format for LVM PVs
+# lvmdev &lt;volume_group&gt; &lt;device&gt; [&lt;uuid&gt;] [&lt;size(bytes)&gt;]
+lvmdev /dev/ol /dev/sdb3 BwxFt3-SXAT-bC9N-KV8x-65DL-8MlK-GLYIaA 394272768
+lvmdev /dev/ol /dev/sdb4 4RzhA8-igUP-tMZ8-kZt9-rL3G-LYIS-QqgeAy 2728780431
+# Format for LVM VGs
+# lvmgrp &lt;volume_group&gt; &lt;extentsize&gt; [&lt;size(extents)&gt;] [&lt;size(bytes)&gt;]
+lvmgrp /dev/ol 4096 381230 1561518080
+# Format for LVM LVs
+# lvmvol &lt;volume_group&gt; &lt;name&gt; &lt;size(bytes)&gt; &lt;layout&gt; [key:value ...]
+lvmvol /dev/ol opt 17179869184b linear
+lvmvol /dev/ol root 53687091200b linear
+lvmvol /dev/ol swap 21474836480b linear
+lvmvol /dev/ol var 109517471744b linear
+# Filesystems (only ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs are supported).
+# Format: fs &lt;device&gt; &lt;mountpoint&gt; &lt;fstype&gt; [uuid=&lt;uuid&gt;] [label=&lt;label&gt;] [&lt;attributes&gt;]
+#fs /dev/mapper/3624a9370ed4226a2973a4882000113e6 /pg_wal_archive xfs uuid=feeaa4ba-3dec-48bc-bc6d-8faec6ae4b75 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+#fs /dev/mapper/3624a9370ed4226a2973a4882000113e8 /postgres xfs uuid=2187ba27-2a14-41f7-8522-f5f8f1ca919e label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+#fs /dev/mapper/3624a9370ed4226a2973a4882000113e9 /prdgpodb2c_mysql xfs uuid=70a98bc4-b5f6-4e94-9d55-3e8b06404817 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/mapper/ol-opt /opt xfs uuid=c95e0a8b-ea09-44c1-8e02-8c28b0cafeb5 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,sunit=512,swidth=512,noquota
+fs /dev/mapper/ol-root / xfs uuid=499d59f6-3528-4a89-bce8-1ec2fa60de5f label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,sunit=512,swidth=512,noquota
+fs /dev/mapper/ol-var /var xfs uuid=6b93e965-7753-4938-906a-760cddb6bded label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,sunit=512,swidth=512,noquota
+fs /dev/sdb1 /boot/efi vfat uuid=92AA-9477 label= options=rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro
+fs /dev/sdb2 /boot xfs uuid=e416f8a3-52fc-42a2-a016-c25f4a9ce141 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,sunit=512,swidth=512,noquota
+# Swap partitions or swap files
+# Format: swap &lt;filename&gt; uuid=&lt;uuid&gt; label=&lt;label&gt;
+swap /dev/mapper/ol-swap uuid=c7a58ef2-c168-4e3f-aec1-4de0f1728539 label=
+#multipath /dev/mapper/3624a9370ed4226a2973a4882000113e8 1288490188800 /dev/sdaa,/dev/sdf,/dev/sdi,/dev/sdl,/dev/sdo,/dev/sdr,/dev/sdu,/dev/sdx
+#multipath /dev/mapper/3624a9370ed4226a2973a4882000113e6 858993459200 /dev/sdab,/dev/sdg,/dev/sdj,/dev/sdm,/dev/sdp,/dev/sds,/dev/sdv,/dev/sdy
+#multipath /dev/mapper/3624a9370ed4226a2973a4882000113e9 214748364800 /dev/sde,/dev/sdh,/dev/sdk,/dev/sdn,/dev/sdq,/dev/sdt,/dev/sdw,/dev/sdz
+</code></pre>
+<p>As for the recovery log... I'm afraid I might have overwritten when I
+mistakenly ran "rear -D mkrescue/mkbackup/recover" on the target VM when
+it hit me that was from the backup...</p>
+<p>But from from your initial comments, it seems that the target machine
+should have exactly the same resources as the original machine, as in
+devices?</p>
+<h4 id="jsmeix_commented_at_2023-11-15_0817"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1811992064">2023-11-15 08:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-15_0817" title="Permanent link">&para;</a></h4>
+<p>@lcascales</p>
+<p>is your original system still up and running<br />
+so you could redo things like "rear mkbackup"<br />
+or is your original system destroyed now<br />
+and you need to recover with what you have?</p>
+<p>If you your original system is still up and running<br />
+see the section<br />
+"Debugging issues with Relax-and-Recover" on<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+what information we usually need<br />
+to analyze and debug a "rear recover" failure.</p>
+<p>In general:</p>
+<p>Relax-and-Recover 2.4 is rather old.</p>
+<p>It was released in June 2018, see<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a></p>
+<p>Please test if it works for you when you use<br />
+our current ReaR GitHub master code.<br />
+See the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can try out our current ReaR GitHub master code<br />
+without conflicts with your already installed ReaR version.</p>
+<p>In general I recommend to try out our latest GitHub master code<br />
+because the GitHub master code is the only place where we fix things<br />
+and if there are issues it helps when you use exactly the code<br />
+where we could fix things.</p>
+<p>In general we at ReaR upstream do not support older ReaR versions.<br />
+We at ReaR upstream do not plain reject issues with older ReaR
+versions<br />
+(e.g. we may answer easy to solve questions also for older ReaR
+versions)<br />
+but we do not spend much time on issues with older ReaR versions
+because<br />
+we do not (and cannot) fix issues in released ReaR versions.<br />
+Issues in released ReaR versions are not fixed by us (by ReaR
+upstream).<br />
+Issues in released ReaR versions that got fixed in current ReaR
+upstream<br />
+GitHub master code might be fixed (if the fix can be backported with<br />
+reasonable effort) by the Linux distributor wherefrom you got ReaR.</p>
+<p>In case of Oracle Linux you may contact Oracle directly<br />
+provided you have an appropriate support contract.</p>
+<h4 id="pcahyna_commented_at_2023-11-15_0906"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812058462">2023-11-15 09:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-15_0906" title="Permanent link">&para;</a></h4>
+<pre><code>Original disk /dev/sdb does not exist (with same size) in the target system
+Using /dev/sda (the only appropriate) for recreating /dev/sdb
+Current disk mapping table (source -&gt; target):
+    /dev/sdb /dev/sda
+UserInput -I LAYOUT_MIGRATION_CONFIRM_MAPPINGS needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 211
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+2
+UserInput: Valid choice number result 'Edit disk mapping (/var/lib/rear/layout/disk_mappings)'
+
+/dev/sda
+~
+~
+:wq
+
+
+"/var/lib/rear/layout/disk_mappings" 1 line, 9 characters written
+
+
+Current disk mapping table (source -&gt; target):
+    /dev/sda
+</code></pre>
+<p>This does not look right. Isn't every line in the mapping file supposed
+to contain two entries: source and target? What did the file contain
+before you started editing it? Why to change it, actually - if you are
+replacing /dev/sdb with /dev/sda, the mapping looked correct as it was
+in the beginning?</p>
+<h4 id="pcahyna_commented_at_2023-11-15_0921"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812081420">2023-11-15 09:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-15_0921" title="Permanent link">&para;</a></h4>
+<p>TLDR: I suppose you should just redo the recovery and not touch the
+mapping file, looks like ReaR has determined the mapping right with its
+automatism.</p>
+<h4 id="lcascales_commented_at_2023-11-15_0941"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812113185">2023-11-15 09:41</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_0941" title="Permanent link">&para;</a></h4>
+<p>Yes, I was just given heads ups (only after) that /dev/sdb is in fact
+the boot disk...<br />
+Well, going to redo the process, will give feedback soon</p>
+<h4 id="pcahyna_commented_at_2023-11-15_1008"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812153032">2023-11-15 10:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-15_1008" title="Permanent link">&para;</a></h4>
+<p>well editing the mapping file this way would be wrong in any case, it is
+supposed to contain "source target" pairs.</p>
+<p>Recent ReaR performs some validation of the mapping file entries, but
+ReaR 2.4 seems to take them as they are and possibly produce nonsense if
+they are invalid.</p>
+<p>I also second the general suggestion to contact Oracle support about the
+version they ship.</p>
+<h4 id="jsmeix_commented_at_2023-11-15_1032"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812203949">2023-11-15 10:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-15_1032" title="Permanent link">&para;</a></h4>
+<p>@lcascales<br />
+only to be on the safe side:</p>
+<p>At</p>
+<pre><code>Original disk /dev/sdb does not exist (with same size) in the target system
+Using /dev/sda (the only appropriate) for recreating /dev/sdb
+Current disk mapping table (source -&gt; target):
+    /dev/sdb /dev/sda
+</code></pre>
+<p>before you</p>
+<pre><code>Confirm disk mapping and continue 'rear recover'
+</code></pre>
+<p>ensure that your /dev/sda is really the right disk<br />
+where "rear recover" should recreate the system<br />
+because "rear recover" will overwrite all what there is<br />
+on your /dev/sda disk.</p>
+<p>I write this because in<br />
+<a href="https://github.com/rear/rear/issues/3081#issuecomment-1812113185">https://github.com/rear/rear/issues/3081#issuecomment-1812113185</a><br />
+you talked about "/dev/sdb is in fact the boot disk".<br />
+Currently I cannot see what disks you have<br />
+on your original system for what purpose<br />
+versus<br />
+what disks there are on your replacement hardware<br />
+and for what purpose these are intended.</p>
+<h4 id="jsmeix_commented_at_2023-11-15_1046"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812238635">2023-11-15 10:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-15_1046" title="Permanent link">&para;</a></h4>
+<p>I think in<br />
+<a href="https://github.com/rear/rear/issues/3081#issuecomment-1811984210">https://github.com/rear/rear/issues/3081#issuecomment-1811984210</a></p>
+<pre><code>Current disk mapping table (source -&gt; target):
+    /dev/sda
+UserInput -I LAYOUT_MIGRATION_CONFIRM_MAPPINGS needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 211
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+UserInput: Valid choice number result 'Confirm disk mapping and continue 'rear recover''
+User confirmed disk mapping
+Disk /dev/sdb and all dependant devices will not be recreated
+</code></pre>
+<p>shows how that attempt failed.<br />
+The</p>
+<pre><code>Disk ... and all dependant devices will not be recreated
+</code></pre>
+<p>message comes in ReaR 2.4 from<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/layout/prepare/default/300_map_disks.sh#L237">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/layout/prepare/default/300_map_disks.sh#L237</a></p>
+<h4 id="lcascales_commented_at_2023-11-15_1237"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812463849">2023-11-15 12:37</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_1237" title="Permanent link">&para;</a></h4>
+<p>well, I added one more disk to the VM (so two disks of 80G) , just to
+make it equal to the original machine.</p>
+<p>So no go, with that size anyway...</p>
+<pre><code>RESCUE prdmxedb2c:~ # rear -d -v recover
+Relax-and-Recover 2.4 / Git
+Using log file: /var/log/rear/rear-prdmxedb2c.log
+Running workflow recover within the ReaR rescue/recovery system
+Starting required daemons for NFS: RPC portmapper (portmap or rpcbind) and rpc.statd if available.
+Started RPC portmapper 'rpcbind'.
+RPC portmapper 'rpcbind' available.
+RPC status rpc.statd available.
+Started rpc.idmapd.
+For backup restore using  2023-11-08-1546-F.tar.gz 2023-11-10-0930-D.tar.gz
+Will do driver migration (recreating initramfs/initrd)
+Calculating backup archive size
+Backup archive size is 2.8G /tmp/rear.ZkW5KNDPoku5qUE/outputfs/prdmxedb2c/2023-11-08-1546-F.tar.gz (compressed)
+Calculating backup archive size
+Backup archive size is 72M  /tmp/rear.ZkW5KNDPoku5qUE/outputfs/prdmxedb2c/2023-11-10-0930-D.tar.gz (compressed)
+Comparing disks
+Device sdb has size 85899345920 but 1600287760384 is expected (needs manual configuration)
+Switching to manual disk layout configuration
+Original disk /dev/sdb does not exist (with same size) in the target system
+UserInput -I LAYOUT_MIGRATION_REPLACEMENT_SDB needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 176
+Choose an appropriate replacement for /dev/sdb
+1) /dev/sda
+2) /dev/sdb
+3) Do not map /dev/sdb
+4) Use Relax-and-Recover shell and return back to here
+(default '1' timeout 300 seconds)
+1
+UserInput: Valid choice number result '/dev/sda'
+Using /dev/sda (chosen by user) for recreating /dev/sdb
+Current disk mapping table (source -&gt; target):
+    /dev/sdb /dev/sda
+UserInput -I LAYOUT_MIGRATION_CONFIRM_MAPPINGS needed in /usr/share/rear/layout/prepare/default/300_map_disks.sh line 211
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+
+UserInput: No real user input (empty or only spaces) - using default input
+UserInput: Valid choice number result 'Confirm disk mapping and continue 'rear recover''
+User confirmed disk mapping
+Examining /dev/sda to automatically resize its last active partition
+Checking /dev/sda1 if it is the last partition on /dev/sda
+Checking /dev/sda2 if it is the last partition on /dev/sda
+Checking /dev/sda3 if it is the last partition on /dev/sda
+Checking /dev/sda4 if it is the last partition on /dev/sda
+Found 'rear-noname' partition /dev/sda4 as last partition on /dev/sda
+Determining if last partition /dev/sda4 is resizeable
+Determining new size for last partition /dev/sda4
+ERROR: No space for last partition /dev/sda4 on new disk (new last partition size would be less than 1 MiB)
+Aborting due to an error, check /var/log/rear/rear-prdmxedb2c.log for details
+Exiting rear recover (PID 1562) and its descendant processes
+Running exit tasks
+You should also rm -Rf --one-file-system /tmp/rear.ZkW5KNDPoku5qUE
+Terminated
+</code></pre>
+<p>But other than that, it could work without an issue I guess?</p>
+<h4 id="lcascales_commented_at_2023-11-15_1257"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812490914">2023-11-15 12:57</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_1257" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I write this because in <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812113185">#3081
+(comment)</a>
+you talked about "/dev/sdb is in fact the boot disk". Currently I
+cannot see what disks you have on your original system for what
+purpose versus what disks there are on your replacement hardware and
+for what purpose these are intended.</p>
+</blockquote>
+<pre><code># cat /var/lib/rear/layout/config/df.txt
+Filesystem                                    1048576-blocks   Used Available Capacity Mounted on
+/dev/mapper/ol-root                                   51175M  8232M    42944M      17% /
+/dev/sdb2                                              1014M   239M      776M      24% /boot
+/dev/mapper/3624a9370ed4226a2973a4882000113e9        204700M 16064M   188637M       8% /prdgpodb2c_mysql
+/dev/mapper/ol-opt                                    16374M   107M    16268M       1% /opt
+/dev/mapper/ol-var                                   104394M  1055M   103339M       2% /var
+/dev/sdb1                                               200M     8M      193M       4% /boot/efi
+/dev/mapper/3624a9370ed4226a2973a4882000113e8       1228200M    33M  1228168M       1% /postgres
+/dev/mapper/3624a9370ed4226a2973a4882000113e6        818800M    33M   818768M       1% /pg_wal_archive
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-11-15_1301"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812500158">2023-11-15 13:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-15_1301" title="Permanent link">&para;</a></h4>
+<p>@lcascales<br />
+normally you need a sufficiently big replacement disk.<br />
+For details see the section about</p>
+<pre><code># AUTORESIZE_PARTITIONS
+# AUTORESIZE_EXCLUDE_PARTITIONS
+# AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE
+# AUTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
+</code></pre>
+<p>in usr/share/rear/conf/default.conf<br />
+which is for ReaR 2.4 online at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/conf/default.conf#L368">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/conf/default.conf#L368</a></p>
+<p>Because you use LVM<br />
+but this does not resize volumes<br />
+on top of the affected partitions,<br />
+only autoshrinking partitions likely does not work<br />
+because when partitions are autoshrinked that are used<br />
+as PVs for LVM then there is likely not sufficient space<br />
+to create the logical volumes (unless you have sufficient<br />
+unused space so that there is still sufficient space<br />
+on the autoshrinked PVs).</p>
+<h4 id="jsmeix_commented_at_2023-11-15_1333"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812545403">2023-11-15 13:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-15_1333" title="Permanent link">&para;</a></h4>
+<p>@lcascales</p>
+<p>FYI:<br />
+Since ReaR version 2.7 we have<br />
+<a href="https://github.com/rear/rear/pull/2591">https://github.com/rear/rear/pull/2591</a></p>
+<h4 id="pcahyna_commented_at_2023-11-15_1334"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812546974">2023-11-15 13:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-15_1334" title="Permanent link">&para;</a></h4>
+<p>Sorry, I have not realized at first that you are trying to replace a 1.5
+TB disk with a 80 GB one.</p>
+<h4 id="lcascales_commented_at_2023-11-15_1512"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812719705">2023-11-15 15:12</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_1512" title="Permanent link">&para;</a></h4>
+<p>hmm, going to try assigning a disk with that capacity, with thin
+provisioning.</p>
+<h4 id="lcascales_commented_at_2023-11-15_1610"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812830155">2023-11-15 16:10</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_1610" title="Permanent link">&para;</a></h4>
+<p>It worked, should have thought of the thin-provisioning earlier...
+waiting on some credencials from the real machine to log on, well at
+least that part is sorted.</p>
+<p>Thanks for your insights.<br />
+As for rear 2.4, it seems is the latest version suported by
+Oracle/CentOS/RHEL 7 , our client still doesn't feel the need to
+upgrade...</p>
+<h4 id="lcascales_commented_at_2023-11-15_1742"><img src="https://avatars.githubusercontent.com/u/37254047?u=ec602d5e1f80bbd5c7bb41b5560e87fdc6d877f0&v=4" width="50"><a href="https://github.com/lcascales">lcascales</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1812983426">2023-11-15 17:42</a>:<a class="headerlink" href="#lcascales_commented_at_2023-11-15_1742" title="Permanent link">&para;</a></h4>
+<p>Update: after detaching the ISO the system booted correctly and we're
+going to do further tests to the machine in our lab environment to check
+the reliability of the backup.</p>
+<h4 id="jsmeix_commented_at_2023-11-16_0830"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3081#issuecomment-1813993881">2023-11-16 08:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-16_0830" title="Permanent link">&para;</a></h4>
+<p>A generic side note FYI:</p>
+<p>When an older ReaR version (like ReaR 2.4)<br />
+is the latest version that is suported<br />
+by this or that Linux distribution<br />
+or by another organization or vendor,<br />
+and the user of this ReaR version<br />
+prefers to use that older ReaR version,<br />
+then the user must ask for support at his<br />
+Linux distribution or organization or vendor<br />
+who supports that older ReaR version.</p>
+<p>Cf. above<br />
+<a href="https://github.com/rear/rear/issues/3081#issuecomment-1811992064">https://github.com/rear/rear/issues/3081#issuecomment-1811992064</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-14.3081.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

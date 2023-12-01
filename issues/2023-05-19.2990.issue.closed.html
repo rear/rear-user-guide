@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2990 Issue closed: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2990 Issue closed: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config";
+        var mkdocs_page_input_path = "issues/2023-05-19.2990.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2990 Issue closed: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2990_issue_closed_rear_recover_failed_for_ubuntu_server_2004_mdadm_xfs_raid-1_disk_config"><a href="https://github.com/rear/rear/issues/2990">#2990 Issue</a> <code>closed</code>: rear recover failed for Ubuntu Server 20.04 mdadm XFS RAID-1 disk config<a class="headerlink" href="#2990_issue_closed_rear_recover_failed_for_ubuntu_server_2004_mdadm_xfs_raid-1_disk_config" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="danboid_opened_issue_at_2023-05-19_1406"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> opened issue at <a href="https://github.com/rear/rear/issues/2990">2023-05-19 14:06</a>:<a class="headerlink" href="#danboid_opened_issue_at_2023-05-19_1406" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>2.7 - installed using Ubuntu 23.04 .deb</p>
+<ul>
+<li>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</li>
+</ul>
+<p>Ubuntu Server 20.04.6 amd64</p>
+<ul>
+<li>ReaR configuration files - /etc/rear/local.conf</li>
+</ul>
+<!-- -->
+
+<pre><code>### write the rescue initramfs to USB and update the USB bootloader
+OUTPUT=USB
+
+### create a backup using the internal NETFS method, using 'tar'
+BACKUP=NETFS
+
+### write both rescue image and backup to the device labeled REAR-000
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+</code></pre>
+<ul>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</li>
+</ul>
+<p>Viglen i7 desktop</p>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<p>amd64</p>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</li>
+</ul>
+<p>UEFI</p>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<p>Local USB 3.0 disk</p>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>I want to use rear to backup and recover Ubuntu Server machines
+installed using mdadm software RAID (RAID-10 in production, RAID-1 here)
+but I have not been able to get <code>rear recover</code> to work with my mdadm
+RAID-1 test box, it errors out with
+<code>The disk layout recreation script failed</code></p>
+<p>My test machine has 2x SATA 3.0 disks. The slightly odd thing about this
+test box is that the disks are of different sizes - one is 500 GB and
+the other is ~ 250 GB so I created a 222 GB partition on each for mdadm
+to use for the RAID-1 array which I format with XFS. I would've expected
+both disks not being the same same shouldn't be an issue for rear
+because Ubuntu doesn't have an issue with this?</p>
+<p>Note that I also install Ubuntu server so that it uses multiple UEFI
+boot partitions. rear supports backing up and recovering multiple UEFI
+partitions I presume? I think this was introduced in the Ubuntu server
+20.04 installer - very useful feature!</p>
+<p>In this test I installed Ubuntu Server 20.04.6, installed rear 2.7, did
+a backup then <code>rm -rf --no-preserve-root /</code>'d the disk so most/all of
+the files were deleted but the partition layout / mdadm config remained
+before booting off the rear disk and running <code>rear recover</code>. I am not
+using LVM or (LUKS) disk encryption. The recover log is attached.</p>
+<p><a href="https://github.com/rear/rear/files/11517604/rear-testa.log">rear-testa.log</a></p>
+<h4 id="danboid_commented_at_2023-05-19_1436"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1554688962">2023-05-19 14:36</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-19_1436" title="Permanent link">&para;</a></h4>
+<p>I have also tried manually wiping both disks using <code>sgdisk --zap-all</code>
+before running <code>rear recover</code> but it fails at the same point, just after
+it tries to create /dev/md0 with
+<code>The disk layout recreation script failed</code>.</p>
+<h4 id="danboid_commented_at_2023-05-19_1445"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1554702114">2023-05-19 14:45</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-19_1445" title="Permanent link">&para;</a></h4>
+<p>rear spat out a few extra errors after quitting it which I don't think
+made it into that log</p>
+<p><img alt="rear-md-recovery-errors" src="https://github.com/rear/rear/assets/1429783/54de2505-4b33-41b8-a12b-da61aec9eda4" /></p>
+<h4 id="jsmeix_commented_at_2023-05-22_1138"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1557062617">2023-05-22 11:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-22_1138" title="Permanent link">&para;</a></h4>
+<p>I didn't look at the details but because you wrote</p>
+<pre><code>most/all of the files were deleted
+but the partition layout / mdadm config remained
+</code></pre>
+<p>see the section<br />
+"Prepare replacement hardware for disaster recovery" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+therein in particular the part about</p>
+<pre><code>When your replacement storage is not pristine
+new storage (i.e. when it had been ever used before),
+you must completely zero out your replacement storage.
+Otherwise ...
+</code></pre>
+<p>See also 'DISKS_TO_BE_WIPED'<br />
+in usr/share/rear/conf/default.conf<br />
+or online for ReaR 2.7 at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L440">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L440</a></p>
+<h4 id="danboid_commented_at_2023-05-22_1141"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1557066841">2023-05-22 11:41</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-22_1141" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>It seems rear is supposed to support mdadm. Has nobody tested it with
+multiple UEFI partitions?</p>
+<p>I have noticed that if I choose <code>View original disk space usage</code> in rear
+recover (after the disk layout recreation error) it lists /dev/md0 ,
+/dev/sda1 as /boot/efi (so only one EFI partition, only one would be
+active at the time of creating the backup ofc) then 4 loop mounts for
+snap packages. Does that sound right?</p>
+<p>In response to your reply, I have tried using sgdisk to wipe both disks
+so that all partitioning/mdadm info is removed yet it still fails at the
+same point. I initially tried to restore after just deleting files from
+md0, which is a "more likely" scenario.</p>
+<h4 id="danboid_commented_at_2023-05-22_1148"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1557075930">2023-05-22 11:48</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-22_1148" title="Permanent link">&para;</a></h4>
+<p>I didn't use "'DISKS_TO_BE_WIPED'" when I was creating the backup.</p>
+<p>How do I enable this when doing a recover? I'm not expecting it will fix
+my issue because as I said, I've already tried restoring after manually
+wiping them using <code>sgdisk --zap-all</code></p>
+<h4 id="danboid_commented_at_2023-05-22_1516"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1557408180">2023-05-22 15:16</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-22_1516" title="Permanent link">&para;</a></h4>
+<p><code>wipefs</code> seems to be causing problems.</p>
+<p>I have noticed that even if both of my SATA disks that I wish to restore
+to are totally wiped already before I run <code>rear recover</code>, rear still
+insists on running <code>wipefs</code> on both.</p>
+<p>If I try running <code>wipefs -a /dev/sda2</code> from the rear command line I get
+the error:</p>
+<p><code>wipefs: error: /dev/sda2: probing initialization failed: Device or resource busy</code></p>
+<p>Surely there is no need to run <code>wipefs</code> on the partitions if they're
+newly created? Why not use <code>sgdisk</code> instead of <code>wipefs</code> for when wiping
+partitions is required?</p>
+<h4 id="danboid_commented_at_2023-05-23_1900"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1559979457">2023-05-23 19:00</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-23_1900" title="Permanent link">&para;</a></h4>
+<p>I'll try this again tomorrow but using</p>
+<p><code>wipefs -af /dev/sda2</code></p>
+<p>rear 2.7 doesn't currently seem to use the -f (force) option with
+<code>wipefs</code>, it could be necessary in my case to use force for it to work
+at all?</p>
+<p><a href="https://askubuntu.com/questions/926698/wipefs-device-or-resource-busy">https://askubuntu.com/questions/926698/wipefs-device-or-resource-busy</a></p>
+<h4 id="jsmeix_commented_at_2023-05-24_0516"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1560470135">2023-05-24 05:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-24_0516" title="Permanent link">&para;</a></h4>
+<p>Ah! Now I see it:<br />
+In
+usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh<br />
+we have</p>
+<pre><code>cleanup_command="wipefs --all --force $device || wipefs --all $device || dd if=/dev/zero of=$device bs=512 count=1 || true"
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh#L35">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh#L35</a><br />
+BUT<br />
+in usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh<br />
+we have only</p>
+<pre><code>wipefs -a \$component_device
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh#L93">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh#L93</a></p>
+<p>@danboid<br />
+try if it works better for you when you replace in your<br />
+usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh</p>
+<pre><code>wipefs -a \$component_device
+</code></pre>
+<p>with</p>
+<pre><code>wipefs -af \$component_device
+</code></pre>
+<p>but '-f' may not work because "man wipefs" tells</p>
+<pre><code>-f, --force
+Force erasure, even if the filesystem is mounted.
+This is required in order to erase
+a partition-table signature on a block device.
+</code></pre>
+<p>and I think in your case it is not yet mounted<br />
+so '-f' may not improve things in your case.<br />
+Nevertheless please try out if it helps.</p>
+<h4 id="danboid_commented_at_2023-05-24_1316"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1561130055">2023-05-24 13:16</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-24_1316" title="Permanent link">&para;</a></h4>
+<p>I replaced<br />
+<code>wipefs -a \$component_device</code> in
+<code>usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh</code></p>
+<p>with</p>
+<p><code>wipefs -af \$component_device</code></p>
+<p>but <code>rear recover</code> still fails at the same step (disk layout recreation)
+but with a different error now. When I quit out of rear it spews:</p>
+<pre><code>mdadm: super1.x cannot open /dev/sda2: Device or resource busy
+mdadm: /dev/sda2 is not suitable for this array.
+mdadm: super1.x cannot open /dev/sdb2: Device or resource busy
+mdadm: /dev/sdb2 is not suitable for this array.
+mdadm: create aborted
+</code></pre>
+<p>So yes, I think -af is needed but thats not all that needs to change.</p>
+<h4 id="danboid_commented_at_2023-05-24_1324"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1561148098">2023-05-24 13:24</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-24_1324" title="Permanent link">&para;</a></h4>
+<p>Woohoo!</p>
+<p>It works!</p>
+<p>I didn't change anything else, I just re-ran <code>rear recover</code> after my
+failed attempt and it worked on my second attempt. Maybe its just a case
+of adding a short <code>sleep</code> after running <code>wipefs</code>?</p>
+<h4 id="pcahyna_commented_at_2023-05-24_1327"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1561154428">2023-05-24 13:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-05-24_1327" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Ah! Now I see it: In
+usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh
+we have</p>
+<pre><code>cleanup_command="wipefs --all --force $device || wipefs --all $device || dd if=/dev/zero of=$device bs=512 count=1 || true"
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh#L35">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/131_include_filesystem_code.sh#L35</a>
+BUT in
+usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh we
+have only</p>
+<pre><code>wipefs -a \$component_device
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh#L93">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh#L93</a></p>
+</blockquote>
+<p>Not particularly related to the issue here, but to me it seems that
+wiping a filesystem that is currently mounted is a bad idea.</p>
+<h4 id="danboid_commented_at_2023-05-24_1412"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1561239894">2023-05-24 14:12</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-24_1412" title="Permanent link">&para;</a></h4>
+<p>I made a very similar comment @pcahyna, it seems unnecessary to me too.</p>
+<p>I was successfully able to boot the restored system from either disk
+after unplugging one so yes, multiple UEFI partitions does seem to work
+with rear and mdadm.</p>
+<h4 id="jsmeix_commented_at_2023-05-25_0816"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1562481526">2023-05-25 08:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-25_0816" title="Permanent link">&para;</a></h4>
+<p>The wipefs '--force' option originated in<br />
+<a href="https://github.com/rear/rear/issues/1327">https://github.com/rear/rear/issues/1327</a></p>
+<pre><code>+++ wipefs -a /dev/sda1
+wipefs: /dev/sda1: ignoring nested "dos" partition table on non-whole disk device
+wipefs: Use the --force option to force erase.
++++ mkfs -t ext3 -b 4096 -i 16384 -U 5dc25119-fc7c-4d93-93fb-2b26a6916036 /dev/sda1
+mke2fs 1.42.11 (09-Jul-2014)
+Found a dos partition table in /dev/sda1
+Proceed anyway? (y,n)
+</code></pre>
+<p>at<br />
+<a href="https://github.com/rear/rear/issues/1327#issuecomment-296662350">https://github.com/rear/rear/issues/1327#issuecomment-296662350</a><br />
+and it was confirmed in<br />
+<a href="https://github.com/rear/rear/issues/1327#issuecomment-297002650">https://github.com/rear/rear/issues/1327#issuecomment-297002650</a><br />
+that it works this way<br />
+so it became implemented via<br />
+<a href="https://github.com/rear/rear/commit/bcf7c1d2f528efd9e558a9c76f4fa632c2010cf1">https://github.com/rear/rear/commit/bcf7c1d2f528efd9e558a9c76f4fa632c2010cf1</a><br />
+which shows that before it had been</p>
+<pre><code>wipefs_command="wipefs -a $device"
+</code></pre>
+<p>which I had initially implemented via<br />
+<a href="https://github.com/rear/rear/commit/997d4b345bae9ec5f2c81c2df09bf4a87bc456a9">https://github.com/rear/rear/commit/997d4b345bae9ec5f2c81c2df09bf4a87bc456a9</a></p>
+<h4 id="jsmeix_commented_at_2023-05-25_0823"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1562490710">2023-05-25 08:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-25_0823" title="Permanent link">&para;</a></h4>
+<p>I don't like to spend any more of my time in this snakepit.<br />
+I appreciate all valuable contributions to ReaR<br />
+which make this stuff actually work preferably<br />
+in all cases for all kind of users with all their<br />
+different use cases ideally simply just automatically.</p>
+<h4 id="danboid_commented_at_2023-05-25_1125"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1562736962">2023-05-25 11:25</a>:<a class="headerlink" href="#danboid_commented_at_2023-05-25_1125" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>So you're saying that you don't want to add the wipefs force option? I
+can commit the change if you want. I think you're referring to whether
+or not we carry on using wipefs as it is right?</p>
+<p>I'm going to be doing some more testing with Ubuntu server, mdadm and
+rear, maybe tomorrow if not soon. I'm going to test that md RAID 10
+restores with 4 UEFI partitions works. I presume it will now I've got md
+RAID 1 working so if there's anything you'd like me to test out when
+doing that then let me know.</p>
+<h4 id="jsmeix_commented_at_2023-05-25_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1562784279">2023-05-25 12:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-05-25_1203" title="Permanent link">&para;</a></h4>
+<p>The wipefs force option got added because of a user case<br />
+but now this is considered unnecessary and a bad idea<br />
+so I leave it to others to implement something better<br />
+that behaves properly in all (possibly conflicting) cases.</p>
+<h4 id="jsmeix_commented_at_2023-06-02_0955"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1573467046">2023-06-02 09:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-06-02_0955" title="Permanent link">&para;</a></h4>
+<p>From my (limited) experience with several issues like this<br />
+which we had here in the past the common root cause is:<br />
+The replacement storage does not behave same as pristine<br />
+new storage i.e. replacement disks had been used before<br />
+but were not completely zeroed out before "rear recover".</p>
+<p>All those 'wipefs' and 'dd ... if=/dev/zero' things<br />
+during "rear recover" can be only best effort attempts<br />
+to mitigate bad effects when "rear recover" runs on hardware<br />
+(or virtual machines) with used but not cleaned target disks.</p>
+<h4 id="danboid_commented_at_2023-06-07_1251"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1580752239">2023-06-07 12:51</a>:<a class="headerlink" href="#danboid_commented_at_2023-06-07_1251" title="Permanent link">&para;</a></h4>
+<p>I have now tested using rear to recover a Ubuntu server 20.04.6 mdadm
+RAID 10 install and it works fine provided I choose option #2 (Confirm
+identical disk mapping and proceed without manual configuration) after
+running <code>rear recover</code>.</p>
+<h4 id="pcahyna_commented_at_2023-06-07_1313"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1580790289">2023-06-07 13:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-06-07_1313" title="Permanent link">&para;</a></h4>
+<p>@danboid if you have a setup that exhibited the problem, could you
+please try investigating what was the root cause? See
+<a href="https://github.com/rear/rear/pull/2996#issuecomment-1572076921">https://github.com/rear/rear/pull/2996#issuecomment-1572076921</a>
+.</p>
+<h4 id="danboid_commented_at_2023-06-07_1944"><img src="https://avatars.githubusercontent.com/u/1429783?u=a0df565fd8514694c44d920a0e7bd5d81a16ccbc&v=4" width="50"><a href="https://github.com/danboid">danboid</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1581408861">2023-06-07 19:44</a>:<a class="headerlink" href="#danboid_commented_at_2023-06-07_1944" title="Permanent link">&para;</a></h4>
+<p>I'll do that on Friday, it seems I have another bug to report in rear
+2.7 and I also have another suggestion or two regarding <code>rear recover</code>.</p>
+<h4 id="github-actions_commented_at_2023-08-07_0219"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1667089219">2023-08-07 02:19</a>:<a class="headerlink" href="#github-actions_commented_at_2023-08-07_0219" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="pcahyna_commented_at_2023-08-07_1553"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1668136553">2023-08-07 15:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-07_1553" title="Permanent link">&para;</a></h4>
+<p>Hi @danboid , can you please try what I suggested in
+<a href="https://github.com/rear/rear/pull/2996#issuecomment-1572076921">https://github.com/rear/rear/pull/2996#issuecomment-1572076921</a>
+?</p>
+<h4 id="github-actions_commented_at_2023-10-08_0206"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2990#issuecomment-1751893319">2023-10-08 02:06</a>:<a class="headerlink" href="#github-actions_commented_at_2023-10-08_0206" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-05-19.2990.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3041 PR open: Reorder systemd units in the rescue system and make sure syslog is started - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3041 PR open: Reorder systemd units in the rescue system and make sure syslog is started";
+        var mkdocs_page_input_path = "issues/2023-08-11.3041.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3041 PR open: Reorder systemd units in the rescue system and make sure syslog is started</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3041_pr_open_reorder_systemd_units_in_the_rescue_system_and_make_sure_syslog_is_started"><a href="https://github.com/rear/rear/pull/3041">#3041 PR</a> <code>open</code>: Reorder systemd units in the rescue system and make sure syslog is started<a class="headerlink" href="#3041_pr_open_reorder_systemd_units_in_the_rescue_system_and_make_sure_syslog_is_started" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code></p>
+<h4 id="pcahyna_opened_issue_at_2023-08-11_1441"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3041">2023-08-11 14:41</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2023-08-11_1441" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Boot of the rescue environment on RHEL 9, and logging a large number
+    of log messages via <code>for i in $(seq 1 1000); do logger foo$i; done</code></p>
+</li>
+<li>
+<p>Brief description of the changes in this pull request:</p>
+<ul>
+<li>Configure network-online.target in rescue system. Services that
+    need network to be configured can be made to be run after this
+    target. This matches the usual systemd setup:
+    <a href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/">https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/</a>
+    . Intended especially for 3rd party network backup solutions
+    where restore needs some daemon running and communicating over
+    network in the rescue system.</li>
+<li>Automated ReaR startup is now a separate script and systemd
+    unit, not part of sysinit.service.</li>
+<li>Make sysinit.service start early in rescue boot. The
+    /etc/scripts/system-setup script is intended to start early and
+    perform basic system initialization (according to /etc/inittab
+    and /etc/init/rcS.conf in the pre-systemd configs). Make the
+    sysinit.service that starts the script under systemd part of
+    sysinit.target so that even with systemd it starts early. Order
+    /etc/scripts/boot, executed by rear-boot-helper.service, before
+    sysinit.service.</li>
+<li>Make multi-user target in rescue require basic target, otherwise
+    the services and sockets required by basic target are never
+    started (and thus logging does not work because rsyslog is not
+    started).</li>
+<li>Fix syslog: start it after rescue system init (sysinit.target)
+    as it used to be the case without systemd: see /etc/inittab. For
+    some reason, starting syslog in early in the rescue system boot
+    did not work.</li>
+<li>Cleanup: Remove run-system-setup.service from rescue image, it
+    is not needed by any other systemd units, therefore it is
+    unused - duplicates sysinit.service.</li>
+</ul>
+</li>
+</ul>
+<p>This fixes a problem with /dev/log in the rescue system: on RHEL 9 no
+process was reading it, as rsyslog was not being started. If during
+recovery a lot of log messages got generated (this happened while
+rerunning GRUB when there are lots of file systems, as grub-probe is
+very noisy), the log socket got filled up and recovery froze.</p>
+<p>Separation of ReaR startup from sysinit.service allows it to run late in
+the bootup process, while sysinit.service is to be run early, and thus
+run network daemons after sysinit.service but before ReaR. Especially
+useful for network backup daemons that are needed to restore files
+during "rear recover".</p>
+<p>As a side effect, I am now seeing error messages from systemd during
+"rear recover":</p>
+<pre><code>Starting D-Bus System Message Bus   
+... 
+[        FAILED   ] Failed to start D-Bus System Message Bus. 
+See 'systemctl status dbus.service' for details.
+</code></pre>
+<p><code>systemctl status dbus.service</code> says:</p>
+<pre><code>× dbus.service - D-Bus System Message Bus
+     Loaded: loaded (/usr/lib/systemd/system/dbus.service; static)
+     Active: failed (Result: exit-code) since Fri 2023-08-11 08:13:56 EDT; 2h 20min ago
+TriggeredBy: × dbus.socket
+    Process: 9420 ExecStartPre=/bin/dbus-uuidgen --ensure (code=exited, status=203/EXEC)
+        CPU: 913us
+</code></pre>
+<p>This is because dbus-daemon and related utilities (dbus-uuidgen) are not
+present in the rescue image. dbus.service was broken even before this
+change, but since nothing depended on sockets.target, dbus.socket did
+not get activated and the problem did not appear. This problem does not
+seem to have adverse effect, so I am leaving it for later.</p>
+<h4 id="pcahyna_commented_at_2023-08-11_1448"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1674913689">2023-08-11 14:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-11_1448" title="Permanent link">&para;</a></h4>
+<p>@schlomo @gdha I believe the rescue system startup scripts are mainly
+your work, can you please have a look?</p>
+<h4 id="pcahyna_commented_at_2023-08-11_1453"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1674921383">2023-08-11 14:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-11_1453" title="Permanent link">&para;</a></h4>
+<p>XXX I adapted the inittab (SysV init) and Upstart scripts to the split
+of /etc/scripts/system-setup, but neither part was tested. I don't
+understand why there are two locations for the Upstart files
+(<code>/etc/init</code> and <code>/etc/event.d</code>), with slightly different structure of
+services.</p>
+<h4 id="schlomo_commented_at_2023-08-14_0849"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1676933883">2023-08-14 08:49</a>:<a class="headerlink" href="#schlomo_commented_at_2023-08-14_0849" title="Permanent link">&para;</a></h4>
+<p>@pcahyna thanks for finding this and working to improve our startup
+scripts.</p>
+<p>I'm not entirely sure if we actually need to support SysV init and
+Upstart and more, so maybe we can just get rid of everything that is not
+systemd? Unfortunately we probably still have to support older versions
+of systemd.</p>
+<p>Can you please also verify this works on Ubuntu or Debian and SLES/SUSE?
+Such a change must IMHO be validated on more flavours than just one.</p>
+<h4 id="pcahyna_commented_at_2023-08-14_1010"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1677049384">2023-08-14 10:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-14_1010" title="Permanent link">&para;</a></h4>
+<p>This will be a bit difficult, I don't have test environments for other
+distros. @jsmeix can you please test this change on SUSE distros?</p>
+<h4 id="jsmeix_commented_at_2023-08-21_0904"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1685938272">2023-08-21 09:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-21_0904" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I am sorry, I forgot to inform you in advance<br />
+that I am unavailable until 04. Sept.<br />
+I will have a look then (as time permits).</p>
+<h4 id="jsmeix_commented_at_2023-09-07_1109"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1709959715">2023-09-07 11:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-07_1109" title="Permanent link">&para;</a></h4>
+<p>A simple "rear mkbackup" plus "rear recover" test<br />
+worked for me on two KVM QEMU virtual machines<br />
+with OUTPUT=ISO and BACKUP=NETFS<br />
+on SLES12 SP5 with DHCP networking<br />
+(both on the original system and in the ReaR recovery system).</p>
+<p>Tomorrow I will test the same on SLES15.</p>
+<h4 id="pcahyna_commented_at_2023-09-07_1136"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1709996159">2023-09-07 11:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-07_1136" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thanks for testing - have you seen errors when starting "D-Bus
+System Message Bus" as well?</p>
+<h4 id="jsmeix_commented_at_2023-09-07_1151"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1710014052">2023-09-07 11:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-07_1151" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I didn't notice error messages or other "suspicious" messages.<br />
+I will have a closer look tomorrow when I test SLES15.</p>
+<h4 id="pcahyna_commented_at_2023-09-07_1217"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1710049391">2023-09-07 12:17</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-07_1217" title="Permanent link">&para;</a></h4>
+<p>@jsmeix ok. I discovered that when I try to start this service manually
+on RHEL 8, it also fails, although for a different reason:</p>
+<pre><code>Process: 11538 ExecStart=/bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation (code=exited, status=1/FAILURE)  Process: 11536 ExecStartPre=/bin/rm -f /var/run/messagebus.pid (code=exited, status=0/SUCCESS)
+</code></pre>
+<p>Makes me wonder what is the dbus service good for in the rescue system,
+when it was not used and fails when you start it.</p>
+<h4 id="jsmeix_commented_at_2023-09-08_1330"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711677591">2023-09-08 13:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-08_1330" title="Permanent link">&para;</a></h4>
+<p>A simple "rear mkbackup" plus "rear recover" test<br />
+worked for me on two KVM QEMU virtual machines<br />
+with OUTPUT=ISO and BACKUP=NETFS<br />
+on SLES15 SP3 with DHCP networking<br />
+(both on the original system and in the ReaR recovery system).</p>
+<h4 id="jsmeix_commented_at_2023-09-08_1333"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711682140">2023-09-08 13:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-08_1333" title="Permanent link">&para;</a></h4>
+<p>Regarding D-Bus in the ReaR recovery system:</p>
+<p>In the ReaR recovery system<br />
+on SLES12 SP5<br />
+neither 'dmesg | grep -i dbus'<br />
+nor 'journalctl | grep -i dbus'<br />
+shows anything.</p>
+<p>In the ReaR recovery system<br />
+on SLES15 SP3:</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep -i dbus
+[    2.406122] systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.socket
+[    2.406126] systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.service
+[    2.410135] systemd[1]: /usr/lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket \xe2\x86\x92 /run/dbus/system_bus_socket; please update the unit file accordingly.
+[    2.411753] systemd[1]: run-dbus.mount: Failed to load configuration: No such file or directory
+[    2.411769] systemd[1]: run-dbus-system_bus_socket.mount: Failed to load configuration: No such file or directory
+[    2.415429] systemd[1]: Pulling in dbus.socket/start from sockets.target/start
+[    2.415432] systemd[1]: Added job dbus.socket/start to transaction.
+[    2.415434] systemd[1]: Pulling in system.slice/start from dbus.socket/start
+[    2.415436] systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+[    2.415467] systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+[   23.756197] systemd[1]: dbus.socket: Changed dead -&gt; listening
+[   23.756201] systemd[1]: dbus.socket: Job 10 dbus.socket/start finished, result=done
+
+RESCUE localhost:~ # journalctl | grep -i dbus
+Sep 08 15:17:21 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.socket
+Sep 08 15:17:21 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.service
+Sep 08 15:17:21 localhost systemd[1]: /usr/lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket → /run/dbus/system_bus_socket; please update the unit file accordingly.
+Sep 08 15:17:21 localhost systemd[1]: run-dbus.mount: Failed to load configuration: No such file or directory
+Sep 08 15:17:21 localhost systemd[1]: run-dbus-system_bus_socket.mount: Failed to load configuration: No such file or directory
+Sep 08 15:17:21 localhost systemd[1]: Pulling in dbus.socket/start from sockets.target/start
+Sep 08 15:17:21 localhost systemd[1]: Added job dbus.socket/start to transaction.
+Sep 08 15:17:21 localhost systemd[1]: Pulling in system.slice/start from dbus.socket/start
+Sep 08 15:17:21 localhost systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+Sep 08 15:17:21 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+Sep 08 15:17:21 localhost systemd[1]: dbus.socket: Changed dead -&gt; listening
+Sep 08 15:17:21 localhost systemd[1]: dbus.socket: Job 10 dbus.socket/start finished, result=done
+
+RESCUE localhost:~ # systemctl status dbus.service
+● dbus.service - D-Bus System Message Bus
+     Loaded: loaded (/usr/lib/systemd/system/dbus.service; static)
+     Active: inactive (dead)
+TriggeredBy: ● dbus.socket
+
+RESCUE localhost:~ # systemctl list-unit-files | grep -i dbus
+dbus.service                 static   -            
+dbus.socket                  static   -
+
+RESCUE localhost:~ # systemctl list-units | grep -i dbus
+  dbus.socket                                                                              loaded active listening D-Bus System Message Bus Socket
+
+RESCUE localhost:~ # systemctl status dbus.socket 
+● dbus.socket - D-Bus System Message Bus Socket
+     Loaded: loaded (/usr/lib/systemd/system/dbus.socket; static)
+     Active: active (listening) since Fri 2023-09-08 15:17:21 CEST; 16min ago
+   Triggers: ● dbus.service
+     Listen: /run/dbus/system_bus_socket (Stream)
+     CGroup: /system.slice/dbus.socket
+Notice: journal has been rotated since unit was started, output may be incomplete.
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-08_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711737064">2023-09-08 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-08_1410" title="Permanent link">&para;</a></h4>
+<p>A test regarding D-Bus in the ReaR recovery system:</p>
+<p>On the original system I removed</p>
+<pre><code>usr/share/rear/skel/default/usr/lib/systemd/system/dbus.socket
+usr/share/rear/skel/default/usr/lib/systemd/system/dbus.target.wants/dbus.service
+usr/share/rear/skel/default/usr/lib/systemd/system/sockets.target.wants/dbus.socket
+usr/share/rear/skel/default/usr/lib/systemd/system/dbus.service
+</code></pre>
+<p>and did "rear -D mkrescue" which worked without errors<br />
+(I mean I did not notice an error message on the terminal).</p>
+<p>In the ReaR recovery system on SLES15 SP3:</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep -i dbus
+[no output]
+
+RESCUE localhost:~ # journalctl | grep -i dbus
+[no output]
+
+RESCUE localhost:~ # systemctl list-unit-files | grep -i dbus
+[no output]
+
+RESCUE localhost:~ # systemctl list-units | grep -i dbus
+[no output]
+
+RESCUE localhost:~ # rear -D recover
+[worked well for me]
+</code></pre>
+<p>and the rebooted recreated system also works well for me.</p>
+<p>So at least for my simple test<br />
+with OUTPUT=ISO and BACKUP=NETFS<br />
+on SLES15 SP3 with DHCP networking<br />
+I do not need D-Bus in the ReaR recovery system.</p>
+<p>BUT:<br />
+Perhaps some more sophisticated things,<br />
+like sophisticated third-party backup (restore) tools<br />
+might need D-Bus in the ReaR recovery system?</p>
+<h4 id="pcahyna_commented_at_2023-09-08_1426"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711761138">2023-09-08 14:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-08_1426" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thank you for the tests. During your tests, did rsyslog start?
+Are there some log messages in /var/log/messages (or whatever is the
+rsyslog default destination)?</p>
+<p>Regarding D-Bus. You show that the dbus.socket is active, but
+dbus.service is not. Probably it means that nothing has tried to use the
+D-Bus socket, therefore systemd had no reason to start the D-Bus service
+(unlike in RHEL, where something attempts to use D-Bus during recovery,
+but apparently it is not critical, because D-Bus failure does not
+prevent recovery) and thus we don't know whether it would have worked or
+not.<br />
+What happens if you force the D-Bus service to start manually
+(<code>systemctl start dbus.service</code>)?</p>
+<h4 id="jsmeix_commented_at_2023-09-08_1455"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711802974">2023-09-08 14:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-08_1455" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I will have a closer look next week (as time permits).</p>
+<p>@rear/contributors<br />
+I wish you all a relaxed and recovering weekend!</p>
+<h4 id="pcahyna_commented_at_2023-09-08_1459"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1711809084">2023-09-08 14:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-08_1459" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thanks! have a nice weekend as well!</p>
+<p>When looking at syslog in the rescue system, you can experiment by
+sending a test message: <code>logger foo</code> and searching for it in the syslog,
+and in the systemd journal. Before this change, on RHEL 9 the message
+was simply lost (did not appear in /var/log/messages nor the journal).</p>
+<h4 id="jsmeix_commented_at_2023-09-14_0924"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1719084294">2023-09-14 09:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-14_0924" title="Permanent link">&para;</a></h4>
+<p>On SLES12 SP5 on same VMs as above in<br />
+<a href="https://github.com/rear/rear/pull/3041#issuecomment-1709959715">https://github.com/rear/rear/pull/3041#issuecomment-1709959715</a></p>
+<p>On the original system:</p>
+<pre><code># logger QQQ
+
+# journalctl | grep QQQ
+Sep 14 10:10:32 linux-kyqd root[1655]: QQQ
+
+# grep QQQ /var/log/messages 
+2023-09-14T10:10:32.720535+02:00 linux-kyqd root: QQQ
+
+# egrep -v '^#|^$' etc/rear/local.conf 
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.122.1/nfs
+SSH_ROOT_PASSWORD='rear'
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+USE_SERIAL_CONSOLE='no'
+
+# usr/sbin/rear -D mkbackup
+...
+
+# grep -i rear /var/log/messages
+2023-09-07T10:43:47.095711+02:00 linux-kyqd rear[26155]: rear mkbackup finished with zero exit code
+2023-09-14T10:24:42.640593+02:00 linux-kyqd rear[28054]: rear mkbackup finished with zero exit code
+</code></pre>
+<p>In the ReaR recovery system on the replacement VM:</p>
+<pre><code>RESCUE linux-kyqd:~ # logger QQQ
+
+RESCUE linux-kyqd:~ # journalctl | grep QQQ
+[no output]
+
+RESCUE linux-kyqd:~ # grep QQQ /var/log/messages
+Sep 14 10:39:25 linux-kyqd root: QQQ
+
+RESCUE linux-kyqd:~ # rear -D recover
+...
+Using build area: /var/tmp/rear.PXHiN9sOt1u9z11
+...
+Finished 'recover'...
+
+RESCUE linux-kyqd:~ # journalctl | grep -i rear
+Sep 14 10:38:31 linux-kyqd systemd[105]: rear-boot-helper.service: Executing: /etc/scripts/boot
+Sep 14 10:38:31 linux-kyqd systemd[762]: automatic-rear.service: Executing: /etc/scripts/run-automatic-rear
+Sep 14 10:40:54 linux-kyqd systemd[1]: var-tmp-rear.PXHiN9sOt1u9z11.mount: Failed to load configuration: No such file or directory
+Sep 14 10:40:54 linux-kyqd systemd[1]: var-tmp-rear.PXHiN9sOt1u9z11-outputfs.mount: Changed dead -&gt; mounted
+Sep 14 10:40:54 linux-kyqd systemd[1]: var-tmp-rear.PXHiN9sOt1u9z11.mount: Collecting.
+Sep 14 10:45:23 linux-kyqd systemd[1]: var-tmp-rear.PXHiN9sOt1u9z11-outputfs.mount: Changed mounted -&gt; dead
+Sep 14 10:45:23 linux-kyqd systemd[1]: var-tmp-rear.PXHiN9sOt1u9z11-outputfs.mount: Collecting.
+
+RESCUE linux-kyqd:~ # grep -i rear /var/log/messages 
+Sep 14 10:46:42 linux-kyqd rear[16932]: rear recover finished with zero exit code
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-14_1055"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1719227171">2023-09-14 10:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-14_1055" title="Permanent link">&para;</a></h4>
+<p>On SLES15 SP3 on same VMs as above in<br />
+<a href="https://github.com/rear/rear/pull/3041#issuecomment-1711677591">https://github.com/rear/rear/pull/3041#issuecomment-1711677591</a></p>
+<p>On the original system:</p>
+<pre><code># logger QQQ
+
+# journalctl | grep QQQ
+Sep 14 11:46:05 localhost root[4498]: QQQ
+
+# grep QQQ /var/log/messages
+2023-09-14T11:46:05.822334+02:00 localhost root: QQQ
+
+# egrep -v '^#|^$' etc/rear/local.conf
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+USE_SERIAL_CONSOLE='no'
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.122.1/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/x86_64-efi /boot/grub2/i386-pc /opt /srv /usr/local /root /tmp /var ) 
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD='rear'
+USE_DHCLIENT="yes"
+
+# usr/sbin/rear -D mkbackup
+...
+Using build area: /var/tmp/rear.u1c3a8yxJ8TmGPq
+...
+
+# grep -i rear /var/log/messages
+...
+2023-09-14T11:48:25.086925+02:00 localhost systemd[1549]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:48:25.087135+02:00 localhost systemd[1]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:49:11.966673+02:00 localhost systemd[1549]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:49:11.966860+02:00 localhost systemd[1]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:56:33.906514+02:00 localhost systemd[1549]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:56:34.043331+02:00 localhost systemd[1]: var-tmp-rear.u1c3a8yxJ8TmGPq-outputfs.mount: Succeeded.
+2023-09-14T11:56:34.194621+02:00 localhost rear[30736]: rear mkbackup finished with zero exit code
+</code></pre>
+<p>In the ReaR recovery system on the replacement VM:</p>
+<pre><code>RESCUE localhost:~ # logger QQQ
+
+RESCUE localhost:~ # journalctl | grep QQQ
+[no output]
+
+RESCUE localhost:~ # grep QQQ /var/log/messages
+Sep 14 12:38:32 localhost root: QQQ
+
+RESCUE localhost:~ # rear -D recover
+...
+Using build area: /var/tmp/rear.gNtlIxC0cM4CHxb
+...
+Finished 'recover'...
+
+RESCUE localhost:~ # journalctl | grep -i rear
+Sep 14 12:37:51 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/automatic-rear.service
+Sep 14 12:37:51 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/rear-boot-helper.service
+Sep 14 12:37:51 localhost systemd[1]: Pulling in rear-boot-helper.service/start from sysinit.target/start
+Sep 14 12:37:51 localhost systemd[1]: Added job rear-boot-helper.service/start to transaction.
+Sep 14 12:37:51 localhost systemd[1]: Pulling in system.slice/start from rear-boot-helper.service/start
+Sep 14 12:37:51 localhost systemd[1]: Pulling in rear-boot-helper.service/start from multi-user.target/start
+Sep 14 12:37:51 localhost systemd[1]: multi-user.target: starting held back, waiting for: automatic-rear.service
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Passing 0 fds to service
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: About to execute: /etc/scripts/run-automatic-rear
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Forked /etc/scripts/run-automatic-rear as 740
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Changed dead -&gt; start
+Sep 14 12:37:51 localhost systemd[1]: getty@tty0.service: starting held back, waiting for: automatic-rear.service
+Sep 14 12:37:51 localhost systemd[740]: automatic-rear.service: Executing: /etc/scripts/run-automatic-rear
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Child 740 belongs to automatic-rear.service.
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Main process exited, code=exited, status=0/SUCCESS
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Changed start -&gt; exited
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Job 27 automatic-rear.service/start finished, result=done
+Sep 14 12:37:51 localhost systemd[1]: automatic-rear.service: Control group is empty.
+Sep 14 12:38:12 localhost systemd[1]: Pulling in rear-boot-helper.service/start from sysinit.target/start
+Sep 14 12:38:12 localhost systemd[1]: Added job rear-boot-helper.service/start to transaction.
+Sep 14 12:38:12 localhost systemd[1]: Pulling in system.slice/start from rear-boot-helper.service/start
+Sep 14 12:38:12 localhost systemd[1]: Garbage collecting job rear-boot-helper.service/start
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb.mount: Failed to load configuration: No such file or directory
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Changed dead -&gt; mounted
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb.mount: Collecting.
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Succeeded.
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Changed mounted -&gt; dead
+Sep 14 12:39:22 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Collecting.
+Sep 14 12:42:42 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Succeeded.
+Sep 14 12:42:42 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Changed mounted -&gt; dead
+Sep 14 12:42:42 localhost systemd[1]: var-tmp-rear.gNtlIxC0cM4CHxb-outputfs.mount: Collecting.
+
+RESCUE localhost:~ # grep -i rear /var/log/messages
+Sep 14 12:43:36 localhost rear[11702]: rear recover finished with zero exit code
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-15_0735"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1720816054">2023-09-15 07:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-15_0735" title="Permanent link">&para;</a></h4>
+<p>Regarding D-Bus in the ReaR recovery system</p>
+<p>On SLES12 SP5:</p>
+<pre><code>RESCUE linux-kyqd:~ # dmesg | grep -i dbus
+[no output]
+
+RESCUE linux-kyqd:~ # journalctl | grep -i dbus
+[no output]
+
+RESCUE linux-kyqd:~ # systemctl list-unit-files | grep -i dbus
+dbus.service                 static  
+dbus.socket                  static
+
+RESCUE linux-kyqd:~ # systemctl list-units | grep -i dbus
+dbus.socket    loaded active listening D-Bus System Message Bus Socket
+
+RESCUE linux-kyqd:~ # find /usr/lib/systemd -ls | grep dbus
+... /usr/lib/systemd/system/dbus.target.wants
+... /usr/lib/systemd/system/dbus.target.wants/dbus.service -&gt; ../dbus.service
+... /usr/lib/systemd/system/dbus.service
+... /usr/lib/systemd/system/dbus.socket
+... /usr/lib/systemd/system/sockets.target.wants/dbus.socket -&gt; ../dbus.socket
+
+RESCUE linux-kyqd:~ # systemctl start dbus.service
+
+RESCUE linux-kyqd:~ # LC_ALL=C systemctl status dbus.service
+* dbus.service - D-Bus System Message Bus
+   Loaded: loaded (/usr/lib/systemd/system/dbus.service; static; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Fri 2023-09-15 09:09:14 CEST; 3min 41s ago
+  Process: 846 ExecStart=/bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation (code=exited, status=1/FAILURE)
+  Process: 843 ExecStartPre=/bin/rm -f /var/run/messagebus.pid (code=exited, status=0/SUCCESS)
+  Process: 842 ExecStartPre=/bin/dbus-uuidgen --ensure (code=exited, status=0/SUCCESS)
+ Main PID: 846 (code=exited, status=1/FAILURE)
+
+RESCUE linux-kyqd:~ # LC_ALL=C systemctl list-units | grep -i dbus
+* dbus.service    loaded failed failed    start D-Bus System Message Bus
+  dbus.socket     loaded active running         D-Bus System Message Bus Socket
+
+RESCUE linux-kyqd:~ # journalctl | grep -i dbus
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: Trying to enqueue job dbus.service/start/replace
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: Installed new job dbus.service/start as 36
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: Enqueued job dbus.service/start as 36
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: About to execute: /bin/dbus-uuidgen --ensure
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: Forked /bin/dbus-uuidgen as 842
+Sep 15 09:07:44 linux-kyqd systemd[1]: dbus.service: Changed dead -&gt; start-pre
+Sep 15 09:07:44 linux-kyqd systemd[842]: dbus.service: Executing: /bin/dbus-uuidgen --ensure
+Sep 15 09:07:44 linux-kyqd systemd[843]: dbus.service: Executing: /bin/rm -f /var/run/messagebus.pid
+Sep 15 09:07:44 linux-kyqd systemd[846]: dbus.service: Executing: /bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation
+Sep 15 09:09:14 linux-kyqd systemd[1]: Child 846 (dbus-daemon) died (code=exited, status=1/FAILURE)
+Sep 15 09:09:14 linux-kyqd systemd[1]: dbus.service: Child 846 belongs to dbus.service
+Sep 15 09:09:14 linux-kyqd systemd[1]: dbus.service: Main process exited, code=exited, status=1/FAILURE
+Sep 15 09:09:14 linux-kyqd systemd[1]: dbus.service: Changed running -&gt; failed
+Sep 15 09:09:14 linux-kyqd systemd[1]: dbus.service: Unit entered failed state.
+Sep 15 09:09:14 linux-kyqd systemd[1]: dbus.socket: Got notified about service death (failed permanently: no)
+
+[ 'dmesg | grep -i dbus' shows the same messages ]
+</code></pre>
+<p>On SLES15 SP3:</p>
+<pre><code>RESCUE localhost:~ # journalctl | grep -i dbus
+[    2.060633] systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.socket
+[    2.060637] systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.service
+[    2.065365] systemd[1]: /usr/lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket \xe2\x86\x92 /run/dbus/system_bus_socket; please update the unit file accordingly.
+[    2.067775] systemd[1]: run-dbus.mount: Failed to load configuration: No such file or directory
+[    2.067804] systemd[1]: run-dbus-system_bus_socket.mount: Failed to load configuration: No such file or directory
+[    2.071555] systemd[1]: Pulling in dbus.socket/start from sockets.target/start
+[    2.071558] systemd[1]: Added job dbus.socket/start to transaction.
+[    2.071560] systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+[    2.071562] systemd[1]: Pulling in system.slice/start from dbus.socket/start
+[    2.071565] systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+[   23.077899] systemd[1]: dbus.socket: Changed dead -&gt; listening
+[   23.077904] systemd[1]: dbus.socket: Job 16 dbus.socket/start finished, result=done
+
+[ 'dmesg | grep -i dbus' shows the same messages ]
+
+RESCUE localhost:~ # systemctl list-unit-files | grep -i dbus
+dbus.service                 static   -            
+dbus.socket                  static   -
+
+RESCUE localhost:~ # systemctl list-units | grep -i dbus
+  dbus.socket    loaded active listening D-Bus System Message Bus Socket
+
+RESCUE localhost:~ # find /usr/lib/systemd -ls | grep dbus
+... /usr/lib/systemd/system/sockets.target.wants/dbus.socket -&gt; ../dbus.socket
+... /usr/lib/systemd/system/dbus.target.wants
+... /usr/lib/systemd/system/dbus.target.wants/dbus.service -&gt; ../dbus.service
+... /usr/lib/systemd/system/dbus.socket
+... /usr/lib/systemd/system/dbus.service
+
+RESCUE localhost:~ # systemctl start dbus.service
+
+RESCUE localhost:~ # LC_ALL=C systemctl status dbus.service
+* dbus.service - D-Bus System Message Bus
+     Loaded: loaded (/usr/lib/systemd/system/dbus.service; static)
+     Active: failed (Result: exit-code) since Fri 2023-09-15 09:27:18 CEST; 36s ago
+TriggeredBy: * dbus.socket
+    Process: 826 ExecStartPre=/bin/dbus-uuidgen --ensure (code=exited, status=0/SUCCESS)
+    Process: 827 ExecStartPre=/bin/rm -f /var/run/messagebus.pid (code=exited, status=0/SUCCESS)
+    Process: 828 ExecStart=/bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation (code=exited, status=1/FAILURE)
+   Main PID: 828 (code=exited, status=1/FAILURE)
+
+RESCUE localhost:~ # LC_ALL=C systemctl list-units | grep -i dbus
+* dbus.service    loaded failed failed    D-Bus System Message Bus
+* dbus.socket     loaded failed failed    D-Bus System Message Bus Socket
+
+RESCUE localhost:~ # journalctl | grep -i dbus
+Sep 15 09:21:20 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.socket
+Sep 15 09:21:20 localhost systemd[1]: unit_file_build_name_map: normal unit file: /usr/lib/systemd/system/dbus.service
+Sep 15 09:21:20 localhost systemd[1]: /usr/lib/systemd/system/dbus.socket:5: ListenStream= references a path below legacy directory /var/run/, updating /var/run/dbus/system_bus_socket → /run/dbus/system_bus_socket; please update the unit file accordingly.
+Sep 15 09:21:20 localhost systemd[1]: run-dbus.mount: Failed to load configuration: No such file or directory
+Sep 15 09:21:20 localhost systemd[1]: run-dbus-system_bus_socket.mount: Failed to load configuration: No such file or directory
+Sep 15 09:21:20 localhost systemd[1]: Pulling in dbus.socket/start from sockets.target/start
+Sep 15 09:21:20 localhost systemd[1]: Added job dbus.socket/start to transaction.
+Sep 15 09:21:20 localhost systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+Sep 15 09:21:20 localhost systemd[1]: Pulling in system.slice/start from dbus.socket/start
+Sep 15 09:21:20 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+Sep 15 09:21:20 localhost systemd[1]: dbus.socket: Changed dead -&gt; listening
+Sep 15 09:21:20 localhost systemd[1]: dbus.socket: Job 16 dbus.socket/start finished, result=done
+Sep 15 09:24:38 localhost systemd[1]: Found unit dbus.socket at /usr/lib/systemd/system/dbus.socket (regular file)
+Sep 15 09:24:38 localhost systemd[1]: Found unit dbus.service at /usr/lib/systemd/system/dbus.service (regular file)
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Trying to enqueue job dbus.service/start/replace
+Sep 15 09:27:18 localhost systemd[1]: Added job dbus.service/start to transaction.
+Sep 15 09:27:18 localhost systemd[1]: Pulling in system.slice/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in sysinit.target/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in dbus.socket/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Added job dbus.socket/start to transaction.
+Sep 15 09:27:18 localhost systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in system.slice/start from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Found redundant job dbus.socket/start, dropping from transaction.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Installed new job dbus.service/start as 343
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Enqueued job dbus.service/start as 343
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=1 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=2 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/dbus-uuidgen --ensure
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/dbus-uuidgen as 800
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=5 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=6 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Changed dead -&gt; start-pre
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=7 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=8 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/job/343 interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=9 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Got message type=method_call sender=n/a destination=org.freedesktop.systemd1 path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=Get cookie=3 reply_cookie=0 signature=ss error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[800]: dbus.service: Executing: /bin/dbus-uuidgen --ensure
+Sep 15 09:27:18 localhost systemd[1]: Received SIGCHLD from PID 800 (dbus-uuidgen).
+Sep 15 09:27:18 localhost systemd[1]: Child 800 (dbus-uuidgen) died (code=exited, status=0/SUCCESS)
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Child 800 belongs to dbus.service.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Control process exited, code=exited, status=0/SUCCESS
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Running next control command for state start-pre.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/rm -f /var/run/messagebus.pid
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/rm as 814
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=12 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=13 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Control group is empty.
+Sep 15 09:27:18 localhost systemd[814]: dbus.service: Executing: /bin/rm -f /var/run/messagebus.pid
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Child 814 belongs to dbus.service.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Control process exited, code=exited, status=0/SUCCESS
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Got final SIGCHLD for state start-pre.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Passing 1 fds to service
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/dbus-daemon as 815
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Changed start-pre -&gt; running
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Job 343 dbus.service/start finished, result=done
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=14 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=15 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: dbus.socket: Changed listening -&gt; running
+Sep 15 09:27:18 localhost systemd[1]: sd-bus: starting bus bus-api-system by connecting to /run/dbus/system_bus_socket...
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2esocket interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=17 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2esocket interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=18 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=19 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[1]: Sent message type=signal sender=org.freedesktop.systemd1 destination=n/a path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=PropertiesChanged cookie=20 reply_cookie=0 signature=sa{sv}as error-name=n/a error-message=n/a
+Sep 15 09:27:18 localhost systemd[815]: dbus.service: Executing: /bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation
+Sep 15 09:27:18 localhost systemd[1]: Received SIGCHLD from PID 815 (dbus-daemon).
+Sep 15 09:27:18 localhost systemd[1]: Child 815 (dbus-daemon) died (code=exited, status=1/FAILURE)
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Child 815 belongs to dbus.service.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Main process exited, code=exited, status=1/FAILURE
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed with result 'exit-code'.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Service will not restart (restart setting)
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Changed running -&gt; failed
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Unit entered failed state.
+Sep 15 09:27:18 localhost systemd[1]: dbus.socket: Changed running -&gt; listening
+Sep 15 09:27:18 localhost systemd[1]: dbus.socket: Incoming traffic
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Trying to enqueue job dbus.service/start/replace
+Sep 15 09:27:18 localhost systemd[1]: Added job dbus.service/start to transaction.
+Sep 15 09:27:18 localhost systemd[1]: Pulling in system.slice/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in sysinit.target/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in dbus.socket/start from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Added job dbus.socket/start to transaction.
+Sep 15 09:27:18 localhost systemd[1]: Pulling in sysinit.target/start from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in system.slice/start from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.socket/start
+Sep 15 09:27:18 localhost systemd[1]: Pulling in shutdown.target/stop from dbus.service/start
+Sep 15 09:27:18 localhost systemd[1]: Found redundant job dbus.socket/start, dropping from transaction.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Installed new job dbus.service/start as 351
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Enqueued job dbus.service/start as 351
+Sep 15 09:27:18 localhost systemd[1]: dbus.socket: Changed listening -&gt; running
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/dbus-uuidgen --ensure
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/dbus-uuidgen as 816
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Changed failed -&gt; start-pre
+Sep 15 09:27:18 localhost systemd[816]: dbus.service: Executing: /bin/dbus-uuidgen --ensure
+Sep 15 09:27:18 localhost systemd[1]: Received SIGCHLD from PID 816 (dbus-uuidgen).
+Sep 15 09:27:18 localhost systemd[1]: Child 816 (dbus-uuidgen) died (code=exited, status=0/SUCCESS)
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Child 816 belongs to dbus.service.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Control process exited, code=exited, status=0/SUCCESS
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Running next control command for state start-pre.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/rm -f /var/run/messagebus.pid
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/rm as 817
+Sep 15 09:27:18 localhost systemd[817]: dbus.service: Executing: /bin/rm -f /var/run/messagebus.pid
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Failed to read oom_kill field of memory.events cgroup attribute: No such file or directory
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Child 817 belongs to dbus.service.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Control process exited, code=exited, status=0/SUCCESS
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Got final SIGCHLD for state start-pre.
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Passing 1 fds to service
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: About to execute: /bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Forked /bin/dbus-daemon as 818
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Changed start-pre -&gt; running
+Sep 15 09:27:18 localhost systemd[1]: dbus.service: Job 351 dbus.service/start finished, result=done
+Sep 15 09:27:18 localhost systemd[1]: sd-bus: starting bus bus-api-system by connecting to /run/dbus/system_bus_socket...
+Sep 15 09:27:18 localhost systemd[818]: dbus.service: Executing: /bin/dbus-daemon --system --address=systemd: --nofork --systemd-activation
+Sep 15 09:27:54 localhost systemd[1]: Got message type=method_call sender=n/a destination=org.freedesktop.systemd1 path=/org/freedesktop/systemd1/unit/dbus_2eservice interface=org.freedesktop.DBus.Properties member=GetAll cookie=1 reply_cookie=0 signature=s error-name=n/a error-message=n/a
+Sep 15 09:27:54 localhost systemd[1]: Found unit dbus.service at /usr/lib/systemd/system/dbus.service (regular file)
+Sep 15 09:27:54 localhost systemd[1]: Preset files don't specify rule for dbus.service. Enabling.
+Sep 15 09:27:54 localhost systemd[1]: Got message type=method_call sender=n/a destination=org.freedesktop.systemd1 path=/org/freedesktop/systemd1/unit/dbus_2esocket interface=org.freedesktop.DBus.Properties member=Get cookie=2 reply_cookie=0 signature=ss error-name=n/a error-message=n/a
+
+[ 'dmesg | grep -i dbus' shows the same messages ]
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-09-15_0921"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1720956597">2023-09-15 09:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-15_0921" title="Permanent link">&para;</a></h4>
+<p>Thank you so much @jsmeix for the SLES investigation. The situation on
+SLES looks pretty identical to RHEL, which is encouraging.<br />
+I will try to test on a Debian or Ubuntu system.</p>
+<h4 id="pcahyna_commented_at_2023-09-15_0931"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1720969654">2023-09-15 09:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-09-15_0931" title="Permanent link">&para;</a></h4>
+<p>@jsmeix by the way, is there still some SLES version that is interesting
+for you to support and does not use systemd (uses Upstart or SysV init)?</p>
+<h4 id="jsmeix_commented_at_2023-09-15_1120"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3041#issuecomment-1721108561">2023-09-15 11:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-15_1120" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+there is no SLES version which is older than SLES12<br />
+that is interesting for me, cf. the section<br />
+"Supported and Unsupported Operating Systems"<br />
+in rear-release-notes.txt currently starting at<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt#L3824">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt#L3824</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-08-11.3041.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3031 PR merged: Secure Boot support for OUTPUT=USB - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3031 PR merged: Secure Boot support for OUTPUT=USB";
+        var mkdocs_page_input_path = "issues/2023-07-25.3031.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3031 PR merged: Secure Boot support for OUTPUT=USB</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3031_pr_merged_secure_boot_support_for_outputusb"><a href="https://github.com/rear/rear/pull/3031">#3031 PR</a> <code>merged</code>: Secure Boot support for OUTPUT=USB<a class="headerlink" href="#3031_pr_merged_secure_boot_support_for_outputusb" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-07-25_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3031">2023-07-25 12:03</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-07-25_1203" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3025#issuecomment-1643774477">https://github.com/rear/rear/pull/3025#issuecomment-1643774477</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>I tested it same (on same VMs) as I did in<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1643774477">https://github.com/rear/rear/pull/3025#issuecomment-1643774477</a><br />
+but now with the changes here<br />
+Secure Boot with OUTPUT=USB works for me.</p>
+<ul>
+<li>Brief description of the changes in this pull request:</li>
+</ul>
+<p>In output/USB/Linux-i386/100_create_efiboot.sh<br />
+add Secure Boot support for OUTPUT=USB by using<br />
+SECURE_BOOT_BOOTLOADER as first stage Secure Boot bootloader
+BOOTX64.efi<br />
+and using grub*.efi as second stage Secure Boot bootloader files<br />
+in the same way as already done for OUTPUT=ISO<br />
+in output/ISO/Linux-i386/250_populate_efibootimg.sh<br />
+see
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1643774477">https://github.com/rear/rear/pull/3025#issuecomment-1643774477</a></p>
+<p>My current implementation here is just a first step.<br />
+The whole code looks somewhat convoluted<br />
+and needs at least some more generic cleanup<br />
+to make it easier to further develop things in this area.</p>
+<h4 id="jsmeix_commented_at_2023-07-27_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1653443454">2023-07-27 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-27_1139" title="Permanent link">&para;</a></h4>
+<p>First things first:<br />
+I will not clean up the whole UEFI and Secure Boot code<br />
+via this pull request.<br />
+Via this pull request only what is needed<br />
+to get Secure Boot support with OUTPUT=USB<br />
+in the current code environment<br />
+should be implemented.</p>
+<p>Later - as needed and as time permits - I would like<br />
+to clean up step by step the whole UEFI and Secure Boot code.</p>
+<p>In particular currently I do not like that<br />
+via SECURE_BOOT_BOOTLOADER<br />
+UEFI_BOOTLOADER is overwritten<br />
+because that makes it needlessly hard (at least for me)<br />
+to understand the UEFI and Secure Boot code<br />
+because it is not clear if in a particular piece of code<br />
+UEFI_BOOTLOADER means a non-Secure-Boot bootloader<br />
+OR<br />
+if UEFI_BOOTLOADER means a Secure Boot first stage bootloader<br />
+AND<br />
+in the latter case the user cannot configure<br />
+the Secure Boot second stage bootloader.<br />
+I would like to Keep Separated Items Separated - "KSIS" ;-)</p>
+<h4 id="jsmeix_commented_at_2023-07-27_1141"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1653447159">2023-07-27 11:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-27_1141" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+could you please -as time permits - have a look here?</p>
+<p>I would very much appreciate it if you could test it<br />
+on non-SUSE Linux distributions, in particular RHEL<br />
+and perhaps also Ubuntu and Debian.</p>
+<h4 id="jsmeix_commented_at_2023-07-27_1146"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1653454044">2023-07-27 11:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-07-27_1146" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+I have a question regarding the<br />
+Secure Boot second stage bootloader files:</p>
+<p>Currently those are (hardcoded) all files<br />
+that match the bash globbing <code>grub*.efi</code><br />
+in the directory where SECURE_BOOT_BOOTLOADER is.</p>
+<p>I wonder if it is more fail-safe to use all <code>*.efi</code> files<br />
+in the directory where SECURE_BOOT_BOOTLOADER is,<br />
+probably even all <code>*.efi</code> files with ignore case matching?</p>
+<h4 id="jsmeix_commented_at_2023-08-02_0621"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1661568928">2023-08-02 06:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-02_0621" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+I would like to merge it tomorrow (Thursday) afternoon<br />
+unless there are objections.</p>
+<h4 id="pcahyna_commented_at_2023-08-02_1622"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1662529089">2023-08-02 16:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-02_1622" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thank you, this is a very important change, sorry for being late
+with review. I will have a look at it tomorrow.</p>
+<h4 id="jsmeix_commented_at_2023-08-03_0640"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663378895">2023-08-03 06:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_0640" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you in advance for your review.<br />
+No rush - take your time.<br />
+I will wait until you did your review.</p>
+<h4 id="pcahyna_commented_at_2023-08-03_1158"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663853517">2023-08-03 11:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-03_1158" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I am a bit late, but looking now.<br />
+Can you see<br />
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0">https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0</a><br />
+where @rmetrich has provided a quite detailed analysis<br />
+of what is happening in the current code?</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663883056">2023-08-03 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1221" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+no worries take your time - I will wait until you did your review.</p>
+<p>I can access<br />
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0">https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0</a></p>
+<p>Tomorrow I will try to understand it.<br />
+I need time because I am not at all an expert in this area.</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663898835">2023-08-03 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1230" title="Permanent link">&para;</a></h4>
+<p>Wow - I am so impressed how fast I am :-))</p>
+<p>I think I do understand the initial decription of @rmetrich<br />
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0">https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0</a><br />
+and - as far as I understand it - this is what I implemented<br />
+with this pull request here - at least basically.</p>
+<p>@rmetrich<br />
+could you please also have a look here (as time permits).<br />
+I would much appreciate it to get a review also from you.</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1239"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663912039">2023-08-03 12:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1239" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+as far as I understand it (which I described in my comments)</p>
+<pre><code># Shim is a signed EFI binary that is a first stage bootloader
+# that loads and executes another (signed) EFI binary
+# which normally is a second stage bootloader
+# which normally is a GRUB EFI binary
+# which normally is available as a file named grub*.efi
+# so when SECURE_BOOT_BOOTLOADER is used as UEFI_BOOTLOADER
+# (cf. rescue/default/850_save_sysfs_uefi_vars.sh)
+# then Shim (usually shim.efi) must be copied as EFI/BOOT/BOOTX64.efi
+# and Shim's second stage bootloader must be also copied where Shim already is.
+</code></pre>
+<p>the crucial point for Secure Boot is that<br />
+the Shim first stage bootloader 'shim.efi' is a signed EFI binary<br />
+and Shim's second stage bootloader (usually named 'grub*.efi')<br />
+is also a signed EFI binary<br />
+which means<br />
+both signed EFI binaries from the Linux distribution<br />
+must be used unchanged for Secure Boot<br />
+instead of using an unsigned EFI binary<br />
+that gets created by build_bootx86_efi()</p>
+<h4 id="jsmeix_commented_at_2023-08-03_1316"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1663966852">2023-08-03 13:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-03_1316" title="Permanent link">&para;</a></h4>
+<p>Regarding the second part of @rmetrich in<br />
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0">https://bugzilla.redhat.com/show_bug.cgi?id=2196445#c0</a></p>
+<pre><code>UEFI_BOOTLOADER ... is *overwritten* by SECURE_BOOT_BOOTLOADER
+</code></pre>
+<p>see my second part about "currently I do not like" in<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1653443454">https://github.com/rear/rear/pull/3031#issuecomment-1653443454</a></p>
+<h4 id="jsmeix_commented_at_2023-08-04_0712"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665120818">2023-08-04 07:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-04_0712" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+please, first things first:<br />
+Does it work for you on RHEL (and/or Fedora) or not?<br />
+If yes, on which RHEL (and/or Fedora) versions does it work?<br />
+If no, where and how does it fail?</p>
+<p>@rear/contributors<br />
+it would be nice if someone could test it on Ubuntu or Debian.<br />
+But as we do not have an active Ubuntu or Debian maintainer<br />
+those distributions are of rather low interest for me.</p>
+<h4 id="pcahyna_commented_at_2023-08-04_1016"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665374058">2023-08-04 10:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-04_1016" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna please, first things first: Does it work for you on RHEL
+(and/or Fedora) or not? If yes, on which RHEL (and/or Fedora) versions
+does it work? If no, where and how does it fail?</p>
+</blockquote>
+<p>I have not tried it yet - I merely looked at the code. I can schedule a
+test on non-secureboot hardware to make sure that the change does not
+break the case that was working before. I am interested to test with
+Secure Boot as well, but this will have to wait a bit as I don't have a
+test environment set up (I will probably be able to do it over the
+weekend).</p>
+<p>Regarding versions: Fedora 37 and later probably won't work because of
+#2971 (same problem with RHEL 9), although I could probably work around
+this by configuring ReaR to use Secure Boot shim even if the firmware is
+not actually set up for Secure Boot.</p>
+<h4 id="jsmeix_commented_at_2023-08-04_1035"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665395673">2023-08-04 10:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-04_1035" title="Permanent link">&para;</a></h4>
+<p>On non-secureboot hardware<br />
+SECURE_BOOT_BOOTLOADER must not be specified and<br />
+then there should be no change in what gets done<br />
+(because of the <code>if ... $SECURE_BOOT_BOOTLOADER</code>).</p>
+<h4 id="pcahyna_commented_at_2023-08-04_1102"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665429995">2023-08-04 11:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-04_1102" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>On non-secureboot hardware SECURE_BOOT_BOOTLOADER must not be
+specified</p>
+</blockquote>
+<p>Why is that the case?<br />
+The shim bootloader is installed even on non-secureboot hardware,<br />
+shouldn't it just work even without secureboot enabled?</p>
+<h4 id="jsmeix_commented_at_2023-08-04_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665558165">2023-08-04 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-04_1250" title="Permanent link">&para;</a></h4>
+<p>Because SECURE_BOOT_BOOTLOADER is nowhere set to a non-empty value.<br />
+Currently there is no Secure Boot autodetection code in ReaR<br />
+as far as I understand things in this code area<br />
+where I am not yet familiar with.</p>
+<p>The UEFI_BOOTLOADER autodetection code in<br />
+rescue/default/850_save_sysfs_uefi_vars.sh<br />
+happens only for non-secureboot cases<br />
+as far as I understand things<br />
+because 'shim' (ignore case) does not appear in<br />
+rescue/default/850_save_sysfs_uefi_vars.sh</p>
+<p>Currently 'shim' (ignore case) does only appear in<br />
+finalize/SUSE_LINUX/i386/675_install_shim.sh<br />
+output/ISO/Linux-i386/250_populate_efibootimg.sh</p>
+<h4 id="pcahyna_commented_at_2023-08-04_1253"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665561571">2023-08-04 12:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-04_1253" title="Permanent link">&para;</a></h4>
+<p>Right, one has to set <code>SECURE_BOOT_BOOTLOADER</code> manually in order to test
+it.<br />
+But, I would expect it to work even if the firmware is not configured
+for Secure Boot.<br />
+Wouldn't you?</p>
+<h4 id="jsmeix_commented_at_2023-08-04_1310"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665586896">2023-08-04 13:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-04_1310" title="Permanent link">&para;</a></h4>
+<p>Of course Secure Boot autodetection in ReaR<br />
+would be an "expected" feature.</p>
+<p>But this is nothing that belongs to this pull request<br />
+and it is even nothing that belongs to the subsequent<br />
+cleanup of the whole UEFI booting setup code in ReaR<br />
+(because 'cleanup' != 'new features').</p>
+<p>So I think Secure Boot autodetection in ReaR<br />
+should not be impemented as long as we still<br />
+have some mess of UEFI booting setup code<br />
+but after we properly cleaned up our current code<br />
+to make further development more fail-safe.</p>
+<p>General improvements of UEFI related things in ReaR<br />
+are on my longer term TODO list.</p>
+<p>What I am currently doing here is trying to move<br />
+step by step and carefully into this direction.</p>
+<p>By the way:<br />
+Didn't I somewhere already mention "first things first"?<br />
+;-))</p>
+<h4 id="jsmeix_commented_at_2023-08-04_1327"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1665608659">2023-08-04 13:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-04_1327" title="Permanent link">&para;</a></h4>
+<p>Now it's weekend time!<br />
+I wish you all a relaxed and recovering weekend!</p>
+<h4 id="pcahyna_commented_at_2023-08-07_1508"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668055834">2023-08-07 15:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-07_1508" title="Permanent link">&para;</a></h4>
+<p>@jsmeix maybe you misunderstood what I meant. It is fine at this point
+that Secure Boot is not autodetected and has to be configured manually
+(which has been always the case with ISO boot, as far as I understand).
+What I meant is that if the hardware is not configured for secure
+booting, configuring Secure Boot in ReaR (by setting
+<code>SECURE_BOOT_BOOTLOADER</code>) should result in a medium that boots fine.
+While Secure Boot requires a signed UEFI shim, non-secureboot UEFI
+firmware does not mind using this shim as well, it just does not enforce
+it.</p>
+<p>I tested this on RHEL 8: my UEFI hardware is not configured for secure
+booting and ReaR has been booting fine on it from disk (OUTPUT=USB).
+With your change, I can now set<br />
+<code>SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi</code><br />
+(RHEL is using this shim always, even if secure boot is not used) and
+ReaR rescue disk boots again correctly. At the end of recovery, the boot
+entry is restored to something like
+<code>HD(1,GPT,ca381585-f4e2-418e-b583-13d02fba640b,0x800,0x12c000)/File(\EFI\redhat\shimx64.efi)</code>
+which is correct.</p>
+<h4 id="pcahyna_commented_at_2023-08-07_1511"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668061462">2023-08-07 15:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-07_1511" title="Permanent link">&para;</a></h4>
+<p>I see only one minor problem: during boot I get</p>
+<pre><code>error: ../../grub-core/fs/fshelp.c:258:file `/EFI/redhat/x86_64-efi/xzio.mod'
+ not found.
+ Loading kernel /EFI/BOOT/kernel ...
+ Loading initial ramdisk /EFI/BOOT/initrd.cgz ...
+
+ Press any key to continue...
+</code></pre>
+<p>because the menu contains</p>
+<pre><code>    insmod xzio
+</code></pre>
+<p>and xzio is apparently not present in our default GRUB image. This does
+not seem to cause any harm and if I don't press any key, the boot
+continues in about 10 seconds. I wonder whether the <code>insmod xzio</code> part
+can be safely removed (it won't work in any case when Secure Boot is
+turned on, AIUI).</p>
+<h4 id="pcahyna_commented_at_2023-08-07_1531"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668096663">2023-08-07 15:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-07_1531" title="Permanent link">&para;</a></h4>
+<p>Regarding future plans: instead of Secure Boot autodetection, I would
+prefer to use the Secure Boot code path always (even if Secure Boot is
+not used) and get entirely rid of our own GRUB image generation for the
+UEFI case (<code>build_bootx86_efi</code>). It would simplify the code and more
+importantly, the GRUB image is broken anyway
+(<a href="https://github.com/rear/rear/issues/2971">https://github.com/rear/rear/issues/2971</a>).</p>
+<h4 id="pcahyna_commented_at_2023-08-07_1535"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668103656">2023-08-07 15:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-07_1535" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I have a question regarding the Secure Boot second stage bootloader
+files:</p>
+<p>Currently those are (hardcoded) all files that match the bash globbing
+<code>grub*.efi</code> in the directory where SECURE_BOOT_BOOTLOADER is.</p>
+<p>I wonder if it is more fail-safe to use all <code>*.efi</code> files in the
+directory where SECURE_BOOT_BOOTLOADER is, probably even all <code>*.efi</code>
+files with ignore case matching?</p>
+</blockquote>
+<p>No. I would do what <code>OUTPUT=ISO</code> is doing, unless there are known
+problems with it. If you copy all <code>*.efi</code> files, you may also copy
+<code>fbx64.efi</code>
+(<a href="https://www.rodsbooks.com/efi-bootloaders/fallback.html">https://www.rodsbooks.com/efi-bootloaders/fallback.html</a>),
+and that's probably not what one wants.</p>
+<h4 id="jsmeix_commented_at_2023-08-08_0540"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668940477">2023-08-08 05:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-08_0540" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+many thanks for your review and your explanatory comments!<br />
+It is much appeciated!</p>
+<p>I think I also experienced the same as you wrote in your<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1668061462">https://github.com/rear/rear/pull/3031#issuecomment-1668061462</a><br />
+As it "somehow works" we should leave it "as is" for now<br />
+and focus more on the general cleanup of UEFI booting.</p>
+<p>Regarding your<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1668096663">https://github.com/rear/rear/pull/3031#issuecomment-1668096663</a></p>
+<p>I think also SUSE always boots via Shim on UEFI systems<br />
+(i.e. Shim = fist stage, GRUB2 = second stage) and<br />
+I was also wondering if ReaR should for UEFI booting<br />
+always "just copy" the (signed) EFI binaries of the<br />
+Linux distribution (i.e. shim*.efi and grub*.efi)<br />
+instead of making its own ReaR specific EFI binaries.</p>
+<p>My current offhanded reasoning:</p>
+<p>When the EFI binaries of the Linux distribution<br />
+make the original system boot,<br />
+then exactly those EFI binaries<br />
+should also make the ReaR recovery system boot<br />
+on replacement hardware<br />
+because replacement hardware must be sufficiently<br />
+compatible with the original system hardware.</p>
+<p>Another (hopefully reasonable) assumption is that<br />
+the (signed) EFI binaries of the Linux distribution<br />
+should be sufficiently feature complete<br />
+to boot the original system on various hardware<br />
+from various kind of boot media (disk, CDROM, ISO).<br />
+I assume Linux distribution use exactly the same<br />
+(signed) EFI binaries on their installation media<br />
+to boot their installation systems and<br />
+also later on the disk of the installed system<br />
+to boot the installed system.<br />
+So I think exactly those (signed) EFI binaries<br />
+should also make the ReaR recovery system boot<br />
+on sufficiently compatible replacement hardware<br />
+from various kind of boot media.<br />
+Again there is the requirement that the replacement hardware<br />
+is sufficiently compatible with the original system hardware<br />
+which means in particular that the ReaR recovery system<br />
+must be booted from a medium that is a supported medium<br />
+to install the original system.</p>
+<h4 id="jsmeix_commented_at_2023-08-08_0546"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1668945351">2023-08-08 05:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-08_0546" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/pull/3031#issuecomment-1668103656">https://github.com/rear/rear/pull/3031#issuecomment-1668103656</a></p>
+<p>My "secret final plan" is to have<br />
+some reasonable UEFI boot autodetection<br />
+so UEFI_BOOTLOADER and SECURE_BOOT_BOOTLOADER<br />
+do not need to be specified by the user<br />
+but the user can use them if needed to specify<br />
+the first stage Secure Boot bootloader EFI binary<br />
+via SECURE_BOOT_BOOTLOADER and<br />
+the second stage Secure Boot bootloader EFI binary<br />
+via UEFI_BOOTLOADER<br />
+or - when only UEFI_BOOTLOADER is specified<br />
+the single stage UEFI bootloader EFI binary.</p>
+<h4 id="jsmeix_commented_at_2023-08-08_0646"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1669003827">2023-08-08 06:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-08-08_0646" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I will merge it today afternoon unless objections appear.</p>
+<h4 id="pcahyna_commented_at_2023-08-08_1017"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1669336117">2023-08-08 10:17</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-08_1017" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thanks a lot for this improvement, in the meantime I tried it on
+a Secure Boot enabled hardware with RHEL 8 (it works - both the rescue
+image an the recovered system) and on Secure Boot disabled (but with
+configured Secure Boot in ReaR via
+<code>SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi</code>) with RHEL 9
+(I don't test Secure Boot this way, but it confirms that using the shim
++ the default GRUB avoids
+<a href="https://github.com/rear/rear/issues/2971">https://github.com/rear/rear/issues/2971</a>).</p>
+<h4 id="pcahyna_commented_at_2023-08-08_1208"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1669490742">2023-08-08 12:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-08_1208" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Another (hopefully reasonable) assumption is that<br />
+the (signed) EFI binaries of the Linux distribution<br />
+should be sufficiently feature complete<br />
+to boot the original system on various hardware<br />
+from various kind of boot media (disk, CDROM, ISO).</p>
+</blockquote>
+<p>I believe that with Secure Boot, you are not allowed to insmod any GRUB
+modules, so this should be a reasonable assumption - the GRUB image
+should be indeed feature complete, avoiding the need for
+grub2-mkstandalone (it also does not need to have the path to the
+configuration file hardcoded, unlike on PC BIOS, because EFI passes to
+GRUB the directory it was loaded from and GRUB locates and loads
+grub.cfg in the same directory).</p>
+<h4 id="pcahyna_commented_at_2023-08-08_1302"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1669573573">2023-08-08 13:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-08_1302" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When the EFI binaries of the Linux distribution<br />
+make the original system boot,<br />
+then exactly those EFI binaries<br />
+should also make the ReaR recovery system boot<br />
+on replacement hardware<br />
+because replacement hardware must be sufficiently<br />
+compatible with the original system hardware.</p>
+</blockquote>
+<p>It is not only the recovery (rescue) system (where some deviations may
+be necessary), it is also the recovered system. In my experience, when
+recovering without <code>SECURE_BOOT_BOOTLOADER</code> set, the recovered system
+has a UEFI entry of this type</p>
+<pre><code>Boot0016* RedHatEnterpriseServer 8      HD(1,GPT,f18ee8ed-2fdd-4984-8e71-95a82f99318d,0x800,0x12c000)/File(\EFI\redhat\grubx64.efi)
+</code></pre>
+<p>so, GRUB is directly booted, in contrast with the original system, which
+has</p>
+<pre><code>Boot000E* Red Hat Enterprise Linux      HD(1,GPT,a1d3cffa-2eb7-4a8a-b559-7f2241cba776,0x800,0x12c000)/File(\EFI\redhat\shimx64.efi)
+</code></pre>
+<p>(as it uses the shim always) - so the recovered system is different in
+this respect from the original system. This will be a problem if the
+user decides to turn Secure Boot on after the system was backed up and
+recovered.</p>
+<blockquote>
+<p>My "secret final plan" is to have<br />
+some reasonable UEFI boot autodetection<br />
+so UEFI_BOOTLOADER and SECURE_BOOT_BOOTLOADER<br />
+do not need to be specified by the user<br />
+but the user can use them if needed to specify<br />
+the first stage Secure Boot bootloader EFI binary<br />
+via SECURE_BOOT_BOOTLOADER and<br />
+the second stage Secure Boot bootloader EFI binary<br />
+via UEFI_BOOTLOADER<br />
+or - when only UEFI_BOOTLOADER is specified<br />
+the single stage UEFI bootloader EFI binary.</p>
+</blockquote>
+<p>regarding autodetection, I believe it is needed to examine the current
+boot entry (BootCurrent in efibootmgr output) during mkrescue and use it
+to set the variables - something that is AFAIK not being done now.</p>
+<h4 id="pcahyna_commented_at_2023-08-08_1306"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3031#issuecomment-1669580259">2023-08-08 13:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-08_1306" title="Permanent link">&para;</a></h4>
+<p>FYI that's what's inside the system ESP on RHEL:</p>
+<pre><code># ls -lR /boot/efi/EFI/
+/boot/efi/EFI/:
+total 8
+drwx------. 2 root root 4096 Aug  8 00:03 BOOT
+drwx------. 3 root root 4096 Aug  8 05:21 redhat
+
+/boot/efi/EFI/BOOT:
+total 1016
+-rwx------. 1 root root 943520 Jun  7  2022 BOOTX64.EFI
+-rwx------. 1 root root  90568 Jun  7  2022 fbx64.efi
+
+/boot/efi/EFI/redhat:
+total 4872
+-rwx------. 1 root root     182 Jun  7  2022 BOOTX64.CSV
+drwx------. 2 root root    4096 Feb  6 16:27 fonts
+-rwx------. 1 root root    6201 Aug  8 05:21 grub.cfg
+-rwx------. 1 root root    6201 Aug  8 05:21 grub.cfg.rearbak
+-rwx------. 1 root root    1024 Aug  8 00:07 grubenv
+-rwx------. 1 root root 2217416 Feb  6 16:27 grubx64.efi
+-rwx------. 1 root root  852552 Jun  7  2022 mmx64.efi
+-rwx------. 1 root root  943520 Jun  7  2022 shimx64.efi
+-rwx------. 1 root root  936520 Jun  7  2022 shimx64-redhat.efi
+
+/boot/efi/EFI/redhat/fonts:
+total 0
+</code></pre>
+<p>and what's on the ESP of the ReaR bootable disk after your change, when
+<code>SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi</code></p>
+<pre><code># ls -lR /mnt/rear/EFI/
+/mnt/rear/EFI/:
+total 4
+drwxr-xr-x. 2 root root 4096 Aug  8 05:05 BOOT
+
+/mnt/rear/EFI/BOOT:
+total 540420
+-rwxr-xr-x. 1 root root    943520 Aug  8 05:02 BOOTX64.efi
+-rwxr-xr-x. 1 root root      1411 Aug  8 05:05 grub.cfg
+-rwxr-xr-x. 1 root root   2217416 Aug  8 05:02 grubx64.efi
+-rwxr-xr-x. 1 root root 539374222 Aug  8 05:02 initrd.cgz
+-rwxr-xr-x. 1 root root  10838352 Aug  8 05:02 kernel
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-07-25.3031.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

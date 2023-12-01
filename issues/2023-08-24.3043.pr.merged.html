@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3043 PR merged: Remove the lvmdevices file at the end of recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3043 PR merged: Remove the lvmdevices file at the end of recovery";
+        var mkdocs_page_input_path = "issues/2023-08-24.3043.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3043 PR merged: Remove the lvmdevices file at the end of recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3043_pr_merged_remove_the_lvmdevices_file_at_the_end_of_recovery"><a href="https://github.com/rear/rear/pull/3043">#3043 PR</a> <code>merged</code>: Remove the lvmdevices file at the end of recovery<a class="headerlink" href="#3043_pr_merged_remove_the_lvmdevices_file_at_the_end_of_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2023-08-24_1417"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3043">2023-08-24 14:17</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2023-08-24_1417" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): closes #2917, closes #3042</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Full backup and recovery on a KVM virtual machine (x86_64) with
+    virtio disk (vda) and a PowerVM LPAR (ppc64le) withs SCSI disk
+    (sda), both with RHEL 9 (where the LVM default is
+    <code>use_devicesfile=1</code>).<br />
+    Before backup and recovery:</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code># cat /etc/lvm/devices/system.devices
+# LVM uses devices listed in this file.
+# Created by LVM command lvmdevices pid 3645 at Thu Aug 24 11:52:38 2023
+VERSION=1.1.4
+IDTYPE=sys_serial IDNAME=00fac60100004c000000017bead7ca41.10 DEVNAME=/dev/sda3 PVID=3NFhwAW1RAQzJz8uOsZqkcqasKhlZt9b PART=3
+# lvmdevices 
+  Device /dev/sda3 IDTYPE=sys_serial IDNAME=00fac60100004c000000017bead7ca41.10 DEVNAME=/dev/sda3 PVID=3NFhwAW1RAQzJz8uOsZqkcqasKhlZt9b PART=3
+</code></pre>
+<p>After recovery:</p>
+<pre><code># lvmdevices 
+  Devices file does not exist.
+# cat /etc/lvm/devices/system.devices.rearbak 
+# LVM uses devices listed in this file.
+# Created by LVM command lvmdevices pid 3645 at Thu Aug 24 11:52:38 2023
+VERSION=1.1.4
+IDTYPE=sys_serial IDNAME=00fac60100004c000000017bead7ca41.10 DEVNAME=/dev/sda3 PVID=3NFhwAW1RAQzJz8uOsZqkcqasKhlZt9b PART=3
+</code></pre>
+<ul>
+<li>Brief description of the changes in this pull request:</li>
+</ul>
+<p>The file <code>/etc/lvm/devices/system.devices</code> restricts LVM to disks with
+given (hardware) IDs (serial numbers, WWNs). See lvmdevices(8).</p>
+<p>Unfortunately, when restoring to different disks than in the original
+system, it will mean that LVM is broken in the recovered system (it
+won't find any disks). Therefore it is safer to remove the file to force
+the old behavior where LVM scans all disks. This used to be the LVM
+default (<code>use_devicesfile=0</code>).</p>
+<p>I don't think one can delete the devices file and do
+/usr/sbin/vgimportdevices -a to reimport the VGs automatically at the
+end of recovery. The problem is, imagine you have several volume groups.
+One for the system (rootvg) and one for data (datavg), on different
+disks. Now you system is broken and you want to recover it, but the data
+are unaffected and you want them to survive the recovery procedure. For
+this, it is advisable to disconnect the data disks during the recovery
+procedure to avoid accidentally reformatting them. But, as they are not
+connected, /usr/sbin/vgimportdevices -a will not find datavg, therefore
+it will not add them to the devices file and when you reboot after
+recovery with the disks attached again, they will not be found by LVM
+and datavg will not be activated.<br />
+I was thinking about some automated procedure to update only the
+obsolete entries in lvmdevices and keep all others, but I have not found
+anything simple. I therefore believe the only reliable solution is to
+remove the devices file at the end of recovery, since running without it
+is preferable to a broken system due to some fragile attempt at an
+"ideal" solution.</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1423"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3043#issuecomment-1691784381">2023-08-24 14:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1423" title="Permanent link">&para;</a></h4>
+<p>One might be tempted to run <code>/usr/sbin/vgimportdevices -a</code> without
+removing the devices file, as it leaves the old entries in the file and
+merely adds new ones, and thus does not suffer from the problem above.
+However, running the command when there already are entries for the
+newly added PVs that point to unknown disks, vgimportdevices asks
+interactively about it:</p>
+<pre><code>  WARNING: adding device /dev/sdd with PVID iinTjXXywDCXcqssEPsSM8HvuFdWh1OX which is already used for missing device device_id 00fac60100004c000000017bead7ca41.70.
+Add device with duplicate PV to devices file?
+</code></pre>
+<p>and if one confirms it, every LVM command then complains about duplicate
+PV entries in the file:</p>
+<pre><code>pvdisplay 
+  Devices file sys_serial 00fac60100004c000000017bead7ca41.70 PVID iinTjXXywDCXcqssEPsSM8HvuFdWh1OX last seen on /dev/sdc not found.
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-08-24_1428"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3043#issuecomment-1691792068">2023-08-24 14:28</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1428" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors I would like to merge the PR quite soon, if there is
+nothing obviously wrong with it. I believe the approach is safe, even if
+not ideal (we are reverting to the old behavior without devices file)
+and after much thinking I have not found a better approach.</p>
+<h4 id="pcahyna_commented_at_2023-08-24_1609"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3043#issuecomment-1691986884">2023-08-24 16:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-08-24_1609" title="Permanent link">&para;</a></h4>
+<p>Relevant part of console output:</p>
+<pre><code>Created SELinux /mnt/local/.autorelabel file : after reboot SELinux will relabel all files 
+Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group 
+Checking if certain restored files are consistent with the recreated system 
+Renamed LVM devices file /mnt/local//etc/lvm/devices/system.devices to /mnt/local//etc/lvm/devices/system.devices.rearbak 
+to prevent LVM problems in the recovered system, verify that the file 
+is correct after booting the recovered system and move it back, or 
+regenerate it using vgimportdevices. 
+Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ... 
+Running dracut...
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2023 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-08-24.3043.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
