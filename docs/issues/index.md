@@ -2939,6 +2939,7 @@
 - [\#2958 Issue](2023-03-20.2958.issue.closed.md) `closed`: ReaR fails while verifying the disklayout when a disk has a 0 size
 - [\#2958 Issue](2023-03-20.2958.issue.open.md) `open`: ReaR fails while verifying the disklayout when a disk has a 0 size
 - [\#2959 Issue](2023-03-23.2959.issue.closed.md) `closed`: ZFS Filesystems are not backed up
+- [\#2961 PR](2023-03-28.2961.pr.merged.md) `merged`: Copy the console= kernel arguments from the original system
 - [\#2961 PR](2023-03-28.2961.pr.open.md) `open`: Copy the console= kernel arguments from the original system
 - [\#2962 Issue](2023-03-28.2962.issue.closed.md) `closed`: Automatic recover should be set as default or via user input in local.conf
 - [\#2963 PR](2023-03-28.2963.pr.merged.md) `merged`: OBDR fixes
@@ -2977,6 +2978,7 @@
 - [\#2991 PR](2023-05-24.2991.pr.merged.md) `merged`: ISO OUTPUT Improvements
 - [\#2992 Issue](2023-05-25.2992.issue.closed.md) `closed`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
 - [\#2992 Issue](2023-05-25.2992.issue.open.md) `open`: Rear not honoring kernel parameter net.ifnames=0 and renaming interfaces (question
+- [\#2993 Issue](2023-05-25.2993.issue.closed.md) `closed`: Rubrik CDM agent missing after ReaR recovery
 - [\#2993 Issue](2023-05-25.2993.issue.open.md) `open`: Rubrik CDM agent missing after ReaR recovery
 - [\#2994 Issue](2023-05-25.2994.issue.closed.md) `closed`: RFC: Should we activate security bug reports for ReaR?
 - [\#2995 Issue](2023-05-25.2995.issue.closed.md) `closed`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
@@ -3011,6 +3013,7 @@
 - [\#3014 Issue](2023-06-19.3014.issue.open.md) `open`: RFC: enabling automatic backup and restore test
 - [\#3016 Issue](2023-06-22.3016.issue.closed.md) `closed`: Multiple Disk
 - [\#3016 Issue](2023-06-22.3016.issue.open.md) `open`: Multiple Disk
+- [\#3017 Issue](2023-06-25.3017.issue.closed.md) `closed`: Recovery system fails to start up on Fedora 39 (systemd errors
 - [\#3017 Issue](2023-06-25.3017.issue.open.md) `open`: Recovery system fails to start up on Fedora 39 (systemd errors
 - [\#3018 Issue](2023-06-26.3018.issue.closed.md) `closed`: BACKUP=SESAM default excludes dysfunctional
 - [\#3019 PR](2023-06-26.3019.pr.merged.md) `merged`: issue: \#3018: fix sesam default exlude pathes
@@ -3038,6 +3041,7 @@
 - [\#3037 PR](2023-08-07.3037.pr.merged.md) `merged`: Avoid multiple 'set -x' messages for one message output function call (like LogPrint
 - [\#3038 PR](2023-08-07.3038.pr.merged.md) `merged`: In DoExitTasks(
 - [\#3039 PR](2023-08-07.3039.pr.merged.md) `merged`: Describe expose-secrets in rear.8.adoc
+- [\#3040 Issue](2023-08-11.3040.issue.closed.md) `closed`: Failed to boot ReaR ISO on a new VM in VMware with vCenter
 - [\#3040 Issue](2023-08-11.3040.issue.open.md) `open`: Failed to boot ReaR ISO on a new VM in VMware with vCenter
 - [\#3041 PR](2023-08-11.3041.pr.open.md) `open`: Reorder systemd units in the rescue system and make sure syslog is started
 - [\#3042 Issue](2023-08-17.3042.issue.closed.md) `closed`: use\_devicesfile in RHEL9
@@ -3045,11 +3049,53 @@
 - [\#3045 Issue](2023-09-04.3045.issue.open.md) `open`: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
 - [\#3046 PR](2023-09-08.3046.pr.merged.md) `merged`: Remove unnecessary curly braces in var expansion
 - [\#3047 PR](2023-09-11.3047.pr.merged.md) `merged`: Skip invalid disk drives (zero sized, no media
+- [\#3048 Issue](2023-09-12.3048.issue.closed.md) `closed`: no room on backup medium - selectively purge backup sets
 - [\#3048 Issue](2023-09-12.3048.issue.open.md) `open`: no room on backup medium - selectively purge backup sets
 - [\#3049 Issue](2023-09-22.3049.issue.open.md) `open`: Open Build Service fails building Ubuntu 22/23 deb packages
 - [\#3050 Issue](2023-09-27.3050.issue.open.md) `open`: ReaR and NFS version 4
+- [\#3051 PR](2023-10-01.3051.pr.merged.md) `merged`: Bump actions/checkout from 3 to 4
 - [\#3051 PR](2023-10-01.3051.pr.open.md) `open`: Bump actions/checkout from 3 to 4
 - [\#3052 PR](2023-10-04.3052.pr.merged.md) `merged`: Enable automated backup & recovery test in CI on PRs
 - [\#3053 PR](2023-10-05.3053.pr.merged.md) `merged`: Update RBME description in default.conf
 - [\#3054 PR](2023-10-10.3054.pr.merged.md) `merged`: Fail safe USB\_DEVICE\_BOOT\_LABEL setting and fallback
+- [\#3055 Issue](2023-10-19.3055.issue.closed.md) `closed`: SLES 15.5 no ppc64le rpm
+- [\#3056 Issue](2023-10-19.3056.issue.closed.md) `closed`: OBS remove whole Archiving:Backup:Rear:Snapshot (all is old and outdated
+- [\#3057 PR](2023-10-23.3057.pr.merged.md) `merged`: Better explain apply\_layout\_mappings(
+- [\#3058 PR](2023-10-25.3058.pr.merged.md) `merged`: Skip useless xfs mount options when mounting during recovery
+- [\#3059 Issue](2023-10-27.3059.issue.open.md) `open`: Make "rear recover" robust against problematic mount options
+- [\#3060 Issue](2023-10-29.3060.issue.closed.md) `closed`: Configuring bacula recovery environment to use bextract
+- [\#3061 PR](2023-10-30.3061.pr.merged.md) `merged`: Save LVM pool metadata volume size in disk layout
+- [\#3062 PR](2023-11-01.3062.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.1
+- [\#3063 Issue](2023-11-01.3063.issue.open.md) `open`: Can rear handle multiple backups on just one USB stick?
+- [\#3064 Issue](2023-11-02.3064.issue.closed.md) `closed`: Missing libraries in the recovery system for symlinks in COPY\_AS\_IS
+- [\#3065 Issue](2023-11-05.3065.issue.open.md) `open`: No serial console in recovery system on Debian Trixie (systemd errors
+- [\#3066 Issue](2023-11-05.3066.issue.open.md) `open`: No block device nodes in recovery system on Debian Trixie (systemd errors
+- [\#3067 Issue](2023-11-06.3067.issue.open.md) `open`: Trying to build rescue ISO for Bacula backup
+- [\#3068 Issue](2023-11-06.3068.issue.closed.md) `closed`: ISO\_RECOVERY\_MODE=unattended reboot loop if ISO CD-ROM is first boot device
+- [\#3069 Issue](2023-11-07.3069.issue.open.md) `open`: BACKUP=NSR: "rear checklayout" always results exit code 1
+- [\#3070 PR](2023-11-07.3070.pr.merged.md) `merged`: Add REBOOT\_COMMANDS (issue 3068
+- [\#3072 PR](2023-11-09.3072.pr.merged.md) `merged`: Add USER\_INPUT\_UNATTENDED\_TIMEOUT config variable
+- [\#3073 PR](2023-11-10.3073.pr.merged.md) `merged`: Resolve libs for executable links in COPY\_AS\_IS
+- [\#3074 Issue](2023-11-11.3074.issue.closed.md) `closed`: Storing and reading Self Encrypted Disk (SED
+- [\#3075 Issue](2023-11-12.3075.issue.open.md) `open`: Add new BACKUP=VEEAM method
+- [\#3076 PR](2023-11-12.3076.pr.open.md) `open`: Add VEEAM backup
+- [\#3077 PR](2023-11-13.3077.pr.closed.md) `closed`: BACKUP=NSR set NSRSERVER properly in 650\_check\_iso\_recoverable.sh
+- [\#3078 PR](2023-11-13.3078.pr.merged.md) `merged`: Mention xorrisofs when no ISO image tool is found
+- [\#3079 PR](2023-11-13.3079.pr.merged.md) `merged`: Don't mount /sys and other directories if already mounted
+- [\#3080 PR](2023-11-13.3080.pr.merged.md) `merged`: new BACKUP=VEEAM WIP commit to rear:add-veeam-support
+- [\#3081 Issue](2023-11-14.3081.issue.closed.md) `closed`: Cannot create EFI Boot Manager entry (unable to find ESP /mnt/local/boot/efi among mounted devices
+- [\#3082 Issue](2023-11-14.3082.issue.open.md) `open`: ERROR: Bacula client status unknown on director.
+- [\#3083 Issue](2023-11-15.3083.issue.open.md) `open`: In etc/scripts/system-setup also source additional config files
+- [\#3084 Issue](2023-11-15.3084.issue.open.md) `open`: rear should automatically use ebiso if UEFI bootloader is found on SLES/OpenSUSE/…
+- [\#3085 Issue](2023-11-17.3085.issue.closed.md) `closed`: write\_protected\_candidate\_device called for '/sys/block/nvme0c0n1' but '/dev/nvme0c0n1' is no block device
+- [\#3086 Issue](2023-11-17.3086.issue.open.md) `open`: Support for Amazon Linux 2 and 2023
+- [\#3087 Issue](2023-11-21.3087.issue.closed.md) `closed`: Use\_Static\_Networking setting is being ignored
+- [\#3088 PR](2023-11-21.3088.pr.merged.md) `merged`: Update SSH\_ROOT\_PASSWORD in example.conf files
+- [\#3089 PR](2023-11-21.3089.pr.open.md) `open`: New RECOVERY\_COMMANDS array
+- [\#3090 Issue](2023-11-22.3090.issue.closed.md) `closed`: AWS VM HVM: ISO boots but RAWDISK won't boot (stuck at "Probing EDD" with syslinux 4.X
+- [\#3091 PR](2023-11-23.3091.pr.open.md) `open`: Let is\_write\_protected(
+- [\#3093 Issue](2023-11-27.3093.issue.closed.md) `closed`: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14
+- [\#3094 Issue](2023-11-29.3094.issue.closed.md) `closed`: BACKUP=BACULA: Unattended restore of the Bacula server
+- [\#3095 Issue](2023-11-29.3095.issue.open.md) `open`: Amazon Linux 2023 : DHCP is enabled but no DHCP client binary (dhcpcd dhclient dhcp6c dhclient6
+- [\#3096 Issue](2023-12-01.3096.issue.open.md) `open`: Device nvme0n1 is designated as write-protected (needs manual configuration
 - # Issues History of Relax-and-Recover (index.md)
