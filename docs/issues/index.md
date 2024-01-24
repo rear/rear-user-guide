@@ -2238,6 +2238,7 @@
 - [\#2239 Issue](2019-09-13.2239.issue.closed.md) `closed`: Enhanced default for AUTOEXCLUDE\_PATH
 - [\#2240 Issue](2019-09-25.2240.issue.closed.md) `closed`: sshd segfault in ReaR recovery system (also segfaults in SLES15-SP1 system
 - [\#2241 Issue](2019-09-27.2241.issue.closed.md) `closed`: Backup restore fails for BACKUP\_PROG\_COMPRESS\_OPTIONS=("--zstd"
+- [\#2241 Issue](2019-09-27.2241.issue.open.md) `open`: Backup restore fails for BACKUP\_PROG\_COMPRESS\_OPTIONS=("--zstd"
 - [\#2242 Issue](2019-09-27.2242.issue.closed.md) `closed`: Integration REAR and NetBackup. Script "400\_restore\_with\_nbu.sh". How to create a new variable "sdate"
 - [\#2243 Issue](2019-09-30.2243.issue.closed.md) `closed`: IBM Power8 BareMetal rescue USB boot kernel panic: VFS Unable to mount root fs on unknown-block(1,0
 - [\#2244 PR](2019-10-02.2244.pr.closed.md) `closed`: Enhanced AUTOEXCLUDE\_PATH in default.conf
@@ -2629,6 +2630,7 @@
 - [\#2634 Issue](2021-06-22.2634.issue.closed.md) `closed`: DRBD9 restore issue, when trying to become primary
 - [\#2635 Issue](2021-06-22.2635.issue.closed.md) `closed`: Unable to perform recovery operation on physical machine - UEFI
 - [\#2636 PR](2021-06-22.2636.pr.merged.md) `merged`: Workaround against DRBD9 restore issue \#2634
+- [\#2637 Issue](2021-06-22.2637.issue.closed.md) `closed`: Don't deprecate OBDR because it still works and is in use
 - [\#2637 Issue](2021-06-22.2637.issue.open.md) `open`: Don't deprecate OBDR because it still works and is in use
 - [\#2638 Issue](2021-06-22.2638.issue.closed.md) `closed`: diskrestore.sh fails on already used disk (works on empty disk
 - [\#2641 PR](2021-06-30.2641.pr.merged.md) `merged`: NSR - Enhancement with a new parameter and the ability of a point-in-time recovery.
@@ -2793,6 +2795,7 @@
 - [\#2807 Issue](2022-05-13.2807.issue.closed.md) `closed`: Wrong 'df' program (third-party 'Dialafile'
 - [\#2808 PR](2022-05-17.2808.pr.merged.md) `merged`: Exclude dev/watchdog\* from recovery system
 - [\#2809 Issue](2022-05-18.2809.issue.closed.md) `closed`: ReaR recover aborting du to error failed to remove /tmp/rear.xxxx/outputfs
+- [\#2810 Issue](2022-05-23.2810.issue.closed.md) `closed`: Empty SD card slot appears as /dev/sdb disk without partition type
 - [\#2810 Issue](2022-05-23.2810.issue.open.md) `open`: Empty SD card slot appears as /dev/sdb disk without partition type
 - [\#2811 PR](2022-05-23.2811.pr.merged.md) `merged`: Add PRE\_RECOVERY\_COMMANDS and POST\_RECOVERY\_COMMANDS
 - [\#2812 Issue](2022-05-23.2812.issue.open.md) `open`: Migrating to other PowerVM LPAR with different disks: Restore multipath problem: no WWIDs
@@ -2824,6 +2827,7 @@
 - [\#2838 Issue](2022-07-14.2838.issue.closed.md) `closed`: How to perform restore via sshfs when target environment is different to the source
 - [\#2839 PR](2022-07-14.2839.pr.merged.md) `merged`: Pass -y to lvcreate instead of piping the output of yes
 - [\#2842 PR](2022-07-25.2842.pr.merged.md) `merged`: Modernize Packit configuration
+- [\#2843 Issue](2022-07-26.2843.issue.closed.md) `closed`: No recovery system startup messages (inappropriate kernel 'console' setting
 - [\#2843 Issue](2022-07-26.2843.issue.open.md) `open`: No recovery system startup messages (inappropriate kernel 'console' setting
 - [\#2844 PR](2022-07-28.2844.pr.merged.md) `merged`: Overhauled rescue/GNU/Linux/290\_kernel\_cmdline.sh
 - [\#2845 Issue](2022-07-31.2845.issue.closed.md) `closed`: Password-less Borg backup via ssh (without BORGBACKUP\_USERNAME
@@ -3052,6 +3056,7 @@
 - [\#3048 Issue](2023-09-12.3048.issue.closed.md) `closed`: no room on backup medium - selectively purge backup sets
 - [\#3048 Issue](2023-09-12.3048.issue.open.md) `open`: no room on backup medium - selectively purge backup sets
 - [\#3049 Issue](2023-09-22.3049.issue.open.md) `open`: Open Build Service fails building Ubuntu 22/23 deb packages
+- [\#3050 Issue](2023-09-27.3050.issue.closed.md) `closed`: ReaR and NFS version 4
 - [\#3050 Issue](2023-09-27.3050.issue.open.md) `open`: ReaR and NFS version 4
 - [\#3051 PR](2023-10-01.3051.pr.merged.md) `merged`: Bump actions/checkout from 3 to 4
 - [\#3051 PR](2023-10-01.3051.pr.open.md) `open`: Bump actions/checkout from 3 to 4
@@ -3065,11 +3070,13 @@
 - [\#3059 Issue](2023-10-27.3059.issue.open.md) `open`: Make "rear recover" robust against problematic mount options
 - [\#3060 Issue](2023-10-29.3060.issue.closed.md) `closed`: Configuring bacula recovery environment to use bextract
 - [\#3061 PR](2023-10-30.3061.pr.merged.md) `merged`: Save LVM pool metadata volume size in disk layout
+- [\#3062 PR](2023-11-01.3062.pr.closed.md) `closed`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.1
 - [\#3062 PR](2023-11-01.3062.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.1
 - [\#3063 Issue](2023-11-01.3063.issue.open.md) `open`: Can rear handle multiple backups on just one USB stick?
 - [\#3064 Issue](2023-11-02.3064.issue.closed.md) `closed`: Missing libraries in the recovery system for symlinks in COPY\_AS\_IS
 - [\#3065 Issue](2023-11-05.3065.issue.open.md) `open`: No serial console in recovery system on Debian Trixie (systemd errors
 - [\#3066 Issue](2023-11-05.3066.issue.open.md) `open`: No block device nodes in recovery system on Debian Trixie (systemd errors
+- [\#3067 Issue](2023-11-06.3067.issue.closed.md) `closed`: Trying to build rescue ISO for Bacula backup
 - [\#3067 Issue](2023-11-06.3067.issue.open.md) `open`: Trying to build rescue ISO for Bacula backup
 - [\#3068 Issue](2023-11-06.3068.issue.closed.md) `closed`: ISO\_RECOVERY\_MODE=unattended reboot loop if ISO CD-ROM is first boot device
 - [\#3069 Issue](2023-11-07.3069.issue.open.md) `open`: BACKUP=NSR: "rear checklayout" always results exit code 1
@@ -3077,6 +3084,7 @@
 - [\#3072 PR](2023-11-09.3072.pr.merged.md) `merged`: Add USER\_INPUT\_UNATTENDED\_TIMEOUT config variable
 - [\#3073 PR](2023-11-10.3073.pr.merged.md) `merged`: Resolve libs for executable links in COPY\_AS\_IS
 - [\#3074 Issue](2023-11-11.3074.issue.closed.md) `closed`: Storing and reading Self Encrypted Disk (SED
+- [\#3075 Issue](2023-11-12.3075.issue.closed.md) `closed`: Add new BACKUP=VEEAM method
 - [\#3075 Issue](2023-11-12.3075.issue.open.md) `open`: Add new BACKUP=VEEAM method
 - [\#3076 PR](2023-11-12.3076.pr.open.md) `open`: Add VEEAM backup
 - [\#3077 PR](2023-11-13.3077.pr.closed.md) `closed`: BACKUP=NSR set NSRSERVER properly in 650\_check\_iso\_recoverable.sh
@@ -3091,11 +3099,51 @@
 - [\#3086 Issue](2023-11-17.3086.issue.open.md) `open`: Support for Amazon Linux 2 and 2023
 - [\#3087 Issue](2023-11-21.3087.issue.closed.md) `closed`: Use\_Static\_Networking setting is being ignored
 - [\#3088 PR](2023-11-21.3088.pr.merged.md) `merged`: Update SSH\_ROOT\_PASSWORD in example.conf files
+- [\#3089 PR](2023-11-21.3089.pr.merged.md) `merged`: New RECOVERY\_COMMANDS array
 - [\#3089 PR](2023-11-21.3089.pr.open.md) `open`: New RECOVERY\_COMMANDS array
 - [\#3090 Issue](2023-11-22.3090.issue.closed.md) `closed`: AWS VM HVM: ISO boots but RAWDISK won't boot (stuck at "Probing EDD" with syslinux 4.X
+- [\#3091 PR](2023-11-23.3091.pr.merged.md) `merged`: Let is\_write\_protected(
 - [\#3091 PR](2023-11-23.3091.pr.open.md) `open`: Let is\_write\_protected(
 - [\#3093 Issue](2023-11-27.3093.issue.closed.md) `closed`: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14
 - [\#3094 Issue](2023-11-29.3094.issue.closed.md) `closed`: BACKUP=BACULA: Unattended restore of the Bacula server
 - [\#3095 Issue](2023-11-29.3095.issue.open.md) `open`: Amazon Linux 2023 : DHCP is enabled but no DHCP client binary (dhcpcd dhclient dhcp6c dhclient6
 - [\#3096 Issue](2023-12-01.3096.issue.open.md) `open`: Device nvme0n1 is designated as write-protected (needs manual configuration
+- [\#3097 PR](2023-12-01.3097.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.2
+- [\#3098 Issue](2023-12-01.3098.issue.closed.md) `closed`: OUTPUT\_URL=file://... conflicts with OUTPUT=USB but ReaR does not error out appropriately
+- [\#3100 PR](2023-12-05.3100.pr.open.md) `open`: OUTPUT=PXE: Support for downloading kernel and initrd by http
+- [\#3101 Issue](2023-12-07.3101.issue.closed.md) `closed`: ReaR 2.7 Ignores loop partition type Disks
+- [\#3102 PR](2023-12-07.3102.pr.merged.md) `merged`: OUTPUT=USB: add a check that OUTPUT\_URL is mounted
+- [\#3103 PR](2023-12-11.3103.pr.closed.md) `closed`: Delete usr/share/rear/build/USB/default/800\_enforce\_usb\_output.sh
+- [\#3104 PR](2023-12-11.3104.pr.merged.md) `merged`: Error(
+- [\#3105 PR](2023-12-11.3105.pr.merged.md) `merged`: Do not touch $BUILD\_DIR/outputfs (the backup location
+- [\#3106 Issue](2023-12-12.3106.issue.closed.md) `closed`: ReaR source based Installation and RPM based Installation has inconsistency
+- [\#3107 Issue](2023-12-13.3107.issue.closed.md) `closed`: Debug intermittent backup/recovery CI errors
+- [\#3108 PR](2023-12-14.3108.pr.merged.md) `merged`: Set 'dmesg -n 5' in etc/scripts/boot
+- [\#3109 Issue](2023-12-15.3109.issue.open.md) `open`: rear should exclude NFS mounts with exclude list instead of tar one-filesystem feature
+- [\#3110 PR](2023-12-18.3110.pr.merged.md) `merged`: Fixed 800\_enforce\_usb\_output.sh
+- [\#3111 PR](2023-12-19.3111.pr.merged.md) `merged`: Show BugError message arguments without single quotes
+- [\#3112 PR](2023-12-19.3112.pr.closed.md) `closed`: Set 'dmesg -n \[4-7\]' in sbin/rear
+- [\#3113 PR](2023-12-20.3113.pr.merged.md) `merged`: Set 'dmesg -n \[4-6\]' in new 'setup' script 007\_set\_dmesg\_level.sh
+- [\#3114 PR](2023-12-20.3114.pr.closed.md) `closed`: Debug Packit issue
+- [\#3115 Issue](2023-12-21.3115.issue.open.md) `open`: ReaR 2.7 - SLES 15.5 - EFI variables are not supported on this system - Recovery
+- [\#3116 Issue](2023-12-21.3116.issue.open.md) `open`: Changing TMPDIR in local.conf not working
+- [\#3117 Issue](2023-12-27.3117.issue.open.md) `open`: BACKUP=RSYNC progress not showing with '--progress' in BACKUP\_RSYNC\_OPTIONS
+- [\#3118 PR](2024-01-01.3118.pr.merged.md) `merged`: Bump github/codeql-action from 2 to 3
+- [\#3119 PR](2024-01-01.3119.pr.merged.md) `merged`: Bump actions/stale from 8 to 9
+- [\#3120 PR](2024-01-01.3120.pr.merged.md) `merged`: Bump actions/upload-artifact from 3 to 4
+- [\#3121 Issue](2024-01-06.3121.issue.open.md) `open`: BACKUP=BORG --prefix deprecated --glob-archives could be used instead
+- [\#3122 Issue](2024-01-08.3122.issue.closed.md) `closed`: ReaR creates world-readable initrd with GRUB\_RESCUE=Y
+- [\#3123 PR](2024-01-08.3123.pr.merged.md) `merged`: Make initrd accessible only by root
+- [\#3124 PR](2024-01-08.3124.pr.merged.md) `merged`: Take AUTOEXCLUDE\_PATH into account in layout doc
+- [\#3125 PR](2024-01-09.3125.pr.open.md) `open`: Improve layout configuration part of the user guide
+- [\#3126 Issue](2024-01-12.3126.issue.open.md) `open`: Implement BACKUP=PPDM for Dell PowerProtect Data Manager
+- [\#3127 Issue](2024-01-15.3127.issue.open.md) `open`: Drop GRUB Legacy support and remove its code in ReaR
+- [\#3128 PR](2024-01-15.3128.pr.open.md) `open`: BugError when GRUB Legacy is used
+- [\#3129 Issue](2024-01-16.3129.issue.open.md) `open`: Remove "just" "simple" "easy"
+- [\#3130 Issue](2024-01-16.3130.issue.open.md) `open`: Are all our GitHub Actions safe?
+- [\#3131 PR](2024-01-17.3131.pr.merged.md) `merged`: Improve the description of AUTOEXCLUDE\_PATH
+- [\#3132 Issue](2024-01-18.3132.issue.open.md) `open`: RFC: Drop ELILO support and remove its code in ReaR
+- [\#3133 Issue](2024-01-19.3133.issue.open.md) `open`: Automatic keyboard configuation fails on Ubuntu 22.04 (and probably other Debian based systems
+- [\#3134 Issue](2024-01-22.3134.issue.closed.md) `closed`: root\_uuid device .. is no block device
+- [\#3135 Issue](2024-01-22.3135.issue.open.md) `open`: Hardcoded 'eval $command' is problematic and against "final power to the user"
 - # Issues History of Relax-and-Recover (index.md)
