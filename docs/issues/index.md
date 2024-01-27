@@ -3146,4 +3146,9 @@
 - [\#3133 Issue](2024-01-19.3133.issue.open.md) `open`: Automatic keyboard configuation fails on Ubuntu 22.04 (and probably other Debian based systems
 - [\#3134 Issue](2024-01-22.3134.issue.closed.md) `closed`: root\_uuid device .. is no block device
 - [\#3135 Issue](2024-01-22.3135.issue.open.md) `open`: Hardcoded 'eval $command' is problematic and against "final power to the user"
+- [\#3136 PR](2024-01-25.3136.pr.open.md) `open`: Include GRUB tools unconditionally and don't create $VAR\_DIR/recovery/bootdisk in prep
+- [\#3137 Issue](2024-01-26.3137.issue.open.md) `open`: Failed to create rescue image on Ubuntu 22.04 with ERROR: Module pata not found
+- [\#3138 PR](2024-01-26.3138.pr.open.md) `open`: Add support for Dell PowerProtect Data Manager
+- [\#3139 Issue](2024-01-26.3139.issue.open.md) `open`: Syslog and journald in rescue system not showing service logs
+- [\#3140 Issue](2024-01-26.3140.issue.open.md) `open`: How to mount USB device during recover (but not during mkbackup
 - # Issues History of Relax-and-Recover (index.md)
