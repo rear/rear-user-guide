@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3089 PR merged: New RECOVERY_COMMANDS array - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3089 PR merged: New RECOVERY_COMMANDS array";
+        var mkdocs_page_input_path = "issues/2023-11-21.3089.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3089 PR merged: New RECOVERY_COMMANDS array</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3089_pr_merged_new_recovery_commands_array"><a href="https://github.com/rear/rear/pull/3089">#3089 PR</a> <code>merged</code>: New RECOVERY_COMMANDS array<a class="headerlink" href="#3089_pr_merged_new_recovery_commands_array" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-11-21_1426"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3089">2023-11-21 14:26</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-11-21_1426" title="Permanent link">&para;</a></h4>
+<p>New RECOVERY_COMMANDS array that specifies the "rear recover"
+commands<br />
+which are automatically called after the ReaR recovery system has
+started up<br />
+to recreate the system in <strong>'auto_recover'/'automatic'</strong> or
+'<strong>unattended</strong>' mode.</p>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/2942">https://github.com/rear/rear/issues/2942</a><br />
+<a href="https://github.com/rear/rear/pull/3070#discussion_r1397363473">https://github.com/rear/rear/pull/3070#discussion_r1397363473</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p>Seems to work OK for me so far<br />
+with the defaults (in default.conf)<br />
+and also with (excerpt)</p>
+<pre><code>ISO_RECOVER_MODE=unattended
+ISO_DEFAULT=automatic
+RECOVERY_COMMANDS=( "echo 'rear -Dn recover' in $USER_INPUT_INTERRUPT_TIMEOUT seconds" "sleep $USER_INPUT_INTERRUPT_TIMEOUT" "rear -Dn recover" )
+RECOVERY_COMMANDS_LABEL="rear -Dn recover"
+REBOOT_COMMANDS=( "echo poweroff in $USER_INPUT_UNATTENDED_TIMEOUT seconds" "sleep $USER_INPUT_UNATTENDED_TIMEOUT" "poweroff" )
+REBOOT_COMMANDS_LABEL="poweroff"
+</code></pre>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In skel/default/etc/scripts/system-setup<br />
+added RECOVERY_COMMANDS (plus RECOVERY_COMMANDS_LABEL)<br />
+and in default.conf set and describe defaults<br />
+so that manual "rear recover" behaves as before.</p>
+<h4 id="jsmeix_commented_at_2023-11-22_1555"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1823035601">2023-11-22 15:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-22_1555" title="Permanent link">&para;</a></h4>
+<p>At least for me my current code in<br />
+[skel/default]/etc/scripts/system-setup<br />
+seems to work rather well (likely not yet perfect).</p>
+<p>Because currently there is nothing in default.conf<br />
+for RECOVERY_COMMANDS I test with things like (excerpt)</p>
+<pre><code>#ISO_RECOVER_MODE=unattended
+#ISO_DEFAULT=automatic
+RECOVERY_COMMANDS=( 'echo rear $rear_options recover in $USER_INPUT_INTERRUPT_TIMEOUT seconds'
+                    'sleep $USER_INPUT_INTERRUPT_TIMEOUT'
+                    'rear $rear_options recover' )
+RECOVERY_COMMANDS_LABEL='rear $rear_options recover'
+REBOOT_COMMANDS=( 'echo poweroff in $USER_INPUT_UNATTENDED_TIMEOUT seconds'
+                  'sleep $USER_INPUT_UNATTENDED_TIMEOUT'
+                  'poweroff' )
+REBOOT_COMMANDS_LABEL='poweroff'
+#USER_INPUT_INTERRUPT_TIMEOUT=11
+#USER_INPUT_UNATTENDED_TIMEOUT=7
+</code></pre>
+<h4 id="pcahyna_commented_at_2023-11-23_1530"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1824618613">2023-11-23 15:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-23_1530" title="Permanent link">&para;</a></h4>
+<p>@jsmeix your PR should add a default value for <code>RECOVERY_COMMANDS</code> to
+default.conf, I suspect that that's why the CI tests are failing.</p>
+<h4 id="pcahyna_commented_at_2023-11-23_1542"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1824635680">2023-11-23 15:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-11-23_1542" title="Permanent link">&para;</a></h4>
+<p>I believe this will be very useful especially for automated testing. One
+will be able to inject flags like -D or -d, and even test another
+recovery system commands, like <code>rear mountonly</code>, or perform examination
+of the recovery system (saving logs etc).</p>
+<h4 id="jsmeix_commented_at_2023-11-27_0635"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1827205162">2023-11-27 06:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_0635" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+currently there is nothing in default.conf for RECOVERY_COMMANDS<br />
+because currently this pull request is a work in progress draft.<br />
+Soon I will add defaults for RECOVERY_COMMANDS<br />
+and RECOVERY_COMMANDS_LABEL together with<br />
+a description what that thingy is good for...</p>
+<h4 id="jsmeix_commented_at_2023-11-27_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1827666718">2023-11-27 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1139" title="Permanent link">&para;</a></h4>
+<p>I will test with the defaults and if this works OK for me<br />
+I change it from "Draft" to "Ready for review".</p>
+<h4 id="jsmeix_commented_at_2023-11-29_0635"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1831301454">2023-11-29 06:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-29_0635" title="Permanent link">&para;</a></h4>
+<p>I tested with the defaults and it works well for me.</p>
+<h4 id="jsmeix_commented_at_2023-12-01_1023"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1835839323">2023-12-01 10:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1023" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it next Monday afternoon<br />
+unless there are objections.</p>
+<h4 id="pcahyna_commented_at_2023-12-01_1304"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1836088264">2023-12-01 13:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-01_1304" title="Permanent link">&para;</a></h4>
+<p>@jsmeix please squash commits e7467178ce91b552b3d2d455f4f04a0406156903
+and 2aba2a38860cbc27802eb01c34398a87800d9206 and force push, it is
+confusing in the history (for example in the <code>git log -u</code> output if
+there is addition of new code and then deletion of the old code).</p>
+<h4 id="jsmeix_commented_at_2023-12-04_1314"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1838622840">2023-12-04 13:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-04_1314" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+of course I will not merge it<br />
+until the comments were properly addressed<br />
+which I will do as time permits...</p>
+<h4 id="jsmeix_commented_at_2023-12-06_1240"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1842786614">2023-12-06 12:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-06_1240" title="Permanent link">&para;</a></h4>
+<p>A final test with</p>
+<pre><code>ISO_RECOVER_MODE=unattended
+ISO_DEFAULT=automatic
+OUTPUT=ISO
+</code></pre>
+<p>and the default RECOVERY_COMMANDS and REBOOT_COMMANDS<br />
+worked well for me<br />
+so I will merge it.</p>
+<h4 id="pcahyna_commented_at_2023-12-06_1309"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1842847838">2023-12-06 13:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-06_1309" title="Permanent link">&para;</a></h4>
+<p>@jsmeix please see the note about rebase and squash.</p>
+<h4 id="pcahyna_commented_at_2023-12-06_1312"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1842852393">2023-12-06 13:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-06_1312" title="Permanent link">&para;</a></h4>
+<p>maybe you can actually squash all the commits together because the
+latter commits merely fix problems with the earlier commits and we don't
+need all the commits in the history?</p>
+<h4 id="pcahyna_commented_at_2023-12-06_1316"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1842860274">2023-12-06 13:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-06_1316" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>A final test with</p>
+<pre><code>ISO_RECOVER_MODE=unattended
+ISO_DEFAULT=automatic
+OUTPUT=ISO
+</code></pre>
+<p>and the default RECOVERY_COMMANDS and REBOOT_COMMANDS</p>
+</blockquote>
+<p>That's what the CI test actually does, so you maybe don't need to spend
+time on this kind of test (unless you want to test specifically on SUSE
+distributions, the CI runs on Fedora and CentOS).</p>
+<h4 id="jsmeix_commented_at_2023-12-06_1340"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1842911293">2023-12-06 13:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-06_1340" title="Permanent link">&para;</a></h4>
+<p>I squashed all the commits together.</p>
+<h4 id="jsmeix_commented_at_2023-12-07_1018"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1845066143">2023-12-07 10:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_1018" title="Permanent link">&para;</a></h4>
+<p>A further side note regarding<br />
+<a href="https://github.com/rear/rear/pull/3089#discussion_r1413862335">https://github.com/rear/rear/pull/3089#discussion_r1413862335</a><br />
+(i.e. using 'eval echo')<br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3089#discussion_r1414329071">https://github.com/rear/rear/pull/3089#discussion_r1414329071</a><br />
+(i.e. using 'envsubst')<br />
+to evaluate nested variable values:</p>
+<p>Neither 'eval' nor 'envsubst' properly evaluate<br />
+even deeper nested variable values:</p>
+<pre><code># export toplevel='toplevel with $indirection1'
+
+# export indirection1='indirection1 with $indirection2'
+
+# export indirection2='no further indirection'
+
+# echo $toplevel
+toplevel with $indirection1
+
+# eval echo $toplevel
+toplevel with indirection1 with $indirection2
+
+# eval eval echo $toplevel
+toplevel with indirection1 with no further indirection
+
+# echo $toplevel | envsubst
+toplevel with indirection1 with $indirection2
+
+# echo $toplevel | envsubst | envsubst
+toplevel with indirection1 with no further indirection
+</code></pre>
+<p>When one knows the varaiable names one could do</p>
+<pre><code># indirection1_evaluated="${toplevel//'$indirection1'/$indirection1}"
+
+# indirection2_evaluated="${indirection1_evaluated//'$indirection2'/$indirection2}"
+
+# echo $indirection2_evaluated
+toplevel with indirection1 with no further indirection
+</code></pre>
+<p>Perhaps I should do the latter for 'rear_options' like</p>
+<pre><code># command='rear $rear_options workflow'
+
+# rear_options='-v'
+
+# echo "Running '${command//\$rear_options/$rear_options}' automatically"
+Running 'rear -v workflow' automatically
+</code></pre>
+<p>I don't know what is better:</p>
+<pre><code># echo "... '${var//'$nested'/$nested}' ..."
+</code></pre>
+<p>or</p>
+<pre><code># echo "... '${var//\$nested/$nested}' ..."
+</code></pre>
+<p>To me the latter code looks more clear.</p>
+<p>'${parameter//pattern/string}' is old bash functionality<br />
+(I tested it also on SLES 10 SP4 with GNU bash 3.1.17).</p>
+<p>The 'rear_options' value is safe because we set it in<br />
+[usr/share/rear/skel/default]/etc/scripts/system-setup</p>
+<h4 id="pcahyna_commented_at_2023-12-07_1046"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1845112303">2023-12-07 10:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-07_1046" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>A further side note regarding <a href="https://github.com/rear/rear/pull/3089#discussion_r1413862335">#3089
+(comment)</a>
+(i.e. using 'eval echo') and <a href="https://github.com/rear/rear/pull/3089#discussion_r1414329071">#3089
+(comment)</a>
+(i.e. using 'envsubst') to evaluate nested variable values:</p>
+<p>Neither 'eval' nor 'envsubst' properly evaluate even deeper nested
+variable values:</p>
+</blockquote>
+<p>But this is proper behavior! Shell itself does not evaluate this. As
+shown in your first example, below. So <code>eval</code>, which evaluates the
+string as interpreted by the shell, should not do it either. It would be
+very unsafe if the shell interpreted variable references recursively.</p>
+<blockquote>
+<pre><code># export toplevel='toplevel with $indirection1'
+
+# export indirection1='indirection1 with $indirection2'
+
+# export indirection2='no further indirection'
+
+# echo $toplevel
+toplevel with $indirection1
+</code></pre>
+</blockquote>
+<p>(...)</p>
+<blockquote>
+<p>When one knows the varaiable names one could do</p>
+<pre><code># indirection1_evaluated="${toplevel//'$indirection1'/$indirection1}"
+
+# indirection2_evaluated="${indirection1_evaluated//'$indirection2'/$indirection2}"
+
+# echo $indirection2_evaluated
+toplevel with indirection1 with no further indirection
+</code></pre>
+<p>Perhaps I should do the latter for 'rear_options' like</p>
+</blockquote>
+<p>What is the problem you are trying to solve? We don't have any nested
+variable references like this currently. The <code>rear_options</code> value does
+not contain any variable reference. So, what would you need evaluation
+of deeply nested variable references for?</p>
+<blockquote>
+<pre><code># command='rear $rear_options workflow'
+
+# rear_options='-v'
+
+# echo "Running '${command//\$rear_options/$rear_options}' automatically"
+Running 'rear -v workflow' automatically
+</code></pre>
+<p>I don't know what is better:</p>
+<pre><code># echo "... '${var//'$nested'/$nested}' ..."
+</code></pre>
+<p>or</p>
+<pre><code># echo "... '${var//\$nested/$nested}' ..."
+</code></pre>
+<p>To me the latter code looks more clear.</p>
+<p>'${parameter//pattern/string}' is old bash functionality (I tested it
+also on SLES 10 SP4 with GNU bash 3.1.17).</p>
+<p>The 'rear_options' value is safe because we set it in
+[usr/share/rear/skel/default]/etc/scripts/system-setup</p>
+</blockquote>
+<p>I thought you wanted to keep the code simple, i.e. no attempts at
+variable replacement in the displayed string? Anyway, if you want to
+perform replacement anyway, I think the latter code is clearer. Too many
+single quotes in the former.</p>
+<h4 id="jsmeix_commented_at_2023-12-07_1058"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1845130303">2023-12-07 10:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_1058" title="Permanent link">&para;</a></h4>
+<p>A remark regarding squashing commits:</p>
+<p>While squashing commits makes the history<br />
+of the master branch look cleaner<br />
+it seems it causes that the squashed commits<br />
+(i.e. commits "inside" a pull request)<br />
+become somewhat "dangling" or "orphaned" to some extent<br />
+because e.g. for<br />
+<a href="https://github.com/rear/rear/commit/b131e473807f28c051f1c019d17d63c245a406da">https://github.com/rear/rear/commit/b131e473807f28c051f1c019d17d63c245a406da</a><br />
+the GitHub web frontend shows</p>
+<pre><code>This commit does not belong to any branch on this repository,
+and may belong to a fork outside of the repository.
+</code></pre>
+<p>Walking back the chain of parents finally leads to<br />
+<a href="https://github.com/rear/rear/commit/09c81c9f93fe6a76e9e35122e2ff45f1427c1e8f">https://github.com/rear/rear/commit/09c81c9f93fe6a76e9e35122e2ff45f1427c1e8f</a><br />
+which points to the wrong pull request,<br />
+i.e. not the one where<br />
+<a href="https://github.com/rear/rear/commit/b131e473807f28c051f1c019d17d63c245a406da">https://github.com/rear/rear/commit/b131e473807f28c051f1c019d17d63c245a406da</a><br />
+belongs to (which is this pull request here).</p>
+<p>In contrast without squashing commits<br />
+for a commit "inside" a pull request like<br />
+<a href="https://github.com/rear/rear/commit/4960ca8b4bbc5d8346470f54be289d7482e3eaf4">https://github.com/rear/rear/commit/4960ca8b4bbc5d8346470f54be289d7482e3eaf4</a><br />
+the GitHub web frontend shows <code>master (#3070)</code> with links</p>
+<pre><code>[master](https://github.com/rear/rear) ([#3070](https://github.com/rear/rear/pull/3070))
+</code></pre>
+<p>so without squashing for commits "inside" a pull request<br />
+it is still visible to what pull request they belong.</p>
+<h4 id="pcahyna_commented_at_2023-12-07_1104"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1845140868">2023-12-07 11:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-07_1104" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>A remark regarding squashing commits:</p>
+<p>While squashing commits makes the history of the master branch look
+cleaner it seems it causes that the squashed commits (i.e. commits
+"inside" a pull request) become somewhat "dangling" or "orphaned" to
+some extent because e.g. for
+<a href="https://github.com/rear/rear/commit/b131e473807f28c051f1c019d17d63c245a406da">b131e47</a>
+the GitHub web frontend shows</p>
+<pre><code>This commit does not belong to any branch on this repository,
+and may belong to a fork outside of the repository.
+</code></pre>
+</blockquote>
+<p>I see. The problem seems to be that the WebUI
+<a href="https://github.com/rear/rear/pull/3089/commits">https://github.com/rear/rear/pull/3089/commits</a>
+still shows b131e473807f28c051f1c019d17d63c245a406da, but it is
+dangling, which is not intuitive.</p>
+<p>IMO, the right solution is to squash the commits yourself locally and
+force push. Then merge in the WebUI without using the squash option.
+This will update
+<a href="https://github.com/rear/rear/pull/3089/commits">https://github.com/rear/rear/pull/3089/commits</a>
+with the new commits that also the merged history will contain.
+b131e473807f28c051f1c019d17d63c245a406da would not be visible at all,
+instead of it you would see the squashed commit(s) under
+<a href="https://github.com/rear/rear/pull/3089/commits">https://github.com/rear/rear/pull/3089/commits</a>.
+Would that work?</p>
+<h4 id="jsmeix_commented_at_2023-12-07_1115"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3089#issuecomment-1845156130">2023-12-07 11:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_1115" title="Permanent link">&para;</a></h4>
+<p>Regarding properly evaluating nested variables:</p>
+<p>I only liked to show that there is no proper way to<br />
+evaluate (possibly even deeper) nested variables<br />
+so in general it is useless to try to do that.</p>
+<p>Only under known restricted/controlled conditions<br />
+nested variables can be properly evaluated.</p>
+<p>Currently I don't know if I will ever implement</p>
+<pre><code>${command//\$rear_options/$rear_options}
+</code></pre>
+<p>but at least I know that this specific case is feasible.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-11-21.3089.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

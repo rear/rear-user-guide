@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2241 Issue open: Backup restore fails for BACKUP_PROG_COMPRESS_OPTIONS=("--zstd") due to missing zstd binaries in recovery system (probably also for --lzip --lzma --lzop) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2241 Issue open: Backup restore fails for BACKUP_PROG_COMPRESS_OPTIONS=(\"--zstd\") due to missing zstd binaries in recovery system (probably also for --lzip --lzma --lzop)";
+        var mkdocs_page_input_path = "issues/2019-09-27.2241.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2241 Issue open: Backup restore fails for BACKUP_PROG_COMPRESS_OPTIONS=("--zstd") due to missing zstd binaries in recovery system (probably also for --lzip --lzma --lzop)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2241_issue_open_backup_restore_fails_for_backup_prog_compress_options--zstd_due_to_missing_zstd_binaries_in_recovery_system_probably_also_for_--lzip_--lzma_--lzop"><a href="https://github.com/rear/rear/issues/2241">#2241 Issue</a> <code>open</code>: Backup restore fails for BACKUP_PROG_COMPRESS_OPTIONS=("--zstd") due to missing zstd binaries in recovery system (probably also for --lzip --lzma --lzop)<a class="headerlink" href="#2241_issue_open_backup_restore_fails_for_backup_prog_compress_options--zstd_due_to_missing_zstd_binaries_in_recovery_system_probably_also_for_--lzip_--lzma_--lzop" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>documentation</code>, <code>fixed / solved / done</code></p>
+<h4 id="aasami_opened_issue_at_2019-09-27_1359"><img src="https://avatars.githubusercontent.com/u/3145350?v=4" width="50"><a href="https://github.com/aasami">aasami</a> opened issue at <a href="https://github.com/rear/rear/issues/2241">2019-09-27 13:59</a>:<a class="headerlink" href="#aasami_opened_issue_at_2019-09-27_1359" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_issue_template">Relax-and-Recover (ReaR) Issue Template<a class="headerlink" href="#relax-and-recover_rear_issue_template" title="Permanent link">&para;</a></h4>
+<p>Fill in the following items before submitting a new issue<br />
+(quick response is not guaranteed with free support):</p>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.5 / Git</p>
+</li>
+<li>
+<p>OS version ("cat /etc/rear/os.conf" or "lsb_release -a" or "cat
+    /etc/os-release"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>$ lsb_release -a
+LSB Version:    n/a
+Distributor ID: ManjaroLinux
+Description:    Manjaro Linux
+Release:        18.1.0
+Codename:       Juhraya
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>$ cat /etc/rear/site.conf
+TIMESYNC=NTP
+
+$ cat /etc/rear/local.conf
+OUTPUT=RAWDISK
+OUTPUT_URL=nfs://nfs.tu/srv/bkp
+BACKUP=NETFS
+BACKUP_URL=nfs://nfs.tu/srv/bkp
+BACKUP_TYPE=differential
+FULLBACKUP_OUTDATED_DAYS=92
+BACKUP_PROG_COMPRESS_OPTIONS=("--zstd")
+BACKUP_PROG_COMPRESS_SUFFIX=".zst"
+KERNEL_FILE="/boot/vmlinuz-$( uname -r|cut -d\. -f1-2 )-x86_64"
+</code></pre>
+<ul>
+<li>Hardware (PC or PowerNV BareMetal or ARM) or virtual machine (KVM
+    guest or PoverVM LPAR):</li>
+</ul>
+<!-- -->
+
+<pre><code>$ dmidecode -t1
+\# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+
+Handle 0x000F, DMI type 1, 27 bytes
+System Information
+        Manufacturer: LENOVO
+        Product Name: 20ET004BXS
+        Version: ThinkPad E460
+        Serial Number: PF0ISVA2
+        UUID: 37a370cc-2181-11b2-a85c-e2db9b721f93
+        Wake-up Type: Power Switch
+        SKU Number: LENOVO_MT_20ET_BU_Think_FM_ThinkPad E460
+        Family: ThinkPad E460
+</code></pre>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<!-- -->
+
+<pre><code>$ uname -m
+x86_64
+</code></pre>
+<ul>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI + GRUB</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    local SSD</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    When using option BACKUP_PROG_COMPRESS_OPTIONS=("--zstd")<br />
+    recovery is not possible due to missing zstd binaries in recovery
+    image.<br />
+    (The same might be true for options --lzip --lzma and --lzop but I
+    haven't tested it)</p>
+</li>
+<li>
+<p>Workaround, if any:<br />
+    Possible: copy missing binary from other location when in recovery
+    mode (not tested)</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2019-09-27_1456"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-535974874">2019-09-27 14:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2019-09-27_1456" title="Permanent link">&para;</a></h4>
+<p>@aasami<br />
+there is currently no automatism in ReaR that would automatically add<br />
+what is needed by <code>tar</code> for special BACKUP_PROG_COMPRESS_OPTIONS<br />
+settings into the ReaR recovery system.</p>
+<p>When you know what binaries and libraries and other files<br />
+are needed by <code>tar</code> when using zstd compression<br />
+you can add them into the ReaR recovery system<br />
+via generic ReaR functionality using config variables like<br />
+COPY_AS_IS, REQUIRED_PROGS, and LIBS<br />
+see the default.conf description<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf">https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf</a></p>
+<p>After "rear mkrescue/mkbackup" you can check things inside the<br />
+ReaR recovery system by using KEEP_BUILD_DIR="yes",<br />
+see the KEEP_BILD_DIR description in default.conf<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L128">https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L128</a><br />
+via chroot $TMPDIR/rear.XXXXXXXXXXXXXXX/rootfs/<br />
+and then try to run <code>tar</code> with the options you like<br />
+to test things inside the ReaR recovery system<br />
+so that you can check more easily and directly<br />
+if all what is needed to run <code>tar</code> as you want it<br />
+is included in the ReaR recovery system.</p>
+<p>Regarding how BACKUP_PROG_COMPRESS_OPTIONS<br />
+is actually used for the <code>tar</code> command see the scripts<br />
+usr/share/rear/backup/NETFS/default/500_make_backup.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/backup/NETFS/default/500_make_backup.sh">https://github.com/rear/rear/blob/master/usr/share/rear/backup/NETFS/default/500_make_backup.sh</a><br />
+and<br />
+usr/share/rear/restore/NETFS/default/400_restore_backup.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/restore/NETFS/default/400_restore_backup.sh">https://github.com/rear/rear/blob/master/usr/share/rear/restore/NETFS/default/400_restore_backup.sh</a></p>
+<h4 id="gdha_commented_at_2019-10-05_0955"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-538635503">2019-10-05 09:55</a>:<a class="headerlink" href="#gdha_commented_at_2019-10-05_0955" title="Permanent link">&para;</a></h4>
+<p>@aasami Will you make PR when you got it working?</p>
+<h4 id="jsmeix_commented_at_2019-10-16_1244"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-542681435">2019-10-16 12:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2019-10-16_1244" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/9e07846b460976084e2bb2bdec01b901c42ec413">https://github.com/rear/rear/commit/9e07846b460976084e2bb2bdec01b901c42ec413</a><br />
+I added explanatory comments to default.conf<br />
+about backup restore that may fail for things like<br />
+BACKUP_PROG_COMPRESS_OPTIONS=("--zstd")<br />
+due to missing zstd binaries in recovery system<br />
+(probably also for --lzip --lzma --lzop).</p>
+<p>Accordingly this issue is now at least documented<br />
+and because I do not plan to implement an automatism in ReaR<br />
+that would automatically include additional things<br />
+that are needed by tar into the ReaR recovery system<br />
+I close this issue hereby and set the 'needs sponsorship' label.</p>
+<h4 id="gdha_commented_at_2023-09-25_1121"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1733469369">2023-09-25 11:21</a>:<a class="headerlink" href="#gdha_commented_at_2023-09-25_1121" title="Permanent link">&para;</a></h4>
+<h1 id="rhel_92_compression_tests_with_zstandard_zstd_and_gzip">RHEL 9.2 compression tests with zstandard (zstd) and gzip<a class="headerlink" href="#rhel_92_compression_tests_with_zstandard_zstd_and_gzip" title="Permanent link">&para;</a></h1>
+<p>Ref.:
+<a href="https://facebook.github.io/zstd/">https://facebook.github.io/zstd/</a></p>
+<h2 id="1_using_zstd">1. Using zstd<a class="headerlink" href="#1_using_zstd" title="Permanent link">&para;</a></h2>
+<p>zstd mkbackup: Archived 3522 MiB in 334 seconds [avg 10799 KiB/sec]<br />
+Content of <code>/etc/rear/local.conf</code>:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=nfs://nas/volume1/RearSpace
+BACKUP_PROG_COMPRESS_OPTIONS=( '--use-compress-program=zstd' )
+COPY_AS_IS+=( $(which zstd) )
+</code></pre>
+<p>Size of archive:</p>
+<pre><code>-rw-------  1 admin users 3693584343 Sep 25 09:55 backup.tar.gz
+</code></pre>
+<p><strong>Hint</strong>: use following variable setting to avoid confusion with gzip:</p>
+<pre><code>BACKUP_PROG_COMPRESS_SUFFIX=".zst"
+</code></pre>
+<p>zstd recover: Restored 6040 MiB in 190 seconds [ avg 32554 LiB/sec]</p>
+<h2 id="2_using_gzip">2. Using gzip<a class="headerlink" href="#2_using_gzip" title="Permanent link">&para;</a></h2>
+<p>gzip mkbackup: Archived 6573 MiB in 674 seconds [avg 9987 KiB/sec]<br />
+Content of <code>/etc/rear/local.conf</code>:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=nfs://nas/volume1/RearSpace
+#BACKUP_PROG_COMPRESS_OPTIONS=( '--use-compress-program=zstd' )
+COPY_AS_IS+=( $(which zstd) )
+</code></pre>
+<p>Size of archive:</p>
+<pre><code>-rw-------  1 admin users 6892888474 Sep 25 11:28 backup.tar.gz
+</code></pre>
+<p>gzip recover: Restored 9228 MiB in 316 seconds [avg 29905 KiB/sec]</p>
+<h4 id="github-actions_commented_at_2023-11-25_0204"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1826187708">2023-11-25 02:04</a>:<a class="headerlink" href="#github-actions_commented_at_2023-11-25_0204" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="gdha_commented_at_2023-11-27_1356"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1827882067">2023-11-27 13:56</a>:<a class="headerlink" href="#gdha_commented_at_2023-11-27_1356" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @pcahyna @schlomo Would it be an idea to switch with next ReaR
+release the gzip with zstandard? It is a much better compression
+algorithm and faster then gzip too?</p>
+<h4 id="jsmeix_commented_at_2023-11-27_1423"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1827933653">2023-11-27 14:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-27_1423" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+I don't know - I have no experience in this area.</p>
+<p>I wonder if switching to a newer compression method<br />
+might annoy this or that users who are used to deal<br />
+with the traditional compression method?</p>
+<p>For example when they are used to do "some more stuff"<br />
+with their 'backup.tar.gz' files (e.g. move them to some<br />
+other locations and there do something with the backups)<br />
+and then unexpectedly some of them (i.e. the newer ones)<br />
+behave somehow different in this or that cases?</p>
+<h4 id="aasami_commented_at_2023-11-28_0801"><img src="https://avatars.githubusercontent.com/u/3145350?v=4" width="50"><a href="https://github.com/aasami">aasami</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829290580">2023-11-28 08:01</a>:<a class="headerlink" href="#aasami_commented_at_2023-11-28_0801" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@gdha I don't know - I have no experience in this area.</p>
+<p>I wonder if switching to a newer compression method might annoy this
+or that users who are used to deal with the traditional compression
+method?</p>
+<p>For example when they are used to do "some more stuff" with their
+'backup.tar.gz' files (e.g. move them to some other locations and
+there do something with the backups) and then unexpectedly some of
+them (i.e. the newer ones) behave somehow different in this or that
+cases?</p>
+</blockquote>
+<p>Of course you have to mention it in release notes, so one can be
+prepared. ;-)</p>
+<h4 id="jsmeix_commented_at_2023-11-28_0845"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829351834">2023-11-28 08:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_0845" title="Permanent link">&para;</a></h4>
+<p>Users who read release notes are not those who make me worry ;-)</p>
+<h4 id="schlomo_commented_at_2023-11-28_0907"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829386135">2023-11-28 09:07</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-28_0907" title="Permanent link">&para;</a></h4>
+<p>Since we do so few releases I would actually consider every release a
+"major" release, and things are just bound to change.</p>
+<p>If we would do monthly releases or such, then we could also afford to be
+more conservative with regard to changes and hold some changes back for
+a yearly "major" release.</p>
+<h4 id="jsmeix_commented_at_2023-11-28_0926"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829420213">2023-11-28 09:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_0926" title="Permanent link">&para;</a></h4>
+<p>Likely such time ranges look rather different<br />
+from business/enterprise customer's point of view<br />
+who would prefer they could run their systems stable<br />
+for longer than a decade.</p>
+<p>Because those SUSE customers pay my salary<br />
+my personal preference is backward compatibility.</p>
+<p>I even think that nobody likes<br />
+any change that happens to one<br />
+except of course those few features<br />
+where one is explicitly interested in<br />
+to get things moved forward.</p>
+<p>Simply put: "Nothing must change except what I need!" ;-)</p>
+<h4 id="schlomo_commented_at_2023-11-28_0934"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829432526">2023-11-28 09:34</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-28_0934" title="Permanent link">&para;</a></h4>
+<p>I think reducing the disk space requirement by 50% is a good motivation
+to change the compression standard, even if it might be perceived as a
+breaking change for some users.</p>
+<p>However, I think that the change is much less "breaking" than it might
+seem because we do assume that the backup archive and ReaR image used
+for recovery are always a "matching set". So the actual breaking change
+could be that after upgrading ReaR it won't automatically overwrite or
+remove the old backup archive that has a different suffix.</p>
+<p>Maybe @jsmeix you will feel better if we more often increase the major
+version of ReaR to indicate the many significant changes that we make?</p>
+<h4 id="jsmeix_commented_at_2023-11-28_1000"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829481691">2023-11-28 10:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_1000" title="Permanent link">&para;</a></h4>
+<p>OK from me to move forward here<br />
+(at least to find out if unexpected major issues appear).</p>
+<p>@schlomo<br />
+thank you for your explanation!</p>
+<p>I agree with your reasoning that the backup archive and ReaR image<br />
+used for recovery are always a "matching set", cf. my<br />
+"Relax-and-Recover versus backup and restore" section in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+what I wrote there about consistency.</p>
+<p>For SUSE I keep separated ReaR versions separated<br />
+to help our customers to better deal with possible<br />
+backward incompatible changes, see my<br />
+"Relax-and-Recover (ReaR) RPM packages for disaster recovery"<br />
+and "SUSE support for Relax-and-Recover" sections in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>Furthermore I documented it explicitly in the section<br />
+"Version upgrades with Relax-and-Recover" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+what one has to consider before upgrading ReaR.</p>
+<p>So I think SUSE is reasonably well prepared<br />
+to help customers to deal with possible<br />
+backward incompatible changes in ReaR.</p>
+<p>I think the version numbering scheme does not mean much<br />
+(i.e. whether or not it is a "major" version upgrade)<br />
+because whether or not a particular change causes a "major" issue<br />
+for a particular user is often rather unrelated.<br />
+From my experience it happens often that rather small things<br />
+cause a "major" issue for a particular customer because<br />
+in his specific environment some tiny thing is crucial<br />
+and he cannot "simply change" his environment with<br />
+tons of (possibly hidden/unknown) interdependencies.</p>
+<h4 id="gdha_commented_at_2023-11-28_1004"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829488913">2023-11-28 10:04</a>:<a class="headerlink" href="#gdha_commented_at_2023-11-28_1004" title="Permanent link">&para;</a></h4>
+<p>We could make it a rear optional setting on the command line, eg -gz or
+-zstd?</p>
+<h4 id="aasami_commented_at_2023-11-28_1128"><img src="https://avatars.githubusercontent.com/u/3145350?v=4" width="50"><a href="https://github.com/aasami">aasami</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829637158">2023-11-28 11:28</a>:<a class="headerlink" href="#aasami_commented_at_2023-11-28_1128" title="Permanent link">&para;</a></h4>
+<p>As a compromise, would it be too bad to ask you to include other
+compression binaries in recovery image, so one can simply use
+BACKUP_PROG_COMPRESS_OPTIONS=("--[zstd|lzip|lzma|lzop]") and be
+sure, that it will have no issues on restore? How much bigger would the
+recovery image get if this gets added by default?</p>
+<h4 id="schlomo_commented_at_2023-11-28_1227"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1829744046">2023-11-28 12:27</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-28_1227" title="Permanent link">&para;</a></h4>
+<p>I think we would do good by adding the relevant compression helpers by
+default as PROGS. This they will come into the rescue system if
+available. If not, then selecting a missing compression helper will fail
+during mkbackup</p>
+<p>I'm against using command line options for things that should be part of
+the configuration because that would reduce the consistency of repeat
+ReaR interactions.</p>
+<h4 id="jsmeix_commented_at_2023-11-28_1529"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1830081049">2023-11-28 15:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_1529" title="Permanent link">&para;</a></h4>
+<p>For comparison my results<br />
+with current BACKUP=NETFS defaults<br />
+versus BACKUP=NETFS with zstd<br />
+on one same original system (QEMU/KVM virtual machine)<br />
+with "rear recover" on a second same virtual machine:</p>
+<p>With current BACKUP=NETFS defaults:</p>
+<p>Excerpts from "rear mkbackup" log (long line folded here):</p>
+<pre><code>2023-11-28 15:13:55.020077714 Including backup/NETFS/default/500_make_backup.sh
+...
+2023-11-28 15:13:55.141022722 tar --warning=no-xdev --sparse
+ --block-number --totals --verbose --no-wildcards-match-slash
+ --one-file-system --ignore-failed-read --anchored --xattrs
+ --xattrs-include=security.capability
+ --xattrs-include=security.selinux
+ --acls --gzip
+ -X /var/tmp/rear.Q4OcZml0OlbxMyF/tmp/backup-exclude.txt
+ -C / -c -f -
+ /boot/grub2/x86_64-efi /boot/grub2/i386-pc /opt /srv
+ /usr/local /root /tmp /var /home /
+ /root/rear.pull3089/var/log/rear/rear-localhost.log
+ | dd of=/var/tmp/rear.Q4OcZml0OlbxMyF/outputfs/localhost/backup.tar.gz bs=1M
+...
+2023-11-28 15:18:37.561304506 Archived 1461 MiB in 281 seconds [avg 5326 KiB/sec]
+</code></pre>
+<p>backup.tar.gz has 1532658271 bytes = 1461.657 MiB = 1.427 GiB</p>
+<p>rear-localhost.iso has 74397696 bytes = 70.951 MiB</p>
+<p>Excerpts from "rear recover" log (long line folded here):</p>
+<pre><code>2023-11-28 15:33:25.451963621 Including restore/NETFS/default/400_restore_backup.sh
+...
+2023-11-28 15:33:25.481183629 dd
+ if=/var/tmp/rear.JrfrCWkfRdN4TeX/outputfs/localhost/backup.tar.gz bs=1M
+ | tar --block-number --totals --verbose --anchored --xattrs
+   --xattrs-include=security.capability --xattrs-include=security.selinux
+   --acls --gzip -C /mnt/local/ -x -f -
+2023-11-28 15:35:34.245339277 Restored 3327 MiB in 128 seconds [avg. 26623 KiB/sec]
+</code></pre>
+<p>BACKUP=NETFS with zstd:</p>
+<p>Excerpt from etc/rear/local.conf</p>
+<pre><code>PROGS+=( zstd )
+BACKUP_PROG_COMPRESS_OPTIONS=( '--use-compress-program=zstd' )
+BACKUP_PROG_COMPRESS_SUFFIX=".zst"
+</code></pre>
+<p>Excerpts from "rear mkbackup" log (long line folded here):</p>
+<pre><code>2023-11-28 16:02:21.041910223 Including backup/NETFS/default/500_make_backup.sh
+...
+2023-11-28 16:02:21.390081153 tar --warning=no-xdev --sparse
+ --block-number --totals --verbose --no-wildcards-match-slash
+ --one-file-system --ignore-failed-read --anchored --xattrs
+ --xattrs-include=security.capability --xattrs-include=security.selinux
+ --acls --use-compress-program=zstd
+ -X /var/tmp/rear.sUyMZGgNw712elC/tmp/backup-exclude.txt
+ -C / -c -f -
+ /boot/grub2/x86_64-efi /boot/grub2/i386-pc /opt /srv /usr/local /root
+ /tmp /var /home / /root/rear.pull3089/var/log/rear/rear-localhost.log
+ | dd of=/var/tmp/rear.sUyMZGgNw712elC/outputfs/localhost/backup.tar.zst bs=1M
+...
+2023-11-28 16:04:21.039948521 Archived 1343 MiB in 118 seconds [avg 11654 KiB/sec]
+</code></pre>
+<p>backup.tar.zst has 1408254896 bytes = 1343.017 MiB = 1.312 GiB</p>
+<p>rear-localhost.iso has 74708992 bytes = 71.248 MiB</p>
+<p>Excerpts from "rear recover" log (long line folded here):</p>
+<pre><code>2023-11-28 16:15:19.264951922 Including restore/NETFS/default/400_restore_backup.sh
+...
+2023-11-28 16:15:19.303680546 dd
+ if=/var/tmp/rear.KRrY0IEzqNMMK4a/outputfs/localhost/backup.tar.zst bs=1M
+ | tar --block-number --totals --verbose --anchored --xattrs
+   --xattrs-include=security.capability --xattrs-include=security.selinux
+   --acls --use-compress-program=zstd -C /mnt/local/ -x -f -
+2023-11-28 16:16:59.849125233 Restored 3328 MiB in 100 seconds [avg. 34080 KiB/sec]
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-11-28_1541"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2241#issuecomment-1830117614">2023-11-28 15:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-11-28_1541" title="Permanent link">&para;</a></h4>
+<p>Summary of my results:</p>
+<p>With zstd<br />
+the compressed backup archive is about 9% smaller,<br />
+making the backup is about 2.4 times faster,<br />
+restoring the backup is about 1.3 times faster,<br />
+the ReaR ISO image is about 0.3 MiB bigger.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2019-09-27.2241.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

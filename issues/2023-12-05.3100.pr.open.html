@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3100 PR open: OUTPUT=PXE: Support for downloading kernel and initrd by http - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3100 PR open: OUTPUT=PXE: Support for downloading kernel and initrd by http";
+        var mkdocs_page_input_path = "issues/2023-12-05.3100.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3100 PR open: OUTPUT=PXE: Support for downloading kernel and initrd by http</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3100_pr_open_outputpxe_support_for_downloading_kernel_and_initrd_by_http"><a href="https://github.com/rear/rear/pull/3100">#3100 PR</a> <code>open</code>: OUTPUT=PXE: Support for downloading kernel and initrd by http<a class="headerlink" href="#3100_pr_open_outputpxe_support_for_downloading_kernel_and_initrd_by_http" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="robertdahlem_opened_issue_at_2023-12-05_1540"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> opened issue at <a href="https://github.com/rear/rear/pull/3100">2023-12-05 15:40</a>:<a class="headerlink" href="#robertdahlem_opened_issue_at_2023-12-05_1540" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    By using it in production.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>This patch adds support for downloading kernel and initrd by http
+(instead of tftp) when using PXE. It was motivated by long download
+times for 700 MB initrds over tftp. Tftp uses UDP and doesn't have a
+send window like TCP, meaning TCP can send packets up to the size of the
+send window without having received acknowledges for previous packets
+und thus is much better at saturating the wire compared to UDP, where
+each packet has to be acknowledged before the next packet can be sent.</p>
+<p>Obviously you need a http server for this and mkrescue must be able to
+write there. Details of the configuration are in default.conf. The main
+changes are:</p>
+<ul>
+<li>PXE_TFTP_URL: deprecated, use PXE_TFTP_UPLOAD_URL</li>
+<li>PXE_HTTP_URL: deprecated, use PXE_HTTP_DOWNLOAD_URL</li>
+<li>PXE_TFTP_UPLOAD_URL: where the TFTP files shall be put</li>
+<li>PXE_HTTP_UPLOAD_URL: where the HTTP files shall be put</li>
+<li>PXE_HTTP_DOWNLOAD_URL: where the HTTP files shall be downloaded
+    from</li>
+</ul>
+<p>A requirement is switching from pxelinux.0 to lpxelinux.0. It is a drop
+in replacement for pxelinux.0 which supports http downloads and should
+be included in any recent pxelinux package. Recent meaning "after 2019".
+:-)</p>
+<h4 id="jsmeix_commented_at_2023-12-06_1358"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1842944852">2023-12-06 13:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-06_1358" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+thank you for your contribution to improve ReaR!</p>
+<p>I am not a PXE user but I will have a look<br />
+at your pull request tomorrow (as time permits).</p>
+<h4 id="pcahyna_commented_at_2023-12-06_1405"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1842956022">2023-12-06 14:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-06_1405" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem thank you for you contribution! Unfortunately I am not a
+PXE user so I can not test it not have much specific comments.<br />
+From looking at the code, I see</p>
+<blockquote>
+<p>It's compatible, just replace pxeconfig.0 in your TFTP directory or
+set bootfile-name to lpxeconfig.0 in your DHCP server.</p>
+</blockquote>
+<p>but in your description, you write:</p>
+<blockquote>
+<p>A requirement is switching from pxelinux.0 to lpxelinux.0.</p>
+</blockquote>
+<p>Is the difference intentional?</p>
+<p>Also, why the <code>PXE_SCHEME</code> option name? To me it does not look
+descriptive. For me, "scheme" is the <code>http</code> part of the URL.</p>
+<p>Regarding the unfinished RPM builds in CI, don't worry, that's some
+general Fedora COPR issue.<br />
+<a href="https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/RANEB44PFVY3C2LCUAT2LSTQ3QXB7Y5C/#RANEB44PFVY3C2LCUAT2LSTQ3QXB7Y5C">https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/RANEB44PFVY3C2LCUAT2LSTQ3QXB7Y5C/#RANEB44PFVY3C2LCUAT2LSTQ3QXB7Y5C</a></p>
+<h4 id="robertdahlem_commented_at_2023-12-06_1428"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1842996729">2023-12-06 14:28</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-06_1428" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>From looking at the code, I see</p>
+<blockquote>
+<p>It's compatible, just replace pxeconfig.0 in your TFTP directory or
+set bootfile-name to lpxeconfig.0 in your DHCP server.</p>
+</blockquote>
+<p>but in your description, you write:</p>
+<blockquote>
+<p>A requirement is switching from pxelinux.0 to lpxelinux.0.</p>
+</blockquote>
+<p>Is the difference intentional?</p>
+</blockquote>
+<p>It don't see a difference. http downloads require lpxeconfig.0. You can
+switch to that in at least two ways:</p>
+<ol>
+<li>Copy lpxeconfig.0 over pxeconfig.0 in /var/lib/tftpboot of the TFTP
+    server. It is a compatible pxeconfig.0 replacement, just enhanced
+    with http</li>
+<li>Use the DHCP option "bootfile name (67)" to request lpxeconfig.0
+    instead of pxeconfig.0</li>
+</ol>
+<p>The former is a bit more intrusive because it affects all PXE boots.
+Shouldn't be a problem because it is compatible (according to what the
+SYSLINUX/PXELINUX people say and what I tested).</p>
+<p>The latter typically affects only single hosts and you need to replace
+this option for all affected hosts. Could be more work.</p>
+<blockquote>
+<p>Also, why the <code>PXE_SCHEME</code> option name? To me it does not look
+descriptive. For me, "scheme" is the <code>http</code> part of the URL.</p>
+</blockquote>
+<p>You are right, only "http://" is actually a scheme. It came to my mind
+because it supports a scheme change (from implicit tftp to explicit
+http). My heart is not attached to this specific name. It could very
+well be something like PXE_HTTP_PREFIX or anything else you propose.</p>
+<h4 id="pcahyna_commented_at_2023-12-06_1444"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1843029113">2023-12-06 14:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-06_1444" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<blockquote>
+<p>From looking at the code, I see</p>
+<blockquote>
+<p>It's compatible, just replace pxeconfig.0 in your TFTP directory
+or set bootfile-name to lpxeconfig.0 in your DHCP server.</p>
+</blockquote>
+<p>but in your description, you write:</p>
+<blockquote>
+<p>A requirement is switching from pxelinux.0 to lpxelinux.0.</p>
+</blockquote>
+<p>Is the difference intentional?</p>
+</blockquote>
+<p>It don't see a difference. http downloads require lpxeconfig.0. You
+can switch to that in at least two ways:</p>
+<pre><code>1. Copy lpxeconfig.0 over pxeconfig.0 in /var/lib/tftpboot of the TFTP server. It is a compatible pxeconfig.0 replacement, just enhanced with http
+
+2. Use the DHCP option "bootfile name (67)" to request lpxeconfig.0 instead of pxeconfig.0
+</code></pre>
+</blockquote>
+<p>I see a difference between pxelinux.0 (PR description) and pxeconfig.0
+(code comment).</p>
+<h4 id="robertdahlem_commented_at_2023-12-06_1503"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1843069570">2023-12-06 15:03</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-06_1503" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>I see a difference between pxelinux.0 (PR description) and pxeconfig.0
+(code comment).</p>
+</blockquote>
+<p>Oops, sorry! Replace everything I ever said about (l)pxeconfig.0 with
+(l)pxelinux.0</p>
+<p>I'll send an update.</p>
+<h4 id="jsmeix_commented_at_2023-12-07_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1845266992">2023-12-07 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_1235" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+perhaps a dumb question (but as non PXE user<br />
+I know basically nothing how PXE works):</p>
+<p>Could you explain how far<br />
+<a href="https://github.com/rear/rear/pull/2738">https://github.com/rear/rear/pull/2738</a><br />
+"Support for http sources when using PXE"<br />
+is related ro unrelated to this issue here?</p>
+<h4 id="robertdahlem_commented_at_2023-12-07_1408"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1845406259">2023-12-07 14:08</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-07_1408" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>@robertdahlem perhaps a dumb question (but as non PXE user I know
+basically nothing how PXE works):<br />
+Could you explain how far #2738 "Support for http sources when using
+PXE" is related ro unrelated to this issue here?</p>
+</blockquote>
+<p>Perhaps first some words how PXE works (basically, not all the gory
+details).</p>
+<p>The system boots and when requested to, instead of reading what is on
+the disk it sends a DHCP request ("network boot" or "PXE boot"). It
+should get a DHCP reply with IP/netmask, default gateway, perhaps DNS
+and NTP servers.</p>
+<p>For PXE to work DHCP also needs to send a "next server" (the TFTP
+server) and a "boot file". The boot file usually is pxelinux.0 from the
+SYSLINUX project. PXE downloads this file with TFTP and starts it.
+pxelinux.0 tries to download several things from the TFTP servers
+subdirectory pxelinux.cfg: a file with its UUID, a file with its MAC
+address, a file with its IP address (in hex) and so on. At least one of
+these should be a symbolic link to a configuration file which happens to
+be a GRUB menu configuration file. pxelinux.0 downloads this file and
+presents the user with the GRUB menu.</p>
+<p>The user then requests something from the menu which leads to GRUB
+configuration items like kernel and initrd (with parameters). pxelinux.0
+downloads both with TFTP from the "next server" and starts them. System
+running, job done. In the case of ReaR you get a system with pretty much
+the same as what is in an ISO: all the things you need to run "rear
+recover".</p>
+<p>ReaR supports this by uploading a configuration and symbolic links to
+PXE_CONFIG_URL and kernel/initrd to PXE_TFTP_URL.</p>
+<p>Unfortunately, nowadays initrd is typically a 700+ MB thing because it
+includes all available kernel modules to support recovery on different
+hardware. TFTP is very slow because it uses UDP and needs to acknowledge
+Every. Single. Packet. before downloading the next packet. I see initrd
+download times of 6 up to 8 minutes in a 10 Gbits/s environment (where
+you would expect a second or two).</p>
+<p>HTTP is faster because it uses TCP and can send packages without waiting
+for acknowledgement of all previous packets.</p>
+<p>So, if you prefix the kernel and initrd arguments with http://... you
+can download both a lot faster. pxelinux.0 does not understand
+http://.., thus the need to switch to lpxelinux.0. #2738 both and
+#3100 both support this.</p>
+<p>Now for your question:</p>
+<p>I have not been aware of #2738 because in my production environment I
+use what RHEL 8 delivers and that is ReaR 2.6 plus Red Hat fairy dust.
+Sorry for not checking upstream beforehand.</p>
+<p>#2738 pretty much does the same as my #3100: it enhances the kernel
+and initrd configuration lines with what is in a variable: my
+PXE_SCHEME in #3100 demands a trailing slash, PXE_HTTP_URL in #2738
+gets the slash from the code.</p>
+<p>Also, #2738 enhances the GRUB menu with additional options
+(rear-automatic-http, rear-unattended-http and rear-http) while #3100
+changes the existing options.</p>
+<p>Personally I do not tend to enhancing the menu: PXE_TFTP_URL either
+points to the TFTP server download directory or the HTTP server download
+directory (assuming they are not the same). So with #2738 half the
+options won't work and the other half will work. You can't say from
+looking because you don't know where kernel and initrd have been
+uploaded. With #3100 there are no wrong choices (assuming
+PXE_TFTP_URL was set correctly).</p>
+<p>#2738 did not make an attempt to download PXE_MESSAGE from the correct
+server and #3100 is a bit better regarding documentation in
+default.conf.</p>
+<p>I would change my PR to use PXE_HTTP_URL (without trailing slash)
+instead of PXE_SCHEME. This has been discussed before). Also I would
+change it to undo the menu enhancement and instead modify the existing
+kernel/initrd paths. That would resurrect PXE_MESSAGE too. This would
+render it into a non-breaking change.</p>
+<p>I would be interested in what @Flunkyball might have to say.</p>
+<h4 id="flunkyball_commented_at_2023-12-07_2045"><img src="https://avatars.githubusercontent.com/u/36796685?v=4" width="50"><a href="https://github.com/Flunkyball">Flunkyball</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1846087166">2023-12-07 20:45</a>:<a class="headerlink" href="#flunkyball_commented_at_2023-12-07_2045" title="Permanent link">&para;</a></h4>
+<p>Good to see another fellow using PXE ;-)</p>
+<blockquote>
+<p>I would change my PR to use PXE_HTTP_URL (without trailing slash)
+instead of PXE_SCHEME. This has been discussed before). Also I would
+change it to undo the menu enhancement and instead modify the existing
+kernel/initrd paths. That would resurrect PXE_MESSAGE too. This would
+render it into a non-breaking change.</p>
+</blockquote>
+<p>This was actually also my first approach. The reason why I chose to add
+the additional option in the boot menu was due to the fact that there
+are still many systems around with a bios that does not support booting
+from HTTP.<br />
+With your configuration I have to choose exclusively HTTP on a rear
+config level loosing any chance to boot an older system.</p>
+<blockquote>
+<p>So with
+<a href="https://github.com/rear/rear/pull/2738">https://github.com/rear/rear/pull/2738</a>
+half the options won't work and the other half will work. You can't
+say from looking because you don't know where kernel and initrd have
+been uploaded. With
+<a href="https://github.com/rear/rear/pull/3100">https://github.com/rear/rear/pull/3100</a>
+there are no wrong choices (assuming PXE_TFTP_URL was set
+correctly).</p>
+</blockquote>
+<p>In my environment for the reason described before PXE is provided via
+HTTP <strong>and</strong> TFTP. Therefore both boot options are working fine.</p>
+<p>In the end you could extend
+<a href="https://github.com/rear/rear/pull/3100">https://github.com/rear/rear/pull/3100</a>
+with an option to choose whether to create an additional grub option for
+TFTP. I did it the other way round.</p>
+<h4 id="robertdahlem_commented_at_2023-12-08_0756"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1846722977">2023-12-08 07:56</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-08_0756" title="Permanent link">&para;</a></h4>
+<p>@Flunkyball</p>
+<blockquote>
+<p>This was actually also my first approach. The reason why I chose to
+add the additional option in the boot menu was due to the fact that
+there are still many systems around with a bios that does not support
+booting from HTTP.</p>
+</blockquote>
+<p>I would like to understand this better: the difference whether a system
+can download kernel and initrd from my understanding does not come from
+the BIOS. The BIOS only downloads the "boot file" (typically pxelinux.0)
+by using TFTP. Even the pxelinux.cfg files are downloaded by TFTP
+(because there is no configuration yet saying otherwise).</p>
+<p>Only when the configuration file has been read something else
+(kernel/initrd) can be downloaded by HTTP. And that is possible only if
+you have a pxelinux.0 which understands HTTP (i.e. by copying
+lpxelinux.0 over pxelinux.0 on the TFTP server or by reuesting
+lpxelinux.0 as "boot file"). But I did not yet see a dependency to a
+specific BIOS function for HTTP.</p>
+<p>Could you please explain how you came to the conclusion that there is a
+dependency in the BIOS for HTTP downloads?</p>
+<h4 id="robertdahlem_commented_at_2023-12-08_0816"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1846744326">2023-12-08 08:16</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-08_0816" title="Permanent link">&para;</a></h4>
+<p>@Flunkyball</p>
+<blockquote>
+<p>In my environment for the reason described before PXE is provided via
+HTTP <strong>and</strong> TFTP. Therefore both boot options are working fine.</p>
+</blockquote>
+<p>I have another question: where do you upload kernel/initrd to? To the
+TFTP server or to the HTTP server? Or do they use the same directory? In
+this case: how do you handle the SELinux implications (tftpdir_rw_t
+vs. httpd_sys_content_t)?</p>
+<h4 id="flunkyball_commented_at_2023-12-08_1459"><img src="https://avatars.githubusercontent.com/u/36796685?v=4" width="50"><a href="https://github.com/Flunkyball">Flunkyball</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1847331010">2023-12-08 14:59</a>:<a class="headerlink" href="#flunkyball_commented_at_2023-12-08_1459" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I would like to understand this better: the difference whether a
+system can download kernel and initrd from my understanding does not
+come from the BIOS. The BIOS only downloads the "boot file" (typically
+pxelinux.0) by using TFTP. Even the pxelinux.cfg files are downloaded
+by TFTP (because there is no configuration yet saying otherwise).</p>
+<p>Only when the configuration file has been read something else
+(kernel/initrd) can be downloaded by HTTP. And that is possible only
+if you have a pxelinux.0 which understands HTTP (i.e. by copying
+lpxelinux.0 over pxelinux.0 on the TFTP server or by reuesting
+lpxelinux.0 as "boot file"). But I did not yet see a dependency to a
+specific BIOS function for HTTP.</p>
+<p>Could you please explain how you came to the conclusion that there is
+a dependency in the BIOS for HTTP downloads?</p>
+</blockquote>
+<p>The PXE boot mechanism is a BIOS feature and therefore comes in a
+certain release version included with the BIOS.<br />
+Original PXE was not HTTP capable, this was introduced later. There is
+e.g. a free PXE implementation <a href="https://ipxe.org/">https://ipxe.org/</a>
+offering a slim chance to flash the rom of your network adapter or
+mainboard with an http compatible PXE version.</p>
+<p>Otherwise no matter what initial information via TFTP is provided
+nothing will be downloaded.</p>
+<h4 id="robertdahlem_commented_at_2023-12-19_1418"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1862845487">2023-12-19 14:18</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-19_1418" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>What the most reasonable way is how to implement HTTP support for PXE
+must be addressed before merging.</p>
+</blockquote>
+<p>Absolutely. I'm involved in another project at the moment but will come
+back to this before end of month.</p>
+<p>I'm pretty unhappy with the choice of variable name (PXE_HTTP_URL) in
+#2738: The well known PXE_TFTP_URL points to an <strong>upload</strong> path while
+the new PXE_HTTP_URL (as implemented in #2738) points to a
+<strong>download</strong> path. I consider that confusing.</p>
+<p>How do you think about an incompatible change? This would be
+PXE_HTTP_URL pointing to another <strong>upload</strong> path (to the HTTP servers
+directory, the default being what PXE_TFTP_URL points to). In this
+case we still need an HTTP <strong>download</strong> path, which I (here) configured
+in PXE_SCHEME. How about something like PXE_HTTP_DOWNLOAD?</p>
+<p>Also I think offering TFTP and HTTP both (as in #2738) is reasonable.
+This should stay.</p>
+<p>I disagree with what has been written about PXE BIOSes being able to do
+HTTP downloads. From my point of view this is not backed by the
+<a href="https://en.wikipedia.org/wiki/Preboot_Execution_Environment">Wikipedia PXE
+article</a>.
+But actually that doesn't matter for our purposes. Either the client
+actually has this HTTP enabled PXE BIOS or one uses lpxelinux.0 instead
+of pxelinux.0.</p>
+<h4 id="flunkyball_commented_at_2023-12-19_1843"><img src="https://avatars.githubusercontent.com/u/36796685?v=4" width="50"><a href="https://github.com/Flunkyball">Flunkyball</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1863300646">2023-12-19 18:43</a>:<a class="headerlink" href="#flunkyball_commented_at_2023-12-19_1843" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>How do you think about an incompatible change? This would be
+PXE_HTTP_URL pointing to another <strong>upload</strong> path (to the HTTP
+servers directory, the default being what PXE_TFTP_URL points to).
+In this case we still need an HTTP <strong>download</strong> path, which I (here)
+configured in PXE_SCHEME. How about something like
+PXE_HTTP_DOWNLOAD?</p>
+</blockquote>
+<p>I do not see in what way this is confusing as the HTTP path is for
+download only. In what scenario would this be an upload path ?</p>
+<blockquote>
+<p>I disagree with what has been written about PXE BIOSes being able to
+do HTTP downloads. From my point of view this is not backed by the
+<a href="https://en.wikipedia.org/wiki/Preboot_Execution_Environment">Wikipedia PXE
+article</a>.
+But actually that doesn't matter for our purposes. Either the client
+actually has this HTTP enabled PXE BIOS or one uses lpxelinux.0
+instead of pxelinux.0.</p>
+</blockquote>
+<p>The wikipedia article does not mention the HTTP path since it was not
+originally part of PXE. However, as you mentioned, not important for the
+solution if we keep both options.</p>
+<h4 id="robertdahlem_commented_at_2023-12-19_1908"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1863330513">2023-12-19 19:08</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-19_1908" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I do not see in what way this is confusing as the HTTP path is for
+download only. In what scenario would this be an upload path ?</p>
+</blockquote>
+<p>Don't you think that if you have an existing variable PXE_TFTP_URL,
+which points to an upload directory for TFTP that it is confusing to
+invent a variable PXE_HTTP_URL, which does <strong>not</strong> point to an upload
+directory for HTTP?</p>
+<h4 id="flunkyball_commented_at_2023-12-19_1916"><img src="https://avatars.githubusercontent.com/u/36796685?v=4" width="50"><a href="https://github.com/Flunkyball">Flunkyball</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1863341189">2023-12-19 19:16</a>:<a class="headerlink" href="#flunkyball_commented_at_2023-12-19_1916" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<p>I do not see in what way this is confusing as the HTTP path is for
+download only. In what scenario would this be an upload path ?</p>
+</blockquote>
+<p>Don't you think that if you have an existing variable PXE_TFTP_URL,
+which points to an upload directory for TFTP that it is confusing to
+invent a variable PXE_HTTP_URL, which does <strong>not</strong> point to an
+upload directory for HTTP?</p>
+</blockquote>
+<p>No because PXE is by default a one way street in terms of HTTP and
+therefore does not confuse me.<br />
+So in the end you propose a breaking change to resolve your personal
+confusion ?</p>
+<p><a href="https://github.com/rear/rear/pull/2738">https://github.com/rear/rear/pull/2738</a>
+has been introduced 2 years ago. Probably some people used the feature
+since successfully and are forced to change their configuration after
+that, most likely finding out about it the hard way.</p>
+<h4 id="robertdahlem_commented_at_2023-12-19_1931"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1863359164">2023-12-19 19:31</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-19_1931" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I'm pretty unhappy with the choice of variable name (PXE_HTTP_URL)
+in #2738: The well known PXE_TFTP_URL points to an <strong>upload</strong> path
+while the new PXE_HTTP_URL (as implemented in #2738) points to a
+<strong>download</strong> path. I consider that confusing.</p>
+</blockquote>
+<p>@jsmeix Do you have an opinion about this?</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1024"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1864222606">2023-12-20 10:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1024" title="Permanent link">&para;</a></h4>
+<p>Offhandedly and as non PXE user I can only speak<br />
+in general about user config variable names:</p>
+<p>In general I think backward compatibility<br />
+has higher value in practice for our users<br />
+than backward incompatibe improvements, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#maintain-backward-compatibility">https://github.com/rear/rear/wiki/Coding-Style#maintain-backward-compatibility</a><br />
+as far as possible with reasonable effort for us.<br />
+For example when a real bug cannot be fixed without<br />
+backward incompatibe changes then it is better<br />
+to have the bug fixed than to keep things wrong.</p>
+<p>In particular regarding user config variable names:<br />
+Basically we cannot change existing user config variable names<br />
+to avoid regressions for users who use existing config variable names<br />
+regardless how awkward existing config variable names are, cf.<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L907">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L907</a><br />
+which points to<br />
+<a href="https://github.com/rear/rear/pull/2293#issuecomment-564439509">https://github.com/rear/rear/pull/2293#issuecomment-564439509</a></p>
+<p>When we have unclear existing config variable names<br />
+we can explain things properly in default.conf and<br />
+inform the user about possible misunderstandings<br />
+even if that leads to longer explanations<br />
+which could be sometimes even long-winded.</p>
+<p>In contrast to insufficient information in default.conf<br />
+long-winded explanations are not a serious problem<br />
+because that can be easily improved by contributors<br />
+who can contribute more helpful explanation texts.</p>
+<p>By the way:<br />
+Compare traditional Unix command names,<br />
+for example 'time' versus 'date'<br />
+and 'cancel' versus 'kill' ;-)</p>
+<h4 id="robertdahlem_commented_at_2023-12-20_1356"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1864518360">2023-12-20 13:56</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-20_1356" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>In this case (backward compatibility has higher value than fixing
+awkward variable names) I propose something like PXE_HTTP_UPLOAD_URL,
+which <strong>MAY</strong> be set and then points to a second/different upload
+location. I would offer this because it is perfectly possible to need to
+upload the files for TFTP to another server than the files for HTTP,
+especially in enterprise environments, where you can't just let both
+servers point to the same directory: SELinux prevents you from doing so.</p>
+<p>Then there is the point of the <code>display</code> action in PXE_CONFIG_FILE. It
+is ignored by #2738 (probably because this PR is intended for an
+environment where TFTP and HTTP server use the same directory). I
+propose to let it point to $PXE_HTTP_URL if this variable is set is
+set. In this case you download it from the TFTP server unless you
+explicitly state there is an HTTP server by setting PXE_HTTP_URL.</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1323"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1867684824">2023-12-22 13:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1323" title="Permanent link">&para;</a></h4>
+<p>As non PXE user I cannot help much with PXE specific things<br />
+but I try my best (and bear with me when I write nonsense):</p>
+<p>Ideally when we need to distinguish between<br />
+the protocols TFTP versus HTTP and distinguish between<br />
+upload (i.e. wherefrom ReaR runs up to the PXE server) and<br />
+download (i.e. from the PXE server down to the booting computer)<br />
+the variable names should contain<br />
+both the protocol plus<br />
+UPLOAD and DOWNLOAD like</p>
+<pre><code>PXE_TFTP_UPLOAD_URL
+PXE_TFTP_DOWNLOAD_URL
+PXE_HTTP_UPLOAD_URL
+PXE_HTTP_DOWNLOAD_URL
+</code></pre>
+<p>Unfortunately whe have already<br />
+PXE_TFTP_URL for upload and<br />
+PXE_HTTP_URL for download<br />
+which is confusing.<br />
+I think it is only confusing when both protocols are used<br />
+because when only one protocol is used for upload and download<br />
+then<br />
+either PXE_TFTP_URL for upload and download with TFTP<br />
+or PXE_HTTP_URL for upload and download with HTTP<br />
+would be consistent.</p>
+<p>But when both the protocol and the direction (up vs down)<br />
+can be freely combined then specific variables are needed<br />
+so the current<br />
+PXE_TFTP_URL for upload with TFTP and<br />
+PXE_HTTP_URL for download with HTTP<br />
+cannot work<br />
+because a user cannot specify the opposite<br />
+PXE_TFTP_URL for download with TFTP and<br />
+PXE_HTTP_URL for upload with HTTP<br />
+i.e. the current variable naming is a bug<br />
+(when protocol and direction can be freely combined).</p>
+<p>If we have this bug in current ReaR we have to fix it,<br />
+but not this year ;-)</p>
+<p>@robertdahlem @Flunkyball<br />
+I wish you Merry Christmas and a happy New Year!</p>
+<h4 id="flunkyball_commented_at_2023-12-22_1348"><img src="https://avatars.githubusercontent.com/u/36796685?v=4" width="50"><a href="https://github.com/Flunkyball">Flunkyball</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1867709078">2023-12-22 13:48</a>:<a class="headerlink" href="#flunkyball_commented_at_2023-12-22_1348" title="Permanent link">&para;</a></h4>
+<blockquote>
+<pre><code>PXE_TFTP_UPLOAD_URL
+PXE_TFTP_DOWNLOAD_URL
+PXE_HTTP_UPLOAD_URL
+PXE_HTTP_DOWNLOAD_URL
+</code></pre>
+<p>Unfortunately whe have already PXE_TFTP_URL for upload and
+PXE_HTTP_URL for download which is confusing. I think it is only
+confusing when both protocols are used because when only one protocol
+is used for upload and download then either PXE_TFTP_URL for upload
+and download with TFTP or PXE_HTTP_URL for upload and download with
+HTTP would be consistent.</p>
+<p>But when both the protocol and the direction (up vs down) can be
+freely combined then specific variables are needed so the current
+PXE_TFTP_URL for upload with TFTP and PXE_HTTP_URL for download
+with HTTP cannot work because a user cannot specify the opposite
+PXE_TFTP_URL for download with TFTP and PXE_HTTP_URL for upload
+with HTTP i.e. the current variable naming is a bug (when protocol and
+direction can be freely combined).</p>
+</blockquote>
+<p>Well... that is partly correct.<br />
+The thing is, that PXE originally had only TFTP for up and download and
+later added HTTP for download only.<br />
+-&gt; PXE_TFTP is Up and Download where HTTP is Download only if it is
+used since it is optional.</p>
+<p>Things get even messier if you look at my current rear config for PXE</p>
+<pre><code>PXE_TFTP_IP=192.xx.xx.xx
+PXE_TFTP_URL="sshfs://pxe@pxe-ssh/tftp"
+PXE_CONFIG_URL="sshfs://pxe@pxe-ssh/tftp/pxelinux.cfg"
+PXE_HTTP_URL="http://$PXE_TFTP_IP:8000"
+</code></pre>
+<p>So in my case I even use SFTP for uploading to the PXE server through
+the TFTP_URL variable... .<br />
+In the end with
+<a href="https://github.com/rear/rear/pull/2738">https://github.com/rear/rear/pull/2738</a>
+this did not bother me because the same upload target does later on
+provide the TFTP download which makes it plausible for me.<br />
+However the HTTP_URL is added as additional download option thus the
+explicit additional variable.</p>
+<p>In order to come clean you would need to rename "PXE_TFTP_URL" to
+"PXE_UPLOAD_URL" to be used with whatever protocol you want for upload
+and to have for each additional download option a seperate variable
+"PXE_PROTXX_DOWNLOAD"</p>
+<p>@jsmeix @robertdahlem<br />
+Wish you Merry Christmas and a Happy New Year, too !</p>
+<h4 id="robertdahlem_commented_at_2023-12-29_1551"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1872183807">2023-12-29 15:51</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-29_1551" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<pre><code>PXE_TFTP_UPLOAD_URL
+PXE_TFTP_DOWNLOAD_URL
+PXE_HTTP_UPLOAD_URL
+PXE_HTTP_DOWNLOAD_URL
+</code></pre>
+</blockquote>
+<p>Now that you introduced a complete new name space things got very easy:
+we can deprecate the old variable names, but still allow to use them. In
+this case warnings are generated, but the values of the old variables
+get assigned to the new variables. No breaking changes until someone
+decides to delete the deprecated variables (maybe in 3.0?).</p>
+<p>I'll submit a change to introduce:</p>
+<pre><code>PXE_TFTP_URL -&gt; PXE_TFTP_UPLOAD_URL
+                PXE_TFTP_DOWNLOAD_URL isn't needed because it is the default and the value would always be ""
+                PXE_HTTP_UPLOAD_URL (new variable)
+PXE_HTTP_URL -&gt; PXE_HTTP_DOWNLOAD_URL
+</code></pre>
+<h4 id="robertdahlem_commented_at_2023-12-29_1554"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1872185424">2023-12-29 15:54</a>:<a class="headerlink" href="#robertdahlem_commented_at_2023-12-29_1554" title="Permanent link">&para;</a></h4>
+<p>Obviously I f*cked things up and now commits from other people show up
+between my commits. I might need a little help here.</p>
+<h4 id="robertdahlem_commented_at_2024-01-01_0939"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1873247917">2024-01-01 09:39</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-01_0939" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Obviously I f*cked things up and now commits from other people show
+up between my commits. I might need a little help here.</p>
+</blockquote>
+<p>I seem to have been able to repair my f*ckup:</p>
+<pre><code>git checkout master
+git merge
+git checkout http-download
+git reset --hard master
+re-apply patches (vi/git add/git commit)
+git push --force
+</code></pre>
+<p>I know see my intended commits here.</p>
+<h4 id="jsmeix_commented_at_2024-01-02_1212"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1873952282">2024-01-02 12:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-02_1212" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+when I look at your current changes via the GitHub web frontend<br />
+<a href="https://github.com/rear/rear/pull/3100/files">https://github.com/rear/rear/pull/3100/files</a><br />
+it shows that there is still PXE_SCHEME implemented.<br />
+I thought PXE_HTTP_DOWNLOAD_URL is meant to replace PXE_SCHEME?</p>
+<p>Regarding "commits from other people show up between my commits":<br />
+This happened also to me some longer time ago.<br />
+I don't remember the details and I am not a git expert<br />
+to imagine what goes on behind the surface in such cases.<br />
+I guess it may happen when one rebases his own branch on master<br />
+that then the newest commits of others from the master branch appear<br />
+intermixed with one's own commits (at least via the GitHub web
+frontend)<br />
+which is confusing because I want my branch to contain only my commits.</p>
+<h4 id="pcahyna_commented_at_2024-01-02_1251"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1873989193">2024-01-02 12:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-02_1251" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Regarding "commits from other people show up between my commits":<br />
+This happened also to me some longer time ago.<br />
+I don't remember the details and I am not a git expert<br />
+to imagine what goes on behind the surface in such cases.<br />
+I guess it may happen when one rebases his own branch on master<br />
+that then the newest commits of others from the master branch appear<br />
+intermixed with one's own commits (at least via the GitHub web
+frontend)<br />
+which is confusing because I want my branch to contain only my
+commits.</p>
+</blockquote>
+<p>No, IMO it happened because of merging the branch instead of rebasing
+it: see merge commits
+<a href="https://github.com/rear/rear/commit/c7885a854e19b1bbc4187ebe389fdeeb296ddf50">https://github.com/rear/rear/commit/c7885a854e19b1bbc4187ebe389fdeeb296ddf50</a>
+and
+<a href="https://github.com/rear/rear/commit/17c34baf781c0c6caf20193828d9c9659a787a7c">https://github.com/rear/rear/commit/17c34baf781c0c6caf20193828d9c9659a787a7c</a>
+. Rebase would have been fine.</p>
+<p>@robertdahlem instead of manually re-applying desired patches, you could
+use <code>git rebase --interactive</code> or <code>git cherry-pick</code>.</p>
+<h4 id="robertdahlem_commented_at_2024-01-03_1744"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1875740074">2024-01-03 17:44</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-03_1744" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>@robertdahlem when I look at your current changes via the GitHub web
+frontend
+<a href="https://github.com/rear/rear/pull/3100/files">https://github.com/rear/rear/pull/3100/files</a>
+it shows that there is still PXE_SCHEME implemented. I thought
+PXE_HTTP_DOWNLOAD_URL is meant to replace PXE_SCHEME?</p>
+</blockquote>
+<p>You are right. This was a remnant from previous code. I eliminated that
+now.</p>
+<p>Do you think we can merge that now? @Flunkyball ?</p>
+<p>@pcahyna<br />
+My workflow after having made my changes locally in <code>mybranch</code> seems
+stable now:<br />
+In <strong>my</strong> GitHub and my fork: Branch master &gt; Sync fork &gt; Update
+branch<br />
+Locally:</p>
+<pre><code># git checkout master
+# git pull
+# git checkout mybranch
+# git merge master
+# git push
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-01-03_1816"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1875776497">2024-01-03 18:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-03_1816" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem there is still a needless merge commit in the history now:
+<a href="https://github.com/rear/rear/pull/3100/commits/11f4e0284c7b757444de94feecec56295b013114">https://github.com/rear/rear/pull/3100/commits/11f4e0284c7b757444de94feecec56295b013114</a><br />
+Would it work for you to use</p>
+<pre><code># git rebase master
+# git push -f
+</code></pre>
+<p>instead of</p>
+<pre><code># git merge master
+# git push
+</code></pre>
+<p>?<br />
+Alternatively, since you changes do not seem to conflict with any of the
+new development code, you could avoid merging or rebasing your branch
+entirely (this can not be relied on in general, of course).</p>
+<h4 id="robertdahlem_commented_at_2024-01-03_1851"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1875816919">2024-01-03 18:51</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-03_1851" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>@robertdahlem there is still a needless merge commit in the history
+now:
+<a href="https://github.com/rear/rear/commit/11f4e0284c7b757444de94feecec56295b013114">11f4e02</a></p>
+</blockquote>
+<p>Yes, I see. But it doesn't show up in the files changed by this PR. Also
+it doesn't show up in <code>git diff master http-download</code>. So I thought it
+is fine.</p>
+<blockquote>
+<p>Would it work for you to use</p>
+<pre><code># git rebase master
+# git push -f
+</code></pre>
+</blockquote>
+<p>It might. It did not try that. I am still confused about the rebase
+stuff. Also rebase and force push drove me into the f*ckup.
+Additionally I think that the merge commit is not needless. It proves
+that my patches don't conflict with master.</p>
+<p>The history of all that is:</p>
+<ul>
+<li>I push a PR</li>
+<li>Discussion ensues, further local development happens</li>
+<li>Meanwhile people commit other stuff to master</li>
+<li>To prove that my locally developed stuff does not conflict I need to
+    merge my branch with master before pushing. Also I shy away from
+    doing anything with <code>--force</code>.</li>
+<li>Or don't I merge? What do people do at this point (aka "another push
+    to a branch while master has moved on")?</li>
+</ul>
+<blockquote>
+<p>? Alternatively, since you changes do not seem to conflict with any of
+the new development code, you could avoid merging or rebasing your
+branch entirely (this can not be relied on in general, of course).</p>
+</blockquote>
+<p>Exactly. There must be some workflow that makes everybody happy.</p>
+<h4 id="robertdahlem_commented_at_2024-01-04_0953"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1876808412">2024-01-04 09:53</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-04_0953" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>Exactly. There must be some workflow that makes everybody happy.</p>
+</blockquote>
+<p>Ok. I tried (in another project):</p>
+<pre><code># git rebase master
+# git push --force
+</code></pre>
+<p>and after merging that I see my commits and one last commit
+<code>Merge pull request #2 from robertdahlem/mybranch</code>.</p>
+<p>I am still slightly frightened about <code>--force</code> but if that is the
+workflow it will be ok for me.</p>
+<p>@jsmeix Do I need to re-issue my PR or can we go on with the way it is
+yet?</p>
+<h4 id="jsmeix_commented_at_2024-01-04_1033"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1876866258">2024-01-04 10:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-04_1033" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+regarding your</p>
+<pre><code>I think that the merge commit is not needless.
+It proves that my patches don't conflict with master.
+</code></pre>
+<p>Normally I don't update my branches with master.<br />
+I only do the changes that I need in my branches<br />
+and finally I merge those changes into master.<br />
+Only if there are merge conflicts I adapt the changes in my branch.<br />
+But normally there are no merge conflicts even if<br />
+common files (like default.conf) were changed in master<br />
+because usually changes in master are for different parts<br />
+in a file so that the git three-way merge can still merge<br />
+my changes from my branch without merge conflicts.</p>
+<p>When I am logged in at GitHub I can see whether or not<br />
+the changes in a pull request can be merged without conflicts.<br />
+E.g. in this pull request here the GitHub web frontend shows</p>
+<pre><code>This branch has no conflicts with the base branch
+Merging can be performed automatically.
+</code></pre>
+<p>This is not visible unless one is logged in at GitHub.<br />
+But I don't know if this is visible to every user who is<br />
+logged in at GitHub or if this is only visible to users<br />
+who have the right to merge pull requests (like me).</p>
+<p>So bottom line from my point of view:<br />
+Don't worry in advance about possible merge conflicts.</p>
+<h4 id="jsmeix_commented_at_2024-01-04_1135"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1876951537">2024-01-04 11:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-04_1135" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I would like your opinion regarding the new<br />
+usr/share/rear/init/default/002_pxe_sanity_checks.sh</p>
+<p>My current thoughts regarding the new<br />
+usr/share/rear/init/default/002_pxe_sanity_checks.sh</p>
+<p>Up to now we do not have any <code>_sanity_</code> named script.<br />
+But we have usr/share/rear/init/default/010_EFISTUB_check.sh<br />
+so usr/share/rear/init/default/020_PXE_check.sh<br />
+could be a better name?</p>
+<p>In general I wonder if feature specific check scripts<br />
+should be always run in the general 'init' stage?<br />
+Wouldn't be a feature specific sub-directory better?<br />
+E.g. something like<br />
+usr/share/rear/prep/NETFS/default/050_check_NETFS_requirements.sh<br />
+with its symbolic link<br />
+usr/share/rear/verify/NETFS/default/050_check_NETFS_requirements.sh<br />
+On the other hand such symbolic links look awkward<br />
+when a check is basically always needed (where "basically always"<br />
+means it is in particular needed during 'mkrescue' and 'recover').<br />
+But the general 'init' stage is always run<br />
+so for generic checks - even when feature specific - the<br />
+general 'init' stage could be the best place in practice.</p>
+<p>I think the messages should be shorter,<br />
+in particular without the word "warning", cf.<br />
+<a href="https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a><br />
+and without separator lines <code>--------</code> that we normally don't use.<br />
+E.g. for comparison see the "deprecated" messages in<br />
+usr/share/rear/lib/borg-functions.sh<br />
+(that is rather old code before LogPrintError was introduced)</p>
+<h4 id="pcahyna_commented_at_2024-01-04_1605"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1877354672">2024-01-04 16:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-04_1605" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<blockquote>
+<p>@robertdahlem there is still a needless merge commit in the history
+now:
+<a href="https://github.com/rear/rear/commit/11f4e0284c7b757444de94feecec56295b013114">11f4e02</a></p>
+</blockquote>
+<p>Yes, I see. But it doesn't show up in the files changed by this PR.
+Also it doesn't show up in <code>git diff master http-download</code>. So I
+thought it is fine.</p>
+</blockquote>
+<p>It is not a big problem for sure, it just complicates and clutters the
+history a bit for those that are going to look at it later. Also, I
+suspected that your 'commits from other people show up between my
+commits' problem was caused by such merge commits, where GitHub got
+confused by the too complicated history. But as the problem does not
+appear anymore, I am not sure. Maybe it was something else.</p>
+<blockquote>
+<blockquote>
+<p>Would it work for you to use</p>
+<pre><code># git rebase master
+# git push -f
+</code></pre>
+</blockquote>
+<p>It might. It did not try that. I am still confused about the rebase
+stuff. Also rebase and force push drove me into the f*ckup.
+Additionally I think that the merge commit is not needless. It proves
+that my patches don't conflict with master.</p>
+<p>The history of all that is:</p>
+<pre><code>* I push a PR
+
+* Discussion ensues, further local development happens
+
+* Meanwhile people commit other stuff to master
+
+* To prove that my locally developed stuff does not conflict I need to merge my branch with master before pushing. Also I shy away from doing anything with `--force`.
+
+* Or don't I merge? What do people do at this point (aka "another push to a branch while master has moved on")?
+</code></pre>
+</blockquote>
+<p>I admit I am usually sloppy with that, just like @jsmeix. I keep my
+branch not updated and keep pushing to it, despite that checking that
+the branch does not conflict with new changes as you do is for sure the
+right thing to do. Merely merging with the updated master branch and
+pushing the merge commit does not itself prove it, though. It only
+proves that a merge is possible (i.e. that there is no textual
+conflict), not that the merge will actually work. There could be a
+semantic conflict. Consider using a shared function which in the
+meantime gets renamed. Since the rename occurs in a different file than
+you are editing, it appears to merge fine, but the result will not work.
+So, it is not enough to merge the branches, you need to re-test the
+merge result. Merging the branches by itself does not prove much, it is
+good as the first step for testing the updated result. Rebasing on top
+of the current master does have the same effect though. If you don't
+like <code>--force</code>, merging is probably the best option. Note though that
+force pushes should show in the web UI, see</p>
+<blockquote>
+<p>@<a href="https://github.com/robertdahlem">robertdahlem</a>
+<a href="https://github.com/rear/rear/compare/6725d987d5bc8b7997e3b2b772be9412445368c3..104858f1aa8ca4827a67a004df551568c551be48">force-pushed</a>
+the http-download branch from<a href="https://github.com/rear/rear/commit/6725d987d5bc8b7997e3b2b772be9412445368c3"> 6725d98
+</a>to
+104858f</p>
+</blockquote>
+<p>in the PR history. This should allow you to go back when the force push
+messes up something.</p>
+<p>If you are just interested in whether the merge is possible, the GitHub
+UI should tell you without attempting the merge itself, as @jsmeix
+mentioned. For example see
+<a href="https://github.com/rear/rear/pull/3041">https://github.com/rear/rear/pull/3041</a>.
+Do you see the 'This branch has conflicts that must be resolved' message
+at the bottom?</p>
+<p>Anyway, all this is not very important. Thank you a lot for you
+contribution, I will switch to reviewing the content of it instead of
+nitpicking about the Git process.</p>
+<h4 id="pcahyna_commented_at_2024-01-04_1607"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1877357714">2024-01-04 16:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-04_1607" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>in particular without the word "warning"</p>
+</blockquote>
+<p>I would not be afraid of it. IMO, deprecation messages are a good use of
+the word 'warning'. It is something that is not a problem now, but it
+will be a problem in the future.</p>
+<h4 id="robertdahlem_commented_at_2024-01-04_1620"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1877382079">2024-01-04 16:20</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-04_1620" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I think the messages should be shorter,<br />
+in particular without the word "warning", cf.<br />
+<a href="https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a></p>
+</blockquote>
+<p>Schlomo is a man of strong opinions. :-)</p>
+<p>I dare to disagree with him in this particular case, especially where he
+states "ERROR means that I as a human should take action. Everything
+else is irrelevant for me."</p>
+<p>Most of these warnings end with "Please fix your configuration" which is
+pretty much the same as "human, you should take action". No bad things
+will happen (for now) when you ignore them, so they are not ERROR. Bad
+things WILL happen when sometime in the future "deprecated" turns into
+"gone", that makes them relevant.</p>
+<p>You should see this, you should act on it, but they are not ERROR.</p>
+<p>As for the name and position of <code>002_pxe_sanity_checks.sh</code> in the
+directory structure: I just used what looked practical.</p>
+<h4 id="pcahyna_commented_at_2024-01-04_1646"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1877429794">2024-01-04 16:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-04_1646" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Up to now we do not have any <code>_sanity_</code> named script. But we have
+usr/share/rear/init/default/010_EFISTUB_check.sh so
+usr/share/rear/init/default/020_PXE_check.sh could be a better name?</p>
+</blockquote>
+<p>There are many other scripts with <code>check</code> in their name in the <code>prep</code>
+stage and they also check the consistency of the variables, so <code>check</code>
+seems good choice indeed. For another possibility see
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/default/020_translate_url.sh">https://github.com/rear/rear/blob/master/usr/share/rear/prep/default/020_translate_url.sh</a>
+(it also contains many deprecation messages that could serve as another
+inspiration).</p>
+<blockquote>
+<p>In general I wonder if feature specific check scripts should be always
+run in the general 'init' stage? Wouldn't be a feature specific
+sub-directory better? E.g. something like
+usr/share/rear/prep/NETFS/default/050_check_NETFS_requirements.sh
+with its symbolic link
+usr/share/rear/verify/NETFS/default/050_check_NETFS_requirements.sh
+On the other hand such symbolic links look awkward when a check is
+basically always needed (where "basically always" means it is in
+particular needed during 'mkrescue' and 'recover'). But the general
+'init' stage is always run so for generic checks - even when feature
+specific - the general 'init' stage could be the best place in
+practice.</p>
+</blockquote>
+<p>That's the point - I don't think that this needs to run during recovery
+(and bother the user with deprecation messages), right? So it could be
+just under <code>prep</code>, without any symlinks. Moreover, it probably does not
+need to be under <code>default</code> to run for every <code>OUTPUT</code>, <code>PXE</code> directory
+should be enough. So I would put it under <code>prep/PXE/default</code>.</p>
+<h4 id="robertdahlem_commented_at_2024-01-05_0749"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878261816">2024-01-05 07:49</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-05_0749" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @jsmeix</p>
+<blockquote>
+<p>So it could be just under <code>prep</code>, without any symlinks. Moreover, it
+probably does not need to be under <code>default</code> to run for every
+<code>OUTPUT</code>, <code>PXE</code> directory should be enough. So I would put it under
+<code>prep/PXE/default</code>.</p>
+</blockquote>
+<p>Done: 9a9e9df7a60182a38fef79e69ded25084eb4c1d2</p>
+<h4 id="jsmeix_commented_at_2024-01-05_0813"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878283424">2024-01-05 08:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-05_0813" title="Permanent link">&para;</a></h4>
+<p>@Flunkyball @pcahyna @rear/contributors<br />
+please have a look here as time permits<br />
+and ideally test it if possible for you.<br />
+Thank you in advance!</p>
+<h4 id="jsmeix_commented_at_2024-01-05_0823"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878294450">2024-01-05 08:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-05_0823" title="Permanent link">&para;</a></h4>
+<p>Currently the GitHub web frontend for this pull request shows</p>
+<pre><code>1 workflow awaiting approval
+This workflow requires approval from a maintainer.
+4 neutral, and 11 successful checks
+[Approve and run]
+</code></pre>
+<p>How could "a maintainer" act on this when it does not tell him<br />
+what specific workflow "This workflow" actually is?</p>
+<p>The generic GitHub information<br />
+<a href="https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks">https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks</a><br />
+only tells vaguely why that approval is needed</p>
+<pre><code>Although workflows from forks do not have
+access to sensitive data such as secrets,
+they can be an annoyance for maintainers
+if they are modified for abusive purposes.
+</code></pre>
+<p>But I cannot know if and how "This workflow"<br />
+was modified for abusive purposes<br />
+and what abusive purposes are possible here<br />
+so how could one make a decision in this specific case?</p>
+<p>@pcahyna<br />
+do you perhaps know what "This workflow" actually is<br />
+and if and how "This workflow" could have been modified<br />
+for abusive purposes and what abusive purposes<br />
+might be possible with "This workflow"?</p>
+<h4 id="robertdahlem_commented_at_2024-01-05_0942"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878388332">2024-01-05 09:42</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-05_0942" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>But I cannot know if and how "This workflow"<br />
+was modified for abusive purposes<br />
+and what abusive purposes are possible here<br />
+so how could one make a decision in this specific case?</p>
+</blockquote>
+<p>It specifically addresses the <code>.github/workflow</code> directory which
+probably does automated quality assurance stuff. Because it is automated
+it could clog resources or overwrite stuff, so there might be dragons.
+As I made no changes in this directory I think you can switch to YOLO
+mode and hit "Approve and run". :-)</p>
+<p>Most changes in <code>.github/workflow</code> were made by @schlomo and @gdha.
+Maybe they can sched some light?</p>
+<h4 id="pcahyna_commented_at_2024-01-05_1018"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878435728">2024-01-05 10:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-05_1018" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>Currently the GitHub web frontend for this pull request shows</p>
+<pre><code>1 workflow awaiting approval
+This workflow requires approval from a maintainer.
+4 neutral, and 11 successful checks
+[Approve and run]
+</code></pre>
+<p>How could "a maintainer" act on this when it does not tell him what
+specific workflow "This workflow" actually is?</p>
+<p>The generic GitHub information
+<a href="https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks">https://docs.github.com/en/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks</a>
+only tells vaguely why that approval is needed</p>
+<pre><code>Although workflows from forks do not have
+access to sensitive data such as secrets,
+they can be an annoyance for maintainers
+if they are modified for abusive purposes.
+</code></pre>
+<p>But I cannot know if and how "This workflow" was modified for abusive
+purposes and what abusive purposes are possible here so how could one
+make a decision in this specific case?</p>
+<p>@pcahyna do you perhaps know what "This workflow" actually is and if
+and how "This workflow" could have been modified for abusive purposes
+and what abusive purposes might be possible with "This workflow"?</p>
+</blockquote>
+<p>mentioning "This workflow" without telling which is really very
+annoying. I go to the "Files changed" section and check that no workflow
+files (under <code>.github</code>) were modified, the changes should then be safe.</p>
+<h4 id="pcahyna_commented_at_2024-01-05_1019"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878437494">2024-01-05 10:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-05_1019" title="Permanent link">&para;</a></h4>
+<p>In practice, when I approve the workflow, the only thing that runs is
+Differential ShellCheck.</p>
+<h4 id="pcahyna_commented_at_2024-01-05_1033"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878455931">2024-01-05 10:33</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-05_1033" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+I see that you are changing some variables to lowercase, because they
+are local to the script. Which is good (assuming that they are really
+not used anywhere else - I have not checked). But I think that you
+should also declare them as <code>local</code> then.
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a>
+.</p>
+<h4 id="robertdahlem_commented_at_2024-01-05_1354"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878699421">2024-01-05 13:54</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-05_1354" title="Permanent link">&para;</a></h4>
+<p>@pchayna</p>
+<blockquote>
+<p>@robertdahlem I see that you are changing some variables to lowercase,
+because they are local to the script. Which is good (assuming that
+they are really not used anywhere else - I have not checked).</p>
+</blockquote>
+<p>I have. :-)</p>
+<blockquote>
+<p>But I think that you should also declare them as <code>local</code> then.
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a>
+.</p>
+</blockquote>
+<p>Fixed: 405d9fa9da2229299299c84a1bae7437383416ed</p>
+<h4 id="robertdahlem_commented_at_2024-01-05_1418"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1878754087">2024-01-05 14:18</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-05_1418" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<blockquote>
+<p>I put in a bunch of fixes around the use of positive logic and
+quoting.</p>
+</blockquote>
+<p>Commited: a2e383495c83eef12140845fa008aa54a19aa41d</p>
+<blockquote>
+<p>Do you see a way to merge both copy scripts (for TFTP and for HTTP)
+into one? They seem to be doing nearly the same.</p>
+</blockquote>
+<p>I'm not too happy with implementing that idea. They have more different
+than common lines and adding logic to tell these apart would only
+complicate things. I'm not actually opposed to the idea but would leave
+that as exercise to interested parties.</p>
+<blockquote>
+<p>Another thought that keeps me wondering is the following: If putting
+the boot files onto a TFTP <em>or</em> HTTP server requires file system
+access, then why do we need to differentiate so much between TFTP and
+HTTP?</p>
+</blockquote>
+<p>In an SELinux environment you can't (easily) resort to one common
+directory. <code>/var/lib/tftpboot</code> has <code>tftpdir_rw_t</code> and can't be accessed
+by <code>httpd</code>. <code>/var/www/whatever</code> has <code>httpd_sys_content_t</code> and can't be
+accessed by <code>tftpd</code>.</p>
+<p>If you use an environment where you can mix them, you can configure
+<code>PXE_HTTP_UPLOAD_URL="$PXE_TFTP_UPLOAD_URL"</code> and be done with one
+directory. But I wouldn't default to this because it triggers SELinux
+debugging and that is not everybody's cup of tea. Even die hard RHEL
+guys like to maneuver around that. :-)</p>
+<h4 id="robertdahlem_commented_at_2024-01-08_2323"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1881976595">2024-01-08 23:23</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-08_2323" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I have lost track a little bit ... are all discussion points,
+suggested changes etc. resolved? Or do you still need me to fix
+something before we can merge?</p>
+<h4 id="jsmeix_commented_at_2024-01-09_0945"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1882734142">2024-01-09 09:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_0945" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+when you tested the current final state<br />
+and this state works well for you,<br />
+then I would like to merge it "bona fide"<br />
+with one or two days delay so that others<br />
+like @Flunkyball could also have a look<br />
+and ideally test it in their environment.</p>
+<p>Currently we are in ReaR 2.8 development phase<br />
+and there is not yet a ReaR 2.8 release date planned<br />
+(i.e there is plenty of time until ReaR 2.8 release)<br />
+so others who are interested could test things<br />
+after it was merged and if issues appear<br />
+we have time to fix them properly.</p>
+<p>By the way:<br />
+Since a long time it is on my private todo list<br />
+to learn PXE booting but I never found time for it.<br />
+Perhaps this issue will finally let me do that.<br />
+But no promises. It all depends on whether or not<br />
+other stuff takes attention with higher priority,<br />
+in particular issues of SUSE customers who pay my salary.</p>
+<h4 id="jsmeix_commented_at_2024-01-12_1251"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1889111286">2024-01-12 12:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-12_1251" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem<br />
+did you test the current final state<br />
+and does this state work well for you?</p>
+<h4 id="robertdahlem_commented_at_2024-01-12_1643"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1889626698">2024-01-12 16:43</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-12_1643" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@robertdahlem did you test the current final state and does this state
+work well for you?</p>
+</blockquote>
+<p>@jsmeix I've been busy with other stuff, sorry. Paying customers, you
+know the drill. :-)</p>
+<p>I've just built a current RPM and delivered it to my workplace. I have
+installed that RPM on several bare metal test machines. They are
+backupped with Rubrik (BACKUP=CDM/OUTPUT=PXE) and I have to wait until
+Monday when the next backup cycle is through. My colleagues will do a
+regression test with BACKUP=NETFS/OUTPUT=ISO.</p>
+<p>I will report.</p>
+<h4 id="robertdahlem_commented_at_2024-01-17_1209"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895679167">2024-01-17 12:09</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-17_1209" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I've just built a current RPM and delivered it to my workplace. I have
+installed that RPM on several bare metal test machines. They are
+backupped with Rubrik (BACKUP=CDM/OUTPUT=PXE) and I have to wait until
+Monday when the next backup cycle is through. My colleagues will do a
+regression test with BACKUP=NETFS/OUTPUT=ISO.</p>
+</blockquote>
+<p>I can report that BACKUP=CDM/OUTPUT=PXE works with TFTP and HTTP
+download protocols. Also there have been no regressions with our
+standard BACKUP=NETFS/OUTPUT=ISO.</p>
+<p>Colleagues now are eager to switch to BACKUP=NETFS/OUTPUT=PXE. :-)</p>
+<p>So yes, we did test the final state and it worked well for us.</p>
+<h4 id="pcahyna_commented_at_2024-01-17_1226"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895706945">2024-01-17 12:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-17_1226" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem thanks for the contribution and the thorough testing! I
+think you should edit the PR description as you have changed
+<code>PXE_SCHEME</code> to something else. Otherwise the code now looks good to me.</p>
+<h4 id="jsmeix_commented_at_2024-01-17_1226"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895708118">2024-01-17 12:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-17_1226" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors @Flunkyball<br />
+I intend to merge it on Friday (19 Jan. 2024) afternoon<br />
+unless there are objections.</p>
+<h4 id="jsmeix_commented_at_2024-01-17_1302"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895768046">2024-01-17 13:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-17_1302" title="Permanent link">&para;</a></h4>
+<p>I would like to add a comment<br />
+about the variable names<br />
+PXE_TFTP_UPLOAD_URL<br />
+PXE_HTTP_UPLOAD_URL<br />
+PXE_HTTP_DOWNLOAD_URL</p>
+<p>The example in default.conf</p>
+<pre><code>#    PXE_TFTP_UPLOAD_URL=nfs://tftp-server/var/lib/tftpboot
+#    PXE_HTTP_UPLOAD_URL=nfs://web-server/var/www/html
+#    PXE_HTTP_DOWNLOAD_URL=http://web-server
+</code></pre>
+<p>shows that for the TFTP and HTTP *_UPLOAD_URL variables<br />
+the actually used protocol ('nfs' in this case)<br />
+does not match the protocol in the variable name<br />
+which might be confusing at first glance.</p>
+<p>The reason is that actually the *_UPLOAD_URL variables<br />
+could be named with full explanatory names like<br />
+PXE_UPLOAD_URL_FOR_TFTP_DOWNLOAD<br />
+PXE_UPLOAD_URL_FOR_HTTP_DOWNLOAD<br />
+but I think such names are oververbose<br />
+so for me the shorter names are fine.</p>
+<p>Perhaps it could be explained in default.conf<br />
+that also for PXE_TFTP_UPLOAD_URL and PXE_HTTP_UPLOAD_URL<br />
+"nfs or any other mountable scheme" must be used<br />
+(i.e. same as already for PXE_CONFIG_URL)<br />
+but I think the example in default.conf is good enough.</p>
+<p>For the fun of it:<br />
+Listing variable names in default.conf with their length:</p>
+<pre><code># grep -o '^[A-Z][A-Z][^=]*' usr/share/rear/conf/default.conf | awk '{ print length, $0 }' | sort -n
+
+2 OS
+4 ARCH
+4 LIBS
+...
+37 AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE
+39 NON_FATAL_BINARIES_WITH_MISSING_LIBRARY
+43 AUTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
+</code></pre>
+<p>So the winner of the "longest config variable name contest"<br />
+is me ;-)</p>
+<h4 id="robertdahlem_commented_at_2024-01-17_1402"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895876211">2024-01-17 14:02</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-17_1402" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@robertdahlem thanks for the contribution and the thorough testing! I
+think you should edit the PR description as you have changed
+<code>PXE_SCHEME</code> to something else. Otherwise the code now looks good to
+me.</p>
+</blockquote>
+<p>@pcahyna Fixed.</p>
+<h4 id="robertdahlem_commented_at_2024-01-17_1451"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1895971635">2024-01-17 14:51</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-17_1451" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps it could be explained in default.conf that also for
+PXE_TFTP_UPLOAD_URL and PXE_HTTP_UPLOAD_URL "nfs or any other
+mountable scheme" must be used (i.e. same as already for
+PXE_CONFIG_URL) but I think the example in default.conf is good
+enough.</p>
+</blockquote>
+<p>@jsmeix<br />
+For PXE_HTTP_UPLOAD_URL it already says so:</p>
+<pre><code># PXE_HTTP_UPLOAD_URL must be set and point to your
+# web server "DocumentRoot" (httpd) or "root" (nginx) directory
+# using nfs or any other mountable scheme.
+</code></pre>
+<p>For PXE_TFTP_UPLOAD_URL I added an explanation.</p>
+<h4 id="pcahyna_commented_at_2024-01-17_1520"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896031823">2024-01-17 15:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-17_1520" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem something bad has happened with your merge (with uptodate
+master) and push. What did you do?</p>
+<h4 id="robertdahlem_commented_at_2024-01-17_1747"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896300795">2024-01-17 17:47</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-17_1747" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@robertdahlem something bad has happened with your merge (with
+uptodate master) and push. What did you do?</p>
+</blockquote>
+<p>@pcahyna<br />
+What exactly is "something bad"? My git log reads:</p>
+<pre><code>commit ccb9d9a9d95c19872abc9d416a34e9863cd0c72e
+Merge: ebbad506 3e876e1f
+Author: Robert Dahlem &lt;robert.dahlem@gmx.net&gt;
+Date:   Wed Jan 17 15:50:15 2024 +0100
+
+    add some explanation for PXE_TFTP_UPLOAD_URL
+
+commit ebbad506e033962867c876e74f69a822ba1302f9
+Author: Robert Dahlem &lt;robert.dahlem@gmx.net&gt;
+Date:   Fri Jan 5 15:48:45 2024 +0100
+
+    silently return if nothing to be done
+</code></pre>
+<p>and git diff ebbad506e033962867c876e74f69a822ba1302f9
+ccb9d9a9d95c19872abc9d416a34e9863cd0c72e says:</p>
+<pre><code>index ef3a8a9b..a23a2ee6 100644
+--- a/usr/share/rear/conf/default.conf
++++ b/usr/share/rear/conf/default.conf
+@@ -1335,6 +1335,8 @@ PXE_TFTP_IP=
+ # where should we put the TFTP files ? (legacy way)
+ PXE_TFTP_PATH=/var/lib/rear/output
+ # where should we put the TFTP files ? (URL style)
++# PXE_TFTP_UPLOAD_URL must be set and point to your
++# tftp server drectory using nfs or any other mountable scheme.
+ #PXE_TFTP_URL: deprecated as of 2.8. Use PXE_TFTP_UPLOAD_URL
+ PXE_TFTP_UPLOAD_URL=
+ #
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-01-17_1859"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896452228">2024-01-17 18:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-17_1859" title="Permanent link">&para;</a></h4>
+<p>@robertdahlem
+<a href="https://github.com/rear/rear/pull/3100/commits">https://github.com/rear/rear/pull/3100/commits</a>
+suddenly shows 29 commits and there are duplicates (like
+<a href="https://github.com/rear/rear/pull/3100/commits/d751b64c5523e78e306a75b606cfb777d109f170">https://github.com/rear/rear/pull/3100/commits/d751b64c5523e78e306a75b606cfb777d109f170</a>
+and
+<a href="https://github.com/rear/rear/pull/3100/commits/655eb8d1bed9ca48784a354108c4c5980223b4c5">https://github.com/rear/rear/pull/3100/commits/655eb8d1bed9ca48784a354108c4c5980223b4c5</a>
+) I will check out your branch and examine it locally.</p>
+<h4 id="pcahyna_commented_at_2024-01-17_1905"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896460434">2024-01-17 19:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-17_1905" title="Permanent link">&para;</a></h4>
+<pre><code>commit ccb9d9a9d95c19872abc9d416a34e9863cd0c72e
+Merge: ebbad506 3e876e1f
+Author: Robert Dahlem &lt;robert.dahlem@gmx.net&gt;
+Date:   Wed Jan 17 15:50:15 2024 +0100
+
+    add some explanation for PXE_TFTP_UPLOAD_URL
+</code></pre>
+<p>that's the problem - it should not be a merge, the parent commit
+3e876e1fb0d88ceff24e6601d9955ad1b366c67b adds another copy of the
+history. Try <code>gitk</code> to visualize it.</p>
+<h4 id="robertdahlem_commented_at_2024-01-17_1923"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896492473">2024-01-17 19:23</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-17_1923" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>that's the problem - it should not be a merge, the parent commit
+<a href="https://github.com/rear/rear/commit/3e876e1fb0d88ceff24e6601d9955ad1b366c67b">3e876e1</a>
+adds another copy of the history. Try <code>gitk</code> to visualize it.</p>
+</blockquote>
+<p>Bloody git. :-( I synced in GitHub, then</p>
+<pre><code>git checkout master
+git pull
+git checkout http-download
+git rebase master
+git pull # I think here might have been a merge
+vi ./usr/share/rear/conf/default.conf
+git add ./usr/share/rear/conf/default.conf
+gcm "add some explanation for PXE_TFTP_UPLOAD_URL"
+git push
+</code></pre>
+<p>Anyway. The "files changed" tab looks good to me. Do you need me to do
+something?</p>
+<h4 id="pcahyna_commented_at_2024-01-17_1956"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1896590665">2024-01-17 19:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-17_1956" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I synced in GitHub</p>
+</blockquote>
+<p>Meaning, you did a merge it in the GitHub WebUI?</p>
+<blockquote>
+<p>git pull # I think here might have been a merge</p>
+</blockquote>
+<p>Yes. git pull = git fetch + git merge.</p>
+<p>The rebased version (after <code>git rebase master</code> - rev.
+ebbad506e033962867c876e74f69a822ba1302f9 ) was already fine, so the
+<code>git pull</code> was not needed. Compare
+ebbad506e033962867c876e74f69a822ba1302f9 and
+3e876e1fb0d88ceff24e6601d9955ad1b366c67b - they are identical.</p>
+<blockquote>
+<p>gcm "add some explanation for PXE_TFTP_UPLOAD_URL"</p>
+</blockquote>
+<p>what is "gcm" ? (Looks like git commit --amend)</p>
+<blockquote>
+<p>Anyway. The "files changed" tab looks good to me. Do you need me to do
+something?</p>
+</blockquote>
+<p>Please, in your <code>http-download</code> branch, do<br />
+<code>git reset --hard ebbad506</code> - this will reset your branch to the
+revision after <code>git rebase</code><br />
+<code>git cherry-pick -m1 ccb9d9a9d95c19872abc9d416a34e9863cd0c72e</code> - this
+will reapply your "add some explanation for PXE_TFTP_UPLOAD_URL"
+commit<br />
+<code>git push --force</code></p>
+<p>To verify that this procedure did not introduce any file changes, do
+<code>git diff ccb9d9a9d95c19872abc9d416a34e9863cd0c72e</code> - it should return
+nothing.</p>
+<h4 id="robertdahlem_commented_at_2024-01-18_0840"><img src="https://avatars.githubusercontent.com/u/5524999?v=4" width="50"><a href="https://github.com/robertdahlem">robertdahlem</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1898030753">2024-01-18 08:40</a>:<a class="headerlink" href="#robertdahlem_commented_at_2024-01-18_0840" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<blockquote>
+<p>I synced in GitHub<br />
+Meaning, you did a merge it in the GitHub WebUI?</p>
+</blockquote>
+</blockquote>
+<p>I clicked on "Sync fork" in the WebUI.</p>
+<blockquote>
+<p>The rebased version (after <code>git rebase master</code> - rev.
+<a href="https://github.com/rear/rear/commit/ebbad506e033962867c876e74f69a822ba1302f9">ebbad50</a>
+) was already fine, so the <code>git pull</code> was not needed.</p>
+</blockquote>
+<p>I took an additional note in my documentation. "Do Never. Ever. use git
+pull when git rebase is sufficient". :-)<br />
+But how would I get commits which have been made remote (not in master,
+but in my branch)?</p>
+<blockquote>
+<blockquote>
+<p>gcm "add some explanation for PXE_TFTP_UPLOAD_URL"<br />
+what is "gcm" ? (Looks like git commit --amend)</p>
+</blockquote>
+</blockquote>
+<p><code>alias gcm='git commit -m'</code></p>
+<blockquote>
+<p>Please, in your <code>http-download</code> branch, do <code>git reset --hard ebbad506</code>
+- this will reset your branch to the revision after <code>git rebase</code>
+<code>git cherry-pick -m1 ccb9d9a9d95c19872abc9d416a34e9863cd0c72e</code> - this
+will reapply your "add some explanation for PXE_TFTP_UPLOAD_URL"
+commit <code>git push --force</code></p>
+</blockquote>
+<p>I did as you wrote. Is it ok now?</p>
+<h4 id="pcahyna_commented_at_2024-01-18_1611"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1898784463">2024-01-18 16:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-18_1611" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<blockquote>
+<blockquote>
+<p>I synced in GitHub<br />
+Meaning, you did a merge it in the GitHub WebUI?</p>
+</blockquote>
+</blockquote>
+<p>I clicked on "Sync fork" in the WebUI.</p>
+</blockquote>
+<p>I see. I think it is preferable to avoid that and leave the branch
+descending from an older state. See jsmeix's
+<a href="https://github.com/rear/rear/pull/3100#issuecomment-1876866258">https://github.com/rear/rear/pull/3100#issuecomment-1876866258</a>
+:</p>
+<blockquote>
+<p>So bottom line from my point of view:<br />
+Don't worry in advance about possible merge conflicts.</p>
+<blockquote>
+<p>The rebased version (after <code>git rebase master</code> - rev.
+<a href="https://github.com/rear/rear/commit/ebbad506e033962867c876e74f69a822ba1302f9">ebbad50</a>
+) was already fine, so the <code>git pull</code> was not needed.</p>
+</blockquote>
+<p>I took an additional note in my documentation. "Do Never. Ever. use
+git pull when git rebase is sufficient". :-) But how would I get
+commits which have been made remote (not in master, but in my branch)?</p>
+</blockquote>
+<p>Yes, to update your branch to the uptodate master branch one would use
+<code>git rebase</code> or <code>git merge</code> (performed implicitly by <code>git pull</code>) but not
+both.</p>
+<p>Usually there would not be any commits made in your branch at the remote
+side. But here I see that you needed to get the additional commit that
+was created by accepting the review suggestions in the WebUI. For this,
+I would use "git pull" first, before I use anything that changes my
+local history (<code>git rebase</code>, <code>git reset</code>). Or for better control
+<code>git fetch</code> followed by <code>git merge</code>. This would merely get the new
+commit(s) without merging anything (to enforce this, add <code>--ff-only</code> to
+<code>git merge</code>). Only when the local branch is in sync with the remote
+version, rebase if you want, and then force-push. But I think it may be
+better to not worry about updating to the current master branch code, so
+I would even skip that (I only rarely rebase).</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>gcm "add some explanation for PXE_TFTP_UPLOAD_URL"<br />
+what is "gcm" ? (Looks like git commit --amend)</p>
+</blockquote>
+</blockquote>
+<p><code>alias gcm='git commit -m'</code></p>
+<blockquote>
+<p>Please, in your <code>http-download</code> branch, do
+<code>git reset --hard ebbad506</code> - this will reset your branch to the
+revision after <code>git rebase</code>
+<code>git cherry-pick -m1 ccb9d9a9d95c19872abc9d416a34e9863cd0c72e</code> -
+this will reapply your "add some explanation for
+PXE_TFTP_UPLOAD_URL" commit <code>git push --force</code></p>
+</blockquote>
+<p>I did as you wrote. Is it ok now?</p>
+</blockquote>
+<p>Yes, it is good now. I think you can click on "compare" in the message
+about force-push above and see that your force-push did not introduce
+any content changes. The commit history looks good now.</p>
+<h4 id="pcahyna_commented_at_2024-01-22_1849"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1904603368">2024-01-22 18:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-22_1849" title="Permanent link">&para;</a></h4>
+<p>@jsmeix ready to merge?</p>
+<h4 id="jsmeix_commented_at_2024-01-23_0633"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3100#issuecomment-1905374086">2024-01-23 06:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-23_0633" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I was ready to merge since<br />
+<a href="https://github.com/rear/rear/pull/3100#issuecomment-1895679167">https://github.com/rear/rear/pull/3100#issuecomment-1895679167</a><br />
+but then I waited until the subsequent things got fixed.<br />
+I think in<br />
+<a href="https://github.com/rear/rear/pull/3100#issuecomment-1898784463">https://github.com/rear/rear/pull/3100#issuecomment-1898784463</a><br />
+I missed your final "it is good now".<br />
+So, yes it should be ready to merge now.<br />
+I will merge it today afternoon unless someone objects.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-05.3100.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

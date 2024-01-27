@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3113 PR merged: Set 'dmesg -n [4-6]' in new 'setup' script 007_set_dmesg_level.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3113 PR merged: Set \u0027dmesg -n [4-6]\u0027 in new \u0027setup\u0027 script 007_set_dmesg_level.sh";
+        var mkdocs_page_input_path = "issues/2023-12-20.3113.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3113 PR merged: Set 'dmesg -n [4-6]' in new 'setup' script 007_set_dmesg_level.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3113_pr_merged_set_dmesg_-n_4-6_in_new_setup_script_007_set_dmesg_levelsh"><a href="https://github.com/rear/rear/pull/3113">#3113 PR</a> <code>merged</code>: Set 'dmesg -n [4-6]' in new 'setup' script 007_set_dmesg_level.sh<a class="headerlink" href="#3113_pr_merged_set_dmesg_-n_4-6_in_new_setup_script_007_set_dmesg_levelsh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-12-20_1338"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3113">2023-12-20 13:38</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-12-20_1338" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/3108">https://github.com/rear/rear/pull/3108</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    I tested it and it works well for me.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>The new 'setup' stage script setup/default/007_set_dmesg_level.sh<br />
+sets 'dmesg -n [4-6]' for the worksflows<br />
+recover layoutonly restoreonly finalizeonly mountonly<br />
+depending on verbose and debug modes for ReaR.</p>
+<p>This pull request obsoletes<br />
+<a href="https://github.com/rear/rear/pull/3112">https://github.com/rear/rear/pull/3112</a></p>
+<h4 id="jsmeix_commented_at_2023-12-22_0945"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867468951">2023-12-22 09:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_0945" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it today afternoon<br />
+unless there are objections</p>
+<h4 id="pcahyna_commented_at_2023-12-22_1011"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867497905">2023-12-22 10:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-22_1011" title="Permanent link">&para;</a></h4>
+<p>Only a nit, but is it intended to leave the first and last line of the
+file empty?</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1017"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867503809">2023-12-22 10:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1017" title="Permanent link">&para;</a></h4>
+<p>In contrast to what I wrote in<br />
+<a href="https://github.com/rear/rear/issues/3107#issuecomment-1855783591">https://github.com/rear/rear/issues/3107#issuecomment-1855783591</a></p>
+<pre><code>With 'dmesg -n 5' in [skel/default]/etc/scripts/boot
+I do not get any kernel error or warning message
+during ReaR recovery system startup on my test VM
+so normally 'dmesg -n 5' is sufficiently quiet.
+</code></pre>
+<p>I tested this pull request on another VM<br />
+with a rather minimal SLES15-SP5 system<br />
+and there 'dmesg -n 5' in /etc/scripts/boot<br />
+results a few systemd related kernel messages<br />
+during ReaR recovery system startup<br />
+and also a few systemd related kernel messages<br />
+during "rear recover" but nothing that could<br />
+really "pollute" the usual ReaR messages<br />
+so 'dmesg -n 5' behaves as I described in<br />
+<a href="https://github.com/rear/rear/pull/3108#issue-2041555869">https://github.com/rear/rear/pull/3108#issue-2041555869</a></p>
+<pre><code>... up to 'dmesg -n 5' i.e. up to warning messages
+there are almost no kernel messages so that level 5
+does not "pollute" the usual ReaR messages ...
+</code></pre>
+<p>Therefore I added</p>
+<pre><code>DebugPrint "Setting dmesg level $dmesg_level"
+</code></pre>
+<p>so the user could see in debug mode why kernel messages<br />
+appear now intermixed with ReaR messages on console<br />
+but only on console and not eg. from remote via 'ssh', cf<br />
+<a href="https://github.com/rear/rear/pull/3108#issuecomment-1857527905">https://github.com/rear/rear/pull/3108#issuecomment-1857527905</a><br />
+which is a bit different behaviour on console<br />
+than it had been before with 'dmesg -n1'.</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1024"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867512219">2023-12-22 10:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1024" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+probably unexpected but it is really intentional<br />
+that I prefer to keep the first and last line empty.<br />
+My explanation for that could become somewhat long-winded<br />
+but I have some good reasons with personal experience<br />
+for both cases (first line and last line).<br />
+Technically there is no reason for that but only<br />
+in theory, theory and practice are the same,<br />
+in practice, they are not ;-)</p>
+<h4 id="pcahyna_commented_at_2023-12-22_1039"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867527498">2023-12-22 10:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-22_1039" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I would now to recommend to squash the first three commits
+together and force push. Then, when merging, use the usual procedure
+(create a merge commit).</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1112"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867560595">2023-12-22 11:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1112" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I simply merged with "Squash and merge" in the GitHub web frontend<br />
+which squashed all commits into one single merge commit.<br />
+The more I get used to it the more I like its simplicity.<br />
+Meanwhile I think its drawback as described in<br />
+<a href="https://github.com/rear/rear/pull/3089#issuecomment-1845130303">https://github.com/rear/rear/pull/3089#issuecomment-1845130303</a><br />
+does not matter in practice in very most cases.<br />
+I.e. I think the simplicity of "squash all into one"<br />
+outweighs its possible drawback in very most cases.</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1136"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3113#issuecomment-1867582611">2023-12-22 11:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1136" title="Permanent link">&para;</a></h4>
+<p>Normally I use only the GitHub web frontend to implement changes<br />
+so normally I cannot squash specific commits myself locally.</p>
+<p>Normally I do not implement things on a local git checkout<br />
+on my homeoffice laptop but I use the GitHub web frontend<br />
+as much as possible (to a certain extent) e.g. for some<br />
+really big changes I may prefer a local git checkout.</p>
+<p>I test pull requests via git clone and git checkout<br />
+on a test VM that runs on my homeoffice laptop.</p>
+<p>My personal reasons are:</p>
+<p>Since more and more "doing work" changes from<br />
+doing one's own computing with one's own software<br />
+to Service as a Software Substitute (SaaSS), cf.<br />
+<a href="https://www.gnu.org/philosophy/who-does-that-server-really-serve.en.html">https://www.gnu.org/philosophy/who-does-that-server-really-serve.en.html</a></p>
+<ol>
+<li>I just try to adapt to the new fancy modern way<br />
+    because I know how to do things the good old way<br />
+    but I want to really try out that new way<br />
+    and get some proper experience on my own<br />
+    to be able to better understand the new way.</li>
+<li>I want to be independent of the particular computer<br />
+    where I sit in front of as far as possible (to a certain extent)<br />
+    so any computer with a browser should suffice.</li>
+</ol>
+<p>My personal reason behind those reasons is<br />
+that some years ago I had a (smaller) accident at my leg<br />
+(it was about 2019 - i.e. before I changed to homeoffice)<br />
+which forced me to sit at home with a "home"-computer<br />
+that was not at all prepared to do my work.<br />
+But I was able to do my work (I only could not walk)<br />
+so I experienced how good it would be to be able<br />
+to work on an arbitrary (trusted) computer<br />
+with basically only a (reasonable) browser.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-20.3113.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

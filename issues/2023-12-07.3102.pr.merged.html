@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3102 PR merged: OUTPUT=USB: add a check that OUTPUT_URL is mounted - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3102 PR merged: OUTPUT=USB: add a check that OUTPUT_URL is mounted";
+        var mkdocs_page_input_path = "issues/2023-12-07.3102.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3102 PR merged: OUTPUT=USB: add a check that OUTPUT_URL is mounted</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3102_pr_merged_outputusb_add_a_check_that_output_url_is_mounted"><a href="https://github.com/rear/rear/pull/3102">#3102 PR</a> <code>merged</code>: OUTPUT=USB: add a check that OUTPUT_URL is mounted<a class="headerlink" href="#3102_pr_merged_outputusb_add_a_check_that_output_url_is_mounted" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2023-12-07_1506"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3102">2023-12-07 15:06</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2023-12-07_1506" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): closes #3098</p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+<ul>
+<li>full backup and recovery with OUTPUT=USB on RHEL 8</li>
+<li><code>rear mkrescue</code> with</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+OUTPUT_URL=file:///srv
+</code></pre>
+<p>fails with</p>
+<pre><code>file:// OUTPUT_URL is currently unsupported for OUTPUT=USB, use usb://
+ERROR: OUTPUT_URL 'file:///srv' is not mounted at /var/tmp/rear.9WxhsNfKKQjmgsP/outputfs
+Some latest log messages since the last called script 105_check_mounted_usb.sh:
+  2023-12-08 13:31:11.869249473 file:// OUTPUT_URL is currently unsupported for OUTPUT=USB, use usb://
+Some messages from /var/tmp/rear.9WxhsNfKKQjmgsP/tmp/rear.mkrescue.stdout_stderr since the last called script 105_check_mounted_usb.sh:
+  mountpoint: /var/tmp/rear.9WxhsNfKKQjmgsP/outputfs: No such file or directory
+</code></pre>
+<ul>
+<li>
+<ul>
+<li><code>rear mkrescue</code> with</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+OUTPUT_URL=nfs://example.com/mnt/qa
+OUTPUT_OPTIONS=ro,noatime
+</code></pre>
+<p>fails with</p>
+<pre><code>OUTPUT=USB needs OUTPUT_URL to refer to a block device.
+Use the usb:// scheme for OUTPUT_URL
+ERROR: OUTPUT_URL 'nfs://example.com/mnt/qa' refers to mounted 'example.com:/mnt/qa' which is not a block device
+Some latest log messages since the last called script 105_check_mounted_usb.sh:
+  2023-12-10 10:54:53.662592565 OUTPUT=USB needs OUTPUT_URL to refer to a block device.
+  2023-12-10 10:54:53.665507523 Use the usb:// scheme for OUTPUT_URL
+Some messages from /var/tmp/rear.LtDKhi18fRteQRF/tmp/rear.mkrescue.stdout_stderr since the last called script 105_check_mounted_usb.sh:
+  /var/tmp/rear.LtDKhi18fRteQRF/outputfs is a mountpoint
+</code></pre>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>If OUTPUT_URL uses the <code>file://</code> scheme, ReaR aborts with a weird error
+message "BUG: Filesystem where the booting related files are on ...
+could not be found" in <code>output/USB/Linux-i386/850_make_USB_bootable.sh</code>.</p>
+<p>Check if OUTPUT_URL got actually mounted at the right place
+($BUILD_DIR/outputfs) by <code>output/default/100_mount_output_path.sh</code> and
+abort earlier with a meaningful error message if not.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_0820"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1846748495">2023-12-08 08:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_0820" title="Permanent link">&para;</a></h4>
+<p>I made the same kind of non-fail-safe code in<br />
+output/USB/Linux-i386/850_make_USB_bootable.sh</p>
+<pre><code>usb_filesystem=$( grep " $BUILD_DIR/outputfs " /proc/mounts | cut -d' ' -f3 | tail -1 )
+case "$usb_filesystem" in
+...
+    ("")
+        BugError "Filesystem where the booting related files are on $RAW_USB_DEVICE could not be found"
+        ;;
+</code></pre>
+<p>because it reports a bug in ReaR when</p>
+<pre><code>grep " $BUILD_DIR/outputfs " /proc/mounts | cut -d' ' -f3 | tail -1
+</code></pre>
+<p>fails for all arbitrary reasons, for example as in<br />
+<a href="https://github.com/rear/rear/issues/3098">https://github.com/rear/rear/issues/3098</a></p>
+<h4 id="jsmeix_commented_at_2023-12-08_0826"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1846756439">2023-12-08 08:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_0826" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+perhaps it is more clear to enhance the checks in<br />
+output/USB/Linux-i386/850_make_USB_bootable.sh<br />
+directly where all that is done instead of implementing<br />
+things that belong together in various separated scripts?</p>
+<h4 id="jsmeix_commented_at_2023-12-08_0900"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1846797018">2023-12-08 09:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_0900" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/issues/3098#issuecomment-1845519067">https://github.com/rear/rear/issues/3098#issuecomment-1845519067</a><br />
+I could do it if it helps you when I would do it.<br />
+I would also only implement a single specific check<br />
+that helps with
+<a href="https://github.com/rear/rear/issues/3098">https://github.com/rear/rear/issues/3098</a></p>
+<p>I think I would only implement one check that<br />
+there is something mounted at $BUILD_DIR/outputfs<br />
+and if nothing is mounted there, then error out.<br />
+Only optionally a check that what is mounted there<br />
+is a block device and if not show a LogPrintError.</p>
+<p>I think I would implement that directly in<br />
+output/USB/Linux-i386/850_make_USB_bootable.sh<br />
+and replace that BugError() by Error() therein.</p>
+<h4 id="pcahyna_commented_at_2023-12-08_0952"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1846880485">2023-12-08 09:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_0952" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think I would only implement one check that there is something
+mounted at $BUILD_DIR/outputfs and if nothing is mounted there, then
+error out. Only optionally a check that what is mounted there is a
+block device and if not show a LogPrintError.</p>
+</blockquote>
+<p>For OUTPUT=USB, having a block device is a pretty basic requirement. For
+this reason, I prefer to have the check for block device mandatory and
+let it error out when it fails.</p>
+<blockquote>
+<p>I think I would implement that directly in
+output/USB/Linux-i386/850_make_USB_bootable.sh and replace that
+BugError() by Error() therein.</p>
+</blockquote>
+<p>Since this is a basic requirement of OUTPUT=USB, I prefer to have the
+check as early as possible. I could even rename
+<code>110_check_mounted_usb.sh</code> to <code>101_check_mounted_usb.sh</code> to be executed
+ASAP after <code>100_mount_output_path.sh</code>. I was lazy to audit all the
+scripts between <code>100_mount_output_path.sh</code> and
+<code>850_make_USB_bootable.sh</code> to check if they also might misbehave when
+the output is not mounted (or not a block device) and even if they
+don't, we could add some code that uses the mountpoint or its underlying
+device later.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1142"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847036587">2023-12-08 11:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1142" title="Permanent link">&para;</a></h4>
+<p>This are all scripts in usr/share/rear/output/<br />
+(excerpt)</p>
+<pre><code># find usr/share/rear/output/ | grep -o '[0-9][0-9][0-9]_.*' | sort -n
+
+010_set_umask.sh
+100_create_efiboot.sh
+100_mount_output_path.sh
+150_save_copy_of_prefix_dir.sh
+200_make_boot_dir.sh
+...
+</code></pre>
+<p>I would recommend to leave at least one free number<br />
+between already existing scripts (better two or three free numbers)<br />
+to allow easy addition of more new scripts in between existing scripts<br />
+(in particular with at least one free number users can add own
+scripts)<br />
+so I don't like 101_check_mounted_usb.sh and<br />
+I think 110_check_mounted_usb.sh is fine here<br />
+or perhaps 105_check_mounted_usb.sh if you like this more.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847060734">2023-12-08 12:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1203" title="Permanent link">&para;</a></h4>
+<p>On what older Linux systems</p>
+<pre><code>findmnt -funo SOURCE --target $BUILD_DIR/outputfs
+</code></pre>
+<p>works as expected:</p>
+<p>I test with</p>
+<pre><code># findmnt -funo SOURCE --target /
+</code></pre>
+<p>SLES10-SP4:</p>
+<pre><code># findmnt -funo SOURCE --target /
+-bash: findmnt: command not found
+</code></pre>
+<p>SLES11-SP3:</p>
+<pre><code># findmnt -funo SOURCE --target /
+-bash: findmnt: command not found
+</code></pre>
+<p>SLES12-SP5:</p>
+<pre><code># findmnt -funo SOURCE --target /
+/dev/sda2
+</code></pre>
+<p>SLES15-SP3:</p>
+<pre><code># findmnt -funo SOURCE --target /
+/dev/mapper/system-root[/@/.snapshots/1/snapshot]
+</code></pre>
+<p>So it seems (at least for the above tested systems)<br />
+when 'findmnt' is there then <code>findmnt -funo SOURCE --target ...</code><br />
+works as expected.</p>
+<p>Note the test on SLES15-SP3<br />
+where <code>findmnt -funo SOURCE --target ...</code><br />
+does not output a plain kernel device node<br />
+but a kernel device node with additional stuff,<br />
+so e.g.:</p>
+<pre><code># test -b /dev/mapper/system-root[/@/.snapshots/1/snapshot] &amp;&amp; echo y || echo n
+n
+
+# test -b /dev/mapper/system-root &amp;&amp; echo y || echo n
+y
+</code></pre>
+<p>Of course a mounted filesystem on USB device for ReaR<br />
+has likely not some (over)complicated btrfs structure<br />
+(like what is mounted at '/' on SLES).</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1209"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847067157">2023-12-08 12:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1209" title="Permanent link">&para;</a></h4>
+<blockquote>
+<pre><code># findmnt -funo SOURCE --target /
+/dev/mapper/system-root[/@/.snapshots/1/snapshot]
+</code></pre>
+</blockquote>
+<p>This would be problematic - we would have to revisit this if we want to
+support formatting the USB as btrfs.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1214"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847072926">2023-12-08 12:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1214" title="Permanent link">&para;</a></h4>
+<p>On SLES15-SP3:</p>
+<pre><code># man findmnt
+...
+  -v, --nofsroot
+    Do not print a [/dir] in the SOURCE column
+    for bind mounts or btrfs subvolumes.
+</code></pre>
+<p>so</p>
+<pre><code># findmnt -funvo SOURCE --target /
+/dev/mapper/system-root
+</code></pre>
+<p>does what we need<br />
+and now I have to check on what older Linux systems<br />
+findmnt supports '-v, --nofsroot' ...</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1220"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847079040">2023-12-08 12:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1220" title="Permanent link">&para;</a></h4>
+<p>RHEL 6 supports it:</p>
+<pre><code>[root@pcahyna-1mt-rhel-6 ~]# findmnt -funvo SOURCE --target /mnt/redhat
+...redhat.com:/devops_engineering_nfs/devarchive/redhat
+[root@pcahyna-1mt-rhel-6 ~]# findmnt -funo SOURCE --target /mnt/redhat
+...redhat.com:/devops_engineering_nfs/devarchive/redhat[/redhat]
+</code></pre>
+<p>for some reason, it is useful even with NFS.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1220"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847079075">2023-12-08 12:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1220" title="Permanent link">&para;</a></h4>
+<p>On what older Linux systems<br />
+findmnt supports '-v, --nofsroot':</p>
+<p>SLES12-SP5:</p>
+<pre><code># findmnt -funvo SOURCE --target /
+/dev/sda2
+</code></pre>
+<p>SLES15-SP3</p>
+<pre><code># findmnt -funvo SOURCE --target /
+/dev/mapper/system-root
+</code></pre>
+<p>So it seems (at least for the above tested systems)<br />
+when 'findmnt' is there then <code>findmnt -funvo SOURCE --target ...</code><br />
+works as expected.</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1223"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847081892">2023-12-08 12:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1223" title="Permanent link">&para;</a></h4>
+<p>I can add <code>-v</code> then, but it could be better to leave it out? I suspect
+that formatting the USB as btrfs with subvolumes could lead to various
+funny problems later, I doubt the USB code is adapted to it.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1223"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847082338">2023-12-08 12:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1223" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+but in your output<br />
+<a href="https://github.com/rear/rear/pull/3102#issuecomment-1847079040">https://github.com/rear/rear/pull/3102#issuecomment-1847079040</a><br />
+it seems there is a</p>
+<pre><code>...redhat.com:
+</code></pre>
+<p>prefix so that prefix could also get in the way?</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1224"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847083473">2023-12-08 12:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1224" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna but in your output <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847079040">#3102
+(comment)</a>
+it seems there is a</p>
+<pre><code>...redhat.com:
+</code></pre>
+<p>prefix so that prefix could also get in the way?</p>
+</blockquote>
+<p>... which is what I want. I want the check to fail with NFS mounts.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1225"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847084323">2023-12-08 12:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1225" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+feel free to add 'v' or leave it out in this case<br />
+as you imagine what (hopefully) will work better<br />
+in practice out there at our users.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1238"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847099185">2023-12-08 12:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1238" title="Permanent link">&para;</a></h4>
+<p>I was wondering whether or not bash 3 versus bash 4<br />
+could be also used to distinguish reasonably well<br />
+if findmnt is there or not.</p>
+<p>So I tested SLES11-SP4 (above I had tested SLES11-SP3).</p>
+<p>SLES11-SP4:</p>
+<pre><code># findmnt -funvo SOURCE --target /
+/dev/sda2
+</code></pre>
+<p>SLES11 and older have bash 3.<br />
+SLES12 and newer have bash 4.<br />
+So at least for SLE bash 3 does not mean there is no findmnt.<br />
+But at least for SLE bash 4 does mean there is findmnt.</p>
+<p>So if we would make bash 4 mandatory for next ReaR version 2.8<br />
+we could more safely assume certain other programs are there.</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1255"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847119064">2023-12-08 12:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1255" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>feel free to add 'v' or leave it out in this case as you imagine what
+(hopefully) will work better in practice out there at our users.</p>
+</blockquote>
+<p>@jsmeix I will leave it out, but if you want to test with
+btrfs-formatted USB, and you find that the check is the only thing that
+prevents this case from working, I will add it.</p>
+<h4 id="jsmeix_commented_at_2023-12-08_1429"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847279640">2023-12-08 14:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-08_1429" title="Permanent link">&para;</a></h4>
+<p>Now it may error out with only those texts:</p>
+<pre><code>'findmnt -funo SOURCE --target $BUILD_DIR/outputfs' returned an empty string
+</code></pre>
+<p>or</p>
+<pre><code>'findmnt -funo SOURCE --target $BUILD_DIR/outputfs' failed with exit code ...
+</code></pre>
+<p>But this could be too little context for the user<br />
+so he may not understand where to look for a cause.</p>
+<p>Therefore I would like to suggest code like</p>
+<pre><code>if usbdev="$(findmnt -funo SOURCE --target $BUILD_DIR/outputfs)" ; then
+    if [ -z "$usbdev" ] ; then
+        LogPrintError "'findmnt -funo SOURCE --target $BUILD_DIR/outputfs' returned an empty string"
+        Error "Could not check that OUTPUT_URL '$OUTPUT_URL' refers to a mounted block device"
+    fi
+    # It needs to be a disk-based filesystem (not e.g. NFS)
+    # as OUTPUT=USB basically means "disk" (not necessarily USB).
+    if ! [ -b "$usbdev" ] ; then
+        Error "OUTPUT_URL '$OUTPUT_URL' refers to mounted '$usbdev' which is not a block device"
+    fi
+else
+    # needs to be in the "else" branch. "! usbdev=$(findmnt ...)" would clobber
+    # the exit status of "findmnt" and $? would become useless.
+    LogPrintError "'findmnt -funo SOURCE --target $BUILD_DIR/outputfs' failed with exit code $?"
+    Error "Failed to check that OUTPUT_URL '$OUTPUT_URL' refers to a mounted block device"
+fi
+</code></pre>
+<p>If you like you may downgrade those LogPrintError to DebugPrint.</p>
+<p>By the way:<br />
+I prefer when all Error() messages are different<br />
+to be able to find the right single place in our code<br />
+where a particular Error() exit happened<br />
+(e.g. when a user only reported an Error() message without context).</p>
+<h4 id="pcahyna_commented_at_2023-12-08_1801"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1847601782">2023-12-08 18:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-08_1801" title="Permanent link">&para;</a></h4>
+<p>@jsmeix done, thanks for the suggestion.</p>
+<p>While testing, I discovered a bigger issue: <code>file://</code> does not work with
+USB even if the user had mounted the filesystem themselves. There are
+many places in the USB code that expect the output to be mounted at
+<code>$BUILD_DIR/outputfs</code>. It would be a much bigger project to fix this, so
+I merely adjusted the error messages and documented it.</p>
+<h4 id="jsmeix_commented_at_2023-12-11_0757"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1849501755">2023-12-11 07:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-11_0757" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your testing!</p>
+<p>Better merge it sooner than later now<br />
+before you find more and more issues<br />
+lurking in our labyrinthine USB code ;-)</p>
+<p>FYI:<br />
+Now I remember that we have<br />
+prep/default/040_check_backup_and_output_scheme.sh<br />
+to<br />
+"Check conditions that depend on BACKUP_URL or OUTPUT_URL<br />
+in particular conditions that depend on their schemes."<br />
+and in the code there I found</p>
+<pre><code># OUTPUT_URL=null conflicts with OUTPUT=USB
+# because for OUTPUT=USB output/USB/Linux-i386/850_make_USB_bootable.sh
+# wants to make the USB device bootable which cannot work with OUTPUT_URL=null
+# see https://github.com/rear/rear/issues/1571#issuecomment-343467593
+</code></pre>
+<p>and<br />
+<a href="https://github.com/rear/rear/issues/1571">https://github.com/rear/rear/issues/1571</a><br />
+was basically the same kind of issue as now<br />
+<a href="https://github.com/rear/rear/issues/3098">https://github.com/rear/rear/issues/3098</a><br />
+i.e. false BUG Error in<br />
+output/USB/Linux-i386/850_make_USB_bootable.sh<br />
+because of unsupported OUTPUT_URL for OUTPUT=USB</p>
+<h4 id="pcahyna_commented_at_2023-12-11_1452"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1850236912">2023-12-11 14:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-11_1452" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>regarding your<br />
+<a href="https://github.com/rear/rear/issues/3098#issuecomment-1845519067">https://github.com/rear/rear/issues/3098#issuecomment-1845519067</a><br />
+I could do it if it helps you when I would do it.</p>
+</blockquote>
+<p>thanks for the offer, cleanup of this area is certainly welcome. Not
+sure if it has the highest priority given we have not had many bug
+reports about that, though (and I don't have any immediate use for it
+ATM).</p>
+<p>Some remarks on what would IMO need to be cleaned up:</p>
+<ul>
+<li>confusion between setting USB_DEVICE from OUTPUT_URL vs.
+    BACKUP_URL. The current code tries to determine USB_DEVICE from
+    OUTPUT_URL, but if OUTPUT_URL is not <code>usb://</code>, it determines it
+    from BACKUP_URL instead. THat's why I was able to reproduce the
+    problem with</li>
+</ul>
+<!-- -->
+
+<pre><code>BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+OUTPUT_URL=file:///srv
+</code></pre>
+<p>This should be unified and USB_DEVICE determined always from
+OUTPUT_URL since it represents the location of boot files, nto of the
+backup.</p>
+<ul>
+<li>if one wants a separate boot partition on the USB, it is a bit
+    complicated, one has to set several things manually:
+    <a href="https://github.com/rear/rear/pull/2660#issuecomment-885643937">https://github.com/rear/rear/pull/2660#issuecomment-885643937</a>
+    in particular OUTPUT_URL different from BACKUP_URL. It would be
+    good to be able to do it with a single setting. IMO, this usage can
+    conflict with OUTPUT_URL being different from BACKUP_URL in case
+    one wants to use two USB devices: one for booting and another for
+    backup (which should be a legitimate use).</li>
+<li>maybe all of BACKUP_URL, OUTPUT_URL, USB_DEVICE should be set
+    based on OUTPUT=USB and the setting of USB_DEVICE_BOOT_LABEL and
+    USB_DEVICE_FILESYSTEM_LABEL, setting them manually by user only
+    risks inconsistencies (but BACKUP_URL can be something else than
+    <code>usb://</code> ).</li>
+</ul>
+<h4 id="pcahyna_commented_at_2023-12-11_1453"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3102#issuecomment-1850238263">2023-12-11 14:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-11_1453" title="Permanent link">&para;</a></h4>
+<p>thank you @jsmeix for the review, I am going to merge it.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-07.3102.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

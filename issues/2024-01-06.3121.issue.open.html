@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3121 Issue open: BACKUP=BORG --prefix deprecated --glob-archives could be used instead - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3121 Issue open: BACKUP=BORG --prefix deprecated --glob-archives could be used instead";
+        var mkdocs_page_input_path = "issues/2024-01-06.3121.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3121 Issue open: BACKUP=BORG --prefix deprecated --glob-archives could be used instead</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3121_issue_open_backupborg_--prefix_deprecated_--glob-archives_could_be_used_instead"><a href="https://github.com/rear/rear/issues/3121">#3121 Issue</a> <code>open</code>: BACKUP=BORG --prefix deprecated --glob-archives could be used instead<a class="headerlink" href="#3121_issue_open_backupborg_--prefix_deprecated_--glob-archives_could_be_used_instead" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>external tool</code></p>
+<h4 id="llucps_opened_issue_at_2024-01-06_1619"><img src="https://avatars.githubusercontent.com/u/25823659?v=4" width="50"><a href="https://github.com/llucps">llucps</a> opened issue at <a href="https://github.com/rear/rear/issues/3121">2024-01-06 16:19</a>:<a class="headerlink" href="#llucps_opened_issue_at_2024-01-06_1619" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>Relax-and-Recover 2.7 / Git</p>
+<ul>
+<li>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</li>
+</ul>
+<p>Debian GNU/Linux 12 (bookworm)</p>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>### Add library path
+LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/systemd/
+
+### Rescue image will be the default (ISO) ###
+OUTPUT=ISO
+OUTPUT_URL="sshfs://xxx@xxx.xx/."
+COPY_AS_IS=("/etc/ssl/private" "/usr/share/file/magic")
+
+### Borg stuff ###
+BACKUP=BORG
+BORGBACKUP_HOST="xxxx.xxx.xx"
+BORGBACKUP_PORT=23
+BORGBACKUP_USERNAME="xxxxx"
+BORGBACKUP_REPO="/./xxxx-backup"
+BORGBACKUP_ARCHIVE_PREFIX="$HOSTNAME"
+BORGBACKUP_PRUNE_KEEP_DAILY=14
+BORGBACKUP_PRUNE_KEEP_WEEKLY=2
+BORGBACKUP_PRUNE_KEEP_MONTHLY=3
+BORGBACKUP_COMPRESSION="zlib,5"
+COPY_AS_IS_EXCLUDE=("/tmp" "/dev" "/proc" "/sys" "/lost+found" "/home/lost+found/" "/run/" "/var/backup/server/" "/var/backup/websites/")
+BORGBACKUP_SHOW_STATS=YES
+export BORG_PASSPHRASE="xxxxxxxxxxxxx"
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>According to Borg documentation the <code>--prefix</code> parameter is deprecated
+and should not be used anymore.</p>
+<p><a href="https://borgbackup.readthedocs.io/en/stable/usage/prune.html">https://borgbackup.readthedocs.io/en/stable/usage/prune.html</a><br />
+<a href="https://github.com/borgbackup/borg/issues/7031">https://github.com/borgbackup/borg/issues/7031</a></p>
+<p>In my logs I get this warning:</p>
+<pre><code>Pruning old backup archives in Borg repository /./xxxx-backup on xxx.xxx.xx
+Warning: "--prefix" has been deprecated. Use "--glob-archives 'yourprefix*'" (-a) instead.
+</code></pre>
+<p>I'm assuming that although the BORGBACKUP_ARCHIVE_PREFIX="$HOSTNAME"
+works for now it should be replaced for something like this?</p>
+<p><code>BORGBACKUP_ARCHIVE_GLOB="$HOSTNAME-*"</code></p>
+<p>What do you think?<br />
+Thanks.</p>
+<h4 id="jsmeix_commented_at_2024-01-10_1413"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3121#issuecomment-1884928044">2024-01-10 14:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-10_1413" title="Permanent link">&para;</a></h4>
+<p>I am not a BACKUP=BORG user<br />
+so I cannot actually help with BACKUP=BORG specific issues.</p>
+<p>@llucps<br />
+do you know since when --glob-archives is supported by Borg?<br />
+I.e. since which Borg version is --glob-archives supported?</p>
+<p>I ask because in ReaR we maintain backward compatibility, see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#maintain-backward-compatibility">https://github.com/rear/rear/wiki/Coding-Style#maintain-backward-compatibility</a></p>
+<p>So we cannot replace --prefix with --glob-archives<br />
+instead we must find some reasonable solution<br />
+that works for older and newer Borg versions.</p>
+<p>But we do not need to maintain backward compatibility<br />
+for obsoleted Borg versions that are no longer supported<br />
+by upstream Borg.</p>
+<p>On<br />
+<a href="https://www.borgbackup.org/releases/">https://www.borgbackup.org/releases/</a><br />
+I found (excerpts)</p>
+<pre><code>Borg 2.0 is currently in testing - do not use it for production.
+
+Borg 1.4 is currently in testing - do not use it for production.
+
+Borg 1.2 is the current stable series of Borg.
+The current release is 1.2.7, released on 2023-12-02.
+
+Borg 1.1 is not supported any more, please use Borg 1.2.x.
+The current release is 1.1.18, released on 2022-06-05.
+
+Borg 1.0 is not supported any more, please use Borg 1.2.x.
+The last release in this series was 1.0.13, released on 2019-02-15.
+</code></pre>
+<h4 id="llucps_commented_at_2024-01-10_1643"><img src="https://avatars.githubusercontent.com/u/25823659?v=4" width="50"><a href="https://github.com/llucps">llucps</a> commented at <a href="https://github.com/rear/rear/issues/3121#issuecomment-1885212680">2024-01-10 16:43</a>:<a class="headerlink" href="#llucps_commented_at_2024-01-10_1643" title="Permanent link">&para;</a></h4>
+<p>@jsmeix According the the release notes the --glob-archives option was
+introduced in borg 1.2.2 (2022-08-20)</p>
+<p><a href="https://github.com/borgbackup/borg/blob/1.2.7/docs/changes.rst#version-122-2022-08-20">https://github.com/borgbackup/borg/blob/1.2.7/docs/changes.rst#version-122-2022-08-20</a></p>
+<p>And more info here
+<a href="https://github.com/borgbackup/borg/issues/6806">https://github.com/borgbackup/borg/issues/6806</a></p>
+<h4 id="schlomo_commented_at_2024-01-13_1759"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3121#issuecomment-1890631300">2024-01-13 17:59</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-13_1759" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/borgbackup/borg/issues/6806#issuecomment-1170319393">https://github.com/borgbackup/borg/issues/6806#issuecomment-1170319393</a>
+actually states that Borg 2.0 will not support the <code>--prefix</code> option any
+more, so the 1.x series presumably will continue to support it.</p>
+<p>@llucps can you tell us how much our ReaR code will have to change in
+order to support Borg 2.x? If this is the only change, then we should
+just adjust it. But if there are more incompatible changes then we
+should maybe consider adding a <code>BORG2</code> backup method that is fully
+optimised for the Borg 2.x series. We have also other backup methods
+(most notably <code>GALAXY</code>) where we have multiple backup methods to support
+multiple versions of the same backup software.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-01-06.3121.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

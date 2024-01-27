@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3123 PR merged: Make initrd accessible only by root - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3123 PR merged: Make initrd accessible only by root";
+        var mkdocs_page_input_path = "issues/2024-01-08.3123.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3123 PR merged: Make initrd accessible only by root</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3123_pr_merged_make_initrd_accessible_only_by_root"><a href="https://github.com/rear/rear/pull/3123">#3123 PR</a> <code>merged</code>: Make initrd accessible only by root<a class="headerlink" href="#3123_pr_merged_make_initrd_accessible_only_by_root" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>fixed / solved / done</code>, <code>critical / security / legal</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-01-08_1343"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3123">2024-01-08 13:43</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-01-08_1343" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong> / <strong>Critical</strong></p>
+</li>
+</ul>
+<p>Normally (i.e. by default) the ReaR recovery system<br />
+does not contain secrets but when it contains secrets<br />
+and when GRUB_RESCUE=Y is used then it is critical<br />
+that only root is allowed to access the initrd.</p>
+<ul>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3122">https://github.com/rear/rear/issues/3122</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Not yet tested.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In pack/GNU/Linux/900_create_initramfs.sh call<br />
+chmod 0600 "$TMP_DIR/$REAR_INITRD_FILENAME"<br />
+to let only root access the initrd because<br />
+the ReaR recovery system can contain secrets</p>
+<h4 id="jsmeix_commented_at_2024-01-09_0922"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1882689348">2024-01-09 09:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_0922" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+Wow!<br />
+Regardless how long I worked with ReaR there is always<br />
+something important that I did not yet notice,<br />
+like output/default/010_set_umask.sh<br />
+Thank you for pointing that out!</p>
+<h4 id="schlomo_commented_at_2024-01-09_0923"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1882691834">2024-01-09 09:23</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-09_0923" title="Permanent link">&para;</a></h4>
+<p>No worries @jsmeix, I also didn't know about that. I thought to myself
+"umask might be a good idea" and simply searched for <code>umask</code> in the code
+to see if there is something with it already.</p>
+<h4 id="jsmeix_commented_at_2024-01-09_0928"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1882700079">2024-01-09 09:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_0928" title="Permanent link">&para;</a></h4>
+<p>Meanwhile I think this current (untested) proposed fix<br />
+is highly questionable because it does 'chmod 0600'<br />
+for the initrd in ReaR's $TMP_DIR which is not<br />
+the final initrd that is located in the<br />
+world-readable '/boot/' directory for GRUB_RESCUE=Y.<br />
+Perhaps things somehow work via 'cp -p' or similar<br />
+but in general I think it would be better (i.e. more fail-safe)<br />
+to set the intended permissions for the final initrd file<br />
+for GRUB_RESCUE=Y and perhaps also for other methods.</p>
+<h4 id="schlomo_commented_at_2024-01-09_0955"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1882750225">2024-01-09 09:55</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-09_0955" title="Permanent link">&para;</a></h4>
+<p>Yes, I think ReaR should be careful to not mess up things somewhere
+else. So for example I see value in protecting the final boot files on
+the <em>local</em> filesystem, but I wouldn't want to touch stuff on remote
+filesystems mounted via NFS or CIFS. I'd rather assume that appropriate
+measures are in place on the other server.</p>
+<h4 id="jsmeix_commented_at_2024-01-09_1214"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1882964724">2024-01-09 12:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_1214" title="Permanent link">&para;</a></h4>
+<p>Yes, I also won't care about non-built-in storage<br />
+like removable (USB) disks or similar things<br />
+i.e. storage where others could get physical access<br />
+so that the user who runs "rear mkrescue/mkbackup"<br />
+must care on his own how to protect such storage.</p>
+<p>Regarding the ReaR ISO on the local filesystem:<br />
+With</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=file:///other
+</code></pre>
+<p>I get after "rear mkrescue":</p>
+<pre><code># ls -l var/lib/rear/output/rear-linux-h9wr.iso
+-rw------- 1 root root 96038912 Jan  9 11:41 var/lib/rear/output/rear-linux-h9wr.iso
+
+# ls -ld var/lib/rear/output
+drwxr-xr-x 2 root root 4096 Jan  9 11:41 var/lib/rear/output
+
+# ls -ld var/lib/rear
+drwxr-xr-x 6 root root 4096 Jan  9 11:39 var/lib/rear
+</code></pre>
+<p>and (because of BACKUP_URL=file:///other)</p>
+<pre><code># find /other -type f -name '*.iso' -ls
+376836 93884 -rw------- 1 root root 96038912 Jan 9 11:41 /other/linux-h9wr/rear-linux-h9wr.iso
+</code></pre>
+<p>I get the same restrictive permissions<br />
+when I change output/default/010_set_umask.sh to only</p>
+<pre><code>DebugPrint "umask is $( umask )"
+</code></pre>
+<p>which results for me</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+umask is 0022
+Making ISO image
+Wrote ISO image: /root/rear.github.master/var/lib/rear/output/rear-linux-h9wr.iso (92M)
+Copying resulting files to file location
+Saving /root/rear.github.master/var/log/rear/rear-linux-h9wr.log as rear-linux-h9wr.log to file location
+Copying result files '/root/rear.github.master/var/lib/rear/output/rear-linux-h9wr.iso /var/tmp/rear.Tr8IxEGGpwI5EJ4/tmp/VERSION /var/tmp/rear.Tr8IxEGGpwI5EJ4/tmp/README /var/tmp/rear.Tr8IxEGGpwI5EJ4/tmp/rear-linux-h9wr.log' to /other/linux-h9wr at file location
+Exiting rear mkrescue (PID 25518) and its descendant processes ...
+</code></pre>
+<p>Currently I fail to see how and where that restrictive permissions<br />
+are set in ReaR for the *.iso files.</p>
+<h4 id="jsmeix_commented_at_2024-01-09_1355"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1883089666">2024-01-09 13:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_1355" title="Permanent link">&para;</a></h4>
+<p>Interestingly the current fix<br />
+results restrictive permissions for<br />
+the final initrd that is located in the<br />
+world-readable '/boot/' directory for GRUB_RESCUE=Y.</p>
+<p>With</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.122.1/nfs
+GRUB_RESCUE=Y
+</code></pre>
+<p>Without the current fix:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+
+# find /boot -name '*initrd*' -ls
+...
+... -rw-r--r-- 1 root root 68010481 Jan  9 14:41 /boot/rear-initrd.cgz
+</code></pre>
+<p>In contrast with the current fix:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+
+# find /boot -name '*initrd*' -ls
+...
+... -rw------- 1 root root 68001719 Jan  9 14:45 /boot/rear-initrd.cgz
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-01-09_1433"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1883159848">2024-01-09 14:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_1433" title="Permanent link">&para;</a></h4>
+<p>Without this fix here<br />
+but with an early <code>umask 0077</code> in<br />
+init/default/001_verify_config_arrays.sh<br />
+(there only for now for my test)<br />
+and with disabled output/default/010_set_umask.sh<br />
+I also get restrictive permissions for<br />
+the final initrd that is located in the<br />
+world-readable '/boot/' directory for GRUB_RESCUE=Y</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+
+# find /boot -name '*initrd*' -ls
+...
+... -rw------- 1 root root 68003492 Jan  9 15:24 /boot/rear-initrd.cgz
+</code></pre>
+<p>Furthermore I also get restrictive permissions<br />
+for many ReaR files in var/ in particular</p>
+<pre><code>drwxr-xr-x 1 root root var
+drwxr-xr-x 1 root root var/log
+drwxr-xr-x 1 root root var/log/rear
+-rw------- 1 root root var/log/rear/rear-localhost.log
+drwx------ 1 root root var/lib
+drwx------ 1 root root var/lib/rear
+drwxr-xr-x 1 root root var/lib/rear/output
+-rw------- 1 root root var/lib/rear/output/rear-localhost.iso
+drwx------ 1 root root var/lib/rear/recovery
+-rw------- 1 root root var/lib/rear/recovery/bootdisk
+-rw------- 1 root root var/lib/rear/recovery/directories_permissions_owner_group
+-rw------- 1 root root var/lib/rear/recovery/diskbyid_mappings
+-rw------- 1 root root var/lib/rear/recovery/mountpoint_device
+-rw------- 1 root root var/lib/rear/recovery/bootloader
+-rw------- 1 root root var/lib/rear/recovery/initrd_modules
+-rw------- 1 root root var/lib/rear/recovery/storage_drivers
+-rw------- 1 root root var/lib/rear/recovery/if_inet6
+drwx------ 1 root root var/lib/rear/layout
+drwx------ 1 root root var/lib/rear/layout/config
+-rw------- 1 root root var/lib/rear/layout/config/df.txt
+-rw------- 1 root root var/lib/rear/layout/config/files.md5sum
+-rw------- 1 root root var/lib/rear/layout/disklayout.conf
+-rw------- 1 root root var/lib/rear/layout/diskdeps.conf
+-rw------- 1 root root var/lib/rear/layout/disktodo.conf
+drwx------ 1 root root var/lib/rear/layout/lvm
+drwxr-xr-x 1 root root var/lib/rear/sysreqs
+-rw------- 1 root root var/lib/rear/sysreqs/Minimal_System_Requirements.txt
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-01-09_1441"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1883175016">2024-01-09 14:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_1441" title="Permanent link">&para;</a></h4>
+<p>I understand now why this fix here works for GRUB_RESCUE=Y</p>
+<p>In output/default/940_grub2_rescue.sh there is</p>
+<pre><code>local initrd_file=$TMP_DIR/$REAR_INITRD_FILENAME
+...
+local boot_dir="/boot"
+...
+local boot_initrd_name="rear-$REAR_INITRD_FILENAME"
+...
+local boot_initrd_file="$boot_dir/$boot_initrd_name"
+.
+.
+.
+cp -af $v $initrd_file $boot_initrd_file || BugError "..."
+</code></pre>
+<p>so this fix here works because $TMP_DIR/$REAR_INITRD_FILENAME<br />
+is copied via 'cp -a' so in particular permissions are preserved.</p>
+<h4 id="pcahyna_commented_at_2024-01-09_1457"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1883205418">2024-01-09 14:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-09_1457" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Yes, I also won't care about non-built-in storage<br />
+like removable (USB) disks or similar things<br />
+i.e. storage where others could get physical access<br />
+so that the user who runs "rear mkrescue/mkbackup"<br />
+must care on his own how to protect such storage.</p>
+</blockquote>
+<p>I would care about this, because someone could access the USB in the
+time window when it is mounted. Fortunately I believe we mount it under
+$TMP_DIR, which is not world-accessible, right? But there could be some
+script that "helpfully" automounts the rescue medium under <code>/media</code> or
+something.</p>
+<h4 id="jsmeix_commented_at_2024-01-09_1549"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1883304517">2024-01-09 15:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-09_1549" title="Permanent link">&para;</a></h4>
+<p>Regarding <code>"helpfully" automounts the rescue medium</code>:</p>
+<p>When I plug in my ReaR USB disk I get automatically<br />
+this (on openSUSE Leap 15.5):</p>
+<pre><code># mount | grep sdb
+/dev/sdb3 on /run/media/johannes/REAR-000 type ext3 (rw,nosuid,nodev,relatime,errors=remount-ro,uhelper=udisks2)
+
+# ls -l /run/media/johannes/REAR-000
+drwx------ 3 root root ... boot
+drwxr-x--- 2 root root ... linux-h9wr
+drwx------ 2 root root ... lost+found
+drwx------ 3 root root ... rear
+</code></pre>
+<p>so no non-root user can access things therein<br />
+and because of</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+ERROR: USB or disk device '/dev/sdb3' is already mounted on '/run/media/johannes/REAR-000'
+</code></pre>
+<p>I must unmount that before I can use it for ReaR.</p>
+<p>After unmount<br />
+with</p>
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+</code></pre>
+<p>I get</p>
+<pre><code># usr/sbin/rear -D mkbackup
+...
+Using build area: /var/tmp/rear.VPPdGWHa1qLmwvJ
+...
+Creating tar archive '/var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs/rear/linux-h9wr/20240109.1634/backup.tar.gz'
+...
+
+# ls -ld /var/tmp/rear.VPPdGWHa1qLmwvJ
+drwx------ 4 root root 4096 Jan  9 16:35 /var/tmp/rear.VPPdGWHa1qLmwvJ
+
+# grep '+ mount ' var/log/rear/rear-linux-h9wr.log
++++ mount -v -o rw,noatime /dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
++++ mount -v -o rw,noatime /dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
++++ mount -v -o rw,noatime /dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
+</code></pre>
+<p>so as far as I see normally ReaR mounts below $BUILD_DIR<br />
+but that depends on how e.g. mount_url() is called<br />
+where $2 is the mountpoint<br />
+that is I my case</p>
+<pre><code># grep '+ mount_url ' var/log/rear/rear-linux-h9wr.log
+++ mount_url usb:///dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
+++ mount_url usb:///dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
+++ mount_url usb:///dev/disk/by-label/REAR-000 /var/tmp/rear.VPPdGWHa1qLmwvJ/outputfs
+</code></pre>
+<p>but there could be any mountpoint specified and<br />
+there could be also any mount command in the ReaR code<br />
+and actually there are many mount commands in the ReaR code</p>
+<h4 id="jsmeix_commented_at_2024-01-10_1421"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1884941939">2024-01-10 14:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-10_1421" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge this PR in its current state<br />
+rather soon because it fixes the specific issue<br />
+<a href="https://github.com/rear/rear/issues/3122">https://github.com/rear/rear/issues/3122</a></p>
+<p>The generic issue that possibly confidential values<br />
+may leak out via the ReaR recovery system in ReaR's initrd<br />
+will need a lot of time for careful investigation<br />
+which must be done via separated issues and pull requests.</p>
+<h4 id="jsmeix_commented_at_2024-01-12_1202"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1888997313">2024-01-12 12:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-12_1202" title="Permanent link">&para;</a></h4>
+<p>Verification for older ReaR versions<br />
+(those older ReaR versions which we have in SUSE, cf.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_(ReaR)_RPM_packages_for_disaster_recovery">https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_(ReaR)_RPM_packages_for_disaster_recovery</a>)<br />
+that ReaR's initrd gets copied via 'cp -a'<br />
+so its permissions are preserved, cf. my above<br />
+<a href="https://github.com/rear/rear/pull/3123#issuecomment-1883175016">https://github.com/rear/rear/pull/3123#issuecomment-1883175016</a><br />
+when ReaR's initrd is copied in case of GRUB_RESCUE=Y<br />
+for GRUB Legacy<br />
+via output/default/94_grub_rescue.sh<br />
+or output/default/940_grub_rescue.sh<br />
+and for GRUB 2<br />
+via output/default/94_grub2_rescue.sh<br />
+or output/default/940_grub2_rescue.sh</p>
+<pre><code>rear-1.16/usr/share/rear/output/default/94_grub_rescue.sh
+cp -af $v $TMP_DIR/initrd.cgz /boot/rear-initrd.cgz &gt;&amp;2
+=======================
+rear-1.17.2/usr/share/rear/output/default/94_grub_rescue.sh
+cp -af $v $TMP_DIR/initrd.cgz /boot/rear-initrd.cgz &gt;&amp;2
+=======================
+rear-1.17.2/usr/share/rear/output/default/94_grub2_rescue.sh
+cp -af $v $TMP_DIR/initrd.cgz /boot/rear-initrd.cgz &gt;&amp;2
+=======================
+rear-1.18.a/usr/share/rear/output/default/94_grub_rescue.sh
+cp -af $v $TMP_DIR/initrd.cgz /boot/rear-initrd.cgz &gt;&amp;2
+=======================
+rear-1.18.a/usr/share/rear/output/default/94_grub2_rescue.sh
+cp -af $v $initrd_file $boot_initrd_file &gt;&amp;2 || BugError "Unable to copy '$initrd_file' to '$boot_initrd_file'."
+=======================
+rear-2.3.a/usr/share/rear/output/default/940_grub_rescue.sh
+cp -af $v $TMP_DIR/$REAR_INITRD_FILENAME /boot/rear-$REAR_INITRD_FILENAME &gt;&amp;2
+=======================
+rear-2.3.a/usr/share/rear/output/default/940_grub2_rescue.sh
+cp -af $v $initrd_file $boot_initrd_file &gt;&amp;2 || BugError "Unable to copy '$initrd_file' to '$boot_initrd_file'."
+=======================
+rear-2.7/usr/share/rear/output/default/940_grub_rescue.sh
+cp -af $v $TMP_DIR/$REAR_INITRD_FILENAME /boot/rear-$REAR_INITRD_FILENAME || BugError "Failed to copy '$TMP_DIR/$REAR_INITRD_FILENAME' to '/boot/rear-$REAR_INITRD_FILENAME'"
+=======================
+rear-2.7/usr/share/rear/output/default/940_grub2_rescue.sh
+cp -af $v $initrd_file $boot_initrd_file || BugError "Failed to copy '$initrd_file' to '$boot_initrd_file'"
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-01-15_1043"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1891854012">2024-01-15 10:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-15_1043" title="Permanent link">&para;</a></h4>
+<p><a href="https://bugzilla.opensuse.org/show_bug.cgi?id=1218728">https://bugzilla.opensuse.org/show_bug.cgi?id=1218728</a><br />
+"CVE-2024-23301: rear: GRUB_RESCUE=Y creates world-readable initrd"</p>
+<h4 id="jsmeix_commented_at_2024-01-15_1103"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3123#issuecomment-1891919564">2024-01-15 11:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-15_1103" title="Permanent link">&para;</a></h4>
+<p>Regarding GRUB_RESCUE=Y for GRUB Legacy on SUSE SLES systems:<br />
+The SUSE SLES12 release notes<br />
+<a href="https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12/index.html">https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12/index.html</a><br />
+read (excerpt):</p>
+<pre><code>8.4.8.9 GRUB2 Is the Supported Bootloader
+GRUB2 is now available
+on all SUSE Linux Enterprise 12 architectures
+and is the only supported bootloader.
+Other bootloaders that were supported in SLE 11, have been
+removed from the distribution and are not available anymore.
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-01-08.3123.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
