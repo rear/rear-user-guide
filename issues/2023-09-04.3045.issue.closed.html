@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3045 Issue closed: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3045 Issue closed: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use";
+        var mkdocs_page_input_path = "issues/2023-09-04.3045.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3045 Issue closed: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3045_issue_closed_mountnfs_portmap_query_failed_rpc_remote_system_error_-_address_already_in_use"><a href="https://github.com/rear/rear/issues/3045">#3045 Issue</a> <code>closed</code>: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use<a class="headerlink" href="#3045_issue_closed_mountnfs_portmap_query_failed_rpc_remote_system_error_-_address_already_in_use" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>support / question</code>,
+<code>no-issue-activity</code></p>
+<h4 id="exfarmer_opened_issue_at_2023-09-04_1538"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> opened issue at <a href="https://github.com/rear/rear/issues/3045">2023-09-04 15:38</a>:<a class="headerlink" href="#exfarmer_opened_issue_at_2023-09-04_1538" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+
+Fill in the following items before submitting a new issue.
+(quick response is not guaranteed with free support):
+
+Please use proper GitHub Flavoured Markdown,
+see "Basic writing and formatting syntax" at
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+-- You can safely remove this comment block
+-->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.4 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    Red Hat Enterprise Linux Server release 7.9 (Maipo)</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>[root@ussp-oaddvic02 ~]# cat /etc/rear/local.conf
+# Default is to create Relax-and-Recover rescue media as ISO image
+# set OUTPUT to change that
+# set BACKUP to activate an automated (backup and) restore of your data
+# Possible configuration values can be found in /usr/share/rear/conf/default.conf
+#
+# This file (local.conf) is intended for manual configuration. For configuration
+# through packages and other automated means we recommend creating a new
+# file named site.conf next to this file and to leave the local.conf as it is.
+# Our packages will never ship with a site.conf
+OUTPUT=ISO
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP=NETFS
+BACKUP_URL=nfs://edlussp001.oneabbott.com/data/col1/stpaul_linux_bu_image
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash' '/var/log' '/usr/openv' '/srv' '/tmp/*')
+ONLY_INCLUDE_VG=( "vgos" )
+SYSLINUX_MODULES_DIR="/usr/share/syslinux"
+OUTPUT_PREFIX="$HOSTNAME.ReaRbkup.$( date +%Y%m%d%H%M%S 2&gt;/dev/null )"
+NETFS_PREFIX="$HOSTNAME.ReaRbkup.$( date +%Y%m%d%H%M%S 2&gt;/dev/null )"
+PROGRESS_WAIT_SECONDS="10"
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    VMware, Inc. VMware Virtual Platform</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SAN</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                            KNAME     PKNAME    TRAN TYPE FSTYPE      LABEL      SIZE MOUNTPOINT
+/dev/sda                        /dev/sda                 disk                        100G
+|-/dev/sda1                     /dev/sda1 /dev/sda       part ext4                   512M /boot
+`-/dev/sda2                     /dev/sda2 /dev/sda       part LVM2_member           99.5G
+  |-/dev/mapper/vgos-rootvol    /dev/dm-0 /dev/sda2      lvm  ext4                  10.3G /
+  |-/dev/mapper/vgos-lvswap     /dev/dm-1 /dev/sda2      lvm  swap                    16G [SWAP]
+  |-/dev/mapper/vgos-lvtmp      /dev/dm-6 /dev/sda2      lvm  ext4                  15.3G /tmp
+  |-/dev/mapper/vgos-lvvar      /dev/dm-7 /dev/sda2      lvm  ext4                    20G /var
+  |-/dev/mapper/vgos-lvopt      /dev/dm-8 /dev/sda2      lvm  ext4                    20G /opt
+  `-/dev/mapper/vgos-lvopenv    /dev/dm-9 /dev/sda2      lvm  ext4                    15G /usr/openv
+/dev/sdb                        /dev/sdb                 disk LVM2_member            250G
+|-/dev/mapper/vgora-lvu01       /dev/dm-2 /dev/sdb       lvm  ext4                    75G /u01
+|-/dev/mapper/vgora-lvu02       /dev/dm-3 /dev/sdb       lvm  ext4                    75G /u02
+`-/dev/mapper/vgora-lvu03       /dev/dm-4 /dev/sdb       lvm  ext4                    75G /u03
+/dev/sdc                        /dev/sdc                 disk LVM2_member            100G
+`-/dev/mapper/vgora-lvomshome   /dev/dm-5 /dev/sdc       lvm  ext4                   171G /oms_home
+/dev/sdd                        /dev/sdd                 disk                        200G
+`-/dev/sdd1                     /dev/sdd1 /dev/sdd       part LVM2_member            200G
+  `-/dev/mapper/vgora-lvomshome /dev/dm-5 /dev/sdd1      lvm  ext4                   171G /oms_home
+/dev/sde                        /dev/sde                 disk                        300G
+`-/dev/sde1                     /dev/sde1 /dev/sde       part oracleasm   ORADATA01  300G
+/dev/sdf                        /dev/sdf                 disk                        100G
+`-/dev/sdf1                     /dev/sdf1 /dev/sdf       part oracleasm   ORAFRA01   100G
+/dev/sdg                        /dev/sdg                 disk                        100G
+`-/dev/sdg1                     /dev/sdg1 /dev/sdg       part oracleasm   ORAARC01   100G
+/dev/sdh                        /dev/sdh                 disk                         70G
+`-/dev/sdh1                     /dev/sdh1 /dev/sdh       part oracleasm   OCR_VOTE1   70G
+/dev/sdi                        /dev/sdi                 disk                         70G
+`-/dev/sdi1                     /dev/sdi1 /dev/sdi       part oracleasm   OCR_VOTE2   70G
+/dev/sdj                        /dev/sdj                 disk                         70G
+`-/dev/sdj1                     /dev/sdj1 /dev/sdj       part oracleasm   OCR_VOTE3   70G
+/dev/sr0                        /dev/sr0            ata  rom                        1024M
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<!-- -->
+
+<pre><code>++ echo '2023-09-04 14:49:31.658484143 Mounting with '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'''
+2023-09-04 14:49:31.658484143 Mounting with 'mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'
+++ eval mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs
++++ mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs
+mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
+mount.nfs: Address already in use
+mount.nfs: timeout set for Mon Sep  4 14:51:31 2023
+mount.nfs: trying text-based options 'nfsvers=3,nolock,addr=10.1.52.124'
+mount.nfs: prog 100003, trying vers=3, prot=6
+++ StopIfError 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ ((  32 != 0  ))
+++ Error 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ LogPrintError 'ERROR: Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ Log 'ERROR: Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
++++ date '+%Y-%m-%d %H:%M:%S.%N '
+++ local 'timestamp=2023-09-04 14:49:31.685420243 '
+++ test 1 -gt 0
+++ echo '2023-09-04 14:49:31.685420243 ERROR: Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+</code></pre>
+<ul>
+<li>
+<p>Workaround, if any:<br />
+    None</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):<br />
+<a href="https://github.com/rear/rear/files/12515046/rear-ussp-oaddvic02.log">rear-ussp-oaddvic02.log</a></p>
+</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-09-05_0749"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1706114234">2023-09-05 07:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-05_0749" title="Permanent link">&para;</a></h4>
+<p>@exfarmer<br />
+according to your<br />
+<a href="https://github.com/rear/rear/files/12515046/rear-ussp-oaddvic02.log">https://github.com/rear/rear/files/12515046/rear-ussp-oaddvic02.log</a><br />
+(excerpts)</p>
+<pre><code>2023-09-04 14:48:10.283645374 Mounting with ...
+...
++++ mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs
+mount.nfs: trying 10.1.52.124 prog 100003 vers 3 prot TCP port 2049
+mount.nfs: trying 10.1.52.124 prog 100005 vers 3 prot UDP port 2052
+mount.nfs: timeout set for Mon Sep  4 14:50:10 2023
+mount.nfs: trying text-based options 'nfsvers=3,nolock,addr=10.1.52.124'
+mount.nfs: prog 100003, trying vers=3, prot=6
+mount.nfs: prog 100005, trying vers=3, prot=17
+++ StopIfError 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ ((  0 != 0  ))
+...
+2023-09-04 14:48:11.445346783 Unmounting '/tmp/rear.lAZGT5aQYOGenQk/outputfs'
+++ umount -v /tmp/rear.lAZGT5aQYOGenQk/outputfs
+/tmp/rear.lAZGT5aQYOGenQk/outputfs: nfs mount point detected
+/tmp/rear.lAZGT5aQYOGenQk/outputfs: umounted
+...
+2023-09-04 14:49:28.495226046 Mounting with ...
+...
++++ mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs
+mount.nfs: trying 10.1.52.124 prog 100003 vers 3 prot TCP port 2049
+mount.nfs: trying 10.1.52.124 prog 100005 vers 3 prot UDP port 2052
+mount.nfs: timeout set for Mon Sep  4 14:51:28 2023
+mount.nfs: trying text-based options 'nfsvers=3,nolock,addr=10.1.52.124'
+mount.nfs: prog 100003, trying vers=3, prot=6
+mount.nfs: prog 100005, trying vers=3, prot=17
+++ StopIfError 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ ((  0 != 0  ))
+...
+2023-09-04 14:49:31.471796771 Unmounting '/tmp/rear.lAZGT5aQYOGenQk/outputfs'
+++ umount -v /tmp/rear.lAZGT5aQYOGenQk/outputfs
+/tmp/rear.lAZGT5aQYOGenQk/outputfs: nfs mount point detected
+/tmp/rear.lAZGT5aQYOGenQk/outputfs: umounted
+...
+2023-09-04 14:49:31.658484143 Mounting with ...
+...
++++ mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs
+mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
+mount.nfs: Address already in use
+mount.nfs: timeout set for Mon Sep  4 14:51:31 2023
+mount.nfs: trying text-based options 'nfsvers=3,nolock,addr=10.1.52.124'
+mount.nfs: prog 100003, trying vers=3, prot=6
+++ StopIfError 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+++ ((  32 != 0  ))
+++ Error 'Mount command '\''mount -v -t nfs -o nfsvers=3,nolock edlussp001.oneabbott.com:/data/col1/stpaul_linux_bu_image /tmp/rear.lAZGT5aQYOGenQk/outputfs'\'' failed.'
+</code></pre>
+<p>the same mount comand works two times<br />
+and fails at the third attempt with<br />
+some "Remote system error"<br />
+so I think the root cause is not the mount comand<br />
+but your "Remote system" (i.e. your NFS server).</p>
+<p>A blind guess (I am not at all a NFS expert):<br />
+According to the mounting/umounting timestamps in your<br />
+<a href="https://github.com/rear/rear/files/12515046/rear-ussp-oaddvic02.log">https://github.com/rear/rear/files/12515046/rear-ussp-oaddvic02.log</a><br />
+(excerpts)</p>
+<pre><code>2023-09-04 14:48:10.283645374 Mounting 
+2023-09-04 14:48:11.445346783 Unmounting 
+2023-09-04 14:49:28.495226046 Mounting 
+2023-09-04 14:49:31.471796771 Unmounting 
+2023-09-04 14:49:31.658484143 Mounting
+</code></pre>
+<p>the third mounting happens directly (less than 0.2 seconds) after<br />
+the second umounting, so perhaps the third mounting happens<br />
+somehow too fast for your NFS server so that it falsely reports<br />
+"already in use" while actually it should be "no longer in use"?</p>
+<p>To verify if it is a timing issue on your NFS server<br />
+add a few seconds sleep delay in your ReaR 2.4<br />
+usr/share/rear/lib/global-functions.sh<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/global-functions.sh">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/global-functions.sh</a><br />
+at the beginning of the function mount_url() like</p>
+<pre><code>mount_url() {
+    sleep 3
+    local url=$1
+...
+</code></pre>
+<p>and retry "rear mkbackup" to check if it works now more reliably.</p>
+<h4 id="exfarmer_commented_at_2023-09-05_1244"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1706552875">2023-09-05 12:44</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-09-05_1244" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>The mount point is set for timeo=600, that’s 60 seconds.<br />
+This is also the default.<br />
+The NFS command is also a hard mount, so changing the timeout value has
+no effect.<br />
+I need to investigate soft mounts and timeout values. For example:</p>
+<p>What’s the disadvantage or what could go wrong if this is a NFS soft
+mount?</p>
+<p>Do you have any guidance on this?</p>
+<h4 id="jsmeix_commented_at_2023-09-05_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1706567814">2023-09-05 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-05_1254" title="Permanent link">&para;</a></h4>
+<p>I am not at all a sufficient NFS expert<br />
+to be able to actually help with NFS specific issues.</p>
+<h4 id="exfarmer_commented_at_2023-09-05_1257"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1706571391">2023-09-05 12:57</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-09-05_1257" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>Is there a rear policy on this?</p>
+<h4 id="gdha_commented_at_2023-09-06_0829"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1707901198">2023-09-06 08:29</a>:<a class="headerlink" href="#gdha_commented_at_2023-09-06_0829" title="Permanent link">&para;</a></h4>
+<p>@exfarmer ReaR follows what you define with <code>BACKUP_OPTIONS</code> concerning
+NFS mount options, e.g. you can also use as options <code>nfsvers=4,nolock</code></p>
+<h4 id="exfarmer_commented_at_2023-09-07_1327"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1710152169">2023-09-07 13:27</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-09-07_1327" title="Permanent link">&para;</a></h4>
+<p>Let me ask another question.</p>
+<p>I added this line to the local.conf file:<br />
+PROGRESS_WAIT_SECONDS="10"</p>
+<p>But the log still shows the archive growing every 1-2 seconds.<br />
+I thought that change in the local.conf file would mean the updates come
+every 10 seconds or more.</p>
+<h4 id="jsmeix_commented_at_2023-09-08_0828"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1711282732">2023-09-08 08:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-09-08_0828" title="Permanent link">&para;</a></h4>
+<p>@exfarmer<br />
+PROGRESS_WAIT_SECONDS only affects ProgressInfo messages on the
+terminal,<br />
+see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh</a></p>
+<pre><code>    (tar)
+        while sleep $PROGRESS_WAIT_SECONDS ; kill -0 $BackupPID 2&gt;/dev/null; do
+...
+            ProgressInfo "Archived $((size/1024/1024)) MiB [avg $((size/1024/(SECONDS-starttime))) KiB/sec] "
+        done
+</code></pre>
+<p>and<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh</a></p>
+<pre><code>        function ProgressInfo () {
+            echo -en "..." 1&gt;&amp;7
+</code></pre>
+<p>Messages in the log file are not affected by PROGRESS_WAIT_SECONDS.</p>
+<h4 id="exfarmer_commented_at_2023-09-08_1114"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1711501604">2023-09-08 11:14</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-09-08_1114" title="Permanent link">&para;</a></h4>
+<p>Is there a way to reduce the "archived" messages?</p>
+<p>Thank you</p>
+<p>Sent from my Verizon, Samsung Galaxy smartphone<br />
+Get Outlook for Android<a href="https://aka.ms/AAb9ysg">https://aka.ms/AAb9ysg</a></p>
+<hr />
+<p>From: Johannes Meixner ***@***.***&gt;<br />
+Sent: Friday, September 8, 2023 4:28:41 AM<br />
+To: rear/rear ***@***.***&gt;<br />
+Cc: Hess, Gary ***@***.***&gt;; Mention
+***@***.***&gt;<br />
+Subject: Re: [rear/rear] mount.nfs: portmap query failed: RPC: Remote
+system error - Address already in use (Issue #3045)</p>
+<p>EXTERNAL EMAIL: Only click links or open attachments if you recognize
+the sender and know the content is safe.</p>
+<p>@exfarmer<a href="https://urldefense.com/v3/__https://github.com/exfarmer__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233J6DqR5J$">https://urldefense.com/v3/__https://github.com/exfarmer__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233J6DqR5J$</a><br />
+PROGRESS_WAIT_SECONDS only affects ProgressInfo messages on the
+terminal,<br />
+see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh</a><a href="https://urldefense.com/v3/__https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233GGcTzhL$">https://urldefense.com/v3/__https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/backup/NETFS/default/500_make_backup.sh__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233GGcTzhL$</a></p>
+<pre><code>(tar)
+    while sleep $PROGRESS_WAIT_SECONDS ; kill -0 $BackupPID 2&gt;/dev/null; do
+</code></pre>
+<p>...<br />
+ProgressInfo "Archived $((size/1024/1024)) MiB [avg
+$((size/1024/(SECONDS-starttime))) KiB/sec] "<br />
+done</p>
+<p>and<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh">https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh</a><a href="https://urldefense.com/v3/__https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233DsRMHFB$">https://urldefense.com/v3/__https://github.com/rear/rear/blob/rear-2.4/usr/share/rear/lib/progresssubsystem.nosh__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233DsRMHFB$</a></p>
+<pre><code>    function ProgressInfo () {
+        echo -en "..." 1&gt;&amp;7
+</code></pre>
+<p>Messages in the log file are not affected by PROGRESS_WAIT_SECONDS.</p>
+<p>—<br />
+Reply to this email directly, view it on
+GitHub<a href="https://urldefense.com/v3/__https://github.com/rear/rear/issues/3045*issuecomment-1711282732__;Iw!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233MiPwToj$">https://urldefense.com/v3/__https://github.com/rear/rear/issues/3045*issuecomment-1711282732__;Iw!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233MiPwToj$</a>,
+or
+unsubscribe<a href="https://urldefense.com/v3/__https://github.com/notifications/unsubscribe-auth/ASRDKRMYTIBV5IHTRFXIRUDXZLJLTANCNFSM6AAAAAA4KTEIFM__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233Fsa4y7d$">https://urldefense.com/v3/__https://github.com/notifications/unsubscribe-auth/ASRDKRMYTIBV5IHTRFXIRUDXZLJLTANCNFSM6AAAAAA4KTEIFM__;!!BBM_p3AAtQ!M3eWtFqgjYuqmPXz1CLTHpOyTQTYBhZNYkAaBatTQFgPgiqa2PhCFiuZgyftyvsb9atb2jXJu1Fi5W233Fsa4y7d$</a>.<br />
+You are receiving this because you were mentioned.Message ID:
+***@***.***&gt;</p>
+<h4 id="gdha_commented_at_2023-10-05_0838"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748384209">2023-10-05 08:38</a>:<a class="headerlink" href="#gdha_commented_at_2023-10-05_0838" title="Permanent link">&para;</a></h4>
+<p>@exfarmer not using '-v' (verbose) option might help</p>
+<h4 id="gdha_commented_at_2023-10-05_0839"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748385923">2023-10-05 08:39</a>:<a class="headerlink" href="#gdha_commented_at_2023-10-05_0839" title="Permanent link">&para;</a></h4>
+<p>@exfarmer rpcinfo -p edlussp001.oneabbott.com should show you what the
+NFS server supports</p>
+<h4 id="jsmeix_commented_at_2023-10-05_0904"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748437148">2023-10-05 09:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-05_0904" title="Permanent link">&para;</a></h4>
+<p>Regarding verbose messages in the log file:<br />
+The 'tar' option '--verbose' is hardcoded in<br />
+usr/share/rear/backup/NETFS/default/500_make_backup.sh<br />
+I guess those verbose 'tar' messages is what @exfarmer means.</p>
+<h4 id="gdha_commented_at_2023-10-05_0908"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748444466">2023-10-05 09:08</a>:<a class="headerlink" href="#gdha_commented_at_2023-10-05_0908" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Regarding verbose messages in the log file: The 'tar' option
+'--verbose' is hardcoded in
+usr/share/rear/backup/NETFS/default/500_make_backup.sh I guess those
+verbose 'tar' messages is what @exfarmer means.</p>
+</blockquote>
+<p>@jsmeix perhaps the '<strong>verbose</strong>' option of tar should follow what the
+rear <em>verbose</em> option?</p>
+<h4 id="jsmeix_commented_at_2023-10-05_1017"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748600710">2023-10-05 10:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-05_1017" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+yes - perhaps - but I don't know if there is a reason<br />
+why the 'tar' option '--verbose' is hardcoded.</p>
+<p>On the other hand I wonder why it actually matters<br />
+when there are verbose 'tar' messages in the log file.<br />
+I understand the need for configurable verbosity level<br />
+on the terminal - but why does the log file actually matter?</p>
+<h4 id="exfarmer_commented_at_2023-10-05_1120"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748688036">2023-10-05 11:20</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-10-05_1120" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>The tar verbose messages fill the log message buffer when running the
+rear backup in BladeLogic.<br />
+I will change the level on a few servers and see what happens.<br />
+Thank you</p>
+<p>Sent from my Verizon, Samsung Galaxy smartphone<br />
+Get Outlook for Android<a href="https://aka.ms/AAb9ysg">https://aka.ms/AAb9ysg</a></p>
+<hr />
+<p>From: Johannes Meixner ***@***.***&gt;<br />
+Sent: Thursday, October 5, 2023 6:17:53 AM<br />
+To: rear/rear ***@***.***&gt;<br />
+Cc: Hess, Gary ***@***.***&gt;; Mention
+***@***.***&gt;<br />
+Subject: Re: [rear/rear] mount.nfs: portmap query failed: RPC: Remote
+system error - Address already in use (Issue #3045)</p>
+<p>EXTERNAL EMAIL: Only click links or open attachments if you recognize
+the sender and know the content is safe.</p>
+<p>@gdha<a href="https://urldefense.com/v3/__https://github.com/gdha__;!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-c6nH2cZ$">https://urldefense.com/v3/__https://github.com/gdha__;!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-c6nH2cZ$</a><br />
+yes - perhaps - but I don't know if there is a reason<br />
+why the 'tar' option '--verbose' is hardcoded.</p>
+<p>On the other hand I wonder why it actually matters<br />
+when there are verbose 'tar' messages in the log file.<br />
+I understand the need for configurable verbosity level<br />
+on the terminal - but why does the log file actually matter?</p>
+<p>—<br />
+Reply to this email directly, view it on
+GitHub<a href="https://urldefense.com/v3/__https://github.com/rear/rear/issues/3045*issuecomment-1748600710__;Iw!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-b6a0Toy$">https://urldefense.com/v3/__https://github.com/rear/rear/issues/3045*issuecomment-1748600710__;Iw!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-b6a0Toy$</a>,
+or
+unsubscribe<a href="https://urldefense.com/v3/__https://github.com/notifications/unsubscribe-auth/ASRDKRITOGX5BIOZD2EC74DX52CNDAVCNFSM6AAAAAA4KTEIFOVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTONBYGYYDANZRGA__;!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-Wp0dcZb$">https://urldefense.com/v3/__https://github.com/notifications/unsubscribe-auth/ASRDKRITOGX5BIOZD2EC74DX52CNDAVCNFSM6AAAAAA4KTEIFOVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTONBYGYYDANZRGA__;!!BBM_p3AAtQ!KT2SKogLxds0vBYUbVg4OmfxSpceFpr24hUr0sOiPKNF4zTluei9ndd1Jaf_9wMfv50pyVNJzpuTVx-W-Wp0dcZb$</a>.<br />
+You are receiving this because you were mentioned.Message ID:
+***@***.***&gt;</p>
+<h4 id="jsmeix_commented_at_2023-10-05_1131"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748703271">2023-10-05 11:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-05_1131" title="Permanent link">&para;</a></h4>
+<p>@exfarmer<br />
+thank you for describing the reason behind<br />
+why too much in the log file matters<br />
+in your particular case.</p>
+<p>Normally we call commands in verbose mode<br />
+only when 'rear' is run in verbose or debug mode<br />
+via the variables '$v' and '$verbose',<br />
+see for ReaR 2.4 (in verbose mode)<br />
+<a href="https://github.com/rear/rear/blob/rear-2.4/usr/sbin/rear#L247">https://github.com/rear/rear/blob/rear-2.4/usr/sbin/rear#L247</a><br />
+versus for current ReaR (in debug mode)<br />
+<a href="https://github.com/rear/rear/blob/master/usr/sbin/rear#L287">https://github.com/rear/rear/blob/master/usr/sbin/rear#L287</a><br />
+cf.<br />
+<a href="https://github.com/rear/rear/commit/892bd274d0340f25684bfcd4f3297f5be740110f">https://github.com/rear/rear/commit/892bd274d0340f25684bfcd4f3297f5be740110f</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2416#issuecomment-702142588">https://github.com/rear/rear/issues/2416#issuecomment-702142588</a></p>
+<h4 id="exfarmer_commented_at_2023-10-05_1157"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748739598">2023-10-05 11:57</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-10-05_1157" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>Like so many of the comments in the links you sent.<br />
+I feel the need for verbose messages, but not for tar.<br />
+On another note: do you know if rear supports NFS v4?</p>
+<p>Thank you</p>
+<h4 id="gdha_commented_at_2023-10-05_1203"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748747938">2023-10-05 12:03</a>:<a class="headerlink" href="#gdha_commented_at_2023-10-05_1203" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi, Like so many of the comments in the links you sent. I feel the
+need for verbose messages, but not for tar. On another note: do you
+know if rear supports NFS v4? Thank you</p>
+</blockquote>
+<p>Yes it does.</p>
+<h4 id="jsmeix_commented_at_2023-10-05_1336"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748915881">2023-10-05 13:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-10-05_1336" title="Permanent link">&para;</a></h4>
+<p>@exfarmer<br />
+regarding NFS v4 see<br />
+<a href="https://github.com/rear/rear/issues/3050">https://github.com/rear/rear/issues/3050</a></p>
+<h4 id="exfarmer_commented_at_2023-10-05_1348"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1748938842">2023-10-05 13:48</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-10-05_1348" title="Permanent link">&para;</a></h4>
+<p>Thank you</p>
+<h4 id="exfarmer_commented_at_2023-10-06_1552"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1750970473">2023-10-06 15:52</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-10-06_1552" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>I changed the /usr/share/rear/backup/NETFS/default/50_make_backup.sh
+script to remove –verbose in the tar command:<br />
+Line 75: Log $BACKUP_PROG $TAR_OPTIONS --sparse --block-number
+--totals –verbose <br />
+Line 82: Log $BACKUP_PROG $TAR_OPTIONS --sparse --block-number
+--totals –verbose <br />
+These are the same without –verbose on the end, but that didn’t remove
+the verbose output in the logs.</p>
+<p>I want verbose messages for all other commands, just not for tar.<br />
+We maybe running an older version of rear, Relax-and-Recover 1.17.2 /
+Git, so I figured the command was 50_make_backup.sh and not
+500_make_backup.sh<br />
+The servers ( I tested on 2 servers ) are RHEL v6.</p>
+<p>Thank you<br />
+Abbott<br />
+[image001]<br />
+Gary Hess<br />
+Administrator, Sr - Unix<br />
+Abbott</p>
+<h4 id="gdha_commented_at_2023-10-07_0654"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1751626797">2023-10-07 06:54</a>:<a class="headerlink" href="#gdha_commented_at_2023-10-07_0654" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi, I changed the
+/usr/share/rear/backup/NETFS/default/50_make_backup.sh script to
+remove –verbose in the tar command: Line 75: Log $BACKUP_PROG
+$TAR_OPTIONS --sparse --block-number --totals –verbose \ Line 82:
+Log $BACKUP_PROG $TAR_OPTIONS --sparse --block-number --totals
+–verbose \ These are the same without –verbose on the end, but that
+didn’t remove the verbose output in the logs. I want verbose messages
+for all other commands, just not for tar. We maybe running an older
+version of rear, Relax-and-Recover 1.17.2 / Git, so I figured the
+command was 50_make_backup.sh and not 500_make_backup.sh The
+servers ( I tested on 2 servers ) are RHEL v6. Thank you Abbott
+[image001] Gary Hess Administrator, Sr - Unix Abbott</p>
+</blockquote>
+<p>@exfarmer Rear version 1.17.2 is no longer supported by us (nor by RH I
+suppose). However, you can still use a more recent version from
+<a href="http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RHEL_6/">http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RHEL_6/</a></p>
+<h4 id="github-actions_commented_at_2023-12-07_0209"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1844078505">2023-12-07 02:09</a>:<a class="headerlink" href="#github-actions_commented_at_2023-12-07_0209" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2023-12-07_0741"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1844824676">2023-12-07 07:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_0741" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/3045#issuecomment-1748444466">https://github.com/rear/rear/issues/3045#issuecomment-1748444466</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3045#issuecomment-1748600710">https://github.com/rear/rear/issues/3045#issuecomment-1748600710</a></p>
+<p>I will have a look (as time permits) if it works for me<br />
+when the hardcoded '--verbose' option of 'tar' is replaced<br />
+with the usual ReaR verbose option setting via 'VERBOSE'<br />
+i.e. via '$v' ('-v') and/or '$verbose' ('--verbose').</p>
+<p>I guess the reason why the 'tar' option '--verbose' is hardcoded<br />
+is that the 'tar --verbose' output should be in the log file<br />
+regardless if "rear mkbackup" or "rear -v mkbackup" was called.<br />
+If the hardcoded '--verbose' option of 'tar' is replaced<br />
+with the usual ReaR verbose option setting via 'VERBOSE'<br />
+this would be a regression for users who call "rear mkbackup"<br />
+because those users would no longer get the 'tar --verbose' output<br />
+in their log file.</p>
+<p>Alternative methods could be<br />
+to make TAR_OPTIONS a user config varaiable<br />
+(currently that is only used in
+backup/NETFS/default/500_make_backup.sh<br />
+so TAR_OPTIONS is actually a local variable in that script)<br />
+OR<br />
+(probably better) move the 'tar' option '--verbose' from hardcoded<br />
+into BACKUP_PROG_OPTIONS in default.conf so nothing should change<br />
+for users who call "rear mkbackup" (without '-v') and users<br />
+who do not like 'tar --verbose' output can specify their<br />
+specific BACKUP_PROG_OPTIONS in their local.conf file.</p>
+<h4 id="exfarmer_commented_at_2023-12-07_1303"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1845308998">2023-12-07 13:03</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-12-07_1303" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>I need to stop the tar progress messages during execution.<br />
+That output isn’t in the /var/log/rear log file anyway.<br />
+The final tar status is important and is needed.<br />
+Is there a way I can do that with the BACKUP_PROG_OPTIONS now,<br />
+or does it require an enhancement?</p>
+<p>There are 985 lines:</p>
+<p>Info 11/30/2023 21:52:58 Archived 2996 MiB [avg 3068 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:52:57 Archived 2996 MiB [avg 3071 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:52:56 Archived 2996 MiB [avg 3074 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:52:55 Archived 2996 MiB [avg 3077 KiB/sec] 7 [2K<br />
+…<br />
+…<br />
+Info 11/30/2023 21:36:24 Archived 37 MiB [avg 6481 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:36:23 Archived 31 MiB [avg 6409 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:36:22 Archived 24 MiB [avg 6196 KiB/sec] 7 [2K<br />
+Info 11/30/2023 21:36:21 Archived 17 MiB [avg 6048 KiB/sec] 7 [2K</p>
+<p>These are not needed unless I run the job manually.<br />
+Thank you<br />
+Abbott</p>
+<h4 id="jsmeix_commented_at_2023-12-07_1401"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1845395986">2023-12-07 14:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-07_1401" title="Permanent link">&para;</a></h4>
+<p>Ah!</p>
+<p>Those messages are from the so called "progress subsystem",<br />
+e.g. in usr/share/rear/backup/NETFS/default/500_make_backup.sh</p>
+<pre><code>ProgressStart "Preparing archive operation"
+...
+ProgressInfo "Archived $((size/1024/1024)) MiB [avg $((size/1024/(SECONDS-starttime))) KiB/sec] "
+...
+ProgressStop
+</code></pre>
+<p>Currently there is no way to configure<br />
+to not get those messages.</p>
+<p>Currently we have<br />
+PROGRESS_MODE "ANSI" (default/fallback) or "plain"<br />
+but we do not have e.g. PROGRESS_MODE "none" or "quiet".</p>
+<h4 id="exfarmer_commented_at_2023-12-07_1411"><img src="https://avatars.githubusercontent.com/u/77739333?v=4" width="50"><a href="https://github.com/exfarmer">exfarmer</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1845412487">2023-12-07 14:11</a>:<a class="headerlink" href="#exfarmer_commented_at_2023-12-07_1411" title="Permanent link">&para;</a></h4>
+<p>There’s the issue.</p>
+<p>Abbott<br />
+[image001]<br />
+Gary Hess<br />
+Administrator, Sr - Unix<br />
+Abbott</p>
+<p>253 Financial Blvd.<br />
+Liberty, SC 29657 USA</p>
+<p>O:<br />
++1 864-843-8352<br />
+M:<br />
++1 864-546-8921<br />
+E:<br />
+***@***.******@***.***&gt;</p>
+<p>From: Johannes Meixner ***@***.***&gt;<br />
+Sent: Thursday, December 7, 2023 9:02 AM<br />
+To: rear/rear ***@***.***&gt;<br />
+Cc: Hess, Gary ***@***.***&gt;; Mention
+***@***.***&gt;<br />
+Subject: Re: [rear/rear] mount.nfs: portmap query failed: RPC: Remote
+system error - Address already in use (Issue #3045)</p>
+<p>EXTERNAL EMAIL: Only click links or open attachments if you recognize
+the sender and know the content is safe.</p>
+<p>Ah!</p>
+<p>Those messages are from the so called "progress subsystem",<br />
+e.g. in usr/share/rear/backup/NETFS/default/500_make_backup.sh</p>
+<p>ProgressStart "Preparing archive operation"</p>
+<p>...</p>
+<p>ProgressInfo "Archived $((size/1024/1024)) MiB [avg
+$((size/1024/(SECONDS-starttime))) KiB/sec] "</p>
+<p>...</p>
+<p>ProgressStop</p>
+<p>Currently there is no way to configure<br />
+to not get those messages.</p>
+<p>Currently we have<br />
+PROGRESS_MODE "ANSI" (default/fallback) or "plain"<br />
+but we do not have e.g. PROGRESS_MODE "none" or "quiet".</p>
+<p>—<br />
+Reply to this email directly, view it on
+GitHub<a href="https://urldefense.com/v3/__https:/github.com/rear/rear/issues/3045*issuecomment-1845395986__;Iw!!BBM_p3AAtQ!KtauRK2QmbN9CmMtbt6Z_pnFNTeK8NMl4BF9UwOp4aX5lgE4PsTVlQLOyUUJmWqB04D2w89tXOo8XZSCfNSqH-z6$">https://urldefense.com/v3/__https:/github.com/rear/rear/issues/3045*issuecomment-1845395986__;Iw!!BBM_p3AAtQ!KtauRK2QmbN9CmMtbt6Z_pnFNTeK8NMl4BF9UwOp4aX5lgE4PsTVlQLOyUUJmWqB04D2w89tXOo8XZSCfNSqH-z6$</a>,
+or
+unsubscribe<a href="https://urldefense.com/v3/__https:/github.com/notifications/unsubscribe-auth/ASRDKRKFCNLFGWNY2UWRSS3YIHD5JAVCNFSM6AAAAAA4KTEIFOVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTQNBVGM4TKOJYGY__;!!BBM_p3AAtQ!KtauRK2QmbN9CmMtbt6Z_pnFNTeK8NMl4BF9UwOp4aX5lgE4PsTVlQLOyUUJmWqB04D2w89tXOo8XZSCfB-Tm0Qq$">https://urldefense.com/v3/__https:/github.com/notifications/unsubscribe-auth/ASRDKRKFCNLFGWNY2UWRSS3YIHD5JAVCNFSM6AAAAAA4KTEIFOVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTQNBVGM4TKOJYGY__;!!BBM_p3AAtQ!KtauRK2QmbN9CmMtbt6Z_pnFNTeK8NMl4BF9UwOp4aX5lgE4PsTVlQLOyUUJmWqB04D2w89tXOo8XZSCfB-Tm0Qq$</a>.<br />
+You are receiving this because you were mentioned.Message ID:
+***@***.***&gt;</p>
+<h4 id="github-actions_commented_at_2024-02-06_0201"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3045#issuecomment-1928647063">2024-02-06 02:01</a>:<a class="headerlink" href="#github-actions_commented_at_2024-02-06_0201" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-09-04.3045.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

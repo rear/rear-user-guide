@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3145 PR merged: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3145 PR merged: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection";
+        var mkdocs_page_input_path = "issues/2024-02-06.3145.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3145 PR merged: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3145_pr_merged_support_saving_and_restoring_hybrid_biosuefi_bootloader_setup_and_clean_up_bootloader_detection"><a href="https://github.com/rear/rear/pull/3145">#3145 PR</a> <code>merged</code>: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection<a class="headerlink" href="#3145_pr_merged_support_saving_and_restoring_hybrid_biosuefi_bootloader_setup_and_clean_up_bootloader_detection" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2024-02-06_1806"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3145">2024-02-06 18:06</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2024-02-06_1806" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): also helps with the problem in
+    #3128</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Full backup and recovery on a hybrid UEFI/BIOS bootloader setup,
+    with UEFI firmware.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+<ul>
+<li>Fixes a bug where a system with hybrid BIOS/UEFI boot was
+    restored without the BIOS bootloader (<code>GRUB2</code>) and on subsequent
+    <code>mkrescue</code> it will abort because it can't detect the
+    bootloader - the BIOS bootloader was not found in the boot
+    sector and the presence of the BIOS boot partition confused the
+    EFI bootloader detection. In detail:</li>
+<li>Support BOOTLOADER=GRUB/GRUB2 with UEFI. This will happen with
+    hybrid boot: BOOTLOADER=GRUB2 indicates that there is the BIOS
+    version of GRUB2 installed and at the same time,
+    USING_UEFI_BOOTLOADER=1 indicates theat there is also an EFI
+    bootloader. Note that it is now perfectly legal to have
+    USING_UEFI_BOOTLOADER=1 and BOOTLOADER neither EFI nor
+    GRUB2-EFI nor ELILO. This will happen with hybrid BIOS/UEFI
+    booting: BOOTLOADER will be detected as GRUB2, but
+    USING_UEFI_BOOTLOADER=1.</li>
+<li>Detect GRUB2 earlier - when saving layout. We used to
+    distinguish between GRUB and GRUB2 when reinstalling the
+    bootloader. This meant that the saved bootloader was wrong: GRUB
+    for GRUB2. Detect GRUB2 earlier, already at the moment when we
+    guess the bootloader, and save the correct value. This should
+    help with the problem reported in PR #3128 (misdetection of
+    GRUB2 as GRUB on any non-SUSE distro).</li>
+<li>Don't look for EFI bootloader in the start of disk. EFI
+    bootloader is not installed to the start of the disk, but to the
+    EFI System partition as a regular file. It is this futile to
+    search for EFI bootloaders in the first sectors of disks. If we
+    find "EFI", it is only because there is a GPT, and "EFI PART" is
+    the GPT signature (this does not tell anything about the
+    presence of an EFI bootloader). See
+    <a href="https://github.com/rear/rear/commit/67ac463446a5b140ea1eb1d9268e86422f869ebf#r138332329">https://github.com/rear/rear/commit/67ac463446a5b140ea1eb1d9268e86422f869ebf#r138332329</a>
+    .</li>
+<li>Delete the code that checked for 'Hah!IdontNeedEFI' as a special
+    case - it is not needed now. The code effectively skipped the
+    check for EFI when there was a B<a href="https://wiki.archlinux.org/title/BIOS_boot_partition">IOS boot
+    partition</a>.
+    Its presence does not indicate the absence of an EFI bootloader,
+    though. We could be on an UEFI machine with the disk partitioned
+    in hybrid (BIOS/UEFI compatible) mode. In this case ReaR can
+    error out if legacy GRUB is not installed, because it does not
+    find any bootloader (the EFI check is skipped).</li>
+</ul>
+</li>
+</ul>
+<h4 id="pcahyna_commented_at_2024-02-08_1552"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3145#issuecomment-1934419663">2024-02-08 15:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-08_1552" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors I plan to merge it tomorrow unless there are
+objections.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-06.3145.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

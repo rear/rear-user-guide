@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2941 Issue closed: RFC: switch from bash 3 to bash 4 as minimum required bash version - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2941 Issue closed: RFC: switch from bash 3 to bash 4 as minimum required bash version";
+        var mkdocs_page_input_path = "issues/2023-02-21.2941.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2941 Issue closed: RFC: switch from bash 3 to bash 4 as minimum required bash version</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2941_issue_closed_rfc_switch_from_bash_3_to_bash_4_as_minimum_required_bash_version"><a href="https://github.com/rear/rear/issues/2941">#2941 Issue</a> <code>closed</code>: RFC: switch from bash 3 to bash 4 as minimum required bash version<a class="headerlink" href="#2941_issue_closed_rfc_switch_from_bash_3_to_bash_4_as_minimum_required_bash_version" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>discuss / RFC</code>, <code>severe improvement</code></p>
+<h4 id="jsmeix_opened_issue_at_2023-02-21_1215"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/2941">2023-02-21 12:15</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2023-02-21_1215" title="Permanent link">&para;</a></h4>
+<p>In
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a><br />
+we state that bash 3 is the minimum required bash version.</p>
+<p>What Linux distribution versions we support at ReaR upstream<br />
+is documented in our release notes, e.g. for ReaR 2.7 see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/doc/rear-release-notes.txt#L3814">https://github.com/rear/rear/blob/rear-2.7/doc/rear-release-notes.txt#L3814</a></p>
+<pre><code>ReaR 2.7 is supported on the following Linux based operating systems:
+
+-   Fedora 29, 30, 31, 32, 33, and 34
+-   RHEL 6, 7, 8, and 9
+-   CentOS 6, 7, and 8
+-   Scientific Linux 6 and 7
+-   SLES 12 and 15
+-   openSUSE Leap 15.x
+-   Debian 8, and 9
+-   Ubuntu 16, 17, and 18
+</code></pre>
+<p>Regarding SUSE and openSUSE products:<br />
+SLES 12 SP 5 has GNU bash version 4.3.48<br />
+SLES 15 and openSUSE Leap 15.x have even newer bash versions</p>
+<h4 id="jsmeix_commented_at_2023-02-21_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1438382634">2023-02-21 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-21_1216" title="Permanent link">&para;</a></h4>
+<p>@gdha @pcahyna @schlomo</p>
+<p>could you please check what<br />
+Fedora, RHEL, and Ubuntu versions provide bash 4.x</p>
+<p>(no extraordinary efforts - just check what you have available)</p>
+<h4 id="pcahyna_commented_at_2023-02-21_1620"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1438757803">2023-02-21 16:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-02-21_1620" title="Permanent link">&para;</a></h4>
+<p>several years ago I needed to test ReaR code in bash 3 and I needed RHEL
+5 machines for that, RHEL 6 has bash 4.</p>
+<h4 id="schlomo_commented_at_2023-02-21_2142"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1439128333">2023-02-21 21:42</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-21_2142" title="Permanent link">&para;</a></h4>
+<p>I just added via
+<a href="https://github.com/rear/rear/commit/d0e2ea6f98a65ce5d68a885712d1544a5da55b3c">d0e2ea6</a>
+a little tool to the ReaR sources to make such checks simple:</p>
+<pre><code>$ tests/run-in-docker : centos:5 -- "type mapfile &amp;&gt;/dev/null || echo no mapfile in Bash \$BASH_VERSION"
+********** ubuntu:18.04                             **********
+********** ubuntu:20.04                             **********
+********** ubuntu:22.04                             **********
+********** ubuntu:devel                             **********
+********** debian:8                                 **********
+********** debian:9                                 **********
+********** debian:10                                **********
+********** debian:11                                **********
+********** debian:unstable                          **********
+********** opensuse/leap:15.4                       **********
+********** opensuse/leap:15                         **********
+********** centos:6                                 **********
+********** centos:7                                 **********
+********** centos:8                                 **********
+********** sl:6                                     **********
+********** sl:7                                     **********
+********** quay.io/centos/centos:stream8            **********
+********** quay.io/centos/centos:stream9            **********
+********** fedora:29                                **********
+********** fedora:30                                **********
+********** fedora:31                                **********
+********** fedora:32                                **********
+********** fedora:33                                **********
+********** fedora:34                                **********
+********** fedora:35                                **********
+********** fedora:36                                **********
+********** fedora:37                                **********
+********** fedora:38                                **********
+********** fedora:rawhide                           **********
+********** centos:5                                 **********
+no mapfile in Bash 3.2.25(1)-release
+</code></pre>
+<p>About the list you give here @jsmeix I would like to suggest that ReaR
+as upstream project needs only to support distros that are currently
+being maintained. Specifically that reduces the list for the upcoming
+ReaR 2.8 IMHO to the following:</p>
+<ul>
+<li>Fedora 36, 37 see
+    <a href="https://docs.fedoraproject.org/en-US/releases/eol/">https://docs.fedoraproject.org/en-US/releases/eol/</a></li>
+<li>RHEL 8, 9 see
+    <a href="https://access.redhat.com/support/policy/updates/errata#Life_Cycle_Dates">https://access.redhat.com/support/policy/updates/errata#Life_Cycle_Dates</a></li>
+<li>CentOS 7 - see
+    <a href="https://www.centos.org/centos-linux-eol/">https://www.centos.org/centos-linux-eol/</a></li>
+<li>CentOS Stream 8, 9 - see
+    <a href="https://www.redhat.com/en/blog/faq-centos-stream-updates">https://www.redhat.com/en/blog/faq-centos-stream-updates</a></li>
+<li>Scientific Linux - see
+    <a href="https://lwn.net/Articles/786422/">https://lwn.net/Articles/786422/</a></li>
+<li>SLES 12 and 15 - see
+    <a href="https://www.suse.com/lifecycle/#product-suse-linux-enterprise-server">https://www.suse.com/lifecycle/#product-suse-linux-enterprise-server</a></li>
+<li>openSUSE Leap 15.x - seems like only till <a href="https://en.opensuse.org/Lifetime#:~:text=openSUSE%20Leap%2015.4%20%2D%20is%20expected%20to%20be%20maintained%20until%20end%20of%20November%202023">November
+    2023</a></li>
+<li>Debian 11 - see
+    <a href="https://wiki.debian.org/DebianReleases#Production_Releases">https://wiki.debian.org/DebianReleases#Production_Releases</a></li>
+<li>Ubuntu 18, 20, 22 see
+    <a href="https://ubuntu.com/about/release-cycle">https://ubuntu.com/about/release-cycle</a></li>
+</ul>
+<p>Everything older I would like to consider as "good luck" and point
+people to the last ReaR release supporting those officially, which would
+be ReaR 2.7.</p>
+<p>There is much more to old software than just <code>bash</code>, with older distros
+not support certain programs or having them in old versions that lack
+features.</p>
+<p>Here is one example where I check for <code>switch_root</code> which is required
+for the ramdisk code:</p>
+<pre><code>$ tests/run-in-docker : centos:5 -- "type switch_root"
+********** ubuntu:18.04                             **********
+switch_root is /sbin/switch_root
+********** ubuntu:20.04                             **********
+switch_root is /usr/sbin/switch_root
+********** ubuntu:22.04                             **********
+switch_root is /usr/sbin/switch_root
+********** ubuntu:devel                             **********
+switch_root is /usr/sbin/switch_root
+********** debian:8                                 **********
+switch_root is /sbin/switch_root
+********** debian:9                                 **********
+switch_root is /sbin/switch_root
+********** debian:10                                **********
+switch_root is /sbin/switch_root
+********** debian:11                                **********
+switch_root is /sbin/switch_root
+********** debian:unstable                          **********
+switch_root is /usr/sbin/switch_root
+********** opensuse/leap:15.4                       **********
+switch_root is /usr/sbin/switch_root
+********** opensuse/leap:15                         **********
+switch_root is /usr/sbin/switch_root
+********** centos:6                                 **********
+/bin/bash: line 1: type: switch_root: not found
+********** centos:7                                 **********
+switch_root is /usr/sbin/switch_root
+********** centos:8                                 **********
+switch_root is /usr/sbin/switch_root
+********** sl:6                                     **********
+/bin/bash: line 1: type: switch_root: not found
+********** sl:7                                     **********
+switch_root is /usr/sbin/switch_root
+********** quay.io/centos/centos:stream8            **********
+switch_root is /usr/sbin/switch_root
+********** quay.io/centos/centos:stream9            **********
+/bin/bash: line 1: type: switch_root: not found
+********** fedora:29                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:30                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:31                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:32                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:33                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:34                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:35                                **********
+/bin/bash: line 1: type: switch_root: not found
+********** fedora:36                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:37                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:38                                **********
+switch_root is /usr/sbin/switch_root
+********** fedora:rawhide                           **********
+switch_root is /usr/sbin/switch_root
+********** centos:5                                 **********
+/bin/bash: line 1: type: switch_root: not found
+</code></pre>
+<p>And here is another example checking for JSON support in the <code>ip</code>
+command, which is super useful to simplify the parsing of <code>ip</code> output:</p>
+<pre><code>$ tests/run-in-docker debian -- "{ apt update ; apt install -y iproute2 ; } &amp;&gt;/dev/null ; ip -json link list dev lo"
+********** debian:8                                 **********
+Option "-json" is unknown, try "ip -help".
+********** debian:9                                 **********
+Option "-json" is unknown, try "ip -help".
+********** debian:10                                **********
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","linkmode":"DEFAULT","group":"default","txqlen":1000,"link_type":"loopback","address":"00:00:00:00:00:00","broadcast":"00:00:00:00:00:00"}]
+********** debian:11                                **********
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","linkmode":"DEFAULT","group":"default","txqlen":1000,"link_type":"loopback","address":"00:00:00:00:00:00","broadcast":"00:00:00:00:00:00"}]
+********** debian:unstable                          **********
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"mtu":65536,"qdisc":"noqueue","operstate":"UNKNOWN","linkmode":"DEFAULT","group":"default","txqlen":1000,"link_type":"loopback","address":"00:00:00:00:00:00","broadcast":"00:00:00:00:00:00"}]
+</code></pre>
+<p>For brevity sake only on Debian, and we see that Debian 8 and Debian 9
+are too old for that, but we could use <code>ip -json</code> if we could decide to
+only support Debian 10, 11 and newer with ReaR 2.8 and following.</p>
+<p>As enterprise distros are in any case not very eager to update ReaR we
+can make use of that and cut off more old tails and move forward a
+little bit faster, making our development and testing efforts so much
+easier.</p>
+<h4 id="jsmeix_commented_at_2023-02-22_0838"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1439625796">2023-02-22 08:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-22_0838" title="Permanent link">&para;</a></h4>
+<p>Personally I fully agree that ReaR upstream <em>needs</em> only<br />
+to support distros that are currently being maintained<br />
+but some users may expect something different, e.g. see<br />
+<a href="https://github.com/rear/rear/issues/2923">https://github.com/rear/rear/issues/2923</a></p>
+<p>ReaR upstream support is not and never was something<br />
+that users can demand.<br />
+ReaR upstream support is and always was voluntary<br />
+"best effort" attempts.</p>
+<p>For ReaR 2.8 I will overhaul the "Support" section<br />
+in the release notes.</p>
+<p>My current plan is to replace lists with version numbers<br />
+by a generic text that does not need continuous maintenance<br />
+to keep version numbers and such mostly meaningless data<br />
+continuously up to date, i.e. similar like in<br />
+<a href="https://github.com/rear/rear.github.com/pull/16">https://github.com/rear/rear.github.com/pull/16</a></p>
+<p>In our current ReaR 2.7 release notes<br />
+I updated what I know about SUSE and openSUSE<br />
+but I left all the other Linux distributions<br />
+basically unchanged because I cannot spend time on<br />
+non-SUSE Linux distributions specific things because<br />
+SUSE does not pay me for that and what matters most for me:<br />
+I will not spend SUSE customer's money who pay my salary<br />
+for non-SUSE Linux distributions specific things.<br />
+The crucial word is 'specific'.<br />
+When e.g. a RHEL user reports an issue that is generic<br />
+for Linux distributions I work on it because fixing it<br />
+also helps SUSE and openSUSE users.<br />
+I am even happy when it is e.g. a RHEL user who reports<br />
+a generic issue because then I could have a fix<br />
+or a workaround or at least I know about the issue<br />
+before a SUSE or openSUSE user is hit by it.</p>
+<h4 id="schlomo_commented_at_2023-02-22_0848"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1439637987">2023-02-22 08:48</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-22_0848" title="Permanent link">&para;</a></h4>
+<p>BTW, maybe we should also consider going to a <strong>3.0</strong> release instead of
+2.8 in order to clearly signal that we cut off support for older
+distros.</p>
+<h4 id="jsmeix_commented_at_2023-02-22_1047"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1439804196">2023-02-22 10:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-22_1047" title="Permanent link">&para;</a></h4>
+<p>Yes of course.<br />
+Major backward incompatible changes<br />
+require a different major version number.</p>
+<p>For me '2.8' is currently only a placeholder<br />
+for "the next" ReaR version.</p>
+<p>After the ReaR upstream maintainers agreed to actually do<br />
+major backward incompatible changes for "the next" ReaR version<br />
+I will do the needed changes in GitHub to have<br />
+'3.0' officially as "the next" ReaR version.</p>
+<h4 id="schlomo_commented_at_2023-02-22_1552"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440295322">2023-02-22 15:52</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-22_1552" title="Permanent link">&para;</a></h4>
+<p>In light of the other discussion around deprecation, e.g. in
+<a href="https://github.com/rear/rear/issues/2944#issuecomment-1439975174">https://github.com/rear/rear/issues/2944#issuecomment-1439975174</a>,
+would we try to use that for Bash 3 deprecation too or would we just
+decide that the next ReaR version requires Bash 4?</p>
+<h4 id="devil0000_commented_at_2023-02-22_1557"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440303715">2023-02-22 15:57</a>:<a class="headerlink" href="#devil0000_commented_at_2023-02-22_1557" title="Permanent link">&para;</a></h4>
+<p>I agree with changing to bash4 and ip. For my use case this would be
+fine - this however may not be the case for other users. Especially on
+slower updating/more stable distros like RHEL.</p>
+<blockquote>
+<p>About the list you give here @jsmeix I would like to suggest that ReaR
+as upstream project needs only to support distros that are currently
+being maintained. Specifically that reduces the list for the upcoming
+ReaR 2.8 IMHO to the following:</p>
+</blockquote>
+<p>Please define "being maintained". Ubuntu LTS versions for example are
+maintained for 10 years (half free and public, half paid). Our customers
+for example require 10 years of support for any HW and SW. Which
+normally means at least +2 more years until it is in the field.</p>
+<h4 id="schlomo_commented_at_2023-02-22_1603"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440313730">2023-02-22 16:03</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-22_1603" title="Permanent link">&para;</a></h4>
+<p>@DEvil0000 I expect that "maintenance" doesn't mean getting the latest
+greatest versions but getting support for actual bugs in the old version
+that came with the distro so many years ago. So whatever we decide here
+about the <strong>upstream</strong> ReaR shouldn't have any impact on the LTS
+distros.</p>
+<p>You mention the paid support for the long tail of Ubuntu LTS for
+example, I'm sure that @gdha for example would be able to provide
+bugfixes or whatever is required as part of the <a href="https://it3.be/rear-support/index.html">ReaR Software
+Subscription</a> if a customer
+wants to cover ReaR improvements for their old LTS distro.</p>
+<h4 id="devil0000_commented_at_2023-02-22_1619"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440342362">2023-02-22 16:19</a>:<a class="headerlink" href="#devil0000_commented_at_2023-02-22_1619" title="Permanent link">&para;</a></h4>
+<p>I agree, I do normally not need a newer rear version in a old system and
+I am very hesitant to change it. This is due to the amount of testing
+needed with all the different HW/SW/config combinations. Also I normally
+have patched versions out there since PRs do not result in new versions
+that fast - and well testing again.<br />
+On the other side I of course would like to use a newer version of rear
+after PRs got merged - also in older OS versions.<br />
+As you see my issues are more with the release cycle and testing effort
+(due to stability concerns). Otherwise I would love to go with newer
+versions on older OS releases (till in theory to ubuntu 14.04 - in
+reality ubuntu 20.04).<br />
+He however would for sure not be happy patching big chunks just for a
+few machines per OS version.</p>
+<p>edit:<br />
+Long story short: I am fine with the change but I can see how others may
+not be fine with it.</p>
+<h4 id="schlomo_commented_at_2023-02-22_1624"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440351672">2023-02-22 16:24</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-22_1624" title="Permanent link">&para;</a></h4>
+<p>About the slow releases, I agree. I was once thinking about
+automatically doing a release after merging a PR so that we would make
+that code much faster available to users.</p>
+<h4 id="devil0000_commented_at_2023-02-22_1632"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1440372975">2023-02-22 16:32</a>:<a class="headerlink" href="#devil0000_commented_at_2023-02-22_1632" title="Permanent link">&para;</a></h4>
+<p>also note that rear packaging of the distros is even slower since they
+orient on github releases nowadays and if there is no release when they
+check then there will be no new rear package in the distro.<br />
+some distros may check automatically by scripts while others more
+manually every few years in their release cycle.</p>
+<p>edit:<br />
+if some test with the release fails (if they test) then they skip
+packaging the release.</p>
+<h4 id="jsmeix_commented_at_2023-02-23_1004"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1441485654">2023-02-23 10:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-23_1004" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/2941#issuecomment-1440295322">https://github.com/rear/rear/issues/2941#issuecomment-1440295322</a></p>
+<p>From my current point of view<br />
+I would call the next ReaR version '3.0' and<br />
+switch from bash 3 to bash 4 as minimum required bash version<br />
+(i.e. error out when sbin/rear is run with bash 3).</p>
+<p>My reasoning:<br />
+We cannot verify with reasonable effort<br />
+if code changes actually require bash 4<br />
+or still also work with bash 3<br />
+so arbitrary failures at arbitrary places will happen<br />
+if we would still allow to run sbin/rear with bash 3.</p>
+<p>Of course a user can manually change his sbin/rear and<br />
+skip this error exit to let it still run with bash 3<br />
+if that is OK for him for his particular use case.</p>
+<h4 id="jsmeix_commented_at_2023-02-23_1031"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1441524040">2023-02-23 10:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-02-23_1031" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+because in<br />
+<a href="https://github.com/rear/rear/pull/2847#issuecomment-1440843109">https://github.com/rear/rear/pull/2847#issuecomment-1440843109</a><br />
+you wrote (excerpt)</p>
+<pre><code>... teach shellcheck to consider Bash 4.1 as "reference" ...
+</code></pre>
+<p>I wonder if any "Bash 4" (in particular also Bash 4.0)<br />
+could be perhaps a too low minimum requirement<br />
+so actually it should be at least Bash 4.1?</p>
+<p>According to<br />
+<a href="https://tldp.org/LDP/abs/html/bashver4.html">https://tldp.org/LDP/abs/html/bashver4.html</a></p>
+<pre><code>Version 4.1 of Bash ... was primarily a bugfix update.
+</code></pre>
+<p>so it seems any "Bash 4" as minimum requirement<br />
+is sufficient in ReaR.</p>
+<p>Of course bugfixes are good in general but I wonder<br />
+if we must enforce that in ReaR?</p>
+<h4 id="schlomo_commented_at_2023-02-23_1055"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1441554359">2023-02-23 10:55</a>:<a class="headerlink" href="#schlomo_commented_at_2023-02-23_1055" title="Permanent link">&para;</a></h4>
+<p>I would only check for the major version, like this:</p>
+<pre><code>(( BASH_VERSINFO[0] &gt;= 4 )) || echo "too old"
+</code></pre>
+<h4 id="github-actions_commented_at_2023-04-25_0221"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1521061757">2023-04-25 02:21</a>:<a class="headerlink" href="#github-actions_commented_at_2023-04-25_0221" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="pcahyna_commented_at_2023-04-25_0954"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1521507368">2023-04-25 09:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-04-25_0954" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I would call the next ReaR version '3.0' and switch from bash 3 to
+bash 4 as minimum required bash version (i.e. error out when sbin/rear
+is run with bash 3).</p>
+</blockquote>
+<p>I would not call next ReaR version '3.0' - it is not a user-visible
+change unless one uses a distro which still has bash 3 - and then it
+falls under deprecation of older distros - which, IMO, should happen
+continuously - i.e we should not announce a major release only because
+Ubuntu 14.04 or RHEL 6 or whatever support got removed.</p>
+<p>OTOH, I think releasing '3.0' as an opportunity fort incompatible
+changes is a good idea, but that's a separate discussion (everyone might
+have different opinions on what "incompatible changes" they would like
+to make, if any).</p>
+<h4 id="schlomo_commented_at_2023-04-25_1349"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1521824361">2023-04-25 13:49</a>:<a class="headerlink" href="#schlomo_commented_at_2023-04-25_1349" title="Permanent link">&para;</a></h4>
+<p>For the Bash change I'd keep the major version of <code>2</code> and simply error
+out if somebody runs it on very old distros.</p>
+<p>For a <code>3.0</code> version I'd love to get rid of much more painful things like
+supporting BIOS boot, all the older backup software (e.g. all CommVault
+below GALAXY11) etc. For example, I had a look at <code>OUTPUT=ISO</code> for
+<code>UEFI</code> boot and it seems to be a lot of complexity thanks to the
+combined BIOS/UEFI boot in the same code path.</p>
+<p>And yes, I know thanks to #2944 that we will be keeping BIOS boot for
+much longer. Maybe I'd be happy with splitting <code>ISO</code> into <code>ISO</code> for BIOS
+boot and a new <code>EISO</code> or <code>UEFI-ISO</code> for just UEFI boot and use that to
+simplify the code. And maybe that would also warrant a <code>3.0</code> version as
+it would actually remove existing functionality from <code>ISO</code>, thereby
+forcing users to check their setup when they upgrade.</p>
+<h4 id="pcahyna_commented_at_2023-05-09_1647"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1540523957">2023-05-09 16:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-05-09_1647" title="Permanent link">&para;</a></h4>
+<p>One new Bash feature that we could make use of is the <code>lastpipe</code> option:</p>
+<blockquote>
+<pre><code>     If set, and job control is not active, the shell runs the last
+     command of a pipeline not executed in the background in the
+     current shell environment.
+</code></pre>
+</blockquote>
+<p>it would simplify some constructs, but would require newer bash than 4
+(RHEL 7 has bash 4.2.46(2), which supports this feaure, while RHEL 6 has
+bas 4.1.2(1), which does not).</p>
+<h4 id="github-actions_commented_at_2023-07-09_0256"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1627582794">2023-07-09 02:56</a>:<a class="headerlink" href="#github-actions_commented_at_2023-07-09_0256" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-09-09_0159"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1712383592">2023-09-09 01:59</a>:<a class="headerlink" href="#github-actions_commented_at_2023-09-09_0159" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-11-11_0239"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1806640572">2023-11-11 02:39</a>:<a class="headerlink" href="#github-actions_commented_at_2023-11-11_0239" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="schlomo_commented_at_2023-11-12_1914"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1807214448">2023-11-12 19:14</a>:<a class="headerlink" href="#schlomo_commented_at_2023-11-12_1914" title="Permanent link">&para;</a></h4>
+<p>So we kind of decided to drop the hard Bash 3.x requirement towards a
+Bash 4.x requirement, see
+<a href="https://github.com/rear/rear/pull/3072#issuecomment-1805730694">https://github.com/rear/rear/pull/3072#issuecomment-1805730694</a></p>
+<h4 id="github-actions_commented_at_2024-01-12_0211"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1888304246">2024-01-12 02:11</a>:<a class="headerlink" href="#github-actions_commented_at_2024-01-12_0211" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="schlomo_commented_at_2024-01-18_0923"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1898097639">2024-01-18 09:23</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-18_0923" title="Permanent link">&para;</a></h4>
+<p>Dear @rear/contributors OK to use Bash 4 features like associative
+arrays in new code? It would really help a lot and I don't see us
+shipping the next ReaR version for really old distros.</p>
+<h4 id="jsmeix_commented_at_2024-01-18_1002"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1898163781">2024-01-18 10:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-18_1002" title="Permanent link">&para;</a></h4>
+<p>For me using Bash 4 features is in general OK<br />
+even when old code is changed (bugfix or enhancement).</p>
+<p>From my current point of view I would prefer<br />
+that Bash 4 features are not "needlessly" used.<br />
+It is of course questionable what "needlessly"<br />
+means in each particular case.<br />
+I think for example when something is possible with Bash 3<br />
+but the code becomes simpler with Bash 4 features<br />
+then Bash 4 features are not needlessly used.<br />
+In contrast when something can be done with Bash 3<br />
+as well as with Bash 4 features then Bash 4 features<br />
+are needlessly used - at least for now.<br />
+I think over time Bash 4 features (regardless if<br />
+really needed) will be commonly used everywhere.</p>
+<p>When also @gdha and @pcahyna agree that<br />
+using Bash 4 features is OK in general<br />
+I would add a check that errors out with BugError<br />
+when Bash 3 or earlier is used so we get user issues<br />
+when someone is using our current master code with<br />
+Bash 3 or earlier.</p>
+<h4 id="gdha_commented_at_2024-01-18_1021"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1898196710">2024-01-18 10:21</a>:<a class="headerlink" href="#gdha_commented_at_2024-01-18_1021" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @schlomo I'm okay with settling down with bash 4.</p>
+<h4 id="schlomo_commented_at_2024-01-18_1033"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1898215454">2024-01-18 10:33</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-18_1033" title="Permanent link">&para;</a></h4>
+<p>My example and why I want to switch to Bash 4:</p>
+<p><code>PPDM_ASSETS_AND_SSIDS[$asset_name]="$ssid"</code> is so much simpler instead
+of having 2 arrays and working wih indices to refer to the corresponding
+item. Here I need to match file system and backup ID.</p>
+<h4 id="jsmeix_commented_at_2024-01-18_1043"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2941#issuecomment-1898231058">2024-01-18 10:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-18_1043" title="Permanent link">&para;</a></h4>
+<p>In particular it makes the code much easier to understand<br />
+(which makes the code much easier to maintain in the future)<br />
+than a needlessly implemented RFC 1925 item 6a indirection<br />
+(here "needlessly" because Bash 4 is "just there" nowadays).</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-02-21.2941.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

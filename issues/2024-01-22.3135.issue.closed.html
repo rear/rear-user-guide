@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3135 Issue closed: Hardcoded 'eval $command' is problematic and against "final power to the user" - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3135 Issue closed: Hardcoded \u0027eval $command\u0027 is problematic and against \"final power to the user\"";
+        var mkdocs_page_input_path = "issues/2024-01-22.3135.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3135 Issue closed: Hardcoded 'eval $command' is problematic and against "final power to the user"</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3135_issue_closed_hardcoded_eval_command_is_problematic_and_against_final_power_to_the_user"><a href="https://github.com/rear/rear/issues/3135">#3135 Issue</a> <code>closed</code>: Hardcoded 'eval $command' is problematic and against "final power to the user"<a class="headerlink" href="#3135_issue_closed_hardcoded_eval_command_is_problematic_and_against_final_power_to_the_user" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>discuss / RFC</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-01-22_1102"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3135">2024-01-22 11:02</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-01-22_1102" title="Permanent link">&para;</a></h4>
+<p>In default.conf we describe several cases<br />
+where the user can specify commands to be run by ReaR<br />
+and we run those user specified commands usually via</p>
+<pre><code>eval $command
+</code></pre>
+<p>to make it easier for the user to specify e.g.</p>
+<pre><code>command='echo current date: $( date )'
+</code></pre>
+<p>and get <code>$...</code> evaluated not when it is specified<br />
+but when it is executed.</p>
+<p>But in general <code>eval arbitrary $...</code> is problematic, cf.<br />
+<a href="https://github.com/rear/rear/pull/3089#discussion_r1412293833">https://github.com/rear/rear/pull/3089#discussion_r1412293833</a><br />
+and the subsequent comments therein.</p>
+<p>And with the hardcoded <code>eval</code> the user can not specify<br />
+when he does not want to get <code>$...</code> evaluated like</p>
+<pre><code>command='echo to show the date use "echo current date: $( date )"'
+</code></pre>
+<p>because</p>
+<pre><code># command='echo to show the date use "echo current date: $( date )"'
+
+# $command
+to show the date use "echo current date: $( date )"
+
+# eval $command
+to show the date use echo current date: Mon 22 Jan 2024 11:53:31 AM CET
+</code></pre>
+<p>By the way: Note the mising double quote characters with <code>eval ...</code></p>
+<p>So our hardcoded 'eval $command' is problematic<br />
+and it is against final power to the user.</p>
+<p>Therefore I am thinking about to remove our hardcoded 'eval'<br />
+and explain in default.conf that the user must manually<br />
+specify 'eval' when he needs it.</p>
+<p>So instead of</p>
+<pre><code>command='echo current date: $( date )'
+</code></pre>
+<p>the user would have to specify</p>
+<pre><code>command='eval echo current date: $( date )'
+</code></pre>
+<p>and ReaR could simply and safely call plain <code>$command</code><br />
+for example like</p>
+<pre><code># command='eval echo current date: $( date )'
+
+# $command ; sleep 1 ; $command
+current date: Mon 22 Jan 2024 11:59:39 AM CET
+current date: Mon 22 Jan 2024 11:59:40 AM CET
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-01-26_1821"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3135#issuecomment-1912495087">2024-01-26 18:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-26_1821" title="Permanent link">&para;</a></h4>
+<p>This would be a big compatibility break, so it should belong to ReaR
+3.0, not 2.8.</p>
+<p>I am not even convinced that this change would be an improvement. Yes,
+in
+<a href="https://github.com/rear/rear/pull/3089#discussion_r1412293833">https://github.com/rear/rear/pull/3089#discussion_r1412293833</a>
+I noted that <code>eval</code> of an arbitrary variable expansion is problematic.
+But I said that in the context of something like
+<code>eval echo "Launching \'$RECOVERY_COMMANDS_LABEL\' automatically"</code>,
+where the user does not expect that the <code>$RECOVERY_COMMANDS_LABEL</code>
+string is being passed to <code>eval</code> (one expects it to be some arbitrary
+string for display). As I clarified in
+<a href="https://github.com/rear/rear/pull/3089#discussion_r1412295915">https://github.com/rear/rear/pull/3089#discussion_r1412295915</a>
+, I believe <code>eval "$command"</code> to be fine. <code>$command</code> is documented to be
+executed this way, so it is not an arbitrary string.</p>
+<p>Your argument about "with the hardcoded eval the user can not specify<br />
+when he does not want to get $... evaluated" is interesting, but I don't
+consider it convincing. Let's say I want the literal string
+<code>to show the date use "echo current date: $( date )"</code> displayed. In
+plain shell, I would use</p>
+<pre><code>echo 'to show the date use "echo current date: $( date )"'
+</code></pre>
+<p>without the single quotes it would not have worked either, so to assign
+it to <code>command</code> one needs to quote it properly at one more level:</p>
+<pre><code>command="echo 'to show the date use \"echo current date: \$( date )\"'"
+</code></pre>
+<p>which then works as expected:</p>
+<pre><code>$ eval "$command"
+to show the date use "echo current date: $( date )"
+</code></pre>
+<p>unwieldy? yes. Against "final power to the user"? I would not say so.
+The bash quoting rules are well documented and it is quite easy to
+understand what one needs to put into $command: it must get assigned the
+same string as one would type at the command line. The complexity arises
+from the amount of quoting that is sometimes needed to achieve the
+result. The <code>$'...'</code> quoting mechanism can help a bit here - one is
+forced to quote only the <code>'</code> character and nothing else:</p>
+<pre><code>$ command=$'echo \'to show the date use "echo current date: $( date )"\''
+$ eval "$command"
+to show the date use "echo current date: $( date )"
+</code></pre>
+<p>which looks a bit better.</p>
+<p>Your suggestion to call the command as merely <code>$command</code> sounds simpler,
+but this simplicity is IMO superficial and hides lots of surprising
+complexity. Let's say that in your example I want to put some extra
+spaces for readability:</p>
+<pre><code># note the doubled spaces
+$ command='echo to show the date use  "echo current date:  $( date )"'
+</code></pre>
+<p>result:</p>
+<pre><code>$ $command
+to show the date use "echo current date: $( date )"
+</code></pre>
+<p>where are my spaces? Maybe you would expect the extra space before <code>"</code>
+to disappear, but what about the one before <code>$(</code>, which is inside a
+quoted string? What has happened? Let's examine a simpler example:</p>
+<pre><code># note the triple spaces
+$ command="echo 'a   b   c'"
+$ $command
+'a b c'
+</code></pre>
+<p>where are my triple spaces and what is the <code>'</code> character doing there?
+Let's examine the result of the <code>$command</code> expansion:</p>
+<pre><code>$ for i in $command ; do $i ; done
+
+bash: 'a: command not found
+bash: b: command not found
+bash: c': command not found
+</code></pre>
+<p>What happens is that the shell performs whitespace splitting on the
+value of <code>$command</code>, resulting in for words:<br />
+<code>echo</code> <code>'a</code> <code>b</code> <code>c'</code> and then executes this sequence (with <code>echo</code> as the
+command and <code>'a</code> <code>b</code> <code>c'</code> as its three arguments).</p>
+<p>I must say that when you let the shell to split the command string into
+words and then execute the sequence of words, it is so difficult for me
+how to make it do what I need that I much prefer <code>eval</code> with the
+"quoting hell" needed to prepare its input (which is in most cases even
+quite unnecessary).</p>
+<p>Worse, how do you execute multiple commands?</p>
+<pre><code>$ command="echo a  b  c ; echo d e f"
+$ $command
+a b c ; echo d e f
+</code></pre>
+<p>not only are the extra spaces eaten - the <code>;</code> is not intepreted and the
+second <code>echo</code> is not executed at all. Yes, you could use <code>eval</code>:</p>
+<pre><code>$ command="eval echo a  b  c ; echo d e f"
+$ $command
+a b c
+d e f
+</code></pre>
+<p>-- almost right, but I still don't know how to get the extra spaces
+there, some word splitting is still going on:</p>
+<pre><code>$ command="eval echo 'a  b  c' ; echo d e f"
+$ $command
+a b c
+d e f
+</code></pre>
+<p>not quite right either, neither is</p>
+<pre><code>$ command="eval 'echo a  b  c ; echo d e f'"
+</code></pre>
+<p>:</p>
+<pre><code>$ $command
+bash: echo a b c ; echo d e f: command not found
+</code></pre>
+<p>I admit I am lost here.</p>
+<h4 id="pcahyna_commented_at_2024-01-26_1949"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3135#issuecomment-1912605832">2024-01-26 19:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-26_1949" title="Permanent link">&para;</a></h4>
+<p>The underlying problem is that with <code>eval $command</code> it gets processed
+twice: when <code>command</code> gets first assigned in the config file (
+<code>command=...</code> ) and then when <code>eval $command</code> evaluates it. Both steps
+have fairly easy rules. With merely <code>$command</code> you get another
+processing step after $command is expanded but before it gets executed:
+word splitting on whitespace (and probably other stuff, like filename
+expansion), which complicates the process, despite the execution of
+<code>$command</code> being simpler than the execution of <code>eval $command</code>.</p>
+<h4 id="jsmeix_commented_at_2024-02-07_1415"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3135#issuecomment-1932139579">2024-02-07 14:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-07_1415" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your detailed explanations.</p>
+<p>In particular your reasoning</p>
+<pre><code>I believe eval "$command" to be fine.
+$command is documented to be executed this way,
+so it is not an arbitrary string.
+...
+The bash quoting rules are well documented and it is quite easy
+to understand what one needs to put into $command:
+it must get assigned the same string
+as one would type at the command line.
+The complexity arises from the amount of quoting
+that is sometimes needed to achieve the result.
+</code></pre>
+<p>convinced me that the current <code>eval "$command"</code> is fine<br />
+and now with this issue here it is even perfectly well<br />
+documented WHY the current <code>eval "$command"</code> is fine.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-01-22.3135.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
