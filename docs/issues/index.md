@@ -2798,6 +2798,7 @@
 - [\#2810 Issue](2022-05-23.2810.issue.closed.md) `closed`: Empty SD card slot appears as /dev/sdb disk without partition type
 - [\#2810 Issue](2022-05-23.2810.issue.open.md) `open`: Empty SD card slot appears as /dev/sdb disk without partition type
 - [\#2811 PR](2022-05-23.2811.pr.merged.md) `merged`: Add PRE\_RECOVERY\_COMMANDS and POST\_RECOVERY\_COMMANDS
+- [\#2812 Issue](2022-05-23.2812.issue.closed.md) `closed`: Migrating to other PowerVM LPAR with different disks: Restore multipath problem: no WWIDs
 - [\#2812 Issue](2022-05-23.2812.issue.open.md) `open`: Migrating to other PowerVM LPAR with different disks: Restore multipath problem: no WWIDs
 - [\#2813 PR](2022-05-31.2813.pr.merged.md) `merged`: Update the ISO volume label in comments
 - [\#2814 PR](2022-06-01.2814.pr.merged.md) `merged`: Replace 'RELAXRECOVER' in variable names
@@ -2923,6 +2924,7 @@
 - [\#2938 Issue](2023-02-18.2938.issue.closed.md) `closed`: Creating a bootable usb stick from a .iso file saved on a disk
 - [\#2939 Issue](2023-02-19.2939.issue.closed.md) `closed`: Automatic restore doesn't write progress output to the screen
 - [\#2940 Issue](2023-02-20.2940.issue.closed.md) `closed`: Stop supporting SLES10 and SLES11
+- [\#2941 Issue](2023-02-21.2941.issue.closed.md) `closed`: RFC: switch from bash 3 to bash 4 as minimum required bash version
 - [\#2941 Issue](2023-02-21.2941.issue.open.md) `open`: RFC: switch from bash 3 to bash 4 as minimum required bash version
 - [\#2942 Issue](2023-02-21.2942.issue.open.md) `open`: '-c' and '-C' options are ignored with 'automatic/auto\_recover' and 'unattended' modes
 - [\#2943 PR](2023-02-21.2943.pr.merged.md) `merged`: s390x (IBM Z
@@ -2956,6 +2958,7 @@
 - [\#2968 Issue](2023-04-05.2968.issue.closed.md) `closed`: HP ProLiant XL420 Gen10: Recovery stuck at "Loading intial ramdisk"
 - [\#2970 Issue](2023-04-12.2970.issue.open.md) `open`: Automate ReaR with GRUB w/o user intervention (ISO\_DEFAULT not supported for GRUB
 - [\#2971 Issue](2023-04-21.2971.issue.open.md) `open`: RHEL: GRUB2 can't find command 'echo' 'linux' 'initrd' 'linuxefi' 'initrdefi' 'search' 'chainloader' 'reboot' 'exit'
+- [\#2972 Issue](2023-04-23.2972.issue.closed.md) `closed`: Cannot create rescue image on Ubuntu 23.04 and Debian/Bookworm - Confirmed bug in cp 9.x
 - [\#2972 Issue](2023-04-23.2972.issue.open.md) `open`: Cannot create rescue image on Ubuntu Server 23.04 - Confirmed bug in cp 9.x
 - [\#2973 PR](2023-04-25.2973.pr.merged.md) `merged`: nfs\_server as new restore method
 - [\#2974 PR](2023-04-27.2974.pr.merged.md) `merged`: Bump actions/stale from 1 to 8
@@ -3050,11 +3053,13 @@
 - [\#3041 PR](2023-08-11.3041.pr.open.md) `open`: Reorder systemd units in the rescue system and make sure syslog is started
 - [\#3042 Issue](2023-08-17.3042.issue.closed.md) `closed`: use\_devicesfile in RHEL9
 - [\#3043 PR](2023-08-24.3043.pr.merged.md) `merged`: Remove the lvmdevices file at the end of recovery
+- [\#3045 Issue](2023-09-04.3045.issue.closed.md) `closed`: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
 - [\#3045 Issue](2023-09-04.3045.issue.open.md) `open`: mount.nfs: portmap query failed: RPC: Remote system error - Address already in use
 - [\#3046 PR](2023-09-08.3046.pr.merged.md) `merged`: Remove unnecessary curly braces in var expansion
 - [\#3047 PR](2023-09-11.3047.pr.merged.md) `merged`: Skip invalid disk drives (zero sized, no media
 - [\#3048 Issue](2023-09-12.3048.issue.closed.md) `closed`: no room on backup medium - selectively purge backup sets
 - [\#3048 Issue](2023-09-12.3048.issue.open.md) `open`: no room on backup medium - selectively purge backup sets
+- [\#3049 Issue](2023-09-22.3049.issue.closed.md) `closed`: Open Build Service fails building Ubuntu 22/23 deb packages
 - [\#3049 Issue](2023-09-22.3049.issue.open.md) `open`: Open Build Service fails building Ubuntu 22/23 deb packages
 - [\#3050 Issue](2023-09-27.3050.issue.closed.md) `closed`: ReaR and NFS version 4
 - [\#3050 Issue](2023-09-27.3050.issue.open.md) `open`: ReaR and NFS version 4
@@ -3086,6 +3091,7 @@
 - [\#3074 Issue](2023-11-11.3074.issue.closed.md) `closed`: Storing and reading Self Encrypted Disk (SED
 - [\#3075 Issue](2023-11-12.3075.issue.closed.md) `closed`: Add new BACKUP=VEEAM method
 - [\#3075 Issue](2023-11-12.3075.issue.open.md) `open`: Add new BACKUP=VEEAM method
+- [\#3076 PR](2023-11-12.3076.pr.closed.md) `closed`: Add VEEAM backup
 - [\#3076 PR](2023-11-12.3076.pr.open.md) `open`: Add VEEAM backup
 - [\#3077 PR](2023-11-13.3077.pr.closed.md) `closed`: BACKUP=NSR set NSRSERVER properly in 650\_check\_iso\_recoverable.sh
 - [\#3078 PR](2023-11-13.3078.pr.merged.md) `merged`: Mention xorrisofs when no ISO image tool is found
@@ -3110,6 +3116,7 @@
 - [\#3096 Issue](2023-12-01.3096.issue.open.md) `open`: Device nvme0n1 is designated as write-protected (needs manual configuration
 - [\#3097 PR](2023-12-01.3097.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.2
 - [\#3098 Issue](2023-12-01.3098.issue.closed.md) `closed`: OUTPUT\_URL=file://... conflicts with OUTPUT=USB but ReaR does not error out appropriately
+- [\#3100 PR](2023-12-05.3100.pr.merged.md) `merged`: OUTPUT=PXE: Support for downloading kernel and initrd by http
 - [\#3100 PR](2023-12-05.3100.pr.open.md) `open`: OUTPUT=PXE: Support for downloading kernel and initrd by http
 - [\#3101 Issue](2023-12-07.3101.issue.closed.md) `closed`: ReaR 2.7 Ignores loop partition type Disks
 - [\#3102 PR](2023-12-07.3102.pr.merged.md) `merged`: OUTPUT=USB: add a check that OUTPUT\_URL is mounted
@@ -3136,19 +3143,47 @@
 - [\#3123 PR](2024-01-08.3123.pr.merged.md) `merged`: Make initrd accessible only by root
 - [\#3124 PR](2024-01-08.3124.pr.merged.md) `merged`: Take AUTOEXCLUDE\_PATH into account in layout doc
 - [\#3125 PR](2024-01-09.3125.pr.open.md) `open`: Improve layout configuration part of the user guide
+- [\#3126 Issue](2024-01-12.3126.issue.closed.md) `closed`: Implement BACKUP=PPDM for Dell PowerProtect Data Manager
 - [\#3126 Issue](2024-01-12.3126.issue.open.md) `open`: Implement BACKUP=PPDM for Dell PowerProtect Data Manager
 - [\#3127 Issue](2024-01-15.3127.issue.open.md) `open`: Drop GRUB Legacy support and remove its code in ReaR
+- [\#3128 PR](2024-01-15.3128.pr.closed.md) `closed`: ErrorIfDeprecated when GRUB Legacy is used
 - [\#3128 PR](2024-01-15.3128.pr.open.md) `open`: BugError when GRUB Legacy is used
 - [\#3129 Issue](2024-01-16.3129.issue.open.md) `open`: Remove "just" "simple" "easy"
 - [\#3130 Issue](2024-01-16.3130.issue.open.md) `open`: Are all our GitHub Actions safe?
 - [\#3131 PR](2024-01-17.3131.pr.merged.md) `merged`: Improve the description of AUTOEXCLUDE\_PATH
 - [\#3132 Issue](2024-01-18.3132.issue.open.md) `open`: RFC: Drop ELILO support and remove its code in ReaR
+- [\#3133 Issue](2024-01-19.3133.issue.closed.md) `closed`: Automatic keyboard configuation fails on Ubuntu 22.04 (and probably other Debian based systems
 - [\#3133 Issue](2024-01-19.3133.issue.open.md) `open`: Automatic keyboard configuation fails on Ubuntu 22.04 (and probably other Debian based systems
 - [\#3134 Issue](2024-01-22.3134.issue.closed.md) `closed`: root\_uuid device .. is no block device
+- [\#3135 Issue](2024-01-22.3135.issue.closed.md) `closed`: Hardcoded 'eval $command' is problematic and against "final power to the user"
 - [\#3135 Issue](2024-01-22.3135.issue.open.md) `open`: Hardcoded 'eval $command' is problematic and against "final power to the user"
+- [\#3136 PR](2024-01-25.3136.pr.merged.md) `merged`: Include GRUB tools unconditionally and don't create $VAR\_DIR/recovery/bootdisk in prep
 - [\#3136 PR](2024-01-25.3136.pr.open.md) `open`: Include GRUB tools unconditionally and don't create $VAR\_DIR/recovery/bootdisk in prep
+- [\#3137 Issue](2024-01-26.3137.issue.closed.md) `closed`: Failed to create rescue image on Ubuntu 22.04 with ERROR: Module pata not found
 - [\#3137 Issue](2024-01-26.3137.issue.open.md) `open`: Failed to create rescue image on Ubuntu 22.04 with ERROR: Module pata not found
+- [\#3138 PR](2024-01-26.3138.pr.merged.md) `merged`: Add support for Dell PowerProtect Data Manager
 - [\#3138 PR](2024-01-26.3138.pr.open.md) `open`: Add support for Dell PowerProtect Data Manager
 - [\#3139 Issue](2024-01-26.3139.issue.open.md) `open`: Syslog and journald in rescue system not showing service logs
+- [\#3140 Issue](2024-01-26.3140.issue.closed.md) `closed`: How to mount USB device during recover (but not during mkbackup
 - [\#3140 Issue](2024-01-26.3140.issue.open.md) `open`: How to mount USB device during recover (but not during mkbackup
+- [\#3141 Issue](2024-01-29.3141.issue.open.md) `open`: /sbin/mount.nfs Binary not available during disaster recovery
+- [\#3142 Issue](2024-01-29.3142.issue.open.md) `open`: Enable automated source code formatting
+- [\#3143 Issue](2024-01-30.3143.issue.open.md) `open`: Implementing own backup method in rear
+- [\#3144 Issue](2024-02-06.3144.issue.open.md) `open`: delete prep/Linux-s390/305\_include\_s390\_tools.sh
+- [\#3145 PR](2024-02-06.3145.pr.merged.md) `merged`: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection
+- [\#3146 Issue](2024-02-07.3146.issue.open.md) `open`: mkopalpba fails on Fedora 39
+- [\#3147 Issue](2024-02-08.3147.issue.open.md) `open`: clevis luks bind
+- [\#3148 Issue](2024-02-08.3148.issue.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
+- [\#3149 Issue](2024-02-08.3149.issue.open.md) `open`: OS vendor and version autodetection fails on Fedora
+- [\#3150 PR](2024-02-08.3150.pr.open.md) `open`: Add veeam support
+- [\#3151 Issue](2024-02-12.3151.issue.closed.md) `closed`: SLES15 SP5: vi: E1187: Failed to source defaults.vim
+- [\#3152 Issue](2024-02-12.3152.issue.open.md) `open`: SLES15 SP5: Cannot create initrd (found no mkinitrd in the recreated system
+- [\#3153 PR](2024-02-14.3153.pr.open.md) `open`: Replace the `OUTPUT=IPL` with equivalent `OUTPUT=RAMDISK`
+- [\#3154 PR](2024-02-15.3154.pr.merged.md) `merged`: Fix issue 3151: missing .vimrc and overhauled 130\_create\_dotfiles.sh
+- [\#3155 PR](2024-02-16.3155.pr.open.md) `open`: Update finalize/SUSE\_LINUX/i386/550\_rebuild\_initramfs.sh
+- [\#3156 Issue](2024-02-16.3156.issue.open.md) `open`: Why do we need dracut stuff in the recovery system?
+- [\#3157 PR](2024-02-19.3157.pr.open.md) `open`: WIP: Introduce variables EFI\_ARCH{\_UPPER}
+- [\#3158 PR](2024-02-19.3158.pr.open.md) `open`: docs: document booting of ReaR rescue initramfs on s390/s390x
+- [\#3159 PR](2024-02-19.3159.pr.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
+- [\#3160 PR](2024-02-20.3160.pr.open.md) `open`: New TextPrefix function
 - # Issues History of Relax-and-Recover (index.md)
