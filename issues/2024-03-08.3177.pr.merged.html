@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3177 PR merged: New unique_unsorted() function - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3177 PR merged: New unique_unsorted() function";
+        var mkdocs_page_input_path = "issues/2024-03-08.3177.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3177 PR merged: New unique_unsorted() function</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3177_pr_merged_new_unique_unsorted_function"><a href="https://github.com/rear/rear/pull/3177">#3177 PR</a> <code>merged</code>: New unique_unsorted() function<a class="headerlink" href="#3177_pr_merged_new_unique_unsorted_function" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-03-08_1511"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3177">2024-03-08 15:11</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-03-08_1511" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong><br />
+    High impact where needed.<br />
+    No impact esewhere.</p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p>Triggred by my experiments in<br />
+<a href="https://github.com/rear/rear/pull/3175">https://github.com/rear/rear/pull/3175</a><br />
+how 'tar' behaves when exact same files or directories<br />
+are provided as 'tar' arguments to be archived.</p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>See<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">https://github.com/rear/rear/pull/3175#issuecomment-1985907542</a><br />
+But I did not yet test "rear recover".</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In lib/global-functions.sh added a<br />
+new unique_unsorted() function<br />
+that outputs lines in STDIN or in a file<br />
+without subsequent duplicate lines<br />
+which keeps the ordering of the lines.</p>
+<h4 id="pcahyna_commented_at_2024-03-08_1518"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1985879052">2024-03-08 15:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1518" title="Permanent link">&para;</a></h4>
+<p>@jsmeix there is <code>sort -u</code> added in #3175 , isn't that enough? Should
+be, unless we require preserving the order - do we? To us (me and
+@lzaoral ) it seemed that the order is quite unpredictable / random
+anyway.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1546"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1985926458">2024-03-08 15:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1546" title="Permanent link">&para;</a></h4>
+<p>I want to preserve the ordering to be on the safe side.</p>
+<p>I have no real-world use-case why the ordering is important.</p>
+<p>It is just my gut feeling that in some special cases<br />
+the ordering could be crucial because for 'tar'<br />
+the ordering of the arguments does make a difference<br />
+(what is stored where in the archive) and in some special<br />
+cases that could be crucial.</p>
+<p>Only what comes to my mind offhandedly right now:</p>
+<pre><code># tar -czf fullbackup.tgz / /database
+</code></pre>
+<p>might behave rather different during restore compared to</p>
+<pre><code># tar -czf fullbackup.tgz /database /
+</code></pre>
+<p>(under the assumption that /database is on its own filesystem)<br />
+i.e.<br />
+first the basic system gets restored (some Gigabytes),<br />
+then the database gets restored (some Terabytes)<br />
+versus<br />
+first the the database gets restored (some Terabytes),<br />
+then the basic system gets restored (some Gigabytes)</p>
+<p>As an exercise for the reader:<br />
+For both cases estimate the probability<br />
+that restore of the basic system fails<br />
+;-)</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1552"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1985937521">2024-03-08 15:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1552" title="Permanent link">&para;</a></h4>
+<p>Sigh!<br />
+I guess it is ReaR's careless code why<br />
+the order is quite unpredictable / random anyway<br />
+when one leaves such things to ReaR's automatism<br />
+and that is one reason behind why I implemented<br />
+BACKUP_ONLY_INCLUDE and BACKUP_ONLY_EXCLUDE<br />
+to provide "final power to the user".</p>
+<p>So</p>
+<pre><code>BACKUP_ONLY_INCLUDE="yes"
+BACKUP_PROG_INCLUDE=( / /database )
+</code></pre>
+<p>versus</p>
+<pre><code>BACKUP_ONLY_INCLUDE="yes"
+BACKUP_PROG_INCLUDE=( /database / )
+</code></pre>
+<p>(under the assumption that /database is on its own filesystem)<br />
+should behave rather different during restore<br />
+but I did not test it - something to do for next week.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1611"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1985972348">2024-03-08 16:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1611" title="Permanent link">&para;</a></h4>
+<p>I avoid false expectations about this pull request:<br />
+This one does not help when when a filesystem/btrfs subvolume<br />
+is mounted more than once at different mountpoint directories<br />
+because this one only skips exactly same duplicated arguments<br />
+what 'tar' and 'rsync' should archive so this pull request<br />
+is meant only to help when by accident exactly same arguments<br />
+are provided more than once to 'tar' and 'rsync'.</p>
+<p>I think it can never be needed that same arguments<br />
+are provided more than once to 'tar' and 'rsync'<br />
+so I think it is (hopefully) safe to always ignore<br />
+exactly same duplicated arguments.</p>
+<h4 id="pcahyna_commented_at_2024-03-08_1615"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1985979251">2024-03-08 16:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1615" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I would characterize it as a way to avoid <code>sort -u</code> in
+<a href="https://github.com/rear/rear/pull/3175">https://github.com/rear/rear/pull/3175</a>
+and thus preserve the order of tar arguments in cases where the order
+matters ( e.g. explicit <code>BACKUP_PROG_INCLUDE</code> setting ). Correct me if I
+am wrong.</p>
+<h4 id="pcahyna_commented_at_2024-03-08_1632"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1986013000">2024-03-08 16:32</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1632" title="Permanent link">&para;</a></h4>
+<p>Great @schlomo I had independently exactly the same idea for the
+function's name!</p>
+<h4 id="jsmeix_commented_at_2024-03-11_0657"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-1987742609">2024-03-11 06:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-11_0657" title="Permanent link">&para;</a></h4>
+<p>Thank you for the better function name!<br />
+I will use <code>uniq_unsorted</code></p>
+<p>I was thinking about a shorter function name<br />
+that still clearly tells what that function does<br />
+but had no better idea than the long verbose name.</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1242"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-2045095158">2024-04-09 12:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1242" title="Permanent link">&para;</a></h4>
+<p>I am wondering if an even better function name<br />
+could be <code>unique_unsorted</code> with spelled out 'unique'<br />
+to make it more clear that this function<br />
+is something "on its own" which is in particular<br />
+not a wrapper or some enhanced reimplementation<br />
+of the <code>uniq</code> program (with all its options)?</p>
+<p>And in general I don't like old *nix style<br />
+crppld wrds lk 'uniq_usrtd' ;-)</p>
+<h4 id="jsmeix_commented_at_2024-04-11_0923"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-2049280190">2024-04-11 09:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-11_0923" title="Permanent link">&para;</a></h4>
+<p>For now I kept the if check for a filename argument<br />
+because in the STDIN case I like to timeout after 5 seconds<br />
+when there is nothing at STDIN or when STDIN does not get closed<br />
+to avoid that 'awk' waits endlessly for (further) input<br />
+which would make ReaR behave as if it hung up, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#beware-of-the-emptiness">https://github.com/rear/rear/wiki/Coding-Style#beware-of-the-emptiness</a></p>
+<p>@schlomo<br />
+I assume all this can be implemented in a single case<br />
+but I would need time to find out how to do that properly.<br />
+If a proper implementation in a single case<br />
+is obvious to you, please show it to me here.</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-2051679239">2024-04-12 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1235" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+if there are no objections I will merge it today<br />
+a bit after 15:00 CEST (13:00 UTC).</p>
+<h4 id="schlomo_commented_at_2024-04-12_1246"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-2051694960">2024-04-12 12:46</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-12_1246" title="Permanent link">&para;</a></h4>
+<p>Looks good to me.</p>
+<p>Maybe silly question:</p>
+<p><code>awk "..." "$@"</code> doesn't work? It would save you the if clause</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3177#issuecomment-2051770541">2024-04-12 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1331" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I merged it "as is" because I had tested that at least a bit<br />
+and - at least currently - I don't find time to test a rather<br />
+different implementation.</p>
+<p>Furthermore I would have to think about<br />
+if a check if stdin is a tty makes sense, cf.<br />
+<a href="https://github.com/rear/rear/pull/3177#discussion_r1562435947">https://github.com/rear/rear/pull/3177#discussion_r1562435947</a><br />
+and if yes if then it helps to have the stdin case<br />
+well separated from the "input from file" case,<br />
+cf. RFC 1925 item (5)</p>
+<pre><code>It is always possible to aglutenate [sic] multiple separate problems
+into a single complex interdependent solution. In most cases
+this is a bad idea.
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-08.3177.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

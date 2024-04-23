@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3176 PR merged: Skip btrfs subvolumes when detecting ESP partitions - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3176 PR merged: Skip btrfs subvolumes when detecting ESP partitions";
+        var mkdocs_page_input_path = "issues/2024-03-07.3176.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3176 PR merged: Skip btrfs subvolumes when detecting ESP partitions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3176_pr_merged_skip_btrfs_subvolumes_when_detecting_esp_partitions"><a href="https://github.com/rear/rear/pull/3176">#3176 PR</a> <code>merged</code>: Skip btrfs subvolumes when detecting ESP partitions<a class="headerlink" href="#3176_pr_merged_skip_btrfs_subvolumes_when_detecting_esp_partitions" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-03-07_1640"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3176">2024-03-07 16:40</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-03-07_1640" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): N/A</p>
+</li>
+<li>
+<p>How was this pull request tested? Recovery of Fedora Rawhide UEFI
+    machine.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>The idea is to find all direct partitions that contain the ESP mount
+point and to skip all other transitive <code>fs:</code> dependencies.</p>
+<p>The <code>diskdeps.conf</code> file contains following entries on default Fedora
+installations (the list was shortened to only the relevant ones):</p>
+<pre><code>/dev/vda1 /dev/vda
+/dev/vda4 /dev/vda
+/dev/vda5 /dev/vda
+fs:/boot/efi /dev/vda1
+fs:/boot/efi fs:/boot
+fs:/boot/efi fs:/
+fs:/boot/efi btrfsmountedsubvol:/
+fs:/boot /dev/vda4
+fs:/boot fs:/
+fs:/boot btrfsmountedsubvol:/
+fs:/ /dev/vda5
+btrfsmountedsubvol:/ /dev/vda5
+</code></pre>
+<p>The ESP partition is only on <code>/dev/vda1</code>. However, the <code>find_partition</code>
+call<br />
+was not taking into account the need to skip mounted btrfs subvolumes as
+well.<br />
+Therefore, <code>/dev/vda5</code> was listed as an ESP partition as well.</p>
+<p>This change makes sure that only direct ESP partitions are listed and<br />
+fixes a bug where ReaR would create broken BootXXXX entries which point
+to<br />
+completely unrelated partitions.</p>
+<p>Relevant excerpts from logs:</p>
+<pre><code>++ efibootmgr --create --gpt --disk /dev/vda --part 1 --write-signature --label 'RedHatEnterpriseServer 41' --loader '\EFI\fedora\grubx64.efi'
+...
+++ efibootmgr --create --gpt --disk /dev/vda --part 5 --write-signature --label 'RedHatEnterpriseServer 41' --loader '\EFI\fedora\grubx64.efi'
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-08_1201"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-1985573300">2024-03-08 12:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1201" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>disktodo.conf contains following entries</p>
+</blockquote>
+<p>ITYM <code>diskdeps.conf</code>, <code>disktodo.conf</code> has a different format. Please fix
+also the commit message.</p>
+<blockquote>
+<p>a bug where ReaR would create broken BootXXXX entries which point to
+completely unrelated partitions.</p>
+</blockquote>
+<p>Can you please show an example if you have saved it somewhere?</p>
+<h4 id="lzaoral_commented_at_2024-03-08_1241"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-1985625759">2024-03-08 12:41</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-08_1241" title="Permanent link">&para;</a></h4>
+<p>Thank you, @pcahyna! I've fixed the typo as I meant the <code>diskdeps.conf</code>
+file and amended the commit message with the creation of those
+<code>BootXXXX</code> entries.</p>
+<h4 id="pcahyna_commented_at_2024-03-19_1427"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2007330664">2024-03-19 14:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-19_1427" title="Permanent link">&para;</a></h4>
+<p>thank you a lot for the fix and for providing an example of the buggy
+behavior!</p>
+<h4 id="jsmeix_commented_at_2024-03-20_0740"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2008958945">2024-03-20 07:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_0740" title="Permanent link">&para;</a></h4>
+<p>Only a side question FYI:</p>
+<p>I am wondering why the ESP kernel device node<br />
+is determined so indirectly.</p>
+<p>Do you know if there is a reason why not<br />
+something like 'lsblk' is used to get directly<br />
+the partition kernel device node<br />
+that matches a mount point?</p>
+<p>E.g. on a running system<br />
+(my homeoffice workstation):</p>
+<pre><code># lsblk -nrpo PKNAME,KNAME,MOUNTPOINT | grep '/boot/efi'
+/dev/nvme0n1 /dev/nvme0n1p1 /boot/efi
+</code></pre>
+<p>I don't use the SUSE btrfs structure<br />
+so I don't have mounted btrfs subvolumes.</p>
+<p>I assume 'lsblk' cannot be used here because<br />
+we are in the recovery system (in 'finalize' stage)<br />
+and need the ESP partition of the recreated system<br />
+below /mnt/local where the ESP is perhaps not mounted<br />
+so we need to determine it from the diskdeps.conf file?</p>
+<p>Or why not directly from disklayout.conf?</p>
+<p>E.g. on my homeoffice workstation (excerpt):</p>
+<pre><code># Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+part /dev/nvme0n1 535822336 1048576 rear-noname boot,esp /dev/nvme0n1p1
+</code></pre>
+<p>I.e. why indirectly via the ESP mount point<br />
+than directly the ESP 'part' entry in disklayout.conf?</p>
+<h4 id="jsmeix_commented_at_2024-03-20_0741"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2008960671">2024-03-20 07:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_0741" title="Permanent link">&para;</a></h4>
+<p>@lzaoral @pcahyna<br />
+don't worry about my questions.<br />
+Feel free to merge as you like (I approved it "as is").</p>
+<h4 id="lzaoral_commented_at_2024-03-20_0859"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2009068478">2024-03-20 08:59</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-20_0859" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I'll add the comment explaining why the exclusions are required.</p>
+<blockquote>
+<p>I.e. why indirectly via the ESP mount point than directly the ESP
+'part' entry in disklayout.conf?</p>
+</blockquote>
+<p>AFAIK, it is necessary to create boot entry for every physical device
+present in the RAID array which contains the ESP:</p>
+<ul>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1958222">https://bugzilla.redhat.com/show_bug.cgi?id=1958222</a></li>
+<li><a href="https://github.com/rear/rear/pull/2608">https://github.com/rear/rear/pull/2608</a></li>
+</ul>
+<h4 id="lzaoral_commented_at_2024-03-20_1123"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2009341775">2024-03-20 11:23</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-20_1123" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @jsmeix I've rebased the PR and added the explanation comment.</p>
+<h4 id="pcahyna_commented_at_2024-03-20_1348"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2009611532">2024-03-20 13:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-20_1348" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I looked at the places that determine the ESP filesystem /
+device and it seems like a mess to me (several different methods are
+used), but I don't have enough motivation to fix this as the code
+"mostly works" now (I suspect it might have some problems when multipath
+is used though) so I am going to stop investigating and merge the code
+as it is.</p>
+<h4 id="jsmeix_commented_at_2024-03-20_1457"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3176#issuecomment-2009775158">2024-03-20 14:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_1457" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+yes,<br />
+feel free to merge when it is OK for you.<br />
+We can only improve things step by step<br />
+as far as possible with reasonable effort.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-07.3176.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

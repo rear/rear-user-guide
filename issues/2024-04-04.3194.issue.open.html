@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3194 Issue open: PBA environment is stuck in Linux kernel log messages - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3194 Issue open: PBA environment is stuck in Linux kernel log messages";
+        var mkdocs_page_input_path = "issues/2024-04-04.3194.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3194 Issue open: PBA environment is stuck in Linux kernel log messages</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3194_issue_open_pba_environment_is_stuck_in_linux_kernel_log_messages"><a href="https://github.com/rear/rear/issues/3194">#3194 Issue</a> <code>open</code>: PBA environment is stuck in Linux kernel log messages<a class="headerlink" href="#3194_issue_open_pba_environment_is_stuck_in_linux_kernel_log_messages" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>special hardware or VM</code></p>
+<h4 id="edmcman_opened_issue_at_2024-04-04_1944"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> opened issue at <a href="https://github.com/rear/rear/issues/3194">2024-04-04 19:44</a>:<a class="headerlink" href="#edmcman_opened_issue_at_2024-04-04_1944" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>git eadcc683 (March 4th)</p>
+<ul>
+<li>If your ReaR version is not the current version, explain why you
+    can't upgrade:</li>
+</ul>
+<p>I'm getting an error on <code>rear mkopalpba</code> with the latest version. I'll
+file an issue for that shortly.</p>
+<ul>
+<li>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.3 LTS
+Release:    22.04
+Codename:   jammy
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=RAWDISK
+OUTPUT_URL="file:///var/lib/rear/output"
+SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/ubuntu/shimx64.efi"
+</code></pre>
+<ul>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</li>
+</ul>
+<p>PC System 76</p>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<p>x86</p>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</li>
+</ul>
+<p>Open Firmware</p>
+<p>Unsure about bootloader, whatever PBA is using</p>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<p>local NVMe</p>
+<ul>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code>/dev/nvme1n1       /dev/nvme1n1                  nvme   disk                         1.9T 
+`-/dev/nvme1n1p1   /dev/nvme1n1p1 /dev/nvme1n1   nvme   part  vfat        OPAL PBA    99M 
+/dev/nvme0n1       /dev/nvme0n1                  nvme   disk                       465.8G 
+|-/dev/nvme0n1p1   /dev/nvme0n1p1 /dev/nvme0n1   nvme   part  vfat        EFI        512M /boot/efi
+|-/dev/nvme0n1p2   /dev/nvme0n1p2 /dev/nvme0n1   nvme   part  ext4                   1.7G /boot
+`-/dev/nvme0n1p3   /dev/nvme0n1p3 /dev/nvme0n1   nvme   part  crypto_LUKS          463.6G 
+  `-/dev/mapper/nvme0n1p3_crypt
+                   /dev/dm-0      /dev/nvme0n1p3        crypt LVM2_member          463.6G 
+    |-/dev/mapper/vgubuntu-root
+    |              /dev/dm-1      /dev/dm-0             lvm   ext4                 461.7G /
+    `-/dev/mapper/vgubuntu-swap_1
+                   /dev/dm-2      /dev/dm-0             lvm   swap                   1.9G [SWAP]
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>When I produce and install the PBA, it gets stuck while displaying some
+Linux kernel status messages.</p>
+<p><img alt="image" src="https://github.com/rear/rear/assets/1017189/605aff75-7a19-41e3-a4d5-b5bb9e60ecf8" /></p>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-04-05_1433"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2039956806">2024-04-05 14:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1433" title="Permanent link">&para;</a></h4>
+<p>@edmcman<br />
+I am not a "rear mkopalpba" user.<br />
+I don't have a TCG Opal 2-compliant self-encrypting disk.<br />
+So I cannot reproduce anything with such hardware.</p>
+<p>From what your kernel messages show, inparticular</p>
+<pre><code>... firmware load for ... failed ...
+... no suitable firmware found!
+</code></pre>
+<p>my blind guess is that the PBA image which is made<br />
+by "rear mkopalpba" does not contain the firmware<br />
+which the kernel (usualy via some udev mechanism)<br />
+tries to upload into the 'iwlwifi' hardware.</p>
+<p>In particular network hardware (and certain GPUs)<br />
+is known to need firmware uploaded into it to make it work.<br />
+So without such firmware the 'iwlwifi' hardware<br />
+won't work which means networking won't work<br />
+when this is the only networking hardware.<br />
+What is unexpected in this case is that it seems<br />
+the startup of the whole kernel is stuck when it fails<br />
+to upload firmware into the 'iwlwifi' hardware<br />
+regardless that I would assume a system should work<br />
+even without networking hardware.</p>
+<p>I don't know it is possible to inspect what there is<br />
+inside the PBA image?</p>
+<p>On my openSUSE Leap 15.5 workstation<br />
+I have lots of <code>/lib/firmware/iwlwifi-*</code> files.</p>
+<p>Do you have <code>/lib/firmware/</code> files in your PBA image?</p>
+<p>Perhaps "rear -D mkopalpba" tells something about<br />
+whether or not firmware is included in the PBA image?</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1439"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2039968870">2024-04-05 14:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1439" title="Permanent link">&para;</a></h4>
+<p>I found the following documentation in<br />
+usr/share/rear/conf/default.conf</p>
+<pre><code># The following variable, if non-empty, overrides FIRMWARE_FILES for the PBA system.
+OPAL_PBA_FIRMWARE_FILES=()
+...
+# The by default empty FIRMWARE_FILES array means that
+# usually all files in the /lib*/firmware/ directories
+# get included in the rescue/recovery system but on certain
+# architectures like ppc64 or ppc64le the default could be different
+# cf. the conf/Linux-ppc64.conf and conf/Linux-ppc64le.conf scripts:
+FIRMWARE_FILES=()
+</code></pre>
+<p>so by default you should get all files<br />
+in the /lib*/firmware/ directories included in the PBA image<br />
+(as far as I understand what is told in default.conf)</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1450"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2039997864">2024-04-05 14:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1450" title="Permanent link">&para;</a></h4>
+<p>The only ReaR script that deals with OPAL_PBA_FIRMWARE_FILES is<br />
+usr/share/rear/prep/OPALPBA/Linux-i386/001_configure_workflow.sh<br />
+which does what default.conf tells about OPAL_PBA_FIRMWARE_FILES<br />
+so by default only FIRMWARE_FILES matters.</p>
+<p>The only ReaR script that deals with FIRMWARE_FILES is<br />
+usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh<br />
+which should also be run for "rear mkopalpba" according to</p>
+<pre><code># usr/sbin/rear -s mkopalpba | grep firmware
+Source build/GNU/Linux/420_copy_firmware_files.sh
+</code></pre>
+<p>So I would suggest to run "rear -D mkopalpba"<br />
+and check the ReaR log file what happens after</p>
+<pre><code>+ source ...usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh
+</code></pre>
+<p>and - if possible - also check what firmware files<br />
+got actually included in the PBA image.</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1501"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040031507">2024-04-05 15:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1501" title="Permanent link">&para;</a></h4>
+<p>Hmm...<br />
+perhaps the 'iwlwifi' firmware issue is not the reason<br />
+why the startup of the whole kernel is stuck because<br />
+before that there are kernel messages that look like<br />
+problems with the 'nvme' disk and such issues may let<br />
+the startup of the whole kernel stuck<br />
+and<br />
+before the 'nvme' messages there is another firmware issue<br />
+regarding 'regulatory.db' but that is also WIFI related<br />
+so probably not severe enough to let the kernel stuck?</p>
+<h4 id="edmcman_commented_at_2024-04-05_1507"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040044584">2024-04-05 15:07</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1507" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>perhaps the 'iwlwifi' firmware issue is not the reason<br />
+why the startup of the whole kernel is stuck because<br />
+before that there are kernel messages that look like<br />
+problems with the 'nvme' disk and such issues may let<br />
+the startup of the whole kernel stuck</p>
+</blockquote>
+<p>I think this is just a warning. This message is present during normal
+Linux boots as well.</p>
+<h4 id="edmcman_commented_at_2024-04-05_1509"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040048104">2024-04-05 15:09</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1509" title="Permanent link">&para;</a></h4>
+<p>I will take a look at the firmware. I initially ignored that because I
+didn't think that missing firmware should cause the machine not to boot.</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1516"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040064647">2024-04-05 15:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1516" title="Permanent link">&para;</a></h4>
+<p>Another blind guess:</p>
+<p>Does the image with the kernel messages in your initial posting<br />
+show where the kernel is stuck?<br />
+Are there no further kernel (error or panic) messages?<br />
+I.e. all of a sudden there are no further kernel messages?</p>
+<p>In this case the kernel may just proceed rather well<br />
+but you only don't get further messages on your console.</p>
+<p>See the various 'CONSOLE' variables descriptions<br />
+in usr/share/rear/conf/default.conf for</p>
+<pre><code>OPAL_PBA_USE_SERIAL_CONSOLE
+USE_SERIAL_CONSOLE
+SERIAL_CONSOLE_DEVICES
+SERIAL_CONSOLE_DEVICES_KERNEL
+SERIAL_CONSOLE_DEVICE_SYSLINUX
+SERIAL_CONSOLE_DEVICE_GRUB
+</code></pre>
+<p>what you may have to manually specify to ensure that<br />
+all kernel messages appear on your system console.</p>
+<h4 id="edmcman_commented_at_2024-04-05_1527"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040088856">2024-04-05 15:27</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1527" title="Permanent link">&para;</a></h4>
+<p>There are very few files in the PBA image itself. In the initrd.cgz
+image inside of the PBA, there are more, but I don't see any firmware
+files. I will continue to investigate why that happens. I do not have
+any firmware-related configuration options, so I would expect that the
+default would be to include all the firmware, even in the PBA image. I
+believe that the rescue image includes the firmware, but I will double
+check that.</p>
+<p>Nothing appears on the screen beyond what is in the photo I posted. I
+waited for a while (about an hour) and there are no other messages.</p>
+<p>I will investigate the console configs. Thanks for the idea.</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1535"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040111954">2024-04-05 15:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1535" title="Permanent link">&para;</a></h4>
+<p>Normally (i.e. for "rear mkrescue") the initrd contains<br />
+all the ReaR recovery system files.<br />
+What is booted when one boots for example from an ISO image<br />
+that was made by "rear mkrescue" is the kernel of the<br />
+original system where "rear mkrescue" was run<br />
+(I mean the original system's kernel is copied to be<br />
+used as kernel for what is booted e.g. from an ISO image)<br />
+plus ReaR's special initrd that contains all the files<br />
+of the ReaR recovery system (which runs in a ramdisk).</p>
+<p>I assume that with "rear mkopalpba" it is basically the same<br />
+i.e. that the initrd in the PBA image ontains all the files<br />
+of the system that is booted when one boot from a PBA image.</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1540"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040122157">2024-04-05 15:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1540" title="Permanent link">&para;</a></h4>
+<p>Regarding no further messages on the console see<br />
+<a href="https://github.com/rear/rear/issues/2843">https://github.com/rear/rear/issues/2843</a><br />
+in particular see<br />
+<a href="https://github.com/rear/rear/issues/2843#issuecomment-1196588256">https://github.com/rear/rear/issues/2843#issuecomment-1196588256</a><br />
+what usually helps when you do not have a serial console.</p>
+<h4 id="edmcman_commented_at_2024-04-05_1708"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040278879">2024-04-05 17:08</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1708" title="Permanent link">&para;</a></h4>
+<p>I can confirm that the mkrescue's initrd contains /lib/firmware, but
+mkopalpba's initrd does not.</p>
+<h4 id="edmcman_commented_at_2024-04-05_1716"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040289231">2024-04-05 17:16</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1716" title="Permanent link">&para;</a></h4>
+<p>From <code>rear -D mkopalpba</code> log file:</p>
+<pre><code>+ source /usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh
+++ is_false no
+++ case "$1" in
+++ return 0
+++ LogPrint 'Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='\''no'\'')'
+2024-04-05 13:14:48.813546125 Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+++ return
++ source_return_code=0
++ test 0 -eq 0
++ cd /home/ed
++ test 1
++ Debug 'Leaving debugscript mode (back to previous bash flags and options settings).'
+2024-04-05 13:14:48.815543501 Leaving debugscript mode (back to previous bash flags and options settings).
+</code></pre>
+<h4 id="edmcman_commented_at_2024-04-05_1722"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040296434">2024-04-05 17:22</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1722" title="Permanent link">&para;</a></h4>
+<p>It seems that the PBA intentionally does not include firmware by default
+to conform to the small 100 MiB size requirement:
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/OPALPBA/Linux-i386/001_configure_workflow.sh#L16">https://github.com/rear/rear/blob/master/usr/share/rear/prep/OPALPBA/Linux-i386/001_configure_workflow.sh#L16</a></p>
+<h4 id="edmcman_commented_at_2024-04-05_1836"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2040410425">2024-04-05 18:36</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-05_1836" title="Permanent link">&para;</a></h4>
+<p>Here's what I put in /etc/rear/local.conf:</p>
+<pre><code>OUTPUT=RAWDISK
+OUTPUT_URL="file:///var/lib/rear/output"
+SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/ubuntu/shimx64.efi"
+OPAL_PBA_FIRMWARE_FILES+=( '*/iwlwifi-so-a0-gf-a0-83.ucode*' )
+USE_SERIAL_CONSOLE='no'
+</code></pre>
+<p>Here is what I get:<br />
+<img alt="image" src="https://github.com/rear/rear/assets/1017189/62724ecb-4744-4a5d-8eb5-84e54a13dea5" /></p>
+<p>On a normal boot, here are the iwlwifi messages:</p>
+<pre><code>ed@banana:~$ sudo dmesg | fgrep iwlwifi
+[   12.822755] iwlwifi 0000:00:14.3: Detected crf-id 0x400410, cnv-id 0x80401 wfpm id 0x80000020
+[   12.822780] iwlwifi 0000:00:14.3: PCI dev 7a70/0094, rev=0x430, rfid=0x2010d000
+[   12.825493] iwlwifi 0000:00:14.3: api flags index 2 larger than supported by driver
+[   12.825508] iwlwifi 0000:00:14.3: TLV_FW_FSEQ_VERSION: FSEQ Version: 0.0.2.41
+[   12.826166] iwlwifi 0000:00:14.3: loaded firmware version 83.e8f84e98.0 so-a0-gf-a0-83.ucode op_mode iwlmvm
+[   12.963263] iwlwifi 0000:00:14.3: Detected Intel(R) Wi-Fi 6E AX211 160MHz, REV=0x430
+[   12.971359] iwlwifi 0000:00:14.3: WRT: Invalid buffer destination
+[   13.146853] iwlwifi 0000:00:14.3: WFPM_UMAC_PD_NOTIFICATION: 0x20
+[   13.146862] iwlwifi 0000:00:14.3: WFPM_LMAC2_PD_NOTIFICATION: 0x1f
+[   13.146870] iwlwifi 0000:00:14.3: WFPM_AUTH_KEY_0: 0x90
+[   13.146879] iwlwifi 0000:00:14.3: CNVI_SCU_SEQ_DATA_DW9: 0x0
+[   13.147210] iwlwifi 0000:00:14.3: loaded PNVM version e28bb9d7
+[   13.147279] iwlwifi 0000:00:14.3: RFIm is deactivated, reason = 5
+[   13.163651] iwlwifi 0000:00:14.3: Detected RF GF, rfid=0x2010d000
+[   13.232694] iwlwifi 0000:00:14.3: base HW address: ac:19:8e:9d:c8:1c
+[   13.279489] iwlwifi 0000:00:14.3 wlp0s20f3: renamed from wlan0
+[   14.405180] iwlwifi 0000:00:14.3: WRT: Invalid buffer destination
+[   14.564884] iwlwifi 0000:00:14.3: WFPM_UMAC_PD_NOTIFICATION: 0x20
+[   14.564914] iwlwifi 0000:00:14.3: WFPM_LMAC2_PD_NOTIFICATION: 0x1f
+[   14.564922] iwlwifi 0000:00:14.3: WFPM_AUTH_KEY_0: 0x90
+[   14.564930] iwlwifi 0000:00:14.3: CNVI_SCU_SEQ_DATA_DW9: 0x0
+[   14.566155] iwlwifi 0000:00:14.3: RFIm is deactivated, reason = 5
+[   14.656388] iwlwifi 0000:00:14.3: Registered PHC clock: iwlwifi-PTP, with index: 0
+</code></pre>
+<p>So the
+<code>[   12.825493] iwlwifi 0000:00:14.3: api flags index 2 larger than supported by driver</code>
+message is "normal".</p>
+<p>I'll try to add /lib/firmware/regulatory.db* to the firmware files, but
+I don't really think that the wifi is the problem.</p>
+<p>@jsmeix Setting USE_SERIAL_CONSOLE='no' should have provided more
+console output, right?</p>
+<h4 id="jsmeix_commented_at_2024-04-09_0743"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2044355011">2024-04-09 07:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_0743" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+"PBA ... small 100 MiB size requirement":</p>
+<p>To me a 100 MiB size maximum for a bootable image<br />
+looks rather arbitrary and needlessly small<br />
+with nowadays disk and memory sizes.</p>
+<p>By googling for "PBA image size limit" I found<br />
+<a href="https://github.com/Drive-Trust-Alliance/sedutil/issues/293">https://github.com/Drive-Trust-Alliance/sedutil/issues/293</a><br />
+that tells<br />
+(I copy whole text parts to have them here saved):</p>
+<pre><code>Technically on Opal TCG 2.0 compliant drives,
+the PBA image can use the entire "Shadow MBR"
+dedicated space which must be 128MB.
+
+In reality it's not a question of how big
+the PBA image can be but how big it should be.
+It should be (for most folks) a minimum size
+that boots the system enough to authenticate
+a credential set and unlock the drive,
+then causes a reboot into the "real" MBR space
+(or EFI space for newer drives).
+
+WinMagic (which has a commercial product
+"SecureDoc" that can manage TCG drives)
+has a pretty good explanation of it here:
+https://www.winmagic.com/blog/how-seds-really-work/
+</code></pre>
+<p>Therein the link with link text</p>
+<pre><code>https://www.winmagic.com/blog/how-seds-really-work/
+</code></pre>
+<p>has a wrong URL behind the link text<br />
+so one must copy&amp;paste the link text<br />
+and then one gets (excerpts):</p>
+<pre><code>Seagate DriveTrust and TCG Opal SEDs
+have an MBR (Master Boot Record) Shadow.
+...
+The "host" computer (i.e. the laptop) doesn't get
+direct access to physical storage media ...
+the drive presents a virtual view of the storage.
+In the virtual view the storage space is presented
+in logical blocks of 512 bytes to the host.
+Each logical block gets a number assigned to it,
+a Logical Block address (LBA).
+The LBA starts at zero and goes up to a really big number
+depending on the size of the drive.
+The highest one is called Max LBA.
+
+When the drive ships from the factory it is already
+encrypting everything written to it.
+If you buy a laptop from an OEM  (Lenovo, HP, etc)
+with say Windows 7 pre-loaded on it the entire drive
+is encrypted, even Windows.
+This encryption is completely transparent to the OS
+and at this point provides no protection of the data
+because there is no authentication required to boot.
+
+When our SecureDoc software executes in Windows
+it first checks if the drive is a SED.
+If it isn't then we encrypt the drive using software
+but if it is a SED we use TCG commands to create the
+MBR shadow and write our pre-boot authentication (PBA)
+software to it.
+The MBR shadow is a 128 MB area that is totally "off the map".
+If the OS or a virus were to read each LBA on the drive
+from LBA 0 to MAX LBA it would still not to be able
+to see it or modify it.
+
+Once MBR shadow is written by SecureDoc the drive is
+configured to "lock" in the powered off state.
+When the laptop is next turned on it doesn't see
+the normal virtual space.
+Rather it sees the MBR shadow in the 1st 128 MB
+of the LBA's and above 128 MB to MAX LBA
+it sees only 512 byte blocks of zeros.
+That is, the MBR shadow is mapped into the first 128 MB
+of virtual LBA space instead of the normal Windows MBR.
+
+The host boots into the SecureDoc PBA code in the MBR shadow
+instead of Windows, authenticates the user (e.g. they type in
+a password), and then unlocks the drive.
+At this point SecureDoc maps the MBR shadow
+out of the LBA virtual space
+and the normal Windows MBR and the rest of the
+original drive is mapped in.
+The host is rebooted this time into Windows and
+it boots up as it did before the machine was
+protected with MBR shadow.
+</code></pre>
+<p>Accordingly it seems the PBA image size limit<br />
+is the size of the MBR shadow and that seems to be<br />
+a hardware limit of the Self Encrypting Drive.<br />
+Because the text above tells<br />
+"we use TCG commands to create the MBR shadow"<br />
+so it could be possible to use TCG commands<br />
+to create a MBR shadow of arbitrary size?<br />
+But the MBR shadow could be different hardware storage<br />
+than the normal disk storage (totally "off the map")<br />
+so the size of the MBR shadow storage cannot be changed.</p>
+<p>At least the usual SED factory default seems to be<br />
+that the MBR shadow size is "128 MB".<br />
+I assume "128 MB" is actually 128 MiB.</p>
+<p>128 MB = 128 * 1000 * 1000 Bytes = 128000000 Bytes</p>
+<p>128 MiB = 128 * 1024 * 1024 Bytes = 134217728 Bytes</p>
+<p>128 MB is less than 6 MiB but more than 6 MB smaller<br />
+than 128 MiB so at least 120 MiB should be possible<br />
+for a PBA image.</p>
+<p>20 MiB more could make a noticeable difference<br />
+when a PBA image size is near the size limit.</p>
+<h4 id="jsmeix_commented_at_2024-04-09_0747"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2044361097">2024-04-09 07:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_0747" title="Permanent link">&para;</a></h4>
+<p>By the way:<br />
+Regarding Self Encrypting Drives in general I found<br />
+<a href="https://www.ibm.com/docs/en/psfa/7.2.1?topic=administration-about-self-encrypting-drives">https://www.ibm.com/docs/en/psfa/7.2.1?topic=administration-about-self-encrypting-drives</a><br />
+that reads (excerpt):</p>
+<pre><code>Self-encrypting drives (SEDs) encrypt data as it is written
+to the disk. Each disk has a disk encryption key (DEK)
+that is set at the factory and stored on the disk.
+</code></pre>
+<p>So the whole security of a SED depends on<br />
+how secure that key is "stored on the disk".</p>
+<h4 id="jsmeix_commented_at_2024-04-09_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2044442451">2024-04-09 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_0831" title="Permanent link">&para;</a></h4>
+<p>@edmcman<br />
+yes, USE_SERIAL_CONSOLE='no' <em>should</em> have provided<br />
+more console output<br />
+BUT<br />
+what actually matters is what 'console' kernel<br />
+command line options are set when booting the kernel.</p>
+<p>Normally (i.e. when booting the ReaR recovery system)<br />
+there is a ReaR recovery system bootloader screen<br />
+where you can see and if needed modify the<br />
+kernel command line options.<br />
+For example on a BIOS system<br />
+when booting a ReaR recovery system ISO image<br />
+with SYSLINUX/ISOLINUX as bootloader one can get<br />
+the ReaR recovery system kernel command line arguments<br />
+by selecting in the ReaR recovery system boot menue<br />
+the topmost enty of the form "Recover HOSTNAME" and then<br />
+pressing the [Tab] key which shows the kernel command line.</p>
+<p>I don't know if something like that is also available<br />
+when booting ReaR's PBA image.</p>
+<h4 id="edmcman_commented_at_2024-04-10_1310"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047506692">2024-04-10 13:10</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1310" title="Permanent link">&para;</a></h4>
+<p>I can't seem to access any type of menu, but I was able to extract the
+grub configuration file from the PBA image:</p>
+<pre><code>insmod all_video
+set timeout=0
+set default=0
+menuentry "TCG Opal pre-boot authentication" {
+    linux /vmlinuz-6.5.0-26-generic  selinux=0 quiet splash systemd.volatile=yes systemd.unit=sysinit-opalpba.target  vt.handoff=7 libata.allow_tpm=1
+    initrd /initrd.cgz
+}
+</code></pre>
+<p>I'll try to remove <code>quiet splash</code> and see if that helps...</p>
+<h4 id="sei-eschwartz_commented_at_2024-04-10_1343"><img src="https://avatars.githubusercontent.com/u/50171988?v=4" width="50"><a href="https://github.com/sei-eschwartz">sei-eschwartz</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047583634">2024-04-10 13:43</a>:<a class="headerlink" href="#sei-eschwartz_commented_at_2024-04-10_1343" title="Permanent link">&para;</a></h4>
+<p>I was able to modify the grub config and set the timeout to 10, which
+let me change the kernel arguments to whatever I wanted. I tried a few
+things. First, I disabled iwlwifi. This removed the iwlwifi warnings,
+but the boot did not seem to progress any further. Second, I added the
+<code>ignore_loglevel</code> argument which causes more kernel logging:</p>
+<p><img alt="image" src="https://github.com/rear/rear/assets/50171988/7a1b7dfb-c7ed-42ab-961a-eb599bc656c7" /></p>
+<p>My suspicion, which could be wrong, is that the kernel is "booted" in
+some sense, but we're either stuck in systemd, or maybe plymouth isn't
+working as expected.</p>
+<p>I just saw that passing <code>debug</code> can make systemd log some more, so I'll
+try that. And maybe <code>rd.plymouth=0 plymouth.enable=0</code>.</p>
+<h4 id="sei-eschwartz_commented_at_2024-04-10_1406"><img src="https://avatars.githubusercontent.com/u/50171988?v=4" width="50"><a href="https://github.com/sei-eschwartz">sei-eschwartz</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047646496">2024-04-10 14:06</a>:<a class="headerlink" href="#sei-eschwartz_commented_at_2024-04-10_1406" title="Permanent link">&para;</a></h4>
+<p>Good news! If I pass <code>nomodeset</code>, then I am prompted for the opal
+password, and then the machine reboots. I don't currently have an OS
+installed on the Opal drive, so I got an error about there not being an
+OS installed, but that seems expected :-)</p>
+<p>So now we know that the problem has something to do with modesetting. I
+wonder if it is missing firmware for the i915 driver?</p>
+<h4 id="jsmeix_commented_at_2024-04-10_1447"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047760674">2024-04-10 14:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1447" title="Permanent link">&para;</a></h4>
+<p>Perhaps 'nomodeset' should be set by default<br />
+because according to what I understand how things work in<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2044355011">https://github.com/rear/rear/issues/3194#issuecomment-2044355011</a><br />
+the only purpose of booting what there is in the MBR shadow<br />
+is to unlock the drive and for that task the simple<br />
+kernel framebuffer driver with traditional VGA resolution<br />
+should be sufficient.</p>
+<p>Perhaps simple traditional VGA output to unlock the drive<br />
+(I assume what you get on the screen in this case<br />
+is only traditional text console output)<br />
+could be even an advantage compared to having that<br />
+e.g. in Full HD resolution only in the upper left quarter<br />
+of a 4K display (tiny text which is really hard to read).</p>
+<h4 id="edmcman_commented_at_2024-04-10_1448"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047763523">2024-04-10 14:48</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1448" title="Permanent link">&para;</a></h4>
+<p>I found a bunch of PBA related settings in<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/Ubuntu.conf">Ubuntu.conf</a>
+and tried them:<br />
+<a href="https://github.com/rear/rear/files/14933759/local.conf.txt">local.conf.txt</a></p>
+<p>This still got stuck, which suggests the problem is perhaps the i915
+firmware. It's pretty big, though, so not sure if including it all will
+work:</p>
+<pre><code>ed@banana:~/rear$ du -ch /lib/firmware/i915/
+27M /lib/firmware/i915/
+27M total
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-04-10_1452"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047772221">2024-04-10 14:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1452" title="Permanent link">&para;</a></h4>
+<p>I would try to avoid special GPU stuff if possible.<br />
+When things look OK on the screen with 'nomodeset'<br />
+for the only purpose to unlock the drive<br />
+then I think 'nomodeset' is the simplest and<br />
+most straightforward way (i.e. KISS principle).</p>
+<h4 id="edmcman_commented_at_2024-04-10_1454"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047779009">2024-04-10 14:54</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1454" title="Permanent link">&para;</a></h4>
+<p>Yes, I think if there is any general take away from my problems, it is
+that <code>nomodeset</code> should probably be the default.</p>
+<p>One of the developers the OPAL functionality clearly was using Plymouth
+for a fancier way of doing things:
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/Ubuntu.conf">https://github.com/rear/rear/blob/master/usr/share/rear/conf/Ubuntu.conf</a><br />
+<a href="https://github.com/rear/rear/blob/b838a352136811900511a209d06c809ce552e636/usr/share/rear/skel/default/etc/scripts/unlock-opal-disks">https://github.com/rear/rear/blob/b838a352136811900511a209d06c809ce552e636/usr/share/rear/skel/default/etc/scripts/unlock-opal-disks</a></p>
+<p>But I think most people would be happy with a working text prompt!</p>
+<h4 id="edmcman_commented_at_2024-04-10_1500"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047794207">2024-04-10 15:00</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1500" title="Permanent link">&para;</a></h4>
+<p>Success! With the i915 firmware, I get the GUI prompt, which is pretty
+slick I have to admit:</p>
+<p><img alt="image" src="https://github.com/rear/rear/assets/1017189/5d175f00-2187-4f4b-9559-2af401e569a4" /></p>
+<p>But IMHO:</p>
+<ol>
+<li><code>nomodeset</code> should be the default option</li>
+<li>There should be an optional way to disable this, and perhaps a
+    section added to
+    <a href="https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc</a>
+    to discuss how to enable the GUI.</li>
+</ol>
+<h4 id="jsmeix_commented_at_2024-04-10_1501"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047796551">2024-04-10 15:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1501" title="Permanent link">&para;</a></h4>
+<p>FYI:<br />
+For the bootloader setup of the ReaR recovery system<br />
+we set <code>vga=normal</code></p>
+<pre><code>usr/share/rear/conf/templates/RESULT_usage_RAMDISK.txt
+           --command-line='root=/dev/ram0 vga=normal'
+
+usr/share/rear/lib/bootloader-functions.sh
+    echo "append initrd=$REAR_INITRD_FILENAME root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE"
+    echo "append initrd=$REAR_INITRD_FILENAME root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE auto_recover $ISO_RECOVER_MODE"
+    echo "    append initrd=$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE $PXE_RECOVER_MODE"
+        echo "    append initrd=$PXE_HTTP_DOWNLOAD_URL/$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE $PXE_RECOVER_MODE"
+    echo "linux (tftp)/$PXE_KERNEL root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE $PXE_RECOVER_MODE"
+
+usr/share/rear/output/USB/Linux-i386/300_create_extlinux.sh
+    append initrd=/$USB_PREFIX/$REAR_INITRD_FILENAME root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE
+    append initrd=/$USB_PREFIX/$REAR_INITRD_FILENAME root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE auto_recover
+
+usr/share/rear/output/default/940_grub2_rescue.sh
+        echo "          linux $grub_boot_dir/$boot_kernel_name root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE"
+
+usr/share/rear/output/PXE/default/810_create_pxelinux_cfg.sh
+    append initrd=$OUTPUT_PREFIX_PXE/$PXE_INITRD root=/dev/ram0 vga=normal rw $KERNEL_CMDLINE $PXE_RECOVER_MODE
+</code></pre>
+<h4 id="edmcman_commented_at_2024-04-10_1506"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047808817">2024-04-10 15:06</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1506" title="Permanent link">&para;</a></h4>
+<p>That's interesting. Those parameters do <em>not</em> make it into the PBA
+image.</p>
+<h4 id="jsmeix_commented_at_2024-04-10_1510"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047817897">2024-04-10 15:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1510" title="Permanent link">&para;</a></h4>
+<p>I am not a SED user but from what I see at<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2047794207">https://github.com/rear/rear/issues/3194#issuecomment-2047794207</a><br />
+I even think the "system76 ... Ubuntu" GUI prompt<br />
+is misleading because (as far as I understand what goes on)<br />
+what you run there is not your actual "system76 ... Ubuntu"<br />
+but ReaR's Pre-Boot Authorization (PBA) system from the MBR shadow<br />
+which was made by ReaR from parts of your "system76 ... Ubuntu"<br />
+but that PBA system is not your actual "system76 ... Ubuntu"<br />
+so it should not show up as if it was your "system76 ... Ubuntu".</p>
+<p>At least when I look at the screenshot in<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2047794207">https://github.com/rear/rear/issues/3194#issuecomment-2047794207</a><br />
+I would never ever think this is a ReaR PBA system<br />
+so it would be at least misleading to others<br />
+who fail to imagine what actaully goes on there.</p>
+<h4 id="edmcman_commented_at_2024-04-10_1517"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047835101">2024-04-10 15:17</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1517" title="Permanent link">&para;</a></h4>
+<p>Yes, that is from the PBA image. System 76 is the PC manufacturer and
+their logo shows in other Plymouth prompts as well.</p>
+<p>FWIW, as a sed user, I don't really care too much about the Ubuntu logo
+appearing there. Perhaps it would be more appropriate to have a ReaR
+logo, but I think anyone using a ReaR OPAL PBA probably knows what is
+going on. A very simple mitigation could be to include ReaR in the text
+prompt, e.g., "ReaR PBA: Enter password to unlock TCG OPAL disks". 🤷</p>
+<h4 id="jsmeix_commented_at_2024-04-10_1517"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047835236">2024-04-10 15:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1517" title="Permanent link">&para;</a></h4>
+<p>I think 'vga=normal' alone cannot work<br />
+when the GPU is used but without firmware<br />
+because the GPU without firmware cannot show<br />
+any screen output (also none in 'vga=normal' mode).</p>
+<p>So I think 'nomodeset' is crucial when a GPU is used<br />
+that needs firmware (which many nowadays GPUs need)<br />
+to get screen output in simple console text mode<br />
+when one does not want to bother with firmware stuff<br />
+under the rather low size limits of the MBR shadow.</p>
+<h4 id="jsmeix_commented_at_2024-04-10_1520"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047841441">2024-04-10 15:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1520" title="Permanent link">&para;</a></h4>
+<p>@edmcman<br />
+could you please also post a screenshot how it looks<br />
+with 'nomodeset' in simple console text mode i.e. for<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2047646496">https://github.com/rear/rear/issues/3194#issuecomment-2047646496</a><br />
+so I could get a better understanding how that things look<br />
+"in real world out there".</p>
+<h4 id="edmcman_commented_at_2024-04-10_1544"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047895860">2024-04-10 15:44</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1544" title="Permanent link">&para;</a></h4>
+<p>So I just added <code>nomodeset</code> but left the i915 firmware and plymouth
+specific config settings, and the GUI still appeared. So apparently KMS
+isn't needed for the GUI.</p>
+<p>Still working on getting the CLI interface for you.</p>
+<h4 id="edmcman_commented_at_2024-04-10_1550"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2047911097">2024-04-10 15:50</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-10_1550" title="Permanent link">&para;</a></h4>
+<p><img alt="image" src="https://github.com/rear/rear/assets/1017189/8c95b174-cd16-4e30-8224-9836dbcb1f27" /></p>
+<h4 id="jsmeix_commented_at_2024-04-11_0755"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049136226">2024-04-11 07:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-11_0755" title="Permanent link">&para;</a></h4>
+<p>This looks rather terse.</p>
+<p>Perhaps the <code>password_prompt</code> text in<br />
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks<br />
+could be a bit more descriptive to make it more clear<br />
+what it is about (but must still fit on a 80 columns<br />
+traditional console) like</p>
+<pre><code>Enter password to unlock TCG Opal 2 disks
+</code></pre>
+<p>or less tecnically accurate</p>
+<pre><code>Enter password to unlock self-encrypting disks
+</code></pre>
+<p>or both</p>
+<pre><code>Enter password to unlock TCG Opal 2 self-encrypting disks
+</code></pre>
+<p>where the latter results on the screen<br />
+via the ask_for_password() function</p>
+<pre><code>Enter password to unlock TCG Opal 2 self-encrypting disks:
+</code></pre>
+<p>with a trailing blank which is 59 characters long.</p>
+<p>Or in simpler wording - for the user it does not matter<br />
+how ('self' or via another method) it is encrypted<br />
+(this is a technical implementation detail)<br />
+what matters is that there are encrypted disks<br />
+which need to be unlocked:</p>
+<pre><code>Enter password to unlock TCG Opal 2 encrypted disks:
+</code></pre>
+<p>It matters for the user that the disks are TCG Opal 2 compliant<br />
+(i.e. the SEDs are encrypted in a TCG Opal 2 compliant way)<br />
+because other kind of SEDs are not supported according to<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc</a></p>
+<h4 id="edmcman_commented_at_2024-04-11_1254"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049632675">2024-04-11 12:54</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-11_1254" title="Permanent link">&para;</a></h4>
+<p>I think the consumer of the message can be divided in two cases: (1) the
+person who configured the drives and PBA, (2) someone else.</p>
+<p>The person who configured the drives really only needs the message to
+tell them when the PBA is ready for the password. They already know the
+drives are encrypted.</p>
+<p>Other people probably need slightly more context. I think a slightly
+longer explanation would be more useful. Something like:</p>
+<p>"This computer is configured to boot from an encrypted disk. Please
+enter the encryption password to unlock the disks:"</p>
+<p>That is longer than 80 characters, but is that really a problem? We
+could put a line-break before the prompt sentence.</p>
+<h4 id="jsmeix_commented_at_2024-04-11_1341"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049722900">2024-04-11 13:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-11_1341" title="Permanent link">&para;</a></h4>
+<p>Some general understanding questions:</p>
+<p>I just don't understand<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc</a><br />
+I confuses me what is where (USB stick vs. disk vs. SED).</p>
+<p>I thought you get the prompt</p>
+<pre><code>Enter password to unlock disks:
+</code></pre>
+<p>only when booting the ReaR PBA system<br />
+(from the shadow MBR of a SED).</p>
+<p>Now I am wondering what the purpose is<br />
+of that SED with the ReaR PBA system on it?</p>
+<p>Will that SED become your normal operating system disk<br />
+or will that SED become your ReaR recovery medium that<br />
+you only use to recreate your operating system?</p>
+<p>When that SED with the ReaR PBA system<br />
+becomes your normal operating system disk<br />
+it means (as far as I imagine things) that<br />
+when that SED is unlocked,<br />
+it will boot the normal operating system<br />
+and<br />
+when that SED is locked,<br />
+it will boot the ReaR PBA system.</p>
+<p>So any user of the computer with that SED<br />
+may get the ReaR PBA system booted<br />
+(when that SED is locked).</p>
+<p>If my above guess how all that belongs together is right,<br />
+I understand now why there was so much effort taken<br />
+to make booting the ReaR PBA system look nice<br />
+with splash screen and whatnot:<br />
+To make booting the computer with that SED<br />
+look mostly same as booting with a normal disk.</p>
+<p>In this case 'nomodeset' text-only booting by default<br />
+would make booting from a TCG Opal 2-compliant SED<br />
+look rather different for normal users compared to<br />
+booting from a normal (unencrypted) disk.</p>
+<p>Is my above guess how all that belongs together right<br />
+or do I misunderstand and confuse things?</p>
+<h4 id="edmcman_commented_at_2024-04-11_1439"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049849413">2024-04-11 14:39</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-11_1439" title="Permanent link">&para;</a></h4>
+<p>Overall I think you have a good understanding of how things will work.</p>
+<blockquote>
+<p>Will that SED become your normal operating system disk<br />
+or will that SED become your ReaR recovery medium that<br />
+you only use to recreate your operating system?</p>
+</blockquote>
+<p>The former. It's kind of weird, but I came to the project for the PBA
+support only :-)</p>
+<blockquote>
+<p>In this case 'nomodeset' text-only booting by default<br />
+would make booting from a TCG Opal 2-compliant SED<br />
+look rather different for normal users compared to<br />
+booting from a normal (unencrypted) disk.</p>
+</blockquote>
+<p>I could be wrong, but I think that <code>nomodeset</code> was still able to use
+Plymouth for the nice GUI prompt and it didn't noticeably look different
+to me from Plymouth outside of PBA.</p>
+<p>Also, one detail that you may not be thinking of is that after the PBA
+unlocks the disks, the computer actually reboots. So I don't think the
+PBA will ever be a completely seamless experience.</p>
+<h4 id="jsmeix_commented_at_2024-04-11_1456"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049888437">2024-04-11 14:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-11_1456" title="Permanent link">&para;</a></h4>
+<p>@edmcman<br />
+yes - of course - 'nomodeset' does not mean text-only.<br />
+Thank you for correcting me - I got confused.</p>
+<p>Cf.<br />
+<a href="https://askubuntu.com/questions/716957/what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean">https://askubuntu.com/questions/716957/what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean</a></p>
+<pre><code>The newest kernels have moved the video mode setting
+into the kernel. So all the programming of the hardware
+specific clock rates and registers on the video card
+happen in the kernel rather than in the X driver when
+the X server starts.. This makes it possible to have
+high resolution nice looking splash (boot) screens
+and flicker free transitions from boot splash
+to login screen. Unfortunately, on some cards this
+doesn't work properly and you end up with a black screen.
+Adding the nomodeset parameter instructs the kernel
+to not load video drivers and use BIOS modes instead
+until X is loaded.
+</code></pre>
+<p>i.e. with 'nomodeset' one basically gets<br />
+a simple kernel video (framebuffer?) driver<br />
+with some traditional VGA resolution and likely<br />
+some lower frames per second rate (e.g. 60 Hz)<br />
+as I wrote above (where I was not yet confused)<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2047760674">https://github.com/rear/rear/issues/3194#issuecomment-2047760674</a><br />
+and that should be well sufficient for the only task<br />
+to enter the password to unlock the SED.</p>
+<p>Also thank you that you explicitly described that<br />
+after the PBA unlocked the disks, the computer reboots.<br />
+I assumed that from what I had read but now I know it<br />
+actually behaves this way.</p>
+<h4 id="edmcman_commented_at_2024-04-11_1536"><img src="https://avatars.githubusercontent.com/u/1017189?v=4" width="50"><a href="https://github.com/edmcman">edmcman</a> commented at <a href="https://github.com/rear/rear/issues/3194#issuecomment-2049981533">2024-04-11 15:36</a>:<a class="headerlink" href="#edmcman_commented_at_2024-04-11_1536" title="Permanent link">&para;</a></h4>
+<p>I was expecting <code>nomodeset</code> to disable the GUI as well. It was a
+pleasant surprise.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-04.3194.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

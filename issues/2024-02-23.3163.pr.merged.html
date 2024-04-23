@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3163 PR merged: Error out if TMPDIR is set in user config - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3163 PR merged: Error out if TMPDIR is set in user config";
+        var mkdocs_page_input_path = "issues/2024-02-23.3163.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3163 PR merged: Error out if TMPDIR is set in user config</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3163_pr_merged_error_out_if_tmpdir_is_set_in_user_config"><a href="https://github.com/rear/rear/pull/3163">#3163 PR</a> <code>merged</code>: Error out if TMPDIR is set in user config<a class="headerlink" href="#3163_pr_merged_error_out_if_tmpdir_is_set_in_user_config" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2024-02-23_1101"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3163">2024-02-23 11:01</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2024-02-23_1101" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #2654</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+<code>export TMPDIR=/tmp</code> in <code>etc/rear/local.conf</code> and calling
+    <code>rear help</code> (the error appears even with <code>help</code>).</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Error out early if TMPDIR is set in user config - setting TMPDIR in
+    {site,local}.conf has not worked since 0022063 (PR #2633), as
+    discussed in #2654.</p>
+</li>
+</ul>
+<h4 id="pcahyna_commented_at_2024-02-23_1229"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961242537">2024-02-23 12:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-23_1229" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors please check if you agree with this change. I believe
+that it is better to abort early than to behave in unexpected ways.</p>
+<h4 id="jsmeix_commented_at_2024-02-23_1311"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961304528">2024-02-23 13:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-23_1311" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for this improvement.</p>
+<p>I fully agree that in particular for "rear mkrescue/mkbackup"<br />
+(i.e. for all workflows that run on the original system)<br />
+it is always better to abort early than to (silently)<br />
+behave in unexpected ways.</p>
+<p>For "rear recover" it is different.<br />
+Here it is in general better to abort early<br />
+than to (silently) behave in unexpected ways.<br />
+But for "rear recover" there are certain cases<br />
+(e.g. recreation of the initrd)<br />
+where it is better to proceed "bona fide" and<br />
+try out of something will actually fail later<br />
+than to check things in advance and abort in advance<br />
+without ever trying the real thing.</p>
+<h4 id="jsmeix_commented_at_2024-02-23_1314"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961308748">2024-02-23 13:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-23_1314" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I do not understand why you set</p>
+<pre><code>saved_tmpdir="${TMPDIR-}"
+</code></pre>
+<p>two times but you do not use the saved_tmpdir value<br />
+between when it is set first and when it is set for the second time.<br />
+So I do not understand why you set it for the first time.<br />
+In particular I fail to understand what you like to tell with</p>
+<pre><code># Can legitimately change in internal defaults, so we will set it again
+# after reading them.
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-02-23_1324"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961324195">2024-02-23 13:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-23_1324" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>For "rear recover" it is different.<br />
+Here it is in general better to abort early<br />
+than to (silently) behave in unexpected ways.<br />
+But for "rear recover" there are certain cases<br />
+(e.g. recreation of the initrd)<br />
+where it is better to proceed "bona fide"</p>
+</blockquote>
+<p>Good point, but I think that this case falls in the first category: even
+with "recover", we should abort early and let user fix their local.conf,
+if needed. "recover" can behave in strange ways when TMPDIR is not set
+properly.</p>
+<h4 id="pcahyna_commented_at_2024-02-23_1326"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961327343">2024-02-23 13:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-23_1326" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I do not understand why you set</p>
+<pre><code>saved_tmpdir="${TMPDIR-}"
+</code></pre>
+<p>two times but you do not use the saved_tmpdir value<br />
+between when it is set first and when it is set for the second time.</p>
+</blockquote>
+<p>The first initialization can be deleted, I just did not want to leave
+the value unset, but there was no good reason for it.</p>
+<h4 id="jsmeix_commented_at_2024-02-23_1406"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961388695">2024-02-23 14:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-23_1406" title="Permanent link">&para;</a></h4>
+<p>I think this case falls <strong>indirectly</strong> in the first category<br />
+so it is OK to always error out here.</p>
+<p>Details:</p>
+<p>I think this case does not directly fall in the first category<br />
+because I think "rear recover" likely works<br />
+even with TMPDIR (uselessly) set in a user config file<br />
+so it could be better for the user to not bother him<br />
+and proceed "bona fide" and try out if something<br />
+will actually fail during "rear recover".</p>
+<p>Nevertheless I think in this case it is OK to always error out<br />
+because "rear recover" cannot run without "rear mkrescue"<br />
+(or "rear mkbackup") before.<br />
+Because the user config files in the ReaR recovery system<br />
+are usually same as what they were when "rear mkrescue"<br />
+(or "rear mkbackup") was run before, we can safely assume<br />
+that "rear recover" will normally not error out with TMPDIR<br />
+set in a user config file.</p>
+<p>In the unusual case when the user changed a config file<br />
+in the ReaR recovery system before running "rear recover"<br />
+it is OK to error out when the user had falsely set TMPDIR in<br />
+a config file because this will correctly tell the user that<br />
+his config file change in the ReaR recovery system was wrong<br />
+and how to properly achieve what he intends.</p>
+<h4 id="pcahyna_commented_at_2024-02-23_1422"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1961412911">2024-02-23 14:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-23_1422" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think this case does not directly fall in the first category<br />
+because I think "rear recover" likely works<br />
+even with TMPDIR (uselessly) set in a user config file<br />
+so it could be better for the user to not bother him<br />
+and proceed "bona fide" and try out if something<br />
+will actually fail during "rear recover"</p>
+</blockquote>
+<p>It may work now, but as soon as some code uses <code>mktemp</code> after the
+configuration is sourced, it will misbehave with
+<code>mktemp: failed to create file via template '/foo/bar/tmp.XXXXXXXXXX': No such file or directory</code>
+if <code>TMPDIR=/foo/bar</code> exists in the original system, but does not exist
+in the recovery ramdisk.</p>
+<p>No such code exists now, but I guess it will appear sooner or later.</p>
+<p>EDIT: N.B. this was not an issue until my commit
+2721c2743ea959631be0d30eac92984a708c1e66, because there was code to
+unset TMPDIR in the recovery system.</p>
+<p>EDIT: I agree with the rest of what you wrote.</p>
+<h4 id="jsmeix_commented_at_2024-02-26_0713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1963454503">2024-02-26 07:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-26_0713" title="Permanent link">&para;</a></h4>
+<p>Meanwhile I think the</p>
+<pre><code>Error "Setting TMPDIR in a configuration file is not supported. To specify a working area directory prefix, export TMPDIR before executing '$PROGRAM'"
+</code></pre>
+<p>is wrong - both the message and the Error() abort.</p>
+<p>I think this should be only a user notification like</p>
+<pre><code>LogPrintError "Setting TMPDIR in a configuration file does not work to specify ReaR's working area, see default.conf about TMPDIR"
+</code></pre>
+<p>Reason:</p>
+<p>Setting TMPDIR in a ReaR config file does not work<br />
+to specify ReaR's working area BUILD_DIR<br />
+BUT<br />
+setting or unsetting TMPDIR in a ReaR config file<br />
+is probably the only way to specify a different TMPDIR<br />
+(i.e. different than TMPDIR for ReaR's working area)<br />
+for the programs that are called by ReaR.</p>
+<p>For example assume a user needs to have<br />
+ReaR's BUILD_DIR in /path/to/much/space<br />
+but he wants to keep the system's default TMPDIR<br />
+for the programs that are called by ReaR.</p>
+<h4 id="pcahyna_commented_at_2024-02-26_1727"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1964708501">2024-02-26 17:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-26_1727" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>... wrong - both the message and the Error() abort.<br />
+I think this should be only a user notification ...</p>
+</blockquote>
+<p>I could do this, but the motivation for aborting early is to prevent
+nasty surprises when recovering, since while one takes care to ensure
+that the TMPDIR exists in the original system, I am afraid that
+essentially nobody realizes the implication that the same TMPDIR would
+be used for recovery as well and thus needs to be included in the
+ramdisk. This thus leads to frustration when the recovery is actually
+needed (often under time pressure) and resulting support calls (that
+dedicated support or I will have to handle, or will land in our issue
+tracker). The case when one sets TMPDIR back to the default is safe, but
+most other cases will not be. Not supporting it is thus the simplest,
+most robust solution.</p>
+<p>If we really decide to downgrade it to printing and continuing despite
+what I wrote above, then I perhaps should revert
+2721c2743ea959631be0d30eac92984a708c1e66, since the motivation for that
+was that setting TMPDIR in the middle of user configuration is
+unsupported anyway, so the code is unneeded. Restoring it would help
+with the concerns above.</p>
+<p>Note though that supporting the case where one needs to have ReaR's
+BUILD_DIR in /path/to/much/space but one wants to keep the system's
+default TMPDIR for the programs that are called by ReaR is risky. What
+if for some reason we move the creation of the build area below sourcing
+of the user config again? Then it would break, as it would create
+BUILD_DIR in the system default location instead of in
+/path/to/much/space. I don't think we should teach users to rely on such
+intimate details of the implementation. Are you aware of any case where
+an user wants TMPDIR for called programs to be different than for the
+build area, anyway?</p>
+<h4 id="jsmeix_commented_at_2024-02-27_0642"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1965886579">2024-02-27 06:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-27_0642" title="Permanent link">&para;</a></h4>
+<p>By the way<br />
+regarding where <code>TMPDIR=</code> is used in ReaR code:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep 'TMPDIR' | grep -v ':[ ]*#'
+
+usr/share/rear/conf/examples/rescue-and-backup-on-same-ISO-image-example.conf:
+TMPDIR=/mnt2/tmp
+
+usr/share/rear/conf/default.conf:
+export TMPDIR="${TMPDIR-/var/tmp}"
+
+usr/share/rear/restore/DUPLICITY/default/200_prompt_user_to_start_restore.sh:
+test $TMPDIR &amp;&amp; old_TMPDIR=$TMPDIR
+export TMPDIR=$TARGET_FS_ROOT
+test $old_TMPDIR &amp;&amp; TMPDIR=$old_TMPDIR || unset TMPDIR
+
+usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh:
+efi_mpt=$( mktemp -d $TMPDIR/rear-efi.XXXXXXXXXX ) || Error "mktemp failed to create mount point '$TMPDIR/rear-efi.XXXXXXXXXX' for EFI partition '$efi_part'"
+</code></pre>
+<p>So there is a wrong config example <code>TMPDIR=/mnt2/tmp</code> in<br />
+usr/share/rear/conf/examples/rescue-and-backup-on-same-ISO-image-example.conf</p>
+<pre><code># The defaul location /tmp might be too small to contain the backup (temporary location)
+# use an alternative for /tmp (as backup.tar.gz size might be too big for /tmp)
+TMPDIR=/mnt2/tmp
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-02-27_0644"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1965888455">2024-02-27 06:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-27_0644" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/9793364ba85aac019f367f45f906e55e2e4d4648">https://github.com/rear/rear/commit/9793364ba85aac019f367f45f906e55e2e4d4648</a><br />
+I removed in<br />
+conf/examples/rescue-and-backup-on-same-ISO-image-example.conf<br />
+the wrong and outdated TMPDIR=/mnt2/tmp<br />
+that is no longer needed since the default<br />
+is /var/tmp which has enough space.</p>
+<h4 id="jsmeix_commented_at_2024-02-27_0706"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1965910450">2024-02-27 07:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-27_0706" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your endless work and patience<br />
+with that endless "how to properly deal with TMPDIR" stuff!</p>
+<p>This makes THE difference between quick hacks<br />
+versus thorougly thought-out practicable solutions<br />
+even if a solution cannot solve all possible cases<br />
+but we can only do what is possible with reasonable effort.</p>
+<p>Please merge it as soon as you can.</p>
+<h4 id="pcahyna_commented_at_2024-02-27_1036"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1966257789">2024-02-27 10:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-27_1036" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thank you for the thoughtful review and correction of the
+obsolete example! Merging.<br />
+By the way:<br />
+you searched for <code>TMPDIR</code>, but any invocation of <code>mktemp</code> implicitely
+uses <code>TMPDIR</code>, so we have some more uses beyond those that you found.</p>
+<h4 id="jsmeix_commented_at_2024-02-27_1050"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1966280588">2024-02-27 10:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-27_1050" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I searched for TMPDIR because I was interested<br />
+what we do with the TMPDIR variable itself<br />
+in particular where we modify it<br />
+(not where we use its value e.g. via mktemp).</p>
+<p>But I missed to search our documentation:</p>
+<pre><code># find doc -type f | xargs grep 'TMPDIR'
+
+doc/user-guide/03-configuration.adoc:
+TMPDIR=/bigdisk::
+The +TMPDIR+ is picked up by the +mktemp+ command to create the +BUILD_DIR+ under +/bigdisk/tmp/rear.XXXX+
+The default value of +TMPDIR+ is an empty string, therefore, by default +BUILD_DIR+ is +/tmp/rear.XXXX+
+</code></pre>
+<p>I will also fix that right now...</p>
+<h4 id="jsmeix_commented_at_2024-02-27_1058"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1966295288">2024-02-27 10:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-27_1058" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/d5556a3a0a481e941a4604b137978ca0d2d6dcc6">https://github.com/rear/rear/commit/d5556a3a0a481e941a4604b137978ca0d2d6dcc6</a><br />
+I removed in doc/user-guide/03-configuration.adoc<br />
+the outdated and obsolete part about TMPDIR=/bigdisk<br />
+because since the default is /var/tmp<br />
+there is enough space for things like a big ISO image</p>
+<h4 id="pcahyna_commented_at_2024-02-27_1105"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3163#issuecomment-1966306328">2024-02-27 11:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-27_1105" title="Permanent link">&para;</a></h4>
+<p>@jsmeix good catch! I think that documenting default values separately
+from default.conf is often a bad idea - the documentation becomes soon
+obsolete.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-23.3163.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

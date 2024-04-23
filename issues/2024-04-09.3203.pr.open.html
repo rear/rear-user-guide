@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3203 PR open: On hold: New source_variable_from_file() - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3203 PR open: On hold: New source_variable_from_file()";
+        var mkdocs_page_input_path = "issues/2024-04-09.3203.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3203 PR open: On hold: New source_variable_from_file()</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3203_pr_open_on_hold_new_source_variable_from_file"><a href="https://github.com/rear/rear/pull/3203">#3203 PR</a> <code>open</code>: On hold: New source_variable_from_file()<a class="headerlink" href="#3203_pr_open_on_hold_new_source_variable_from_file" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>discuss / RFC</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-04-09_1144"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3203">2024-04-09 11:44</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-04-09_1144" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>Currently mostly tested only on command line, see<br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2045058844">https://github.com/rear/rear/pull/3203#issuecomment-2045058844</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In lib/global-functions.sh added<br />
+new function get_shell_file_config_variable()</p>
+<p>For details see the comment<br />
+at get_shell_file_config_variable()<br />
+in lib/global-functions.sh</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1151"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2044925890">2024-04-09 11:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1151" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+in your<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2012100925">https://github.com/rear/rear/pull/3171#issuecomment-2012100925</a><br />
+you wrote</p>
+<pre><code>the final '|| return 1' is necessary because
+bash returns 127 on unbound variables
+</code></pre>
+<p>Why does it matter what non-zero return code<br />
+the get_var_from_file() function returns?</p>
+<p>Or in other words:<br />
+Why not have the get_var_from_file() implementation<br />
+simpler by omitting the final '|| return 1' like</p>
+<pre><code>function get_var_from_file() {
+    bash -c 'unset $1 || exit 1 ; source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2"
+}
+</code></pre>
+<p>?</p>
+<h4 id="lzaoral_commented_at_2024-04-09_1204"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2044979689">2024-04-09 12:04</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-04-09_1204" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Why does it matter what non-zero return code the
+get_var_from_file() function returns?</p>
+</blockquote>
+<p>@jsmeix I suppose it does not. I just did that to be consistent with
+surrounding functions which return either <code>0</code> or <code>1</code>. It should be safe
+to drop this part.</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1210"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2045003239">2024-04-09 12:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1210" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+thank you for your prompt reply.<br />
+I dropped it via<br />
+<a href="https://github.com/rear/rear/pull/3203/commits/ef14f5f382147d67af76210a8b0d8f957df0f037">https://github.com/rear/rear/pull/3203/commits/ef14f5f382147d67af76210a8b0d8f957df0f037</a><br />
+but I did not test it with the dropped final '|| return 1'</p>
+<h4 id="lzaoral_commented_at_2024-04-09_1225"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2045058844">2024-04-09 12:25</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-04-09_1225" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Thank you! It seems to work as advertised:</p>
+<pre><code>$ get_var_from_file /etc/os-release VERSION; echo $?
+39 (Thirty Nine)
+0
+$ get_var_from_file /etc/os-release VERSIO; echo $?
+/etc/os-release: line 1: !1: unbound variable
+127
+$ get_var_from_file /etc/os-releas VERSIO; echo $?
+/etc/os-releas: line 1: /etc/os-releas: No such file or directory
+/etc/os-releas: line 1: !1: unbound variable
+127
+$ get_var_from_file /etc/os-releas VERSION; echo $?
+/etc/os-releas: line 1: /etc/os-releas: No such file or directory
+/etc/os-releas: line 1: !1: unbound variable
+127
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-04-11_1929"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2050376112">2024-04-11 19:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-11_1929" title="Permanent link">&para;</a></h4>
+<p>@schlomo I really hope we are not going to implement a parser for shell
+assignments when this parser already exists - in the shell itself, just
+because of vague security justifications. The <code>os-release</code> file is
+documented to be readable this way (see the manual page), as are
+<code>/etc/sysconfig</code> files - guess how they are read by <code>ifup</code>/<code>ifdown</code> (See
+<code>source_config()</code> in <code>/etc/sysconfig/network-scripts/network-functions</code>)
+? What attack vectors are you speaking about when the files that we
+intend to source this way are already sourced at every boot?</p>
+<h4 id="schlomo_commented_at_2024-04-11_1951"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2050411936">2024-04-11 19:51</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-11_1951" title="Permanent link">&para;</a></h4>
+<p>For such shell files I agree with your logic, but the function claims to
+be more generic than shell config files.</p>
+<p>For shell config files one can source them and echo, even in a subshell.
+But then I'd call the function differently, e.g.
+<code>get_shell_file_config_variable</code> or such.</p>
+<h4 id="pcahyna_commented_at_2024-04-11_2006"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2050433590">2024-04-11 20:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-11_2006" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<blockquote>
+<p>For such shell files I agree with your logic</p>
+</blockquote>
+<p>That's the intent of the function, as documented in the comment:</p>
+<pre><code># The get_var_from_file function is meant to be used with files
+# like /etc/os-release or certain files in /etc/sysconfig or /etc/default
+# that basically only do shell-compatible variable assignments (VAR="value")
+</code></pre>
+<blockquote>
+<p>but the function claims to be more generic than shell config files.</p>
+<p>But then I'd call the function differently, e.g.
+get_shell_file_config_variable or such.</p>
+</blockquote>
+<p>If you feel that the function name promises more than the function is
+able to do, I agree with renaming it.</p>
+<h4 id="schlomo_commented_at_2024-04-11_2036"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2050494028">2024-04-11 20:36</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-11_2036" title="Permanent link">&para;</a></h4>
+<p>Yes, I think that would be beneficial</p>
+<h4 id="jsmeix_commented_at_2024-04-12_0626"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051071868">2024-04-12 06:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_0626" title="Permanent link">&para;</a></h4>
+<p>I prefer names that tell what a function actually is about.<br />
+<code>get_var_from_file</code> is too unspecific.</p>
+<p>Regarding <code>get_shell_file_config_variable</code>:<br />
+I wonder why it is limited to <em>config</em> variables?<br />
+I.e. why not only <code>get_shell_file_variable</code><br />
+because it can get the value of any variable<br />
+that is set in a shell syntax file?<br />
+Or is <code>get_shell_file_variable</code> confusing<br />
+because one does not know if it is about<br />
+a 'shell file' or a 'file variable'<br />
+so <code>get_shell_file_config_variable</code><br />
+is perhaps really what tells best what it is about?</p>
+<h4 id="jsmeix_commented_at_2024-04-12_0645"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051095105">2024-04-12 06:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_0645" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/3203/commits/12c3ccb8f00affa7d3a36e915602abee12328fc5">https://github.com/rear/rear/pull/3203/commits/12c3ccb8f00affa7d3a36e915602abee12328fc5</a><br />
+I renamed get_var_from_file into get_shell_file_config_variable<br />
+to tell what that function actually is about<br />
+plus adapted and enhanced/fixed comments.</p>
+<h4 id="schlomo_commented_at_2024-04-12_0741"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051195543">2024-04-12 07:41</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-12_0741" title="Permanent link">&para;</a></h4>
+<p>@jsmeix may I suggest an alternative implementation that doesn't call
+the <code>bash</code> binary and provides a little bit more error reporting
+compared to
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2045058844">https://github.com/rear/rear/pull/3203#issuecomment-2045058844</a>?</p>
+<p>This implementation also uses <a href="https://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html">Bash Restricted
+mode</a>
+to add a little bit of security protection.</p>
+<p>The error message also makes it clear that the config file was executed
+by Bash, hopefully this helps understanding errors better</p>
+<p>About the name: Yes, I believe that the limit to shell config files is
+important because it doesn't read other key-value config files that use
+<code>:</code> as separator or that allow whitespace around the <code>=</code></p>
+<p><strong>code s.sh</strong></p>
+<pre><code>function Error() {
+    echo -e "ERROR: $*"
+    exit 1
+}
+
+function get_shell_file_config_variable() {
+    [[ -r "$1" &amp;&amp; "$2" =~ [a-zA-Z_][a-zA-Z_0-9]* ]] || Error "Arg 1 '$1' is not a readable file or arg 2 '$2' is not valid variable name"
+    local file="$1"
+    local key="$2"
+
+    (
+        function die() {
+            echo "ERROR: $*"
+            exit 1
+        }
+        unset $key
+        set -r -e -u -o pipefail
+        eval "$(&lt; "$file")" || die "Bash errors while executing '$file'"
+        [[ -v $key ]] || die "$key is not set in $file"
+        echo ${!key}
+    )
+}
+
+get_shell_file_config_variable /etc/os-release VERSION
+echo $?
+
+get_shell_file_config_variable /etc/os-release SCHLOMO
+echo $?
+
+get_shell_file_config_variable /etc/passwd VERSION
+echo $?
+
+get_shell_file_config_variable /etc/cron.daily/dpkg foo
+echo $?
+
+get_shell_file_config_variable /etc/nothing VERSION
+echo $?
+</code></pre>
+<p><strong>example run s.sh</strong></p>
+<pre><code>root@84cc40add750:/rear/test# bash s.sh
+22.04.4 LTS (Jammy Jellyfish)
+0
+ERROR: SCHLOMO is not set in /etc/os-release
+1
+s.sh: line 18: root:x:0:0:root:/root:/bin/bash: restricted: cannot specify `/' in command names
+s.sh: line 19: daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 20: bin:x:2:2:bin:/bin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 21: sys:x:3:3:sys:/dev:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 22: sync:x:4:65534:sync:/bin:/bin/sync: restricted: cannot specify `/' in command names
+s.sh: line 23: games:x:5:60:games:/usr/games:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 24: man:x:6:12:man:/var/cache/man:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 25: lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 26: mail:x:8:8:mail:/var/mail:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 27: news:x:9:9:news:/var/spool/news:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 28: uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 29: proxy:x:13:13:proxy:/bin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 30: www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 31: backup:x:34:34:backup:/var/backups:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 32: list:x:38:38:Mailing: command not found
+s.sh: line 33: irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: eval: line 34: syntax error near unexpected token `('
+s.sh: eval: line 34: `gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin'
+ERROR: Bash errors while executing '/etc/passwd'
+1
+s.sh: line 25: /usr/libexec/dpkg/dpkg-db-backup: restricted: cannot specify `/' in command names
+ERROR: Bash errors while executing '/etc/cron.daily/dpkg'
+1
+ERROR: Arg 1 '/etc/nothing' is not a readable file or arg 2 'VERSION' is not valid variable name
+root@84cc40add750:/rear/test#
+</code></pre>
+<p>WDYT?</p>
+<h4 id="jsmeix_commented_at_2024-04-12_0756"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051218758">2024-04-12 07:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_0756" title="Permanent link">&para;</a></h4>
+<p>I think I better withdraw my pull request here<br />
+and leave it to you and @pcahyna and @lzaoral<br />
+how to get the value of a variable out of a file<br />
+because I am neither a sufficient expert in this area<br />
+nor will I find the needed time to get this task done.</p>
+<h4 id="schlomo_commented_at_2024-04-12_0832"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051287162">2024-04-12 08:32</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-12_0832" title="Permanent link">&para;</a></h4>
+<p>@jsmeix why? I think that you identified a relevant problem that we have
+again and again. Please don't be offended by the fact that somebody
+might have a different perspective.</p>
+<p>You proposed a solution, got feedback and a even suggestion for a
+different solution. We even already aligned on a suitable name.</p>
+<p>Besides that you gave us the opportunity for an interesting technical
+challenge (secure parsing of shell configs) which is always a good
+thing.</p>
+<p>I think my context is simply slightly different (and I see it as an
+asset for ReaR that we all are so different), for example I already
+implemented a <code>set_variable_from_commvault_status</code> function:<br />
+<a href="https://github.com/rear/rear/blob/09579ae652cf3475a94c1ab79030dfee64cff51c/usr/share/rear/prep/GALAXY11/default/400_prep_galaxy.sh#L5-L23">https://github.com/rear/rear/blob/09579ae652cf3475a94c1ab79030dfee64cff51c/usr/share/rear/prep/GALAXY11/default/400_prep_galaxy.sh#L5-L23</a></p>
+<p>Maybe you just collect all the feedback and proceed with that? I at
+least greatly appreciate the love to the details that you bring to ReaR!</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051629427">2024-04-12 12:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1203" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+at least for now I would like in this particular case<br />
+to relax from this particular Relax-and-Recover issue.<br />
+I spent already way too many hours on this issue<br />
+which seems to have basically unlimited depth<br />
+so at least for now I feel a bit "fed up" with it.<br />
+Let's wait and see how things look to me<br />
+after the weekend (but no promises).</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1209"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051638115">2024-04-12 12:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1209" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @lzaoral<br />
+feel free to use what I further developed here so far<br />
+which is all based on your foundations during<br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a><br />
+to make whatever<br />
+"get the value of a variable out of a file"<br />
+functionality as you like most for your needs.</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1333"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2051773594">2024-04-12 13:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1333" title="Permanent link">&para;</a></h4>
+<p>Since<br />
+<a href="https://github.com/rear/rear/pull/3177">https://github.com/rear/rear/pull/3177</a><br />
+is merged there is a merge conflict here<br />
+which I solved right now:</p>
+<h4 id="jsmeix_commented_at_2024-04-15_0812"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056083708">2024-04-15 08:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_0812" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/3203/commits/f79454fe2101b50180ba5abf79e68d581a7cf317">https://github.com/rear/rear/pull/3203/commits/f79454fe2101b50180ba5abf79e68d581a7cf317</a><br />
+I renamed the function again,<br />
+now from get_shell_file_config_variable<br />
+into source_variable_from_file<br />
+to make it explicit that the file is sourced<br />
+and<br />
+to make the name less generic (no longer generic 'get')<br />
+so we can - as needed - implement alternative functions<br />
+how to get a variable value out of a file<br />
+with different methods.</p>
+<p>Some "forensics" why we use 'source' at all:</p>
+<p>Using 'source' was introduced via<br />
+<a href="https://github.com/rear/rear/pull/3165/files">https://github.com/rear/rear/pull/3165/files</a><br />
+therein see<br />
+<a href="https://github.com/rear/rear/pull/3165#pullrequestreview-1903010946">https://github.com/rear/rear/pull/3165#pullrequestreview-1903010946</a><br />
+which shows the following outdated code diff</p>
+<pre><code>28  -  local version_id=$(grep "^VERSION_ID=" /etc/os-release | cut -d\" -f2 ) # 7
+
+28  +
+29  +  local version_id
+30  +  version_id="$(. /etc/os-release &amp;&amp; echo "$VERSION_ID")"
+</code></pre>
+<p>where 'grep' was replaced by '.'<br />
+There I only liked to have '.' replaced by explicit 'source'<br />
+but I did not question why 'grep' was replaced by 'source'.</p>
+<p>Because 'source' fails for readonly variables, see<br />
+<a href="https://github.com/rear/rear/pull/3165#discussion_r1505473662">https://github.com/rear/rear/pull/3165#discussion_r1505473662</a><br />
+@lzaoral "reworked the parsing completely", cf.<br />
+<a href="https://github.com/rear/rear/pull/3165#discussion_r1504116328">https://github.com/rear/rear/pull/3165#discussion_r1504116328</a><br />
+so that 'source' was no longer used and currently<br />
+we use 'grep' again but now together with 'eval', see<br />
+<a href="https://github.com/rear/rear/pull/3165/files">https://github.com/rear/rear/pull/3165/files</a></p>
+<p>Then during<br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a><br />
+in<br />
+<a href="https://github.com/rear/rear/pull/3171#pullrequestreview-1931528461">https://github.com/rear/rear/pull/3171#pullrequestreview-1931528461</a><br />
+@pcahyna proposed again to use 'source'<br />
+(now with a separated "bash in between")<br />
+because</p>
+<pre><code>I think this is simpler and more robust than using eval and grep
+(think of possible multi-line strings, for example).
+</code></pre>
+<p>see also<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2015082283">https://github.com/rear/rear/pull/3171#issuecomment-2015082283</a></p>
+<pre><code>... the "bash in between"
+which was up to now more a workaround for source
+that has a problem with readonly variables
+</code></pre>
+<p>(End of "forensics" why we use 'source'.)</p>
+<p>From there we further developed<br />
+how to get a variable value out of a file<br />
+with the 'source' method.</p>
+<p>For me the generic advantage of the 'source' method is<br />
+that we let 'bash' interpret and execute the file<br />
+so we get the value that 'bash' actually sets<br />
+(think of possible 'if' conditions, for example).</p>
+<p>Of course the generic disadvantage of the 'source' method is<br />
+that we let 'bash' interpret and execute the file<br />
+so we execute a (shell-syntax) file only<br />
+to get a variable value out of a file.</p>
+<p>I think when we restrict the sourcing shell<br />
+or when we let it abort at any errors, then<br />
+the generic advantage of the 'source' method<br />
+does no longer hold, see my experiments in<br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a></p>
+<p>I think we either use 'source' as it normally works<br />
+and then the sourced file must be trusted<br />
+or we better use another method<br />
+when the sourced file cannot be trusted.</p>
+<p>But even then we would need additional security things<br />
+to avoid unintended bash interpretation/execution<br />
+of the variable value when it is e.g. something like</p>
+<pre><code>$( COMMAND )
+</code></pre>
+<p>or whatever kind of bash code that could trigger<br />
+interpretation/execution when used later in bash.</p>
+<p>This all looks rather hopeless to get it secure.<br />
+Perhaps it actually is hopeless to securely<br />
+process unknown files or use data from unknown files?</p>
+<h4 id="jsmeix_commented_at_2024-04-15_1241"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056760487">2024-04-15 12:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1241" title="Permanent link">&para;</a></h4>
+<p>An offhanded generic idea how to avoid problems<br />
+with<br />
+"safely processing/interpreting untrustworthy files"<br />
+or with<br />
+"safely using data from untrustworthy files"<br />
+or generically with<br />
+"safely using untrustworthy files":</p>
+<p>My idea is to "simply" not use untrustworthy files.<br />
+(wow - what a great ingenious new idea ;-)</p>
+<p>Actually my idea is that a file is untrustworthy<br />
+for a particular user account,<br />
+if other users could have modified that file.</p>
+<p>Or in other words:<br />
+Only those files are trustworthy for a particular user account,<br />
+where only that particular user could have written the file.</p>
+<p>For ReaR this means:<br />
+Only those files are trustworthy to be used by ReaR<br />
+where only 'root' could have written the file.</p>
+<p>To check if only 'root' could have written a file<br />
+the only possible way in practice is<br />
+to check the current file owner, group, and permissions.</p>
+<p>So I suggest another new helper function:</p>
+<pre><code>function is_trustworthy_for_root () {
+    local resolved_file
+    resolved_file="$( readlink -e "$1" )" || return 1
+    # Owner name and group name must be 'root root':
+    test "$( stat -c '%U %G' $resolved_file )" = "root root" || return 1
+    # Neither group nor others must have write permission
+    # so the human readable permission string must be '-'
+    # for group and others for example like "-rwxr-xr-x"
+    [[ "$( stat -c '%A' $resolved_file )" == ?????-??-? ]]
+}
+</code></pre>
+<p>This helper function can then be called where needed<br />
+e.g. in source_variable_from_file() like</p>
+<pre><code>    is_trustworthy_for_root "$1" || return 1
+    bash -c ...
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-04-15_1349"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056911103">2024-04-15 13:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1349" title="Permanent link">&para;</a></h4>
+<p>My curent <code>is_trustworthy_for_root</code> implementation<br />
+is likely on the one hand too sceptical because<br />
+e.g. on my openSUSE Leap 15.5 system:</p>
+<pre><code># stat -c '%U %G %A' /etc/chrony.keys 
+root chrony -rw-r-----
+
+# ( set -x ; is_trustworthy_for_root /etc/chrony.keys &amp;&amp; echo Y || echo N )
++ is_trustworthy_for_root /etc/chrony.keys
++ local resolved_file
+++ readlink -e /etc/chrony.keys
++ resolved_file=/etc/chrony.keys
+++ stat -c '%U %G' /etc/chrony.keys
++ test 'root chrony' = 'root root'
++ return 1
++ echo N
+N
+</code></pre>
+<p>but on the other hand it is likely too careless<br />
+because it considers only traditional<br />
+owner, group, and permissions<br />
+but not newer things like ACLs.</p>
+<h4 id="schlomo_commented_at_2024-04-15_1414"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056966072">2024-04-15 14:14</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-15_1414" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I like your idea to reduce to attack surface by checking for
+trustworthy files (and you could use <code>stat --format "%A %u %g"</code> to check
+for all requirements in one comparison, if you like).</p>
+<p>I'm wondering if we really need that as we actually don't have that
+check in the <code>Source()</code> function of ReaR and don't care about the
+ownership of the ReaR files themselves.</p>
+<p>So maybe your initial thought was correct and we don't need to care so
+much about that?</p>
+<h4 id="schlomo_commented_at_2024-04-15_1425"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056992029">2024-04-15 14:25</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-15_1425" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I was thinking about further along the lines of "preventing
+command execution" and came up with this approach: Setting the <code>PATH</code> in
+the restricted shell to something without binaries in it effectively
+prevents running anything.</p>
+<p>Here is the amended version of my suggestion embedded in a shell script
+to test the behavior:</p>
+<pre><code>function Error() {
+    echo -e "ERROR: $*"
+    exit 1
+}
+
+function get_shell_file_config_variable() {
+    [[ -r "$1" &amp;&amp; "$2" =~ [a-zA-Z_][a-zA-Z_0-9]* ]] || Error "Arg 1 '$1' is not a readable file or arg 2 '$2' is not valid variable name"
+    local file="$1"
+    local key="$2"
+
+    (
+        function die {
+            echo "ERROR: $*"
+            exit 1
+        }
+        set -e -u -o pipefail
+        unset $key
+        declare -rx PATH=/dev/null
+        set -r
+        eval "$(&lt; "$file")" || die "Bash errors while executing '$file'"
+        [[ -v $key ]] || die "$key is not set in $file"
+        echo ${!key}
+    )
+}
+
+get_shell_file_config_variable /etc/os-release VERSION
+echo $?
+
+get_shell_file_config_variable /etc/os-release SCHLOMO
+echo $?
+
+get_shell_file_config_variable /etc/passwd VERSION
+echo $?
+
+get_shell_file_config_variable /etc/cron.daily/dpkg foo
+echo $?
+
+bad_file=$(mktemp)
+echo -e "date\nFOO='bar in $bad_file'" &gt;$bad_file
+get_shell_file_config_variable $bad_file FOO
+echo $?
+
+get_shell_file_config_variable /etc/nothing VERSION
+echo $?
+</code></pre>
+<p>Is there a reason why you prefer to run an extra <code>bash</code> binary? This
+version also has cleaner error handling and doesn't show internal errors
+about undefined variables or such:</p>
+<pre><code>root@9487ecb740f3:/rear/test# bash s.sh
+22.04.4 LTS (Jammy Jellyfish)
+0
+ERROR: SCHLOMO is not set in /etc/os-release
+1
+s.sh: line 20: root:x:0:0:root:/root:/bin/bash: restricted: cannot specify `/' in command names
+s.sh: line 21: daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 22: bin:x:2:2:bin:/bin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 23: sys:x:3:3:sys:/dev:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 24: sync:x:4:65534:sync:/bin:/bin/sync: restricted: cannot specify `/' in command names
+s.sh: line 25: games:x:5:60:games:/usr/games:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 26: man:x:6:12:man:/var/cache/man:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 27: lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 28: mail:x:8:8:mail:/var/mail:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 29: news:x:9:9:news:/var/spool/news:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 30: uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 31: proxy:x:13:13:proxy:/bin:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 32: www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 33: backup:x:34:34:backup:/var/backups:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: line 34: list:x:38:38:Mailing: command not found
+s.sh: line 35: irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin: restricted: cannot specify `/' in command names
+s.sh: eval: line 36: syntax error near unexpected token `('
+s.sh: eval: line 36: `gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin'
+ERROR: Bash errors while executing '/etc/passwd'
+1
+s.sh: line 27: /usr/libexec/dpkg/dpkg-db-backup: restricted: cannot specify `/' in command names
+ERROR: Bash errors while executing '/etc/cron.daily/dpkg'
+1
+s.sh: line 20: date: command not found
+bar in /tmp/tmp.5UswwxhrrT
+0
+ERROR: Arg 1 '/etc/nothing' is not a readable file or arg 2 'VERSION' is not valid variable name
+root@9487ecb740f3:/rear/test#
+</code></pre>
+<p>ATM there is only one scenario that I don't like which is that I didn't
+manage to abort reading the config file if there is anything wrong with
+it. The example with <code>line 20: date: command not found</code> illustrates
+that: The line with <code>date</code> in the "config file" is ignored but the 2nd
+line with <code>FOO=</code> is then read. Strictly speaking I'd prefer the code to
+abort on that with an error.</p>
+<h4 id="schlomo_commented_at_2024-04-15_1427"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2056996752">2024-04-15 14:27</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-15_1427" title="Permanent link">&para;</a></h4>
+<p>Since we talked about the example of reading <code>/etc/os-release</code> I read
+again
+<a href="https://www.freedesktop.org/software/systemd/man/latest/os-release.html">https://www.freedesktop.org/software/systemd/man/latest/os-release.html</a>
+and realised that we should also read <code>/usr/lib/os-release</code> if it
+doesn't exist... More complexity and probably not part of the function
+under discussion, but of the use case for which we bring it in.</p>
+<h4 id="jsmeix_commented_at_2024-04-15_1444"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2057037332">2024-04-15 14:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1444" title="Permanent link">&para;</a></h4>
+<p>My current is_trustworthy_for_root is meant<br />
+for files that are not ReaR files,<br />
+like some shell-syntax config files.</p>
+<p>We use our Source() function only for ReaR files<br />
+(hopefully - as far as I assumed up to now).</p>
+<p>We don't care about the ownership of the ReaR files<br />
+and currently I cannot tell if this is a problem.<br />
+It could be a problem when we e.g. Source() files<br />
+as ReaR scripts that could have been "injected"<br />
+by others (i.e. new scripts in writable directories)<br />
+or modified by others (i.e. existing scripts).<br />
+Perhaps we may better call is_trustworthy_for_root<br />
+for each file that we Source() to be on the safe side?<br />
+Hopefully at least usr/share/rear/lib/global-functions.sh<br />
+is safe so that others cannot modify is_trustworthy_for_root().<br />
+Up to now I did not at all think about that.<br />
+Perhaps too carelessly I blindly assumed that<br />
+in any case only root can install ReaR<br />
+(perhaps because only root can install RPMs)<br />
+so I assumed ReaR files are owned by root and all is safe.<br />
+But I never verified that others cannot modify ReaR files.</p>
+<h4 id="jsmeix_commented_at_2024-04-15_1453"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2057057375">2024-04-15 14:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1453" title="Permanent link">&para;</a></h4>
+<p>Regarding "why calling 'source'"<br />
+and "why having another bash in between"<br />
+see my explanations above and in particular<br />
+see the history of all that in<br />
+<a href="https://github.com/rear/rear/pull/3165">https://github.com/rear/rear/pull/3165</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a></p>
+<p>Neither "calling 'source'"<br />
+nor "having another bash in between"<br />
+was my idea so I cannot properly answer questions<br />
+about all the reasoning behind.</p>
+<p>I only recognized that things worked better<br />
+(i.e. less false failures from too simple implementations)<br />
+when using 'source' from within a separated bash<br />
+but I did not compare that with possible other ways<br />
+how one could get a variable value out of a file.</p>
+<p>I would much appreciate if if @pcahyna and @lzaoral<br />
+could comment here to help to get things sorted out<br />
+so that we all better understand each other.</p>
+<h4 id="jsmeix_commented_at_2024-04-15_1503"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2057079972">2024-04-15 15:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1503" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+regarding your suggested get_shell_file_config_variable():</p>
+<p>I think your goal is different than the goal<br />
+behind the 'source' method, cf. my<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2056083708">https://github.com/rear/rear/pull/3203#issuecomment-2056083708</a><br />
+therein in particular what I think what<br />
+the generic advantage of the 'source' method is<br />
+and what<br />
+the generic disadvantage of the 'source' method is.</p>
+<p>So it makes sense to also have your function in ReaR<br />
+for cases where we cannot 'source' a file.</p>
+<p>Perhaps over time we learn that in practice we never<br />
+actually needed to 'source' a file to get a variable<br />
+value out of it and then we could "just drop"<br />
+that source_variable_from_file function<br />
+because it is only a ReaR internal function<br />
+so we are free to do with it what we want.</p>
+<p>Perhaps in the end only is_trustworthy_for_root<br />
+and its consequences "survive" from here<br />
+which could be a rather good end result.</p>
+<h4 id="jsmeix_commented_at_2024-04-15_1520"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2057119098">2024-04-15 15:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-15_1520" title="Permanent link">&para;</a></h4>
+<p>Regarding /etc/os-release versus /usr/lib/os-release:</p>
+<p>At least on my openSUSE Leap 15.5 I have:</p>
+<pre><code># ls -l /etc/os-release
+lrwxrwxrwx 1 root root ... /etc/os-release -&gt; ../usr/lib/os-release
+</code></pre>
+<p>so at least on openSUSE Leap 15.5<br />
+/etc/os-release exists</p>
+<pre><code># rpm -qf /etc/os-release
+openSUSE-release-15.5-lp155.286.1.x86_64
+</code></pre>
+<p>but I don't know if /etc/os-release exists<br />
+as file or as symlink to /usr/lib/os-release<br />
+on other Linux distributions.</p>
+<p>By the way:<br />
+This link was the reason why I do</p>
+<pre><code>resolved_file="$( readlink -e "$filename" )" || return 1
+</code></pre>
+<p>in is_trustworthy_for_root() because otherwise<br />
+the link would be reported as untrustworthy because</p>
+<pre><code># stat -c %A /etc/os-release
+lrwxrwxrwx
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-04-18_0932"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">2024-04-18 09:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-18_0932" title="Permanent link">&para;</a></h4>
+<p>FYI<br />
+where we call 'source' in our scripts:</p>
+<p>I used the output of</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f \
+ | xargs egrep '^source |[^$_(]source ' \
+ | egrep -v ': *#|resource|while read source'
+</code></pre>
+<p>and removed the false positives:</p>
+<pre><code>usr/sbin/rear:
+if ! source $SHARE_DIR/conf/default.conf ; then
+if ! source $SHARE_DIR/lib/_input-output-functions.sh ; then
+    source $script || BugError "Failed to source $script"
+    source $SHARE_DIR/lib/progresssubsystem.nosh || BugError "Failed to source $SHARE_DIR/lib/progresssubsystem.nosh"
+
+usr/share/rear/restore/NBKDC/default/400_restore_backup.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+
+usr/share/rear/layout/recreate/default/200_run_layout_code.sh:
+        ( source $LAYOUT_CODE )
+
+usr/share/rear/layout/prepare/default/200_recreate_hpraid.sh:
+        ( source $LAYOUT_CODE )
+
+usr/share/rear/layout/prepare/Linux-s390/400_run_dasd_format_code.sh:
+    ( source $DASD_FORMAT_CODE )
+
+usr/share/rear/layout/save/GNU/Linux/190_opaldisk_layout.sh:
+    source "$(opal_device_attributes "$device" attributes)"
+
+usr/share/rear/skel/default/bin/dhclient-script:
+source /etc/scripts/dhcp-setup-functions.sh
+
+usr/share/rear/skel/default/etc/profile:
+        source "$script"
+
+usr/share/rear/skel/default/etc/syslog-ng-v3.conf:
+source src {
+
+usr/share/rear/skel/default/etc/scripts/system-setup:
+source /usr/share/rear/conf/default.conf || echo -e "\n'source /usr/share/rear/conf/default.conf' failed with exit code $?"
+        source /etc/rear/$conf.conf || echo -e "\n'source /etc/rear/$conf.conf' failed with exit code $?"
+        source $system_setup_script || echo -e "\n'source $system_setup_script' results exit code $?\n"
+        if ! source $system_setup_script ; then
+
+usr/share/rear/skel/default/etc/scripts/system-setup.d/58-start-dhclient.sh:
+source /etc/scripts/dhcp-setup-functions.sh
+
+usr/share/rear/skel/default/etc/scripts/unlock-opal-disks:
+source /usr/share/rear/lib/opal-functions.sh
+[[ -f /.OPAL_PBA_SETTINGS.sh ]] &amp;&amp; source /.OPAL_PBA_SETTINGS.sh
+[[ ${#OPAL_PBA_TKNPATH[@]} -gt 0 ]] &amp;&amp; source /usr/share/rear/lib/authtoken-functions.sh
+    source "/etc/scripts/system-setup.d/$system_setup_script"
+
+usr/share/rear/skel/default/etc/syslog-ng.conf:
+source src {
+
+usr/share/rear/skel/NBKDC/etc/scripts/system-setup.d/90-start-nbkdc.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+
+usr/share/rear/skel/SESAM/etc/scripts/system-setup.d/59-start-sesam-client.sh:
+        source $SHARE_DIR/lib/sesam-functions.sh
+        source $SESAM_VAR_DIR/var/ini/sesam2000.profile
+
+usr/share/rear/prep/DUPLICITY/default/200_find_duply_profile.sh:
+            source $CONF    # is a normal shell configuration file
+    source $DUPLY_PROFILE_FILE
+
+usr/share/rear/prep/SESAM/default/400_prep_sesam.sh:
+        source $SHARE_DIR/lib/sesam-functions.sh
+
+usr/share/rear/rescue/GNU/Linux/220_load_modules_from_initrd.sh:
+        source /etc/sysconfig/kernel
+            source /etc/dracut.conf
+                source $s
+
+usr/share/rear/lib/rear-shell.bashrc:
+for script in $SHARE_DIR/lib/*functions.sh ; do source $script ; done
+source $SHARE_DIR/lib/progresssubsystem.nosh
+
+usr/share/rear/lib/drlm-functions.sh:
+                source $DRLM_CFG
+            source $DRLM_CFG
+
+usr/share/rear/lib/opaladmin-workflow.sh:
+        source "$(opal_device_attributes "$device" attributes)"
+
+usr/share/rear/lib/sesam-functions.sh:
+source $sesam2000ini_file
+
+usr/share/rear/lib/opal-functions.sh:
+    source "$(opal_device_attributes "$device" attributes)"
+        source "$(opal_device_attributes "$device" attributes)"
+
+usr/share/rear/lib/framework-functions.sh:
+    source "$source_file"
+
+usr/share/rear/lib/global-functions.sh:
+        source $CONF    # is a normal shell configuration file
+
+usr/share/rear/build/OPALPBA/Linux-i386/810_deduplicate_files.sh:
+source "$deduplication_script"
+
+usr/share/rear/build/USB/default/800_enforce_usb_output.sh:
+local_conf_output=$( source $ROOTFS_DIR/etc/rear/local.conf ; echo $OUTPUT )
+</code></pre>
+<p>i.e. 43 places where we call 'source' in our scripts.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-09.3203.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

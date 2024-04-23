@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3198 Issue closed: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3198 Issue closed: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system";
+        var mkdocs_page_input_path = "issues/2024-04-05.3198.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3198 Issue closed: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3198_issue_closed_bug_rear_should_abort_as_early_as_possible_if_rear_recover_is_run_outside_rescue_system"><a href="https://github.com/rear/rear/issues/3198">#3198 Issue</a> <code>closed</code>: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system<a class="headerlink" href="#3198_issue_closed_bug_rear_should_abort_as_early_as_possible_if_rear_recover_is_run_outside_rescue_system" title="Permanent link">&para;</a></h1>
+<h4 id="schlomo_opened_issue_at_2024-04-05_1632"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> opened issue at <a href="https://github.com/rear/rear/issues/3198">2024-04-05 16:32</a>:<a class="headerlink" href="#schlomo_opened_issue_at_2024-04-05_1632" title="Permanent link">&para;</a></h4>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<p>While working on the #3190 story I noticed that we first apply an
+update downloaded from <code>$RECOVERY_UPDATE_URL</code> and <em>then</em> check if we are
+actually in the recovery system :face_with_head_bandage:. This could
+lead to an update getting applied to an origin system if somebody would
+accidentally (or maliciously) run <code>rear recover</code> there.</p>
+<p><img alt="image" src="https://github.com/rear/rear/assets/101384/791e843a-8b08-4416-aaaa-ce83f1c8e229" /></p>
+<h2 id="proposed_solution">Proposed Solution<a class="headerlink" href="#proposed_solution" title="Permanent link">&para;</a></h2>
+<p>Check very early for recovery mode</p>
+<h4 id="jsmeix_commented_at_2024-04-10_0706"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3198#issuecomment-2046675591">2024-04-10 07:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_0706" title="Permanent link">&para;</a></h4>
+<p>init/default/030_update_recovery_system.sh contains</p>
+<pre><code>test "$WORKFLOW" != "recover" &amp;&amp; return
+</code></pre>
+<p>so I wonder how it could apply an update downloaded<br />
+into the original system?</p>
+<h4 id="schlomo_commented_at_2024-04-10_1309"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3198#issuecomment-2047503447">2024-04-10 13:09</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-10_1309" title="Permanent link">&para;</a></h4>
+<p>Yes, still felt wrong to check so late for recovery mode 🤷</p>
+<h4 id="jsmeix_commented_at_2024-04-10_1327"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3198#issuecomment-2047546343">2024-04-10 13:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-10_1327" title="Permanent link">&para;</a></h4>
+<p>Of course the check for recovery mode was too late<br />
+but I asked because I do not understand your<br />
+initial description of this issue which looks<br />
+as if you got update downloaded appiled onto<br />
+your original system by 030_update_recovery_system.sh<br />
+i.e. as if I made a severe bug in that script.</p>
+<p>FYI about its history:</p>
+<pre><code># git log -p --follow usr/share/rear/init/default/050_check_rear_recover_mode.sh
+</code></pre>
+<p>shows at its end i.e. at the very beginning of time<br />
+(excerpts):</p>
+<pre><code>commit d8f1571a213a9df272327bb070e8a87f78fc14c3
+Author: Johannes Meixner &lt;jsmeix@suse.com&gt;
+Date:   Thu Oct 27 12:44:16 2016 +0200
+
+    renumbered by ading a trailing 0 so that 12 becomes 120
+    except 00 which becomes 005 and adapted symlinks to point
+    again to the right re-numbered scripts
+...
+rename from usr/share/rear/init/default/05_check_rear-recover_mode.sh
+rename to usr/share/rear/init/default/050_check_rear-recover_mode.sh
+
+commit ad2283c402736253e4f76d36659f353695aeceea
+Author: Gratien D'haese &lt;gratien.dhaese@gmail.com&gt;
+Date:   Fri Dec 11 18:14:31 2015 +0100
+
+    prevent any other workflow in REAR rescue mode
+    then recover - see issue #719
+...
+--- /dev/null
++++ b/usr/share/rear/init/default/05_check_rear-recover_mode.sh
+</code></pre>
+<p>so 05_check_rear-recover_mode.sh<br />
+(relatively early in 00...99)<br />
+became 050_check_rear-recover_mode.sh<br />
+(relatively same early in 000...999).</p>
+<p>So my fault was to add 030_update_recovery_system.sh<br />
+before 050_check_rear-recover_mode.sh<br />
+so I needed the extra check<br />
+instead of after it and then leave out the check.</p>
+<h4 id="schlomo_commented_at_2024-04-10_1356"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3198#issuecomment-2047621768">2024-04-10 13:56</a>:<a class="headerlink" href="#schlomo_commented_at_2024-04-10_1356" title="Permanent link">&para;</a></h4>
+<p>Ah, so I sort of fixed what happened at that old XX to XXX change? Nice.</p>
+<p>I didn't have a problem with unplanned system updates, it was more of a
+thought.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-05.3198.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

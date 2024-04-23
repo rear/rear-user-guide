@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3189 Issue open: booting rescue system (ISO) of SLES on POWER fails - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3189 Issue open: booting rescue system (ISO) of SLES on POWER fails";
+        var mkdocs_page_input_path = "issues/2024-04-02.3189.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3189 Issue open: booting rescue system (ISO) of SLES on POWER fails</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3189_issue_open_booting_rescue_system_iso_of_sles_on_power_fails"><a href="https://github.com/rear/rear/issues/3189">#3189 Issue</a> <code>open</code>: booting rescue system (ISO) of SLES on POWER fails<a class="headerlink" href="#3189_issue_open_booting_rescue_system_iso_of_sles_on_power_fails" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="kai-uwe-rommel_opened_issue_at_2024-04-02_1317"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> opened issue at <a href="https://github.com/rear/rear/issues/3189">2024-04-02 13:17</a>:<a class="headerlink" href="#kai-uwe-rommel_opened_issue_at_2024-04-02_1317" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    2.7</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:<br />
+    comes from SLES repository</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    NAME="SLES"<br />
+    VERSION="15-SP5"<br />
+    VERSION_ID="15.5"<br />
+    PRETTY_NAME="SUSE Linux Enterprise Server 15 SP5"<br />
+    ID="sles"<br />
+    ID_LIKE="suse"<br />
+    ANSI_COLOR="0;32"<br />
+    CPE_NAME="cpe:/o:suse:sles:15:sp5"</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    OUTPUT=ISO<br />
+    OUTPUT_URL=nfs://prometheus/nim/rear<br />
+    BACKUP=TSM</p>
+</li>
+</ul>
+<p>(The ISO file is then copied from the NFS server into the VIOS media
+library and mounted into the new PowerVM LPAR as a virtual optical
+drive.)</p>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    IBM PowerVM LPAR</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    PPC64LE</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SAN w/multipath</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):<br />
+<a href="https://github.com/rear/rear/files/14837097/lsblk.txt">lsblk.txt</a></p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    The rear invocation creates an ISO file and that looks fine to me.<br />
+    When booting it in a new/blank PowerVM LPAR, it ends up with a
+    kernel panic.<br />
+    To me it looks like it does not load the initrd.<br />
+    But the initrd file is in the ISO and seems to be referenced
+    properly in the grub.cfg file.<br />
+<a href="https://github.com/rear/rear/files/14837101/boot.log">boot.log</a><br />
+    Please see content of the boot log file.</p>
+</li>
+<li>
+<p>Workaround, if any:<br />
+    unfortunately, none - need help</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-04-02_1446"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2032246470">2024-04-02 14:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-02_1446" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+please attach a "rear -D mkrescue" (or "rear -D mkbackup")<br />
+debug log file.</p>
+<p>In general:<br />
+Caution with possible secrets in a debug log file:<br />
+When 'rear' is run via '-D' in debugscript mode<br />
+it logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed.<br />
+So in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.<br />
+Also secrets may be stored in some other files<br />
+like /var/lib/rear/layout/disklayout.conf<br />
+or /var/lib/rear/layout/diskrestore.sh<br />
+cf. <code>[password=&lt;password&gt;]</code> in the section<br />
+"Disk layout file syntax" in<br />
+doc/user-guide/06-layout-configuration.adoc<br />
+online at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc">https://github.com/rear/rear/blob/rear-2.7/doc/user-guide/06-layout-configuration.adoc</a><br />
+So before you attach your debug log file or other files here<br />
+(GitHub is a public accessible place), inspect your files<br />
+and verify that they do not accidentally cointain secrets.</p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-03_1631"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2035067568">2024-04-03 16:31</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-03_1631" title="Permanent link">&para;</a></h4>
+<p>The mkrescue debug log:<br />
+<a href="https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log">rear-mkrescue-debug.log</a></p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-03_1632"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2035069769">2024-04-03 16:32</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-03_1632" title="Permanent link">&para;</a></h4>
+<p>Also, let me know if you need access to the generated ISO file.</p>
+<h4 id="jsmeix_commented_at_2024-04-08_0734"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042056222">2024-04-08 07:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-08_0734" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+it seems your<br />
+<a href="https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log">https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log</a><br />
+is only the terminal output of "rear -D mkrescue" (excerpts)</p>
+<pre><code>hermes:~ # rear -D mkrescue
+Relax-and-Recover 2.7 / 2022-07-13
+Running rear mkrescue (PID 11791 date 2024-04-03 18:22:27)
+Command line options: /usr/sbin/rear -D mkrescue
+Using log file: /var/log/rear/rear-hermes.log
+...
+Running 'output' stage ======================
+Making ISO image
+Making ISO image
+Wrote ISO image: /var/lib/rear/output/rear-hermes.iso (319M)
+</code></pre>
+<p>but I liked to get the debug log <strong>file</strong> i.e. the<br />
+<code>log file: /var/log/rear/rear-hermes.log</code><br />
+(except secret values if any).</p>
+<p>Additionally please attach the terminal output of</p>
+<pre><code># rear -s mkrescue
+</code></pre>
+<p>because in your<br />
+<a href="https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log">https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log</a><br />
+I am missing messages that tell a bootloader gets installed<br />
+before the ISO is made.</p>
+<p>For comparison on my x86_64 UEFI homeoffice workstation<br />
+(excerpts):</p>
+<pre><code># grep -v '^#' etc/rear/local.conf 
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=file:///other/
+...
+
+# usr/sbin/rear -s mkrescue
+...
+Source output/ISO/Linux-i386/250_populate_efibootimg.sh
+Source output/ISO/Linux-i386/260_EFISTUB_populate.sh
+Source output/ISO/Linux-i386/300_create_isolinux.sh
+Source output/default/400_copy_disk_struct_files.sh
+Source output/ISO/Linux-i386/700_create_efibootimg.sh
+Source output/ISO/Linux-i386/800_create_isofs.sh
+Source output/ISO/Linux-i386/810_prepare_multiple_iso.sh
+Source output/ISO/Linux-i386/820_create_iso_image.sh
+Source output/ISO/Linux-i386/830_create_iso_image_EFISTUB.sh
+Source output/ISO/Linux-i386/850_check_for_errors.sh
+</code></pre>
+<p>For PPC64LE we have</p>
+<pre><code># ls -1 usr/share/rear/output/ISO/Linux-ppc64le
+300_create_grub2.sh
+800_create_isofs.sh
+810_prepare_multiple_iso.sh
+820_create_iso_image.sh
+</code></pre>
+<p>but usr/share/rear/output/ISO/Linux-ppc64le/300_create_grub2.sh<br />
+does no output on the terminal and it does not error out when</p>
+<pre><code>grub2-mkimage -O powerpc-ieee1275 ...
+</code></pre>
+<p>fails - at least this needs to be fixed, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors">https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors</a></p>
+<p>So I need your debug log file /var/log/rear/rear-hermes.log<br />
+to see in particular what goes on on your particular system<br />
+while the GRUB2 bootloader is installed for the iso image.</p>
+<h4 id="jsmeix_commented_at_2024-04-08_0743"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042071677">2024-04-08 07:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-08_0743" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+in your initial description you wrote</p>
+<pre><code>But the initrd file is in the ISO and
+seems to be referenced properly in the grub.cfg file.
+https://github.com/rear/rear/files/14837101/boot.log
+Please see content of the boot log file.
+</code></pre>
+<p>but I fail to see in your<br />
+<a href="https://github.com/rear/rear/files/14837101/boot.log">https://github.com/rear/rear/files/14837101/boot.log</a><br />
+that the initrd file is in the ISO and<br />
+that it is referenced properly in the grub.cfg file,<br />
+in particular I fail to see the grub.cfg file?</p>
+<h4 id="jsmeix_commented_at_2024-04-08_0805"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042114550">2024-04-08 08:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-08_0805" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+see my "FYI (2)" part in<br />
+<a href="https://github.com/rear/rear/discussions/3184#discussioncomment-8902863">https://github.com/rear/rear/discussions/3184#discussioncomment-8902863</a><br />
+how you may use <code>KEEP_BUILD_DIR="yes"</code><br />
+to inspect the recovery system contents after "rear mkrescue"<br />
+so you could inspect in particular your grub.cfg file<br />
+in your ReaR recovery system.</p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-08_1241"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042647866">2024-04-08 12:41</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-08_1241" title="Permanent link">&para;</a></h4>
+<p>This is the output of "rear -s mkrescue":</p>
+<pre><code>hermes:~ # rear -s mkrescue
+Relax-and-Recover 2.7 / 2022-07-13
+Running rear mkrescue (PID 8073 date 2024-04-08 14:39:53)
+Using log file: /var/log/rear/rear-hermes.log
+Simulation mode activated, Relax-and-Recover base directory: /usr/share/rear
+Source conf/Linux-ppc64le.conf
+Source conf/GNU/Linux.conf
+Source conf/SUSE_LINUX.conf
+Source init/default/005_verify_os_conf.sh
+Source init/default/010_EFISTUB_check.sh
+Source init/default/010_set_drlm_env.sh
+Source init/default/030_update_recovery_system.sh
+Source init/default/050_check_rear_recover_mode.sh
+Source init/default/950_check_missing_programs.sh
+Source prep/default/005_remove_workflow_conf.sh
+Source prep/default/020_translate_url.sh
+Source prep/default/030_translate_tape.sh
+Source prep/default/035_valid_backup_methods.sh
+Source prep/default/036_valid_output_methods.sh
+Source prep/default/040_check_backup_and_output_scheme.sh
+Source prep/default/050_check_keep_old_output_copy_var.sh
+Source prep/default/100_init_workflow_conf.sh
+Source prep/GNU/Linux/200_include_getty.sh
+Source prep/GNU/Linux/200_include_serial_console.sh
+Source prep/GNU/Linux/210_include_dhclient.sh
+Source prep/GNU/Linux/220_include_lvm_tools.sh
+Source prep/GNU/Linux/230_include_md_tools.sh
+Source prep/GNU/Linux/240_include_multipath_tools.sh
+Source prep/GNU/Linux/280_include_systemd.sh
+Source prep/GNU/Linux/280_include_virtualbox.sh
+Source prep/GNU/Linux/280_include_vmware_tools.sh
+Source prep/GNU/Linux/290_include_drbd.sh
+Source prep/GNU/Linux/300_check_backup_and_output_url.sh
+Source prep/ISO/default/300_check_iso_dir.sh
+Source prep/GNU/Linux/300_include_grub_tools.sh
+Source prep/GNU/Linux/310_include_cap_utils.sh
+Source prep/ISO/default/320_check_cdrom_size.sh
+Source prep/default/320_include_uefi_env.sh
+Source prep/ISO/GNU/Linux/320_verify_mkisofs.sh
+Source prep/default/321_EFISTUB_check_uefi_env.sh
+Source prep/default/330_include_uefi_tools.sh
+Source prep/ISO/GNU/Linux/340_add_isofs_module.sh
+Source prep/default/340_include_password_tools.sh
+Source prep/ISO/GNU/Linux/360_EFISTUB_prechecks.sh
+Source prep/default/380_include_opal_tools.sh
+Source prep/GNU/Linux/400_guess_kernel.sh
+Source prep/TSM/default/400_prep_tsm.sh
+Source prep/default/400_save_directories.sh
+Source prep/default/490_store_write_protect_settings.sh
+Source prep/GNU/Linux/500_EFISTUB_check_kernel.sh
+Source layout/save/GNU/Linux/100_create_layout_file.sh
+Source layout/save/GNU/Linux/150_save_diskbyid_mappings.sh
+Source layout/save/GNU/Linux/190_opaldisk_layout.sh
+Source layout/save/GNU/Linux/200_partition_layout.sh
+Source layout/save/GNU/Linux/210_raid_layout.sh
+Source layout/save/GNU/Linux/220_lvm_layout.sh
+Source layout/save/GNU/Linux/230_filesystem_layout.sh
+Source layout/save/GNU/Linux/240_swaps_layout.sh
+Source layout/save/GNU/Linux/250_drbd_layout.sh
+Source layout/save/GNU/Linux/260_crypt_layout.sh
+Source layout/save/GNU/Linux/270_hpraid_layout.sh
+Source layout/save/GNU/Linux/280_multipath_layout.sh
+Source layout/save/default/300_list_dependencies.sh
+Source layout/save/default/310_autoexclude_usb.sh
+Source layout/save/default/310_include_exclude.sh
+Source layout/save/default/320_autoexclude.sh
+Source layout/save/default/330_remove_exclusions.sh
+Source layout/save/default/335_remove_excluded_multipath_vgs.sh
+Source layout/save/GNU/Linux/340_false_blacklisted.sh
+Source layout/save/default/340_generate_mountpoint_device.sh
+Source layout/save/GNU/Linux/350_copy_drbdtab.sh
+Source layout/save/default/350_save_partitions.sh
+Source layout/save/default/400_check_backup_special_files.sh
+Source layout/save/default/445_guess_bootloader.sh
+Source layout/save/default/450_check_bootloader_files.sh
+Source layout/save/default/450_check_network_files.sh
+Source layout/save/default/490_check_files_to_patch.sh
+Source layout/save/GNU/Linux/500_extract_vgcfg.sh
+Source layout/save/GNU/Linux/510_current_disk_usage.sh
+Source layout/save/default/600_snapshot_files.sh
+Source layout/save/default/950_verify_disklayout_file.sh
+Source rescue/default/010_merge_skeletons.sh
+Source rescue/default/100_hostname.sh
+Source rescue/default/200_etc_issue.sh
+Source rescue/GNU/Linux/220_load_modules_from_initrd.sh
+Source rescue/GNU/Linux/230_storage_and_network_modules.sh
+Source rescue/GNU/Linux/240_kernel_modules.sh
+Source rescue/GNU/Linux/250_udev.sh
+Source rescue/GNU/Linux/260_collect_initrd_modules.sh
+Source rescue/GNU/Linux/260_storage_drivers.sh
+Source rescue/GNU/Linux/290_kernel_cmdline.sh
+Source rescue/GNU/Linux/300_dns.sh
+Source rescue/default/300_patch_root_home.sh
+Source rescue/GNU/Linux/310_network_devices.sh
+Source rescue/GNU/Linux/320_inet6.sh
+Source rescue/GNU/Linux/350_routing.sh
+Source rescue/GNU/Linux/390_check_usb_modules.sh
+Source rescue/GNU/Linux/400_use_serial_console.sh
+Source rescue/GNU/Linux/410_use_xen_console.sh
+Source rescue/default/430_prepare_timesync.sh
+Source rescue/GNU/Linux/500_clone_keyboard_mappings.sh
+Source rescue/default/500_ssh.sh
+Source rescue/GNU/Linux/550_copy_ldconfig.sh
+Source rescue/default/550_vagrant.sh
+Source rescue/default/850_save_sysfs_uefi_vars.sh
+Source rescue/default/860_set_uefi_vars.sh
+Source rescue/default/900_clone_users_and_groups.sh
+Source rescue/default/910_copy_logfile.sh
+Source rescue/GNU/Linux/950_cfg2html.sh
+Source rescue/GNU/Linux/960_collect_MC_serviceguard_infos.sh
+Source rescue/GNU/Linux/990_sysreqs.sh
+Source build/GNU/Linux/005_create_symlinks.sh
+Source build/GNU/Linux/090_create_lib_directories_and_symlinks.sh
+Source build/GNU/Linux/100_copy_as_is.sh
+Source build/GNU/Linux/110_touch_empty_files.sh
+Source build/GNU/Linux/130_create_dotfiles.sh
+Source build/GNU/Linux/150_adjust_permissions.sh
+Source build/GNU/Linux/390_copy_binaries_libraries.sh
+Source build/GNU/Linux/400_copy_modules.sh
+Source build/GNU/Linux/420_copy_firmware_files.sh
+Source build/GNU/Linux/450_symlink_mingetty.sh
+Source build/default/490_fix_broken_links.sh
+Source build/default/500_ssh_setup.sh
+Source build/default/501_check_ssh_keys.sh
+Source build/default/502_include_mdadm_conf.sh
+Source build/default/503_store_tty_root_password.sh
+Source build/GNU/Linux/600_verify_and_adjust_udev.sh
+Source build/SUSE_LINUX/610_link_systemd_lib.sh
+Source build/GNU/Linux/610_verify_and_adjust_udev_systemd.sh
+Source build/GNU/Linux/620_verify_os_release_file.sh
+Source build/GNU/Linux/630_simplify_systemd_reboot_halt_poweroff_shutdown.sh
+Source build/GNU/Linux/630_verify_resolv_conf_file.sh
+Source build/GNU/Linux/640_verify_lvm_conf.sh
+Source build/default/950_check_missing_programs.sh
+Source build/default/960_remove_encryption_keys.sh
+Source build/default/970_add_rear_release.sh
+Source build/default/975_update_os_conf.sh
+Source build/default/990_verify_rootfs.sh
+Source build/default/995_md5sums_rootfs.sh
+Source pack/GNU/Linux/900_create_initramfs.sh
+Source output/default/010_set_umask.sh
+Source output/default/100_mount_output_path.sh
+Source output/default/150_save_copy_of_prefix_dir.sh
+Source output/default/200_make_boot_dir.sh
+Source output/default/200_make_prefix_dir.sh
+Source output/default/250_create_lock.sh
+Source output/ISO/Linux-ppc64le/300_create_grub2.sh
+Source output/default/400_copy_disk_struct_files.sh
+Source output/ISO/Linux-ppc64le/800_create_isofs.sh
+Source output/ISO/Linux-ppc64le/810_prepare_multiple_iso.sh
+Source output/ISO/Linux-ppc64le/820_create_iso_image.sh
+Source output/default/940_grub2_rescue.sh
+Source output/default/940_grub_rescue.sh
+Source output/default/950_copy_result_files.sh
+Source output/TSM/default/950_dsmc_save_result_files.sh
+Source output/default/950_email_result_files.sh
+Source output/TSM/default/960_dsmc_verify_isofile.sh
+Source output/default/970_remove_lock.sh
+Source output/default/980_umount_output_dir.sh
+Exiting rear mkrescue (PID 8073) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-08_1242"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042650472">2024-04-08 12:42</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-08_1242" title="Permanent link">&para;</a></h4>
+<p>And this is the actual debug log from /var/log/rear:<br />
+<a href="https://github.com/rear/rear/files/14905510/rear-mkrescue-debug.log">rear-mkrescue-debug.log</a></p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-08_1244"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042658547">2024-04-08 12:44</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-08_1244" title="Permanent link">&para;</a></h4>
+<p>After the "rear mkrescue" and after the failed boot I inspected the ISO
+file:</p>
+<pre><code>C:\IBM\Temp&gt;7z l rear-hermes.iso                                                     
+7-Zip 22.00 (x64) : Copyright (c) 1999-2022 Igor Pavlov : 2022-06-15                 
+Scanning the drive for archives:                                                     
+1 file, 333985792 bytes (319 MiB)                                                    
+Listing archive: rear-hermes.iso                                                     
+--                                                                                   
+Path = rear-hermes.iso                                                               
+Type = Iso                                                                           
+Physical Size = 333985792                                                            
+Created = 2024-04-06 14:01:04.00                                                     
+Modified = 2024-04-06 14:01:04.00                                                    
+   Date      Time    Attr         Size   Compressed  Name                            
+------------------- ----- ------------ ------------  ------------------------        
+2024-04-06 14:01:04 D....                            boot                            
+2024-04-06 14:01:03 D....                            boot\grub                       
+2024-04-06 14:01:03 .....          115          115  boot\grub\grub.cfg              
+2024-04-06 14:01:03 .....       383756       383756  boot\grub\powerpc.elf           
+2024-04-06 14:01:00 .....    285125611    285125611  initrd.cgz                      
+2024-02-12 13:14:40 .....     48086576     48086576  kernel                          
+2024-04-06 14:01:04 D....                            ppc                             
+2024-04-06 14:01:03 .....          160          160  ppc\bootinfo.txt                
+------------------- ----- ------------ ------------  ------------------------        
+2024-04-06 14:01:04          333596218    333596218  5 files, 3 folders
+</code></pre>
+<p>So there is both the initrd.cgz and the grub.cfg files.</p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-08_1245"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042660324">2024-04-08 12:45</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-08_1245" title="Permanent link">&para;</a></h4>
+<p>And the grub.cfg file in the ISO contains:</p>
+<pre><code>set timeout=100
+
+menuentry "Relax-and-Recover" {
+    linux   /kernel root=/dev/ram0  selinux=0
+    initrd  /initrd.cgz
+}
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-04-08_1427"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2042901448">2024-04-08 14:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-08_1427" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+thank you for your prompt replies!</p>
+<p>Now I am stuck because everything looks OK<br />
+(as far as I can see) but things are not OK.</p>
+<p>I am not a booting expert and I know basically nothing<br />
+about POWER architecure specific things - I only know<br />
+that low-level things when booting on POWER architecture<br />
+are rather different compared to booting on x86 architecture.</p>
+<p>As far as I know currently we do not have<br />
+an active ReaR upstream maintainer who is an<br />
+expert in POWER architecure specific things.</p>
+<p>The /etc/os-release in your initial comment shows<br />
+you have "SUSE Linux Enterprise Server 15 SP5".</p>
+<p>Is this exactly what you actually have or do you perhaps have<br />
+a SUSE product/extension where SUSE officially supports ReaR?</p>
+<p>Because in your initial comment you wrote (excerpts):</p>
+<pre><code>ReaR version 2.7
+...
+comes from SLES repository
+</code></pre>
+<p>it indicates that you have a SUSE product/extension<br />
+where SUSE officially supports ReaR because otherwise<br />
+I assume you won't have ReaR from a SLES repository<br />
+(I mean from an official SUSE SLES repository).</p>
+<p>See the section "SUSE support for Relax-and-Recover" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>For example - as far as I know (no warranty) - the<br />
+SUSE Linux Enterprise High Availability Extension<br />
+is included in<br />
+SUSE Linux Enterprise Server for SAP Applications.</p>
+<p>If you have a SUSE product/extension<br />
+where SUSE officially supports ReaR<br />
+I would recommend that you file<br />
+an official support request at SUSE<br />
+via your official support contact at SUSE.<br />
+If you do that please provide an URL to this issue<br />
+in your SUSE support request.</p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-09_1436"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2045343704">2024-04-09 14:36</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-09_1436" title="Permanent link">&para;</a></h4>
+<p>It is indeed a SLES 15 and might even be a SLES 15 for SAP, I will have
+to check.<br />
+When I started this, I just looked and found that SUSE made ReaR
+available through their SLES 15 repository so this made things easier as
+I did not have to add some other repo or install it manually.<br />
+When it comes from the standard SLES 15 repo, will SUSE then support
+it?<br />
+I will open a ticket and try to get support ...</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1519"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2045457648">2024-04-09 15:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1519" title="Permanent link">&para;</a></h4>
+<p>As far as I know - at least in the usual cases -<br />
+SUSE provides Relax-and-Recover (ReaR) only via the<br />
+SUSE Linux Enterprise High Availability Extension (SLE-HA)<br />
+which is the only SUSE product/extension<br />
+where SUSE officially supports ReaR.</p>
+<p>But what matters in the end is what your particular<br />
+support contract states.</p>
+<p>It cannot be wrong to open a ticket at SUSE.<br />
+In the worst case you get notified that ReaR is not<br />
+supported with your current support contract.</p>
+<p>Your<br />
+<a href="https://github.com/rear/rear/files/14837097/lsblk.txt">https://github.com/rear/rear/files/14837097/lsblk.txt</a><br />
+shows "/hana/" mountpoints which indicate you run SAP HANA<br />
+which further indicates you have SLES for SAP Applications<br />
+which is rather common for SAP HANA on POWER architecture.</p>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-09_1520"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2045459753">2024-04-09 15:20</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-09_1520" title="Permanent link">&para;</a></h4>
+<p>I have checked and we do have</p>
+<ul>
+<li>High Availability Extension</li>
+<li>SLES for SAP Applications<br />
+    So we should be covered.</li>
+</ul>
+<h4 id="kai-uwe-rommel_commented_at_2024-04-09_1528"><img src="https://avatars.githubusercontent.com/u/26381804?u=39eb4423becba185bbc3e6e9876fdbbac3518c2c&v=4" width="50"><a href="https://github.com/kai-uwe-rommel">kai-uwe-rommel</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2045485364">2024-04-09 15:28</a>:<a class="headerlink" href="#kai-uwe-rommel_commented_at_2024-04-09_1528" title="Permanent link">&para;</a></h4>
+<p>The strange thing is that the SUSE customer portal does not let me
+create a support case and insists that "You are not currently entitled
+to use the support system" - we will have te check what is missing
+there.</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1238"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2051683257">2024-04-12 12:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1238" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel</p>
+<p>an offhanded idea based on what I vaguely remember<br />
+from the past about booting issues which we had<br />
+here at ReaR upstream with POWER architecture:</p>
+<p>You use 'BACKUP=TSM' which means<br />
+all what TSM needs to restore a TSM backup<br />
+gets included in the ReaR recovery system.</p>
+<p>As far as I vaguely remember those TSM restore parts<br />
+are relatively big so the initrd which contains the<br />
+ReaR recovery system becomes relatively big.<br />
+In your case according to your<br />
+<a href="https://github.com/rear/rear/issues/3189#issuecomment-2042658547">https://github.com/rear/rear/issues/3189#issuecomment-2042658547</a></p>
+<pre><code>   Date      Time    Attr         Size   Compressed  Name
+...
+2024-04-06 14:01:00 .....    285125611    285125611  initrd.cgz
+</code></pre>
+<p>your initrd is about 272 MiB big<br />
+(285125611 / 1024 / 1024 = 271.9).</p>
+<p>As far as I vaguely remember there can be<br />
+weird (inexplicable) booting issues on POWER architecture<br />
+when the initrd is "somehow too big".<br />
+As far as I vaguely remember in such cases<br />
+there are no helpful (error) messages during booting<br />
+but is only "just somehow does not work".</p>
+<p>To find out if the initrd size causes this issue here<br />
+I would like to suggest that you replace<br />
+'BACKUP=TSM' with 'BACKUP=REQUESTRESTORE' i.e.</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=nfs://prometheus/nim/rear
+BACKUP=REQUESTRESTORE
+</code></pre>
+<p>then make a new ReaR recovery system ISO image with</p>
+<pre><code># rear -D mkrescue
+</code></pre>
+<p>and inspected the new ISO same as what you did for your<br />
+<a href="https://github.com/rear/rear/issues/3189#issuecomment-2042658547">https://github.com/rear/rear/issues/3189#issuecomment-2042658547</a><br />
+and post the numbers for the new ISO here.</p>
+<p>Also try out if that boots the ReaR recovery system<br />
+i.e. if it works that you can log in as 'root'<br />
+in the booted ReaR recovery system.</p>
+<p>You cannot use that new ISO to recreate a system<br />
+because with 'BACKUP=REQUESTRESTORE'<br />
+no backup restore software is included<br />
+in the ReaR recovery system, see the<br />
+'BACKUP=REQUESTRESTORE' description in "man rear"<br />
+e.g. online at<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear.8.adoc">https://github.com/rear/rear/blob/master/doc/rear.8.adoc</a></p>
+<p>That new ISO is only used here to find out<br />
+if the initrd size causes this issue here.</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2051701776">2024-04-12 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1250" title="Permanent link">&para;</a></h4>
+<p>Only as a side note FYI:<br />
+I found an older issue about initrd size on POWER architecture<br />
+<a href="https://github.com/rear/rear/issues/1142">https://github.com/rear/rear/issues/1142</a><br />
+but that one is about booting on ppc64 via yaboot<br />
+while here GRUB2 is used as bootloader.</p>
+<h4 id="jsmeix_commented_at_2024-04-12_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3189#issuecomment-2051730662">2024-04-12 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-12_1308" title="Permanent link">&para;</a></h4>
+<p>@kai-uwe-rommel<br />
+another offhanded idea what might help:</p>
+<p>In your<br />
+<a href="https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log">https://github.com/rear/rear/files/14855435/rear-mkrescue-debug.log</a><br />
+I see</p>
+<pre><code>Using '/usr/bin/mkisofs' to create ISO filesystem images
+</code></pre>
+<p>Nowadays 'xorrisofs' is in general considered "better"<br />
+than the traditional 'mkisofs' (I know basically nothing<br />
+about the details of making ISO images so I cannot explain<br />
+why 'xorrisofs' is considered "better" than 'mkisofs').<br />
+Using 'xorrisofs' preferred was added via<br />
+<a href="https://github.com/rear/rear/commit/fb5bebca167ce5e4ca151292c00958f41f4d9ba4">https://github.com/rear/rear/commit/fb5bebca167ce5e4ca151292c00958f41f4d9ba4</a><br />
+that points to<br />
+<a href="https://github.com/rear/rear/pull/962">https://github.com/rear/rear/pull/962</a><br />
+but there is no explanation WHY 'xorrisofs' is preferred.<br />
+I guess at that time it was preferred just because<br />
+'xorrisofs' worked for Debian where the other ones<br />
+had issues.<br />
+But at least<br />
+<a href="https://github.com/rear/rear/issues/3084">https://github.com/rear/rear/issues/3084</a><br />
+shows a case where 'xorrisofs' is better on UEFI systems<br />
+where otherwise 'ebiso' was needed as a workaround, cf.<br />
+<a href="https://github.com/rear/rear/issues/3084#issuecomment-1835840904">https://github.com/rear/rear/issues/3084#issuecomment-1835840904</a></p>
+<p>By default on SLES 15 you get '/usr/bin/mkisofs' installed<br />
+but 'xorrisofs' (in RPM package 'xorriso') should be also<br />
+available for SLES 15, cf.<br />
+<a href="https://github.com/rear/rear/issues/3084#issuecomment-1833496190">https://github.com/rear/rear/issues/3084#issuecomment-1833496190</a></p>
+<p>When you install the RPM package 'xorriso' (this is possible<br />
+in addition to an already installed RPM package 'mkisofs')<br />
+then ReaR will automatically use 'xorrisofs' via how<br />
+ISO_MKISOFS_BIN is set in usr/share/rear/conf/default.conf<br />
+see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L893">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L893</a><br />
+and you will see that during "rear -D mkrescue" as</p>
+<pre><code>Using '/usr/bin/xorrisofs' to create ISO filesystem images
+</code></pre>
+<p>So please also try out if it helps in your case<br />
+when you use 'xorrisofs' to make the ISO image.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-02.3189.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

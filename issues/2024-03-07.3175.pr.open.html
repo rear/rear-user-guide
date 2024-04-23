@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3175 PR open: Automatically include mounted btrfs subvolumes in NETFS backups - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3175 PR open: Automatically include mounted btrfs subvolumes in NETFS backups";
+        var mkdocs_page_input_path = "issues/2024-03-07.3175.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3175 PR open: Automatically include mounted btrfs subvolumes in NETFS backups</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3175_pr_open_automatically_include_mounted_btrfs_subvolumes_in_netfs_backups"><a href="https://github.com/rear/rear/pull/3175">#3175 PR</a> <code>open</code>: Automatically include mounted btrfs subvolumes in NETFS backups<a class="headerlink" href="#3175_pr_open_automatically_include_mounted_btrfs_subvolumes_in_netfs_backups" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-03-07_1200"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3175">2024-03-07 12:00</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-03-07_1200" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear/issues/2928">https://github.com/rear/rear/issues/2928</a></p>
+</li>
+<li>
+<p>How was this pull request tested? <code>rear savelayout</code> and manual
+    inspection of generated files and backup/restore of a Fedora Rawhide
+    machine</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+<ul>
+<li>automatically include mounted btrfs subvolumes in NETFS backups</li>
+<li>improve generation of <code>$RESTORE_EXCLUDE_FILE</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-03-07_1324"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983498175">2024-03-07 13:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1324" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+thank you for this enhancement!</p>
+<p>I will test how it behaves on SLES systems<br />
+with their rather complicated default btrfs structure.</p>
+<p>Offhandedly I think the main problem is<br />
+possibly mounted btrfs snapshot subvolumes, see<br />
+"When btrfs is used with snapshots ...<br />
+then usual backup and restore cannot work." in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#btrfs">https://en.opensuse.org/SDB:Disaster_Recovery#btrfs</a></p>
+<p>I.e. when there are mounted btrfs "thingies"<br />
+listed as 'btrfsmountedsubvol' in disklayout.conf<br />
+that are also listed as '#btrfssnapshotsubvol'.</p>
+<p>For example a disklayout.conf on SLES15-SP5 (excerpts)</p>
+<pre><code>btrfsdefaultsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+...
+#btrfssnapshotsubvol /dev/sda2 / 272 @/.snapshots/2/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 273 @/.snapshots/3/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 274 @/.snapshots/4/snapshot
+...
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+btrfsmountedsubvol /dev/sda2 /boot/grub2/x86_64-efi rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi @/boot/grub2/x86_64-efi
+btrfsmountedsubvol /dev/sda2 /root rw,relatime,space_cache,subvolid=262,subvol=/@/root @/root
+btrfsmountedsubvol /dev/sda2 /opt rw,relatime,space_cache,subvolid=263,subvol=/@/opt @/opt
+btrfsmountedsubvol /dev/sda2 /home rw,relatime,space_cache,subvolid=264,subvol=/@/home @/home
+btrfsmountedsubvol /dev/sda2 /boot/grub2/i386-pc rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 /srv rw,relatime,space_cache,subvolid=261,subvol=/@/srv @/srv
+btrfsmountedsubvol /dev/sda2 /tmp rw,relatime,space_cache,subvolid=260,subvol=/@/tmp @/tmp
+btrfsmountedsubvol /dev/sda2 /usr/local rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local @/usr/local
+btrfsmountedsubvol /dev/sda2 /var rw,relatime,space_cache,subvolid=258,subvol=/@/var @/var
+</code></pre>
+<p>For example assume in addition to @/.snapshots/1/snapshot<br />
+that is the current system snapshot which is mounted at /<br />
+also<br />
+some other snapshots of the system like<br />
+@/.snapshots/2/snapshot and @/.snapshots/4/snapshot<br />
+are mounted e.g. at /snapshot2 and /snapshot4</p>
+<p>Then a 'tar' backup would contain the system files<br />
+basically three times:</p>
+<ol>
+<li>the files of what is mounted at /</li>
+<li>the files of what is mounted at /snapshot2</li>
+<li>the files of what is mounted at /snapshot4</li>
+</ol>
+<p>So the backup would be basically about three times<br />
+as big as if only what is mounted at / was backed up.</p>
+<p>But during 'tar' restore there is no deduplication<br />
+so the restore would basically need about three times<br />
+the disk space as the original system needed.</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1332"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983517679">2024-03-07 13:32</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1332" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think the main problem is<br />
+possibly mounted btrfs snapshot subvolumes</p>
+</blockquote>
+<p>I am not a btrfs expert at all, but is it possible to distinguish
+snapshot subvolumes from "normal" (non-snapshot) subvolumes? Then we
+could save this subvolume metadata (snapshot yes/no) and do something
+based on the information when recreating and restoring. First we would
+probably just skip snapshots, later we could do something more
+intelligent if possible.<br />
+It is definitely possible to distinguish snapshots from regular
+filesystems (filessytems are equivalent to btrfs subvolumes) in ZFS. It
+is also possible to recognize snapshots from regular volumes in LVM.</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1349"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983546230">2024-03-07 13:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1349" title="Permanent link">&para;</a></h4>
+<p>Only an offhanded thought:</p>
+<p>I fear btrfs normal subvolumes versus btrfs snapshot subvolumes<br />
+is only one example of a very generic problem when by default<br />
+every mounted "thingy" is included in the 'tar' backup:</p>
+<p>I think it is in general possible that one same<br />
+"mountable thingy" can be mounted at the same time<br />
+at different mount points e.g. at '/here' and '/there'.</p>
+<p>When '/here' and '/there' are included in a 'tar' backup<br />
+things may get restored twice as distinct sets of files<br />
+and not as one same set of files that is mounted two times<br />
+under the mountpoint directories '/here' and '/there'.</p>
+<p>Tomorrow I will experiment a bit with that.</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1352"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983552670">2024-03-07 13:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1352" title="Permanent link">&para;</a></h4>
+<p>Perhaps we can by default have every mounted "thingy"<br />
+included in the 'tar' backup<br />
+BUT<br />
+we may need some check for duplicates in the 'tar' backup<br />
+i.e. something that detects when one same "mountable thingy"<br />
+will become included in the 'tar' backup more than once.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_0849"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985290555">2024-03-08 08:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_0849" title="Permanent link">&para;</a></h4>
+<p>Currently I am exploring how 'tar' behaves in general<br />
+when exact same files are provided as 'tar' arguments<br />
+to be archived.</p>
+<p>It seems 'tar' behaves well forgiving in this case:</p>
+<pre><code># mkdir test
+
+# cd test
+
+# echo foo &gt;foo
+
+# tar -cvvvf test.tar foo foo
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# tar -tvvvf test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# mkdir untartest
+
+# cd untartest/
+
+# tar -xvvvf ../test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# ls -l
+total 4
+-rw-r--r-- 1 root root 4 Mar  8 09:41 foo
+</code></pre>
+<p>So perhaps only mounted btrfs snapshot subvolumes<br />
+added to 'tar' arcives cause real problems in practice.<br />
+In this case btrfs snapshot subvolumes should be excluded<br />
+by default from being added to what 'tar' should archive.</p>
+<p>I think it is OK if a user mounts the same stuff<br />
+at different mount points and ReaR includes those<br />
+mount points by default in the 'tar' backup<br />
+then it is up to the user to manually exclude things<br />
+as needed from his backup.</p>
+<h4 id="pcahyna_commented_at_2024-03-08_0859"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985306750">2024-03-08 08:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_0859" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I fear btrfs normal subvolumes versus btrfs snapshot subvolumes is
+only one example of a very generic problem when by default every
+mounted "thingy" is included in the 'tar' backup:</p>
+<p>I think it is in general possible that one same "mountable thingy" can
+be mounted at the same time at different mount points</p>
+</blockquote>
+<p>I disagree that it is an example of this problem. Snapshots are not the
+same thing mounted at different places. They are different things
+mounted at different places - snapshots exist because their content is
+(at least in principle) different.</p>
+<p>One filesystem mounted at more places can occur as well, and it will
+result in an explosion of backup data, but it restoring it twice then
+should not result in an increase of the size of the restored system,
+only in a slower restore, because you keep restoring to the same
+filesystem.</p>
+<p>I would not try to solve these two problems in the same way (cf. RFC
+1925 item 5).</p>
+<h4 id="pcahyna_commented_at_2024-03-08_0951"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985382738">2024-03-08 09:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_0951" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>It seems 'tar' behaves well forgiving in this case:</p>
+<pre><code># mkdir test
+
+# cd test
+
+# echo foo &gt;foo
+
+# tar -cvvvf test.tar foo foo
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# tar -tvvvf test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# mkdir untartest
+
+# cd untartest/
+
+# tar -xvvvf ../test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# ls -l
+total 4
+-rw-r--r-- 1 root root 4 Mar  8 09:41 foo
+</code></pre>
+</blockquote>
+<p>It thinks that the doubled file names are different names for the same
+files (i.e. hardlinks), which is not entirely correct - not sure if it
+can have some unwanted consequences or not.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985593096">2024-03-08 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1216" title="Permanent link">&para;</a></h4>
+<p>Yes.</p>
+<p>The whole point of my experiments with 'tar' here<br />
+is to find out if my "fear" above is true or not and<br />
+in general to better understand what we have to deal with.</p>
+<p>If it is actually only one root problem<br />
+then this root problem should be solved<br />
+(instead of solving each of its instances).</p>
+<p>If it is actually several separated problems then<br />
+each separated problem should be solved separately.</p>
+<p><a href="https://github.com/rear/rear/pull/3175#issuecomment-1985290555">https://github.com/rear/rear/pull/3175#issuecomment-1985290555</a><br />
+indicates that it is several separated problems<br />
+(but this is only my very first test in this area).</p>
+<p>From my experiments with 'tar' in the past I know that<br />
+'tar' behaves deterministically (i.e. as programmed and<br />
+documented when reading the whole 'tar' manual carefully)<br />
+but that could appear rather often 'unexpectedly'<br />
+(i.e. different than what one may expect offhandedly), e.g.<br />
+<a href="https://github.com/rear/rear/issues/2911#issuecomment-1398346148">https://github.com/rear/rear/issues/2911#issuecomment-1398346148</a></p>
+<h4 id="pcahyna_commented_at_2024-03-08_1245"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">2024-03-08 12:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1245" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If it is actually only one root problem then this root problem should
+be solved (instead of solving each of its instances).</p>
+<p>If it is actually several separated problems then each separated
+problem should be solved separatedly.</p>
+</blockquote>
+<p>That's an interesting idea. For multiple identical arguments to <code>tar</code>,
+tar duplicates the backup and considers the secondary copy as a hardlink
+to the first copy. I checked that the same happens when there is a
+filesystem mounted multiple times:</p>
+<pre><code># mkdir /mnt/mount1
+# mkdir /mnt/mount2
+# mount /dev/vdb /mnt/mount1
+# mount /dev/vdb /mnt/mount2
+# touch /mnt/mount1/foo
+# ls -l /mnt/mount2/foo
+-rwxr-xr-x. 1 root root 0 Mar  8 07:36 /mnt/mount2/foo
+# tar cvvf /dev/null /mnt/mount1 /mnt/mount2
+tar: Removing leading `/' from member names
+drwxr-xr-x root/root         0 1969-12-31 19:00 /mnt/mount1/
+-rwxr-xr-x root/root         0 2024-03-08 07:36 /mnt/mount1/foo
+tar: Removing leading `/' from hard link targets
+drwxr-xr-x root/root         0 1969-12-31 19:00 /mnt/mount2/
+hrwxr-xr-x root/root         0 2024-03-08 07:36 /mnt/mount2/foo link to mnt/mount1/foo
+</code></pre>
+<p>Is the same happening with different btrfs snapshots mounted at
+different mountpoints? I.e. does tar consider files in different
+snapshots (originally same, but possibly different when they have been
+modified since the snapshot was taken) as hardlinks to the same file?</p>
+<h4 id="lzaoral_commented_at_2024-03-08_1248"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985635686">2024-03-08 12:48</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-08_1248" title="Permanent link">&para;</a></h4>
+<p>Thank you for the feedback, @jsmeix! I'll amend the code to skip backup
+of all mounted btrfs snapshot subvolumes.</p>
+<p>The duplication of files in backup when a filesystem/btrfs subvolume is
+mounted more than once is a different (though related) issue, therefore,
+I suggest to resolve it separately.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1535"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">2024-03-08 15:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1535" title="Permanent link">&para;</a></h4>
+<p>I tested it with SLES15-SP5<br />
+with the default btrfs structure<br />
+on a QEMU/KVM test VM:</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sda    ata  disk           15G 
+|-/dev/sda1      part            8M 
+|-/dev/sda2      part btrfs     13G /var
+|                                   /usr/local
+|                                   /root
+|                                   /tmp
+|                                   /srv
+|                                   /boot/grub2/i386-pc
+|                                   /opt
+|                                   /home
+|                                   /boot/grub2/x86_64-efi
+|                                   /.snapshots
+|                                   /
+`-/dev/sda3      part swap       2G [SWAP]
+</code></pre>
+<p>I was in particular interested how things behave<br />
+with the "well known" (to SLES users) SUSE specific</p>
+<pre><code>BACKUP_PROG_INCLUDE=( $( findmnt -n -r -o TARGET -t btrfs | grep -v '^/$' | egrep -v 'snapshots|crash' ) )
+</code></pre>
+<p>manual setting in etc/rear/local.conf<br />
+cf. conf/examples/SLE12-SP2-btrfs-example.conf<br />
+so I have</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/i386-pc /boot/grub2/x86_64-efi /home /opt /root /srv /tmp /usr/local /var )
+</code></pre>
+<p>With that I got duplicated things in the backup.tar.gz</p>
+<p>To make ReaR behave backward compatible for SLES users<br />
+and because it seems to be "the right thing" in general<br />
+I implemented<br />
+<a href="https://github.com/rear/rear/pull/3177">https://github.com/rear/rear/pull/3177</a></p>
+<p>With this additional changes I get no longer<br />
+duplicated things in the backup.tar.gz<br />
+BUT<br />
+I did not yet test "rear recover".<br />
+This will be done next week.</p>
+<p>@lzaoral @pcahyna @rear/contributors<br />
+I wish you a relaxed and recovering weekend!</p>
+<h4 id="pcahyna_commented_at_2024-03-08_1619"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985986432">2024-03-08 16:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1619" title="Permanent link">&para;</a></h4>
+<p>@jsmeix if you have snapshots, can you please test
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">https://github.com/rear/rear/pull/3175#issuecomment-1985632419</a>
+: "does tar consider files in different snapshots (originally same, but
+possibly different when they have been modified since the snapshot was
+taken) as hardlinks to the same file?" ?</p>
+<h4 id="pcahyna_commented_at_2024-03-10_1334"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1987233565">2024-03-10 13:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-10_1334" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I was in particular interested how things behave with the "well known"
+(to SLES users) SUSE specific</p>
+<pre><code>BACKUP_PROG_INCLUDE=( $( findmnt -n -r -o TARGET -t btrfs | grep -v '^/$' | egrep -v 'snapshots|crash' ) )
+</code></pre>
+<p>manual setting in etc/rear/local.conf cf.
+conf/examples/SLE12-SP2-btrfs-example.conf so I have</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/i386-pc /boot/grub2/x86_64-efi /home /opt /root /srv /tmp /usr/local /var )
+</code></pre>
+<p>With that I got duplicated things in the backup.tar.gz</p>
+</blockquote>
+<p>Is it a regression with this PR, or did you get duplicated entries in
+backup.tar.gz even before? What are the duplicated entries? Aren't you
+missing <code>BACKUP_ONLY_INCLUDE="yes"</code>? (but then you should probably add
+<code>/boot</code> to <code>BACKUP_PROG_INCLUDE</code> unless on SLES you have <code>/boot</code> as part
+of <code>/</code>).</p>
+<h4 id="pcahyna_commented_at_2024-03-11_1323"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1988433347">2024-03-11 13:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-11_1323" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@jsmeix if you have snapshots, can you please test <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">#3175
+(comment)</a>
+: "does tar consider files in different snapshots (originally same,
+but possibly different when they have been modified since the snapshot
+was taken) as hardlinks to the same file?" ?</p>
+</blockquote>
+<p>I tested ZFS and the same files in a snapshot and in the original
+filesystem do not show up as hardlinks to the same file in the <code>tar</code>
+output. Of course, although Btrfs is in many ways analogous to ZFS, it
+can behave differently in details like that.</p>
+<h4 id="pcahyna_commented_at_2024-03-26_1643"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2020955508">2024-03-26 16:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-26_1643" title="Permanent link">&para;</a></h4>
+<p>Hi all, reviewing what needs to be done there.</p>
+<ul>
+<li>[ ] what are the duplicated entries in backup.tar.gz currently?
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">https://github.com/rear/rear/pull/3175#issuecomment-1985907542</a></li>
+<li>[ ] avoid <code>sort -u</code> , to be replaced by <code>uniq_unsorted</code> in #3177</li>
+<li>[ ] test recovery with the SUSE-specific BACKUP_PROG_INCLUDE
+    setting
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">https://github.com/rear/rear/pull/3175#issuecomment-1985907542</a></li>
+<li>[ ] test snapshots: does tar consider files in different snapshots
+    (originally same, but possibly different when they have been
+    modified since the snapshot was taken) as hardlinks to the same
+    file?
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985986432">https://github.com/rear/rear/pull/3175#issuecomment-1985986432</a></li>
+<li>[ ] exclude snapshots from backup:
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985635686">https://github.com/rear/rear/pull/3175#issuecomment-1985635686</a></li>
+</ul>
+<h4 id="pcahyna_commented_at_2024-04-09_1004"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2044626832">2024-04-09 10:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-09_1004" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix can you please have a look? I believe the first four items in
+the checklist above are for you (the second only partially, you
+implement <code>uniq_unsorted</code> in #3177 and then @lzaoral will use it here).
+Is the task list ok?</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1248"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2045106512">2024-04-09 12:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1248" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I will have a look.</p>
+<p>First I would like to implement <code>uniq_unsorted</code><br />
+or perhaps even better named <code>unique_unsorted</code> cf.<br />
+<a href="https://github.com/rear/rear/pull/3177#issuecomment-2045095158">https://github.com/rear/rear/pull/3177#issuecomment-2045095158</a><br />
+so that @lzaoral could use it here.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-07.3175.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

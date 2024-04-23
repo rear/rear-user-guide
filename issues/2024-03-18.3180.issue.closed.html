@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3180 Issue closed: Scaring Error() exit in sbin/rear when unsuccessful mktmp - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3180 Issue closed: Scaring Error() exit in sbin/rear when unsuccessful mktmp";
+        var mkdocs_page_input_path = "issues/2024-03-18.3180.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3180 Issue closed: Scaring Error() exit in sbin/rear when unsuccessful mktmp</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3180_issue_closed_scaring_error_exit_in_sbinrear_when_unsuccessful_mktmp"><a href="https://github.com/rear/rear/issues/3180">#3180 Issue</a> <code>closed</code>: Scaring Error() exit in sbin/rear when unsuccessful mktmp<a class="headerlink" href="#3180_issue_closed_scaring_error_exit_in_sbinrear_when_unsuccessful_mktmp" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code>, <code>blocker</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-03-18_1403"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3180">2024-03-18 14:03</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-03-18_1403" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    current GitHub master code</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>One method to reporoduce it is to e.g.</p>
+<pre><code># export TMPDIR=QQQ
+</code></pre>
+<p>where the directory QQQ does not exists.</p>
+<p>On a SLES15-SP5 test VM with default btrfs structure<br />
+I get the following excerpts on the terminal<br />
+(i.e. also the 'set-x' output is on the terminal<br />
+because it <code>Could not create build area ''</code>):</p>
+<pre><code># usr/sbin/rear -D mkrescue
+tac: failed to create temporary file in 'QQQ': No such file or directory
+tac: failed to create temporary file in 'QQQ': No such file or directory
+mktemp: failed to create directory via template 'QQQ/rear.XXXXXXXXXXXXXXX': No such file or directory
+ERROR: Could not create build area ''
+===== Stack trace =====
+Trace 0: usr/sbin/rear:426 main
+=== End stack trace ===
+++ LogPrint 'Error exit of rear mkrescue (PID 1802) and its descendant processes'
+...
+Running exit tasks
+...
+++ Log 'Exit task '\''cleanup_build_area_and_end_program'\'''
+...
++++ Log 'Removing build area '
+...
++++ rm -Rf --one-file-system
+...
+rmdir: removing directory, ''
+rmdir: failed to remove '': No such file or directory
+...
+Could not remove build area  (something still exists therein)
+...
++++ mounted_in_BUILD_DIR='  proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+  sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+  devtmpfs on /dev type devtmpfs (rw,nosuid,size=4096k,nr_inodes=1048576,mode=755,inode64)
+   ...
+  /dev/sda2 on / type btrfs (rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot)
+  ...
+  /dev/sda2 on /.snapshots type btrfs (rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots)
+  /dev/sda2 on /boot/grub2/x86_64-efi type btrfs (rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi)
+  /dev/sda2 on /boot/grub2/i386-pc type btrfs (rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc)
+  /dev/sda2 on /home type btrfs (rw,relatime,space_cache,subvolid=264,subvol=/@/home)
+  /dev/sda2 on /opt type btrfs (rw,relatime,space_cache,subvolid=263,subvol=/@/opt)
+  /dev/sda2 on /root type btrfs (rw,relatime,space_cache,subvolid=262,subvol=/@/root)
+  /dev/sda2 on /srv type btrfs (rw,relatime,space_cache,subvolid=261,subvol=/@/srv)
+  /dev/sda2 on /tmp type btrfs (rw,relatime,space_cache,subvolid=260,subvol=/@/tmp)
+  /dev/sda2 on /usr/local type btrfs (rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local)
+  /dev/sda2 on /var type btrfs (rw,relatime,space_cache,subvolid=258,subvol=/@/var)
+  tmpfs on /run/user/0 type tmpfs (rw,nosuid,nodev,relatime,size=201216k,nr_inodes=50304,mode=700,inode64)'
+...
+Something is still mounted within the build area
+...
+You must manually umount it, then you could manually remove the build area
+...
+To manually remove the build area use (with caution): rm -Rf --one-file-system
+...
+Terminated
+</code></pre>
+<p>The "tac: failed to create temporary file" comes from</p>
+<pre><code>function get_bash_flags_and_options_commands () {
+    ...
+    set +o | tac | tr '\n' ';'
+</code></pre>
+<p>because 'tac' needs TMPDIR when called in a pipe</p>
+<pre><code># cat /etc/os-release | tac
+tac: failed to create temporary file in 'QQQ': No such file or directory
+</code></pre>
+<p>in contrast to when 'tac' is called with a regular file<br />
+(at least for me with /usr/bin/tac from coreutils-8.32).</p>
+<p>I also tried what happens on that test VM<br />
+when I do what ReaR tells to "manually remove the build area":</p>
+<pre><code># rm -Rfv --one-file-system &amp;&amp; echo y || echo n
+y
+
+# rm -Rfvi --one-file-system &amp;&amp; echo y || echo n
+rm: missing operand
+Try 'rm --help' for more information.
+n
+</code></pre>
+<p>Puh!<br />
+Basically by pure luck 'rm' does not remove anything<br />
+when there is nothing explicitly specified to be removed:</p>
+<pre><code># rm
+rm: missing operand
+Try 'rm --help' for more information.
+</code></pre>
+<p>As far as I see the problem is in sbin/rear<br />
+only between successful</p>
+<pre><code>source $SHARE_DIR/lib/_input-output-functions.sh
+</code></pre>
+<p>and unsuccessful</p>
+<pre><code>BUILD_DIR="$( mktemp -d -t rear.XXXXXXXXXXXXXXX || Error "Could not create build area '$BUILD_DIR'" )"
+</code></pre>
+<p>and the basically only thing that is in between is</p>
+<pre><code>QuietAddExitTask cleanup_build_area_and_end_program
+</code></pre>
+<p>so the whole problematic code is</p>
+<pre><code>if ! source $SHARE_DIR/lib/_input-output-functions.sh ; then
+    echo -e "ERROR: BUG in $PRODUCT\nFailed to source $SHARE_DIR/lib/_input-output-functions.sh\nPlease report it at $BUG_REPORT_SITE" &gt;&amp;2
+    exit 1
+fi
+...
+if test "$WORKFLOW" != "help" ; then
+    # Prepend temporary working area (BUILD_DIR) removal exit task
+    # so it gets executed directly before the above listed exit tasks.
+    # This must be done before the first possible call of the 'Error' function
+    # otherwise we may error out but leave the build area behind:
+    QuietAddExitTask cleanup_build_area_and_end_program
+    # Create temporary working area:
+    BUILD_DIR="$( mktemp -d -t rear.XXXXXXXXXXXXXXX || Error "Could not create build area '$BUILD_DIR'" )"
+</code></pre>
+<p>which I did via<br />
+<a href="https://github.com/rear/rear/commit/3f4bc829ec106ecf3456e305d48a4f2423458303">https://github.com/rear/rear/commit/3f4bc829ec106ecf3456e305d48a4f2423458303</a><br />
+that points to<br />
+<a href="https://github.com/rear/rear/pull/2633">https://github.com/rear/rear/pull/2633</a><br />
+therein <code>3f4bc82</code> appears only once just before<br />
+<a href="https://github.com/rear/rear/pull/2633#issuecomment-866666112">https://github.com/rear/rear/pull/2633#issuecomment-866666112</a></p>
+<h4 id="jsmeix_commented_at_2024-03-18_1411"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3180#issuecomment-2004028997">2024-03-18 14:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-18_1411" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+because you did much improve the<br />
+cleanup_build_area_and_end_program() related code<br />
+I dared to also assing you here because<br />
+I would much appreciate it<br />
+if you could also have a look here.</p>
+<p>I think I will at least for now move the</p>
+<pre><code>QuietAddExitTask cleanup_build_area_and_end_program
+</code></pre>
+<p>directly after the</p>
+<pre><code>BUILD_DIR="$( mktemp -d -t rear.XXXXXXXXXXXXXXX ...
+</code></pre>
+<p>because if 'mktemp' fails then there is no<br />
+$TMPDIR/rear.XXXXXXXXXXXXXXX<br />
+so no build area is left behind<br />
+(and if at all only an empty $TMPDIR/rear.XXXXXXXXXXXXXXX<br />
+would be left behind).</p>
+<p>I wonder if it is needed to be on the safe side<br />
+to manually call</p>
+<pre><code>rm -Rf --one-file-system $BUILD_DIR || true
+</code></pre>
+<p>when 'mktemp' fails or if this is superfluous because<br />
+when 'mktemp' fails, there cannot be a $BUILD_DIR?</p>
+<h4 id="jsmeix_commented_at_2024-03-18_1553"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3180#issuecomment-2004301447">2024-03-18 15:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-18_1553" title="Permanent link">&para;</a></h4>
+<p>This issue will be fixed via<br />
+<a href="https://github.com/rear/rear/pull/3168">https://github.com/rear/rear/pull/3168</a><br />
+see<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-2004294531">https://github.com/rear/rear/pull/3168#issuecomment-2004294531</a></p>
+<h4 id="jsmeix_commented_at_2024-03-26_1223"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3180#issuecomment-2020289048">2024-03-26 12:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_1223" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/3168">https://github.com/rear/rear/pull/3168</a>
+merged<br />
+this issue is fixed.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-18.3180.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

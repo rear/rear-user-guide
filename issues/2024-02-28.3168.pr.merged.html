@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3168 PR merged: Set TMPDIR to ReaR's TMP_DIR=$BUILD_DIR/tmp for programs that are called by ReaR - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3168 PR merged: Set TMPDIR to ReaR\u0027s TMP_DIR=$BUILD_DIR/tmp for programs that are called by ReaR";
+        var mkdocs_page_input_path = "issues/2024-02-28.3168.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3168 PR merged: Set TMPDIR to ReaR's TMP_DIR=$BUILD_DIR/tmp for programs that are called by ReaR</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3168_pr_merged_set_tmpdir_to_rears_tmp_dirbuild_dirtmp_for_programs_that_are_called_by_rear"><a href="https://github.com/rear/rear/pull/3168">#3168 PR</a> <code>merged</code>: Set TMPDIR to ReaR's TMP_DIR=$BUILD_DIR/tmp for programs that are called by ReaR<a class="headerlink" href="#3168_pr_merged_set_tmpdir_to_rears_tmp_dirbuild_dirtmp_for_programs_that_are_called_by_rear" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-02-28_1536"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3168">2024-02-28 15:36</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-02-28_1536" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong><br />
+    Hopefully a high positive impact<br />
+    because of improved default confidentiality and<br />
+    because of improved careful and complete cleanup of temporary
+    leftovers</p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3167">https://github.com/rear/rear/issues/3167</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    A simple "rear mkbackup"<br />
+    and "rear recover" work for me.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In usr/sbin/rear set TMPDIR to TMP_DIR (within BUILD_DIR)<br />
+to ensure<br />
+that also for programs that are called by ReaR<br />
+ReaR will clean up all temporary stuff carefully and completely<br />
+via the function cleanup_build_area_and_end_program()<br />
+AND<br />
+that temporary files from programs that are called by ReaR<br />
+are sufficiently safe against unwanted access by non-root users<br />
+via 'mktemp -d' where BUILD_DIR and implicitly
+TMP_DIR=$BUILD_DIR/tmp<br />
+has permissions only for root but none for the group or others</p>
+<h4 id="jsmeix_commented_at_2024-02-28_1545"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1969267649">2024-02-28 15:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_1545" title="Permanent link">&para;</a></h4>
+<p>My simple test of "rear mkbackup" with</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=file:///other/
+BACKUP_ONLY_INCLUDE="yes"
+BACKUP_PROG_INCLUDE=( /home/johannes )
+
+# mount | grep other
+/dev/nvme0n1p4 on /other type ext4 (rw,relatime,stripe=32)
+</code></pre>
+<p>For testing I added at the beginning of<br />
+init/default/001_verify_config_arrays.sh</p>
+<pre><code>tmpdir="$( mktemp -d )"
+echo tmpdata &gt;$tmpdir/tmpfile
+DebugPrint "$( find $tmpdir -ls )"
+</code></pre>
+<p>Before the changes in this pull request:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'init' stage ======================
+ 14419482 4 drwx------ 2 root root 4096 Feb 28 13:47 /var/tmp/tmp.FWlUGBmzz8
+ 14419484 4 -rw-r--r-- 1 root root    8 Feb 28 13:47 /var/tmp/tmp.FWlUGBmzz8/tmpfile
+...
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.Bw6o1RnUaVZCc5M
+
+# rm -Rf --one-file-system /var/tmp/rear.Bw6o1RnUaVZCc5M
+# echo $?
+0
+# find /var/tmp/rear.Bw6o1RnUaVZCc5M -ls
+find: ‘/var/tmp/rear.Bw6o1RnUaVZCc5M’: No such file or directory
+
+# find /var/tmp/tmp.FWlUGBmzz8 -ls
+ 14419482 4 drwx------ 2 root root 4096 Feb 28 13:47 /var/tmp/tmp.FWlUGBmzz8
+ 14419484 4 -rw-r--r-- 1 root root    8 Feb 28 13:47 /var/tmp/tmp.FWlUGBmzz8/tmpfile
+</code></pre>
+<p>With the changes in this pull request:</p>
+<pre><code># usr/sbin/rear -D mkbackup
+...
+Running 'init' stage ======================
+ 14811425 4 drwx------ 2 root root 4096 Feb 28 16:16 /var/tmp/rear.7rxBQsZQKFf6f5e/tmp/tmp.esJeyHDyzM
+ 14811426 4 -rw-r--r-- 1 root root    8 Feb 28 16:16 /var/tmp/rear.7rxBQsZQKFf6f5e/tmp/tmp.esJeyHDyzM/tmpfile
+...
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.7rxBQsZQKFf6f5e
+
+# rm -Rf --one-file-system /var/tmp/rear.7rxBQsZQKFf6f5e
+# echo $?
+0
+# find /var/tmp/rear.7rxBQsZQKFf6f5e -ls
+find: ‘/var/tmp/rear.7rxBQsZQKFf6f5e’: No such file or directory
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-06_1520"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1981113250">2024-03-06 15:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-06_1520" title="Permanent link">&para;</a></h4>
+<p>I did "rear mkbackup" and "rear recover" with</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.178.66/nfs
+</code></pre>
+<p>which "just worked" normally for me.</p>
+<p>I did the same artificial change at the beginning of<br />
+init/default/001_verify_config_arrays.sh<br />
+as above, i.e.</p>
+<pre><code>tmpdir="$( mktemp -d )"
+echo tmpdata &gt;$tmpdir/tmpfile
+DebugPrint "$( find $tmpdir -ls )"
+</code></pre>
+<p>and got</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Running 'init' stage ======================
+29774 0 drwx------ 2 root root 0 Mar 6 16:14 /var/tmp/rear.PrD9Rdyf07gHSxT/tmp/tmp.N7hW9sdA75
+29775 4 -rw-r--r-- 1 root root 8 Mar 6 16:14 /var/tmp/rear.PrD9Rdyf07gHSxT/tmp/tmp.N7hW9sdA75/tmpfile
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.PrD9Rdyf07gHSxT
+</code></pre>
+<p>The recreated system boots normally and<br />
+works normally (as far as I see at first glance).</p>
+<h4 id="jsmeix_commented_at_2024-03-06_1523"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1981121589">2024-03-06 15:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-06_1523" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors @pcahyna<br />
+could you please review it (as time permits),<br />
+perhaps you see some obvious mistake.</p>
+<p>If there are no objections<br />
+I would like to merge it on Friday afternoon<br />
+so users who use our GitHub master code could test it and<br />
+report if there are issues in this or that circumstances.</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1100"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983267535">2024-03-07 11:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1100" title="Permanent link">&para;</a></h4>
+<p>Something is wrong in the CI runs:</p>
+<pre><code>2024-02-28 16:53:54.526692213 WARNING:
+                              Failed to create initrd for kernel version '5.14.0-419.el9.x86_64'.
+                              Check '/var/log/rear/rear-ip-172-31-29-183.log' to see the error messages in detail
+                              and decide yourself, whether the system will boot or not.
+2024-02-28 16:53:54.555617047 Running dracut...
+2024-02-28 16:53:54.585746511 WARNING:
+                              Failed to create initrd for kernel version '5.14.0-425.el9.x86_64'.
+                              Check '/var/log/rear/rear-ip-172-31-29-183.log' to see the error messages in detail
+                              and decide yourself, whether the system will boot or not.
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-07_1123"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983303628">2024-03-07 11:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1123" title="Permanent link">&para;</a></h4>
+<p>I don't know what's wrong, but I suspect that the TMPDIR setting is used
+also in the rescue system and exported to programs called in the
+<code>/mnt/local</code> chroot, and the <code>/var/tmp/rearXXXXXX</code> directory does not
+exist in the chroot (unlike the former <code>/var/tmp</code> value that had the
+advantage of existing both in the recovery ramdisk and in the recovered
+system), and some programs called in the chroot do not like an invalid
+TMPDIR value.<br />
+<s>This is purely my speculation.</s> Now confirmed by error messages in
+@jsmeix's <code>rear -D recover</code> run.</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1125"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983306864">2024-03-07 11:25</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1125" title="Permanent link">&para;</a></h4>
+<p>@jsmeix do you know where to find the error messages from dracut, if
+any? I don't see them in the recovery log:
+<a href="https://artifacts.dev.testing-farm.io/659057b7-cf20-4bf1-9519-3768cad95c92/work-backup-and-restoreom9c6wvr/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/data/rear-recover.log">https://artifacts.dev.testing-farm.io/659057b7-cf20-4bf1-9519-3768cad95c92/work-backup-and-restoreom9c6wvr/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/data/rear-recover.log</a></p>
+<h4 id="pcahyna_commented_at_2024-03-07_1127"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983309585">2024-03-07 11:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1127" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The recreated system boots normally and<br />
+works normally (as far as I see at first glance).</p>
+</blockquote>
+<p>Do you see the dracut warnings in the recovery log? Or maybe the
+distribution you are testing on does not use dracut?</p>
+<h4 id="gdha_commented_at_2024-03-07_1201"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983365220">2024-03-07 12:01</a>:<a class="headerlink" href="#gdha_commented_at_2024-03-07_1201" title="Permanent link">&para;</a></h4>
+<p>@pcahyna When inspecting
+<a href="https://artifacts.dev.testing-farm.io/5f65a14d-eba9-467a-b03e-24c667b17f9c/work-backup-and-restoreu9mahx67/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/output.txt">https://artifacts.dev.testing-farm.io/5f65a14d-eba9-467a-b03e-24c667b17f9c/work-backup-and-restoreu9mahx67/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/output.txt</a><br />
+I do see the following:</p>
+<pre><code>:: [ 16:48:38 ] :: [   PASS   ] :: Command 'export TMPDIR='/var/tmp'' (Expected 0, got 0)
+...
+2024-02-28 16:51:39.691572435 Running dracut...
+2024-02-28 16:51:39.711368631 WARNING:
+                              Failed to create initrd for kernel version '6.8.0-0.rc5.41.fc41.x86_64'.
+                              Check '/var/log/rear/rear-ip-172-31-30-152.log' to see the error messages in detail
+                              and decide yourself, whether the system will boot or not.
+</code></pre>
+<p>Therefore, IMHO <code>TMPDIR</code> was set to <code>/var/tmp</code><br />
+Perhaps, add a step to copy the
+<code>/var/log/rear/rear-ip-172-31-30-152.log</code> as well?</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1209"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983377528">2024-03-07 12:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1209" title="Permanent link">&para;</a></h4>
+<p>Sigh!<br />
+I have that dracut error too.<br />
+Somehow I must have overlooked that yesterday.<br />
+Today I see it clearly:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Using build area: /var/tmp/rear.bClgGxIS12HNrGx
+...
+Warning:
+Failed to recreate initrd with /usr/bin/dracut.
+Check '/var/log/rear/rear-localhost.log' why /usr/bin/dracut failed
+and decide if the recreated system will boot
+with the initrd 'as is' from the backup restore.
+</code></pre>
+<p>In ReaR debug mode my /var/log/rear/rear-localhost.log<br />
+shows why /usr/bin/dracut failed</p>
+<pre><code>++ chroot /mnt/local /bin/bash -c 'PATH=/sbin:/usr/sbin:/usr/bin:/bin /usr/bin/dracut --force'
+realpath: /var/tmp/rear.bClgGxIS12HNrGx/tmp: No such file or directory
+dracut: Invalid tmpdir '/var/tmp/rear.bClgGxIS12HNrGx/tmp'.
+++ LogPrintError 'Warning:
+Failed to recreate initrd with /usr/bin/dracut.
+Check '\''/var/log/rear/rear-localhost.log'\'' why /usr/bin/dracut failed
+and decide if the recreated system will boot
+with the initrd '\''as is'\'' from the backup restore.
+'
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-07_1211"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983380163">2024-03-07 12:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1211" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your careful review.<br />
+So often you detect things.<br />
+I do appreciate that so very much!</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1219"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983394355">2024-03-07 12:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1219" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Thank mainly Anton and Lukas for implementing the CI, especially
+Lukas for grepping for WARNING and ERROR in the log and reporting a test
+failure even if the recovery is successful! Please do not ignore test
+failures especially if they occur on multiple distros.</p>
+<p>By the way:<br />
+the verification steps at the end of the test script contain:<br />
+<code>grep -C 10 -P "$log_prefix WARNING:" $path</code><br />
+so it will stop working if the letter case of the messages is changed.</p>
+<p>@gdha</p>
+<blockquote>
+<p>Perhaps, add a step to copy the
+/var/log/rear/rear-ip-172-31-30-152.log as well?</p>
+</blockquote>
+<p>The steps has been in ReaR by default for a long time! See
+wrapup/default/990_copy_logfile.sh , the definition of
+<code>copy_log_file_exit_task</code>. Unfortunately the log does not contain
+anything more (the message I quoted is from that very same log file), so
+the message
+<code>Check '/var/log/rear/rear-ip-172-31-29-183.log' to see the error messages</code>
+is unhelpful and misleading.</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1220"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983395939">2024-03-07 12:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1220" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I do see the following:<br />
+<code>:: [ 16:48:38 ] :: [   PASS   ] :: Command 'export TMPDIR='/var/tmp'' (Expected 0, got 0)</code><br />
+Therefore, IMHO TMPDIR was set to /var/tmp</p>
+</blockquote>
+<p>The script sets it before calling ReaR, but then ReaR changes TMPDIR
+internally (which is the cause of the problem).</p>
+<p>And setting TMPDIR before a <code>rear mkrescue</code> run will not affect
+<code>rear recover</code> anyway, and it is <code>rear recover</code> that has the problem,
+not <code>rear mkrescue</code>. The test script does not alter the <code>rear recover</code>
+run in any way (except for setting some <code>PRE_</code> / <code>POST_</code> stuff).</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1225"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983403646">2024-03-07 12:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1225" title="Permanent link">&para;</a></h4>
+<p>I will have to think some time about it<br />
+whether or not there could be a good solution,<br />
+i.e. a solution that is reasonably simple<br />
+so that we can safely assume it works reasonably fail-safe<br />
+and that it will be reasonably future-proof.</p>
+<p>What I see now and what I do not like is that<br />
+all our <code>chroot /mnt/local COMMANDs</code><br />
+could leave arbitrary temporary stuff behind<br />
+in the recreated system.</p>
+<p>I wished ReaR could provide some generic means<br />
+that all ReaR's temporary files get cleaned up properly<br />
+and that ReaR's temporary files are sufficiently safe<br />
+against unwanted access.</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983410829">2024-03-07 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1230" title="Permanent link">&para;</a></h4>
+<p>By the way<br />
+regarding <code>WARNING:</code> versus <code>Warning:</code> see<br />
+<a href="https://github.com/rear/rear/pull/3153#issuecomment-1952301713">https://github.com/rear/rear/pull/3153#issuecomment-1952301713</a></p>
+<h4 id="jsmeix_commented_at_2024-03-07_1238"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983424293">2024-03-07 12:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1238" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+"Please do not ignore test failures":<br />
+I am sorry for that.<br />
+Obviously I did not have a good day yesterday.<br />
+Yesterday there were various different things in parallel<br />
+so apparently my brain had some kind of "overflow blackout".</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1983442350">2024-03-07 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1250" title="Permanent link">&para;</a></h4>
+<p>There is no dracut error message in ReaR's log file<br />
+unless ReaR runs in debug mode, cf.<br />
+<a href="https://github.com/rear/rear/issues/2416">https://github.com/rear/rear/issues/2416</a>
+and<br />
+<a href="https://github.com/rear/rear/pull/2633">https://github.com/rear/rear/pull/2633</a></p>
+<h4 id="jsmeix_commented_at_2024-03-11_1706"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1988974933">2024-03-11 17:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-11_1706" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/4e78ab50f9805a9f35935783646726f283b9a9d3">https://github.com/rear/rear/pull/3168/commits/4e78ab50f9805a9f35935783646726f283b9a9d3</a><br />
+I set TMPDIR to TMP_DIR only when we are not in RECOVERY_MODE<br />
+as a currently not yet testet attempt to avoid<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1983377528">https://github.com/rear/rear/pull/3168#issuecomment-1983377528</a></p>
+<p>My reasoning:</p>
+<p>For programs that run within the ReaR recovery system<br />
+it should not matter where TMPDIR is or whether or not<br />
+some temporary files of called programs are left behind<br />
+because the ReaR recovery system is on a ramdisk that<br />
+gets completely removed by 'reboot' or 'poweroff'<br />
+so nothing of the ReaR recovery system is left behind.</p>
+<p>For programs that run within the recreated/restored system via</p>
+<pre><code>chroot /mnt/local COMMAND
+</code></pre>
+<p>exporting TMPDIR to ReaR's TMP_DIR cannot work because<br />
+there cannot be a TMP_DIR in the recreated/restored system<br />
+i.e. there is no <code>/mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp</code><br />
+because <code>mktemp -d -t rear.XXXXXXXXXXXXXXX</code> is unpredictable<br />
+(i.e. unpredictable with sufficiently high probability).</p>
+<p>The alternative to create (and remove it at the end)<br />
+(e.g. via some initial 'finalize' stage script)<br />
+<code>/mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp</code><br />
+with same <code>/var/tmp/rear.XXXXXXXXXXXXXXX/tmp</code><br />
+as in the ReaR recovery system looks a too dirty hack to me<br />
+at least according to my current gut feeling.</p>
+<h4 id="pcahyna_commented_at_2024-03-12_0958"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991229533">2024-03-12 09:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-12_0958" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The alternative to create (and remove it at the end)<br />
+(e.g. via some initial 'finalize' stage script)<br />
+<code>/mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp</code><br />
+with same <code>/var/tmp/rear.XXXXXXXXXXXXXXX/tmp</code><br />
+as in the ReaR recovery system looks a too dirty hack to me<br />
+at least according to my current gut feeling.</p>
+</blockquote>
+<p>I actually wanted to suggest this solution, to me it does not look that
+bad, and helps (the 'remove it at the end' part) with this problem as
+well:</p>
+<blockquote>
+<p>What I see now and what I do not like is that<br />
+all our chroot /mnt/local COMMANDs<br />
+could leave arbitrary temporary stuff behind<br />
+in the recreated system.</p>
+</blockquote>
+<p>But your proposed solution works as well of course. CI likes it, too.</p>
+<h4 id="jsmeix_commented_at_2024-03-12_1047"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991347031">2024-03-12 10:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1047" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+after sleeping on it I also think that creating<br />
+/mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp<br />
+and removing it at the end is not so bad<br />
+as it looked to me yesterday.</p>
+<p>But for now I prefer it as it is currently done because<br />
+creating /mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp<br />
+could become more tricky than expected:</p>
+<p>One reason is that not all workflows that can<br />
+run in the recovery system source the 'finalize' stage<br />
+so creating /mnt/local/var/tmp/rear.XXXXXXXXXXXXXXX/tmp<br />
+via some initial 'finalize' stage script<br />
+would be only partially working.</p>
+<h4 id="jsmeix_commented_at_2024-03-12_1052"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991356186">2024-03-12 10:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1052" title="Permanent link">&para;</a></h4>
+<p>And the nightmare continues:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l 'chroot '
+</code></pre>
+<p>shows in particular<br />
+usr/share/rear/build/default/490_fix_broken_links.sh<br />
+and<br />
+usr/share/rear/build/default/990_verify_rootfs.sh<br />
+which run</p>
+<pre><code>chroot $ROOTFS_DIR COMMAND
+</code></pre>
+<p>where COMMAND fails when it uses TMPDIR<br />
+because there is no</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/tmp
+</code></pre>
+<p>in</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/rootfs
+</code></pre>
+<p>i.e. there is no</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/rootfs/var/tmp/rear.XXXXXXXXXXXXXXX/tmp
+</code></pre>
+<p>As an artificial test I added at the beginning of<br />
+usr/share/rear/build/default/990_verify_rootfs.sh</p>
+<pre><code>chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d )"'
+</code></pre>
+<p>and did</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.ljfRf4UOfVJktrT
+...
+</code></pre>
+<p>and got in var/log/rear/rear-localhost.log</p>
+<pre><code>+ source /root/rear.github.master.TMPDIR/usr/share/rear/build/default/990_verify_rootfs.sh
+++ chroot /var/tmp/rear.ljfRf4UOfVJktrT/rootfs /bin/bash -c 'tmpdir="$( mktemp -d )"'
+mktemp: failed to create directory via template '/var/tmp/rear.ljfRf4UOfVJktrT/tmp/tmp.XXXXXXXXXX': No such file or directory
+</code></pre>
+<p>:-(</p>
+<h4 id="jsmeix_commented_at_2024-03-12_1208"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991503836">2024-03-12 12:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1208" title="Permanent link">&para;</a></h4>
+<p>With<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/9b4efb2469b8cf3585206dbb10700960b480008e">https://github.com/rear/rear/pull/3168/commits/9b4efb2469b8cf3585206dbb10700960b480008e</a><br />
+I create TMPDIR inside ROOTFS_DIR<br />
+i.e. I create $ROOTFS_DIR$TMP_DIR which is<br />
+/var/tmp/rear.XXX/rootfs/var/tmp/rear.XXX/tmp<br />
+so that "chroot $ROOTFS_DIR COMMAND"<br />
+will not fail when COMMAND uses TMPDIR.</p>
+<h4 id="jsmeix_commented_at_2024-03-12_1211"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991509797">2024-03-12 12:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1211" title="Permanent link">&para;</a></h4>
+<p>With latest changes and<br />
+as an artificial test added at the beginning of<br />
+usr/share/rear/build/default/990_verify_rootfs.sh</p>
+<pre><code>chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+</code></pre>
+<p>I get</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.vSlVJGxFx9U5HVY
+...
+Exiting rear mkrescue (PID 8329) and its descendant processes ...
+</code></pre>
+<p>and</p>
+<pre><code># find /var/tmp/rear.vSlVJGxFx9U5HVY/rootfs/var/tmp/rear.vSlVJGxFx9U5HVY/tmp/
+/var/tmp/rear.vSlVJGxFx9U5HVY/rootfs/var/tmp/rear.vSlVJGxFx9U5HVY/tmp/
+/var/tmp/rear.vSlVJGxFx9U5HVY/rootfs/var/tmp/rear.vSlVJGxFx9U5HVY/tmp/tmp.QgqgDBsfmZ
+/var/tmp/rear.vSlVJGxFx9U5HVY/rootfs/var/tmp/rear.vSlVJGxFx9U5HVY/tmp/tmp.QgqgDBsfmZ/tmpfile
+</code></pre>
+<p>and in var/log/rear/rear-localhost.log there is</p>
+<pre><code>+ source /root/rear.github.master.TMPDIR/usr/share/rear/build/default/990_verify_rootfs.sh
+++ chroot /var/tmp/rear.vSlVJGxFx9U5HVY/rootfs /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+ 15341688      4 drwx------   2 root     root         4096 Mar 12 12:58 /var/tmp/rear.vSlVJGxFx9U5HVY/tmp/tmp.QgqgDBsfmZ
+ 15342002      4 -rw-r--r--   1 root     root            8 Mar 12 12:58 /var/tmp/rear.vSlVJGxFx9U5HVY/tmp/tmp.QgqgDBsfmZ/tmpfile
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-12_1240"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991561411">2024-03-12 12:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1240" title="Permanent link">&para;</a></h4>
+<p>FYI<br />
+whereto we <code>chroot</code> in the ReaR scripts</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f -name '*.sh' \
+ | xargs grep -h 'chroot [^ ]*' \
+ | grep -v '^ *#' \
+ | grep -o 'chroot [^ ]*' \
+ | sort -u
+
+chroot $ROOTFS_DIR
+chroot $TARGET_FS_ROOT
+chroot $TARGET_FS_ROOT'
+chroot $TARGET_FS_ROOT/
+chroot $TARGET_FS_ROOT\ncd
+</code></pre>
+<p>where <code>chroot $TARGET_FS_ROOT'</code><br />
+and <code>chroot $TARGET_FS_ROOT\ncd</code><br />
+are false-positives:</p>
+<pre><code>You should 'chroot $TARGET_FS_ROOT' and try to fix this.
+</code></pre>
+<p>in finalize/Debian/i386/550_rebuild_initramfs.sh<br />
+and</p>
+<pre><code>rear_shell_history="$( echo -e "chroot $TARGET_FS_ROOT\ncd $TARGET_FS_ROOT/etc/\nvi $restored_fstab\nless $restored_fstab" )"
+</code></pre>
+<p>in finalize/default/520_confirm_finalize.sh</p>
+<h4 id="jsmeix_commented_at_2024-03-12_1356"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1991713382">2024-03-12 13:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-12_1356" title="Permanent link">&para;</a></h4>
+<p>On the one hand I like such details problems<br />
+because I find it interesting to experience<br />
+the truth behind RFC 1925 items 4 and 8 and the<br />
+WYSIATI (What you see is all there is) fallacy, cf.<br />
+<a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow</a></p>
+<p>On the other had I fear such details problems<br />
+because it proves that in practice<br />
+no matter how hard you try,<br />
+you can't make a program that works<br />
+(i.e. RFC 1925 item 1 is impossible).</p>
+<p>There is always something unrecognized left.</p>
+<h4 id="pcahyna_commented_at_2024-03-13_1024"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1994048233">2024-03-13 10:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-13_1024" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>usr/share/rear/build/default/490_fix_broken_links.sh and
+usr/share/rear/build/default/990_verify_rootfs.sh which run</p>
+<pre><code>chroot $ROOTFS_DIR COMMAND
+</code></pre>
+<p>where COMMAND fails when it uses TMPDIR because there is no</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/tmp
+</code></pre>
+<p>in</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/rootfs
+</code></pre>
+<p>i.e. there is no</p>
+<pre><code>/var/tmp/rear.XXXXXXXXXXXXXXX/rootfs/var/tmp/rear.XXXXXXXXXXXXXXX/tmp
+</code></pre>
+</blockquote>
+<p>I would expect this to be also a problem when an user sets and exports
+<code>TMPDIR</code> to some value like <code>/a/big/and/fast/filesystem</code> before calling
+ReaR, because <code>/a/big/and/fast/filesystem</code> will not exist either in
+<code>rootfs</code>, and this problem exists <em>regardless of your changes in this
+PR</em>. I suspect that to fix all this consistently one needs to add
+<code>$TMPDIR</code> to <code>COPY_AS_IS</code> and <code>$TMPDIR/*</code> to <code>COPY_AS_IS_EXCLUDE</code>. One
+needs to do it after <code>TMPDIR</code> is set, though.</p>
+<h4 id="pcahyna_commented_at_2024-03-13_1056"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1994108376">2024-03-13 10:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-13_1056" title="Permanent link">&para;</a></h4>
+<p>With
+<code>mkdir /run/user/111240/rear; TMPDIR=/run/user/111240/rear usr/sbin/rear -D mkrescue</code>
+and</p>
+<blockquote>
+<p>an artificial test added at the beginning of
+usr/share/rear/build/default/990_verify_rootfs.sh</p>
+<pre><code>chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+</code></pre>
+</blockquote>
+<p>I get this in the log:</p>
+<pre><code>+ source /home/pcahyna/rear/rear/usr/share/rear/build/default/990_verify_rootfs.sh
+++ LogPrint 'Testing that the recovery system in /run/user/111240/rear/rear.0K0i19A75LZJHIF/rootfs contains a usable system'
+2024-03-13 11:37:29.479931931 Testing that the recovery system in /run/user/111240/rear/rear.0K0i19A75LZJHIF/rootfs contains a
+ usable system
+++ chroot /run/user/111240/rear/rear.0K0i19A75LZJHIF/rootfs /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpf
+ile ; find $tmpdir -ls'
+mktemp: failed to create directory via template '/run/user/111240/rear/tmp.XXXXXXXXXX': No such file or directory
+</code></pre>
+<p>so indeed setting TMPDIR in the environment to a directory not included
+in rootfs can be a problem even without this PR.</p>
+<h4 id="jsmeix_commented_at_2024-03-13_1154"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1994207942">2024-03-13 11:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-13_1154" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+with the code changes of this pull request<br />
+and the artificial test added at the beginning<br />
+of usr/share/rear/build/default/990_verify_rootfs.sh</p>
+<pre><code>chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+</code></pre>
+<p>I get</p>
+<pre><code># mkdir /var/tmp/mytmp
+
+# export TMPDIR=/var/tmp/mytmp
+
+# usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/mytmp/rear.BMiD0hqGkOXxPOt
+...
+Exiting rear mkrescue (PID 5086) and its descendant processes ...
+
+# less var/log/rear/rear-localhost.log
+...
++ source /root/rear.github.master.TMPDIR/usr/share/rear/build/default/990_verify_rootfs.sh
+++ chroot /var/tmp/mytmp/rear.BMiD0hqGkOXxPOt/rootfs /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+ 14811269      4 drwx------   2 root     root         4096 Mar 13 12:48 /var/tmp/mytmp/rear.BMiD0hqGkOXxPOt/tmp/tmp.MIQ2WXDfHP
+ 14811270      4 -rw-r--r--   1 root     root            8 Mar 13 12:48 /var/tmp/mytmp/rear.BMiD0hqGkOXxPOt/tmp/tmp.MIQ2WXDfHP/tmpfile
+</code></pre>
+<p>So - as far as I see - the code changes of this pull request<br />
+fix by the way that setting TMPDIR to a directory<br />
+not included in 'rootfs' ($ROOTFS_DIR) is a problem.<br />
+Or do I misunderstand something?</p>
+<h4 id="schlomo_commented_at_2024-03-13_1200"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1994217844">2024-03-13 12:00</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-13_1200" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I suspect that to fix all this consistently one needs to add <code>$TMPDIR</code>
+to <code>COPY_AS_IS</code> and <code>$TMPDIR/*</code> to <code>COPY_AS_IS_EXCLUDE</code>. One needs to
+do it after <code>TMPDIR</code> is set, though.</p>
+</blockquote>
+<p>I really like this idea. It seems to me to resolve this problem more on
+a root-cause level by ensuring that "whatever" is going on outside the
+<code>chroot</code> will also work inside.</p>
+<h4 id="jsmeix_commented_at_2024-03-13_1323"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1994397454">2024-03-13 13:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-13_1323" title="Permanent link">&para;</a></h4>
+<p>I think adding $TMPDIR to COPY_AS_IS<br />
+and $TMPDIR/* to COPY_AS_IS_EXCLUDE<br />
+looks needlessly complicated and obscured<br />
+(I think the intent is to add an empty $TMPDIR)<br />
+compared to <code>mkdir -p $ROOTFS_DIR$TMP_DIR</code><br />
+that is simple and straightforward<br />
+at least as far as I see.<br />
+Or do I misunderstand something?</p>
+<p>I think adding an empty $TMPDIR to COPY_AS_IS<br />
+won't help for the <code>chroot /mnt/local</code> case and<br />
+it also won't help for whatever other directories<br />
+so "whatever" is going on outside the chroot<br />
+will not necessarily also work inside<br />
+at least as far as I see.<br />
+Or do I misunderstand something?</p>
+<h4 id="pcahyna_commented_at_2024-03-14_0748"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996758931">2024-03-14 07:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-14_0748" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I think I had not realized that your change helps also with the
+preexisting problem, so it is better than I thought (but see my latest
+comment).</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0825"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996838338">2024-03-14 08:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0825" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/4b772e0fe0612eca257fa4eaeff405e19f1ab6ea">https://github.com/rear/rear/pull/3168/commits/4b772e0fe0612eca257fa4eaeff405e19f1ab6ea</a><br />
+I check now in prep/default/990_verify_empty_rootfs.sh<br />
+only for regular files in ROOTFS_DIR so in particular<br />
+empty directories like ROOTFS_DIR/TMP_DIR are OK, cf.<br />
+<a href="https://github.com/rear/rear/commit/9b4efb2469b8cf3585206dbb10700960b480008e#r139765325">https://github.com/rear/rear/commit/9b4efb2469b8cf3585206dbb10700960b480008e#r139765325</a></p>
+<p>FYI<br />
+how long it takes to run <code>find $ROOTFS_DIR</code><br />
+on my homeoffice system with a AMD Ryzen 3 4300G<br />
+and a Samsung NVMe SSD 980</p>
+<pre><code>2024-03-14 09:14:28.331693134 Entering debugscript mode via 'set -x'.
++ source /root/rear.github.master.TMPDIR/usr/share/rear/prep/default/990_verify_empty_rootfs.sh
+...
+2024-03-14 09:14:28.363963485 Source function: 'source /root/rear.github.master.TMPDIR/usr/share/rear/prep/default/990_verify_empty_rootfs.sh' returns 1
+</code></pre>
+<p>i.e. about a third of a second<br />
+(28.363963485 - 28.331693134 = .032270351).<br />
+I think this is acceptable.</p>
+<h4 id="schlomo_commented_at_2024-03-14_0831"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996848881">2024-03-14 08:31</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-14_0831" title="Permanent link">&para;</a></h4>
+<p>Another way to solve this would be to actually create the
+<code>ROOTFS_DIR/TMP_DIR</code> <em>after</em> this check, e.g. at the very beginning of
+the <code>rescue</code> stage.</p>
+<p>TBH I'd appreciate that approach because:</p>
+<ol>
+<li>it reduces the clutter in the <code>rear</code> main script</li>
+<li>it will allow us to catch other empty directories or special files
+    created during <code>prep</code></li>
+<li>One way to look at the temp dir problem is to see it as a required
+    step to create a "good" <code>ROOTFS_DIR</code> that also supports running
+    <code>chroot mktemp</code> inside. Therefore the problem belongs to <code>rescue</code> or
+    <code>build</code> and not to the <code>rear</code> main script.</li>
+</ol>
+<p>WDYT @jsmeix @pcahyna ?</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0840"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996875429">2024-03-14 08:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0840" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I understand but on the other hand<br />
+I do not like to spread things that belong together<br />
+so I would prefer to do all what belongs to setting TMPDIR<br />
+at one code place.<br />
+For the same reason I don't mind if sbin/rear becomes<br />
+longer as long as things belong to sbin/rear.<br />
+So we may move out the whole ROOTFS_DIR related code<br />
+out of sbin/rear - but not within this pull request.</p>
+<p>On the third hand ("tertium datur" - always in practice)<br />
+my recent<br />
+<a href="https://github.com/rear/rear/commit/4b772e0fe0612eca257fa4eaeff405e19f1ab6ea">https://github.com/rear/rear/commit/4b772e0fe0612eca257fa4eaeff405e19f1ab6ea</a><br />
+already spreads things that belong to setting TMPDIR<br />
+now over two code places :-(</p>
+<p>I think spreading things that belong together<br />
+over several code places is worse 'clutter'<br />
+than having longer code parts that do one thing<br />
+and do it (reasonably) well (as far as possible<br />
+with reasonable effort).</p>
+<p>By the way:<br />
+What is the English expression for the German<br />
+"es ist zum Mäusemelken"?</p>
+<h4 id="schlomo_commented_at_2024-03-14_0901"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996926253">2024-03-14 09:01</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-14_0901" title="Permanent link">&para;</a></h4>
+<p>I'm all in favour to set <code>ROOTFS_DIR=/dev/null</code> (or something like that)
+in <code>rear</code> and then create it at the beginning of <code>rescue</code>where it is
+actually needed.</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0906"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996947940">2024-03-14 09:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0906" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+OK - please implement it.<br />
+If you like I could first merge this pull request<br />
+or you could implement setting TMPDIR by the way.</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0911"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996968900">2024-03-14 09:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0911" title="Permanent link">&para;</a></h4>
+<p>By the way regarding what there is in ROOTFS_DIR<br />
+at the end of the 'prep' stage:<br />
+With my recent<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/05feecf0ab6db086d43d8f961e8a390c8f4a86d0">https://github.com/rear/rear/pull/3168/commits/05feecf0ab6db086d43d8f961e8a390c8f4a86d0</a><br />
+I get</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.xQVhflLY7FL95z9
+...
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.xQVhflLY7FL95z9/rootfs contains regular files)
+...
+Exiting rear mkrescue (PID 5705) and its descendant processes ...
+
+# less var/log/rear/rear-localhost.log
+...
++ source /root/rear.github.master.TMPDIR/usr/share/rear/prep/default/990_verify_empty_rootfs.sh
++++ find /var/tmp/rear.xQVhflLY7FL95z9/rootfs -type f
+++ test /var/tmp/rear.xQVhflLY7FL95z9/rootfs/etc/rear/rescue.conf
+++ DebugPrint 'Modified ReaR recovery system area after '\''prep'\'' stage (/var/tmp/rear.xQVhflLY7FL95z9/rootfs contains regular files)'
+2024-03-14 10:00:41.761946593 Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.xQVhflLY7FL95z9/rootfs contains regular files)
++++ find /var/tmp/rear.xQVhflLY7FL95z9/rootfs -ls
+++ Debug ' 14949008      4 drwxr-xr-x   4 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs
+ 14949016      4 drwxr-xr-x   3 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/etc
+ 14949017      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/etc/rear
+ 14949037      4 -rw-r--r--   1 root     root          642 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/etc/rear/rescue.conf
+ 14949010      4 drwxr-xr-x   4 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var
+ 14949011      4 drwxr-xr-x   3 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/tmp
+ 14949012      4 drwxr-xr-x   3 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/tmp/rear.xQVhflLY7FL95z9
+ 14949013      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/tmp/rear.xQVhflLY7FL95z9/tmp
+ 14949019      4 drwxr-xr-x   3 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib
+ 14949020      4 drwxr-xr-x   7 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs
+ 14949021      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/v4recovery
+ 14949022      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/sm.bak
+ 14949023      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/sm
+ 14949024      4 drwxr-xr-x  11 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs
+ 14949027      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/nfsd
+ 14949032      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/nfs
+ 14949034      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/lockd
+ 14949031      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/portmap
+ 14949025      4 drwxr-xr-x   3 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/gssd
+ 14949026      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/gssd/clntXX
+ 14949030      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/statd
+ 14949033      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/mount
+ 14949028      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/cache
+ 14949029      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/rpc_pipefs/nfsd4_cb
+ 14949035      4 drwxr-xr-x   2 root     root         4096 Mar 14 10:00 /var/tmp/rear.xQVhflLY7FL95z9/rootfs/var/lib/nfs/nfsdcltrack'
+</code></pre>
+<p>so at least for my test case<br />
+there are only empty directories in ROOTFS_DIR<br />
+except one regular file</p>
+<pre><code>/var/tmp/rear.xQVhflLY7FL95z9/rootfs/etc/rear/rescue.conf
+</code></pre>
+<p>which contains</p>
+<pre><code># initialize our /etc/rear/rescue.conf file sourced by the rear command in recover mode
+# also the configuration is sourced by system-setup script during booting our recovery image
+
+SHARE_DIR="/usr/share/rear"
+CONFIG_DIR="/etc/rear"
+VAR_DIR="/var/lib/rear"
+LOG_DIR="/var/log/rear"
+
+BACKUP_PROG_OPTIONS=( --anchored --xattrs --xattrs-include=security.capability --xattrs-include=security.selinux --acls )
+# The following 2 lines were added by 210_include_dhclient.sh
+USE_DHCLIENT=yes
+DHCLIENT_BIN=dhclient
+
+# The following lines were added by 490_store_write_protect_settings.sh
+WRITE_PROTECTED_IDS=(  )
+WRITE_PROTECTED_FS_LABEL_PATTERNS=( )
+
+# All set NETFS_* variables (cf. rescue/NETFS/default/600_store_NETFS_variables.sh):
+NETFS_KEEP_OLD_BACKUP_COPY=
+NETFS_PREFIX=localhost
+NETFS_RESTORE_CAPABILITIES=([0]="No")
+
+USING_UEFI_BOOTLOADER=1
+UEFI_BOOTLOADER="/boot/efi/EFI/opensuse/grubx64.efi"
+</code></pre>
+<h4 id="schlomo_commented_at_2024-03-14_0915"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1996983958">2024-03-14 09:15</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-14_0915" title="Permanent link">&para;</a></h4>
+<p>OK, I think you should go ahead @jsmeix so that you can stop milking
+mice. Please merge when you feel confident that the solution is an
+improvement over the status quo and we'll take it from there.</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0930"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1997014841">2024-03-14 09:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0930" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+when you think it is OK, in particular when you think<br />
+it is an improvement over the status quo,<br />
+then please approve it.</p>
+<p>Afterwards I will merge it and then we wait<br />
+and see how it behaves "out there in the wild"<br />
+for (venturous) users who try out our GitHub master code.</p>
+<p>If we learn that it causes more trouble than it helps<br />
+I will revert it and then we know at least that<br />
+ReaR should not change an already set TMPDIR.</p>
+<p>I think "interesting" issues may appear in particular<br />
+with certain third-party backup tools that may need their<br />
+specific TMPDIR and not something that is set by ReaR.</p>
+<p>For an example where a third-party backup tool needs<br />
+a specific TMPDIR see<br />
+restore/DUPLICITY/default/200_prompt_user_to_start_restore.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/restore/DUPLICITY/default/200_prompt_user_to_start_restore.sh#L23">https://github.com/rear/rear/blob/master/usr/share/rear/restore/DUPLICITY/default/200_prompt_user_to_start_restore.sh#L23</a><br />
+Here it happens during restore i.e. inside the recovery system<br />
+where /sbin/rear does not set <code>TMPDIR=$BUILD_DIR/tmp</code><br />
+so this pull request is not affected by it<br />
+but it shows that in particular third-party<br />
+backup tools may need a specific TMPDIR.</p>
+<h4 id="jsmeix_commented_at_2024-03-14_0953"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1997057144">2024-03-14 09:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_0953" title="Permanent link">&para;</a></h4>
+<p>Hmm...<br />
+Regarding "ReaR should not change an already set TMPDIR".</p>
+<p>I think I must implement that too for this pull request.</p>
+<p>So /sbin/rear would set <code>TMPDIR=$BUILD_DIR/tmp</code><br />
+only if TMPDIR was not specified by the user via<br />
+<code>export TMPDIR="/path/to/my/tmpdir"</code><br />
+before he called 'rear'.</p>
+<p>Because conf/default.conf does</p>
+<pre><code>export TMPDIR="${TMPDIR-/var/tmp}"
+</code></pre>
+<p>it sets TMPDIR to '/var/tmp' only if TMPDIR is unset<br />
+so when TMPDIR is '/var/tmp' in ReaR it means<br />
+either TMPDIR was unset<br />
+or the user had specified TMPDIR to be '/var/tmp'.</p>
+<p>So testing if TMPDIR is '/var/tmp' does not tell<br />
+if TMPDIR was unset before the user called 'rear'.</p>
+<p>Therefore I would need to add something like</p>
+<pre><code>test -v TMPDIR || TMPDIR_WAS_UNSET="yes"
+</code></pre>
+<p>directly before TMPDIR is set in default.conf<br />
+to be able to test if TMPDIR was unset<br />
+before the user called 'rear'.</p>
+<h4 id="jsmeix_commented_at_2024-03-14_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1997285393">2024-03-14 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-14_1200" title="Permanent link">&para;</a></h4>
+<p>With my recent changes in /sbin/rear via<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/7e278f3329fe52edaa9527dfde1816e74ea5cd5a">https://github.com/rear/rear/pull/3168/commits/7e278f3329fe52edaa9527dfde1816e74ea5cd5a</a><br />
+"rear mkrescue" works for me for both cases<br />
+with unset TMPDIR and with specified TMPDIR<br />
+when I use the same artificial test at the beginnming of<br />
+usr/share/rear/build/default/990_verify_rootfs.sh</p>
+<pre><code>chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d )" ; echo tmpdata &gt;$tmpdir/tmpfile ; find $tmpdir -ls'
+</code></pre>
+<p>With unset TMPDIR after "rear -D mkrescue":</p>
+<pre><code># find /var/tmp/rear.a7njJ6TRIl5fDf4/rootfs/var/tmp/rear.a7njJ6TRIl5fDf4/tmp
+
+/var/tmp/rear.a7njJ6TRIl5fDf4/rootfs/var/tmp/rear.a7njJ6TRIl5fDf4/tmp
+/var/tmp/rear.a7njJ6TRIl5fDf4/rootfs/var/tmp/rear.a7njJ6TRIl5fDf4/tmp/tmp.SxpqUcZrE8
+/var/tmp/rear.a7njJ6TRIl5fDf4/rootfs/var/tmp/rear.a7njJ6TRIl5fDf4/tmp/tmp.SxpqUcZrE8/tmpfile
+</code></pre>
+<p>With "export TMPDIR=/var/tmp/mytmp" after "rear -D mkrescue":</p>
+<pre><code># find /var/tmp/mytmp/rear.2i697tfj2TI0hnF/rootfs/var/tmp/mytmp
+
+/var/tmp/mytmp/rear.2i697tfj2TI0hnF/rootfs/var/tmp/mytmp
+/var/tmp/mytmp/rear.2i697tfj2TI0hnF/rootfs/var/tmp/mytmp/tmp.Nsttoa3prg
+/var/tmp/mytmp/rear.2i697tfj2TI0hnF/rootfs/var/tmp/mytmp/tmp.Nsttoa3prg/tmpfile
+</code></pre>
+<p>I wait now that the CI "rear recover" tests pass<br />
+and if yes I will also test myself "rear recover"<br />
+with unset TMPDIR and with specified TMPDIR.</p>
+<h4 id="jsmeix_commented_at_2024-03-15_1614"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-1999996162">2024-03-15 16:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-15_1614" title="Permanent link">&para;</a></h4>
+<p>Only a side note for the fun of it:</p>
+<p>Out of curiosity I tested how current master code<br />
+(i.e. without the changes in this pull request)<br />
+behaves when TMPDIR is relative to the current working dir<br />
+wherefrom 'rear' is called:</p>
+<pre><code># mkdir QQQtmp
+
+# export TMPDIR=QQQtmp
+
+# usr/sbin/rear -D mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 27033 date 2024-03-15 17:08:20)
+Command line options: usr/sbin/rear -D mkrescue
+Using log file: /root/rear.github.master/var/log/rear/rear-localhost.log
+Using build area: QQQtmp/rear.UsuNYa5CmjjrIPN
+...
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+ERROR: Failed to copy '/root/rear.github.master/usr/share/rear/skel/default' contents to QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs
+Some latest log messages since the last called script 010_merge_skeletons.sh:
+  2024-03-15 17:08:26.075362134 Entering debugscript mode via 'set -x'.
+  2024-03-15 17:08:26.086398529 Creating recovery system root filesystem skeleton layout
+  2024-03-15 17:08:26.092087642 Copying '/root/rear.github.master/usr/share/rear/skel/default' contents to QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs
+  tar: QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs: Cannot open: No such file or directory
+  tar: Error is not recoverable: exiting now
+  tar: -: Cannot write: Broken pipe
+  tar: Error is not recoverable: exiting now
+Aborting due to an error, check /root/rear.github.master/var/log/rear/rear-localhost.log for details
+
+# less var/log/rear/rear-localhost.log
+...
+++ LogPrint 'Creating recovery system root filesystem skeleton layout'
+2024-03-15 17:08:26.086398529 Creating recovery system root filesystem skeleton layout
+++ pushd /root/rear.github.master/usr/share/rear/skel
+++ for skel_dir in default "$ARCH" "$OS" "$OS_MASTER_VENDOR/default" "$OS_MASTER_VENDOR_ARCH" "$OS_MASTER_VENDOR_VERSION" "$OS_VENDOR/default" "$OS_VENDOR_ARCH" "$OS_VENDOR_VERSION" "$BA
+CKUP" "$OUTPUT"
+++ test default
+++ test -d default -o -s default.tar.gz
+++ test -d default
+++ Log 'Copying '\''/root/rear.github.master/usr/share/rear/skel/default'\'' contents to QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs'
+2024-03-15 17:08:26.092087642 Copying '/root/rear.github.master/usr/share/rear/skel/default' contents to QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs
+++ tar -C default -c .
+++ tar -C QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs -x
+tar: QQQtmp/rear.UsuNYa5CmjjrIPN/rootfs: Cannot open: No such file or directory
+</code></pre>
+<p>@rear/contributors<br />
+do you perhaps know if a relative TMPDIR<br />
+is forbidden by some standard?</p>
+<p>Regardless if a relative TMPDIR is forbidden or not:<br />
+We should simply error out in this case<br />
+at least as long as ReaR fails with relative TMPDIR.<br />
+And because nobody reported an issue with that<br />
+it seems that ReaR works with relative TMPDIR<br />
+is not needed in practice by our users.</p>
+<h4 id="jsmeix_commented_at_2024-03-18_1551"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2004294531">2024-03-18 15:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-18_1551" title="Permanent link">&para;</a></h4>
+<p>Via my recent<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/b741883d1c724f14e3cbe7fd7d295411c3aef4e9">https://github.com/rear/rear/pull/3168/commits/b741883d1c724f14e3cbe7fd7d295411c3aef4e9</a><br />
+I implemented:</p>
+<p>Again set TMPDIR to ReaR's TMP_DIR<br />
+in any case unless in RECOVERY_MODE,<br />
+see
+<a href="https://github.com/rear/rear/issues/3167#issuecomment-1999460501">https://github.com/rear/rear/issues/3167#issuecomment-1999460501</a></p>
+<p>Set TMPDIR to its resolved absolute path<br />
+so a specified relative TMPDIR gets changed<br />
+into what works for ReaR and<br />
+verify that TMPDIR is a directory.</p>
+<p>Remember what TMPDIR was originally set when ReaR was launched<br />
+and provide meaningful debug info<br />
+when ReaR uses a different TMPDIR.</p>
+<p>Added the changes from<br />
+<a href="https://github.com/rear/rear/pull/3181">https://github.com/rear/rear/pull/3181</a><br />
+to fix
+<a href="https://github.com/rear/rear/issues/3180">https://github.com/rear/rear/issues/3180</a><br />
+via this pull request (to aviod a merge conflict).</p>
+<h4 id="jsmeix_commented_at_2024-03-18_1632"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2004395630">2024-03-18 16:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-18_1632" title="Permanent link">&para;</a></h4>
+<p>So far things look good to me for "rear mkrescue":</p>
+<p>I use this artificial test at the beginning of<br />
+build/default/990_verify_rootfs.sh</p>
+<pre><code>DebugPrint "TMPDIR='$TMPDIR'"
+
+tmpdir="$( mktemp -d -t normal_tmp.XXXX )"
+echo tmpdata.normal &gt;$tmpdir/tmpfile.normal
+DebugPrint "$( find $tmpdir -ls )"
+
+chroot $ROOTFS_DIR /bin/bash -c 'tmpdir="$( mktemp -d -t chroot_tmp.XXXX )" ; echo tmpdata.chroot &gt;$tmpdir/tmpfile.chroot ; find $tmpdir -ls'
+DebugPrint "$( find $ROOTFS_DIR$TMPDIR/chroot_tmp* -ls )"
+</code></pre>
+<p>Some test results:</p>
+<pre><code># export TMPDIR=" "
+
+# usr/sbin/rear -d mkrescue
+tac: failed to create temporary file in ' ': No such file or directory
+tac: failed to create temporary file in ' ': No such file or directory
+ERROR: TMPDIR '' is no directory
+Exiting rear mkrescue (PID 18543) and its descendant processes ...
+/root/rear.github.master.TMPDIR/usr/share/rear/lib/_input-output-functions.sh: line 151: kill: (18594) - No such process
+Running exit tasks
+rear mkrescue failed, check /root/rear.github.master.TMPDIR/var/log/rear/rear-localhost.log for details
+
+# export TMPDIR="QQQ"
+
+# ls -l QQQ
+ls: cannot access 'QQQ': No such file or directory
+
+# usr/sbin/rear -d mkrescue
+tac: failed to create temporary file in 'QQQ': No such file or directory
+tac: failed to create temporary file in 'QQQ': No such file or directory
+ERROR: TMPDIR '' is no directory
+Exiting rear mkrescue (PID 18641) and its descendant processes ...
+/root/rear.github.master.TMPDIR/usr/share/rear/lib/_input-output-functions.sh: line 151: kill: (18692) - No such process
+Running exit tasks
+rear mkrescue failed, check /root/rear.github.master.TMPDIR/var/log/rear/rear-localhost.log for details
+
+# mkdir QQQ
+
+# export TMPDIR="QQQ"
+
+# pwd
+/root/rear.github.master.TMPDIR
+
+# usr/sbin/rear -d mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 18758 date 2024-03-18 17:23:36)
+Command line options: usr/sbin/rear -d mkrescue
+Using log file: /root/rear.github.master.TMPDIR/var/log/rear/rear-localhost.log
+Using build area: /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s
+Changing TMPDIR to '/root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp' (was 'QQQ' when ReaR was launched)
+...
+TMPDIR='/root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp'
+  5769278 4 drwx------ 2 root root 4096 Mar 18 17:24 /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp/normal_tmp.BTLe
+  5769358 4 -rw-r--r-- 1 root root   15 Mar 18 17:24 /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp/normal_tmp.BTLe/tmpfile.normal
+  5904418 4 drwx------ 2 root root 4096 Mar 18 17:24 /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/rootfs/root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp/chroot_tmp.QmIb
+  5904727 4 -rw-r--r-- 1 root root   15 Mar 18 17:24 /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/rootfs/root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s/tmp/chroot_tmp.QmIb/tmpfile.chroot
+...
+To remove the build area you may use (with caution): rm -Rf --one-file-system /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s
+
+# rm -Rf --one-file-system /root/rear.github.master.TMPDIR/QQQ/rear.gU6EFIFvSEjnu6s
+
+# ls -l QQQ
+total 0
+
+# unset TMPDIR
+
+# usr/sbin/rear -d mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 9862 date 2024-03-18 17:26:22)
+Command line options: usr/sbin/rear -d mkrescue
+Using log file: /root/rear.github.master.TMPDIR/var/log/rear/rear-localhost.log
+Using build area: /var/tmp/rear.TvfORdqueenqWjK
+Setting TMPDIR to '/var/tmp/rear.TvfORdqueenqWjK/tmp' (was unset when ReaR was launched)
+...
+TMPDIR='/var/tmp/rear.TvfORdqueenqWjK/tmp'
+ 14425255 4 drwx------ 2 root root 4096 Mar 18 17:26 /var/tmp/rear.TvfORdqueenqWjK/tmp/normal_tmp.hsc8
+ 14425256 4 -rw-r--r-- 1 root root   15 Mar 18 17:26 /var/tmp/rear.TvfORdqueenqWjK/tmp/normal_tmp.hsc8/tmpfile.normal
+ 14549201 4 drwx------ 2 root root 4096 Mar 18 17:26 /var/tmp/rear.TvfORdqueenqWjK/rootfs/var/tmp/rear.TvfORdqueenqWjK/tmp/chroot_tmp.eB82
+ 14549211 4 -rw-r--r-- 1 root root   15 Mar 18 17:26 /var/tmp/rear.TvfORdqueenqWjK/rootfs/var/tmp/rear.TvfORdqueenqWjK/tmp/chroot_tmp.eB82/tmpfile.chroot
+...
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.TvfORdqueenqWjK
+
+# rm -Rf --one-file-system /var/tmp/rear.TvfORdqueenqWjK
+
+# ls -l /var/tmp/rear.*
+ls: cannot access '/var/tmp/rear.*': No such file or directory
+</code></pre>
+<p>Tomorrow I will test "rear recover".</p>
+<h4 id="jsmeix_commented_at_2024-03-19_1248"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2007088986">2024-03-19 12:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-19_1248" title="Permanent link">&para;</a></h4>
+<p>So far things look also good to me for "rear recover".</p>
+<p>Some test results:</p>
+<p>The standard case with unset TMPDIR:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 751 date 2024-03-19 13:04:10)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-localhost.log
+Using build area: /var/tmp/rear.7dsqzj6rDbeRHOf
+Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.7dsqzj6rDbeRHOf
+</code></pre>
+<p>I also did another "rear mkbackup" with</p>
+<pre><code># mkdir -p /path/to/mytmpdir
+
+# export TMPDIR="/path/to/mytmpdir"
+
+# usr/sbin/rear -D mkbackup
+Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 25479 date 2024-03-19 12:43:30)
+Command line options: usr/sbin/rear -D mkbackup
+Using log file: /root/rear.jsmeix-TMPDIR/var/log/rear/rear-localhost.log
+Using build area: /path/to/mytmpdir/rear.H9NYpL0mtHhEjXb
+Changing TMPDIR to '/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/tmp' (was '/path/to/mytmpdir' when ReaR was launched)
+...
+</code></pre>
+<p>and with that "rear recover"<br />
+worked with unset TMPDIR as above<br />
+and also with</p>
+<pre><code>RESCUE localhost:~ # export TMPDIR="/path/to/mytmpdir"
+
+RESCUE localhost:~ # rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 749 date 2024-03-19 13:06:41)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-localhost.log
+Using build area: /path/to/mytmpdir/rear.jZOvb8sOBMfog8u
+Using TMPDIR '/path/to/mytmpdir' (was '/path/to/mytmpdir' when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /path/to/mytmpdir/rear.jZOvb8sOBMfog8u
+
+RESCUE localhost:~ # find /path/to/mytmpdir                                  
+/path/to/mytmpdir
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/mappings
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/mappings/routes
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/mappings/ip_addresses
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/mappings/mac
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/by-id_change
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/diskbyid_mappings
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/restore-exclude-list.txt
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/touch
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/touch/swap-swap:-dev-sda3
+...
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/touch/rear-vgchange
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/backuparchive_size
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/tmp/storage_drivers
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/rootfs
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/rootfs/path
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/rootfs/path/to
+/path/to/mytmpdir/rear.jZOvb8sOBMfog8u/rootfs/path/to/mytmpdir
+/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb
+/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/tmp
+</code></pre>
+<p>This works because for the "rear mkbackup"<br />
+with <code>export TMPDIR="/path/to/mytmpdir"</code><br />
+there is</p>
+<pre><code># find /path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/rootfs/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb
+
+/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/rootfs/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb
+/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/rootfs/path/to/mytmpdir/rear.H9NYpL0mtHhEjXb/tmp
+</code></pre>
+<p>so <code>/path/to/mytmpdir/</code> exists in the ReaR recovery system<br />
+and after backup restore<br />
+even <code>/mnt/local/path/to/mytmpdir</code> exists because<br />
+<code>/path/to/mytmpdir/</code> is included in the backup</p>
+<pre><code># tar -tvf backup.tar.gz | grep mytmpdir
+drwxr-xr-x root/root           0 2024-03-19 12:43 path/to/mytmpdir/
+</code></pre>
+<p>Only BUILD_DIR (here /path/to/mytmpdir/rear.H9NYpL0mtHhEjXb)<br />
+is excluded from the backup in sbin/rear<br />
+so <code>/path/to/mytmpdir</code> exists in <code>chroot /mnt/local</code></p>
+<p>What does not work (as expected) is</p>
+<pre><code>RESCUE localhost:~ # mkdir mytmpdir
+
+RESCUE localhost:~ # export TMPDIR="mytmpdir"
+
+RESCUE localhost:~ # pwd            
+/root
+
+RESCUE localhost:~ # rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 751 date 2024-03-19 13:44:22)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-localhost.log
+Using build area: /root/mytmpdir/rear.8AaBPltEp78LZfU
+Using TMPDIR '/root/mytmpdir' (was 'mytmpdir' when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Warning:
+Failed to recreate initrd with /usr/bin/dracut.
+Check '/var/log/rear/rear-localhost.log' why /usr/bin/dracut failed
+and decide if the recreated system will boot
+with the initrd 'as is' from the backup restore.
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /root/mytmpdir/rear.8AaBPltEp78LZfU
+
+RESCUE localhost:~ # grep -B5 '^Failed to recreate initrd with /usr/bin/dracut' /var/log/rear/rear-localhost.log
+
+2024-03-19 13:45:13.817251648 Recreating initrd with /usr/bin/dracut...
+++ chroot /mnt/local /bin/bash -c 'PATH=/sbin:/usr/sbin:/usr/bin:/bin /usr/bin/dracut --force'
+realpath: /root/mytmpdir: No such file or directory
+dracut: Invalid tmpdir '/root/mytmpdir'.
+++ LogPrintError 'Warning:
+Failed to recreate initrd with /usr/bin/dracut.
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-19_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2007134820">2024-03-19 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-19_1308" title="Permanent link">&para;</a></h4>
+<p>Perhaps <code>unset TMPDIR</code> in <code>chroot /mnt/local</code><br />
+is a reasonable way to ensure temporary things<br />
+work inside <code>chroot /mnt/local</code>?</p>
+<p>I did this change in<br />
+finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh</p>
+<pre><code>    if chroot $TARGET_FS_ROOT /bin/bash -c "unset TMPDIR ; PATH=/sbin:/usr/sbin:/usr/bin:/bin $dracut_binary --force" ; then
+</code></pre>
+<p>i.e. I added <code>unset TMPDIR ;</code><br />
+and now "rear recover" also works where it had failed before:</p>
+<pre><code>RESCUE localhost:~ # mkdir mytmpdir
+
+RESCUE localhost:~ # export TMPDIR="mytmpdir"
+
+RESCUE localhost:~ # rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 753 date 2024-03-19 14:03:35)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-localhost.log
+Using build area: /root/mytmpdir/rear.I4VnrDeRyPJImUM
+Using TMPDIR '/root/mytmpdir' (was 'mytmpdir' when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+...
+
+RESCUE localhost:~ # less /var/log/rear/rear-localhost.log
+...
+2024-03-19 14:04:34.385490756 Recreating initrd with /usr/bin/dracut...
+++ chroot /mnt/local /bin/bash -c 'unset TMPDIR ; PATH=/sbin:/usr/sbin:/usr/bin:/bin /usr/bin/dracut --force'
+dracut: Executing: /usr/bin/dracut --force
+...
+dracut: *** Creating initramfs image file '/boot/initrd-5.14.21-150500.55.28-default' done ***
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-20_0800"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2008983279">2024-03-20 08:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_0800" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I think it works now reasonably well (at least for me)<br />
+so I would much appreciate it if you could have a look<br />
+and approve it if it looks OK to you.<br />
+When it is merged and issues appear I will of course<br />
+try to fix them or revert the whole stuff if needed.</p>
+<h4 id="pcahyna_commented_at_2024-03-20_1325"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2009561792">2024-03-20 13:25</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-20_1325" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps <code>unset TMPDIR</code> in <code>chroot /mnt/local</code><br />
+is a reasonable way to ensure temporary things<br />
+work inside <code>chroot /mnt/local</code>?</p>
+</blockquote>
+<p>@jsmeix I hope we are not going to clutter the code with explicit
+<code>unset TMPDIR</code> commands for each <code>chroot</code> command ...</p>
+<h4 id="jsmeix_commented_at_2024-03-20_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2009573142">2024-03-20 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_1331" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+currently I don't have a good idea how to generically<br />
+ensure <code>chroot /mnt/local</code> will work even with</p>
+<pre><code>RESCUE localhost:~ # mkdir mytmpdir
+RESCUE localhost:~ # export TMPDIR="mytmpdir"
+</code></pre>
+<p>I would like to postpone that part for a subsequent<br />
+separated pull request because this pull request<br />
+was already much more complicated than I had expected.</p>
+<h4 id="schlomo_commented_at_2024-03-20_1336"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2009585478">2024-03-20 13:36</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-20_1336" title="Permanent link">&para;</a></h4>
+<p>@jsmeix IMHO we don't need to deal with <code>TMPDIR</code> being a relative path.</p>
+<h4 id="jsmeix_commented_at_2024-03-20_1448"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2009753877">2024-03-20 14:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_1448" title="Permanent link">&para;</a></h4>
+<p>The changes in this pull request make ReaR working<br />
+even when TMPDIR is a relative path, see<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-2007134820">https://github.com/rear/rear/pull/3168#issuecomment-2007134820</a></p>
+<pre><code>RESCUE localhost:~ # mkdir mytmpdir
+
+RESCUE localhost:~ # export TMPDIR="mytmpdir"
+
+RESCUE localhost:~ # rear -D recover
+...
+Using TMPDIR '/root/mytmpdir' (was 'mytmpdir' when ReaR was launched)
+</code></pre>
+<p>so <code>chroot /mnt/local COMMAND</code> will only fail<br />
+when TMPDIR is used by COMMAND and there is<br />
+no <code>/root/mytmpdir</code> in <code>/mnt/local</code>.</p>
+<p>But it will work when there is <code>/root/mytmpdir</code><br />
+in <code>/mnt/local</code> for whatever reason, e.g. by luck<br />
+or when also "rear mkbackup" was run before with<br />
+the same <code>export TMPDIR="mytmpdir"</code></p>
+<pre><code># mkdir mytmpdir
+
+# export TMPDIR="mytmpdir"
+
+# rear.jsmeix-TMPDIR/usr/sbin/rear -D mkbackup
+...
+Command line options: rear.jsmeix-TMPDIR/usr/sbin/rear -D mkbackup
+Using log file: /root/rear.jsmeix-TMPDIR/var/log/rear/rear-localhost.log
+Using build area: /root/mytmpdir/rear.c1FApNCh9uvUzpr
+Changing TMPDIR to '/root/mytmpdir/rear.c1FApNCh9uvUzpr/tmp' (was 'mytmpdir' when ReaR was launched)
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /root/mytmpdir/rear.c1FApNCh9uvUzpr
+</code></pre>
+<p>which includes the directory /root/mytmpdir/ in the backup</p>
+<pre><code># tar -tvf backup.tar.gz | grep mytmpdir
+drwxr-xr-x root/root         0 2024-03-20 15:27 root/mytmpdir/
+</code></pre>
+<p>So after backup restore there is<br />
+<code>/root/mytmpdir</code> in <code>/mnt/local</code><br />
+which makes <code>chroot /mnt/local COMMAND</code> work</p>
+<pre><code>RESCUE localhost:~ # find mytmpdir
+mytmpdir
+mytmpdir/rear.c1FApNCh9uvUzpr
+mytmpdir/rear.c1FApNCh9uvUzpr/tmp
+
+RESCUE localhost:~ # export TMPDIR="mytmpdir"
+
+RESCUE localhost:~ # rear -D recover
+...
+Using build area: /root/mytmpdir/rear.PTDCYBWhedi1WjN
+Using TMPDIR '/root/mytmpdir' (was 'mytmpdir' when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /root/mytmpdir/rear.PTDCYBWhedi1WjN
+</code></pre>
+<p>Cf. my similar <code>export TMPDIR="/path/to/mytmpdir"</code> example in<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-2007088986">https://github.com/rear/rear/pull/3168#issuecomment-2007088986</a></p>
+<h4 id="pcahyna_commented_at_2024-03-22_1359"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2015170417">2024-03-22 13:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-22_1359" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay, looking...</p>
+<h4 id="jsmeix_commented_at_2024-03-22_1401"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2015174686">2024-03-22 14:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-22_1401" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it until Thursday (28 March) next week<br />
+(Friday 29 March and Monday 01 April are public holidays)<br />
+unless there are objections and<br />
+provided no new severe problems appear<br />
+i.e. when it is an improvement over the status quo.</p>
+<h4 id="pcahyna_commented_at_2024-03-22_1602"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2015411686">2024-03-22 16:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-22_1602" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Another way to solve this would be to actually create the
+<code>ROOTFS_DIR/TMP_DIR</code> <em>after</em> this check, e.g. at the very beginning of
+the <code>rescue</code> stage.</p>
+<p>TBH I'd appreciate that approach because:</p>
+<pre><code>1. it reduces the clutter in the `rear` main script
+
+2. it will allow us to catch other empty directories or special files created during `prep`
+
+3. One way to look at the temp dir problem is to see it as a required step to create a "good" `ROOTFS_DIR` that also supports running `chroot mktemp` inside. Therefore the problem belongs to `rescue` or `build` and not to the `rear` main script.
+</code></pre>
+<p>WDYT @jsmeix @pcahyna ?</p>
+</blockquote>
+<p>I like the suggestion but it certainly does not belong in this PR and
+also I think that there are worse offenders that touch <code>ROOTFS_DIR</code> in
+<code>prep</code> that would need to be cleaned up first.</p>
+<h4 id="pcahyna_commented_at_2024-03-25_1052"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2017720837">2024-03-25 10:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-25_1052" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thank you for your changes and sorry, I had yet one comment
+after sleeping on it, hopefully this is the last...</p>
+<h4 id="jsmeix_commented_at_2024-03-25_1209"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2017861747">2024-03-25 12:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-25_1209" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your review again!</p>
+<p>Never be sorry for late comments<br />
+like comments after sleeping on an issue<br />
+(sleeping on an issue always helps - at least for me)<br />
+because in particular all deliberate comments are helpful<br />
+(regardless if they are actually right or mistaken).</p>
+<h4 id="jsmeix_commented_at_2024-03-26_0654"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2019519520">2024-03-26 06:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_0654" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I will merge it today afternoon<br />
+unless objections appear.</p>
+<h4 id="pcahyna_commented_at_2024-03-26_1645"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2020962513">2024-03-26 16:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-26_1645" title="Permanent link">&para;</a></h4>
+<p>Thank you for the improvement @jsmeix !</p>
+<h4 id="jsmeix_commented_at_2024-03-27_0814"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3168#issuecomment-2022176624">2024-03-27 08:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_0814" title="Permanent link">&para;</a></h4>
+<p>Let's hope it actually improves things,<br />
+i.e. let's hope it does not cause a severe regression<br />
+for an unforeseen use case.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-28.3168.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3116 Issue closed: Changing TMPDIR in local.conf not working - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3116 Issue closed: Changing TMPDIR in local.conf not working";
+        var mkdocs_page_input_path = "issues/2023-12-21.3116.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3116 Issue closed: Changing TMPDIR in local.conf not working</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3116_issue_closed_changing_tmpdir_in_localconf_not_working"><a href="https://github.com/rear/rear/issues/3116">#3116 Issue</a> <code>closed</code>: Changing TMPDIR in local.conf not working<a class="headerlink" href="#3116_issue_closed_changing_tmpdir_in_localconf_not_working" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="nnachtegael_opened_issue_at_2023-12-21_1701"><img src="https://avatars.githubusercontent.com/u/53852862?v=4" width="50"><a href="https://github.com/nnachtegael">nnachtegael</a> opened issue at <a href="https://github.com/rear/rear/issues/3116">2023-12-21 17:01</a>:<a class="headerlink" href="#nnachtegael_opened_issue_at_2023-12-21_1701" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<!-- -->
+
+<pre><code>from ~/rear 
+sudo usr/sbin/rear -V
+Relax-and-Recover 2.7 / Git
+</code></pre>
+<ul>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.3 LTS
+Release:        22.04
+Codename:       jammy
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_PROG=rsync
+BACKUP_URL="usb:///dev/disk/by-label/REAR-ORICO4TB"
+USB_DEVICE_FILESYSTEM=ext4
+USB_RETAIN_BACKUP_NR=1
+#export TMPDIR="/mnt/sde2/reartmp"
+export TMPDIR="${TMPDIR-/mnt/sde2/reartmp}"
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    Home build PC</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code> sudo fdisk -l
+Disk /dev/nvme0n1: 931.51 GiB, 1000204886016 bytes, 1953525168 sectors
+Disk model: Seagate FireCuda 510 SSD ZP1000GM30001
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: CB1BC206-CD11-40A8-95D5-EBDAE3FFFA5D
+
+Device          Start        End    Sectors  Size Type
+/dev/nvme0n1p1   2048     999423     997376  487M EFI System
+/dev/nvme0n1p2 999424 1953523711 1952524288  931G Linux RAID
+
+
+Disk /dev/nvme1n1: 931.51 GiB, 1000204886016 bytes, 1953525168 sectors
+Disk model: Seagate FireCuda 510 SSD ZP1000GM30001
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 1E6695CA-F1E5-40EF-9BE4-972661123072
+
+Device          Start        End    Sectors  Size Type
+/dev/nvme1n1p1   2048     999423     997376  487M EFI System
+/dev/nvme1n1p2 999424 1953523711 1952524288  931G Linux RAID
+
+
+Disk /dev/sda: 1.82 TiB, 2000398934016 bytes, 3907029168 sectors
+Disk model: WDC WD2002FFSX-6
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/sdb: 1.82 TiB, 2000398934016 bytes, 3907029168 sectors
+Disk model: WDC WD2002FFSX-6
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/sdc: 1.82 TiB, 2000398934016 bytes, 3907029168 sectors
+Disk model: WDC WD2002FFSX-6
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+
+Disk /dev/md0: 2.73 TiB, 3000395366400 bytes, 5860147200 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 524288 bytes / 1572864 bytes
+
+
+Disk /dev/md128: 930.91 GiB, 999557169152 bytes, 1952260096 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sdd: 3.64 TiB, 4000787030016 bytes, 7814037168 sectors
+Disk model: ASM236X NVME
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+Disklabel type: gpt
+Disk identifier: C8A7D900-2F8F-44C9-84CA-5AAC269EC59D
+
+Device       Start        End    Sectors  Size Type
+/dev/sdd1    16384    2113535    2097152    1G EFI System
+/dev/sdd2  2113536 7814037134 7811923599  3.6T Linux filesystem
+
+
+Disk /dev/sde: 4.55 TiB, 5000947302400 bytes, 9767475200 sectors
+Disk model: Elements 2620
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: 096E1D0E-60BE-4FB0-A184-A78C80E1F24A
+
+Device       Start        End    Sectors  Size Type
+/dev/sde1    16384    2113535    2097152    1G EFI System
+/dev/sde2  2113536 9767473151 9765359616  4.5T Microsoft basic data
+</code></pre>
+<ul>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME             KNAME          PKNAME         TRAN   TYPE   FSTYPE            LABEL           SIZE MOUNTPOINT
+/dev/sda         /dev/sda                      sata   disk   linux_raid_member ubuntu-host:0   1.8T
+`-/dev/md0       /dev/md0       /dev/sda              raid10 ext4                              2.7T /mnt/md0
+/dev/sdb         /dev/sdb                      sata   disk   linux_raid_member ubuntu-host:0   1.8T
+`-/dev/md0       /dev/md0       /dev/sdb              raid10 ext4                              2.7T /mnt/md0
+/dev/sdc         /dev/sdc                      sata   disk   linux_raid_member ubuntu-host:0   1.8T
+`-/dev/md0       /dev/md0       /dev/sdc              raid10 ext4                              2.7T /mnt/md0
+/dev/sdd         /dev/sdd                      usb    disk                                     3.6T
+|-/dev/sdd1      /dev/sdd1      /dev/sdd              part   vfat              REAR-EFI          1G
+`-/dev/sdd2      /dev/sdd2      /dev/sdd              part   ext4              REAR-ORICO4TB   3.6T
+/dev/sde         /dev/sde                      usb    disk                                     4.5T
+|-/dev/sde1      /dev/sde1      /dev/sde              part   vfat              REAR-EFI          1G
+`-/dev/sde2      /dev/sde2      /dev/sde              part   ntfs              wd5tb           4.5T /mnt/sde2
+/dev/sr0         /dev/sr0                      sata   rom                                     1024M
+/dev/nvme0n1     /dev/nvme0n1                  nvme   disk                                   931.5G
+|-/dev/nvme0n1p1 /dev/nvme0n1p1 /dev/nvme0n1   nvme   part   vfat                              487M /boot/efi
+`-/dev/nvme0n1p2 /dev/nvme0n1p2 /dev/nvme0n1   nvme   part   linux_raid_member kvm-host:128    931G
+  `-/dev/md128   /dev/md128     /dev/nvme0n1p2        raid1  ext4                            930.9G /
+/dev/nvme1n1     /dev/nvme1n1                  nvme   disk                                   931.5G
+|-/dev/nvme1n1p1 /dev/nvme1n1p1 /dev/nvme1n1   nvme   part   vfat                              487M
+`-/dev/nvme1n1p2 /dev/nvme1n1p2 /dev/nvme1n1   nvme   part   linux_raid_member kvm-host:128    931G
+  `-/dev/md128   /dev/md128     /dev/nvme1n1p2        raid1  ext4                            930.9G /
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>I try to change the TEMPDIR for my rsync backup to an attached USB
+/dev/sde2/reartmp directory.<br />
+The directory /reartmp exists on the USB disk.</p>
+<p>I did an export TMPDIR="/mnt/sde2/reartmp"<br />
+before running the usr/sbin/rear -v mkbackup</p>
+<p>TEMPDIR stays at /var/tmp even after the<br />
+export TMPDIR="${TMPDIR-/mnt/sde2/reartmp}"<br />
+in my /home/nnoel/rear/etc/rear/local.conf</p>
+<p>see in my attached log file</p>
+<pre><code>2023-12-21 16:57:16.200891182 Creating rsync archive '/var/tmp/rear.dO7flE5aeOqUj3H/outputfs/rear/kvm-host/20231221.1655/backup'
+</code></pre>
+<p>if I try export TMPDIR="/mnt/sde2/reartmp" in local.conf<br />
+it also doesn't work: same situation TMPDIR stays at /var/tmp</p>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<ul>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):<br />
+    ~/rear$ sudo usr/sbin/rear -v mkbackup log file</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/files/13744404/rear-kvm-host.log">rear-kvm-host.log</a></p>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-12-22_0822"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1867380472">2023-12-22 08:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_0822" title="Permanent link">&para;</a></h4>
+<p>@nnachtegael<br />
+usr/share/rear/conf/default.conf reads</p>
+<pre><code># To have a specific working area directory prefix for Relax-and-Recover call
+#   export TMPDIR="/prefix/for/rear/working/directory"
+# before calling 'rear' (/prefix/for/rear/working/directory must already exist).
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L55">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L55</a></p>
+<h4 id="jsmeix_commented_at_2023-12-22_0832"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1867389860">2023-12-22 08:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_0832" title="Permanent link">&para;</a></h4>
+<p>For some reasoning and details behind see also<br />
+<a href="https://github.com/rear/rear/issues/2654">https://github.com/rear/rear/issues/2654</a></p>
+<h4 id="nnachtegael_commented_at_2023-12-22_1058"><img src="https://avatars.githubusercontent.com/u/53852862?v=4" width="50"><a href="https://github.com/nnachtegael">nnachtegael</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1867546374">2023-12-22 10:58</a>:<a class="headerlink" href="#nnachtegael_commented_at_2023-12-22_1058" title="Permanent link">&para;</a></h4>
+<p>I restarted from beginning</p>
+<ul>
+<li>$ sudo -i</li>
+<li>#export TMPDIR="/mnt/sde2/reartmp"</li>
+<li>set permissions 777 for /mnt/sde2/reartmp</li>
+<li>#git clone
+    <a href="https://github.com/rear/rear.git">https://github.com/rear/rear.git</a></li>
+<li>edit /root/rear/etc/rear/local.conf</li>
+</ul>
+<p>OUTPUT=USB<br />
+BACKUP=NETFS<br />
+BACKUP_PROG=rsync<br />
+BACKUP_URL="usb:///dev/disk/by-label/REAR-000"<br />
+USB_DEVICE_FILESYSTEM=ext4<br />
+USB_RETAIN_BACKUP_NR=1<br />
+export TMPDIR="/mnt/sde2/reartmp"</p>
+<ul>
+<li>
+<p>#usr/sbin/rear -v format -- --efi /dev/sdd</p>
+</li>
+<li>
+<p>message is "Could not remove build area
+    /mnt/sde2/reartmp/rear.1GDQ69LwxnIc1SU"<br />
+<a href="https://github.com/rear/rear/files/13751623/rear-format-efi.log">rear-format-efi.log</a></p>
+</li>
+<li>
+<p>manually cleaned /mnt/sde2/reartmp</p>
+</li>
+<li>
+<p>#usr/sbin/rear -v mkbackup</p>
+</li>
+<li>
+<p>messages "/bin/ldd: line 158: /dev/null: Permission denied"</p>
+</li>
+<li>
+<p>BUG in
+    /root/rear/usr/share/rear/build/default/990_verify_rootfs.sh line
+    57:<br />
+    ReaR recovery system in
+    '/mnt/sde2/reartmp/rear.6UbnO5EbBKxcYHs/rootfs' is broken: 'ldd
+    /bin/bash' failed<br />
+<a href="https://github.com/rear/rear/files/13751684/rear-mkbackup.log">rear-mkbackup.log</a></p>
+</li>
+</ul>
+<p>I'm now stopped by this ldd error message<br />
+Searching for this ldd error did not gave me an answer...</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1231"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1867633280">2023-12-22 12:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1231" title="Permanent link">&para;</a></h4>
+<p>It "just works" for me with</p>
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+</code></pre>
+<p>I.e. I do the backup with 'tar' not with 'rsync'<br />
+because I am not a 'rsync' user.<br />
+And I do not use UEFI but BIOS.</p>
+<p>As TMPDIR I use a mounted partiton<br />
+with ext2 filesystem on my /dev/sda harddisk:</p>
+<pre><code># mount -v /dev/sda6 /other
+mount: /dev/sda6 mounted on /other.
+
+# export TMPDIR="/other"
+
+# ls -ld /other
+drwxr-xr-x 5 root root 4096 Dec 15 12:04 /other
+
+# usr/sbin/rear -D format /dev/sdb
+...
+Using build area: /other/rear.D6fkLoxK8bHihSv
+...
+Exiting rear format (PID 13329) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /other/rear.D6fkLoxK8bHihSv
+
+# usr/sbin/rear -D mkbackup
+...
+Using build area: /other/rear.R0pgPzGqxtkAYha
+...
+Exiting rear mkbackup (PID 15867) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /other/rear.R0pgPzGqxtkAYha
+</code></pre>
+<p>Also with automated removal of the build area</p>
+<pre><code># usr/sbin/rear -v format /dev/sdb
+...
+Exiting rear format (PID 11371) and its descendant processes ...
+Running exit tasks
+
+# usr/sbin/rear -v mkbackup
+...
+Exiting rear mkbackup (PID 12418) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>I checked that during "rear -v format" and "rear -v mkbackup"<br />
+build areas appeared under /other/ and got automatically removed.</p>
+<h4 id="jsmeix_commented_at_2023-12-22_1243"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1867645120">2023-12-22 12:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-22_1243" title="Permanent link">&para;</a></h4>
+<p>I cannot help with 'rsync' specific issues<br />
+because I am not a 'rsync' user.<br />
+I assume it does not matter regarding TMPDIR<br />
+if 'tar' or 'rsync' is used.</p>
+<p>I don't know if 'rsync' with OUTPUT=USB works with</p>
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_PROG=rsync
+BACKUP_URL="usb:///dev/disk/by-label/REAR-000"
+USB_DEVICE_FILESYSTEM=ext4
+USB_RETAIN_BACKUP_NR=1
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-01-02_1124"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1873905770">2024-01-02 11:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-02_1124" title="Permanent link">&para;</a></h4>
+<pre><code>NAME             KNAME          PKNAME         TRAN   TYPE   FSTYPE            LABEL           SIZE MOUNTPOINT
+/dev/sde         /dev/sde                      usb    disk                                     4.5T
+|-/dev/sde1      /dev/sde1      /dev/sde              part   vfat              REAR-EFI          1G
+`-/dev/sde2      /dev/sde2      /dev/sde              part   ntfs              wd5tb           4.5T /mnt/sde2
+
+#export TMPDIR="/mnt/sde2/reartmp"
+</code></pre>
+<p>I doubt that putting TMPDIR on a NTFS filesystem can work properly. Most
+likely NTFS does not support all the needed attributes, like the
+executable bit (that would explain the ldd error).</p>
+<h4 id="schlomo_commented_at_2024-01-13_1828"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1890670683">2024-01-13 18:28</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-13_1828" title="Permanent link">&para;</a></h4>
+<p>@nnachtegael can you please share with us the actual problem you are
+trying to solve? Can it be that your system is so full that there is not
+enough disk space on any hard disk for the ReaR build area? Or do you
+want to do a ReaR backup without touching the local disks?</p>
+<p>In any case, as @pcahyna mentioned the <code>TMPDIR</code> for sure needs to be a
+regular <strong>Linux</strong> filesystem.</p>
+<p>The same holds true for the target of an rsync backup, but looking at
+your disks it seems like that is already the case.</p>
+<p>For backup to USB storage I'd also recommend using an archive instead of
+rsync as you would then benefit from the compression, which both reduces
+the required disk space and probably increases the backup performance.</p>
+<p>So if you can share more of the problem you want to solve (like big
+picture) or more of your context, then we can surely give you some ideas
+how to solve it.</p>
+<h4 id="pcahyna_commented_at_2024-02-08_1341"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-1934147881">2024-02-08 13:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-08_1341" title="Permanent link">&para;</a></h4>
+<p>It seems that TMPDIR in local.conf will not work in any case: #2654</p>
+<h4 id="github-actions_commented_at_2024-04-09_0203"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3116#issuecomment-2044008798">2024-04-09 02:03</a>:<a class="headerlink" href="#github-actions_commented_at_2024-04-09_0203" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-21.3116.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

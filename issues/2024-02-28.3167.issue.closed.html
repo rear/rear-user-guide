@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3167 Issue closed: default TMPDIR /var/tmp leaves temporary files of called programs - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3167 Issue closed: default TMPDIR /var/tmp leaves temporary files of called programs";
+        var mkdocs_page_input_path = "issues/2024-02-28.3167.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3167 Issue closed: default TMPDIR /var/tmp leaves temporary files of called programs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3167_issue_closed_default_tmpdir_vartmp_leaves_temporary_files_of_called_programs"><a href="https://github.com/rear/rear/issues/3167">#3167 Issue</a> <code>closed</code>: default TMPDIR /var/tmp leaves temporary files of called programs<a class="headerlink" href="#3167_issue_closed_default_tmpdir_vartmp_leaves_temporary_files_of_called_programs" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-02-28_1343"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3167">2024-02-28 13:43</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-02-28_1343" title="Permanent link">&para;</a></h4>
+<p>Since we set in default.conf TMPDIR to /var/tmp (if unset) via</p>
+<pre><code>export TMPDIR="${TMPDIR-/var/tmp}"
+</code></pre>
+<p>programs that are called by ReaR use by default /var/tmp<br />
+for their temporary files.</p>
+<p>Programs may not carefully clean up their temporary files<br />
+or may leave temporary files in case of program aborts<br />
+when programs (falsely) rely on the system default /tmp<br />
+that usually gets automatically cleaned up relatively fast<br />
+e.g. via something like systemd-tmpfiles-clean.service<br />
+or at least via reboot when /tmp is a tmpfs in RAM.</p>
+<p>In contast to /var/tmp for programs that are called by ReaR<br />
+ReaR cleanes up its own temporary stuff in BUILD_DIR<br />
+carefully and completely via the function<br />
+cleanup_build_area_and_end_program()<br />
+in lib/_input-output-functions.sh</p>
+<p>Perhaps it would be good when /usr/sbin/rear<br />
+sets TMPDIR to $TMP_DIR (TMP_DIR=$BUILD_DIR/tmp)<br />
+if TMPDIR was initially unset when 'rear' was called<br />
+so that programs that are called by ReaR use<br />
+by default $BUILD_DIR/tmp for their temporary files?</p>
+<p>An addedum regarding confidentiality,<br />
+here in particular about confidentiality of temporary files<br />
+from programs that are called by ReaR:</p>
+<p>Currently we do in /usr/sbin/rear</p>
+<pre><code>BUILD_DIR="$( mktemp -d -t rear.XXXXXXXXXXXXXXX || Error "Could not create build area '$BUILD_DIR'" )"
+ROOTFS_DIR=$BUILD_DIR/rootfs
+TMP_DIR=$BUILD_DIR/tmp
+mkdir -p $ROOTFS_DIR || Error "Could not create $ROOTFS_DIR"
+mkdir -p $TMP_DIR || Error "Could not create $TMP_DIR"
+</code></pre>
+<p>without any special 'umask' or 'chmod' for confidentiality<br />
+so we rely on sufficiently safe 'mktemp -d' behaviour</p>
+<pre><code>'-d'
+...
+The directory will have read, write, and search permissions
+for the current user, but no permissions for the group or others
+</code></pre>
+<p>as described in<br />
+<a href="https://www.gnu.org/software/coreutils/manual/html_node/mktemp-invocation.html#mktemp-invocation">https://www.gnu.org/software/coreutils/manual/html_node/mktemp-invocation.html#mktemp-invocation</a></p>
+<p>So when programs that are called by ReaR use $BUILD_DIR/tmp<br />
+their temporary files are sufficiently safe via 'mktemp -d'<br />
+against unwanted access by non-root users.</p>
+<h4 id="jsmeix_commented_at_2024-02-28_1345"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969018735">2024-02-28 13:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_1345" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+please have a look here (as time permits).<br />
+I really appreciate your feedback here.</p>
+<h4 id="pcahyna_commented_at_2024-02-28_1352"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969031794">2024-02-28 13:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-28_1352" title="Permanent link">&para;</a></h4>
+<p>@jsmeix that's an interesting point. After reading it, I have only one
+remark (I may find other stuff later):</p>
+<blockquote>
+<p>Perhaps it would be good when /usr/sbin/rear<br />
+sets TMPDIR to $TMP_DIR (TMP_DIR=$BUILD_DIR/tmp)<br />
+if TMPDIR was initially unset when 'rear' was called<br />
+so that programs that are called by ReaR use<br />
+by default $BUILD_DIR/tmp for their temporary files?</p>
+</blockquote>
+<p>Why only "if TMPDIR was initially unset when 'rear' was called" ? This
+condition complicates the whole logic, and is also unhelpful. If we were
+to do this change, I would do it unconditionally. If an user sets and
+exports <code>TMPDIR=/some/big/file/system</code> before calling ReaR, it would be
+nice to do the automatic cleanup for them as well, just as we would do
+for the default <code>/var/tmp</code>.</p>
+<h4 id="jsmeix_commented_at_2024-02-28_1409"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969063408">2024-02-28 14:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_1409" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+you already helped me a lot with your first remark!</p>
+<p>I falsely thought when we set in default.conf TMPDIR<br />
+to /var/tmp only if TMPDIR was unset that then I also<br />
+need to set TMPDIR to $TMP_DIR only if TMPDIR was unset<br />
+when 'rear' was called.</p>
+<p>When it is better to set TMPDIR to $TMP_DIR in any case<br />
+implementation is much simpler and straightforward for me!</p>
+<h4 id="jsmeix_commented_at_2024-02-28_1437"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969123868">2024-02-28 14:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_1437" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+because I am looking right now at usr/sbin/rear</p>
+<pre><code># Save the current value to detect changes.
+saved_tmpdir="${TMPDIR-}"
+</code></pre>
+<p>I am wondering why you use <code>${TMPDIR-}</code><br />
+and not simply <code>$TMPDIR</code> because<br />
+TMPDIR is set in default.conf if it was unset<br />
+and default.conf was already sourced before.</p>
+<h4 id="pcahyna_commented_at_2024-02-28_1442"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969135145">2024-02-28 14:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-02-28_1442" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I have not realized this. Thank you for pointing this out, but I
+would not want to rely on such long-range interactions anyway.</p>
+<h4 id="jsmeix_commented_at_2024-02-28_1456"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1969162109">2024-02-28 14:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_1456" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+"sorry" for delivering bad news but tons of things in ReaR<br />
+depend on long-and-even-longer-range interactions ;-)</p>
+<h4 id="jsmeix_commented_at_2024-03-15_0850"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1999192967">2024-03-15 08:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-15_0850" title="Permanent link">&para;</a></h4>
+<p>Meanwhile while implementing it via<br />
+<a href="https://github.com/rear/rear/pull/3168">https://github.com/rear/rear/pull/3168</a><br />
+I came to the conclusion that it is better<br />
+(at least for now to be on the safe side for the initial
+implementation)<br />
+to set TMPDIR to $TMP_DIR (TMP_DIR=$BUILD_DIR/tmp)<br />
+only if TMPDIR was initially unset when 'rear' was called.</p>
+<p>See my thoughts<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1997014841">https://github.com/rear/rear/pull/3168#issuecomment-1997014841</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1997057144">https://github.com/rear/rear/pull/3168#issuecomment-1997057144</a><br />
+and my comment in the code<br />
+<a href="https://github.com/rear/rear/pull/3168/commits/7e278f3329fe52edaa9527dfde1816e74ea5cd5a">https://github.com/rear/rear/pull/3168/commits/7e278f3329fe52edaa9527dfde1816e74ea5cd5a</a></p>
+<pre><code># We set TMPDIR to ReaR's TMP_DIR only when TMPDIR was not set
+# before ReaR was launched by the user via export TMPDIR="..."
+# to provide final power to the user so that a specific TMPDIR can be specified
+# e.g. for certain third-party backup tools that may need a specific TMPDIR
+</code></pre>
+<p>Therein "provide final power to the user"<br />
+is the crucial part which outweighs (at least for me)<br />
+<a href="https://github.com/rear/rear/issues/3167#issuecomment-1969031794">https://github.com/rear/rear/issues/3167#issuecomment-1969031794</a></p>
+<h4 id="pcahyna_commented_at_2024-03-15_1127"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1999460501">2024-03-15 11:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-15_1127" title="Permanent link">&para;</a></h4>
+<p>@jsmeix setting <code>TMPDIR</code> to a subdirectory of the user-specified
+<code>TMPDIR</code> should not be a problem because the temporary files will still
+be under a directory that the user has specified. The user should not
+assume what file or directory structure under the TMPDIR that they have
+specified will the tool use. After all, even now, we don't put temporary
+files directly into TMPDIR, but under $TMPDIR/rear.XXXXXX and possibly
+some directories in between, and it has not been a problem.</p>
+<p>Changing <code>TMPDIR</code> to something that would <em>not</em> be under the
+user-specified <code>TMPDIR</code> would certainly be against "final power to the
+user", but that's not what you are doing here.</p>
+<p>Your examples of third-party backup tools show that when such a tool
+needs a specific <code>TMPDIR</code>, it does not obey what the user has specified
+- the code specific to the tool must set <code>TMPDIR</code> to the "right" value
+itself, in any case.</p>
+<h4 id="jsmeix_commented_at_2024-03-15_1252"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-1999602582">2024-03-15 12:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-15_1252" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your explanation!<br />
+I will think about it over the weekend.<br />
+My current gut feeling is that you are right.</p>
+<h4 id="jsmeix_commented_at_2024-03-26_1228"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3167#issuecomment-2020300492">2024-03-26 12:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_1228" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/3168">https://github.com/rear/rear/pull/3168</a>
+merged<br />
+this issue should be reasonably solved.</p>
+<p>What is missing is proper handling of TMPDIR in RECOVERY_MODE<br />
+in particular for the "chroot /mnt/local" case, see<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1988974933">https://github.com/rear/rear/pull/3168#issuecomment-1988974933</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1991347031">https://github.com/rear/rear/pull/3168#issuecomment-1991347031</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-28.3167.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2648 Issue closed: OUTPUT=USB bug summary - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2648 Issue closed: OUTPUT=USB bug summary";
+        var mkdocs_page_input_path = "issues/2021-07-05.2648.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2648 Issue closed: OUTPUT=USB bug summary</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2648_issue_closed_outputusb_bug_summary"><a href="https://github.com/rear/rear/issues/2648">#2648 Issue</a> <code>closed</code>: OUTPUT=USB bug summary<a class="headerlink" href="#2648_issue_closed_outputusb_bug_summary" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>no-issue-activity</code></p>
+<h4 id="devil0000_opened_issue_at_2021-07-05_1638"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> opened issue at <a href="https://github.com/rear/rear/issues/2648">2021-07-05 16:38</a>:<a class="headerlink" href="#devil0000_opened_issue_at_2021-07-05_1638" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.6 / 2020-06-17</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    Ubuntu 20.04.2, kernel 5.4.0-77-generic</p>
+</li>
+<li>
+<p>Hardware (PC or PowerNV BareMetal or ARM) or virtual machine (KVM
+    guest or PoverVM LPAR):<br />
+    apu</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    coreboot</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    I did start to dig a bit deeper in output usb mode and found more
+    then one bug with this method. To reduce effort of tracking I think
+    a summary ticket does make sense. So this ticket is meant to provide
+    this summary.</p>
+</li>
+</ul>
+<p>The only output=usb settings working fine for me are:</p>
+<ul>
+<li>UEFI + GPT (if uefi is supported by the system)</li>
+</ul>
+<p>General improvements possible for output=usb:</p>
+<ul>
+<li>add grub bootloader option</li>
+<li>reuse output=rawdisk code (when grub is not used this may make
+    sense)</li>
+<li>reuse output=iso code (grub can boot from iso)</li>
+<li>to me it is not clear what should be done by format and what by
+    mkrescue but I would consider moving the bootloader writing to
+    format command</li>
+<li>hybrid gpt/mbr could be used if wanted</li>
+<li>hybrid efi/legacy could be used if wanted</li>
+</ul>
+<p>bugs with the current version:</p>
+<ul>
+<li>in case of EFI it always creates a gpt partition - msdos is just not
+    handled (300_format_usb_disk.sh:34)</li>
+<li>gpt partitions are not created correctly when <strong>NO</strong> EFI is used.<br />
+    ** the bootloader must be within a gpt partition with type <em>ef02
+    BIOS boot partition</em> (this partition must have <em>bios_grub</em> flag
+    set)<br />
+    ** it would make perfect sense to create a separate boot partition
+    containing the system image (like it is done for efi)</li>
+<li>the flag "legacy_boot" must be configurable since some systems may
+    want it and some don't like it (from my understanding it is normally
+    not used but if it is used then for the /boot partition)</li>
+<li>the extlinux/syslinux boot config is not correct for my APU board
+    with coreboot. Not sure what is wrong there but since output=rawdisk
+    creates a working one it must be something there. (no matter if
+    msdos or gpt is used) #2644</li>
+</ul>
+<h4 id="jsmeix_commented_at_2021-07-06_1227"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-874716146">2021-07-06 12:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-06_1227" title="Permanent link">&para;</a></h4>
+<p>We had already<br />
+<a href="https://github.com/rear/rear/issues/764">https://github.com/rear/rear/issues/764</a><br />
+<code>Switch to grub2 (grub-mkrescue) for creating the recovery ISO image</code><br />
+but noone contributed the needed code to ReaR<br />
+so it got closed because of <code>no-issue-activity</code>.</p>
+<p>@pcahyna<br />
+if time permits could you have a look here<br />
+and provide some general comment?<br />
+Thank you in advance!</p>
+<h4 id="jsmeix_commented_at_2021-07-27_0918"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-887352421">2021-07-27 09:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-27_0918" title="Permanent link">&para;</a></h4>
+<p>With also
+<a href="https://github.com/rear/rear/pull/2650">https://github.com/rear/rear/pull/2650</a><br />
+and
+<a href="https://github.com/rear/rear/pull/2661">https://github.com/rear/rear/pull/2661</a>
+merged<br />
+at least some of the issues mentioned here should be (hopefully) fixed.</p>
+<p>I can neither test coreboot nor serial console<br />
+because I do not have matching hardware<br />
+but I will test how far OUTPUT=USB works for me<br />
+on my older x86_64 laptop with traditional BIOS.</p>
+<h4 id="jsmeix_commented_at_2021-07-27_0949"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-887373048">2021-07-27 09:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-27_0949" title="Permanent link">&para;</a></h4>
+<p>It still works for me with my setup as in<br />
+<a href="https://github.com/rear/rear/pull/2659#issuecomment-886692737">https://github.com/rear/rear/pull/2659#issuecomment-886692737</a><br />
+and now even booting the existing system from the built-in local
+harddisk<br />
+works via the GRUB2 menu entry <code>Boot next disk</code><br />
+because now the created boot/grub2/grub.cfg contains</p>
+<pre><code>menuentry "Boot next disk" {
+    insmod chain
+    set root=(hd1)
+    chainloader +1
+}
+</code></pre>
+<h4 id="jsmeix_commented_at_2021-07-27_1005"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-887383494">2021-07-27 10:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-27_1005" title="Permanent link">&para;</a></h4>
+<p>I think the function create_grub2_cfg() is still somewhat messy<br />
+because my created boot/grub2/grub.cfg contains</p>
+<pre><code>search --no-floppy --file /boot/efiboot.img --set
+search --no-floppy --set=root --label MY-BOOT
+</code></pre>
+<p>I think it does not make sense to have several GRUB2 <code>search</code> commands<br />
+at the same place (I guess only the last one matters in this case)<br />
+in contrast to having several GRUB2 <code>search</code> commands<br />
+each one in its own separated <code>menuentry</code> as in<br />
+the "Multi-boot manual config" section of the "GNU GRUB Manual"<br />
+<a href="https://www.gnu.org/software/grub/manual/grub/grub.html#Multi_002dboot-manual-config">https://www.gnu.org/software/grub/manual/grub/grub.html#Multi_002dboot-manual-config</a></p>
+<p>I think I have to clean up our various methods how to set up<br />
+the GRUB environment variable <code>root</code> via different variables<br />
+<code>grub2_set_root</code> and <code>GRUB2_SET_USB_ROOT</code> for the same thing<br />
+plus a hardcoded <code>search --no-floppy --file /boot/efiboot.img --set</code></p>
+<h4 id="devil0000_commented_at_2021-07-27_1649"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-887670657">2021-07-27 16:49</a>:<a class="headerlink" href="#devil0000_commented_at_2021-07-27_1649" title="Permanent link">&para;</a></h4>
+<p>To give an update on the current state from my point of view:<br />
+All bugs and shot commings should be fixed now. Maybe there is still one
+left around the serial configuration.</p>
+<p>There are still some improvements possible without any priority to me:</p>
+<ul>
+<li>reuse output=iso code and optionally store a iso in the boot
+    partition instead of the initrd (grub can boot from iso)</li>
+<li>hybrid gpt/mbr could be used (see gdisk)</li>
+<li>hybrid efi/legacy could be used</li>
+</ul>
+<p>I will re-test master as soon as possible what may be next week.<br />
+Thank you very much for your help with those changes</p>
+<h4 id="pcahyna_commented_at_2021-07-27_1710"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-887683889">2021-07-27 17:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-07-27_1710" title="Permanent link">&para;</a></h4>
+<blockquote>
+<pre><code>* grub can boot from iso
+</code></pre>
+</blockquote>
+<p>I am interested how to do it - the only procedure I found is to let Grub
+use the kernel and initrd contained in the ISO ( like
+<a href="http://www.panticz.de/MultiBootUSB">http://www.panticz.de/MultiBootUSB</a>
+) but not to chainload the bootloader found on the ISO.</p>
+<h4 id="jsmeix_commented_at_2021-07-28_0639"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888052817">2021-07-28 06:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-28_0639" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you that you joined here because I need your GRUB2 knowledge:</p>
+<p>Could you tell whether or not my assumption in<br />
+<a href="https://github.com/rear/rear/issues/2648#issuecomment-887383494">https://github.com/rear/rear/issues/2648#issuecomment-887383494</a><br />
+is true - i.e. whether or not it makes sense to have more than one<br />
+<code>search</code> command in the general section (i.e. outside of a
+<code>menuentry</code>)<br />
+in grub.cfg?</p>
+<p>Could you also have a look at<br />
+<a href="https://github.com/rear/rear/pull/2662">https://github.com/rear/rear/pull/2662</a><br />
+there in particulat at my <code>FIXME:</code> comment<br />
+in usr/share/rear/lib/bootloader-functions.sh<br />
+about whether or not <code>--set=esp</code> makes sense?</p>
+<h4 id="jsmeix_commented_at_2021-07-28_0648"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888057391">2021-07-28 06:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-28_0648" title="Permanent link">&para;</a></h4>
+<p>My goal behind adding GRUB2 support for OUTPUT=USB is<br />
+that ReaR uses only GRUB2 as recovery system bootloader<br />
+so that we can drop using syslinux<br />
+cf.
+<a href="https://github.com/rear/rear/issues/764">https://github.com/rear/rear/issues/764</a></p>
+<h4 id="pcahyna_commented_at_2021-07-28_0741"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888088849">2021-07-28 07:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-07-28_0741" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry that I haven't replied earlier. I suppose your question is
+whether the second <code>search</code> will overwrite the result of the first
+<code>search</code> so the first one becomes useless? I don't know the answer
+off-hand, I will try to find out.</p>
+<h4 id="jsmeix_commented_at_2021-07-28_0919"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888153162">2021-07-28 09:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-28_0919" title="Permanent link">&para;</a></h4>
+<p>@pcahyna no need to be sorry - we all have various day job things to do.</p>
+<p>Yes, that is my question.<br />
+When my assumption is true I would like to consolidate our current<br />
+various methods how to set up the GRUB environment variable <code>root</code><br />
+into one single method and use only that method everywhere<br />
+so that we get one single <code>search</code> command in our grub.cfg<br />
+that is the right one for the intended purpose of that particular
+grub.cfg</p>
+<p>In particular the current hardcoded</p>
+<pre><code>search --no-floppy --file /boot/efiboot.img --set
+</code></pre>
+<p>causes pain in my eyes and even more in my brain<br />
+because that cannot be right for BIOS and<br />
+it is also not right for OUTPUT=USB because<br />
+as far as I see boot/efiboot.img is created by<br />
+output/ISO/Linux-i386/700_create_efibootimg.sh<br />
+but that is only run for OUTPUT=ISO and it actually creates it<br />
+as isofs/boot/efiboot.img only if USING_UEFI_BOOTLOADER is true.</p>
+<h4 id="devil0000_commented_at_2021-07-28_0959"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888178276">2021-07-28 09:59</a>:<a class="headerlink" href="#devil0000_commented_at_2021-07-28_0959" title="Permanent link">&para;</a></h4>
+<p>@pcahyna for grub boot from iso you basically configure a loop device as
+source for the kernel and initrd (including path within the ISO).<br />
+Maybe you can also chainload to it but I am not sure about that.</p>
+<p>see:<br />
+<a href="https://wiki.ubuntuusers.de/GRUB_2/Skripte/">https://wiki.ubuntuusers.de/GRUB_2/Skripte/</a><br />
+<a href="https://help.ubuntu.com/community/Grub2/ISOBoot">https://help.ubuntu.com/community/Grub2/ISOBoot</a><br />
+<a href="https://www.linux-community.de/blog/iso-images-mit-grub-2-booten/">https://www.linux-community.de/blog/iso-images-mit-grub-2-booten/</a></p>
+<p>edit:<br />
+the idea behind this is that the booting source would always be the same
+iso. No matter if you boot via ipmi or usb stick recover media.</p>
+<h4 id="pcahyna_commented_at_2021-07-28_1305"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888292461">2021-07-28 13:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-07-28_1305" title="Permanent link">&para;</a></h4>
+<p>@DEvil0000 thanks, that's what I thought. I would then say that doing it
+this way is needlessly complicated (a change of naming convention for
+the kernel and initrd would break the process) and does not have big
+advantage compared to putting the kernel+initrd in the filesystem
+directly. (You would not be reusing the bootloader and its configuration
+files from the ISO, so there would not be much to reuse.)</p>
+<h4 id="jsmeix_commented_at_2021-07-28_1347"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888323386">2021-07-28 13:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-28_1347" title="Permanent link">&para;</a></h4>
+<p>I have a generic question regarding "grub can boot from iso":</p>
+<p>Does "grub can boot from iso" mean something different<br />
+than using GRUB2 as bootloader on an ISO as described<br />
+in the section "Making a GRUB bootable CD-ROM" in<br />
+<a href="https://www.gnu.org/software/grub/manual/grub/grub.html">https://www.gnu.org/software/grub/manual/grub/grub.html</a><br />
+?</p>
+<h4 id="pcahyna_commented_at_2021-07-28_1636"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888454280">2021-07-28 16:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-07-28_1636" title="Permanent link">&para;</a></h4>
+<p>@jsmeix no, we mean chainloading a bootable ISO image (image as a file).
+The "Making a GRUB bootable CD-ROM" deals with creating an ISO image
+that will be then used to burn a CD-ROM and one will boot from the
+CD-ROM. We are instead interested in having only an ISO image file
+accessible to GRUB loaded from the harddisk (or USB disk) and booting
+off that image file, if possible as if BIOS had booted a CD-ROM created
+from this image.</p>
+<h4 id="devil0000_commented_at_2021-07-28_1714"><img src="https://avatars.githubusercontent.com/u/3344302?v=4" width="50"><a href="https://github.com/DEvil0000">DEvil0000</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888479647">2021-07-28 17:14</a>:<a class="headerlink" href="#devil0000_commented_at_2021-07-28_1714" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I think it gets more clear with an example grub menu entry:</p>
+<pre><code>menuentry "Ubuntu 20.04 ISO" {
+   set isofile="/boot/ubuntu-20.04-desktop-amd64.iso"
+   rmmod tpm
+   loopback loop (hd0,5)$isofile
+   linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject
+   initrd (loop)/casper/initrd
+}
+</code></pre>
+<p>I think it may also be possible to chainload from the iso instead and
+reuse the bootloader from there with something like:<br />
+(not tested and did not find documentation about this)</p>
+<pre><code>menuentry "Ubuntu 20.04 ISO" {
+   set isofile="/boot/ubuntu-20.04-desktop-amd64.iso"
+   rmmod tpm
+   loopback loop (hd0,5)$isofile
+   chainloader (loop)
+# or chainloader (loop)$efipath
+}
+</code></pre>
+<p>So everything recovery system related would be one single iso file which
+is the same for ipmi inserted or on a usb drive.<br />
+I could also imagine to write a grub mod for wget of an iso so one would
+not need to mess with PXE boot - which is just not possible in our
+customer networks.<br />
+Maybe this explains my usecase better.</p>
+<p>edit: there is a tftp module since PXE needs it - this is maybe also a
+option for getting a iso without a full PXE boot (no dhcp, no dns or
+such).<br />
+<code>linux (tftp,a.b.c.d)/tftpboot/bzImage</code> or similar may work</p>
+<h4 id="pcahyna_commented_at_2021-07-28_1720"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888483014">2021-07-28 17:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-07-28_1720" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think it may also be possible to chainload from the iso instead and
+reuse the bootloader from there with something like:</p>
+</blockquote>
+<p>I don't think it is possible. I searched and found docs to do it only
+for grub4dos (a separate GRUB fork) and Syslinux (
+<a href="https://wiki.syslinux.org/wiki/index.php?title=Boot_an_Iso_image">https://wiki.syslinux.org/wiki/index.php?title=Boot_an_Iso_image</a>
+and
+<a href="https://wiki.syslinux.org/wiki/index.php?title=MEMDISK#ISO_images">https://wiki.syslinux.org/wiki/index.php?title=MEMDISK#ISO_images</a>
+) - but the goal was to get rid of Syslinux, not to add another
+dependency on it. (@lzaoral, this may be of interest for you for testing
+purposes though).</p>
+<h4 id="jsmeix_commented_at_2021-07-29_1009"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-888988194">2021-07-29 10:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-29_1009" title="Permanent link">&para;</a></h4>
+<p>Regarding more than one 'search' command in grub.cfg<br />
+<a href="https://github.com/rear/rear/issues/2648#issuecomment-887383494">https://github.com/rear/rear/issues/2648#issuecomment-887383494</a><br />
+I asked our SUSE GRUB maintainer and he replied (excerpts)</p>
+<pre><code>&gt; Currently our generated grub.cfg contains (excerpt)
+&gt; --------------------------------------------------------------
+&gt; search --no-floppy --file /boot/efiboot.img --set
+&gt; search --no-floppy --set=root --label MY-BOOT
+&gt; --------------------------------------------------------------
+&gt;
+&gt; The first 'search' may not set 'root' because /boot/efiboot.img
+&gt;  may not exist.
+
+Yes.
+
+&gt; The second 'search' may not set 'root' because nothing with
+&gt; filesystem label 'MY-BOOT' may exist.
+
+Yes.
+
+&gt; I assume the second 'search' overwrites 'root' if it was set
+&gt; by the first 'search'.
+
+Yes.
+
+&gt; I assume when /boot/efiboot.img exists but no 'MY-BOOT' exists
+&gt; then 'root' is still set to what the first 'search' had set.
+&gt; Or will 'root' be re-set to some default/fallback value when the
+&gt; second 'search' cannot find a filesystem with label 'MY-BOOT'?
+
+No it won't be re-set if the second search fails, so the value is
+retained. That basically will do the work if you want the last found
+wins.
+</code></pre>
+<h4 id="jsmeix_commented_at_2021-07-29_1252"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-889117293">2021-07-29 12:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-29_1252" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/2662">https://github.com/rear/rear/pull/2662</a>
+merged<br />
+we (hopefully) moved one more step forward with<br />
+GRUB2 as bootloader for OUTPUT=USB.</p>
+<h4 id="jsmeix_commented_at_2021-07-29_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-889118703">2021-07-29 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-07-29_1254" title="Permanent link">&para;</a></h4>
+<p>@DEvil0000 @pcahyna<br />
+I am not in the office until next Tuesday so<br />
+I wish you a relaxed and recovering weekend!</p>
+<h4 id="github-actions_commented_at_2021-09-28_0211"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-928624604">2021-09-28 02:11</a>:<a class="headerlink" href="#github-actions_commented_at_2021-09-28_0211" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2021-10-15_1039"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-944196488">2021-10-15 10:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2021-10-15_1039" title="Permanent link">&para;</a></h4>
+<p>This needs to be done before ReaR 2.7 release.<br />
+I think it is already mostly done.<br />
+I think only some config variable names need to be clarified.<br />
+See also
+<a href="https://github.com/rear/rear/issues/2666">https://github.com/rear/rear/issues/2666</a></p>
+<h4 id="github-actions_commented_at_2021-12-15_0214"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-994225335">2021-12-15 02:14</a>:<a class="headerlink" href="#github-actions_commented_at_2021-12-15_0214" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-02-21_0209"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1046402947">2022-02-21 02:09</a>:<a class="headerlink" href="#github-actions_commented_at_2022-02-21_0209" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-04-23_0249"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1107323765">2022-04-23 02:49</a>:<a class="headerlink" href="#github-actions_commented_at_2022-04-23_0249" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2022-06-01_1131"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1143485252">2022-06-01 11:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-06-01_1131" title="Permanent link">&para;</a></h4>
+<p>I postponed
+<a href="https://github.com/rear/rear/issues/2666">https://github.com/rear/rear/issues/2666</a><br />
+to ReaR 2.8</p>
+<p>Via
+<a href="https://github.com/rear/rear/pull/2815">https://github.com/rear/rear/pull/2815</a><br />
+I describe in default.conf the currently<br />
+implemented user config variable names<br />
+USB_BOOT_PART_SIZE and USB_DEVICE_BOOT_LABEL</p>
+<p>I think the current user config variable names<br />
+USB_BOOT_PART_SIZE and USB_DEVICE_BOOT_LABEL<br />
+are OK - at least I don't know really better names.</p>
+<p>This issue is no longer a blocker for ReaR 2.8<br />
+but
+<a href="https://github.com/rear/rear/pull/2815">https://github.com/rear/rear/pull/2815</a>
+is.</p>
+<p>I postpone this issue to ReaR 2.8.</p>
+<h4 id="github-actions_commented_at_2022-08-01_0352"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1200664186">2022-08-01 03:52</a>:<a class="headerlink" href="#github-actions_commented_at_2022-08-01_0352" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-10-09_0352"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1272448165">2022-10-09 03:52</a>:<a class="headerlink" href="#github-actions_commented_at_2022-10-09_0352" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-12-10_0229"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1344985157">2022-12-10 02:29</a>:<a class="headerlink" href="#github-actions_commented_at_2022-12-10_0229" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-02-11_0230"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1426579840">2023-02-11 02:30</a>:<a class="headerlink" href="#github-actions_commented_at_2023-02-11_0230" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-04-15_0219"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1509470487">2023-04-15 02:19</a>:<a class="headerlink" href="#github-actions_commented_at_2023-04-15_0219" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-06-17_0226"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1595583934">2023-06-17 02:26</a>:<a class="headerlink" href="#github-actions_commented_at_2023-06-17_0226" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-08-19_0157"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1684669652">2023-08-19 01:57</a>:<a class="headerlink" href="#github-actions_commented_at_2023-08-19_0157" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-10-21_0201"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1773602441">2023-10-21 02:01</a>:<a class="headerlink" href="#github-actions_commented_at_2023-10-21_0201" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-12-23_0203"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1868172689">2023-12-23 02:03</a>:<a class="headerlink" href="#github-actions_commented_at_2023-12-23_0203" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-03-03_0204"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2648#issuecomment-1974979352">2024-03-03 02:04</a>:<a class="headerlink" href="#github-actions_commented_at_2024-03-03_0204" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2021-07-05.2648.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

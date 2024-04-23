@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3157 PR merged: Remove hardcoded architecture-dependend strings from EFI code - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3157 PR merged: Remove hardcoded architecture-dependend strings from EFI code";
+        var mkdocs_page_input_path = "issues/2024-02-19.3157.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3157 PR merged: Remove hardcoded architecture-dependend strings from EFI code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3157_pr_merged_remove_hardcoded_architecture-dependend_strings_from_efi_code"><a href="https://github.com/rear/rear/pull/3157">#3157 PR</a> <code>merged</code>: Remove hardcoded architecture-dependend strings from EFI code<a class="headerlink" href="#3157_pr_merged_remove_hardcoded_architecture-dependend_strings_from_efi_code" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2024-02-19_1312"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3157">2024-02-19 13:12</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2024-02-19_1312" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Introduce variables EFI_ARCH{_UPPER} and GRUB2_IMAGE_FORMAT. Use
+them for various EFI bootloader suffixes, parameters and paths instead
+of hardcoding strings like BOOTX64.EFI. EFI_ARCH is "x64" and
+EFI_ARCH_UPPER is "X64" and GRUB2_IMAGE_FORMAT is "x86_64-efi" on
+x86_64 architecture.</p>
+<p>Should make it easier to port the code to e.g. Arm.</p>
+<p>See e.g.<br />
+<a href="https://github.com/rhboot/shim/blob/main/Make.defaults">https://github.com/rhboot/shim/blob/main/Make.defaults</a><br />
+for possible values.</p>
+<h4 id="lzaoral_commented_at_2024-02-19_1417"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1952544921">2024-02-19 14:17</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-19_1417" title="Permanent link">&para;</a></h4>
+<p>Thank you a lot, @pcahyna! This will make the EFI support on <code>aarch64</code> I
+have implemented locally. much easier to upstream!</p>
+<h4 id="lzaoral_commented_at_2024-02-28_0921"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1968557201">2024-02-28 09:21</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-28_0921" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Could you generalise the <code>build_bootx86_efi</code> function as well,
+please?</p>
+<p><a href="https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126">https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126</a></p>
+<p>It hardcodes the <code>x86_64</code> architecture and the name itself is quite
+misleading because <code>x86</code> is not the same thing as <code>x86_64</code>. Note that
+GRUB2 uses the <code>arm64-efi</code> directory on <code>aarch64</code> Fedora so plain
+<code>uname -m</code> won't work.</p>
+<p>edit: typos</p>
+<h4 id="lzaoral_commented_at_2024-02-28_1250"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1968918505">2024-02-28 12:50</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-28_1250" title="Permanent link">&para;</a></h4>
+<p>There is still one instance of <code>BOOTX64.efi</code> left:<br />
+<a href="https://github.com/rear/rear/blob/48ebbf974b852e6e2c1c9c92646d7036f5a19674/usr/share/rear/output/ISO/Linux-i386/260_EFISTUB_populate.sh#L36">https://github.com/rear/rear/blob/48ebbf974b852e6e2c1c9c92646d7036f5a19674/usr/share/rear/output/ISO/Linux-i386/260_EFISTUB_populate.sh#L36</a></p>
+<h4 id="pcahyna_commented_at_2024-03-04_1522"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1976831552">2024-03-04 15:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-04_1522" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna Could you generalise the <code>build_bootx86_efi</code> function as
+well, please?</p>
+<p><a href="https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126">https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126</a></p>
+<p>It hardcodes the <code>x86_64</code> architecture and the name itself is quite
+misleading because <code>x86</code> is not the same thing as <code>x86_64</code>. Note that
+GRUB2 uses the <code>arm64-efi</code> directory on <code>aarch64</code> Fedora so plain
+<code>uname -m</code> won't work.</p>
+</blockquote>
+<p>@lzaoral done in
+<a href="https://github.com/rear/rear/pull/3157/commits/3db2724c7860e38fad96ba4d35c8b174616c1496">3db2724</a></p>
+<h4 id="pcahyna_commented_at_2024-03-04_1534"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1976858445">2024-03-04 15:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-04_1534" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<p>@pcahyna Could you generalise the <code>build_bootx86_efi</code> function as
+well, please?<br />
+<a href="https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126">https://github.com/rear/rear/blob/8564a7b952481e0fdde562207ff88ff1f4b4df9d/usr/share/rear/lib/uefi-functions.sh#L39-L126</a></p>
+<p>It hardcodes the <code>x86_64</code> architecture and the name itself is quite
+misleading because <code>x86</code> is not the same thing as <code>x86_64</code>. Note
+that GRUB2 uses the <code>arm64-efi</code> directory on <code>aarch64</code> Fedora so
+plain <code>uname -m</code> won't work.</p>
+</blockquote>
+<p>@lzaoral done in
+<a href="https://github.com/rear/rear/pull/3157/commits/3db2724c7860e38fad96ba4d35c8b174616c1496">3db2724</a></p>
+</blockquote>
+<p>I have not touched the name though</p>
+<h4 id="pcahyna_commented_at_2024-03-04_1546"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1976885201">2024-03-04 15:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-04_1546" title="Permanent link">&para;</a></h4>
+<p>I changed also the name now</p>
+<h4 id="jsmeix_commented_at_2024-03-04_1655"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1977043502">2024-03-04 16:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-04_1655" title="Permanent link">&para;</a></h4>
+<p>According to<br />
+<a href="https://github.com/rear/rear/pull/3157#discussion_r1511419803">https://github.com/rear/rear/pull/3157#discussion_r1511419803</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3157#pullrequestreview-1914753506">https://github.com/rear/rear/pull/3157#pullrequestreview-1914753506</a><br />
+I adapted<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a><br />
+so that it now reads:</p>
+<pre><code>Variables
+
+Curly braces only where really needed:
+$FOO instead of ${FOO}, but for example ${FOO:-default_value}
+except ${FOO} aids readability compared to $FOO for example as in
+PREFIX${FOO}.SUFFIX versus PREFIX$FOO.SUFFIX that is harder to read.
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-04_1723"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1977097091">2024-03-04 17:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-04_1723" title="Permanent link">&para;</a></h4>
+<p>I see now that this "hard to read" problem is partly my fault. I am
+using emacs and and syntax highlighting of strings like
+PREFIX$FOO.SUFFIX works, so this is readable without curly braces, but
+"PREFIX$FOO.SUFFIX" does not (the highlighting of the content of "..."
+overrides the highlighting of <code>$FOO</code>), so I need curly braces here. But
+in vim and perhaps other editors this is not a problem.
+<a href="https://stackoverflow.com/questions/10802864/in-emacs-how-do-i-get-variable-within-a-string-to-be-highlighted#comment14246359_10802864">https://stackoverflow.com/questions/10802864/in-emacs-how-do-i-get-variable-within-a-string-to-be-highlighted#comment14246359_10802864</a>
+<a href="https://emacs.stackexchange.com/questions/13128/highlighting-shell-variables-within-quotes">https://emacs.stackexchange.com/questions/13128/highlighting-shell-variables-within-quotes</a></p>
+<p>@rear/contributors what do you think? What does count as readable and
+what does count as unreadable for you?</p>
+<h4 id="jsmeix_commented_at_2024-03-04_1737"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1977122357">2024-03-04 17:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-04_1737" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>It is your code so in general you have<br />
+(to some reasonable extent, e.g. no real bugs)<br />
+final power over your code.</p>
+<p>In particular when an issue is basically<br />
+about "aesthetic judgement" it is in general<br />
+a subjective judgement where you are free<br />
+to judge as you like (except exceptions), cf.<br />
+<a href="https://en.wikipedia.org/wiki/Critique_of_Judgment#Aesthetic_Judgement">https://en.wikipedia.org/wiki/Critique_of_Judgment#Aesthetic_Judgement</a></p>
+<h4 id="pcahyna_commented_at_2024-03-04_1808"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1977173060">2024-03-04 18:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-04_1808" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sure, but I want to make my code readable for others. Therefore,
+I am genuinely curious what is the aesthetic judgement of other
+contributors.</p>
+<h4 id="pcahyna_commented_at_2024-03-05_1437"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1978918601">2024-03-05 14:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-05_1437" title="Permanent link">&para;</a></h4>
+<p>yeah I have thought that the comments will be better readable if they
+contain concrete examples, even if this makes them incorrect for non-x64
+architectures</p>
+<h4 id="jsmeix_commented_at_2024-03-06_1259"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1980816967">2024-03-06 12:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-06_1259" title="Permanent link">&para;</a></h4>
+<p>I also prefer explicit real-world examples in my comments<br />
+in particular because I like to show what there really is<br />
+on my own system while I implement something so that<br />
+there is an actually true example (at least true on<br />
+my specific system at the time when I made the comment)<br />
+which has the advantage that later others can understand<br />
+how it had been when it was implemented and how it may<br />
+differ on their systems and/or at some later time.</p>
+<h4 id="jsmeix_commented_at_2024-03-06_1300"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1980819424">2024-03-06 13:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-06_1300" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+because it is approved by @lzaoral and me<br />
+feel free to merge it as you like.</p>
+<h4 id="pcahyna_commented_at_2024-03-12_1544"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1991968920">2024-03-12 15:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-12_1544" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors I am still curious how readable longer quoted strings
+with embedded variable expansions and curly braces vs. no curly braces
+are for you - most likely it will depend on the syntax highlighting
+capabilities of your favorite editor.<br />
+If there are no opinions that contradict what I did here (it is somewhat
+tuned for Emacs) I will merge the current state tomorrow.</p>
+<h4 id="pcahyna_commented_at_2024-03-14_2218"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1998574603">2024-03-14 22:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-14_2218" title="Permanent link">&para;</a></h4>
+<p>thank you all for the reviews - merging!</p>
+<h4 id="pcahyna_commented_at_2024-03-14_2219"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3157#issuecomment-1998576025">2024-03-14 22:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-14_2219" title="Permanent link">&para;</a></h4>
+<p>my bad, I forgot to squash all the fixups ...</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-19.3157.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

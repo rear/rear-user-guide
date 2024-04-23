@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3191 Issue closed: x86_64 UEFI system needs GRUB2_IMAGE_FORMAT=x86_64-efi - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3191 Issue closed: x86_64 UEFI system needs GRUB2_IMAGE_FORMAT=x86_64-efi";
+        var mkdocs_page_input_path = "issues/2024-04-03.3191.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3191 Issue closed: x86_64 UEFI system needs GRUB2_IMAGE_FORMAT=x86_64-efi</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3191_issue_closed_x86_64_uefi_system_needs_grub2_image_formatx86_64-efi"><a href="https://github.com/rear/rear/issues/3191">#3191 Issue</a> <code>closed</code>: x86_64 UEFI system needs GRUB2_IMAGE_FORMAT=x86_64-efi<a class="headerlink" href="#3191_issue_closed_x86_64_uefi_system_needs_grub2_image_formatx86_64-efi" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-04-03_1548"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3191">2024-04-03 15:48</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-04-03_1548" title="Permanent link">&para;</a></h4>
+<p>This is related to the changes in<br />
+<a href="https://github.com/rear/rear/pull/3157">https://github.com/rear/rear/pull/3157</a></p>
+<p>On my openSUSE Leap 15.5 x86_64 UEFI system<br />
+with current GitHub master code with<br />
+<a href="https://github.com/rear/rear/commit/3db2724c7860e38fad96ba4d35c8b174616c1496">https://github.com/rear/rear/commit/3db2724c7860e38fad96ba4d35c8b174616c1496</a><br />
+that makes "rear mkrescue" fail with</p>
+<pre><code>++ test
+++ LogPrintError 'grub2-mkstandalone may fail to make a bootable EFI image of GRUB2 (no /usr/*/grub*/i386-efi/moddep.lst file)'
+...
+++ grub2-mkstandalone -v '--modules=cryptodisk ext2 fat gcry_rijndael gcry_sha256 luks part_gpt part_msdos' -O i386-efi -o /var/tmp/rear.t0eFjv7bA3CjENy/tmp/mnt/EFI/BOOT/BOOTX64.efi /boot/
+grub/grub.cfg=/var/tmp/rear.t0eFjv7bA3CjENy/tmp/mnt/EFI/BOOT/grub.cfg
+grub2-mkstandalone: error: /usr/share/grub2/i386-efi/modinfo.sh doesn't exist. Please specify --target or --directory.
+</code></pre>
+<p>because I have</p>
+<pre><code># uname -m
+x86_64
+
+# find /usr -type f | grep 'moddep.lst'
+/usr/share/grub2/x86_64-efi/moddep.lst
+/usr/share/grub2/i386-pc/moddep.lst
+
+# find /usr -type f | grep 'modinfo.sh'
+/usr/share/grub2/x86_64-efi/modinfo.sh
+/usr/share/grub2/i386-pc/modinfo.sh
+</code></pre>
+<p>so I need <code>GRUB2_IMAGE_FORMAT=x86_64-efi</code> in<br />
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh</p>
+<pre><code>--- a/usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh
++++ b/usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh
+@@ -16,7 +16,8 @@ case "$REAL_MACHINE" in
+         ;;
+     (x86_64)
+         EFI_ARCH=x64
+-        GRUB2_IMAGE_FORMAT=i386-efi
++        # GRUB2_IMAGE_FORMAT=i386-efi
++        GRUB2_IMAGE_FORMAT=x86_64-efi
+         ;;
+     (*)
+         BugError "Unknown architecture $REAL_MACHINE"
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-04-03_1555"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3191#issuecomment-2034993218">2024-04-03 15:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-03_1555" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+for now this is just a quick issue report<br />
+so that it is not forgotten.<br />
+I will have a closer look tomorrow.</p>
+<p>At first glance in<br />
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh">https://github.com/rear/rear/blob/master/usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh</a><br />
+it looks like a typo</p>
+<pre><code>   (i686|i586|i386)
+        ...
+        GRUB2_IMAGE_FORMAT=x86_64-efi
+   (x86_64)
+        ...
+        GRUB2_IMAGE_FORMAT=i386-efi
+</code></pre>
+<p>to set GRUB2_IMAGE_FORMAT<br />
+to <code>x86_64...</code> in case of <code>i686|i586|i386</code><br />
+and to <code>i386...</code> in case of <code>x86_64</code>.</p>
+<p>@pcahyna<br />
+is this a typo or even intentional?</p>
+<h4 id="pcahyna_commented_at_2024-04-03_1608"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3191#issuecomment-2035019760">2024-04-03 16:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-03_1608" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Oops, I must have swapped the two! Really sorry. It is curious
+how even a simplest change can break things.</p>
+<h4 id="jsmeix_commented_at_2024-04-04_0911"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3191#issuecomment-2036618057">2024-04-04 09:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-04_0911" title="Permanent link">&para;</a></h4>
+<p>I am confused when looking at<br />
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh<br />
+because it sets the GRUB2_IMAGE_FORMAT variable<br />
+only to <code>grub-mkstandalone --format</code> values<br />
+for EFI ('x86_64-efi' and 'i386-efi')<br />
+regardless that prep/Linux-i386/330_set_efi_arch.sh<br />
+is run for EFI and BIOS systems.</p>
+<p>So on a BIOS system GRUB2_IMAGE_FORMAT<br />
+is set to a value for EFI systems<br />
+which is a contradiction.</p>
+<p>The prep/Linux-*/330_set_efi_arch.sh scripts tell [sic!]</p>
+<pre><code># Se the variables even if USING_UEFI_BOOTLOADER empty or no explicit 'true' value
+</code></pre>
+<p>so that is intentional but it does not tell why.</p>
+<p>As far as I see it works currently only because<br />
+the generic GRUB2_IMAGE_FORMAT variable<br />
+is only used in case of EFI</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l 'GRUB2_IMAGE_FORMAT'
+
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh
+usr/share/rear/prep/Linux-arm/330_set_efi_arch.sh
+usr/share/rear/prep/Linux-ia64/330_set_efi_arch.sh
+usr/share/rear/lib/uefi-functions.sh
+usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+</code></pre>
+<p>but things will fail if GRUB2_IMAGE_FORMAT<br />
+will be also used for BIOS systems in the future.</p>
+<p>@pcahyna<br />
+could you explain the intent behind why on a BIOS system<br />
+GRUB2_IMAGE_FORMAT is set to a value for EFI systems?</p>
+<h4 id="jsmeix_commented_at_2024-04-05_1416"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3191#issuecomment-2039921140">2024-04-05 14:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-05_1416" title="Permanent link">&para;</a></h4>
+<p>This issue does not depend on openSUSE Leap 15.5<br />
+but (probably) happens on all x86_64 UEFI systems.</p>
+<h4 id="pcahyna_commented_at_2024-04-05_1943"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3191#issuecomment-2040521205">2024-04-05 19:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-05_1943" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I am confused when looking at
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh because it sets
+the GRUB2_IMAGE_FORMAT variable only to <code>grub-mkstandalone --format</code>
+values for EFI ('x86_64-efi' and 'i386-efi') regardless that
+prep/Linux-i386/330_set_efi_arch.sh is run for EFI and BIOS
+systems.</p>
+<p>So on a BIOS system GRUB2_IMAGE_FORMAT is set to a value for EFI
+systems which is a contradiction.</p>
+</blockquote>
+<p>The intent of the variable is to hold the image format for EFI GRUB on
+the platform, so the variable is simply misnamed. I should have called
+it <code>GRUB2_EFI_IMAGE_FORMAT</code>.</p>
+<blockquote>
+<p>The prep/Linux-*/330_set_efi_arch.sh scripts tell [sic!]</p>
+<pre><code># Se the variables even if USING_UEFI_BOOTLOADER empty or no explicit 'true' value
+</code></pre>
+<p>so that is intentional but it does not tell why.</p>
+</blockquote>
+<p>My bad, I should have indicated why and I don't even recall exactly, but
+I believe it has referred to the EFI_ARCH* variables and not to
+<code>GRUB2_IMAGE_FORMAT</code> originally. I think I did not want to audit all
+uses of EFI_ARCH* whether they are protected by a test of for
+<code>USING_UEFI_BOOTLOADER</code> (we don't want to refer to an undefined variable
+and to prevent it the easiest way is to define it always). Actually I
+see at least some use of EFI_ARCH* that is not conditional on
+<code>USING_UEFI_BOOTLOADER</code>:
+usr/share/rear/output/RAWDISK/Linux-i386/{270_create_grub2_efi_bootloader.sh,260_create_syslinux_efi_bootloader.sh},
+so setting the variable always is the right thing already.</p>
+<blockquote>
+<p>As far as I see it works currently only because the generic
+GRUB2_IMAGE_FORMAT variable is only used in case of EFI</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l 'GRUB2_IMAGE_FORMAT'
+
+usr/share/rear/prep/Linux-i386/330_set_efi_arch.sh
+usr/share/rear/prep/Linux-arm/330_set_efi_arch.sh
+usr/share/rear/prep/Linux-ia64/330_set_efi_arch.sh
+usr/share/rear/lib/uefi-functions.sh
+usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+</code></pre>
+<p>but things will fail if GRUB2_IMAGE_FORMAT will be also used for
+BIOS systems in the future.</p>
+</blockquote>
+<p>Another variable will have to be introduced then. You may wonder why not
+to have just one variable that holds the correct image format for the
+given situation, regardless of whether it is UEFI or BIOS. I believe it
+is better to keep it separated for the case when we need to handle a
+hybrid boot setup. I think we are already creating bootable media with
+ESP even on BIOS systems and we may be able to create hybrid boot media
+in the future (maybe we are already able to do that in some situations).
+We are also already capable of restoring hybrid bootloader setups.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-03.3191.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

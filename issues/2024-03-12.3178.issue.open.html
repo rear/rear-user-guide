@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3178 Issue open: rear does not recognize nvme when trying to format it with "rear format" - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3178 Issue open: rear does not recognize nvme when trying to format it with \"rear format\"";
+        var mkdocs_page_input_path = "issues/2024-03-12.3178.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3178 Issue open: rear does not recognize nvme when trying to format it with "rear format"</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3178_issue_open_rear_does_not_recognize_nvme_when_trying_to_format_it_with_rear_format"><a href="https://github.com/rear/rear/issues/3178">#3178 Issue</a> <code>open</code>: rear does not recognize nvme when trying to format it with "rear format"<a class="headerlink" href="#3178_issue_open_rear_does_not_recognize_nvme_when_trying_to_format_it_with_rear_format" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="xwhitebeltx_opened_issue_at_2024-03-12_1522"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> opened issue at <a href="https://github.com/rear/rear/issues/3178">2024-03-12 15:22</a>:<a class="headerlink" href="#xwhitebeltx_opened_issue_at_2024-03-12_1522" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<!-- -->
+
+<pre><code>Relax-and-Recover 2.7-git.5396.573f7f01.master / 2024-03-08
+</code></pre>
+<ul>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>PRETTY_NAME="Ubuntu 22.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.4 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+ONLY_INCLUDE_VG=( "system" )
+USB_UEFI_PART_SIZE="1000"
+KERNEL_CMDLINE="noip unattended"
+USER_INPUT_TIMEOUT=15
+USB_RETAIN_BACKUP_NR=1
+COPY_AS_IS+=( /usr/local/bin )
+</code></pre>
+<ul>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</li>
+</ul>
+<!-- -->
+
+<pre><code>HP ProLiant DL385 Gen11
+</code></pre>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<!-- -->
+
+<pre><code>x86 compatible
+</code></pre>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</li>
+</ul>
+<!-- -->
+
+<pre><code>UEFI
+GRUB
+</code></pre>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<!-- -->
+
+<pre><code>2xlocal Micron 960GB NVMe SSD
+</code></pre>
+<ul>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                        KNAME          PKNAME         TRAN   TYPE FSTYPE      LABEL   SIZE MOUNTPOINT
+/dev/loop0                  /dev/loop0                           loop squashfs           63.3M /snap/core20/1879
+/dev/loop1                  /dev/loop1                           loop squashfs           63.9M /snap/core20/2182
+/dev/loop2                  /dev/loop2                           loop squashfs          111.9M /snap/lxd/24322
+/dev/loop3                  /dev/loop3                           loop squashfs             87M /snap/lxd/27428
+/dev/loop4                  /dev/loop4                           loop squashfs           70.2M /snap/powershell/264
+/dev/loop5                  /dev/loop5                           loop squashfs           53.2M /snap/snapd/19122
+/dev/loop6                  /dev/loop6                           loop squashfs           39.1M /snap/snapd/21184
+/dev/nvme1n1                /dev/nvme1n1                  nvme   disk                   894.3G
+|-/dev/nvme1n1p1            /dev/nvme1n1p1 /dev/nvme1n1   nvme   part vfat                  1G /boot/efi
+|-/dev/nvme1n1p2            /dev/nvme1n1p2 /dev/nvme1n1   nvme   part ext4                  2G /boot
+`-/dev/nvme1n1p3            /dev/nvme1n1p3 /dev/nvme1n1   nvme   part LVM2_member       891.2G
+  `-/dev/mapper/system-root /dev/dm-0      /dev/nvme1n1p3        lvm  ext4              891.2G /
+/dev/nvme0n1                /dev/nvme0n1                  nvme   disk ext4              894.3G
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<!-- -->
+
+<pre><code>executing "rear -v format -- --efi /dev/nvme0n1" returns this error:
+
+Relax-and-Recover 2.7-git.5396.573f7f01.master / 2024-03-08
+Running rear format (PID 24112 date 2024-03-12 15:15:12)
+Using log file: /var/log/rear/rear-avpukr.log
+Running workflow format on the normal/original system
+ERROR:
+====================
+BUG in /usr/share/rear/format/USB/default/200_check_usb_layout.sh line 28:
+Unable to determine raw device for /dev/nvme0n1
+--------------------
+Please report it at https://github.com/rear/rear/issues
+and include all related parts from /var/log/rear/rear-avpukr.log
+preferably the whole debug information via 'rear -D format'
+====================
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /var/log/rear/rear-avpukr.log for details
+Exiting rear format (PID 24112) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<ul>
+<li>Workaround, if any:</li>
+</ul>
+<!-- -->
+
+<pre><code>nothing that i could find
+</code></pre>
+<ul>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<!-- -->
+
+<pre><code>[rear-avpukr.log](https://github.com/rear/rear/files/14574841/rear-avpukr.log)
+</code></pre>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="gdha_commented_at_2024-03-18_1646"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2004430078">2024-03-18 16:46</a>:<a class="headerlink" href="#gdha_commented_at_2024-03-18_1646" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx Why do you want to treat a Micron 960GB NVMe SSD as an USB
+device? I guess you want to make a bootable UEFI device? Remember, a
+local SSD device is <strong>not</strong> safe to keep ReaR archives on.<br />
+@rear/contributors This is something we haven't foreseen so far (I
+think, but could be wrong [again])?</p>
+<h4 id="pcahyna_commented_at_2024-03-18_1653"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2004444217">2024-03-18 16:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-18_1653" title="Permanent link">&para;</a></h4>
+<p>@gdha in real use this is indeed unusual. For testing it is useful
+though to treat NVMe as any other disk device - you can take a machine
+with a secondary NVMe device, make a backup to it as if it were USB, and
+boot from it for recovery.<br />
+(yes, it is more realistic to test on a machine with a secondary USB
+disk, or at least a SCSI or SATA disk since it also presents itself as a
+<code>sd*</code> block device, but a machine with NVMe may be the only thing you
+have)</p>
+<h4 id="schlomo_commented_at_2024-03-18_1707"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2004477308">2024-03-18 17:07</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-18_1707" title="Permanent link">&para;</a></h4>
+<p>Any thoughts why we can't use <code>find_device</code> here?<br />
+<a href="https://github.com/rear/rear/blob/2073e77f1ed213653bbf846d67bef346a9f65da9/usr/share/rear/format/USB/default/200_check_usb_layout.sh#L12-L13">https://github.com/rear/rear/blob/2073e77f1ed213653bbf846d67bef346a9f65da9/usr/share/rear/format/USB/default/200_check_usb_layout.sh#L12-L13</a></p>
+<p>It seems to me like our code simply doesn't handle the nvme use case
+yet, it assumes a sysfs device path like
+<code>/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb/sdb1</code>
+whereas in your example we have
+<code>devices/pci0000:c0/0000:c0:03.3/0000:c5:00.0/nvme/nvme0/nvme0n1</code></p>
+<p>@xwhitebeltx have you tried creating a partition and specifying that
+instead of the whole disk?</p>
+<h4 id="xwhitebeltx_commented_at_2024-03-18_1752"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2004573795">2024-03-18 17:52</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2024-03-18_1752" title="Permanent link">&para;</a></h4>
+<p>thank you all for your responses!</p>
+<p>@gdha - we do as @pcahyna suggested, i have 2 local NVMes:</p>
+<ol>
+<li>OS</li>
+<li>backup drive i can boot from and restore the OS back to its original
+    state<br />
+    in this case the main purpose is not backup of critical data, it is
+    to be able to "reset" the server anytime we want with an automated
+    boot + restore process, in places where PXE is banned.</li>
+</ol>
+<p>@schlomo - it works fine when the SSD is SATA, first time i'm trying
+that on an NVMe,<br />
+i have not tried creating a partition, i'll try tomorrow morning and
+update =)</p>
+<h4 id="xwhitebeltx_commented_at_2024-03-19_0733"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2006106386">2024-03-19 07:33</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2024-03-19_0733" title="Permanent link">&para;</a></h4>
+<p>well, it worked but it ignored the partition(which is totally good for
+me), the initial state was this:</p>
+<pre><code>NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0             7:0    0  63.3M  1 loop /snap/core20/1879
+loop1             7:1    0  63.9M  1 loop /snap/core20/2182
+loop2             7:2    0 111.9M  1 loop /snap/lxd/24322
+loop3             7:3    0    87M  1 loop /snap/lxd/27428
+loop4             7:4    0  70.2M  1 loop /snap/powershell/264
+loop5             7:5    0  53.2M  1 loop /snap/snapd/19122
+loop6             7:6    0  39.1M  1 loop /snap/snapd/21184
+nvme1n1         259:0    0 894.3G  0 disk
+├─nvme1n1p1     259:2    0     1G  0 part /boot/efi
+├─nvme1n1p2     259:3    0     2G  0 part /boot
+└─nvme1n1p3     259:4    0 891.2G  0 part
+  └─system-root 253:0    0 891.2G  0 lvm  /
+nvme0n1         259:1    0 894.3G  0 disk
+└─nvme0n1p1     259:6    0 894.3G  0 part
+</code></pre>
+<p>after i executed "rear -v format -- --efi /dev/nvme0n1p1" i got this
+output:</p>
+<pre><code>root@avpukr:~# rear -v format -- --efi /dev/nvme0n1p1
+Relax-and-Recover 2.7-git.5396.573f7f01.master / 2024-03-08
+Running rear format (PID 222220 date 2024-03-19 06:56:31)
+Using log file: /var/log/rear/rear-avpukr.log
+Running workflow format on the normal/original system
+USB or disk device /dev/nvme0n1p1 is not formatted with ext2/3/4 or btrfs filesystem
+Formatting /dev/nvme0n1p1 will remove all currently existing data on that whole device
+Type exactly 'Yes' to format /dev/nvme0n1p1 with ext3 filesystem
+(default 'No' timeout 15 seconds)
+Yes
+Repartitioning /dev/nvme0n1
+Creating partition table of type gpt on /dev/nvme0n1
+Making an EFI bootable device /dev/nvme0n1
+Creating EFI system partition /dev/nvme0n11 with size 1000 MiB aligned at 8 MiB
+Setting 'esp' flag on EFI partition /dev/nvme0n11
+Creating ReaR data partition /dev/nvme0n12 up to 100% of /dev/nvme0n1
+Setting 'legacy_boot' flag on ReaR data partition /dev/nvme0n12
+Creating vfat filesystem on EFI system partition on /dev/nvme0n1p1
+Creating ext3 filesystem with label 'REAR-000' on ReaR data partition /dev/nvme0n1p2
+Adjusting filesystem parameters on ReaR data partition /dev/nvme0n1p2
+Exiting rear format (PID 222220) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>and then the disk structure is as following:</p>
+<pre><code>NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0             7:0    0  63.3M  1 loop /snap/core20/1879
+loop1             7:1    0  63.9M  1 loop /snap/core20/2182
+loop2             7:2    0 111.9M  1 loop /snap/lxd/24322
+loop3             7:3    0    87M  1 loop /snap/lxd/27428
+loop4             7:4    0  70.2M  1 loop /snap/powershell/264
+loop5             7:5    0  53.2M  1 loop /snap/snapd/19122
+loop6             7:6    0  39.1M  1 loop /snap/snapd/21184
+nvme1n1         259:0    0 894.3G  0 disk
+├─nvme1n1p1     259:2    0     1G  0 part /boot/efi
+├─nvme1n1p2     259:3    0     2G  0 part /boot
+└─nvme1n1p3     259:4    0 891.2G  0 part
+  └─system-root 253:0    0 891.2G  0 lvm  /
+nvme0n1         259:1    0 894.3G  0 disk
+├─nvme0n1p1     259:5    0  1000M  0 part
+└─nvme0n1p2     259:6    0 893.3G  0 part
+</code></pre>
+<p>i've performed a backup with "rear -v mkbackup"<br />
+and i've restored it successfully!</p>
+<p>there's one unexpected screen which i'm not sure yet what's happening
+there and if it's related to rear or not,<br />
+actions i took:</p>
+<ol>
+<li>reboot</li>
+<li>F11 for boot menu</li>
+<li>choose the REAR-000 NVMe Drive</li>
+<li>this screen pops up:<br />
+<img alt="image" src="https://github.com/rear/rear/assets/100077488/56120363-4939-4226-b738-9a97c98a34b1" /><br />
+    and then the rear grub menu, from there it all seems to be working
+    fine</li>
+</ol>
+<p>thanks for the workaround! is this something you would consider
+implementing in future releases? treating NVMe devices as USB?</p>
+<h4 id="jsmeix_commented_at_2024-03-19_0822"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2006263503">2024-03-19 08:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-19_0822" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+that "unexpected screen" was implemeted by me via<br />
+<a href="https://github.com/rear/rear/commit/a0a6429119bc284fcf93775bd579bcd74d1c3b40">https://github.com/rear/rear/commit/a0a6429119bc284fcf93775bd579bcd74d1c3b40</a><br />
+see also<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1634068353">https://github.com/rear/rear/pull/3025#issuecomment-1634068353</a></p>
+<p>Actually there is no new screen.<br />
+It is a timeout delay on the normal initial GRUB screen<br />
+(without timeout it shows up only for a fraction of a second)<br />
+before GRUB replaces it with its boot menu screen.<br />
+With the timeout delay you can see and even read<br />
+what GRUB shows (in particular possible error messages)<br />
+which helps to understand why GRUB fails when it fails<br />
+(e.g. it fails when a wrong 'root' device is used).</p>
+<h4 id="xwhitebeltx_commented_at_2024-03-19_0932"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2006502421">2024-03-19 09:32</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2024-03-19_0932" title="Permanent link">&para;</a></h4>
+<p>@jsmeix oh, nice =)<br />
+thank you very much,<br />
+i'm sorry for the silly question but this is my first time reporting a
+bug in github,<br />
+please tell me should i close it as resolved (workaround provided) or do
+you want to leave it open until it is fixed?<br />
+what is the proper conduct?</p>
+<h4 id="jsmeix_commented_at_2024-03-19_0938"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3178#issuecomment-2006524899">2024-03-19 09:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-19_0938" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+don't worry how you may close it "correctly".<br />
+Leave that "problem" to us.</p>
+<p>Personally I would like to fix it but unfortunately<br />
+too often I don't find the needed time for it,<br />
+too much other stuff elsewhere :-(<br />
+I would like to keep it open for some time,<br />
+hope dies last :-)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-12.3178.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
