@@ -2639,6 +2639,7 @@
 - [\#2644 Issue](2021-07-02.2644.issue.closed.md) `closed`: Grub boot option for OUTPUT=USB (syslinux may not work with coreboot
 - [\#2645 Issue](2021-07-05.2645.issue.closed.md) `closed`: Missing snapshot releases - OpenSUSE Build Service packages
 - [\#2647 Issue](2021-07-05.2647.issue.closed.md) `closed`: LVM PV recreation fails: excluded by a filter.
+- [\#2648 Issue](2021-07-05.2648.issue.closed.md) `closed`: OUTPUT=USB bug summary
 - [\#2648 Issue](2021-07-05.2648.issue.open.md) `open`: OUTPUT=USB bug summary
 - [\#2649 PR](2021-07-06.2649.pr.merged.md) `merged`: Update README file a little bit to test OBS
 - [\#2650 PR](2021-07-07.2650.pr.merged.md) `merged`: fixed serial console for syslinux
@@ -2689,6 +2690,7 @@
 - [\#2695 Issue](2021-10-12.2695.issue.closed.md) `closed`: RFC: No longer hardcoded enforced Error(
 - [\#2696 Issue](2021-10-13.2696.issue.closed.md) `closed`: 420\_autoresize\_last\_partitions.sh does not support RAID devices
 - [\#2697 PR](2021-10-15.2697.pr.merged.md) `merged`: more control over serial devices used
+- [\#2698 Issue](2021-10-18.2698.issue.closed.md) `closed`: OUTPUT=USB support for UEFI and BIOS dual boot (cf. OUTPUT=RAWDISK
 - [\#2698 Issue](2021-10-18.2698.issue.open.md) `open`: OUTPUT=USB support for UEFI and BIOS dual boot (cf. OUTPUT=RAWDISK
 - [\#2699 PR](2021-10-19.2699.pr.merged.md) `merged`: Overhauled serial console support code
 - [\#2700 Issue](2021-10-20.2700.issue.closed.md) `closed`: /var/tmp running out of space during iso creation
@@ -2957,6 +2959,7 @@
 - [\#2967 Issue](2023-04-05.2967.issue.open.md) `open`: Confidential values leaked into log file in debug mode
 - [\#2968 Issue](2023-04-05.2968.issue.closed.md) `closed`: HP ProLiant XL420 Gen10: Recovery stuck at "Loading intial ramdisk"
 - [\#2970 Issue](2023-04-12.2970.issue.open.md) `open`: Automate ReaR with GRUB w/o user intervention (ISO\_DEFAULT not supported for GRUB
+- [\#2971 Issue](2023-04-21.2971.issue.closed.md) `closed`: Fedora: GRUB2 can't find command 'echo' 'linux' 'initrd' 'linuxefi' 'initrdefi' 'search' 'chainloader' 'reboot' 'exit'
 - [\#2971 Issue](2023-04-21.2971.issue.open.md) `open`: RHEL: GRUB2 can't find command 'echo' 'linux' 'initrd' 'linuxefi' 'initrdefi' 'search' 'chainloader' 'reboot' 'exit'
 - [\#2972 Issue](2023-04-23.2972.issue.closed.md) `closed`: Cannot create rescue image on Ubuntu 23.04 and Debian/Bookworm - Confirmed bug in cp 9.x
 - [\#2972 Issue](2023-04-23.2972.issue.open.md) `open`: Cannot create rescue image on Ubuntu Server 23.04 - Confirmed bug in cp 9.x
@@ -3077,6 +3080,7 @@
 - [\#3061 PR](2023-10-30.3061.pr.merged.md) `merged`: Save LVM pool metadata volume size in disk layout
 - [\#3062 PR](2023-11-01.3062.pr.closed.md) `closed`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.1
 - [\#3062 PR](2023-11-01.3062.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.1
+- [\#3063 Issue](2023-11-01.3063.issue.closed.md) `closed`: Can rear handle multiple backups on just one USB stick?
 - [\#3063 Issue](2023-11-01.3063.issue.open.md) `open`: Can rear handle multiple backups on just one USB stick?
 - [\#3064 Issue](2023-11-02.3064.issue.closed.md) `closed`: Missing libraries in the recovery system for symlinks in COPY\_AS\_IS
 - [\#3065 Issue](2023-11-05.3065.issue.open.md) `open`: No serial console in recovery system on Debian Trixie (systemd errors
@@ -3102,6 +3106,7 @@
 - [\#3083 Issue](2023-11-15.3083.issue.open.md) `open`: In etc/scripts/system-setup also source additional config files
 - [\#3084 Issue](2023-11-15.3084.issue.open.md) `open`: rear should automatically use ebiso if UEFI bootloader is found on SLES/OpenSUSE/…
 - [\#3085 Issue](2023-11-17.3085.issue.closed.md) `closed`: write\_protected\_candidate\_device called for '/sys/block/nvme0c0n1' but '/dev/nvme0c0n1' is no block device
+- [\#3086 Issue](2023-11-17.3086.issue.closed.md) `closed`: Support for Amazon Linux 2 and 2023
 - [\#3086 Issue](2023-11-17.3086.issue.open.md) `open`: Support for Amazon Linux 2 and 2023
 - [\#3087 Issue](2023-11-21.3087.issue.closed.md) `closed`: Use\_Static\_Networking setting is being ignored
 - [\#3088 PR](2023-11-21.3088.pr.merged.md) `merged`: Update SSH\_ROOT\_PASSWORD in example.conf files
@@ -3112,6 +3117,7 @@
 - [\#3091 PR](2023-11-23.3091.pr.open.md) `open`: Let is\_write\_protected(
 - [\#3093 Issue](2023-11-27.3093.issue.closed.md) `closed`: AWS EC2 Xen based Amazon Linux 2 : ReaR won't consider BIOS boot partition (/dev/xvda128 was not created by kernel &lt; 5.14
 - [\#3094 Issue](2023-11-29.3094.issue.closed.md) `closed`: BACKUP=BACULA: Unattended restore of the Bacula server
+- [\#3095 Issue](2023-11-29.3095.issue.closed.md) `closed`: Amazon Linux 2023 : DHCP is enabled but no DHCP client binary (dhcpcd dhclient dhcp6c dhclient6
 - [\#3095 Issue](2023-11-29.3095.issue.open.md) `open`: Amazon Linux 2023 : DHCP is enabled but no DHCP client binary (dhcpcd dhclient dhcp6c dhclient6
 - [\#3096 Issue](2023-12-01.3096.issue.open.md) `open`: Device nvme0n1 is designated as write-protected (needs manual configuration
 - [\#3097 PR](2023-12-01.3097.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 4.2.2 to 5.0.2
@@ -3132,12 +3138,16 @@
 - [\#3112 PR](2023-12-19.3112.pr.closed.md) `closed`: Set 'dmesg -n \[4-7\]' in sbin/rear
 - [\#3113 PR](2023-12-20.3113.pr.merged.md) `merged`: Set 'dmesg -n \[4-6\]' in new 'setup' script 007\_set\_dmesg\_level.sh
 - [\#3114 PR](2023-12-20.3114.pr.closed.md) `closed`: Debug Packit issue
+- [\#3115 Issue](2023-12-21.3115.issue.closed.md) `closed`: ReaR 2.7 - SLES 15.5 - EFI variables are not supported on this system - Recovery
 - [\#3115 Issue](2023-12-21.3115.issue.open.md) `open`: ReaR 2.7 - SLES 15.5 - EFI variables are not supported on this system - Recovery
+- [\#3116 Issue](2023-12-21.3116.issue.closed.md) `closed`: Changing TMPDIR in local.conf not working
 - [\#3116 Issue](2023-12-21.3116.issue.open.md) `open`: Changing TMPDIR in local.conf not working
+- [\#3117 Issue](2023-12-27.3117.issue.closed.md) `closed`: BACKUP=RSYNC progress not showing with '--progress' in BACKUP\_RSYNC\_OPTIONS
 - [\#3117 Issue](2023-12-27.3117.issue.open.md) `open`: BACKUP=RSYNC progress not showing with '--progress' in BACKUP\_RSYNC\_OPTIONS
 - [\#3118 PR](2024-01-01.3118.pr.merged.md) `merged`: Bump github/codeql-action from 2 to 3
 - [\#3119 PR](2024-01-01.3119.pr.merged.md) `merged`: Bump actions/stale from 8 to 9
 - [\#3120 PR](2024-01-01.3120.pr.merged.md) `merged`: Bump actions/upload-artifact from 3 to 4
+- [\#3121 Issue](2024-01-06.3121.issue.closed.md) `closed`: BACKUP=BORG --prefix deprecated --glob-archives could be used instead
 - [\#3121 Issue](2024-01-06.3121.issue.open.md) `open`: BACKUP=BORG --prefix deprecated --glob-archives could be used instead
 - [\#3122 Issue](2024-01-08.3122.issue.closed.md) `closed`: ReaR creates world-readable initrd with GRUB\_RESCUE=Y
 - [\#3123 PR](2024-01-08.3123.pr.merged.md) `merged`: Make initrd accessible only by root
@@ -3163,6 +3173,7 @@
 - [\#3137 Issue](2024-01-26.3137.issue.open.md) `open`: Failed to create rescue image on Ubuntu 22.04 with ERROR: Module pata not found
 - [\#3138 PR](2024-01-26.3138.pr.merged.md) `merged`: Add support for Dell PowerProtect Data Manager
 - [\#3138 PR](2024-01-26.3138.pr.open.md) `open`: Add support for Dell PowerProtect Data Manager
+- [\#3139 Issue](2024-01-26.3139.issue.closed.md) `closed`: Syslog and journald in rescue system not showing service logs
 - [\#3139 Issue](2024-01-26.3139.issue.open.md) `open`: Syslog and journald in rescue system not showing service logs
 - [\#3140 Issue](2024-01-26.3140.issue.closed.md) `closed`: How to mount USB device during recover (but not during mkbackup
 - [\#3140 Issue](2024-01-26.3140.issue.open.md) `open`: How to mount USB device during recover (but not during mkbackup
@@ -3171,19 +3182,76 @@
 - [\#3143 Issue](2024-01-30.3143.issue.open.md) `open`: Implementing own backup method in rear
 - [\#3144 Issue](2024-02-06.3144.issue.open.md) `open`: delete prep/Linux-s390/305\_include\_s390\_tools.sh
 - [\#3145 PR](2024-02-06.3145.pr.merged.md) `merged`: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection
+- [\#3146 Issue](2024-02-07.3146.issue.closed.md) `closed`: mkopalpba fails on Fedora 39
 - [\#3146 Issue](2024-02-07.3146.issue.open.md) `open`: mkopalpba fails on Fedora 39
 - [\#3147 Issue](2024-02-08.3147.issue.open.md) `open`: clevis luks bind
+- [\#3148 Issue](2024-02-08.3148.issue.closed.md) `closed`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
 - [\#3148 Issue](2024-02-08.3148.issue.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
 - [\#3149 Issue](2024-02-08.3149.issue.open.md) `open`: OS vendor and version autodetection fails on Fedora
+- [\#3150 PR](2024-02-08.3150.pr.merged.md) `merged`: Add veeam support
 - [\#3150 PR](2024-02-08.3150.pr.open.md) `open`: Add veeam support
 - [\#3151 Issue](2024-02-12.3151.issue.closed.md) `closed`: SLES15 SP5: vi: E1187: Failed to source defaults.vim
+- [\#3152 Issue](2024-02-12.3152.issue.closed.md) `closed`: SLES15 SP5: Cannot create initrd (found no mkinitrd in the recreated system
 - [\#3152 Issue](2024-02-12.3152.issue.open.md) `open`: SLES15 SP5: Cannot create initrd (found no mkinitrd in the recreated system
+- [\#3153 PR](2024-02-14.3153.pr.merged.md) `merged`: Replace the `OUTPUT=IPL` with equivalent `OUTPUT=RAMDISK`
 - [\#3153 PR](2024-02-14.3153.pr.open.md) `open`: Replace the `OUTPUT=IPL` with equivalent `OUTPUT=RAMDISK`
 - [\#3154 PR](2024-02-15.3154.pr.merged.md) `merged`: Fix issue 3151: missing .vimrc and overhauled 130\_create\_dotfiles.sh
+- [\#3155 PR](2024-02-16.3155.pr.merged.md) `merged`: Update finalize/SUSE\_LINUX/i386/550\_rebuild\_initramfs.sh
 - [\#3155 PR](2024-02-16.3155.pr.open.md) `open`: Update finalize/SUSE\_LINUX/i386/550\_rebuild\_initramfs.sh
 - [\#3156 Issue](2024-02-16.3156.issue.open.md) `open`: Why do we need dracut stuff in the recovery system?
+- [\#3157 PR](2024-02-19.3157.pr.merged.md) `merged`: Remove hardcoded architecture-dependend strings from EFI code
 - [\#3157 PR](2024-02-19.3157.pr.open.md) `open`: WIP: Introduce variables EFI\_ARCH{\_UPPER}
+- [\#3158 PR](2024-02-19.3158.pr.merged.md) `merged`: docs: document booting of ReaR rescue initramfs on z/VM
 - [\#3158 PR](2024-02-19.3158.pr.open.md) `open`: docs: document booting of ReaR rescue initramfs on s390/s390x
+- [\#3159 PR](2024-02-19.3159.pr.merged.md) `merged`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
 - [\#3159 PR](2024-02-19.3159.pr.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
+- [\#3160 PR](2024-02-20.3160.pr.merged.md) `merged`: New TextPrefix function
 - [\#3160 PR](2024-02-20.3160.pr.open.md) `open`: New TextPrefix function
+- [\#3161 Issue](2024-02-21.3161.issue.open.md) `open`: Multiple disks recovery & external disk backup/recovery
+- [\#3162 Issue](2024-02-22.3162.issue.open.md) `open`: RFC: Why does "rear recover" regenerate the original's system initrd in any case?
+- [\#3163 PR](2024-02-23.3163.pr.merged.md) `merged`: Error out if TMPDIR is set in user config
+- [\#3164 Issue](2024-02-27.3164.issue.open.md) `open`: Backup of only /dev/sdb
+- [\#3165 PR](2024-02-27.3165.pr.merged.md) `merged`: Fix couple of OS detection issues
+- [\#3166 PR](2024-02-27.3166.pr.open.md) `open`: WIP: Use the new TextPrefix function
+- [\#3167 Issue](2024-02-28.3167.issue.closed.md) `closed`: default TMPDIR /var/tmp leaves temporary files of called programs
+- [\#3168 PR](2024-02-28.3168.pr.merged.md) `merged`: Set TMPDIR to ReaR's TMP\_DIR=$BUILD\_DIR/tmp for programs that are called by ReaR
+- [\#3169 Issue](2024-02-29.3169.issue.open.md) `open`: questions to the ReaR release cycle - best current version
+- [\#3170 Issue](2024-02-29.3170.issue.closed.md) `closed`: Alma Linux 9.3 not able to install bootloader.
+- [\#3171 PR](2024-02-29.3171.pr.open.md) `open`: Make OS detection from `/etc/os-release` more robust
+- [\#3172 PR](2024-03-01.3172.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.0.2 to 5.1.0
+- [\#3173 PR](2024-03-01.3173.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.3.0 to 4.4.0
+- [\#3174 PR](2024-03-06.3174.pr.merged.md) `merged`: Allow 'shell' workflow in recovery system
+- [\#3175 PR](2024-03-07.3175.pr.open.md) `open`: Automatically include mounted btrfs subvolumes in NETFS backups
+- [\#3176 PR](2024-03-07.3176.pr.merged.md) `merged`: Skip btrfs subvolumes when detecting ESP partitions
+- [\#3177 PR](2024-03-08.3177.pr.merged.md) `merged`: New unique\_unsorted(
+- [\#3178 Issue](2024-03-12.3178.issue.open.md) `open`: rear does not recognize nvme when trying to format it with "rear format"
+- [\#3179 PR](2024-03-14.3179.pr.open.md) `open`: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration
+- [\#3180 Issue](2024-03-18.3180.issue.closed.md) `closed`: Scaring Error(
+- [\#3181 PR](2024-03-18.3181.pr.closed.md) `closed`: FYI: Fix for issue 3180 (will be done together with \#3168
+- [\#3182 PR](2024-03-18.3182.pr.merged.md) `merged`: \#3067 use exit code of nc to check BACULA directory availability
+- [\#3183 PR](2024-03-18.3183.pr.merged.md) `merged`: Stale NFS detection in a very early stage \#3109
+- [\#3185 Issue](2024-03-27.3185.issue.open.md) `open`: RAID issue: several RAID1 arrays on partitions on disks with 'unknown' partition tables
+- [\#3186 Issue](2024-03-27.3186.issue.open.md) `open`: error: ../../grub-core/loader/i386/efi/linux.c:158:can't allocate initrd
+- [\#3187 Issue](2024-03-28.3187.issue.open.md) `open`: Bareos+ReaR: Problem booting the system after successful recovery
+- [\#3188 PR](2024-04-01.3188.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.0 to 5.1.1
+- [\#3189 Issue](2024-04-02.3189.issue.open.md) `open`: booting rescue system (ISO
+- [\#3190 Issue](2024-04-03.3190.issue.closed.md) `closed`: Feature Idea: Create portable rear recover solution OUTPUT=PORTABLE
+- [\#3191 Issue](2024-04-03.3191.issue.closed.md) `closed`: x86\_64 UEFI system needs GRUB2\_IMAGE\_FORMAT=x86\_64-efi
+- [\#3192 PR](2024-04-04.3192.pr.merged.md) `merged`: Set GRUB2\_IMAGE\_FORMAT correctly in prep/Linux-i386/330\_set\_efi\_arch.sh
+- [\#3193 Issue](2024-04-04.3193.issue.open.md) `open`: recover only disk layout (partitions, logical volumes and filesystems
+- [\#3194 Issue](2024-04-04.3194.issue.open.md) `open`: PBA environment is stuck in Linux kernel log messages
+- [\#3195 Issue](2024-04-04.3195.issue.closed.md) `closed`: `rear mkopalpba` fails
+- [\#3196 PR](2024-04-04.3196.pr.closed.md) `closed`: Fix swapped image formats in 330\_set\_efi\_arch.sh
+- [\#3197 Issue](2024-04-05.3197.issue.closed.md) `closed`: Bug: /var/run should be a symlink to /run, not a directory
+- [\#3198 Issue](2024-04-05.3198.issue.closed.md) `closed`: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system
+- [\#3199 Issue](2024-04-05.3199.issue.open.md) `open`: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP\_URL?
+- [\#3200 Issue](2024-04-06.3200.issue.open.md) `open`: Redhat recover failed: / cannot be remounted rw
+- [\#3201 Issue](2024-04-07.3201.issue.open.md) `open`: are these errors a problem?
+- [\#3202 Issue](2024-04-08.3202.issue.open.md) `open`: What to improve in ReaR project as lesson learned from XZ Attack?
+- [\#3203 PR](2024-04-09.3203.pr.open.md) `open`: On hold: New source\_variable\_from\_file(
+- [\#3204 PR](2024-04-09.3204.pr.merged.md) `merged`: Better describe OUTPUT\_PREFIX and NETFS\_PREFIX
+- [\#3205 PR](2024-04-09.3205.pr.merged.md) `merged`: Some misc fixes
+- [\#3206 PR](2024-04-09.3206.pr.merged.md) `merged`: Portable recovery
+- [\#3207 Issue](2024-04-10.3207.issue.open.md) `open`: Recreating initrd failure shows misleading message when not in debug mode
+- [\#3208 Issue](2024-04-19.3208.issue.open.md) `open`: Recovery from Rubrik Replica does not work
 - # Issues History of Relax-and-Recover (index.md)
