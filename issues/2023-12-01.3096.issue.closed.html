@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3096 Issue closed: Device nvme0n1 is designated as write-protected (needs manual configuration) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3096 Issue closed: Device nvme0n1 is designated as write-protected (needs manual configuration)";
+        var mkdocs_page_input_path = "issues/2023-12-01.3096.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3096 Issue closed: Device nvme0n1 is designated as write-protected (needs manual configuration)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3096_issue_closed_device_nvme0n1_is_designated_as_write-protected_needs_manual_configuration"><a href="https://github.com/rear/rear/issues/3096">#3096 Issue</a> <code>closed</code>: Device nvme0n1 is designated as write-protected (needs manual configuration)<a class="headerlink" href="#3096_issue_closed_device_nvme0n1_is_designated_as_write-protected_needs_manual_configuration" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>no-issue-activity</code></p>
+<h4 id="ramzcode_opened_issue_at_2023-12-01_0944"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> opened issue at <a href="https://github.com/rear/rear/issues/3096">2023-12-01 09:44</a>:<a class="headerlink" href="#ramzcode_opened_issue_at_2023-12-01_0944" title="Permanent link">&para;</a></h4>
+<p>RearR Version 2.7<br />
+Amazon Linux 2023</p>
+<p>Trying to recover on a different New VM, but the error looks not clear.
+Not sure which and why write protection is triggered by.</p>
+<p>Log:</p>
+<pre><code>Relax-and-Recover 2.7 / Git
+Running rear recover (PID 1612 date 2023-12-01 07:10:35)
+Using log file: /var/log/rear/rear-ip-172-31-23-140.log
+Sourcing additional configuration file '/etc/rear/local_f.conf'
+Running workflow recover within the ReaR rescue/recovery system
+Using backup archive '/mcsquare-backups//ip-172-31-23-140/backup.tar.gz'
+Calculating backup archive size
+Backup archive size is 703M     /mcsquare-backups/2023-11-30-1415-F.tar.gz (compressed)
+Comparing disks
+Device nvme0n1 is designated as write-protected (needs manual configuration)
+Switching to manual disk layout configuration (GiB sizes rounded down to integer)
+/dev/nvme0n1 had size 8589934592 (8 GiB) but it does no longer exist
+Original disk /dev/nvme0n1 does not exist (with same size) in the target system
+No device found where to /dev/nvme0n1 could be mapped so that it will not be recreated
+Current disk mapping table (source =&gt; target):
+  There is no valid disk mapping
+Currently unmapped disks and dependant devices will not be recreated
+(unless identical disk mapping and proceeding without manual configuration):
+  /dev/nvme0n1 /dev/nvme0n1p1 /dev/nvme0n1p127 /dev/nvme0n1p128 fs:/ fs:/boot/efi
+Confirm or edit the disk mapping
+1) Confirm disk mapping and continue 'rear recover'
+2) Confirm identical disk mapping and proceed without manual configuration
+3) Edit disk mapping (/var/lib/rear/layout/disk_mappings)
+4) Use Relax-and-Recover shell and return back to here
+5) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+User confirmed disk mapping
+Disk /dev/nvme0n1 and all dependant devices will not be recreated
+Disabling component 'disk /dev/nvme0n1' in /var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/nvme0n1' in /var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /' in /var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /boot/efi' in /var/lib/rear/layout/disklayout.conf
+Trying to automatically resize last partition when disk size changed
+Confirm or edit the disk layout file
+1) Confirm disk layout and continue 'rear recover'
+2) Edit disk layout (/var/lib/rear/layout/disklayout.conf)
+3) View disk layout (/var/lib/rear/layout/disklayout.conf)
+4) View original disk space usage (/var/lib/rear/layout/config/df.txt)
+5) Use Relax-and-Recover shell and return back to here
+6) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+User confirmed disk layout file
+Confirm or edit the disk recreation script
+1) Confirm disk recreation script and continue 'rear recover'
+2) Edit disk recreation script (/var/lib/rear/layout/diskrestore.sh)
+3) View disk recreation script (/var/lib/rear/layout/diskrestore.sh)
+4) View original disk space usage (/var/lib/rear/layout/config/df.txt)
+5) Use Relax-and-Recover shell and return back to here
+6) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+User confirmed disk recreation script
+Disks to be completely overwritten and recreated by /var/lib/rear/layout/diskrestore.sh:
+
+Determining disks to be wiped ...
+Disks to be wiped:
+1) Confirm disks to be wiped and continue 'rear recover'
+2) Skip wiping disks and continue 'rear recover'
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+User confirmed disks to be wiped
+Start system layout restoration.
+Disk layout created.
+Recreated storage layout:
+NAME             KNAME          TRAN   TYPE FSTYPE LABEL       SIZE MOUNTPOINTS
+/dev/nvme0n1     /dev/nvme0n1   nvme   disk                      8G
+`-/dev/nvme0n1p1 /dev/nvme0n1p1 nvme   part vfat   RESCUE SYS  208M
+Confirm the recreated disk layout or go back one step
+1) Confirm recreated disk layout and continue 'rear recover'
+2) Go back one step to redo disk layout recreation
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+1
+User confirmed recreated disk layout
+ERROR: No filesystem mounted on '/mnt/local'. Stopping.
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /var/log/rear/rear-ip-172-31-23-140.log for details
+Exiting rear recover (PID 1612) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<h4 id="ramzcode_commented_at_2023-12-01_0947"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1835786909">2023-12-01 09:47</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_0947" title="Permanent link">&para;</a></h4>
+<p>@jsmeix #3085 is it similar ?</p>
+<p>Below is my source and Target lsblk output</p>
+<pre><code>[root@ip-172-31-23-140 ec2-user]# lsblk -ipo NAME,KNAME,MODEL,LABEL,SERIAL
+NAME               KNAME            MODEL                      LABEL SERIAL
+/dev/nvme0n1       /dev/nvme0n1     Amazon Elastic Block Store       vol08d513eb795332479
+|-/dev/nvme0n1p1   /dev/nvme0n1p1                              /
+|-/dev/nvme0n1p127 /dev/nvme0n1p127
+`-/dev/nvme0n1p128 /dev/nvme0n1p128
+
+lsblk -ipo NAME,KNAME,MODEL,LABEL,SERIAL
+NAME         KNAME        MODEL                      LABEL SERIAL
+/dev/nvme0n1 /dev/nvme0n1 Amazon Elastic Block Store       vol0137277f9301125a4
+</code></pre>
+<h4 id="ramzcode_commented_at_2023-12-01_1004"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1835811527">2023-12-01 10:04</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_1004" title="Permanent link">&para;</a></h4>
+<pre><code>2023-12-01 10:01:33.438658037 Comparing disks
+2023-12-01 10:01:33.464107877 /dev/nvme0n1 is designated as write-protected by ID 0542b474-6b5e-46d2-9f87-570007c622df
+2023-12-01 10:01:33.469293825 Comparing nvme0n1
+2023-12-01 10:01:33.471975543 Device /sys/block/nvme0n1 exists
+2023-12-01 10:01:33.494742225 /dev/nvme0n1 is designated as write-protected by ID 0542b474-6b5e-46d2-9f87-570007c622df
+2023-12-01 10:01:33.497510059 Device nvme0n1 is designated as write-protected (needs manual configuration)
+2023-12-01 10:01:33.500627451 Switching to manual disk layout configuration (GiB sizes rounded down to integer)
+2023-12-01 10:01:33.503512531 /dev/nvme0n1 had size 8589934592 (8 GiB) but it does no longer exist
+2023-12-01 10:01:33.509138763 Including layout/prepare/default/270_overrule_migration_mode.sh
+2023-12-01 10:01:33.516431627 Including layout/prepare/default/300_map_disks.sh
+2023-12-01 10:01:33.571478999 /dev/nvme0n1 is designated as write-protected by ID 0542b474-6b5e-46d2-9f87-570007c622df
+2023-12-01 10:01:33.574510577 Cannot use /dev/nvme0n1 (same name and same size 8589934592) for recreating /dev/nvme0n1 (/dev/nvme0n1 is write-protected)
+2023-12-01 10:01:33.582048735 Could not automap /dev/nvme0n1 (no disk with same size 8589934592 found)
+2023-12-01 10:01:33.590285211 Original disk /dev/nvme0n1 does not exist (with same size) in the target system
+2023-12-01 10:01:33.613069834 /dev/nvme0n1 is designated as write-protected by ID 0542b474-6b5e-46d2-9f87-570007c622df
+2023-12-01 10:01:33.615970005 /dev/nvme0n1 excluded from device mapping choices (is designated as write-protected)
+2023-12-01 10:01:33.618799102 No device found where to /dev/nvme0n1 could be mapped so that it will not be recreated
+2023-12-01 10:01:33.625054708 Current disk mapping table (source =&gt; target):
+                                There is no valid disk mapping
+2023-12-01 10:01:33.634579896 Currently unmapped disks and dependant devices will not be recreated
+                              (unless identical disk mapping and proceeding without manual configuration):
+                                /dev/nvme0n1 /dev/nvme0n1p1 /dev/nvme0n1p127 /dev/nvme0n1p128 fs:/ fs:/boot/efi
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-12-01_1116"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1835913826">2023-12-01 11:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1116" title="Permanent link">&para;</a></h4>
+<p>@ramzcode<br />
+see in usr/share/rear/conf/default.conf<br />
+the section about</p>
+<pre><code>Write-protection during "rear recover"
+for OUTPUT=USB and OUTPUT=RAWDISK
+</code></pre>
+<p>for ReaR 2.7 online at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L566">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/conf/default.conf#L566</a></p>
+<p>In the ReaR recovery system you find<br />
+the WRITE_PROTECTED_IDS and the<br />
+WRITE_PROTECTED_FS_LABEL_PATTERNS<br />
+in /etc/rear/rescue.conf<br />
+where you could change them if needed<br />
+before you run "rear recover".</p>
+<p>As far as I see<br />
+<a href="https://github.com/rear/rear/issues/3085">https://github.com/rear/rear/issues/3085</a><br />
+is different because there write-protection functions<br />
+are called for OUTPUT=ISO where no write-protection happens<br />
+and write-protection functions were not prepared against<br />
+entries in /sys/block/* without device node<br />
+while here it seems write-protection functions are called<br />
+for OUTPUT=USB or OUTPUT=RAWDISK as intended.</p>
+<h4 id="ramzcode_commented_at_2023-12-01_1203"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836008033">2023-12-01 12:03</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_1203" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Thank you for bringing to notice, but i have a concern.</p>
+<p>How come the IDS can be same between two different VM ?</p>
+<p>Am i missing something?</p>
+<pre><code># The following lines were added by 490_store_write_protect_settings.sh
+WRITE_PROTECTED_IDS=( 0542b474-6b5e-46d2-9f87-570007c622df )
+WRITE_PROTECTED_FS_LABEL_PATTERNS=( )
+</code></pre>
+<h4 id="jsmeix_commented_at_2023-12-01_1210"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836017956">2023-12-01 12:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1210" title="Permanent link">&para;</a></h4>
+<p>@ramzcode<br />
+I don't know how such disk IDs can be same on different VMs,<br />
+except it is actually the same disk that is assigned to different VMs.</p>
+<p>In particular when such IDs are UUIDs - i.e. a<br />
+"Universally Unique Identifier" should be what it tells.</p>
+<h4 id="ramzcode_commented_at_2023-12-01_1214"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836022910">2023-12-01 12:14</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_1214" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Ya,it makes sense, But can we use just the SERIAL as the
+validator, hope this can never be the same ?</p>
+<p>What is your thought and BTW i tried adding it even but still error
+persists</p>
+<p>WRITE_PROTECTED_IDS_TYPE= (SERIAL)</p>
+<h4 id="jsmeix_commented_at_2023-12-01_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836031579">2023-12-01 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1221" title="Permanent link">&para;</a></h4>
+<p>I cannot guess what actually goes on on your systems<br />
+so I need ReaR debug log files:<br />
+One from "rear -D mkrescue/mkbackup"<br />
+and one from "rear -D recover"<br />
+plus<br />
+two times the 'lsblk' output each one<br />
+with all the WRITE_PROTECTED_ID_TYPES columns like</p>
+<pre><code>lsblk -ipo KNAME,LABEL,UUID,PTUUID,PARTUUID,SERIAL,WWN /dev/nvme0n1
+</code></pre>
+<p>one on your original system where you do "rear -D mkrescue/mkbackup"<br />
+and one on your replacement system where you do "rear -D recover"<br />
+then I can have a look and (hopefully) understand<br />
+what actually goes on on your systems.</p>
+<h4 id="jsmeix_commented_at_2023-12-01_1224"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836035668">2023-12-01 12:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1224" title="Permanent link">&para;</a></h4>
+<p>Regarding using 'SERIAL' see<br />
+<a href="https://github.com/rear/rear/pull/2703#issuecomment-961845716">https://github.com/rear/rear/pull/2703#issuecomment-961845716</a></p>
+<h4 id="jsmeix_commented_at_2023-12-01_1228"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836040625">2023-12-01 12:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-01_1228" title="Permanent link">&para;</a></h4>
+<p>By the way:<br />
+It is WRITE_PROTECTED_ID_TYPES<br />
+not WRITE_PROTECTED_IDS_TYPE</p>
+<h4 id="ramzcode_commented_at_2023-12-01_1244"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836060761">2023-12-01 12:44</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_1244" title="Permanent link">&para;</a></h4>
+<p>Yep, sorry my bad, typo mistake here. let me get the logs and outputs
+for debug</p>
+<h4 id="ramzcode_commented_at_2023-12-01_1350"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1836151151">2023-12-01 13:50</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-01_1350" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Please find the details and if you need more info on the debug
+log let me know</p>
+<p>Source VM output</p>
+<pre><code>[root@ip-172-31-23-140 rearuser]# lsblk -ipo KNAME,LABEL,UUID,PTUUID,PARTUUID,SERIAL,WWN /dev/nvme0n1
+
+KNAME LABEL UUID PTUUID PARTUUID SERIAL WWN
+
+/dev/nvme0n1
+
+22703939-0d71-49b5-af91-01eecda558e8 vol08d nvme.1d0f-766f6c3038643531336562373935333332343739-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001
+
+/dev/nvme0n1p1
+
+/ 66eb3733-37f3-4398-9990-e97c15b01e5b 22703939-0d71-49b5-af91-01eecda558e8 9c63c137-580c-47df-a666-4e9d4ec5d6b4 nvme.1d0f-766f6c3038643531336562373935333332343739-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001
+
+/dev/nvme0n1p127
+
+22703939-0d71-49b5-af91-01eecda558e8 7e86a24a-2fe2-4aff-a1c2-5ff59eeb2729 nvme.1d0f-766f6c3038643531336562373935333332343739-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001
+
+/dev/nvme0n1p128
+
+A208-E305 22703939-0d71-49b5-af91-01eecda558e8 1bba082f-4fd3-4536-ba50-1468a8741f84 nvme.1d0f-766f6c303864353133656237
+</code></pre>
+<p>Rescue VM out</p>
+<pre><code>RESCUE ip-172-31-23-140:~ # lsblk -ipo KNAME,LABEL,UUID,PTUUID,PARTUUID,SERIAL,WWN /dev/nvme0n1
+
+KNAME LABEL UUID PTUUID PARTUUID SERIAL WWN
+
+/dev/nvme0n1
+
+bca3154d-b11d-4828-95e2-98f824d4540a vol0bb nvme.1d0f-766f6c3062623334303234323731643164666266-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001
+
+/dev/nvme0n1p1
+
+RESCUE SYS
+
+DBE2-15C9 bca3154d-b11d-4828-95e2-98f824d4540a d2ac2145-b788-4776-b43c-8adcd9b7ce16 nvme.1d0f-766f6c3062623334303234323731643164666266-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001
+</code></pre>
+<p>From source VM</p>
+<pre><code>[root@ip-172-31-23-140 tmp]# cd ..
+
+[root@ip-172-31-23-140 var]# cd ..
+
+[root@ip-172-31-23-140 /]# rear -D mkrescue
+
+Relax-and-Recover 2.7 / Git
+
+Running rear mkrescue (PID 40198 date 2023-12-01 13:25:11)
+
+Command line options: /usr/sbin/rear -D mkrescue
+
+Using log file: /var/log/rear/rear-ip-172-31-23-140.log
+
+Using build area: /var/tmp/rear.pkhRmXrJtTvvmk4
+
+Running 'init' stage ======================
+
+Running workflow mkrescue on the normal/original system
+
+Running 'prep' stage ======================
+
+No 'vfat' EFI system partition found (systemd-1 on /boot/efi is type autofs)
+
+Using autodetected kernel '/boot/vmlinuz-6.1.61-85.141.amzn2023.x86_64' as kernel in the recovery system
+
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.pkhRmXrJtTvvmk4/rootfs not empty)
+
+Running 'layout/save' stage ======================
+
+Creating disk layout
+
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+
+Using guessed bootloader 'EFI' for 'rear recover' (found in first bytes on /dev/nvme0n1)
+
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+
+Running 'rescue' stage ======================
+
+Creating recovery system root filesystem skeleton layout
+
+Adding 'console=tty0' to KERNEL_CMDLINE
+
+Adding 'console=ttyS0,115200n8' to KERNEL_CMDLINE
+
+Handling network interface 'ens5'
+
+ens5 is a physical device
+
+Handled network interface 'ens5'
+
+Skipping 'lo': not bound to any physical interface.
+
+Included current keyboard mapping (via 'dumpkeys -f')
+
+No default US keyboard mapping included (no 'defkeymap.*' found in /lib/kbd/keymaps)
+
+Included other keyboard mappings in /lib/kbd/keymaps
+
+Copying logfile /var/log/rear/rear-ip-172-31-23-140.log into initramfs as '/tmp/rear-ip-172-31-23-140-partial-2023-12-01T13:25:16+00:00.log'
+
+Running 'build' stage ======================
+
+Copying files and directories
+
+Copying binaries and libraries
+
+Copying all kernel modules in /lib/modules/6.1.61-85.141.amzn2023.x86_64 (MODULES contains 'all_modules')
+
+Copying all files in /lib*/firmware/
+
+Skip copying broken symlink '/etc/mtab' target '/proc/53175/mounts' on /proc/ /sys/ /dev/ or /run/
+
+Broken symlink '/etc/pki/tls/fips_local.cnf' in recovery system because 'readlink' cannot determine its link target
+
+Skip copying broken symlink '/etc/resolv.conf' target '/run/systemd/resolve/resolv.conf' on /proc/ /sys/ /dev/ or /run/
+
+Removed SSH key files without passphrase from recovery system (SSH_UNPROTECTED_PRIVATE_KEYS not true): etc/ssh/ssh_host_ecdsa_key etc/ssh/ssh_host_ed25519_key
+
+Testing that the recovery system in /var/tmp/rear.pkhRmXrJtTvvmk4/rootfs contains a usable system
+
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+
+/usr/lib64/systemd/libsystemd-core-252.16-1.amzn2023.0.1.so requires additional libraries
+
+libsystemd-shared-252.16-1.amzn2023.0.1.so =&gt; not found
+
+/usr/lib64/python3.9/site-packages/hawkey/test/_hawkey_test.so requires additional libraries
+
+_hawkey.so =&gt; not found
+
+ReaR recovery system in '/var/tmp/rear.pkhRmXrJtTvvmk4/rootfs' needs additional libraries, check /var/log/rear/rear-ip-172-31-23-140.log for details
+
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+
+Running 'pack' stage ======================
+
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+
+Created initrd.cgz with gzip default compression (191947282 bytes) in 33 seconds
+
+Running 'output' stage ======================
+
+Creating 209 MiB raw disk image "trianz-ip-172-31-23-140.raw"
+
+Using syslinux to install a Legacy BIOS bootloader
+
+Copying resulting files to nfs location
+
+Saving /var/log/rear/rear-ip-172-31-23-140.log as rear-ip-172-31-23-140.log to nfs location
+
+Copying result files '/var/tmp/rear.pkhRmXrJtTvvmk4/tmp/trianz-ip-172-31-23-140.raw /var/tmp/rear.pkhRmXrJtTvvmk4/tmp/VERSION /var/tmp/rear.pkhRmXrJtTvvmk4/tmp/README /var/tmp/rear.pkhRmXrJtTvvmk4/tmp/rear-ip-172-31-23-140.log' to /var/tmp/rear.pkhRmXrJtTvvmk4/outputfs/ip-172-31-23-140 at nfs location
+
+Exiting rear mkrescue (PID 40198) and its descendant processes ...
+
+Running exit tasks
+
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.pkhRmXrJtTvvmk4
+</code></pre>
+<p>From source Vm</p>
+<pre><code>[root@ip-172-31-23-140 /]# rear -D mkbackup
+
+Relax-and-Recover 2.7 / Git
+
+Running rear mkbackup (PID 62457 date 2023-12-01 13:27:37)
+
+Command line options: /usr/sbin/rear -D mkbackup
+
+Using log file: /var/log/rear/rear-ip-172-31-23-140.log
+
+Using build area: /var/tmp/rear.5grS55TunPfEGXD
+
+Running 'init' stage ======================
+
+Running workflow mkbackup on the normal/original system
+
+Running 'prep' stage ======================
+
+Today's weekday ('Fri') is a full backup day that triggers a new full backup in any case
+
+Performing full backup using backup archive '2023-12-01-1327-F.tar.gz'
+
+No 'vfat' EFI system partition found (systemd-1 on /boot/efi is type autofs)
+
+Using autodetected kernel '/boot/vmlinuz-6.1.61-85.141.amzn2023.x86_64' as kernel in the recovery system
+
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.5grS55TunPfEGXD/rootfs not empty)
+
+Running 'layout/save' stage ======================
+
+Creating disk layout
+
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+
+Using guessed bootloader 'EFI' for 'rear recover' (found in first bytes on /dev/nvme0n1)
+
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+
+Running 'rescue' stage ======================
+
+Creating recovery system root filesystem skeleton layout
+
+Adding 'console=tty0' to KERNEL_CMDLINE
+
+Adding 'console=ttyS0,115200n8' to KERNEL_CMDLINE
+
+Handling network interface 'ens5'
+
+ens5 is a physical device
+
+Handled network interface 'ens5'
+
+Skipping 'lo': not bound to any physical interface.
+
+Included current keyboard mapping (via 'dumpkeys -f')
+
+No default US keyboard mapping included (no 'defkeymap.*' found in /lib/kbd/keymaps)
+
+Included other keyboard mappings in /lib/kbd/keymaps
+
+Copying logfile /var/log/rear/rear-ip-172-31-23-140.log into initramfs as '/tmp/rear-ip-172-31-23-140-partial-2023-12-01T13:27:42+00:00.log'
+
+Running 'build' stage ======================
+
+Copying files and directories
+
+Copying binaries and libraries
+
+Copying all kernel modules in /lib/modules/6.1.61-85.141.amzn2023.x86_64 (MODULES contains 'all_modules')
+
+Copying all files in /lib*/firmware/
+
+Skip copying broken symlink '/etc/mtab' target '/proc/75475/mounts' on /proc/ /sys/ /dev/ or /run/
+
+Broken symlink '/etc/pki/tls/fips_local.cnf' in recovery system because 'readlink' cannot determine its link target
+
+Skip copying broken symlink '/etc/resolv.conf' target '/run/systemd/resolve/resolv.conf' on /proc/ /sys/ /dev/ or /run/
+
+Removed SSH key files without passphrase from recovery system (SSH_UNPROTECTED_PRIVATE_KEYS not true): etc/ssh/ssh_host_ecdsa_key etc/ssh/ssh_host_ed25519_key
+
+Testing that the recovery system in /var/tmp/rear.5grS55TunPfEGXD/rootfs contains a usable system
+
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+
+/usr/lib64/systemd/libsystemd-core-252.16-1.amzn2023.0.1.so requires additional libraries
+
+libsystemd-shared-252.16-1.amzn2023.0.1.so =&gt; not found
+
+/usr/lib64/python3.9/site-packages/hawkey/test/_hawkey_test.so requires additional libraries
+
+_hawkey.so =&gt; not found
+
+ReaR recovery system in '/var/tmp/rear.5grS55TunPfEGXD/rootfs' needs additional libraries, check /var/log/rear/rear-ip-172-31-23-140.log for details
+
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+
+Running 'pack' stage ======================
+
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+
+Created initrd.cgz with gzip default compression (191948803 bytes) in 33 seconds
+
+Running 'output' stage ======================
+
+Creating 209 MiB raw disk image "trianz-ip-172-31-23-140.raw"
+
+Using syslinux to install a Legacy BIOS bootloader
+
+Copying resulting files to nfs location
+
+Saving /var/log/rear/rear-ip-172-31-23-140.log as rear-ip-172-31-23-140.log to nfs location
+
+Copying result files '/var/tmp/rear.5grS55TunPfEGXD/tmp/trianz-ip-172-31-23-140.raw /var/tmp/rear.5grS55TunPfEGXD/tmp/VERSION /var/tmp/rear.5grS55TunPfEGXD/tmp/README /var/tmp/rear.5grS55TunPfEGXD/tmp/rear-ip-172-31-23-140.log' to /var/tmp/rear.5grS55TunPfEGXD/outputfs/ip-172-31-23-140 at nfs location
+
+Running 'backup' stage ======================
+
+Making backup (using backup method NETFS)
+
+Creating tar archive '/var/tmp/rear.5grS55TunPfEGXD/outputfs/ip-172-31-23-140/2023-12-01-1327-F.tar.gz'
+
+Archived 703 MiB [avg 6865 KiB/sec] OK
+
+Archived 703 MiB in 106 seconds [avg 6800 KiB/sec]
+
+Exiting rear mkbackup (PID 62457) and its descendant processes ...
+
+Running exit tasks
+
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.5grS55TunPfEGXD
+</code></pre>
+<p>From rescue VM</p>
+<pre><code>RESCUE ip-172-31-23-140:~ # rear -D recover
+
+Relax-and-Recover 2.7 / Git
+
+Running rear recover (PID 14236 date 2023-12-01 13:37:04)
+
+Command line options: /bin/rear -D recover
+
+Using log file: /var/log/rear/rear-ip-172-31-23-140.log
+
+Using build area: /var/tmp/rear.UHtDe4GJizzL7PC
+
+Running 'init' stage ======================
+
+Running workflow recover within the ReaR rescue/recovery system
+
+Running 'setup' stage ======================
+
+Running 'verify' stage ======================
+
+Using backup archive '/mcsquare-backups//ip-172-31-23-140/backup.tar.gz'
+
+Calculating backup archive size
+
+Backup archive size is 704M /mcsquare-backups/2023-12-01-0954-F.tar.gz (compressed)
+
+Running 'layout/prepare' stage ======================
+
+Comparing disks
+
+Disk configuration looks identical
+
+UserInput -I DISK_LAYOUT_PROCEED_RECOVERY needed in /usr/share/rear/layout/prepare/default/250_compare_disks.sh line 235
+
+Proceed with 'recover' (yes) otherwise manual disk layout configuration is enforced
+
+(default 'yes' timeout 30 seconds)
+
+UserInput: No real user input (empty or only spaces) - using default input
+
+UserInput: No choices - result is 'yes'
+
+Proceeding with 'recover' by default
+
+Running 'layout/recreate' stage ======================
+
+Disks to be completely overwritten and recreated by /var/lib/rear/layout/diskrestore.sh:
+
+Determining disks to be wiped ...
+
+UserInput -I WIPE_DISKS_CONFIRMATION needed in /usr/share/rear/layout/recreate/default/120_confirm_wipedisk_disks.sh line 168
+
+Disks to be wiped:
+
+1) Confirm disks to be wiped and continue 'rear recover'
+
+2) Skip wiping disks and continue 'rear recover'
+
+3) Use Relax-and-Recover shell and return back to here
+
+4) Abort 'rear recover'
+
+(default '1' timeout 30 seconds)
+
+UserInput: No real user input (empty or only spaces) - using default input
+
+UserInput: Valid choice number result 'Confirm disks to be wiped and continue 'rear recover''
+
+Continuing 'rear recover' by default
+
+Start system layout restoration.
+
+Disk layout created.
+
+ERROR: No filesystem mounted on '/mnt/local'. Stopping.
+
+Some latest log messages since the last called script 250_verify_mount.sh:
+
+2023-12-01 13:38:07.251272773 Entering debugscript mode via 'set -x'.
+
+Aborting due to an error, check /var/log/rear/rear-ip-172-31-23-140.log for details
+
+Exiting rear recover (PID 14236) and its descendant processes ...
+
+Running exit tasks
+
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.UHtDe4GJizzL7PC
+
+Terminated
+</code></pre>
+<h4 id="ramzcode_commented_at_2023-12-04_0735"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1837988608">2023-12-04 07:35</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-04_0735" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Any idea on what is wrong from the above logs ?</p>
+<h4 id="ramzcode_commented_at_2023-12-04_0815"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1838038840">2023-12-04 08:15</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-04_0815" title="Permanent link">&para;</a></h4>
+<p>uuidgen - This is creating a Write protection, but not sure how this is
+same or wrongly evaluated on the target VM as well</p>
+<h4 id="ramzcode_commented_at_2023-12-04_1016"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1838233602">2023-12-04 10:16</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-04_1016" title="Permanent link">&para;</a></h4>
+<p>RCA:</p>
+<p>"For Unknown Reasons, the disk UUID between different VM's are same.
+This makes ReaR to declare a different new disk as a source and make it
+RO"</p>
+<p>++++ [[ /dev/nvme0n1 == /sys/block/* ]]<br />
+++++ test -b /dev/nvme0n1<br />
+++++ echo /dev/nvme0n1<br />
++++ local device=/dev/nvme0n1<br />
++++ local parent_device=<br />
+++++ lsblk -inpo PKNAME /dev/nvme0n1<br />
+++++ head -n1<br />
+++++ awk NF<br />
++++ parent_device=/dev/nvme0n1<br />
++++ test -b /dev/nvme0n1<br />
++++ device=/dev/nvme0n1<br />
++++ local column<br />
++++ for column in $WRITE_PROTECTED_ID_TYPES<br />
++++ lsblk -ino UUID /dev/nvme0n1<br />
++++ sort -u<br />
++++ awk NF<br />
++++ for column in $WRITE_PROTECTED_ID_TYPES<br />
++++ lsblk -ino PTUUID /dev/nvme0n1<br />
++++ for column in $WRITE_PROTECTED_ID_TYPES<br />
++++ lsblk -ino PARTUUID /dev/nvme0n1<br />
++++ for column in $WRITE_PROTECTED_ID_TYPES<br />
++++ lsblk -ino WWN /dev/nvme0n1<br />
+++ ids='25e2257d-7e9e-4a8b-92fd-795d5017693b<br />
+ED01-2CA2<br />
+b7e8dd78-127a-4bcb-8a1e-cad61052e52b<br />
+nvme.1d0f-766f6c3034393966363161663864363763653938-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001'<br />
+++ test '25e2257d-7e9e-4a8b-92fd-795d5017693b<br />
+ED01-2CA2<br />
+b7e8dd78-127a-4bcb-8a1e-cad61052e52b<br />
+nvme.1d0f-766f6c3034393966363161663864363763653938-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001'<br />
+++ for id in $ids<br />
+++ IsInArray 25e2257d-7e9e-4a8b-92fd-795d5017693b
+b7e8dd78-127a-4bcb-8a1e-cad61052e52b<br />
+++ return 1<br />
+++ for id in $ids<br />
+++ IsInArray ED01-2CA2 b7e8dd78-127a-4bcb-8a1e-cad61052e52b<br />
+++ return 1<br />
+++ for id in $ids<br />
+++ IsInArray b7e8dd78-127a-4bcb-8a1e-cad61052e52b
+b7e8dd78-127a-4bcb-8a1e-cad61052e52b<br />
+++ Log '/dev/nvme0n1 is designated as write-protected by ID
+b7e8dd78-127a-4bcb-8a1e-cad61052e52b'<br />
+++ test -w /var/log/rear/rear-ip-172-31-23-140.log</p>
+<h4 id="ramzcode_commented_at_2023-12-04_1429"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1838752482">2023-12-04 14:29</a>:<a class="headerlink" href="#ramzcode_commented_at_2023-12-04_1429" title="Permanent link">&para;</a></h4>
+<p>AWS uses Unique ID's to maintain stability for storage devices across
+types, Due to this, ReaR thinks that it should not use the disk as the
+WRITE PROTECT script validation runs.</p>
+<p>I had to use WRITE_PROTECTED_ID_TYPES="SERIAL" since SERIAL had
+unique vol specific ID's across different VM's. It worked as expected.</p>
+<h4 id="schlomo_commented_at_2024-01-13_1848"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1890698264">2024-01-13 18:48</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-13_1848" title="Permanent link">&para;</a></h4>
+<p>@ramzcode do I understand correctly that this problem only occurs on EC2
+VM backup and subsequent EC2 VM restore? And your workaround wouldn't be
+required if the source of the backup is <strong>not</strong> an EC2 VM?</p>
+<p>I'm happy that you found a workaround and I'm wondering if we maybe
+slowly should consider adding auto-detect for AWS EC2 that would
+fine-tune ReaR for that environment.</p>
+<p>Also, @ramzcode, can you please share your use case for ReaR here? So
+far I actually thought that users of AWS wouldn't need ReaR at all and
+instead use AWS-level backup tooling like snapshots. I'm happy to learn
+more about AWS related use cases for ReaR to better understand what is
+expected from ReaR in that context.</p>
+<h4 id="pcahyna_commented_at_2024-01-15_1400"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1892231237">2024-01-15 14:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-15_1400" title="Permanent link">&para;</a></h4>
+<p>Why is /dev/nvme0n1 is designated as write-protected at all? @ramzcode
+are you using this disk to store the backup? Can you please show your
+ReaR configuration (<code>/etc/rear/local.conf</code> and/or <code>/etc/rear/site.conf</code>)
+and include the "rear mkbackup" debug log to show where it designates
+the disk as write-protected? Also please include
+/var/lib/rear/layout/disklayout.conf .</p>
+<h4 id="ramzcode_commented_at_2024-02-19_0852"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1951971076">2024-02-19 08:52</a>:<a class="headerlink" href="#ramzcode_commented_at_2024-02-19_0852" title="Permanent link">&para;</a></h4>
+<p>@schlomo Yes this is only needed for AWS Environment, may be for other
+CSP too, it still depends on the how they maintain the disk ID's for
+consistency.</p>
+<p>The ID based validation should be highly Dynamic so that we can avoid
+such cases.</p>
+<p>ReaR is used for my servers where i don't want to the AWS solutions and
+need more flexibility. A single solution for my On-Pem and AWS
+instances. Easy to maintain and Automate.</p>
+<h4 id="ramzcode_commented_at_2024-02-19_0854"><img src="https://avatars.githubusercontent.com/u/76745955?u=f5c61d1790c8abce888534760cd418243fbf82f5&v=4" width="50"><a href="https://github.com/ramzcode">ramzcode</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-1951974665">2024-02-19 08:54</a>:<a class="headerlink" href="#ramzcode_commented_at_2024-02-19_0854" title="Permanent link">&para;</a></h4>
+<p>@pcahyna The reason is AWS maintains a unique ID for disk types and FS
+to make sure it never changes when someone upgrade their instance and
+move from one region to another. The main reason is to avoid boot issues
+due to change in ID that are part for fstab and bootloader configs</p>
+<h4 id="github-actions_commented_at_2024-04-20_0203"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3096#issuecomment-2067512413">2024-04-20 02:03</a>:<a class="headerlink" href="#github-actions_commented_at_2024-04-20_0203" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-01.3096.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

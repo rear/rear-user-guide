@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2716 Issue open: If selinux labels are not restored, the autorelabel is not enough in RHEL8.4 and recovered system does not boot - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2716 Issue open: If selinux labels are not restored, the autorelabel is not enough in RHEL8.4 and recovered system does not boot";
+        var mkdocs_page_input_path = "issues/2021-11-19.2716.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2716 Issue open: If selinux labels are not restored, the autorelabel is not enough in RHEL8.4 and recovered system does not boot</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2716_issue_open_if_selinux_labels_are_not_restored_the_autorelabel_is_not_enough_in_rhel84_and_recovered_system_does_not_boot"><a href="https://github.com/rear/rear/issues/2716">#2716 Issue</a> <code>open</code>: If selinux labels are not restored, the autorelabel is not enough in RHEL8.4 and recovered system does not boot<a class="headerlink" href="#2716_issue_open_if_selinux_labels_are_not_restored_the_autorelabel_is_not_enough_in_rhel84_and_recovered_system_does_not_boot" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="bwelterl_opened_issue_at_2021-11-19_1425"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> opened issue at <a href="https://github.com/rear/rear/issues/2716">2021-11-19 14:25</a>:<a class="headerlink" href="#bwelterl_opened_issue_at_2021-11-19_1425" title="Permanent link">&para;</a></h4>
+<p>Starting in RHEL8.4, the selinux policy does not allow systemd to access
+unlabeled files anymore, thus if the restored filesystem has not the
+correct labels (for example /etc/localtime), systemd will not be able to
+boot and relabel will fail and system will not boot.</p>
+<p>Fill in the following items before submitting a new issue<br />
+(quick response is not guaranteed with free support):</p>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    rear 2.6</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    RHEL 8.4</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    with a backup tool that does not restore selinux labels (TSM,
+    rsync...)</p>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    VM (and HW)</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    Local</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINT"):</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>When restoring a system with selinux enabled, but where the backup does
+not restore the label, the system is not bootable because autorelabel
+will happen to late, systemd already fails with:</p>
+<pre><code>Failed to create timezone change event source: Permission denied
+</code></pre>
+<p>because in RHEL 8.4, systemd is not able to read unlabeled files
+anymore.</p>
+<p>This case can happen with different backup tools:<br />
+rsync with remote filesystem not able to manage extended attributes<br />
+TSM as customer, because labels for link are no saved, thus
+/etc/localtime will be unlabelled an systemd will fail.</p>
+<ul>
+<li>Workaround, if any:</li>
+</ul>
+<p>First reboot in permissive to allow systemd to execute the autorelabel<br />
+Fix: execute setfiles before the reboot:</p>
+<pre><code>setfiles -r $TARGET_FS_ROOT $TARGET_FS_ROOT/etc/selinux/${policy}/contexts/files/file_contexts $TARGET_FS_ROOT
+</code></pre>
+<h4 id="pcahyna_commented_at_2021-11-19_1438"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-974127324">2021-11-19 14:38</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-11-19_1438" title="Permanent link">&para;</a></h4>
+<p>Note that there are other system extended attributes that the system may
+depend on, so I am afraid that systems restored with "rsync with remote
+filesystem not able to manage extended attributes" will be subtly broken
+anyway. Given this, it might be cleaner to desupport entirely backup
+tools that are not able to backup &amp; restore all the file metadata, and
+drop workarounds like relabeling. Does TSM have problems with all
+extended attributes, or is selinux somehow specific?</p>
+<h4 id="bwelterl_commented_at_2021-11-19_1448"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-974135128">2021-11-19 14:48</a>:<a class="headerlink" href="#bwelterl_commented_at_2021-11-19_1448" title="Permanent link">&para;</a></h4>
+<p>Hello,</p>
+<p>I agree that autorelabel is a workaround, that does not work always
+anymore.<br />
+And yes, removing the support of broken backup tools is the easiest way
+to "fix" this (but with some complains).</p>
+<p>I don't have details on TSM, only "SELinux attributes of symbolic links
+are not backed up and thus cannot be restored.":<br />
+<a href="https://www.ibm.com/support/pages/ibm-spectrum-protect-v81-unix-and-linux-backup-archive-client-known-problems-and-limitations">https://www.ibm.com/support/pages/ibm-spectrum-protect-v81-unix-and-linux-backup-archive-client-known-problems-and-limitations</a><br />
+It's maybe something similar to rsync with non root user.</p>
+<p>I submitted this pullrequest, to be discussed :-) at least for the
+inclusion of setfiles binary:<br />
+<a href="https://github.com/rear/rear/pull/2717/commits/d5505e6d4a404b70db6f7552c92bdfd1cdb66b04">https://github.com/rear/rear/pull/2717/commits/d5505e6d4a404b70db6f7552c92bdfd1cdb66b04</a></p>
+<p>Thanks !</p>
+<h4 id="pcahyna_commented_at_2021-11-23_1036"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-976384183">2021-11-23 10:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2021-11-23_1036" title="Permanent link">&para;</a></h4>
+<p>Thanks for the link. Indeed, TSM docs show that the problem is specific
+to SELinux and symbolic links, so the proposed workaround is probably
+enough.<br />
+For RSYNC, see
+<a href="https://github.com/rear/rear/pull/2717#issuecomment-976382378">https://github.com/rear/rear/pull/2717#issuecomment-976382378</a></p>
+<h4 id="gerhard-tinned_commented_at_2022-01-18_1012"><img src="https://avatars.githubusercontent.com/u/1536065?u=8500ab477775d25785a756bf03380295a5925651&v=4" width="50"><a href="https://github.com/gerhard-tinned">gerhard-tinned</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1015260468">2022-01-18 10:12</a>:<a class="headerlink" href="#gerhard-tinned_commented_at_2022-01-18_1012" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>Personally I see this less on an issue in ReaR but more an Issue with
+RedHats autorelabeling. The problem emerged with RHEL 8.4 but worked
+before. So RedHat had done something to break autorelebel.</p>
+<p>It is very frustrating to see how RedHat is trying to hide the Problem
+by making other projects add workarounds. :-( At the end of the day,
+autorelabeling is considered a fix to wrong selinux fcontesxt labels.
+But it is broken as it is not working when some specific files (my
+experience, there is more than just this one file)are not labeled
+correctly.</p>
+<p>Oh, YES, the TSM dokumentation states the limitation for the symbolic
+links.</p>
+<p>If I can help with this issue in any way I would be happy to help. As it
+seems this issue is relöated to my issue reported to RedHat. (not that
+they would have told me, I had to find that out myself.. :-(</p>
+<h4 id="bwelterl_commented_at_2022-02-03_1250"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1028957256">2022-02-03 12:50</a>:<a class="headerlink" href="#bwelterl_commented_at_2022-02-03_1250" title="Permanent link">&para;</a></h4>
+<p>The goal of rear is to restore the system in the previous state.</p>
+<p>Once it's rebooted to the previous kernel, it no longer has control on
+the system. If we rely on something dependants of the first reboot and
+it fails, we can't give a workaround.<br />
+Thus it's better to have everything correctly set before the first new
+reboot. That's why the PR with setfiles helps to configure everything
+before the reboot.<br />
+And of course, the easiest way is to not support backup tool without
+extended attributes feature.</p>
+<h4 id="pcahyna_commented_at_2022-02-14_1244"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1039043537">2022-02-14 12:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-02-14_1244" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi,</p>
+<p>Personally I see this less on an issue in ReaR but more an Issue with
+RedHats autorelabeling. The problem emerged with RHEL 8.4 but worked
+before. So RedHat had done something to break autorelebel.</p>
+<p>It is very frustrating to see how RedHat is trying to hide the Problem
+by making other projects add workarounds. :-( At the end of the day,
+autorelabeling is considered a fix to wrong selinux fcontesxt labels.
+But it is broken as it is not working when some specific files (my
+experience, there is more than just this one file)are not labeled
+correctly.</p>
+</blockquote>
+<p>There is a fix for this in Fedora:
+<a href="https://github.com/fedora-selinux/selinux-policy/pull/968">https://github.com/fedora-selinux/selinux-policy/pull/968</a></p>
+<p>If / when it is included in RHEL, I propose to abandon the proposed
+workaround, ReaR code is complicated enough already, no need to
+complicate it further with workarounds for breakage in other tools.</p>
+<h4 id="pcahyna_commented_at_2022-02-14_1345"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1039105865">2022-02-14 13:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-02-14_1345" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If I can help with this issue in any way I would be happy to help. As
+it seems this issue is relöated to my issue reported to RedHat.</p>
+</blockquote>
+<p>@gerhard-tinned Thank you, the report was very useful already! If you
+are interested and you are using CentOS Stream, the fixed build of
+selinux-policy that fixes systemd access to unlabeled symlinks is
+already in CentOS Stream:
+<a href="http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/selinux-policy-3.14.3-86.el8.noarch.rpm">selinux-policy-3.14.3-86.el8.noarch.rpm</a>.
+Of course, no guarantees...</p>
+<h4 id="gerhard-tinned_commented_at_2022-02-14_1402"><img src="https://avatars.githubusercontent.com/u/1536065?u=8500ab477775d25785a756bf03380295a5925651&v=4" width="50"><a href="https://github.com/gerhard-tinned">gerhard-tinned</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1039122063">2022-02-14 14:02</a>:<a class="headerlink" href="#gerhard-tinned_commented_at_2022-02-14_1402" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<p>If I can help with this issue in any way I would be happy to help.
+As it seems this issue is relöated to my issue reported to RedHat.</p>
+</blockquote>
+<p>@gerhard-tinned Thank you, the report was very useful already! If you
+are interested and you are using CentOS Stream, the fixed build of
+selinux-policy that fixes systemd access to unlabeled symlinks is
+already in CentOS Stream:
+<a href="http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/selinux-policy-3.14.3-86.el8.noarch.rpm">selinux-policy-3.14.3-86.el8.noarch.rpm</a>.
+Of course, no guarantees...</p>
+</blockquote>
+<p>Sadly we are on RHEL not CentOS or CentOS stream or however it is called
+now. So I guess it still needs a while ... Anyway that is not something
+to discuss in the rear case. Thanks anyway, ReaR is awesome!!</p>
+<h4 id="github-actions_commented_at_2022-04-16_0242"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1100514480">2022-04-16 02:42</a>:<a class="headerlink" href="#github-actions_commented_at_2022-04-16_0242" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="pcahyna_commented_at_2022-04-19_1757"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1102931847">2022-04-19 17:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-19_1757" title="Permanent link">&para;</a></h4>
+<p>bwelterl convinced me that we still may need some fix for selinux
+relabelling, because although the particular probem that triggered it
+has been fixed in systemd, there may be other issues that will not be as
+easy to fix - because for correct relabeling, selinux needs to be in
+permissive mode, which we don't do (and is hard to do automatically).</p>
+<h4 id="github-actions_commented_at_2022-06-19_0326"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2716#issuecomment-1159608399">2022-06-19 03:26</a>:<a class="headerlink" href="#github-actions_commented_at_2022-06-19_0326" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2021-11-19.2716.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

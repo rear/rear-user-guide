@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3224 PR merged: default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3224 PR merged: default.conf add \u0027/var/tmp/rear.*\u0027 to BACKUP_PROG_EXCLUDE";
+        var mkdocs_page_input_path = "issues/2024-05-16.3224.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3224 PR merged: default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3224_pr_merged_defaultconf_add_vartmprear_to_backup_prog_exclude"><a href="https://github.com/rear/rear/pull/3224">#3224 PR</a> <code>merged</code>: default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE<a class="headerlink" href="#3224_pr_merged_defaultconf_add_vartmprear_to_backup_prog_exclude" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-05-16_1007"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3224">2024-05-16 10:07</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-05-16_1007" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+    see at the end of<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">https://github.com/rear/rear/pull/3175#issuecomment-2114478980</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    see<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">https://github.com/rear/rear/pull/3175#issuecomment-2114478980</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In default.conf add <code>/var/tmp/rear.*</code> to BACKUP_PROG_EXCLUDE<br />
+because since ReaR uses <code>/var/tmp/rear.*</code> as BUILD_DIR<br />
+one would get at least the whole BUILD_DIR<br />
+of the current "rear mkbackup" run<br />
+in the backup by default.</p>
+<p>Additionally describe why ReaR's VAR_DIR/output is excluded.</p>
+<p>Also describe why the <code>'/directory/*'</code> form is used, cf.<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">https://github.com/rear/rear/pull/3175#issuecomment-2114478980</a></p>
+<h4 id="jsmeix_commented_at_2024-05-16_1053"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3224#issuecomment-2114888497">2024-05-16 10:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1053" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+thank you for your prompt review!</p>
+<h4 id="pcahyna_commented_at_2024-05-16_1824"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3224#issuecomment-2115928077">2024-05-16 18:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-16_1824" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I don't get why you need it. You wrote:</p>
+<blockquote>
+<p>But because of this I found out that /var/tmp/rear.*<br />
+should be added to BACKUP_PROG_EXCLUDE in default.conf<br />
+because since ReaR uses /var/tmp/rear.* as BUILD_DIR</p>
+</blockquote>
+<p>BUT, in usr/sbin/rear there is already<br />
+<a href="https://github.com/rear/rear/blob/2e663e8705b1cd3dc8a849bae3fb02a9f4a4f017/usr/sbin/rear#L636">https://github.com/rear/rear/blob/2e663e8705b1cd3dc8a849bae3fb02a9f4a4f017/usr/sbin/rear#L636</a></p>
+<p>which should be sufficient with respect to the reasoning above (although
+not equivalent since there may be leftover build directories from
+previous ReaR runs).</p>
+<h4 id="jsmeix_commented_at_2024-05-21_1154"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3224#issuecomment-2122463410">2024-05-21 11:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-21_1154" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+what would I do without your careful review :-)</p>
+<p>Yes, of course, you are right - and<br />
+my change was basically completely wrong :-(</p>
+<p>I guess I had leftover build directories from<br />
+my various previous "rear -D mkbackup" runs<br />
+and didn't pay careful attention to the exact<br />
+directory names.</p>
+<p>Yes, yes, I know, I know:<br />
+One should not do "by the way" changes<br />
+while one is actually working on something else.<br />
+One should do one thing at a time, step by step,<br />
+each one carefully and thoroughly - in theory.<br />
+In practice...</p>
+<p>I will fix my mess with a subsequent pull request.</p>
+<h4 id="jsmeix_commented_at_2024-05-23_0727"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3224#issuecomment-2126414843">2024-05-23 07:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-23_0727" title="Permanent link">&para;</a></h4>
+<p>This one is obsoleted by<br />
+<a href="https://github.com/rear/rear/pull/3229">https://github.com/rear/rear/pull/3229</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-16.3224.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3213 PR closed: mount /tmp with tmpfs option for Veeam V12.1 and later - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3213 PR closed: mount /tmp with tmpfs option for Veeam V12.1 and later";
+        var mkdocs_page_input_path = "issues/2024-04-30.3213.pr.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3213 PR closed: mount /tmp with tmpfs option for Veeam V12.1 and later</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3213_pr_closed_mount_tmp_with_tmpfs_option_for_veeam_v121_and_later"><a href="https://github.com/rear/rear/pull/3213">#3213 PR</a> <code>closed</code>: mount /tmp with tmpfs option for Veeam V12.1 and later<a class="headerlink" href="#3213_pr_closed_mount_tmp_with_tmpfs_option_for_veeam_v121_and_later" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="idna38_opened_issue_at_2024-04-30_2115"><img src="https://avatars.githubusercontent.com/u/150189387?v=4" width="50"><a href="https://github.com/idna38">idna38</a> opened issue at <a href="https://github.com/rear/rear/pull/3213">2024-04-30 21:15</a>:<a class="headerlink" href="#idna38_opened_issue_at_2024-04-30_2115" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    On every Veeam supported Linux distribution<br />
+    RHEL 9.x<br />
+    RHEL 8.x<br />
+    Debian 10.13<br />
+    Debian 11.9<br />
+    Debian 12.5<br />
+    Ubuntu 18.04<br />
+    Ubuntu 20.04<br />
+    Ubuntu 22.04<br />
+    SLES 12 SP5<br />
+    SLES 15 SP5</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    mount the /tmp directory with tmpfs option, otherwise veeammount
+    command will fail with versions 12.1 and above</p>
+</li>
+</ul>
+<h4 id="schlomo_commented_at_2024-05-01_1008"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3213#issuecomment-2088245440">2024-05-01 10:08</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-01_1008" title="Permanent link">&para;</a></h4>
+<p>@idna38 is there any requirement for the <code>tmpfs</code> on <code>/tmp</code>? Like a
+certain minimum size or something else?</p>
+<h4 id="jsmeix_commented_at_2024-05-02_0717"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3213#issuecomment-2089778157">2024-05-02 07:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-02_0717" title="Permanent link">&para;</a></h4>
+<p>I have a general understanding question<br />
+i.e. the next level WHY behind the first level WHY<br />
+(that is "needed because otherwise some command fails"):</p>
+<p>I like to understand WHY some commands fail<br />
+when '/tmp/' has no mount source or is not a 'tmpfs'<br />
+but most other commands seem to "just work"<br />
+when '/tmp/' is "just a normal directory" regardless<br />
+if it has a mount source or is a 'tmpfs'.</p>
+<p>In the ReaR recovery system '/tmp/' is a normal directory</p>
+<pre><code>RESCUE localhost:~ # ls -ld /tmp
+drwxr-xr-x 2 root root 0 May  2 08:41 /tmp
+</code></pre>
+<p>versus e.g. on my openSUSE Leap 15.5 system</p>
+<pre><code># ls -ld /tmp
+drwxrwxrwt 19 root root 4096 May  2 08:52 /tmp
+</code></pre>
+<p>So non-root users cannot use '/tmp/'<br />
+in the ReaR recovery system</p>
+<pre><code>RESCUE nobody@localhost:/&gt; echo hello &gt;/tmp/hello
+-bash: /tmp/hello: Permission denied
+</code></pre>
+<p>but normally that should not matter because<br />
+normally only 'root' is used in the ReaR recovery system.</p>
+<p>In the ReaR recovery system '/' has no mount source:</p>
+<pre><code>RESCUE localhost:~ # findmnt -a
+TARGET                                SOURCE             FSTYPE     OPTIONS
+/                                     none               rootfs     rw
+|-/proc                               proc               proc       rw,nosuid,nodev,noexec,relatime
+| `-/proc                             none               proc       rw,relatime
+|-/sys                                sysfs              sysfs      rw,nosuid,nodev,noexec,relatime
+| |-/sys/kernel/security              securityfs         securityfs rw,nosuid,nodev,noexec,relatime
+| |-/sys/fs/cgroup                    tmpfs              tmpfs      ro,nosuid,nodev,noexec,size=4096k,nr_inodes=1024,mode=755,inode64
+| | |-/sys/fs/cgroup/unified          cgroup2            cgroup2    rw,nosuid,nodev,noexec,relatime,nsdelegate
+| | |-/sys/fs/cgroup/systemd          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,xattr,name=systemd
+| | |-/sys/fs/cgroup/freezer          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,freezer
+| | |-/sys/fs/cgroup/cpuset           cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,cpuset
+| | |-/sys/fs/cgroup/net_cls,net_prio cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,net_cls,net_prio
+| | |-/sys/fs/cgroup/blkio            cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,blkio
+| | |-/sys/fs/cgroup/perf_event       cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,perf_event
+| | |-/sys/fs/cgroup/hugetlb          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,hugetlb
+| | |-/sys/fs/cgroup/misc             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,misc
+| | |-/sys/fs/cgroup/cpu,cpuacct      cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,cpu,cpuacct
+| | |-/sys/fs/cgroup/pids             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,pids
+| | |-/sys/fs/cgroup/rdma             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,rdma
+| | |-/sys/fs/cgroup/memory           cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,memory
+| | `-/sys/fs/cgroup/devices          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,devices
+| |-/sys/fs/pstore                    pstore             pstore     rw,nosuid,nodev,noexec,relatime
+| `-/sys/fs/bpf                       bpf                bpf        rw,nosuid,nodev,noexec,relatime,mode=700
+|-/dev                                devtmpfs           devtmpfs   rw,nosuid,size=4096k,nr_inodes=1048576,mode=755,inode64
+| |-/dev/shm                          tmpfs              tmpfs      rw,nosuid,nodev,inode64
+| `-/dev/pts                          devpts             devpts     rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000
+|   `-/dev/pts                        none               devpts     rw,relatime,gid=5,mode=620,ptmxmode=000
+|-/run                                tmpfs              tmpfs      rw,nosuid,nodev,size=402436k,nr_inodes=819200,mode=755,inode64
+`-/etc/machine-id                     tmpfs[/machine-id] tmpfs      ro,size=402436k,nr_inodes=819200,mode=755,inode64
+</code></pre>
+<p>The mount source is <code>none</code> for '/', cf.<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/finalize/default/110_bind_mount_proc_sys_dev_run.sh#L47">https://github.com/rear/rear/blob/master/usr/share/rear/finalize/default/110_bind_mount_proc_sys_dev_run.sh#L47</a></p>
+<pre><code># It seems the root cause is that within the recovery system / is no mountpoint
+# like in a normal running system where e.g. /dev/sda2 is mounted on /
+# but within the recovery system / is the plain content of ReaR's initrd
+# so /dev does not belong to any mountpoint and that lets bind-mount fail.
+</code></pre>
+<p>So perhaps the reason behind WHY some commands fail<br />
+when '/tmp/' has no mount source or is not a 'tmpfs'<br />
+is or is related to something of that?</p>
+<p>In this case we should fix that generically in ReaR,<br />
+for example by always mounting '/tmp/' as 'tmpfs'<br />
+plus usual permissions and sticky bit to make '/tmp/'<br />
+as same as possible in the ReaR recovery system<br />
+as '/tmp/' usually is on the original system?</p>
+<h4 id="schlomo_commented_at_2024-05-02_0723"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3213#issuecomment-2089787450">2024-05-02 07:23</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-02_0723" title="Permanent link">&para;</a></h4>
+<p>I'm actually also wondering if we couldn't solve this problem via the
+<code>USE_RAMDISK</code> setting which creates a fixed-size ramdisk for <code>/</code> which
+should also provide a mount source. see</p>
+<p><a href="https://github.com/rear/rear/blob/6c55750effee6339f2f045fea313e3f90c25252e/usr/share/rear/conf/default.conf#L3922-L3939">https://github.com/rear/rear/blob/6c55750effee6339f2f045fea313e3f90c25252e/usr/share/rear/conf/default.conf#L3922-L3939</a></p>
+<h4 id="jsmeix_commented_at_2024-05-02_0907"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3213#issuecomment-2089961928">2024-05-02 09:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-02_0907" title="Permanent link">&para;</a></h4>
+<p>With <code>USE_RAMDISK="yes"</code><br />
+I get in the ReaR recovery system</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep -i ramdisk
+[    0.000000] Command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 rdinit=/etc/scripts/ramdisk-rootfs debug BOOT_IMAGE=kernel 
+[    0.002958] RAMDISK: [mem 0x7bf91000-0x7fffefff]
+[    0.017727] Kernel command line: initrd=initrd.cgz root=/dev/ram0 vga=normal rw  selinux=0 rdinit=/etc/scripts/ramdisk-rootfs debug BOOT_IMAGE=kernel 
+[    1.593357] Run /etc/scripts/ramdisk-rootfs as init process
+[    1.596084]     /etc/scripts/ramdisk-rootfs
+
+RESCUE localhost:~ # findmnt -a
+TARGET                                SOURCE             FSTYPE     OPTIONS
+/                                     none               tmpfs      rw,relatime,inode64
+|-/proc                               proc               proc       rw,nosuid,nodev,noexec,relatime
+|-/sys                                sysfs              sysfs      rw,nosuid,nodev,noexec,relatime
+| |-/sys/kernel/security              securityfs         securityfs rw,nosuid,nodev,noexec,relatime
+| |-/sys/fs/cgroup                    tmpfs              tmpfs      ro,nosuid,nodev,noexec,size=4096k,nr_inodes=1024,mode=755,inode64
+| | |-/sys/fs/cgroup/unified          cgroup2            cgroup2    rw,nosuid,nodev,noexec,relatime,nsdelegate
+| | |-/sys/fs/cgroup/systemd          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,xattr,name=systemd
+| | |-/sys/fs/cgroup/net_cls,net_prio cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,net_cls,net_prio
+| | |-/sys/fs/cgroup/freezer          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,freezer
+| | |-/sys/fs/cgroup/cpu,cpuacct      cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,cpu,cpuacct
+| | |-/sys/fs/cgroup/cpuset           cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,cpuset
+| | |-/sys/fs/cgroup/memory           cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,memory
+| | |-/sys/fs/cgroup/misc             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,misc
+| | |-/sys/fs/cgroup/perf_event       cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,perf_event
+| | |-/sys/fs/cgroup/devices          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,devices
+| | |-/sys/fs/cgroup/blkio            cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,blkio
+| | |-/sys/fs/cgroup/rdma             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,rdma
+| | |-/sys/fs/cgroup/hugetlb          cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,hugetlb
+| | `-/sys/fs/cgroup/pids             cgroup             cgroup     rw,nosuid,nodev,noexec,relatime,pids
+| |-/sys/fs/pstore                    pstore             pstore     rw,nosuid,nodev,noexec,relatime
+| `-/sys/fs/bpf                       bpf                bpf        rw,nosuid,nodev,noexec,relatime,mode=700
+|-/dev                                devtmpfs           devtmpfs   rw,nosuid,size=4096k,nr_inodes=1048576,mode=755,inode64
+| |-/dev/shm                          tmpfs              tmpfs      rw,nosuid,nodev,inode64
+| `-/dev/pts                          devpts             devpts     rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000
+|-/run                                tmpfs              tmpfs      rw,nosuid,nodev,size=801436k,nr_inodes=819200,mode=755,inode64
+`-/etc/machine-id                     tmpfs[/machine-id] tmpfs      ro,size=801436k,nr_inodes=819200,mode=755,inode64
+
+RESCUE localhost:~ # df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+none            2.0G  177M  1.8G  10% /
+</code></pre>
+<p>In contrast without <code>USE_RAMDISK="yes"</code><br />
+I get in the ReaR recovery system</p>
+<pre><code>RESCUE localhost:~ # dmesg | grep -i ramdisk
+[    0.003241] RAMDISK: [mem 0x7bf71000-0x7ffbefff]
+
+RESCUE localhost:~ # findmnt -a
+TARGET                                SOURCE             FSTYPE     OPTIONS
+/                                     none               rootfs     rw
+|-/proc                               proc               proc       rw,nosuid,nodev,noexec,relatime
+| `-/proc                             none               proc       rw,relatime
+|-/sys                                sysfs              sysfs      rw,nosuid,nodev,noexec,relatime
+...
+|-/dev                                devtmpfs           devtmpfs   rw,nosuid,size=4096k,nr_inodes=1048576,mode=755,inode64
+| |-/dev/shm                          tmpfs              tmpfs      rw,nosuid,nodev,inode64
+| `-/dev/pts                          devpts             devpts     rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000
+|   `-/dev/pts                        none               devpts     rw,relatime,gid=5,mode=620,ptmxmode=000
+|-/run                                tmpfs              tmpfs      rw,nosuid,nodev,size=402436k,nr_inodes=819200,mode=755,inode64
+`-/etc/machine-id                     tmpfs[/machine-id] tmpfs      ro,size=402436k,nr_inodes=819200,mode=755,inode64
+
+RESCUE localhost:~ # df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+none               0     0     0    - /
+</code></pre>
+<p>Note the "duplicated" mounted /proc and /dev/pts<br />
+in the findmnt output without <code>USE_RAMDISK="yes"</code>.<br />
+For comparison on my original system I have</p>
+<pre><code>TARGET                                SOURCE              FSTYPE          OPTIONS
+...
+|-/proc                               proc                proc            rw,nosuid,nodev,noexec,relatime
+...
+| |-/dev/pts                          devpts              devpts          rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000
+</code></pre>
+<p>So with <code>USE_RAMDISK="yes"</code> the 'findmnt' output<br />
+looks more as it is on the original system.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-30.3213.pr.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

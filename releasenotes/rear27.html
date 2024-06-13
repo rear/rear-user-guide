@@ -99,6 +99,12 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes ReaR 2.7</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#product_features">Product Features</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_of_relax-and-recover_rear">Features of Relax-and-Recover (ReaR)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_of_relax-and-recover_rear_1">Features of Relax-and-Recover (ReaR)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#rear_release_27_july_2022">ReaR release 2.7 (July 2022)</a>
         <ul>
@@ -161,180 +167,72 @@ Relax-and-Recover.</p>
 <p><a href="http://relax-and-recover.org/">Relax-and-Recover website</a></p>
 <p><a href="https://github.com/rear/">GitHub project</a></p>
 <h2 id="product_features">Product Features<a class="headerlink" href="#product_features" title="Permanent link">&para;</a></h2>
-<p>The following features are supported by the most recent releases of
-Relax-and-Recover. Anything labeled as (<em>New</em>) was added as the
-most recent release. New functionality for previous releases can be
-seen in the next chapter that details each release.</p>
-<p>The most recent release of Relax-and-Recover is supported on most GNU/Linux
-based systems with kernel 2.6 or higher. It provides the following
-functionality:</p>
+<h3 id="features_of_relax-and-recover_rear">Features of Relax-and-Recover (ReaR)<a class="headerlink" href="#features_of_relax-and-recover_rear" title="Permanent link">&para;</a></h3>
+<h3 id="features_of_relax-and-recover_rear_1">Features of Relax-and-Recover (ReaR)<a class="headerlink" href="#features_of_relax-and-recover_rear_1" title="Permanent link">&para;</a></h3>
+<p>The most recent release of Relax-and-Recover (ReaR) offers an extensive array of features tailored for GNU/Linux environments running kernel 2.6 or higher. Here’s an expanded look at its capabilities:</p>
 <ul>
 <li>
-<p>Hot maintenance capability. A recovery/rescue image can be made online while
-  the system is running</p>
+<p><strong>Hot Maintenance Capability</strong>: Allows creation of a recovery or rescue image while the system is running, ensuring minimal downtime during backup operations.</p>
 </li>
 <li>
-<p>Command line interface. Relax-and-Recover does not require a graphical
-  interface to run, neither in creation mode, nor in recovery mode (console
-  is enough)</p>
+<p><strong>Command Line Interface</strong>: Operates entirely via command line interface, suitable for both creation and recovery modes without requiring a graphical environment.</p>
 </li>
 <li>
-<p>Support included for most common file systems, such as ext2, ext3, and ext4.
-  Other filesystems like reiserfs, jfs, xfs, and btrfs are also implemented,
-  but are less tested. <em>(Feedback is appreciated)</em></p>
+<p><strong>File System Support</strong>: Comprehensive support for various file systems including ext2, ext3, ext4, reiserfs, jfs, xfs, and btrfs, with ongoing improvements based on user feedback.</p>
 </li>
 <li>
-<p>Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
-  DRBD) are supported</p>
+<p><strong>Hardware RAID and Mirroring</strong>: Supports selected hardware RAID configurations (e.g., HP SmartArray) and mirroring solutions (e.g., DRBD) for reliable data redundancy.</p>
 </li>
 <li>
-<p>NVME and mmcblk disks are supported</p>
+<p><strong>Disk Support</strong>: Extensive support for modern storage technologies such as NVME and mmcblk disks, ensuring compatibility with diverse storage architectures.</p>
 </li>
 <li>
-<p>LVM root volumes are supported</p>
+<p><strong>LVM Support</strong>: Robust support for LVM (Logical Volume Manager) root volumes, facilitating seamless backup and recovery of complex disk configurations.</p>
 </li>
 <li>
-<p>Multipath support for SAN storage</p>
+<p><strong>Multipath Support</strong>: Includes support for SAN storage with multipath configurations, enhancing reliability and performance in storage area networks.</p>
 </li>
 <li>
-<p>UEFI support (including UEFI USB booting)</p>
+<p><strong>UEFI Support</strong>: Fully integrates with UEFI (Unified Extensible Firmware Interface), including support for UEFI USB booting, ensuring compatibility with modern system firmware standards.</p>
 </li>
 <li>
-<p>Integrates with <em>internal</em> backup programs such as:</p>
+<p><strong>System Recovery on Dissimilar Hardware</strong>: Facilitates recovery on hardware different from the original system, adjusting network and storage drivers, remapping hard disks (e.g., hda -&gt; sda), and remapping network MAC addresses as necessary.</p>
 </li>
 <li>
-<p>GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)</p>
-</li>
-<li>GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=incremental, FULLBACKUPDAY="Mon") for using incremental backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!</li>
-<li>GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=differential, FULLBACKUPDAY="Mon") for using differential backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!</li>
-<li>GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)</li>
-<li>rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks</li>
-<li>rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)</li>
-<li>Multiple backup methods (<a href="https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc">read the documentation</a>)</li>
-<li>Any partition (e.g. a Windows partition) via BACKUP=BLOCKCLONE. See <a href="https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc">the documention about BLOCKCLONE</a></li>
-<li>BACKUP=ZYPPER is SLES12 only (<em>Experimental</em>)</li>
-<li>
-<p>BACKUP=YUM is for RedHat architectures ony (<em>Experimental</em>)</p>
+<p><strong>IP Address Configuration</strong>: Supports using another IP address or DHCP via templates or kernel command line options, ensuring flexibility in network configuration during recovery.</p>
 </li>
 <li>
-<p>Integrates with <em>external</em> backup solutions such as:</p>
+<p><strong>Initial Ramdisk Management</strong>: Rebuilds the initial ramdisk if needed to accommodate new storage drivers during system recovery.</p>
 </li>
 <li>
-<p>Tivoli Storage Manager (BACKUP=TSM)</p>
-</li>
-<li>Data Protector (BACKUP=DP)</li>
-<li>Symantec NetBackup (BACKUP=NBU)</li>
-<li>Galaxy 5, 6, and 7 (BACKUP=GALAXY)</li>
-<li>Galaxy 10 [Commvault Simpana] (BACKUP=GALAXY10)</li>
-<li>Bacula (BACKUP=BACULA)</li>
-<li>Bareos (BACKUP=BAREOS) (A fork of Bacula)</li>
-<li>Rsync Backup Made Easy (BACKUP=RBME)</li>
-<li>Duplicity/Duply (BACKUP=DUPLICITY)</li>
-<li>EMC Networker, also known as Legato (BACKUP=NSR)</li>
-<li>EMC Avamar (BACKUP=AVA)</li>
-<li>SEP Sesam (BACKUP=SESAM)</li>
-<li>FDR/Upstream (BACKUP=FDRUPSTREAM)</li>
-<li>Novastor NovaBACKUP DC (BACKUP=NBKDC)</li>
-<li>Borg Backup (BACKUP=BORG)</li>
-<li>
-<p>Rubrik Cloud Data Management (BACKUP=CDM) (<em>New</em>) </p>
+<p><strong>Migration to SAN Storage</strong>: Provides capabilities for migrating and recovering systems to SAN (Storage Area Network) storage environments.</p>
 </li>
 <li>
-<p>Integrates with <a href="http://drlm.org">Disaster Recovery Linux Manager (DRLM)</a></p>
+<p><strong>Bacula and OBDR Tape Support</strong>: Integrates with Bacula for both locally attached tapes (with bextract) and network-based backups. Supports creating OBDR (One Button Disaster Recovery) tapes using methods like <code>mkbackup</code> and labeling tapes with <code>format</code> to prevent accidental overwrites.</p>
 </li>
 <li>
-<p>Udev support (except for some really ancient udev versions) which is
-  the base for many important features:</p>
+<p><strong>Bootable Disk Creation</strong>: Enables creation of bootable disk mediums (e.g., eSATA, USB) with the backup included, supporting URLs like <code>usb:///dev/device</code> and using <code>OUTPUT=USB</code> for a complete recovery solution on hard disks.</p>
 </li>
 <li>
-<p>kernel drivers for network cards and storage adapters are loaded via udev</p>
-</li>
-<li>deal with network persistent names in udev rules</li>
-<li>firmware loading</li>
-<li>
-<p>persistent storage device names (though Relax-and-Recover does nothing with this)</p>
+<p><strong>Network Configuration</strong>: Supports VLAN tagging, teaming, and bridge configurations, enhancing network flexibility and performance during recovery.</p>
 </li>
 <li>
-<p>Systemd support for the more recent Linux distributions</p>
+<p><strong>Syslog and Mail Report</strong>: Adds a timestamp of ReaR run with rc code to the syslog or messages file, with the option to send mail reports for comprehensive logging and notification.</p>
 </li>
 <li>
-<p>System migration and reconfiguration (<strong>MIGRATION_MODE</strong>)</p>
+<p><strong>Partition Backup</strong>: Enables backing up any partition, including Windows partitions, via the BACKUP type BLOCKCLONE, ensuring comprehensive data protection.</p>
 </li>
 <li>
-<p>facilitate recovery on hardware, that is not the same as the original system</p>
-</li>
-<li>network and storage drivers are adjusted</li>
-<li>map hard disks if they do not match (e.g. hda -&gt; sda)</li>
-<li>remap network MAC addresses</li>
-<li>use another IP address, or using dhcp via templates or from kernel command line</li>
-<li>rebuild the initial ramdisk if needed (for new storage drivers)</li>
-<li>
-<p>migration to SAN storaged</p>
+<p><strong>Unattended Recovery</strong>: Improvements in unattended ReaR recovery processes streamline and automate system restoration tasks.</p>
 </li>
 <li>
-<p>Support backup software: Bacula, both locally attached tapes (with
-  bextract) and network-based backups. Also, in combination with OBDR tapes.</p>
+<p><strong>Security Enhancements</strong>: Implements an improved security model related to SSH keys, including options to avoid sensitive files and protect private keys (<code>SSH_FILES='avoid_sensitive_files'</code>, <code>SSH_UNPROTECTED_PRIVATE_KEYS='no'</code>).</p>
 </li>
 <li>
-<p>Create OBDR tapes with method <code>mkbackup</code> and put the backup onto the tape
-  to have a single-tape bootable recovery solution <em>(deprecated)</em></p>
-</li>
-<li>
-<p>Label the OBDR tape with the method <code>format</code> to avoid accidental
-  overwrites with OBDR</p>
-</li>
-<li>
-<p>Create bootable disk (eSATA, USB ...) medium with the backup included:</p>
-<p>BACKUP_URL=usb:///dev/device</p>
-<p>Together with <code>OUTPUT=USB</code> we have a complete solution on hard disks
-(booting of it and restoring data).</p>
-</li>
-<li>
-<p>DHCP client support (IPv4 and IPv6). Dhcp client activation
-  can be forced via the variable <code>USE_DHCLIENT=yes</code> (define in <em>/etc/rear/local.conf</em>).
-  It is also possible to force DHCP at boot time with kernel option <code>dhcp</code></p>
-</li>
-<li>
-<p><code>USE_STATIC_NETWORKING=y</code>, will cause statically configured network settings to be applied even when <strong>USE_DHCLIENT</strong> is in effect</p>
-</li>
-<li>
-<p>Save layout and compare layouts for automation of making
-  Relax-and-Recover snapshots (checklayout option)</p>
-</li>
-<li>
-<p>External USB booting uses extlinux (instead of syslinux), and
-  therefore, the USB disk must first be formatted with an ext2, ext3, ext4
-  or btrfs based file system</p>
-</li>
-<li>
-<p>VLAN tagging, teaming and bridge support</p>
-</li>
-<li>
-<p>Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible</p>
-</li>
-<li>
-<p>The possibility to backup any partition (in particular a Windows partition) via the BACKUP type BLOCKCLONE</p>
-</li>
-<li>
-<p>Unattended ReaR recovery has been improved</p>
-</li>
-<li>
-<p>Improved security model related to SSH keys</p>
-</li>
-<li>
-<p>SSH_FILES='avoid_sensitive_files' (see details in <em>/usr/share/rear/conf/default.conf</em>)</p>
-</li>
-<li>
-<p>SSH_UNPROTECTED_PRIVATE_KEYS='no' (see details in <em>/usr/share/rear/conf/default.conf</em>)</p>
-</li>
-<li>
-<p>LUKS2 Support</p>
+<p><strong>LUKS2 Support</strong>: Provides support for LUKS2 encryption, ensuring compatibility and security in encrypted disk configurations.</p>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Features marked <em>Experimental</em> are prone to change with future releases.</p>
-</div>
+<p>These features collectively make Relax-and-Recover (ReaR) an indispensable tool for GNU/Linux administrators, providing robust backup, disaster recovery, system migration, and security capabilities across diverse environments and hardware configurations.</p>
 <h2 id="rear_release_27_july_2022">ReaR release 2.7 (July 2022)<a class="headerlink" href="#rear_release_27_july_2022" title="Permanent link">&para;</a></h2>
 <h3 id="new_features_bigger_enhancements_and_possibly_backward_incompatible_changes">New features, bigger enhancements, and possibly backward incompatible changes:<a class="headerlink" href="#new_features_bigger_enhancements_and_possibly_backward_incompatible_changes" title="Permanent link">&para;</a></h3>
 <ul>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3141 Issue closed: /sbin/mount.nfs Binary not available during disaster recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3141 Issue closed: /sbin/mount.nfs Binary not available during disaster recovery";
+        var mkdocs_page_input_path = "issues/2024-01-29.3141.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3141 Issue closed: /sbin/mount.nfs Binary not available during disaster recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3141_issue_closed_sbinmountnfs_binary_not_available_during_disaster_recovery"><a href="https://github.com/rear/rear/issues/3141">#3141 Issue</a> <code>closed</code>: /sbin/mount.nfs Binary not available during disaster recovery<a class="headerlink" href="#3141_issue_closed_sbinmountnfs_binary_not_available_during_disaster_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="stefanfrommunich_opened_issue_at_2024-01-29_0805"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> opened issue at <a href="https://github.com/rear/rear/issues/3141">2024-01-29 08:05</a>:<a class="headerlink" href="#stefanfrommunich_opened_issue_at_2024-01-29_0805" title="Permanent link">&para;</a></h4>
+<p>We have created the backup file rear-oralin1.ios.</p>
+<p>However, this is not suitable for disaster recovery<br />
+because unfortunately, the rear-oralin1.ios does not contain<br />
+the required nfs-utils package to carry out the mount<br />
+on the NAS in order to get to the backup.tar.gz.</p>
+<p>We have already tried to generate a new ISO containing the package<br />
+(added line PACKAGES+="nfs-utlis" in /etc/rear/local.conf),<br />
+but this doesn't seem to have worked yet because<br />
+the /sbin/mount.nfs binary is still missing.</p>
+<p>What else do we need to configure so<br />
+that /sbin/mount.nfs binary is available<br />
+during disaster recovery?</p>
+<h4 id="stefanfrommunich_commented_at_2024-01-29_1338"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-1914713792">2024-01-29 13:38</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-01-29_1338" title="Permanent link">&para;</a></h4>
+<p>I send now the complete configuration of the /etc/rear/local.conf file.</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=file:///mnt/rescue_system/
+BACKUP=NETFS
+BACKUP_URL=file:///rear/
+PACKAGES+=" nfs-utils"
+</code></pre>
+<p>Perhaps it helps to find the missing entry in this file.</p>
+<h4 id="stefanfrommunich_commented_at_2024-01-30_1020"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-1916523717">2024-01-30 10:20</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-01-30_1020" title="Permanent link">&para;</a></h4>
+<p>I am now sending additional information that should help solve the
+problem:</p>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.6 / 2020-06-17</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Oracle Linux Server"
+VERSION="8.5"
+ID="ol"
+ID_LIKE="fedora"
+VARIANT="Server"
+VARIANT_ID="server"
+VERSION_ID="8.5"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Oracle Linux Server 8.5"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:oracle:linux:8:5:server"
+HOME_URL="https://linux.oracle.com/"
+BUG_REPORT_URL="https://bugzilla.oracle.com/"
+
+ORACLE_BUGZILLA_PRODUCT="Oracle Linux 8"
+ORACLE_BUGZILLA_PRODUCT_VERSION=8.5
+ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+ORACLE_SUPPORT_PRODUCT_VERSION=8.5
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code># This file etc/rear/local.conf is intended for the user's
+# manual configuration of Relax-and-Recover (ReaR).
+# For configuration through packages and other automated means
+# we recommend a separated file named site.conf next to this file
+# and leave local.conf as is (ReaR upstream will never ship a site.conf).
+# The default OUTPUT=ISO creates the ReaR rescue medium as ISO image.
+# You need to specify your particular backup and restore method for your data
+# as the default BACKUP=REQUESTRESTORE does not really do that (see "man rear").
+# Configuration variables are documented in /usr/share/rear/conf/default.conf
+# and the examples in /usr/share/rear/conf/examples/ can be used as templates.
+# ReaR reads the configuration files via the bash builtin command 'source'
+# so bash syntax like VARIABLE="value" (no spaces at '=') is mandatory.
+# Because 'source' executes the content as bash scripts you can run commands
+# within your configuration files, in particular commands to set different
+# configuration values depending on certain conditions as you need like
+# CONDITION_COMMAND &amp;&amp; VARIABLE="special_value" || VARIABLE="usual_value"
+# but that means CONDITION_COMMAND gets always executed when 'rear' is run
+# so ensure nothing can go wrong if you run commands in configuration files.
+
+OUTPUT=ISO
+OUTPUT_URL=file:///mnt/rescue_system/
+BACKUP=NETFS
+BACKUP_URL=file:///rear/
+PACKAGES+=" nfs-utils"
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    PC</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SSD</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                      KNAME          PKNAME         TRAN   TYPE  FSTYPE          LABEL   SIZE MOUNTPOINT
+/dev/sda                                  /dev/sda                      sata   disk  isw_raid_member       447,1G
+|-/dev/sda1                               /dev/sda1      /dev/sda              part  vfat                    600M
+|-/dev/sda2                               /dev/sda2      /dev/sda              part  xfs                       1G
+|-/dev/sda3                               /dev/sda3      /dev/sda              part  LVM2_member             154G
+|-/dev/sda4                               /dev/sda4      /dev/sda              part  LVM2_member           269,2G
+`-/dev/md126                              /dev/md126     /dev/sda              raid1                       424,8G
+  |-/dev/md126p1                          /dev/md126p1   /dev/md126            md    vfat                    600M /boot/efi
+  |-/dev/md126p2                          /dev/md126p2   /dev/md126            md    xfs                       1G /boot
+  |-/dev/md126p3                          /dev/md126p3   /dev/md126            md    LVM2_member             154G
+  | |-/dev/mapper/ol-root                 /dev/dm-0      /dev/md126p3          lvm   xfs                      30G /
+  | |-/dev/mapper/ol-swap                 /dev/dm-1      /dev/md126p3          lvm   swap                     24G [SWAP]
+  | `-/dev/mapper/ol-u01                  /dev/dm-11     /dev/md126p3          lvm   xfs                     100G /u01
+  `-/dev/md126p4                          /dev/md126p4   /dev/md126            md    LVM2_member           269,2G
+/dev/sdb                                  /dev/sdb                      sata   disk  isw_raid_member       447,1G
+|-/dev/sdb1                               /dev/sdb1      /dev/sdb              part  vfat                    600M
+|-/dev/sdb2                               /dev/sdb2      /dev/sdb              part  xfs                       1G
+|-/dev/sdb3                               /dev/sdb3      /dev/sdb              part  LVM2_member             154G
+|-/dev/sdb4                               /dev/sdb4      /dev/sdb              part  LVM2_member           269,2G
+`-/dev/md126                              /dev/md126     /dev/sdb              raid1                       424,8G
+  |-/dev/md126p1                          /dev/md126p1   /dev/md126            md    vfat                    600M /boot/efi
+  |-/dev/md126p2                          /dev/md126p2   /dev/md126            md    xfs                       1G /boot
+  |-/dev/md126p3                          /dev/md126p3   /dev/md126            md    LVM2_member             154G
+  | |-/dev/mapper/ol-root                 /dev/dm-0      /dev/md126p3          lvm   xfs                      30G /
+  | |-/dev/mapper/ol-swap                 /dev/dm-1      /dev/md126p3          lvm   swap                     24G [SWAP]
+  | `-/dev/mapper/ol-u01                  /dev/dm-11     /dev/md126p3          lvm   xfs                     100G /u01
+  `-/dev/md126p4                          /dev/md126p4   /dev/md126            md    LVM2_member           269,2G
+/dev/nvme0n1                              /dev/nvme0n1                  nvme   disk                          5,8T
+`-/dev/nvme0n1p1                          /dev/nvme0n1p1 /dev/nvme0n1   nvme   part  LVM2_member             5,8T
+  |-/dev/mapper/vg_oracle-u02_zvk_muc     /dev/dm-2      /dev/nvme0n1p1        lvm   ext4                    2,5T /u02/oradata/ZVK_MUC
+  |-/dev/mapper/vg_oracle-u02_zvk_da      /dev/dm-3      /dev/nvme0n1p1        lvm   ext4                   1000G /u02/oradata/ZVK_DA
+  |-/dev/mapper/vg_oracle-u02_bsv         /dev/dm-4      /dev/nvme0n1p1        lvm   ext4                   1000G /u02/oradata/BSV
+  |-/dev/mapper/vg_oracle-u02_kvv         /dev/dm-5      /dev/nvme0n1p1        lvm   ext4                    500G /u02/oradata/KVV
+  `-/dev/mapper/vg_oracle-u02_daisy       /dev/dm-6      /dev/nvme0n1p1        lvm   ext4                    500G /u02/oradata/DAISY
+/dev/nvme1n1                              /dev/nvme1n1                  nvme   disk                          5,8T
+`-/dev/nvme1n1p1                          /dev/nvme1n1p1 /dev/nvme1n1   nvme   part  LVM2_member             5,8T
+  |-/dev/mapper/vg_oracle-u02_vip         /dev/dm-7      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VIP
+  |-/dev/mapper/vg_oracle-u02_vbo--portal /dev/dm-8      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VBO-Portal
+  |-/dev/mapper/vg_oracle-u02_bsv--portal /dev/dm-9      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/BSV-Portal
+  `-/dev/mapper/vg_oracle-u02_vbo         /dev/dm-10     /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VBO
+/dev/nvme3n1                              /dev/nvme3n1                  nvme   disk                          2,9T
+/dev/nvme4n1                              /dev/nvme4n1                  nvme   disk                          2,9T
+/dev/nvme5n1                              /dev/nvme5n1                  nvme   disk                          2,9T
+/dev/nvme2n1                              /dev/nvme2n1                  nvme   disk                          2,9T
+`-/dev/nvme2n1p1                          /dev/nvme2n1p1 /dev/nvme2n1   nvme   part  ext4                    2,9T /u03/flashdata/ZVK_MUC
+</code></pre>
+<h4 id="stefanfrommunich_commented_at_2024-01-31_1329"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-1919105324">2024-01-31 13:29</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-01-31_1329" title="Permanent link">&para;</a></h4>
+<p>Now I send the configuration of the target system. So the system in
+which the backup was supposed to be restored and then failed:</p>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+Relax-and-Recover 2.6 / 2020-06-17</p>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+/etc/rear/os.conf"):</p>
+<pre><code>NAME="Oracle Linux Server"
+VERSION="8.5"
+ID="ol"
+ID_LIKE="fedora"
+VARIANT="Server"
+VARIANT_ID="server"
+VERSION_ID="8.5"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Oracle Linux Server 8.5"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:oracle:linux:8:5:server"
+HOME_URL="https://linux.oracle.com/"
+BUG_REPORT_URL="https://bugzilla.oracle.com/"
+
+ORACLE_BUGZILLA_PRODUCT="Oracle Linux 8"
+ORACLE_BUGZILLA_PRODUCT_VERSION=8.5
+ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+ORACLE_SUPPORT_PRODUCT_VERSION=8.5
+</code></pre>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+/etc/rear/local.conf"):</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=file:///mnt/rescue_system/
+BACKUP=NETFS
+BACKUP_URL=file:///rear/
+</code></pre>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+guest or PowerVM LPAR):<br />
+PC</p>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact ARM
+device):<br />
+x86</p>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or ELILO
+or Petitboot):<br />
+UEFI</p>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+multipath (DM or NVMe):<br />
+SAN</p>
+<p>Storage layout ("lsblk -ipo
+NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+<pre><code>NAME                             KNAME     PKNAME    TRAN   TYPE FSTYPE      LABEL  SIZE MOUNTPOINT
+/dev/sda                         /dev/sda                   disk                    500G
+|-/dev/sda1                      /dev/sda1 /dev/sda         part vfat                 4G /boot/efi
+|-/dev/sda2                      /dev/sda2 /dev/sda         part xfs                  4G /boot
+`-/dev/sda3                      /dev/sda3 /dev/sda         part LVM2_member        492G
+  |-/dev/mapper/ol_svl00048-root /dev/dm-0 /dev/sda3        lvm  xfs                460G /
+  `-/dev/mapper/ol_svl00048-swap /dev/dm-1 /dev/sda3        lvm  swap                32G [SWAP]
+/dev/sr0                         /dev/sr0            sata   rom                    1024M
+/dev/sr1                         /dev/sr1            sata   rom                    1024M
+</code></pre>
+<h4 id="stefanfrommunich_commented_at_2024-02-29_0752"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-1970592812">2024-02-29 07:52</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-02-29_0752" title="Permanent link">&para;</a></h4>
+<p>The error only occurs when BACKUP=NETFS is used. If we load the backup
+file into memory, then disaster recovery works.<br />
+But this is not an alternative for us because it requires too much RAM.</p>
+<h4 id="stefanfrommunich_commented_at_2024-04-09_0952"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-2044605603">2024-04-09 09:52</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-04-09_0952" title="Permanent link">&para;</a></h4>
+<p>The backup contains manually created mount points. We need to check
+whether the manually created mount points are causing the disaster
+recovery to abort.</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-2044966660">2024-04-09 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1200" title="Permanent link">&para;</a></h4>
+<p>I didn't look at the details but</p>
+<pre><code>PACKAGES+=" nfs-utils"
+</code></pre>
+<p>is not something that ReaR supports.<br />
+'PACKAGES' is not a ReaR config variable.</p>
+<p>See usr/share/rear/conf/default.conf<br />
+what config variables are supported by ReaR<br />
+and how to use them.</p>
+<p>To add things to the ReaR recovery system<br />
+use COPY_AS_IS to "only copy as is".<br />
+To get libraries into the recovery system,<br />
+use the LIBS array.<br />
+To get non-mandatory programs into the recovery system,<br />
+use the PROGS array.<br />
+To get mandatory programs into the recovery system,<br />
+use the REQUIRED_PROGS array.</p>
+<h4 id="stefanfrommunich_commented_at_2024-04-29_1021"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-2082364621">2024-04-29 10:21</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-04-29_1021" title="Permanent link">&para;</a></h4>
+<p>The issue cannot be closed yet. I'm currently testing my solution
+idea.<br />
+The difficulty seems to be that for a ReaR backup using the NFS method
+and a UEFI system you need a tailor-made etc/rear/local.conf.<br />
+In order for it to work with UEFI, you must configure the following
+parameters in particular:</p>
+<pre><code>UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+</code></pre>
+<p>For this purpose I have now changed the etc/rear/local.conf for the UEFI
+system as follows.</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=nfs://197.178.76.1/volume1/Rear
+BACKUP=NETFS
+BACKUP_URL=nfs://197.178.76.1/volume1/Rear
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+NETFS_KEEP_OLD_BACKUP_COPY=
+UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+EXCLUDE_MOUNTPOINTS=( '/u03/flashdata/ZVK_MUC' )
+</code></pre>
+<p>Additionally, I excluded the temporary mount point from the backup with
+EXCLUDE_MOUNTPOINTS.<br />
+ReaR may have problems restoring temporary mount points.</p>
+<p>Now I'm testing my solution idea. However, disaster recovery cannot take
+place until next week as data center staff tests disaster recovery.<br />
+They are on vacation this week.</p>
+<p>Next week I will report on the result of my solution idea.</p>
+<p>Please don't close the issue. I'll get back to you next week with the
+result of my solution idea.</p>
+<h4 id="stefanfrommunich_commented_at_2024-05-06_0514"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3141#issuecomment-2095210579">2024-05-06 05:14</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-05-06_0514" title="Permanent link">&para;</a></h4>
+<p>My solution works. The issue can be closed.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-01-29.3141.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3233 PR open: On POWER tell the user when the initrd is big - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3233 PR open: On POWER tell the user when the initrd is big";
+        var mkdocs_page_input_path = "issues/2024-05-23.3233.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3233 PR open: On POWER tell the user when the initrd is big</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3233_pr_open_on_power_tell_the_user_when_the_initrd_is_big"><a href="https://github.com/rear/rear/pull/3233">#3233 PR</a> <code>open</code>: On POWER tell the user when the initrd is big<a class="headerlink" href="#3233_pr_open_on_power_tell_the_user_when_the_initrd_is_big" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-05-23_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3233">2024-05-23 13:19</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-05-23_1319" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong><br />
+    High impact when needed to avoid endless searching<br />
+    for the root cause when booting fails in inexplicable ways<br />
+    on POWER when the initrd is too big.</p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3189">https://github.com/rear/rear/issues/3189</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p>To test on my x86_64 system I used additionally</p>
+<pre><code>if test "$ARCH" = "Linux-i386" || ...
+</code></pre>
+<p>plus <code>BACKUP=TSM</code> and got:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (137288661 bytes) in 9 seconds
+On POWER architecture booting may fail when the initrd is too big (initrd size is 130 MiB)
+Consider better (but slower) initrd compression with REAR_INITRD_COMPRESSION='lzma'
+Consider using COPY_AS_IS_EXCLUDE_TSM to get a slim TSM client in the initrd
+Running 'output' stage ======================
+...
+Saving result files with TSM
+ERROR: Could not save result files with dsmc
+</code></pre>
+<p>The error is because I do not have TSM installed.</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In pack/GNU/Linux/900_create_initramfs.sh<br />
+tell the user on POWER architecture<br />
+when the initrd is bigger than 100 MiB<br />
+that this may cause a boot failure</p>
+<h4 id="pcahyna_commented_at_2024-05-23_1332"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2127119861">2024-05-23 13:32</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-23_1332" title="Permanent link">&para;</a></h4>
+<p>@jsmeix do you know what is the panic message (or in general relevant
+kernel messages) when this happens? In the whole #3189 I can't find it.</p>
+<h4 id="jsmeix_commented_at_2024-05-24_0525"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2128554127">2024-05-24 05:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-24_0525" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+a whole booting log on POWER including kernel messages<br />
+up to the point where the kernel panics with</p>
+<pre><code>Kernel panic - not syncing: VFS: Unable to mount root fs ...
+</code></pre>
+<p>is available in issue 3189 as its 'boot.log' attachment<br />
+<a href="https://github.com/rear/rear/files/14837101/boot.log">https://github.com/rear/rear/files/14837101/boot.log</a><br />
+that is listed in the initial description of issue 3189<br />
+<a href="https://github.com/rear/rear/issues/3189#issue-2220504820">https://github.com/rear/rear/issues/3189#issue-2220504820</a><br />
+(cf. my comment in the code of this pull request)</p>
+<h4 id="jsmeix_commented_at_2024-05-24_0638"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2128688012">2024-05-24 06:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-24_0638" title="Permanent link">&para;</a></h4>
+<p>With recent changes my test shows now</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (130 MiB) in 9 seconds
+On POWER architecture booting may fail when the initrd is too big (about 120 MiB or even less)
+Consider better (but slower) initrd compression with REAR_INITRD_COMPRESSION='lzma'
+Consider MODULES=( 'loaded_modules' ) to have less kernel modules in the initrd
+Consider using COPY_AS_IS_EXCLUDE_TSM to get a slim TSM client in the initrd
+Running 'output' stage ======================
+...
+ERROR: Could not save result files with dsmc
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-24_0727"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2128788475">2024-05-24 07:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-24_0727" title="Permanent link">&para;</a></h4>
+<p>With latest changes my test shows now</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (482 MiB) in 21 seconds
+On POWER architecture booting may fail when the initrd is big (about 120 MiB or even less)
+Verify that your ReaR recovery system boots on your replacement hardware.
+If it fails to boot consider the following:
+REAR_INITRD_COMPRESSION='lzma' for better (but slower) initrd compression
+MODULES=('loaded_modules') to include less kernel modules in the initrd
+FIRMWARE_FILES=('no') to excludes all firmware files from the initrd
+COPY_AS_IS_EXCLUDE_TSM to get a slim TSM client in the initrd
+Running 'output' stage ======================
+...
+ERROR: Could not save result files with dsmc
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-27_0842"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2132969926">2024-05-27 08:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-27_0842" title="Permanent link">&para;</a></h4>
+<p>I could only test on x86_64 architecture<br />
+i.e. on a VM on my homeoffice workstation.<br />
+There I added</p>
+<pre><code>if test "$ARCH" = "Linux-i386" || ...
+</code></pre>
+<p>see my above test reports.<br />
+I cannot test on POWER machine - at least not<br />
+with efforts that are reasonable in practice for me.<br />
+But perhaps @pcahyna could test on a POWER machine?<br />
+Perhaps he has direct access to a POWER machine?</p>
+<h4 id="schlomo_commented_at_2024-05-27_1619"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2133793203">2024-05-27 16:19</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-27_1619" title="Permanent link">&para;</a></h4>
+<p>@jsmeix regardless of the testing I'd appreciate it if we could move the
+arch-dependent code into separate scripts, if anyhow possible.</p>
+<p>OTOH, maybe there is a general limit on the initramfs size, as <a href="https://www.lightofdawn.org/blog/?viewDetailed=00128#:~:text=Which%20means%2C%20if%20you%20use,or%2025%25%20of%20your%20RAM">this
+blog
+article</a>
+suggests. In that case I'd be happy to see a generic implementation of
+initramfs size checking with a default setting to 50% of RAM, that would
+be overridden for PPC or ARM to something suitable smaller.</p>
+<h4 id="jsmeix_commented_at_2024-05-29_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2137298299">2024-05-29 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-29_1230" title="Permanent link">&para;</a></h4>
+<p>@schlomo @pcahyna<br />
+I'm afraid, currently I don't have time for it<br />
+because of maintenance updates for SLES,<br />
+a.k.a. "customers first" ;-)</p>
+<h4 id="jsmeix_commented_at_2024-06-03_1327"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3233#issuecomment-2145206590">2024-06-03 13:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-03_1327" title="Permanent link">&para;</a></h4>
+<p>I have no good idea how to properly separate<br />
+arch-dependent code away into separate scripts<br />
+and still keep the code easy to understand, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<p>My reasoning:</p>
+<p>As far as I understand how separeated<br />
+arch-dependent script directories work<br />
+the execution logic is basically like</p>
+<pre><code>if ARCH = specific_arch
+   then source specific_arch-dependent.script
+endif
+</code></pre>
+<p>so the code in <code>specific_arch-dependent.script</code><br />
+is run <strong>only</strong> for <strong>one specific</strong> architecture.</p>
+<p>But what is needed in particular in this case here is</p>
+<p>Nested Conditions:</p>
+<pre><code>if OTHER_CONDITION
+   then if ARCH = specific_arch
+           then specific_arch-dependent code
+           else generic code
+        endif
+        other condition code
+endif
+</code></pre>
+<p>as in (shortened code excerpts)</p>
+<pre><code>case "$REAR_INITRD_COMPRESSION" in
+    (lz4)
+        if [[ "$ARCH" == "Linux-s390" ]] ; then
+            REAR_INITRD_FILENAME=$VM_UID".initrd"
+        else
+            REAR_INITRD_FILENAME="initrd.lz4"
+        fi
+        lz4 related code
+        ;;
+    (lzma)
+        if [[ "$ARCH" == "Linux-s390" ]] ; then
+            REAR_INITRD_FILENAME=$VM_UID".initrd"
+        else
+            REAR_INITRD_FILENAME="initrd.xz"
+        fi
+        xz related code
+        ;;
+</code></pre>
+<p>AND</p>
+<p>Multiple Archs:</p>
+<pre><code>if ARCH = this_arch OR ARCH = that_arch
+   then this_or_that_arch-dependent code
+endif
+</code></pre>
+<p>as in</p>
+<pre><code>if test "$ARCH" = "Linux-ppc64" || test "$ARCH" = "Linux-ppc64le" ; then
+</code></pre>
+<p>To implement "Nested Conditions"<br />
+via arch-dependent separated scripts<br />
+I would have to duplicate the OTHER_CONDITION test<br />
+in each arch-dependent separated script.</p>
+<p>To implement "Multiple Archs"<br />
+via arch-dependent separated scripts<br />
+I would have to implement as many separated scripts<br />
+as there are archs or at least use multiple symlinks.</p>
+<p>Separating arch-dependent code is against<br />
+to "keep together what belongs together" and<br />
+it is against "implement one thing only once"<br />
+and both would make the code as a whole<br />
+harder to read and even harder to understand<br />
+because the meaning of the code as a whole<br />
+was artificially split up into parts<br />
+which makes it needlessly hard to reassemble<br />
+its overall meaning from its separated parts.</p>
+<p>Additionally there is a generic issue with<br />
+"Multiple Conditions"<br />
+for example like</p>
+<pre><code>if ( CONDITION1 AND NOT CONDITION2 ) OR CONDITION3
+</code></pre>
+<p>when some of those conditions should be separated<br />
+out into condition-dependant scripts.</p>
+<p>In general I am wondering about:<br />
+Why separating certain kind of conditioned code away<br />
+into certain-condition-dependant scripts at all?<br />
+What is the real advantage of it (for us and our users)?<br />
+We have the same with Linux-distribution-dependent code.<br />
+Why separating Linux-distribution-dependent code away?<br />
+What is the crucial difference that makes an arch condition<br />
+or a Linux-distribution condition different compared<br />
+to any other condition?<br />
+How to properly deal with "Nested Conditions"<br />
+and "Multiple Conditions"<br />
+via certain-condition-dependent scripts?</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-23.3233.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

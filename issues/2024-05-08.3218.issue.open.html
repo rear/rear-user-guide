@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3218 Issue open: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3218 Issue open: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file)";
+        var mkdocs_page_input_path = "issues/2024-05-08.3218.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3218 Issue open: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3218_issue_open_how_to_clone_a_new_physical_server_rhel9_using_rear_utility_using_the_rear-hostnameiso_file"><a href="https://github.com/rear/rear/issues/3218">#3218 Issue</a> <code>open</code>: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file)<a class="headerlink" href="#3218_issue_open_how_to_clone_a_new_physical_server_rhel9_using_rear_utility_using_the_rear-hostnameiso_file" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="padua12345_opened_issue_at_2024-05-08_1039"><img src="https://avatars.githubusercontent.com/u/87740035?v=4" width="50"><a href="https://github.com/padua12345">padua12345</a> opened issue at <a href="https://github.com/rear/rear/issues/3218">2024-05-08 10:39</a>:<a class="headerlink" href="#padua12345_opened_issue_at_2024-05-08_1039" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>Relax-and-Recover 2.6 / 2020-06-17</p>
+<ul>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<p>Red Hat Enterprise Linux 9.3 (Plow)</p>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<p><a href="https://github.com/rear/rear/files/15247574/local.conf.txt">local.conf.txt</a></p>
+<pre><code># Create ReaR rescue media as ISO image
+OUTPUT=ISO
+# Create backups to a network share
+BACKUP=NETFS
+#NETFS_URL=nfs://serverip/ifs/ftw2/nfs/groups/potsoil-lnx
+NETFS_URL=nfs://serverip/ifs/mar/nfs/groups/nsi4_em6_2900/server_data/
+NETFS_PREFIX=$(hostname -s)
+NETFS_SKIP_WARNING=true
+### Place all local filesystems to exclude from backups
+### Filesystems will still be created at restoration
+EXCLUDE_BACKUP=(
+   "fs:/local"
+   "fs:/tmp"
+   "fs:/local/data"
+   "fs:/scratch"
+   )
+### Place all SAN/external mountpoints in this array
+### Filesystems will not be created/modified at restoration
+### Format is "fs:/mountpoint" i.e.:
+### EXCLUDE_RECREATE=(
+###    "fs:/u01"
+###    "fs:/u02"
+###    )
+LUKS_CRYPTSETUP_OPTIONS+=" --force-password"
+</code></pre>
+<ul>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</li>
+</ul>
+<p>HPE Proliant DL380 Gen10</p>
+<ul>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</li>
+</ul>
+<p>x86_64</p>
+<ul>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</li>
+</ul>
+<p>BIOS</p>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<p>SSD</p>
+<ul>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>I need to make a bootable ISO from my current local RHEL9 server with
+all its configs and installed apps, so I can use the ISO file and
+install RHEL9 on some other physical servers.</p>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<p>Please let me know if you need other information. Thanks.</p>
+<h4 id="jsmeix_commented_at_2024-05-08_1259"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3218#issuecomment-2100523219">2024-05-08 12:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-08_1259" title="Permanent link">&para;</a></h4>
+<p>@padua12345<br />
+in your etc/rear/local.conf<br />
+you use NETFS_URL and NETFS_SKIP_WARNING<br />
+but none of them is listed in<br />
+usr/share/rear/conf/default.conf<br />
+so neither NETFS_URL nor NETFS_SKIP_WARNING<br />
+are ReaR user configuration variables.</p>
+<p>NETFS_SKIP_WARNING does not appear anywhere in ReaR scripts<br />
+so setting NETFS_SKIP_WARNING is useless as far as I can see.</p>
+<p>NETFS_URL appears in ReaR scripts in<br />
+usr/share/rear/prep/default/020_translate_url.sh:</p>
+<pre><code>if [[ "$NETFS_URL" ]] ; then
+    Log "Using NETFS_URL is deprecated. Use BACKUP_URL instead."
+    BACKUP_URL=$NETFS_URL
+fi
+</code></pre>
+<p>so setting NETFS_URL should work but I would recommend<br />
+to use the current syntax.</p>
+<p>For example on my test KVM/QEMU VM I use very often</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+SSH_ROOT_PASSWORD='rear'
+USE_DHCLIENT="yes"
+</code></pre>
+<p>to recreate the system on another same KVM/QEMU VM, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7#sles">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7#sles</a><br />
+where examples that are specific for SLES are shown,<br />
+in particular with specific ReaR configuration settings<br />
+for the special SLES default btrfs structure.</p>
+<p>When you are new to ReaR<br />
+and need some initial info how to use ReaR<br />
+you may have a look at<br />
+<a href="http://relax-and-recover.org/documentation/">http://relax-and-recover.org/documentation/</a><br />
+therein in particular<br />
+<a href="http://relax-and-recover.org/documentation/getting-started">http://relax-and-recover.org/documentation/getting-started</a><br />
+(which is for OUTPUT=USB i.e. using a USB disk for ReaR)<br />
+and the section<br />
+"First steps with Relax-and-Recover" at<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+as some starting points.</p>
+<p>When something fails for you,<br />
+see the subsequent section<br />
+"Debugging issues with Relax-and-Recover" at<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>I am not a Red Hat user (I use SUSE SLES)<br />
+so I cannot help with issues that are specific for RHEL.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-08.3218.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

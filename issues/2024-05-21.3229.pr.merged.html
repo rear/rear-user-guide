@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3229 PR merged: Do not exclude '/var/tmp/rear.*' in default.conf - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3229 PR merged: Do not exclude \u0027/var/tmp/rear.*\u0027 in default.conf";
+        var mkdocs_page_input_path = "issues/2024-05-21.3229.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3229 PR merged: Do not exclude '/var/tmp/rear.*' in default.conf</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3229_pr_merged_do_not_exclude_vartmprear_in_defaultconf"><a href="https://github.com/rear/rear/pull/3229">#3229 PR</a> <code>merged</code>: Do not exclude '/var/tmp/rear.*' in default.conf<a class="headerlink" href="#3229_pr_merged_do_not_exclude_vartmprear_in_defaultconf" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-05-21_1247"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3229">2024-05-21 12:47</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-05-21_1247" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/3224">https://github.com/rear/rear/pull/3224</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p>I manually reverted the actual change in<br />
+<a href="https://github.com/rear/rear/pull/3224">https://github.com/rear/rear/pull/3224</a><br />
+and then the current ReaR BUILD_DIR is not included<br />
+in the backup but a leftover ReaR BUILD_DIR from<br />
+a previous "rear -D mkbackup" gets correctly included<br />
+in the backup because it is my task to remove<br />
+my intentionally kept BUILD_DIR (via '-D').</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>Revert the actual change in<br />
+<a href="https://github.com/rear/rear/pull/3224">https://github.com/rear/rear/pull/3224</a><br />
+and have BACKUP_PROG_EXCLUDE in default.conf same as before<br />
+because the current BUILD_DIR gets automatically<br />
+excluded in usr/sbin/rear via</p>
+<pre><code>BACKUP_PROG_EXCLUDE+=( "$BUILD_DIR" )
+</code></pre>
+<p>It is not ReaR's task to exclude possibly lefover<br />
+older ReaR working areas because in general<br />
+files in /var/tmp are persistent which need<br />
+to be cleaned up deliberately by the user<br />
+(and not by ReaR from behind via its backup).</p>
+<p>Also described things more clearly in the comment.</p>
+<h4 id="pcahyna_commented_at_2024-05-21_1324"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2122631890">2024-05-21 13:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-21_1324" title="Permanent link">&para;</a></h4>
+<p>Something is wrong with the Fedora rawhide CI run, looking... I see in
+the log</p>
+<pre><code>2024-05-21 12:57:19.478352214 Including build/default/950_check_missing_programs.sh
+/usr/share/rear/lib/_input-output-functions.sh: line 581: type: mkfs.vfat: not found
+/usr/share/rear/lib/_input-output-functions.sh: line 581: type: mkfs.vfat: not found
+2024-05-21 12:57:19.496643501 ERROR: Cannot find required programs: mkfs.vfat
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-05-21_1339"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2122663074">2024-05-21 13:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-21_1339" title="Permanent link">&para;</a></h4>
+<p>Moreover, I see lots of messages in the mkbackup log which are not
+fatal, but suspect nevertheless:</p>
+<pre><code>2024-05-21 12:56:34.032479050 Including prep/default/400_save_directories.sh
+/usr/share/rear/prep/default/400_save_directories.sh: line 12: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 80: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 80: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 80: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+2024-05-21 12:56:34.122955252 FHS directory /usr/X11R6 does not exist
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 120: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+grep: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+/usr/share/rear/prep/default/400_save_directories.sh: line 127: /var/lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+2024-05-21 12:56:34.152198390 Source function: 'source /usr/share/rear/prep/default/400_save_directories.sh' returns 1
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-22_1332"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2124810175">2024-05-22 13:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-22_1332" title="Permanent link">&para;</a></h4>
+<p>In current GitHub master code<br />
+/usr/share/rear/prep/default/400_save_directories.sh<br />
+line 12 is</p>
+<pre><code># cat -n usr/share/rear/prep/default/400_save_directories.sh
+...
+    11  local directories_permissions_owner_group_file="$VAR_DIR/recovery/directories_permissions_owner_group"
+    12  : &gt;"$directories_permissions_owner_group_file"
+...
+</code></pre>
+<p>which is the first thing that fails<br />
+so this one is<br />
+<a href="https://github.com/rear/rear/issues/3222">https://github.com/rear/rear/issues/3222</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3223">https://github.com/rear/rear/pull/3223</a></p>
+<p>On my SLES15-SP5 test system I got for "rear -D mkbackup" only</p>
+<pre><code>2024-05-21 13:06:59.138690211 FHS directory /etc/sgml does not exist
+2024-05-21 13:06:59.142684523 FHS directory /etc/xml does not exist
+2024-05-21 13:06:59.148904248 FHS directory /media does not exist
+2024-05-21 13:06:59.176064989 FHS directory /usr/X11R6 does not exist
+</code></pre>
+<p>but there I had already done a "rear -D mkbackup" before<br />
+so I already had a <code>$VAR_DIR/recovery</code> from the first<br />
+"rear -D mkbackup" run.</p>
+<h4 id="jsmeix_commented_at_2024-05-23_0541"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2126277515">2024-05-23 05:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-23_0541" title="Permanent link">&para;</a></h4>
+<p>I edited my above<br />
+<a href="https://github.com/rear/rear/pull/3229#issuecomment-2124810175">https://github.com/rear/rear/pull/3229#issuecomment-2124810175</a><br />
+by removing my misleading and false initial thoughts<br />
+so that now only the actual cause is shown.</p>
+<h4 id="jsmeix_commented_at_2024-05-23_0605"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2126302468">2024-05-23 06:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-23_0605" title="Permanent link">&para;</a></h4>
+<p>Regarding</p>
+<pre><code>ERROR: Cannot find required programs: mkfs.vfat
+</code></pre>
+<p>see in layout/save/GNU/Linux/230_filesystem_layout.sh<br />
+the last part where filesystem creating tools that<br />
+are required in the recovery system get added via</p>
+<pre><code>REQUIRED_PROGS+=( $required_mkfs_tools )
+</code></pre>
+<p>depending on which filesystem types entries ('^fs ')<br />
+exist in disklayout.conf</p>
+<p>So in this case there must be a</p>
+<pre><code>fs .* vfat ...
+</code></pre>
+<p>entry in disklayout.conf</p>
+<p>Because 'fs' entries have the form</p>
+<pre><code>fs &lt;device&gt; &lt;mountpoint&gt; &lt;filesystem type&gt; ...
+</code></pre>
+<p>I think that the grep search string</p>
+<pre><code>grep -q "^fs .* $filesystem_type " $DISKLAYOUT_FILE
+</code></pre>
+<p>in layout/save/GNU/Linux/230_filesystem_layout.sh<br />
+is sufficiently safe to not match false positives.<br />
+As far as I see the only possible false positive<br />
+would be a 'fs' entry with a ' vfat ' substring<br />
+but such a substring (with leading and trailing space)<br />
+would be invalid syntax in disklayout.conf, cf.<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc#disk-layout-file-syntax">https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc#disk-layout-file-syntax</a></p>
+<pre><code>... keyword and all the values are separated
+by single space characters (which means
+spaces in values are forbidden ...
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-23_0725"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3229#issuecomment-2126411526">2024-05-23 07:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-23_0725" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your review!<br />
+The description text is now much better.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-21.3229.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

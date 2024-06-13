@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3109 Issue closed: rear should exclude NFS mounts with exclude list instead of tar one-filesystem feature - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3109 Issue closed: rear should exclude NFS mounts with exclude list instead of tar one-filesystem feature";
+        var mkdocs_page_input_path = "issues/2023-12-15.3109.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3109 Issue closed: rear should exclude NFS mounts with exclude list instead of tar one-filesystem feature</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3109_issue_closed_rear_should_exclude_nfs_mounts_with_exclude_list_instead_of_tar_one-filesystem_feature"><a href="https://github.com/rear/rear/issues/3109">#3109 Issue</a> <code>closed</code>: rear should exclude NFS mounts with exclude list instead of tar one-filesystem feature<a class="headerlink" href="#3109_issue_closed_rear_should_exclude_nfs_mounts_with_exclude_list_instead_of_tar_one-filesystem_feature" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>support / question</code>,
+<code>fixed / solved / done</code>, <code>external tool</code></p>
+<h4 id="bwelterl_opened_issue_at_2023-12-15_0937"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> opened issue at <a href="https://github.com/rear/rear/issues/3109">2023-12-15 09:37</a>:<a class="headerlink" href="#bwelterl_opened_issue_at_2023-12-15_0937" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    rear-2.6-19.el9.x86_64</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    Red Hat Enterprise Linux release 9.3 (Plow)</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    If there is a NFS mount on the system and this mount hangs (because
+    for example the VM sharing the NFS is suspended), the tar command
+    will hang because even with the --one-file-system, it tries to
+    access the mount point.</p>
+</li>
+<li>
+<p>Workaround, if any:<br />
+    Add the mount path to the excluded lists EXCLUDE_MOUNTPOINTS or
+    BACKUP_PROG_EXCLUDE</p>
+</li>
+</ul>
+<p>The idea is to detect the NFS mount point and add it directly to the
+excluded list to avoid any access to the directory. This should also
+apply on other filesystems.<br />
+I will also check with tar if any improvement can be done on the tool.</p>
+<p>Thank you !</p>
+<p>Benoit</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1128"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857725146">2023-12-15 11:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1128" title="Permanent link">&para;</a></h4>
+<p>@bwelterl<br />
+only to be on the safe side:</p>
+<p>When 'tar' is called with explicitly specified files or directories<br />
+it will archive all explicitly specified files or directories<br />
+regardless on which different filesystems they are.<br />
+I.e. '--one-file-system' only means that 'tar' will<br />
+not automatically descend into other filesystems.</p>
+<p>So if something belonging to that hanging NFS mountpoint<br />
+is explicily specified then 'tar' will try to archive it.</p>
+<p>Therefore to be on the safe side check the 'tar' command<br />
+that is shown in the ReaR log file what files and directories<br />
+are explicitly specified to be archived.</p>
+<h4 id="bwelterl_commented_at_2023-12-15_1143"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857747078">2023-12-15 11:43</a>:<a class="headerlink" href="#bwelterl_commented_at_2023-12-15_1143" title="Permanent link">&para;</a></h4>
+<p>Hi,</p>
+<p>Even with nothing in the mount point, tar will send a request to the NFS
+server, even with '--one-file-system'.</p>
+<p>There is no explicit inclusion of something on NFS mountpoint in tar
+command, for example:</p>
+<pre><code>tar --warning=no-xdev --sparse --block-number --totals
+ --verbose --no-wildcards-match-slash --one-file-system
+ --ignore-failed-read --anchored --xattrs
+ --xattrs-include=security.capability
+ --xattrs-include=security.selinux --acls --gzip
+ -X /tmp/rear.Flepiaf/tmp/backup-exclude.txt
+ -C / -c -f -
+ /var/crash /home /local /opt / /tmp /var /boot/efi
+ /boot /var/log/rear/rear-server.log
+</code></pre>
+<p>A simple tar of / with a mount point in /nfs_mount will show the issue.</p>
+<p>The idea is to improve the robustness of the backup.</p>
+<p>Just to be sure, do you confirm that mounts are excluded by the
+one-file-system parameter of tar and not something else ?</p>
+<p>Thank you</p>
+<p>Benoit</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1339"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857897456">2023-12-15 13:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1339" title="Permanent link">&para;</a></h4>
+<p>I can reproduce it.</p>
+<p>On a VM with IP 192.168.122.142 I export '/nfs/'<br />
+which contains only a single regular file '/nfs/nfshello'</p>
+<p>On my laptop (which is the host of that VM) I do:</p>
+<pre><code># mkdir /tmp/test-nfs-tar
+
+# echo localhello &gt;/tmp/test-nfs-tar/localhello
+
+# mkdir /tmp/test-nfs-tar/nfs.mountpoint
+
+# mount -v -t nfs -o nfsvers=3,nolock 192.168.122.142:/nfs /tmp/test-nfs-tar/nfs.mountpoint
+mount.nfs: timeout set for Fri Dec 15 14:13:17 2023
+mount.nfs: trying text-based options 'nfsvers=3,nolock,addr=192.168.122.142'
+mount.nfs: prog 100003, trying vers=3, prot=6
+mount.nfs: trying 192.168.122.142 prog 100003 vers 3 prot TCP port 2049
+mount.nfs: prog 100005, trying vers=3, prot=17
+mount.nfs: trying 192.168.122.142 prog 100005 vers 3 prot UDP port 20048
+
+linux-h9wr:~ # mount | grep nfs
+...
+192.168.122.142:/nfs on /tmp/test-nfs-tar/nfs.mountpoint type nfs (rw,relatime,vers=3,rsize=262144,wsize=262144,namlen=255,hard,nolock,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=192.168.122.142,mountvers=3,mountport=20048,mountproto=udp,local_lock=all,addr=192.168.122.142)
+
+# find /tmp/test-nfs-tar
+/tmp/test-nfs-tar
+/tmp/test-nfs-tar/localhello
+/tmp/test-nfs-tar/nfs.mountpoint
+/tmp/test-nfs-tar/nfs.mountpoint/nfshello
+
+# tar -cvf test-nfs-tar.tar --one-file-system /tmp/test-nfs-tar
+tar: Removing leading `/' from member names
+/tmp/test-nfs-tar/
+/tmp/test-nfs-tar/localhello
+/tmp/test-nfs-tar/nfs.mountpoint/
+tar: /tmp/test-nfs-tar/nfs.mountpoint/: file is on a different filesystem; not dumped
+
+# tar -tvf test-nfs-tar.tar
+drwxr-xr-x root/root         0 2023-12-15 14:11 tmp/test-nfs-tar/
+-rw-r--r-- root/root        11 2023-12-15 14:10 tmp/test-nfs-tar/localhello
+drwxr-xr-x root/root         0 2023-12-15 14:03 tmp/test-nfs-tar/nfs.mountpoint/
+</code></pre>
+<p>I paused the VM<br />
+and then I get on my laptop:</p>
+<pre><code># tar -cvf test-nfs-tar.2.tar --one-file-system /tmp/test-nfs-tar
+tar: Removing leading `/' from member names
+/tmp/test-nfs-tar/
+/tmp/test-nfs-tar/localhello
+</code></pre>
+<p>where it "just hangs" - meanwhile since several minutes<br />
+(I don't know if that will ever time out / error out).</p>
+<p>I resumed the VM<br />
+and then I get on my laptop:</p>
+<pre><code>/tmp/test-nfs-tar/nfs.mountpoint/
+tar: /tmp/test-nfs-tar/nfs.mountpoint/: file is on a different filesystem; not dumped
+
+# echo $?
+0
+</code></pre>
+<p>i.e. the hanging 'tar' finished successfully.</p>
+<p>A second test with 'tar excludes' on my laptop:</p>
+<pre><code># tar -cvf test-nfs-tar.2.tar --one-file-system --exclude='nfs.mountpoint' /tmp/test-nfs-tar
+tar: Removing leading `/' from member names
+/tmp/test-nfs-tar/
+/tmp/test-nfs-tar/localhello
+
+# tar -tvf test-nfs-tar.2.tar
+drwxr-xr-x root/root         0 2023-12-15 14:11 tmp/test-nfs-tar/
+-rw-r--r-- root/root        11 2023-12-15 14:10 tmp/test-nfs-tar/localhello
+</code></pre>
+<p>I pause the VM again<br />
+and with 'tar excludes' I get this on my laptop</p>
+<pre><code># tar -cvf test-nfs-tar.2.tar --one-file-system --exclude='nfs.mountpoint' /tmp/test-nfs-tar
+tar: Removing leading `/' from member names
+/tmp/test-nfs-tar/
+/tmp/test-nfs-tar/localhello
+</code></pre>
+<p>i.e. with 'tar excludes' nothing hangs.</p>
+<p>The difference between 'tar --one-file-system' without '--exclude'<br />
+and 'tar --one-file-system' with '--exclude' is that<br />
+the mountpoint directory 'tmp/test-nfs-tar/nfs.mountpoint/'<br />
+is included with 'tar --one-file-system' without '--exclude'<br />
+while it is excluded (as specified with --exclude='nfs.mountpoint')<br />
+with 'tar --one-file-system' with '--exclude'.</p>
+<p>So excluding NFS mounts with 'tar --exclude'<br />
+would also exclude the NFS mountpoint directories<br />
+so that after restore of such a backup<br />
+the NFS mountpoint directories would not be there.</p>
+<p>I.e. excluding NFS mounts with 'tar --exclude'<br />
+would make the backup incomplete and cause subsequent issues<br />
+because mounting NFS shares would no longer work<br />
+when their NFS mountpoint directories cannot be restored<br />
+because the NFS mountpoint directories are not in the backup.</p>
+<p>I think it could be rather annoying when after "rear recover"<br />
+all NFS mountpoint directories are missing<br />
+and all need to be manually recreated<br />
+possibly with some longish investigation to find out<br />
+what all the NFS mountpoint directory paths must be<br />
+e.g. by searching system log files for error messages like</p>
+<pre><code>mount.nfs: mount point /tmp/test-nfs-tar/nfs.mountpoint does not exist
+</code></pre>
+<h4 id="bwelterl_commented_at_2023-12-15_1345"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857907162">2023-12-15 13:45</a>:<a class="headerlink" href="#bwelterl_commented_at_2023-12-15_1345" title="Permanent link">&para;</a></h4>
+<p>Hello Johannes,</p>
+<p>Thanks for the test on your side.<br />
+Good point that the mount point will not be recreated.</p>
+<p>If we add the detection of mount points in the logic, we can also
+recreate it during recover.</p>
+<p>But I admin this adds complexity... It's easier to have a working
+filesystem or tar not sending request to NFS server.</p>
+<p>Thank you</p>
+<p>Benoit</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1350"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857913467">2023-12-15 13:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1350" title="Permanent link">&para;</a></h4>
+<p>You are right,<br />
+what got excluded by ReaR could be recreated during recover.</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1358"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857926777">2023-12-15 13:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1358" title="Permanent link">&para;</a></h4>
+<p>Perhaps ReaR should in general store and recreate<br />
+all mountpoint directories regardless of the backup?</p>
+<p>I am thinking about something similar<br />
+(i.e. with the same basic idea behind)<br />
+as what we already do with FHS directories via<br />
+prep/default/400_save_directories.sh<br />
+and<br />
+restore/default/900_create_missing_directories.sh</p>
+<p>Hmm ... in prep/default/400_save_directories.sh I see</p>
+<pre><code># First save directories that are used as mountpoints:
+</code></pre>
+<p>so it seems we do that already so that<br />
+"just excluding" NFS mounts with 'tar --exclude'<br />
+may even "just work" by existing old magic in ReaR?</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1404"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857937308">2023-12-15 14:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1404" title="Permanent link">&para;</a></h4>
+<p>Likely not - because - as ar as I see - the comments in<br />
+prep/default/400_save_directories.sh<br />
+explain why we cannot save NFS mountpoint directories because</p>
+<pre><code># Furthermore automounted NFS filesystems can cause this script to hang up if NFS server fails
+# because the below 'stat' command may then wait indefinitely for the NFS server to respond.
+</code></pre>
+<p>so - at least on quick first glance - it seems<br />
+it is impossible to save NFS mountpoint directories<br />
+in a fail-safe way (in particular without possibly hangup)<br />
+regardless if done by 'tar' or otherwise<br />
+because NFS hangups happen too deeply in the system (kernel)<br />
+so that userland tools cannot check if access would hang up<br />
+so userland tools can only blindly try and hope for the best.</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1412"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857950474">2023-12-15 14:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1412" title="Permanent link">&para;</a></h4>
+<p>As usual - simple things get complex,<br />
+cf. RFC 1925 item (8):</p>
+<pre><code>It is more complicated than you think.
+</code></pre>
+<p>For mountpoint directories we may inspect<br />
+what 'mount' tells, cf. above</p>
+<pre><code>linux-h9wr:~ # mount | grep nfs
+...
+192.168.122.142:/nfs on /tmp/test-nfs-tar/nfs.mountpoint type nfs (rw,relatime,vers=3,rsize=262144,wsize=262144,namlen=255,hard,nolock,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=192.168.122.142,mountvers=3,mountport=20048,mountproto=udp,local_lock=all,addr=192.168.122.142)
+</code></pre>
+<p>so we could know at least the mountpoint directory names<br />
+so we may recreate them with default owner,permissions,...<br />
+which should be normally OK for mountpoint directories.</p>
+<h4 id="jsmeix_commented_at_2023-12-15_1446"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1857998156">2023-12-15 14:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-15_1446" title="Permanent link">&para;</a></h4>
+<p>Oh - surprisingly 'stat' on a NFS mountpoint directory<br />
+seems to work at least for me with SLES15-SP5<br />
+even when the NFS server VM is paused:</p>
+<pre><code># stat -c '%n %a %U %G' /tmp/test-nfs-tar/nfs.mountpoint
+/tmp/test-nfs-tar/nfs.mountpoint 755 root root
+</code></pre>
+<p>In contrast</p>
+<pre><code># ls /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>"just hangs" when the NFS server VM is paused (as expected).</p>
+<h4 id="pcahyna_commented_at_2023-12-19_1705"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1863161079">2023-12-19 17:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-19_1705" title="Permanent link">&para;</a></h4>
+<p>Interesting. What about <code>findmnt /tmp/test-nfs-tar/nfs.mountpoint</code> ? It
+has a better parseable output than <code>mount</code>, and it returns exit code <code>1</code>
+when the argument is not a mountpoint.</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1052"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864264164">2023-12-20 10:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1052" title="Permanent link">&para;</a></h4>
+<p>Both</p>
+<pre><code># findmnt /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>and</p>
+<pre><code># mountpoint /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>work at least for me with SLES15-SP5<br />
+even when the NFS server VM is paused.</p>
+<p>But</p>
+<pre><code># ls -d /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>"just hangs" when the NFS server VM is paused<br />
+which is not expected because 'ls -d' should only<br />
+"list directories themselves, not their contents"<br />
+according to what "man ls" tells.</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1054"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864267013">2023-12-20 10:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1054" title="Permanent link">&para;</a></h4>
+<p>Oops!<br />
+Correction of my above<br />
+<a href="https://github.com/rear/rear/issues/3109#issuecomment-1857998156">https://github.com/rear/rear/issues/3109#issuecomment-1857998156</a></p>
+<p>Now also</p>
+<pre><code># stat -c '%n %a %U %G' /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>"just hangs" when the NFS server VM is paused<br />
+in contrast to what I had falsely written in<br />
+<a href="https://github.com/rear/rear/issues/3109#issuecomment-1857998156">https://github.com/rear/rear/issues/3109#issuecomment-1857998156</a></p>
+<h4 id="pcahyna_commented_at_2023-12-20_1103"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864279458">2023-12-20 11:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2023-12-20_1103" title="Permanent link">&para;</a></h4>
+<p>maybe some time-limited cache was in play?</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1103"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864279502">2023-12-20 11:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1103" title="Permanent link">&para;</a></h4>
+<p>Plain</p>
+<pre><code># stat -c '%n' /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>works at least for me when the NFS server VM is paused.<br />
+But this command is rather meaningles as it shows only<br />
+the name '/tmp/test-nfs-tar/nfs.mountpoint' which is already known.</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1106"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864284199">2023-12-20 11:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1106" title="Permanent link">&para;</a></h4>
+<p>Oops! - Oops!<br />
+Another correction of my recent<br />
+<a href="https://github.com/rear/rear/issues/3109#issuecomment-1864267013">https://github.com/rear/rear/issues/3109#issuecomment-1864267013</a></p>
+<p>I had some inexplicable behaviour with further tests<br />
+so I umounted the NFS share and mounted it again.</p>
+<p>Now</p>
+<pre><code># stat -c '%n %a %U %G' /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>works again at least for me with SLES15-SP5<br />
+even when the NFS server VM is paused.</p>
+<p>After some more pause and resume of the NFS server VM</p>
+<pre><code># stat -c '%n %a %U %G' /tmp/test-nfs-tar/nfs.mountpoint
+</code></pre>
+<p>"just hangs" when the NFS server VM is paused.</p>
+<p>Lesson learned:<br />
+NFS stuff only works predictably as long as all is well.<br />
+As soon as something does no longer work well with NFS<br />
+the results that one gets as user on a client are arbitrary.</p>
+<h4 id="jsmeix_commented_at_2023-12-20_1113"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1864293566">2023-12-20 11:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2023-12-20_1113" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+perhaps some time-limited cache or something else.</p>
+<p>What matters is that one cannot rely on NFS<br />
+to behave predictably from a user's point of view.<br />
+Of course from the kernel's point of view all<br />
+behaves as intended (i.e. as programmed).</p>
+<h4 id="gdha_commented_at_2023-12-22_1014"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1867500553">2023-12-22 10:14</a>:<a class="headerlink" href="#gdha_commented_at_2023-12-22_1014" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Perhaps we can check for stale NFS mount points and exclude
+these somehow? I have a script which I use a lot for these kind of
+activities - see
+<a href="https://github.com/gdha/lnxutils/blob/master/opt/ncsbin/lnxutils/nfs_stale_handle_check.sh">https://github.com/gdha/lnxutils/blob/master/opt/ncsbin/lnxutils/nfs_stale_handle_check.sh</a></p>
+<h4 id="schlomo_commented_at_2024-01-13_1839"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1890685906">2024-01-13 18:39</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-13_1839" title="Permanent link">&para;</a></h4>
+<p>Maybe ReaR <code>NETFS</code> backup should simply exclude by default all network
+filesystems?</p>
+<p>With regard to recreating mountpoints I'd do this only for stuff
+mentioned in <code>/etc/fstab</code> and not for other, probably manually created,
+mounts. I think that trying to do that is way too much complexity and
+will have a high degree of "doing the wrong thing with the best
+intentions"</p>
+<h4 id="pcahyna_commented_at_2024-01-15_1342"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1892201289">2024-01-15 13:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-15_1342" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Maybe ReaR <code>NETFS</code> backup should simply exclude by default all network
+filesystems?</p>
+</blockquote>
+<p>I believe it already does, no? <code>--one-file-system</code> excludes everything
+that is not explicitly included. And network filesystems, I believe, are
+not included.</p>
+<p>The problem here is that tar hangs while trying to determine whether a
+directory is a mountpoint.</p>
+<blockquote>
+<p>With regard to recreating mountpoints I'd do this only for stuff
+mentioned in <code>/etc/fstab</code> and not for other, probably manually
+created, mounts. I think that trying to do that is way too much
+complexity and will have a high degree of "doing the wrong thing with
+the best intentions"</p>
+</blockquote>
+<p>We need to recreate mountpoints for all filesystems, because the layout
+contains all the mounted local filesystems and without recreating the
+mountpoints there would not be anything to mount them to. Or did you
+mean "recreating filesystems" instead of "recreating mountpoints"?</p>
+<h4 id="schlomo_commented_at_2024-01-15_1353"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1892218803">2024-01-15 13:53</a>:<a class="headerlink" href="#schlomo_commented_at_2024-01-15_1353" title="Permanent link">&para;</a></h4>
+<p>@pcahyna it seems to me that we need to specifically exclude the
+mountpoints themselves of network filesystems, as that seems to be the
+root cause of this issue. As @jsmeix was able to show in
+<a href="https://github.com/rear/rear/issues/3109#issuecomment-1857897456">https://github.com/rear/rear/issues/3109#issuecomment-1857897456</a>
+just "looking" at the mountpoint will make the system hang if the NFS
+server is down, so I'd hope that excluding the mountpoint itself would
+allow <code>tar</code> to work in this scenario.</p>
+<p>I did mean recreating mountpoints and I think that for manual mounts of
+network filesystems we should just completely ignore them and that we
+don't need to recreate the mountpoints beyond the standard directories
+that we always create (e.g. <code>/media</code> or <code>/mnt</code>. My point was not about
+local filesystems but about network filesystems.</p>
+<h4 id="jsmeix_commented_at_2024-01-15_1402"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1892233026">2024-01-15 14:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-15_1402" title="Permanent link">&para;</a></h4>
+<p>Finally I found time to have a look at<br />
+<a href="https://github.com/gdha/lnxutils/blob/master/opt/ncsbin/lnxutils/nfs_stale_handle_check.sh">https://github.com/gdha/lnxutils/blob/master/opt/ncsbin/lnxutils/nfs_stale_handle_check.sh</a></p>
+<p>As far as I see its basic idea is<br />
+to run a command that may not return with</p>
+<pre><code>timeout ... COMMAND
+</code></pre>
+<p>I searched the ReaR scripts for usage of the 'timeout' command<br />
+but interestingly I found nothing.</p>
+<p>I think there could be several cases where it is not certain<br />
+that a command will return (within reasonable time)<br />
+so it could be in general a good idea to run<br />
+commands that might not return with</p>
+<pre><code>timeout ... COMMAND
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-01-15_1421"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1892266020">2024-01-15 14:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-15_1421" title="Permanent link">&para;</a></h4>
+<p>@schlomo I suppose that you mean explicit exclusion via
+<code>BACKUP_PROG_EXCLUDE</code> in addition to the implicit exclusion provided by
+<code>--one-file-system</code>. How to reliably determine the list of mountpoints
+though? I am afraid that any utility we may try to use for that can
+access the filesystem and hang cf. the <code>stat</code> example above.</p>
+<h4 id="pcahyna_commented_at_2024-01-16_1120"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1893546036">2024-01-16 11:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-16_1120" title="Permanent link">&para;</a></h4>
+<p>I believe that not recreating mountpoints by default would not be a good
+idea. Consider a system where one mounts a network share at <code>/mnt/foo</code>.
+It is not permanently mounted, so it is not present in /etc/fstab, the
+mount and unmount is done manually or by a script. If a ReaR backup is
+taken at the moment the share is mounted, the mountpoint (the empty
+directory itself) would not be backed up and mounting it after the
+system is destroyed and recovered from backup would fail. It would work
+fine if the backup is taken at a moment when the share is not mounted,
+and to me it looks wrong to make the content of the backup dependent on
+what filesystems are mounted at the moment (if the filesystems are
+excluded anyway).<br />
+I checked and found that the above should actually not happen, as ReaR
+saves and restores all mountpoints independently of the backup stage and
+its exclusions. The code is here:
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/default/400_save_directories.sh">https://github.com/rear/rear/blob/master/usr/share/rear/prep/default/400_save_directories.sh</a>
+.<br />
+So, in fact, excluding mountpoints from the backup should be safe and
+the script above could even provide an inspiration for the
+implementation (as it also gathers the list of all mountpoints).</p>
+<h4 id="jsmeix_commented_at_2024-01-16_1328"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1893743663">2024-01-16 13:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-01-16_1328" title="Permanent link">&para;</a></h4>
+<p>The more I am thinking about it in general<br />
+the more I come to the conclusion<br />
+that in general (i.e. except exceptions)<br />
+ReaR should not deal with broken things<br />
+or somehow avoid or circumvent broken things.</p>
+<p>My main reason is that I think it is in practice<br />
+unreasonable and endless efforts to implement code<br />
+that still works even when things are broken.</p>
+<p>Exceptional cases are when there is a simple and<br />
+generic way that works reliable and stable over time<br />
+how to deal with or avoid or circumvent broken things.</p>
+<p>Regarding unresponsive NFS mounts:</p>
+<p>I am not at all a NFS expert but I think<br />
+a mounted NFS share behaves basically<br />
+same as a mounted filesystem on a local disk<br />
+(as far as I know this is the basic idea behind NFS).<br />
+When a local disk filesystem becomes unresponsive<br />
+all access hangs up (as far as I know without timeout<br />
+usually in read/write syscalls i.e. in the kernel)<br />
+until it responds or ad infinitum.<br />
+I think basically no software implements<br />
+to deal with unresponsive filesystem access<br />
+(which would basically mean to work around the kernel)<br />
+so why should especially ReaR implement that?</p>
+<h4 id="pcahyna_commented_at_2024-01-16_1347"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1893776299">2024-01-16 13:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-01-16_1347" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I mostly agree, just a note that in the case of local disk being
+unresponsive is an exceptional situation, but in distributed systems
+(including the use of NFS) a loss of connectivity is a fairly normal
+state. Also, I believe that processes waiting for the disk are stuck in
+the "uninterruptible sleep" state, while processes stuck on NFS can be
+killed via <code>SIGKILL</code> (cf. the use of <code>timeout</code> above). Local disk access
+also has timeouts in the SCSI or block layer (maybe both), so it does
+not wait "ad infinitum".</p>
+<h4 id="bwelterl_commented_at_2024-01-16_1348"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-1893777907">2024-01-16 13:48</a>:<a class="headerlink" href="#bwelterl_commented_at_2024-01-16_1348" title="Permanent link">&para;</a></h4>
+<p>I must agree with that @jsmeix . But for this case, we are saying that
+rear is automatically excluding the remote filesystems, but this is
+implemented only through the tar --one-file-system, which leads to the
+issue, not with a specific exclusion.<br />
+rear should not try to access this FS at all.</p>
+<p>But I undestand this is a corner case and we should not add complexity.</p>
+<p>Benoit</p>
+<h4 id="github-actions_commented_at_2024-03-17_0204"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2002279229">2024-03-17 02:04</a>:<a class="headerlink" href="#github-actions_commented_at_2024-03-17_0204" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2024-03-18_0735"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2003106507">2024-03-18 07:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-18_0735" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+if one of you knows a reasonably simple and<br />
+generic way that works reliable over time<br />
+how to deal with unresponsive NFS mounts<br />
+please contribute it via a pull request.</p>
+<h4 id="schlomo_commented_at_2024-03-18_0744"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2003118142">2024-03-18 07:44</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-18_0744" title="Permanent link">&para;</a></h4>
+<p>Going back to the original request of @bwelterl I think that this is -
+from a user perspective - a very valid request. I read it like this:
+<em>ReaR should only care about local filesystems and leave everything else
+as-is</em></p>
+<p>Maybe another way to think about this is to get the list of local
+filesystems (e.g. from <code>lsblk</code>) and then automatically exclude all other
+mountpoints from that (but recreate the mountpoint directories)?</p>
+<p>In any case, I fear that doing this right is more than just a small
+patch and it requires a lot of testing.</p>
+<h4 id="gdha_commented_at_2024-03-18_0819"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2003173450">2024-03-18 08:19</a>:<a class="headerlink" href="#gdha_commented_at_2024-03-18_0819" title="Permanent link">&para;</a></h4>
+<p>Why not exit ReaR with an error when we detect a stale NFS mount point?
+We know that a broken system may/can lead to a broken ReaR image.
+Personally, I prefer to get an healthy system in the 1st place before
+making a ReaR image.</p>
+<h4 id="schlomo_commented_at_2024-03-18_0829"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2003189471">2024-03-18 08:29</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-18_0829" title="Permanent link">&para;</a></h4>
+<p>@gdha good idea, but how would you detect such a scenario and bail out
+<strong>before</strong> the stale mountpoint blocks ReaR?</p>
+<h4 id="gdha_commented_at_2024-03-22_1314"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2015078835">2024-03-22 13:14</a>:<a class="headerlink" href="#gdha_commented_at_2024-03-22_1314" title="Permanent link">&para;</a></h4>
+<p>@bwelterl with PR #3183 in place your issue should be addresses. Are
+you able to confirm this (or deny)?</p>
+<h4 id="github-actions_commented_at_2024-05-22_0209"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2123741025">2024-05-22 02:09</a>:<a class="headerlink" href="#github-actions_commented_at_2024-05-22_0209" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="bwelterl_commented_at_2024-05-29_0553"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/3109#issuecomment-2136570293">2024-05-29 05:53</a>:<a class="headerlink" href="#bwelterl_commented_at_2024-05-29_0553" title="Permanent link">&para;</a></h4>
+<p>Thanks for the job and the PR !</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2023-12-15.3109.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

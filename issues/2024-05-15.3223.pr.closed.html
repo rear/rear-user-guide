@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3223 PR closed: In 400_save_directories.sh mkdir $VAR_DIR/recovery/ when not existing - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3223 PR closed: In 400_save_directories.sh mkdir $VAR_DIR/recovery/ when not existing";
+        var mkdocs_page_input_path = "issues/2024-05-15.3223.pr.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3223 PR closed: In 400_save_directories.sh mkdir $VAR_DIR/recovery/ when not existing</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3223_pr_closed_in_400_save_directoriessh_mkdir_var_dirrecovery_when_not_existing"><a href="https://github.com/rear/rear/pull/3223">#3223 PR</a> <code>closed</code>: In 400_save_directories.sh mkdir $VAR_DIR/recovery/ when not existing<a class="headerlink" href="#3223_pr_closed_in_400_save_directoriessh_mkdir_var_dirrecovery_when_not_existing" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-05-15_1435"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3223">2024-05-15 14:35</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-05-15_1435" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3222">https://github.com/rear/rear/issues/3222</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In prep/default/400_save_directories.sh<br />
+create $VAR_DIR/recovery/ when not existing</p>
+<h4 id="jsmeix_commented_at_2024-05-16_0742"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114294271">2024-05-16 07:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_0742" title="Permanent link">&para;</a></h4>
+<p>I added my somewhat unrelated looking improvement<br />
+<a href="https://github.com/rear/rear/pull/3223/commits/2a65eab4c254eae4c405836eaad4f09541497575">https://github.com/rear/rear/pull/3223/commits/2a65eab4c254eae4c405836eaad4f09541497575</a><br />
+just here "by the way" because while debugging it in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112594449">https://github.com/rear/rear/pull/3175#issuecomment-2112594449</a><br />
+I got a bit confused because it was not clear to me<br />
+if ReaR's TMP_DIR was used versus the system's TMPDIR<br />
+so I inspected the code in usr/sbin/rear which was</p>
+<pre><code>    if ! [[ "$RECOVERY_MODE" || "$PORTABLE" ]] ; then
+        ...
+            tmpdir_debug_info="Setting TMPDIR to '$TMP_DIR' (was unset when ReaR was launched)"
+        ...
+    else
+        ...
+            tmpdir_debug_info="Setting TMPDIR to '$TMPDIR' (was unset when ReaR was launched)"
+</code></pre>
+<p>i.e. same message text like</p>
+<pre><code>Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+</code></pre>
+<p>for two different cases so it was not possible<br />
+to see from the message text which case it was.<br />
+The '/var/tmp' indicates it was the second case<br />
+but that is not 100% clear.<br />
+So that I had to reverse-engineer things<br />
+to understand what actually goes on.<br />
+With the improvement it looks like</p>
+<pre><code>Setting TMPDIR to ReaR's '/var/tmp/rear.3pc7RyD4Ki2uoMC/tmp' (was unset when ReaR was launched)
+</code></pre>
+<p>versus</p>
+<pre><code>Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-16_0900"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114590973">2024-05-16 09:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_0900" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would be happy if one of you could review it<br />
+because I would like to merge it today afternoon<br />
+i.e. before the long Pentecost weekend<br />
+which starts already tomorrow for me.</p>
+<h4 id="schlomo_commented_at_2024-05-16_0925"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114680026">2024-05-16 09:25</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-16_0925" title="Permanent link">&para;</a></h4>
+<p>Good catch, can I suggest putting that "create recovery dir" topic into
+a very early (potentially new) script in the prep stage and not into the
+script that currently is the first one to require it?</p>
+<h4 id="jsmeix_commented_at_2024-05-16_1015"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114799195">2024-05-16 10:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1015" title="Permanent link">&para;</a></h4>
+<p>It seems the whole<br />
+usr/share/rear/prep/default/400_save_directories.sh<br />
+needs to be moved to a 'layout' stage because<br />
+usr/share/rear/prep/README reads (excerpt)</p>
+<pre><code>You should not put scripts into this 'prep' stage that modify things
+in ROOTFS_DIR or in VAR_DIR/recovery and VAR_DIR/layout because
+scripts for ROOTFS_DIR belong to the 'rescue' stage and scripts
+for VAR_DIR/recovery and VAR_DIR/layout belong to the 'layout' stages.
+</code></pre>
+<p>This is something for later...</p>
+<p>The problem is that what 400_save_directories.sh implements<br />
+does not belong to what is meant with "disk layout"<br />
+(i.e. storage volumes, partitions, filesystems, mountpoints)<br />
+so 400_save_directories.sh should not be in a 'layout' stage.</p>
+<h4 id="jsmeix_commented_at_2024-05-16_1038"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114857608">2024-05-16 10:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1038" title="Permanent link">&para;</a></h4>
+<p>I separated the unrelated part<br />
+<a href="https://github.com/rear/rear/pull/3223#issuecomment-2114294271">https://github.com/rear/rear/pull/3223#issuecomment-2114294271</a><br />
+out from here into the new<br />
+<a href="https://github.com/rear/rear/pull/3225">https://github.com/rear/rear/pull/3225</a></p>
+<p>I will close this one because it is the wrong fix.</p>
+<h4 id="jsmeix_commented_at_2024-05-16_1040"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114860575">2024-05-16 10:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1040" title="Permanent link">&para;</a></h4>
+<p>Next week - as time permits - I will try to make<br />
+a proper fix that obsoletes this one.</p>
+<h4 id="jsmeix_commented_at_2024-05-16_1127"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114971061">2024-05-16 11:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1127" title="Permanent link">&para;</a></h4>
+<p>An offhanded thought:</p>
+<p>Perhaps what 400_save_directories.sh implements<br />
+could even belong to what is meant with "disk layout"<br />
+(i.e. storage volumes, partitions, filesystems, mountpoints)<br />
+because when "mountpoints" belong to "disk layout"<br />
+then "basic system directories" (i.e. FHS directories)<br />
+could also belong - in a broader sense - to "disk layout".</p>
+<p>In particular because 400_save_directories.sh<br />
+first and foremost saves directories<br />
+that are used as mountpoints at least those belong<br />
+to "disk layout" even in the narrow sense<br />
+so 400_save_directories.sh could sufficiently well<br />
+belong to the 'layout/save' stage.</p>
+<h4 id="jsmeix_commented_at_2024-05-16_1137"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2114990816">2024-05-16 11:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_1137" title="Permanent link">&para;</a></h4>
+<p>An even further offhanded thought:</p>
+<p>When what 400_save_directories.sh implements<br />
+belongs to what is meant with "disk layout"<br />
+then what its counterpart 900_create_missing_directories.sh<br />
+implements could also belong to recreating "disk layout".</p>
+<p>So 900_create_missing_directories.sh could be moved<br />
+from after the backup was restored<br />
+to the earlier layout/recreate stage<br />
+and renamed into e.g. create_basic_directories.sh<br />
+(and save_directories.sh renamed into save_basic_directories.sh)<br />
+where both ensure that all mountpoint directories<br />
+and all FHS directories get properly recreated<br />
+before they get used, cf.<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">https://github.com/rear/rear/pull/3175#issuecomment-2114478980</a><br />
+where /mnt/local/tmp was created with wrong permissions<br />
+because of plain</p>
+<pre><code>mkdir -p /mnt/local/tmp
+</code></pre>
+<p>in diskrestore.sh</p>
+<h4 id="pcahyna_commented_at_2024-05-16_1955"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2116072814">2024-05-16 19:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-16_1955" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>It seems the whole<br />
+usr/share/rear/prep/default/400_save_directories.sh<br />
+needs to be moved to a 'layout' stage because<br />
+usr/share/rear/prep/README reads (excerpt)</p>
+</blockquote>
+<p>I think there is another reason to move it: <code>prep</code> scripts run also
+during mkbackuponly, but we need to save directories only during the
+rescue image creation, not backup creation.</p>
+<h4 id="pcahyna_commented_at_2024-05-16_2005"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2116087643">2024-05-16 20:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-16_2005" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps what 400_save_directories.sh implements could even belong to
+what is meant with "disk layout" (i.e. storage volumes, partitions,
+filesystems, mountpoints) because when "mountpoints" belong to "disk
+layout" then "basic system directories" (i.e. FHS directories) could
+also belong - in a broader sense - to "disk layout".</p>
+<p>In particular because 400_save_directories.sh first and foremost
+saves directories that are used as mountpoints at least those belong
+to "disk layout" even in the narrow sense so 400_save_directories.sh
+could sufficiently well belong to the 'layout/save' stage.</p>
+</blockquote>
+<p>There is prior art for saving and restoring such "fixups" (information
+that may be missing in backup) to the restored files.</p>
+<p>For example rescue/NETFS/default/610_save_capabilities.sh (saves
+capabilities, restored by
+restore/NETFS/default/510_set_capabilities.sh ) . I am sure I saw some
+other, but I don't remember them now. Some common approach would be
+great.</p>
+<h4 id="pcahyna_commented_at_2024-05-16_2018"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2116106799">2024-05-16 20:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-05-16_2018" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>An even further offhanded thought:</p>
+<p>When what 400_save_directories.sh implements belongs to what is
+meant with "disk layout" then what its counterpart
+900_create_missing_directories.sh implements could also belong to
+recreating "disk layout".</p>
+<p>So 900_create_missing_directories.sh could be moved from after the
+backup was restored to the earlier layout/recreate stage and renamed
+into e.g. create_basic_directories.sh (and save_directories.sh
+renamed into save_basic_directories.sh) where both ensure that all
+mountpoint directories and all FHS directories get properly recreated
+before they get used, cf. <a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">#3175
+(comment)</a>
+where /mnt/local/tmp was created with wrong permissions because of
+plain</p>
+<pre><code>mkdir -p /mnt/local/tmp
+</code></pre>
+<p>in diskrestore.sh</p>
+</blockquote>
+<p>IMO, this won't work. You need to create mountpoints before they are
+used, but after the containing filesystem is created. E.g. if <code>/var</code> and
+<code>/var/tmp</code> are separate filesystems, you can't create <code>/var/tmp</code> as a
+directory in the empty root file system. You need to create it only
+after the <code>/var</code> filesystem has been created and mouted. Therefore
+moutpoint creation needs to be interspersed with filesystem creation and
+mounting in diskrestore.sh.</p>
+<h4 id="jsmeix_commented_at_2024-05-22_1404"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3223#issuecomment-2124885121">2024-05-22 14:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-22_1404" title="Permanent link">&para;</a></h4>
+<p>This one is obsoleted by<br />
+<a href="https://github.com/rear/rear/pull/3232">https://github.com/rear/rear/pull/3232</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-15.3223.pr.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

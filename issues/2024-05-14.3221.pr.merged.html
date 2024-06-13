@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3221 PR merged: Overhauled 400_create_include_exclude_files.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3221 PR merged: Overhauled 400_create_include_exclude_files.sh";
+        var mkdocs_page_input_path = "issues/2024-05-14.3221.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3221 PR merged: Overhauled 400_create_include_exclude_files.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3221_pr_merged_overhauled_400_create_include_exclude_filessh"><a href="https://github.com/rear/rear/pull/3221">#3221 PR</a> <code>merged</code>: Overhauled 400_create_include_exclude_files.sh<a class="headerlink" href="#3221_pr_merged_overhauled_400_create_include_exclude_filessh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-05-14_1213"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3221">2024-05-14 12:13</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-05-14_1213" title="Permanent link">&para;</a></h4>
+<p>Overhauled 400_create_include_exclude_files.sh</p>
+<ul>
+<li>
+<p>Type: <strong>Cleanup</strong> / <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3217">https://github.com/rear/rear/issues/3217</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3175#issuecomment-2111776529">https://github.com/rear/rear/pull/3175#issuecomment-2111776529</a><br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112838240">https://github.com/rear/rear/pull/3175#issuecomment-2112838240</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In backup/NETFS/default/400_create_include_exclude_files.sh</p>
+<p>Now do first backup the mounted filesystems<br />
+to backup '/' first so the basic system files<br />
+get stored first in the backup and<br />
+then backup what is specified in BACKUP_PROG_INCLUDE<br />
+see
+<a href="https://github.com/rear/rear/pull/3177#issuecomment-1985926458">https://github.com/rear/rear/pull/3177#issuecomment-1985926458</a><br />
+and
+<a href="https://github.com/rear/rear/issues/3217#issue-2277985295">https://github.com/rear/rear/issues/3217#issue-2277985295</a></p>
+<p>Report suspicious cases as LogPrintError<br />
+to have the user at least informed.</p>
+<p>Remove duplicates but keep the ordering (via unique_unsorted)<br />
+to avoid possibly unwanted and unexpected subtle consequences,<br />
+see
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-1985382738">https://github.com/rear/rear/pull/3175#issuecomment-1985382738</a></p>
+<p>Verify that at least '/' is in backup-include.txt<br />
+see
+<a href="https://github.com/rear/rear/issues/3217">https://github.com/rear/rear/issues/3217</a></p>
+<p>Redirect stdout into files exactly at the command where needed<br />
+instead of more global redirections, cf. "horrible coding style"<br />
+in
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2109554865">https://github.com/rear/rear/pull/3175#issuecomment-2109554865</a></p>
+<p>In backup/NETFS/default/500_make_backup.sh<br />
+unique_unsorted is no longer needed because<br />
+backup-include.txt is already without duplicates<br />
+because unique_unsorted is now called in<br />
+backup/NETFS/default/400_create_include_exclude_files.sh<br />
+so replaced unique_unsorted calls back to 'cat', cf.<br />
+<a href="https://github.com/rear/rear/commit/ec9080664303165799a215cef062826b65f6a6f8">https://github.com/rear/rear/commit/ec9080664303165799a215cef062826b65f6a6f8</a></p>
+<h4 id="jsmeix_commented_at_2024-05-15_1148"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2112318887">2024-05-15 11:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1148" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I intend to merge it later today<br />
+because this is needed as a precondition for<br />
+<a href="https://github.com/rear/rear/pull/3175">https://github.com/rear/rear/pull/3175</a><br />
+on SUSE with its default btrfs structure with snapshots</p>
+<h4 id="jsmeix_commented_at_2024-05-15_1532"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2112870010">2024-05-15 15:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1532" title="Permanent link">&para;</a></h4>
+<p>I ignore the CI failures</p>
+<pre><code>Build Packages / build (push) Failing after 8m 
+testing-farm:fedora-40-x86_64 — Error ... 
+testing-farm:fedora-rawhide-x86_64 — Tests failed ...
+</code></pre>
+<p>in particular because other 'testing-farm' checks succeed<br />
+so I assume the failing 'testing-farm' checks have reasons<br />
+that are not in my code changes.</p>
+<h4 id="fishgit_commented_at_2024-05-24_1055"><img src="https://avatars.githubusercontent.com/u/13730018?v=4" width="50"><a href="https://github.com/fishgit">fishgit</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2129240645">2024-05-24 10:55</a>:<a class="headerlink" href="#fishgit_commented_at_2024-05-24_1055" title="Permanent link">&para;</a></h4>
+<p>The added verification that at least '/' is in backup-include.txt leads
+to problems in our setup with borg backup. We have multiple rear conf
+files to backup data into different borg repositories (basic_system,
+home, var, ...)</p>
+<p>'/' is therefore included in basic_system.conf only. Running
+<code>rear -C /etc/rear/home.conf mkbackuponly</code> exits with the 'Error "At
+least the root filesystem must be backed up"' error accordingly.</p>
+<p>It would be great if there was an option to disable this check (at least
+when using borg backup).</p>
+<h4 id="jsmeix_commented_at_2024-05-24_1258"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2129472676">2024-05-24 12:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-24_1258" title="Permanent link">&para;</a></h4>
+<p>@fishgit<br />
+thank you so much for your regression report!<br />
+It is much appreciated.</p>
+<p>I am sorry - I had totally forgotten about the</p>
+<pre><code># rear -C something_else_backup mkbackuponly
+</code></pre>
+<p>possibility - how embarrasing :-(</p>
+<p>I (hopefully) fixed that regression right now<br />
+via a direct commit to our master code<br />
+<a href="https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8">https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8</a></p>
+<p>@fishgit<br />
+please test our current GitHub master code if my<br />
+<a href="https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8">https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8</a><br />
+is actually a proper fix for your use case<br />
+and report here how it behaves for you.</p>
+<p>@rear/contributors<br />
+as time permits - please have a look at my<br />
+direct commit to our master code<br />
+<a href="https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8">https://github.com/rear/rear/commit/37a81e168fe20a183f8230a1b9b8a89a0b043db8</a><br />
+and review if it looks OK to you.<br />
+In this particular case I dared to fix the regression<br />
+via a direct commit to our master code because<br />
+in this case "a proper fix" looked sufficiently simple<br />
+and straightforward to me and I wanted to get my regression<br />
+fixed myself as fast as reasonably possible.</p>
+<h4 id="fishgit_commented_at_2024-05-24_1323"><img src="https://avatars.githubusercontent.com/u/13730018?v=4" width="50"><a href="https://github.com/fishgit">fishgit</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2129530834">2024-05-24 13:23</a>:<a class="headerlink" href="#fishgit_commented_at_2024-05-24_1323" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+thank you for this instant fix!</p>
+<p>I can confirm that your commit solves the problem we had.</p>
+<h4 id="jsmeix_commented_at_2024-05-24_1336"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3221#issuecomment-2129557227">2024-05-24 13:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-24_1336" title="Permanent link">&para;</a></h4>
+<p>@fishgit<br />
+thank you for your prompt and positive feedback!</p>
+<p>@fishgit @rear/contributors<br />
+I wish you all a relaxed and recovering weekend!</p>
+<p>At least my weekend is now much more relaxed<br />
+with having this regression fixed :-)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-05-14.3221.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
