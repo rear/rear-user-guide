@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3253 Issue open: Having any 'sedutil-cli' makes normal "rear mkrescue" fail - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3253 Issue open: Having any \u0027sedutil-cli\u0027 makes normal \"rear mkrescue\" fail";
+        var mkdocs_page_input_path = "issues/2024-06-18.3253.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3253 Issue open: Having any 'sedutil-cli' makes normal "rear mkrescue" fail</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3253_issue_open_having_any_sedutil-cli_makes_normal_rear_mkrescue_fail"><a href="https://github.com/rear/rear/issues/3253">#3253 Issue</a> <code>open</code>: Having any 'sedutil-cli' makes normal "rear mkrescue" fail<a class="headerlink" href="#3253_issue_open_having_any_sedutil-cli_makes_normal_rear_mkrescue_fail" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>minor bug</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-06-18_1051"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3253">2024-06-18 10:51</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-06-18_1051" title="Permanent link">&para;</a></h4>
+<p>On openSUSE Leap 15.5 I installed the sedutil RPM<br />
+which provides /usr/sbin/sedutil-cli</p>
+<p>Having this program makes normal "rear mkrescue" with</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+</code></pre>
+<p>fail:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+ERROR: '/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw' is not a regular file, thus cannot be used as TCG Opal 2 PBA image.
+</code></pre>
+<p>From the debug log:</p>
+<pre><code>+ source /root/rear.github.master/usr/share/rear/prep/default/380_include_opal_tools.sh
+++ has_binary sedutil-cli
+++ for bin in "$@"
+++ type sedutil-cli
+++ return 0
+++ PROGS+=(sedutil-cli lsblk)
+++ KERNEL_CMDLINE+=' libata.allow_tpm=1'
+++ COPY_AS_IS_EXCLUDE+=(/lib/udev/rules.d/*-snap*.rules)
+++ [[ mkrescue == \m\k\r\e\s\c\u\e ]]
++++ opal_local_pba_image_file
++++ local image_file_path=
++++ [[ -z '' ]]
++++ [[ -n file:///root/rear.github.master/var/lib/rear/TCG-Opal-PBA ]]
+++++ url_scheme file:///root/rear.github.master/var/lib/rear/TCG-Opal-PBA
+++++ local url=file:///root/rear.github.master/var/lib/rear/TCG-Opal-PBA
+++++ local scheme=file
+++++ echo file
+++++ grep -q :
+++++ echo file
++++ local image_base_scheme=file
+++++ url_path file:///root/rear.github.master/var/lib/rear/TCG-Opal-PBA
+++++ local url=file:///root/rear.github.master/var/lib/rear/TCG-Opal-PBA
+++++ local url_without_scheme=/root/rear.github.master/var/lib/rear/TCG-Opal-PBA
+++++ echo /root/rear.github.master/var/lib/rear/TCG-Opal-PBA
++++ local image_base=/root/rear.github.master/var/lib/rear/TCG-Opal-PBA
++++ [[ file == \f\i\l\e ]]
++++ image_file_path=/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw
++++ [[ -n /root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw ]]
++++ opal_check_pba_image /root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw
++++ local pba_image_file=/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw
++++ [[ -f /root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw ]]
++++ Error ''\''/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw'\'' is not a regular file, thus cannot be used as TCG Opal 2 PBA image.'
++++ test -s /root/rear.github.master/var/log/rear/rear-localhost.log
++++ PrintError 'ERROR: '\''/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw'\'' is not a regular file, thus cannot be used as TCG Opal 2 PBA image.'
+</code></pre>
+<p>The reason is that the OpalPBA code in ReaR<br />
+gets activated by the existence of any program<br />
+called 'sedutil-cli':</p>
+<pre><code># mv /usr/sbin/sedutil-cli /usr/sbin/sedutil-cli.away
+
+# ls -l /usr/bin/false /usr/sbin/sedutil-cli
+
+# usr/sbin/rear -D mkrescue
+...
+ERROR: '/root/rear.github.master/var/lib/rear/TCG-Opal-PBA/localhost/TCG-Opal-PBA-localhost.raw' is not a regular file, thus cannot be used as TCG Opal 2 PBA image.
+</code></pre>
+<p>see usr/share/rear/prep/default/380_include_opal_tools.sh<br />
+Sigh :-(</p>
+<p>Workaround to run ReaR normally:</p>
+<pre><code># mv /usr/sbin/sedutil-cli /usr/sbin/sedutil-cli.away
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-06-18_1057"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3253#issuecomment-2175816505">2024-06-18 10:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1057" title="Permanent link">&para;</a></h4>
+<p>As it seems in practice no ReaR user was hit by it<br />
+(because noone reported it up to now here)<br />
+I think we can safely fix this issue later<br />
+as time permits after the ReaR 3.0 release.</p>
+<h4 id="jsmeix_commented_at_2024-06-19_1350"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3253#issuecomment-2178772572">2024-06-19 13:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-19_1350" title="Permanent link">&para;</a></h4>
+<p>See starting at<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2175841475">https://github.com/rear/rear/issues/3194#issuecomment-2175841475</a><br />
+about what we think what the intended use case<br />
+of the OpalPBA code in ReaR likely is.</p>
+<p>Nevertheless plain installing 'sedutil' on a system<br />
+without a TCG Opal 2-compliant Self-Encrypting Disk<br />
+should not make a normal "rear mkrescue" fail<br />
+so the current OpalPBA code in ReaR needs<br />
+some cleanup and enhancement.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-18.3253.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

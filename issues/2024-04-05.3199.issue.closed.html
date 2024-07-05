@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3199 Issue closed: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP_URL? - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3199 Issue closed: Proceed regardless that \u0027mkrescue\u0027 could be destructive with a \u0027iso\u0027 BACKUP_URL?";
+        var mkdocs_page_input_path = "issues/2024-04-05.3199.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3199 Issue closed: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP_URL?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3199_issue_closed_proceed_regardless_that_mkrescue_could_be_destructive_with_a_iso_backup_url"><a href="https://github.com/rear/rear/issues/3199">#3199 Issue</a> <code>closed</code>: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP_URL?<a class="headerlink" href="#3199_issue_closed_proceed_regardless_that_mkrescue_could_be_destructive_with_a_iso_backup_url" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>ready-to-close?</code>, <code>no-issue-activity</code></p>
+<h4 id="iringor_opened_issue_at_2024-04-05_2042"><img src="https://avatars.githubusercontent.com/u/161368481?u=54e770dc9be7efd0c4042d605acdafd2d90b3f4f&v=4" width="50"><a href="https://github.com/iringor">iringor</a> opened issue at <a href="https://github.com/rear/rear/issues/3199">2024-04-05 20:42</a>:<a class="headerlink" href="#iringor_opened_issue_at_2024-04-05_2042" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.6 / 2020-06-17<br />
+    This also happens to Relax-and-Recover 2.4 / Git for RHEL 7.9</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Red Hat Enterprise Linux"
+VERSION="8.6 (Ootpa)"
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    For details, please check it from
+    <a href="https://github.com/iringor/rear.git">https://github.com/iringor/rear.git</a></li>
+</ul>
+<!-- -->
+
+<pre><code>[root@dvsdsas1 ~]# cat /etc/rear/site.conf | grep . | grep -v ^#
+export TMPDIR="/rear"
+OUTPUT=ISO
+ISO_DIR="/rear"
+OUTPUT_URL=null
+BACKUP=NETFS
+BACKUP_URL=iso:///backup
+REL=`cat /etc/redhat-release |awk -F"release" '{print $2}' |awk -F. '{print $1}'`
+if [ $REL -le 6 ]; then
+   LISTOFBACKUP="$(df -T -x tmpfs -x devtmpfs -x devpts -x sysfs -x proc | grep -oE '/\S+' | grep -v /dev/ | awk '! /^\/$|^\/boot$/ {print}'| tr '\n' ' ')"
+else
+   LISTOFBACKUP="$(df -T -x tmpfs -x devtmpfs -x devpts -x sysfs -x proc | awk 'NR&gt;1{print $7}' | awk '! /^\/$|^\/boot$/ {print}'| tr '\n' ' ')"
+fi
+LISTOFBACKUP="${LISTOFBACKUP} /var/log/cups /var/log/httpd "
+if [ -f /usr/local/sbin/mondoexclude.txt ]; then
+   LISTOFBACKUP="${LISTOFBACKUP}`cat /usr/local/sbin/mondoexclude.txt`"
+fi
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" ${LISTOFBACKUP})
+ISO_MAX_SIZE=4400
+MIGRATION_MODE=false
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    VMware</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    BIOS GRUB</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    local disk</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>[root@dvsdsas1 ~]# lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME                                KNAME     PKNAME    TRAN   TYPE FSTYPE      LABEL  SIZE MOUNTPOINT
+/dev/sda                            /dev/sda                   disk                     20G
+|-/dev/sda1                         /dev/sda1 /dev/sda         part xfs                  1G /boot
+`-/dev/sda2                         /dev/sda2 /dev/sda         part LVM2_member         19G
+  |-/dev/mapper/VolGroup01-root     /dev/dm-0 /dev/sda2        lvm  xfs                 17G /
+  `-/dev/mapper/VolGroup01-swap     /dev/dm-1 /dev/sda2        lvm  swap                 2G [SWAP]
+/dev/sdb                            /dev/sdb                   disk                    200G
+`-/dev/sdb1                         /dev/sdb1 /dev/sdb         part LVM2_member        200G
+  |-/dev/mapper/VolGroup02-LogVol01 /dev/dm-2 /dev/sdb1        lvm  xfs                100G /usr/sap/sapmnt
+  |-/dev/mapper/VolGroup02-LogVol02 /dev/dm-3 /dev/sdb1        lvm  xfs                 40G /install
+  |-/dev/mapper/VolGroup02-LogVol03 /dev/dm-4 /dev/sdb1        lvm  xfs                 10G /u01
+  |-/dev/mapper/VolGroup02-lv_swap2 /dev/dm-5 /dev/sdb1        lvm  swap                16G [SWAP]
+  `-/dev/mapper/VolGroup02-LogVol04 /dev/dm-6 /dev/sdb1        lvm  xfs                 10G /rear
+/dev/sr0                            /dev/sr0            sata   rom                    1024M
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>I am getting this email notification everyday even if the mkbackup
+script is only running once a month.</p>
+<pre><code>From: (Cron Daemon) &lt;root@server.company.com&gt; 
+Sent: Thursday, April 4, 2024 1:30 AM
+To: root@server.company.com
+Subject: Cron &lt;root@server&gt; test -f /var/lib/rear/layout/disklayout.conf &amp;&amp; /usr/sbin/rear checklayout || /usr/sbin/rear mkrescue
+
+Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP_URL ?
+(default 'No' timeout 300 seconds)
+ERROR: The mkrescue workflow does not work for the BACKUP_URL scheme 'iso'
+Some latest log messages since the last called script 040_check_backup_and_output_scheme.sh:
+  2024-04-04 01:30:24.256120130 Including prep/default/040_check_backup_and_output_scheme.sh
+  2024-04-04 01:30:24.314857703 UserInput: called in /usr/share/rear/prep/default/040_check_backup_and_output_scheme.sh line 30
+  2024-04-04 01:30:24.350941007 UserInput: No choices specified
+  2024-04-04 01:30:24.368811100 Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP_URL ?
+  2024-04-04 01:30:24.386439123 (default 'No' timeout 300 seconds)
+  2024-04-04 01:30:24.422376325 UserInput: 'read' timed out with non-zero exit code
+  2024-04-04 01:30:24.477753667 Aborting 'mkrescue' with a 'iso' BACKUP_URL by default Aborting due to an error, check /var/log/rear/rear-dvsdsas1.log for details
+</code></pre>
+<ul>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<h4 id="iringor_commented_at_2024-04-09_2317"><img src="https://avatars.githubusercontent.com/u/161368481?u=54e770dc9be7efd0c4042d605acdafd2d90b3f4f&v=4" width="50"><a href="https://github.com/iringor">iringor</a> commented at <a href="https://github.com/rear/rear/issues/3199#issuecomment-2046187080">2024-04-09 23:17</a>:<a class="headerlink" href="#iringor_commented_at_2024-04-09_2317" title="Permanent link">&para;</a></h4>
+<p>I think the issue is resolved. I was not aware that when installing
+rear, it automatically creates a cron for rear mkrescue that runs
+everyday at 1:30 AM and it looks like this is a default setting. I will
+comment out this cron for now and if there is no more recurring issue
+related to this in a week I will close this case. Thanks.</p>
+<p>[root@server ~]# grep -R rear /etc/cron*<br />
+/etc/cron.d/rear:#30 1 * * * root /usr/sbin/rear checklayout ||
+/usr/sbin/rear mkrescue</p>
+<h4 id="jsmeix_commented_at_2024-04-11_1056"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3199#issuecomment-2049430339">2024-04-11 10:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-11_1056" title="Permanent link">&para;</a></h4>
+<p>@iringor<br />
+it seems your issue is similar like this one<br />
+<a href="https://github.com/rear/rear/issues/2787">https://github.com/rear/rear/issues/2787</a><br />
+where also a cron job broke things.</p>
+<p>The /etc/cron.d/rear/ related things<br />
+were removed for ReaR 2.5 see<br />
+<a href="https://github.com/rear/rear/issues/2139">https://github.com/rear/rear/issues/2139</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/1892">https://github.com/rear/rear/issues/1892</a></p>
+<p>See the comments therein why that cron thing is broken<br />
+and why I and others are against such cron things.</p>
+<p>It seems your issue here is just another case<br />
+that shows why that cron thing is broken.</p>
+<p>I guess your cron job is a leftover from ReaR 2.4</p>
+<h4 id="iringor_commented_at_2024-04-11_2025"><img src="https://avatars.githubusercontent.com/u/161368481?u=54e770dc9be7efd0c4042d605acdafd2d90b3f4f&v=4" width="50"><a href="https://github.com/iringor">iringor</a> commented at <a href="https://github.com/rear/rear/issues/3199#issuecomment-2050470048">2024-04-11 20:25</a>:<a class="headerlink" href="#iringor_commented_at_2024-04-11_2025" title="Permanent link">&para;</a></h4>
+<p>Hi Johannes,</p>
+<p>Yes, it looks similar. But my issue is now fixed. I could not access
+<a href="https://relax-and-recover.org/">https://relax-and-recover.org/</a> before
+when I started researching about ReaR. The site was blocked by our IT
+admin for some reason. I didn't find this in the man pages, but it is
+mentioned in
+<a href="https://relax-and-recover.org/usage/">https://relax-and-recover.org/usage/</a>
+that a cron job can be created (or automatically created?) to sync with
+the rescue image. It is actually a good tool, this "rear checklayout,"
+to alert me if there is a need to create a new image. Thank you.<br />
+-Don Ringor</p>
+<h4 id="github-actions_commented_at_2024-06-26_0217"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3199#issuecomment-2190405102">2024-06-26 02:17</a>:<a class="headerlink" href="#github-actions_commented_at_2024-06-26_0217" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-04-05.3199.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

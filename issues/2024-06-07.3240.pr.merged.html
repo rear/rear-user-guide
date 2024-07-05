@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3240 PR merged: Improve Bareos integration - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3240 PR merged: Improve Bareos integration";
+        var mkdocs_page_input_path = "issues/2024-06-07.3240.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3240 PR merged: Improve Bareos integration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3240_pr_merged_improve_bareos_integration"><a href="https://github.com/rear/rear/pull/3240">#3240 PR</a> <code>merged</code>: Improve Bareos integration<a class="headerlink" href="#3240_pr_merged_improve_bareos_integration" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>external tool</code></p>
+<h4 id="joergsteffens_opened_issue_at_2024-06-07_2110"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> opened issue at <a href="https://github.com/rear/rear/pull/3240">2024-06-07 21:10</a>:<a class="headerlink" href="#joergsteffens_opened_issue_at_2024-06-07_2110" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+<ul>
+<li>manually this Debian 11/12 an Bareos 21 and 23.</li>
+</ul>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+<ul>
+<li>mostly modernizing the Bareos integration, making it more
+    robust.</li>
+<li>this should only affect the Bareos bconsole integration, not the
+    Bareos bextract integration. I've not tested the bextract
+    integration, but fixed an obvious typo in it, therefore I doubt
+    that is has been working before.</li>
+<li>"Automatic Recovery" is working with these changes.</li>
+</ul>
+</li>
+<li>
+<p>Questions</p>
+<ul>
+<li>The restore in the original code did start <code>rear_shell</code> at the
+    end of the restore. I added an optional execution to of
+    <code>rear_shell</code> also to <code>410_restore_backup_bconsole.sh</code>. I could
+    not figure out (by comparing to other integrations) if this is a
+    good approach or not. A hint about the best practice to finish a
+    restore would be welcome.</li>
+<li>Is there a function to determine how much data have been written
+    to the disks? I mean something like <code>df</code>, but it should sum up
+    all mounts below <code>/mnt/local</code></li>
+</ul>
+</li>
+<li>
+<p>Remark:</p>
+<ul>
+<li>as already discussed with @gdha we receiving reports of
+    Bareos/Rear users getting hit by #2901. While this problem is
+    long been solved in master, the fix is not in the latest release
+    rear-2.7. A new release would be very welcome.</li>
+</ul>
+</li>
+</ul>
+<h4 id="gdha_commented_at_2024-06-10_0939"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2157855008">2024-06-10 09:39</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-10_0939" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens Reviewed the code updates (quite a bit a must say). The
+updates seems a serious improvement over the current bareos code base
+and are most welcome.<br />
+If you do not care about distro's without systemd then I would merge
+your code updates as is if there are no comments from my fellow
+@rear/contributors (by the end of this week)?</p>
+<h4 id="joergsteffens_commented_at_2024-06-10_1248"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2158256451">2024-06-10 12:48</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-10_1248" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@joergsteffens Are you sure that Bareos will start properly on older
+distro's? (without systemd)</p>
+</blockquote>
+<p>Good point. No, it will not, but we oldest release Bareos supports is
+bareos-21 and the oldest distros bareos-21 supports are CentOS_7,
+Debian_10, Fedora_34, RHEL_7, SLE_12_SP5, Univention_4.4,
+openSUSE_Leap_15.2, xUbuntu_18.04<br />
+All of them to support systemd. So from Bareos point of view this is
+fine.</p>
+<p>But it might be a good idea to add a check for systemd in prep. Is there
+a function or variable I can query to determine if the target rescue
+system will contain systemd?</p>
+<h4 id="gdha_commented_at_2024-06-10_1320"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2158365936">2024-06-10 13:20</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-10_1320" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens If the system where you initiate <code>rear mkrescue</code> on
+contains systemd then the ReaR ISO image will also contain systemd. ReaR
+v2.6 and higher have systemd services on-board by default.</p>
+<h4 id="jsmeix_commented_at_2024-06-10_1411"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2158484459">2024-06-10 14:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-10_1411" title="Permanent link">&para;</a></h4>
+<p>In general regarding things like:</p>
+<pre><code>Will Bareos start properly on older distro's without systemd?
+</code></pre>
+<p>and</p>
+<pre><code>might be a good idea to add a check for systemd in pre
+</code></pre>
+<p>I would recommend against such environmental checks.</p>
+<p>Instead I recommend in general<br />
+to first and foremost only check "the real thing"<br />
+and usually leave environmental things to the user.</p>
+<p>In this case here it would mean:</p>
+<p>First and foremost only check that<br />
+Bareos is working properly as actually needed<br />
+and if not clearly tell the user about that<br />
+without additional checks what environmental thing<br />
+might be the cause that Bareos is not working properly.</p>
+<p>Ideally show an original Bareos error message to the user<br />
+and leave it to the user to make sense of it what the<br />
+actual root cause is in his particular environment.</p>
+<p>When this is properly implemented, then as an optional<br />
+separated additional step there could be environmental<br />
+checks to provide hints to the user what the actual<br />
+root cause could be in his particular environment.</p>
+<p>In particular in this case here:<br />
+The systemd environment in the ReaR recovery system<br />
+is rather different (in particular rather minimal)<br />
+compared to the systemd environment on the original system.<br />
+So a simple check whether or not systemd is running<br />
+basically tells nothing whether or not some specific<br />
+systemd service will actually work within the<br />
+ReaR recovery system environment.<br />
+So you may need rather sophisticated checks to really<br />
+find out whether or not the root cause is in systemd<br />
+when Bareos is not working properly as actually needed.</p>
+<h4 id="joergsteffens_commented_at_2024-06-13_1558"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2166088079">2024-06-13 15:58</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-13_1558" title="Permanent link">&para;</a></h4>
+<p>I think, I covered most/all of the feedback. However the changes are
+pretty much untested. I'll test them soon, hopefully tomorrow.</p>
+<h4 id="jsmeix_commented_at_2024-06-17_0824"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2172613730">2024-06-17 08:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_0824" title="Permanent link">&para;</a></h4>
+<p>Only a tiny generic text style side note:</p>
+<p>Usually one should not use "please" in user messages<br />
+because computers (i.e. machines) should not beg<br />
+the user (i.e. humans) to do something.<br />
+When machines talk in some kind of personal tone<br />
+to the user it could be perceived as intrusive.</p>
+<p>Better simple and straightforward wording,<br />
+for example like:</p>
+<pre><code>Error "Could not determine this system as Bareos client (no BAREOS_CLIENT specified)"
+</code></pre>
+<p>Here I also omitted to tell the user which config file to use<br />
+because the user could not only use local.conf but also<br />
+site.conf or via '-C' whatever other config file.</p>
+<p>Same for things like</p>
+<pre><code>Error "Could not determine which restore job to use. Use BAREOS_RESTORE_JOB to specify it."
+
+Error "Could not determine which restore fileset to use. Use BAREOS_FILESET to configure it."
+
+LogPrint "
+Verify that the backup has been restored correctly to '$TARGET_FS_ROOT'
+...
+</code></pre>
+<h4 id="schlomo_commented_at_2024-06-18_0451"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2174997289">2024-06-18 04:51</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-18_0451" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens thanks a lot for the effort you put into this! let me
+know when I should take the next look</p>
+<h4 id="gdha_commented_at_2024-06-19_0852"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178129721">2024-06-19 08:52</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-19_0852" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens Please make <code>bconsole</code> the default setting in
+<a href="https://github.com/joergsteffens/rear/blob/bareos-improvements/usr/share/rear/conf/default.conf#L2806">https://github.com/joergsteffens/rear/blob/bareos-improvements/usr/share/rear/conf/default.conf#L2806</a>
+(of variable <code>BAREOS_RESTORE_MODE</code>). Schlomo told me that you might drop
+the bextract restore (as nobody uses it and therefore, never has been
+tested properly). The ReaR Automated Testing framework also used only
+the <code>bconsole</code>way of working.<br />
+That would also reduce the complexity around the <code>REQUIRED_PROGS_BAREOS</code>
+section as we could get rid of the two extra variables
+<code>REQUIRED_PROGS_BAREOS_BEXTRACT</code> and <code>REQUIRED_PROGS_BAREOS_BCONSOLE</code>.</p>
+<p>Furthermore, which versions of Bareos are supported with this update?
+Are these all tested? We could list them up in the Test Matrix of 3.0.</p>
+<h4 id="schlomo_commented_at_2024-06-19_0854"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178134458">2024-06-19 08:54</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-19_0854" title="Permanent link">&para;</a></h4>
+<p>Good thoughts, can we state (and maybe check for) a minimum Bareos
+version that we want to support? And use that to get rid of some tech
+debt?</p>
+<h4 id="joergsteffens_commented_at_2024-06-19_1011"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178300705">2024-06-19 10:11</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-19_1011" title="Permanent link">&para;</a></h4>
+<p>Bareos supports the current and the last 2 major releases, so currently
+bareos-21, bareos-22 and bareos-23. I've tested Debian 11 with bareos-21
+and Debian 12 with bareos-23.</p>
+<p>I'll remove the bextract parts with this PR and also do some other
+improvements soon, in the next days.</p>
+<h4 id="schlomo_commented_at_2024-06-19_1015"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178308627">2024-06-19 10:15</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-19_1015" title="Permanent link">&para;</a></h4>
+<p>Thank you @joergsteffens for taking the time to make ReaR and Bareos a
+really great team!</p>
+<h4 id="joergsteffens_commented_at_2024-06-19_1017"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178313379">2024-06-19 10:17</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-19_1017" title="Permanent link">&para;</a></h4>
+<p>One question: is there a better (easy) way to run a program as another
+user? I looks that for su (and sudo) I probably need to also include PAM
+modules and configuration.<br />
+Currently I plan to add</p>
+<p><code>chmod u+s,g+s       ${ROOTFS_DIR}/bin/bconsole</code></p>
+<p>during build.</p>
+<p>Reason is that in future version bconsole might limit commands when
+running as <code>root</code>.</p>
+<h4 id="schlomo_commented_at_2024-06-19_1022"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2178321338">2024-06-19 10:22</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-19_1022" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens I'd suggest using
+<a href="https://manpages.ubuntu.com/manpages/focal/man8/chroot.8.html">chroot</a>
+which actually includes the ability to change the user and should be
+already part of the ReaR rescue system.</p>
+<p>And I just noticed that we already copy all users and groups by default,
+according to
+<a href="https://github.com/rear/rear/blob/c2b9a4fe1fcf634c7312ee4def5a6dcf248fccba/usr/share/rear/conf/default.conf#L1976-L1980">https://github.com/rear/rear/blob/c2b9a4fe1fcf634c7312ee4def5a6dcf248fccba/usr/share/rear/conf/default.conf#L1976-L1980</a></p>
+<h4 id="joergsteffens_commented_at_2024-06-24_1031"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2186223165">2024-06-24 10:31</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-24_1031" title="Permanent link">&para;</a></h4>
+<p>So, with my latest commits, I hope I've now covered all remarks. Feel
+free to review it again.</p>
+<p>@schlomo thank you for the hint about using <code>chroot</code>. This did work
+well, but in the end it made the code more complicated, so I decided to
+use another approach, without running as another user.</p>
+<h4 id="joergsteffens_commented_at_2024-06-24_1718"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2187050060">2024-06-24 17:18</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-24_1718" title="Permanent link">&para;</a></h4>
+<p>I think, I covered all suggestions.<br />
+Having said this, the github action <code>build</code> currently fails in my fork.
+Error message:</p>
+<pre><code> ********** Copying dist to dist-all/opensuse-leap-15
+********** registry.suse.com/suse/sle15             **********
+ERROR: Cannot find required programs: ps
+Some messages from /var/tmp/rear.hgyQWImzgw7JXIO/tmp/rear.dump.stdout_stderr since the last called script 950_check_missing_programs.sh:
+  /rear/usr/share/rear/lib/_input-output-functions.sh: line 581: type: ps: not found
+  /rear/usr/share/rear/lib/_input-output-functions.sh: line 581: type: ps: not found
+</code></pre>
+<p>see
+<a href="https://github.com/joergsteffens/rear/actions/runs/9648693605">https://github.com/joergsteffens/rear/actions/runs/9648693605</a></p>
+<p>I don't see how this is related to my changes.<br />
+I've seen, there have recently been some github actions cleanup
+(removing some SUSE distros). Outside of this PR I checked it after
+rebasing on master. However, a similar error did appear (this time on
+SLES15.6).</p>
+<p>I've not rebased this PR so far to make the review not more
+complicated.<br />
+Just tell me, if I can do a rebase and if you think the error is related
+to my changes.</p>
+<h4 id="joergsteffens_commented_at_2024-06-24_1731"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2187071948">2024-06-24 17:31</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-24_1731" title="Permanent link">&para;</a></h4>
+<p>Feel free to merge it!</p>
+<h4 id="schlomo_commented_at_2024-06-24_1945"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2187285086">2024-06-24 19:45</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-24_1945" title="Permanent link">&para;</a></h4>
+<p>Thank you very - very!!! - much @joergsteffens for this truly great
+contribution. I took the liberty of aggregating the commit message to
+cover what IMHO are the relevant changes here.</p>
+<h4 id="gdha_commented_at_2024-06-25_0607"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188053759">2024-06-25 06:07</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-25_0607" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens @schlomo I will test this via my ReaR Automating Testing
+platform to be sure it works as designed as it is a massive change.
+Thanks for the hard work @joergsteffens and thank you @schlomo for the
+excellent and thorough review work.</p>
+<h4 id="schlomo_commented_at_2024-06-25_0648"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188111961">2024-06-25 06:48</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-25_0648" title="Permanent link">&para;</a></h4>
+<p>I fixed the SLE15 build:
+<a href="https://github.com/rear/rear/actions/runs/9657102631">https://github.com/rear/rear/actions/runs/9657102631</a></p>
+<h4 id="gdha_commented_at_2024-06-25_0913"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188387182">2024-06-25 09:13</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-25_0913" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens I performed the first test with an unsupported BAREOS
+version 19 - IMHO the error output should mention that we are using an
+unsupported version for the restore job - see
+<a href="https://gist.github.com/gdha/76e2275f04e89b17ae3c3cea155e201a">https://gist.github.com/gdha/76e2275f04e89b17ae3c3cea155e201a</a>
+for the debug output, local.conf used and bareos backup script.</p>
+<h4 id="schlomo_commented_at_2024-06-25_0918"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188399719">2024-06-25 09:18</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-25_0918" title="Permanent link">&para;</a></h4>
+<p>@gdha nice test! Maybe on some occasion you can also add the automatic
+Bareos configuration which should pick up the client, restore job and
+fileset automatically if there is only one for each.</p>
+<h4 id="joergsteffens_commented_at_2024-06-25_1153"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188737619">2024-06-25 11:53</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-25_1153" title="Permanent link">&para;</a></h4>
+<p>n&gt; @joergsteffens I performed the first test with an unsupported
+BAREOS version 19 - IMHO the error output should mention that we are
+using an unsupported version for the restore job - see
+<a href="https://gist.github.com/gdha/76e2275f04e89b17ae3c3cea155e201a">https://gist.github.com/gdha/76e2275f04e89b17ae3c3cea155e201a</a>
+for the debug output, local.conf used and bareos backup script.</p>
+<p>I see. I use functionality that has been introduced with bareos-20, see
+<a href="https://github.com/bareos/bareos/pull/574">https://github.com/bareos/bareos/pull/574</a><br />
+Relevant is the version of the Bareos Director, not the local File
+Daemon.</p>
+<p>I see 3 options:</p>
+<ul>
+<li>do nothing, as bareos-19 is not supported by bareos.com anymore</li>
+<li>add a Director version check and exit with an proper error if the
+    Director is too old (for that, could you (@gdha) please issue the
+    commands: <code>.api json</code> and than <code>version</code> on the Director and send me
+    the results? Just to make sure, that the version command supports
+    the json output mode.)</li>
+<li>implement a work around. This is harder than I first thought.
+    However the code to skip the restore_job tests, if
+    <code>BAREOS_RESTORE_JOB</code> has been set manually and Director version is
+    less than 20 (or <code>get_available_restore_job_names</code> fails. Getting
+    all job names and check against them is also easy.).</li>
+</ul>
+<h4 id="schlomo_commented_at_2024-06-25_1232"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2188812290">2024-06-25 12:32</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-25_1232" title="Permanent link">&para;</a></h4>
+<p>I'm in favor of actively checking for the minimum supported Bareos
+version and erroring out during the <code>prep</code> stage if ReaR won't work
+properly.</p>
+<p>The general philosophy of ReaR is that if you could create a rescue
+media than there is a very high probability that you can use it for a
+successful recovery. Therefore we need to error out in prep for as many
+known problems as possible.</p>
+<h4 id="gdha_commented_at_2024-06-25_1404"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2189050926">2024-06-25 14:04</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-25_1404" title="Permanent link">&para;</a></h4>
+<p>@joergsteffens I tested it as follow:</p>
+<pre><code>$ cat bareos_test.sh
+#
+# Bareos version extracting with json api
+#
+DISPENSABLE_OUTPUT_DEV="null"
+
+source ./bareos-functions.sh
+source ./array-functions.sh
+source ./_input-output-functions.sh
+
+BAREOS_CLIENT=client-fd
+
+echo "-------------------------------------------"
+bcommand_json "version" | jq -c '.result[].version'
+echo "-------------------------------------------"
+</code></pre>
+<p>and the output is:</p>
+<pre><code>-------------------------------------------
+"19.2.7"
+-------------------------------------------
+</code></pre>
+<p>I think we could add a short prep script to test the Bareos version and
+bail out if it is lower then 21?</p>
+<h4 id="schlomo_commented_at_2024-06-25_1409"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2189069908">2024-06-25 14:09</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-25_1409" title="Permanent link">&para;</a></h4>
+<p>great use case for <code>rear shell</code> :-)</p>
+<h4 id="joergsteffens_commented_at_2024-06-25_1504"><img src="https://avatars.githubusercontent.com/u/2428180?v=4" width="50"><a href="https://github.com/joergsteffens">joergsteffens</a> commented at <a href="https://github.com/rear/rear/pull/3240#issuecomment-2189206896">2024-06-25 15:04</a>:<a class="headerlink" href="#joergsteffens_commented_at_2024-06-25_1504" title="Permanent link">&para;</a></h4>
+<p>Makes sense. On pre-releases the version number has an postfix text,
+like: <code>24.0.0~pre668.a159a82bd</code>. So best only check for the first number
+before the dot.<br />
+I'll do so in a separate PR.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-07.3240.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

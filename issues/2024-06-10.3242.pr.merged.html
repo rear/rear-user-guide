@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3242 PR merged: Fix IPv6 address support in OUTPUT_URL/BACKUP_URL - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3242 PR merged: Fix IPv6 address support in OUTPUT_URL/BACKUP_URL";
+        var mkdocs_page_input_path = "issues/2024-06-10.3242.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3242 PR merged: Fix IPv6 address support in OUTPUT_URL/BACKUP_URL</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3242_pr_merged_fix_ipv6_address_support_in_output_urlbackup_url"><a href="https://github.com/rear/rear/pull/3242">#3242 PR</a> <code>merged</code>: Fix IPv6 address support in OUTPUT_URL/BACKUP_URL<a class="headerlink" href="#3242_pr_merged_fix_ipv6_address_support_in_output_urlbackup_url" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="rmetrich_opened_issue_at_2024-06-10_0915"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> opened issue at <a href="https://github.com/rear/rear/pull/3242">2024-06-10 09:15</a>:<a class="headerlink" href="#rmetrich_opened_issue_at_2024-06-10_0915" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>How was this pull request tested? with both NFS and SSHFS schemes</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Currently there is no proper support for IPv6 addresses in
+<code>OUTPUT_URL</code>/<code>BACKUP_URL</code> properties:</p>
+<ul>
+<li><code>OUTPUT_URL=nfs://2001:db8:ca2:6::101/root/REAR</code> is not recognized
+    (and should not be)</li>
+<li><code>OUTPUT_URL=nfs://[2001:db8:ca2:6::101]/root/REAR</code> fails because of
+    bash substitutions occurring in various places</li>
+<li><code>OUTPUT_URL="nfs://\[2001:db8:ca2:6::101\]/root/REAR"</code> works but is
+    somehow cumbersome (double quotes + square brackets quoting).</li>
+</ul>
+<p>This patch makes the following (proper) scheme work with both NFS and
+SSHFS:</p>
+<pre><code>OUTPUT_URL=nfs://[2001:db8:ca2:6::101]/root/REAR
+OUTPUT_URL=sshfs://[2001:db8:ca2:6::101]/root/REAR
+</code></pre>
+<p>For this to occur, a lot of bash quoting had to be fixed.</p>
+<h4 id="jsmeix_commented_at_2024-06-10_1443"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2158560575">2024-06-10 14:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-10_1443" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+awesome "convict labour"!<br />
+Thank you so much for it!</p>
+<p>As far as I see on<br />
+<a href="https://github.com/rear/rear/pull/3242/files">https://github.com/rear/rear/pull/3242/files</a><br />
+missing bash quoting (at a zillion of places)<br />
+was the only change that you needed to do?<br />
+Or did I overlook some other changes that were needed<br />
+to get IPv6 address support in OUTPUT_URL/BACKUP_URL?</p>
+<p>Regardless if missing bash quoting was the only change<br />
+this issue seems to a very good example why proper<br />
+bash variable quoting is actually needed nowadays.</p>
+<p>Let's wait and see when things like <code>[...]</code><br />
+will become regular characters in system file names<br />
+or device node names and so on - then we need to add<br />
+missing bash quoting at many more zillions of places.</p>
+<h4 id="rmetrich_commented_at_2024-06-10_1448"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2158570731">2024-06-10 14:48</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-06-10_1448" title="Permanent link">&para;</a></h4>
+<p>Yes all this mess was due to quoting. So I did a pass on everything that
+was closely related.</p>
+<h4 id="jsmeix_commented_at_2024-06-11_0744"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2160022965">2024-06-11 07:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-11_0744" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+could (at least) one of you - as time permits - please<br />
+also have a look here and approve it if it looks OK.</p>
+<p>Provided it is OK I would like to merge it rather soon<br />
+in a few days to avoid that other merged code changes<br />
+at all the various code places could cause merge conflicts<br />
+for this pull request which @rmetrich would have to solve.</p>
+<h4 id="jsmeix_commented_at_2024-06-11_1222"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2160624477">2024-06-11 12:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-11_1222" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless objections appear,<br />
+I would like to merge it tomorrow afternoon.</p>
+<h4 id="pcahyna_commented_at_2024-06-12_1014"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162636120">2024-06-12 10:14</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-12_1014" title="Permanent link">&para;</a></h4>
+<p>I reviewed CI results: the Fedora 40 / Rawhide errors are known and
+unrelated. There was a fail on CentOS Stream 9 due to this:</p>
+<pre><code>WARNING: tar ended with return code 1 and below output (last 5 lines):
+                                ---snip---
+                                tar: /var/log/audit/audit.log: file changed as we read it
+                                ----------
+                              This means that files have been modified during the archiving
+                              process. As a result the backup may not be completely consistent
+                              or may not be a perfect copy of the system. Relax-and-Recover
+                              will continue, however it is highly advisable to verify the
+                              backup in order to be sure to safely recover this system.
+</code></pre>
+<p>This is a harmless issue unrelated to the PR and rerun fixed it. The
+check for warnings in the test should probably be less zealous.</p>
+<p>Differential ShellCheck says:<br />
+ℹ️ No Fixes!</p>
+<p>which indicates that we should probably increase the strictness of the
+syntax checks. This change is definitely a fix of the shell syntax that
+ShellCheck is able to recognize.</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1146"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162805139">2024-06-12 11:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1146" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+take your time to fix the one mistake.<br />
+I will not merge it today.<br />
+I will wait until you finished.</p>
+<p>If you find the time I would much appeciate it<br />
+when you could add quoting where @pcahyna mentioned it<br />
+because now we have the detailed review of @pcahyna<br />
+which would be lost when this pull request was merged<br />
+without the additional quoting as mentioned by @pcahyna</p>
+<p>@pcahyna<br />
+as always your precise and accurate review is so helpful<br />
+in particular for our users who are hit by less bugs<br />
+and also for us who need to fix less bugs.<br />
+Thank you so much for it!</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162829460">2024-06-12 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1200" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/pull/3242#issuecomment-2162636120">https://github.com/rear/rear/pull/3242#issuecomment-2162636120</a></p>
+<pre><code>... we should probably increase the strictness
+of the syntax checks. This change is definitely a fix
+of the shell syntax that ShellCheck is able to recognize
+</code></pre>
+<p>As far as I know our Differential ShellCheck<br />
+only ckecks the syntax of the actual changes.</p>
+<p>In this case I agree to try to change the level<br />
+of our Differential ShellCheck syntax checks<br />
+to let it report also quoting problems.</p>
+<p>Since my<br />
+<a href="https://github.com/rear/rear/pull/3242#issuecomment-2158560575">https://github.com/rear/rear/pull/3242#issuecomment-2158560575</a></p>
+<pre><code>Let's wait and see when things like '[...]'
+will become regular characters in system file names
+or device node names and so on - then we need to add
+missing bash quoting at many more zillions of places.
+</code></pre>
+<p>I understand that proper quoting basically everywhere<br />
+is needed to avoid that bash expansion - in particular<br />
+bash pathname expansion - changes string values in<br />
+unintended ways.</p>
+<p>BUT:<br />
+Proper quoting of all string values everywhere<br />
+requires to no longer use strings for multiple values<br />
+in one (string) variable as in</p>
+<pre><code>for word in $string ; do
+    CODE THAT USES $word
+done
+</code></pre>
+<p>but to always use bash arrays for multiple values<br />
+in one (array) variable.<br />
+And this would be a huge cleanup effort.</p>
+<h4 id="pcahyna_commented_at_2024-06-12_1207"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162844312">2024-06-12 12:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-12_1207" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>... And this would be a huge cleanup effort.</p>
+</blockquote>
+<p>Fortunately the check is differential, so it would not complain about
+existing code. But, when changing existing code which uses this idiom,
+one would need to do the cleanup anyway to avoid ShellCheck warnings on
+the changed lines, so some cleanup would be needed from time to time
+indeed.</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162862230">2024-06-12 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1216" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+and such small "by the way" cleanup parts step by step<br />
+as code is touched is the intended benefit to move our<br />
+code step by step towards porper quoting.</p>
+<p>Let's just wait and see what happens when e.g. the line</p>
+<pre><code>mount_url "$BACKUP_URL" "$BUILD_DIR/outputfs" $BACKUP_OPTIONS
+</code></pre>
+<p>is touched again and Differential ShellCheck complains<br />
+about the unquoted <code>$BACKUP_OPTIONS</code> ;-)<br />
+I had a look at that thingy right now and that single piece<br />
+looks rather - well - I don't find proper words... ;-)</p>
+<h4 id="pcahyna_commented_at_2024-06-12_1229"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2162886989">2024-06-12 12:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-12_1229" title="Permanent link">&para;</a></h4>
+<p>@rmetrich to be clear, I certainly don't want to request fixing quoting
+in more and more places if the changes you already did are sufficient
+for your purpose. That would be a huge effort. I merely suggested to
+take the opportunity to add more quoting to lines that you already
+touched, for consistency.</p>
+<h4 id="jsmeix_commented_at_2024-06-14_0455"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2167209769">2024-06-14 04:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-14_0455" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+are you finished so it can be merged<br />
+or do you need to do more changes?</p>
+<h4 id="rmetrich_commented_at_2024-06-14_0624"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2167299880">2024-06-14 06:24</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-06-14_0624" title="Permanent link">&para;</a></h4>
+<p>I'm good, but would prefer that @pcahyna reviews again :-)</p>
+<h4 id="jsmeix_commented_at_2024-06-14_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2167872362">2024-06-14 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-14_1200" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+you are right, currently this pull request's state is<br />
+@pcahyna "requested changes"<br />
+so he needs to approve if now things are OK for him.</p>
+<h4 id="pcahyna_commented_at_2024-06-17_1748"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2173987975">2024-06-17 17:48</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-17_1748" title="Permanent link">&para;</a></h4>
+<p>@rmetrich I reviewed again and found some unaddressed (low-priority)
+comments. Is that an oversight or you did not intend to address them? I
+also found another (low priority) issue that was present in the former
+code and not addressed by your changes.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1002"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175708358">2024-06-18 10:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1002" title="Permanent link">&para;</a></h4>
+<p>@rmetrich thanks you for the new changes, I reviewed all of them and
+marked all comments that they address as resolved. Do you plan to
+address the rest (see the unresolved comments)? Some of them are in
+network protocols (CIFS, DAV) that would IMO be affected by IPv6 address
+problems just as NFS was. Other issues are not related and changes would
+be merely for consistency with other changes.</p>
+<h4 id="rmetrich_commented_at_2024-06-18_1053"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175810040">2024-06-18 10:53</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-06-18_1053" title="Permanent link">&para;</a></h4>
+<p>I consider the changes are all very invasive, I wouldn't add risk with
+fixing more stuff.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1156"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175923174">2024-06-18 11:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1156" title="Permanent link">&para;</a></h4>
+<p>@jsmeix , if you made a mistake, please reset your branch to the
+previous commit
+<a href="https://github.com/rear/rear/pull/3242/commits/4485326d8ec2b62d04f757a0f5232a17caf52773">4485326</a>
+and force-push.</p>
+<h4 id="jsmeix_commented_at_2024-06-18_1156"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175923962">2024-06-18 11:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1156" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+I am sorry I messed up your added quotation<br />
+with my too fast attempt to solve a merge conflict via<br />
+<a href="https://github.com/rear/rear/pull/3242/commits/690e03bb8a01ea5bfbdc08b033f0551efa85788c">https://github.com/rear/rear/pull/3242/commits/690e03bb8a01ea5bfbdc08b033f0551efa85788c</a></p>
+<p>I don't see how I could fix that myself here.</p>
+<h4 id="jsmeix_commented_at_2024-06-18_1158"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175926352">2024-06-18 11:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1158" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I think I don't have a branch.<br />
+I used the GitHub web UI to mess up the merge conflict.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1158"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175927025">2024-06-18 11:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1158" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I will reset it then, ok?</p>
+<h4 id="jsmeix_commented_at_2024-06-18_1159"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175927944">2024-06-18 11:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1159" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+yes please - of course it is OK for me.<br />
+Thank you!</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1203"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175936669">2024-06-18 12:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1203" title="Permanent link">&para;</a></h4>
+<p>And now my turn to make mistakes... I reset to a wrong commit, and I
+can't force-push anymore, damn.</p>
+<p><s>@rmetrich can you please force-push again your commit 4485326 ?</s></p>
+<p>EDIT: When I commented on the code, it became possible to reopen the PR,
+which allowed me to force-push again.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1206"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175941109">2024-06-18 12:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1206" title="Permanent link">&para;</a></h4>
+<p>... into your
+<a href="https://github.com/rmetrich/rear/tree/ipv6">rmetrich:ipv6</a> branch.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1207"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175943170">2024-06-18 12:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1207" title="Permanent link">&para;</a></h4>
+<p>Done, ufff. @jsmeix so now the branch is in the same state as when
+@rmetrich last touched it. What do you need to do now?</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1211"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175950278">2024-06-18 12:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1211" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I will merge the PR and resolve the conflict if that's all that
+you wanted to do.</p>
+<h4 id="rmetrich_commented_at_2024-06-18_1212"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175951882">2024-06-18 12:12</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-06-18_1212" title="Permanent link">&para;</a></h4>
+<p>pushed again</p>
+<h4 id="jsmeix_commented_at_2024-06-18_1226"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175979205">2024-06-18 12:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1226" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rmetrich<br />
+thank you for fixing my mess!<br />
+I am sorry for that.</p>
+<h4 id="jsmeix_commented_at_2024-06-18_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2175985922">2024-06-18 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-18_1230" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+feel free to merge as you like.</p>
+<h4 id="pcahyna_commented_at_2024-06-18_1328"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2176105741">2024-06-18 13:28</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-18_1328" title="Permanent link">&para;</a></h4>
+<p>I opened two issues for the remaining unaddressed comments. Fixing them
+would need a good test coverage of the affected use cases though.</p>
+<h4 id="jsmeix_commented_at_2024-06-19_0450"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2177724492">2024-06-19 04:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-19_0450" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for the two issues for the remaining missing quotings.</p>
+<p>Because - as far as I know - no ReaR user was hit by it<br />
+(i.e. no ReaR user reported an issue here to us)<br />
+I think fixing the two issues is not required for ReaR 3.0<br />
+but it should be fixed (as time permits) for ReaR 3.1.</p>
+<p>With the additional time we may even find a way how to<br />
+setup automated CI tests for the affected use cases.</p>
+<p>I am in particular interested to learn how I could setup<br />
+automated CI tests for various SUSE specific standard systems,<br />
+cf. what I had manually tested for SLES12 and SLES15 in<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles">https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles</a><br />
+But this is something for after ReaR 3.0 was released.</p>
+<p>@pcahyna<br />
+if you agree I set the milestone to "ReaR v3.1"<br />
+for those two issues.</p>
+<h4 id="pcahyna_commented_at_2024-06-19_0904"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178155760">2024-06-19 09:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-19_0904" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>@pcahyna thank you for the two issues for the remaining missing
+quotings.</p>
+<p>Because - as far as I know - no ReaR user was hit by it (i.e. no ReaR
+user reported an issue here to us) I think fixing the two issues is
+not required for ReaR 3.0 but it should be fixed (as time permits) for
+ReaR 3.1.</p>
+<p>With the additional time we may even find a way how to setup automated
+CI tests for the affected use cases.</p>
+</blockquote>
+<p>Yes, I need to make the current test more generic though first, so that
+it is easier to add variations of it without having to copy it as a
+whole and modify it.</p>
+<p>OTOH, for testing these bugs it may be helpful to add tests that are not
+full end-to-end tests (backup &amp; recovery), but just backup or mkrescue
+tests, as the bugs will show up already at backup time. Such tests are
+much simpler and will not need to reuse the current Anton's and Lukas's
+backup&amp;recover script. Of course this is not 100%, as the wrong quoting
+may be fixed in "mkbackup" scripts but left in "recover" scripts, and
+such a bug would be especially nasty from the user's POV.</p>
+<blockquote>
+<p>I am in particular interested to learn how I could setup automated CI
+tests for various SUSE specific standard systems, cf. what I had
+manually tested for SLES12 and SLES15 in
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles">https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles</a>
+But this is something for after ReaR 3.0 was released.</p>
+</blockquote>
+<p>Do you want full backup &amp; recovery tests, or just mkbackup tests? The
+latter are much easier. Do you want a CI test here (on GitHub, to be
+triggered on every PR), or internal to SUSE? Our experience with Anton
+has been that the difficult part of public testing is finding a public
+infrastructure that has the features that you need. E.g. GitHub actions
+do not support rebooting the machine being tested. Testing Farm does,
+but you have only CentOS (Stream) and Fedora systems available in TF.
+Perhaps the support for other distros will appear eventually (I know
+there is already some support for Ubuntu and Debian, but not for VMs
+yet). Or maybe SUSE sponsors a different public infrastructure for such
+purposes?</p>
+<blockquote>
+<p>@pcahyna if you agree I set the milestone to "ReaR v3.1" for those two
+issues.</p>
+</blockquote>
+<p>Sure, go ahead.</p>
+<h4 id="jsmeix_commented_at_2024-06-19_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178585140">2024-06-19 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-19_1230" title="Permanent link">&para;</a></h4>
+<p>Because I would like to automate what I had<br />
+manually tested for SLES12 and SLES15 in<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles">https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles</a><br />
+I would need full "rear mkbackup" plus "rear recover" tests.</p>
+<p>Regarding missing support for<br />
+"rebooting the machine being tested":</p>
+<p>My immediate offhanded and totally untested idea is<br />
+to use 'kexec' to boot the rear recovery system, cf.<br />
+"Launching the ReaR recovery system via kexec" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+and after "rear recover" use 'kexec' again<br />
+to boot the recreated system, cf.<br />
+<a href="https://github.com/rear/rear/issues/2186">https://github.com/rear/rear/issues/2186</a></p>
+<p>Because 'kexec' should leave the disk as is,<br />
+it should be possible to store what we like on disk<br />
+in the old system before 'kexec' and have that<br />
+available in the new system after 'kexec'.<br />
+So when we use 'kexec' to boot the recreated system<br />
+we could add some testing scripts that are run<br />
+at the end when the recreated system started up.</p>
+<p>Regarding "finding a public infrastructure"<br />
+that can run SLES12 or SLES15:</p>
+<p>My wishful thinking is that I could provide<br />
+a manually "ready-to-use" prepaded '*.qcow2' image<br />
+that can be booted by some public infrastructure<br />
+in some QEMU/KVM virtual machine.</p>
+<p>Cf. my<br />
+<a href="https://github.com/rear/rear/pull/3239#issuecomment-2173626556">https://github.com/rear/rear/pull/3239#issuecomment-2173626556</a><br />
+(excerpt):</p>
+<pre><code>In particular I would prefer - if possible - using
+fixed OS versions for our CI tests.
+For example - if possible - by using fixed OS images
+of stable OS versions that we keep in our 'rear' space
+at GitHub under our control: First and foremost
+the stable enterprise Linux distributions RHEL and SLES
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-06-19_1320"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178707810">2024-06-19 13:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-19_1320" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Because I would like to automate what I had manually tested for SLES12
+and SLES15 in
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles">https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6#sles</a>
+I would need full "rear mkbackup" plus "rear recover" tests.</p>
+<p>Regarding missing support for "rebooting the machine being tested":</p>
+<p>My immediate offhanded and totally untested idea is to use 'kexec' to
+boot the rear recovery system, cf. "Launching the ReaR recovery system
+via kexec" in
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a>
+and after "rear recover" use 'kexec' again to boot the recreated
+system, cf. #2186</p>
+<p>Because 'kexec' should leave the disk as is, it should be possible to
+store what we like on disk in the old system before 'kexec' and have
+that available in the new system after 'kexec'. So when we use 'kexec'
+to boot the recreated system we could add some testing scripts that
+are run at the end when the recreated system started up.</p>
+</blockquote>
+<p>Not sure whether this will work, depends on the reason why reboot is not
+possible - many test harnesses do not like to be killed and started
+again - the test script needs to run uninterrupted from the start of the
+test till the end. (The test harness we use in Testing Farm does not
+suffer from this limitation, we can kill the script, even the whole
+machine, and start it again, test will continue from the beginning.)</p>
+<blockquote>
+<p>Regarding "finding a public infrastructure" that can run SLES12 or
+SLES15:</p>
+<p>My wishful thinking is that I could provide a manually "ready-to-use"
+prepaded '*.qcow2' image that can be booted by some public
+infrastructure in some QEMU/KVM virtual machine.</p>
+</blockquote>
+<p>This would work, but you need to find an infrastructure that allows
+running VMs - as the test machines are usually VMs themselves, this
+requires nested virtualization working and enough resources. It looks
+like in GitHub Actions this is supported now but only on larger runners
+(not default):
+<a href="https://github.blog/changelog/2023-02-23-hardware-accelerated-android-virtualization-on-actions-windows-and-linux-larger-hosted-runners/">https://github.blog/changelog/2023-02-23-hardware-accelerated-android-virtualization-on-actions-windows-and-linux-larger-hosted-runners/</a></p>
+<p>We can try if Testing Farm VMs support that.</p>
+<h4 id="jsmeix_commented_at_2024-06-19_1401"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178797038">2024-06-19 14:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-19_1401" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for the background information.<br />
+Now I can a little bit better imagine<br />
+what the root of the various problems is.<br />
+Unsurprisingly RFC 1925 item 6a comes to mind ;-)</p>
+<p>Yes, I think that an infrastructure that allows<br />
+to run VMs directly (e.g. by providing a '*.qcow2' image)<br />
+could be the most simple and straightforward way.</p>
+<p>As time permits I will ask at (open)SUSE<br />
+if we perhaps already have such an infrastructure.<br />
+E.g. currently I know basically nothing about openQA<br />
+<a href="http://open.qa/">http://open.qa/</a><br />
+which is what (open)SUSE uses for testing.</p>
+<h4 id="pcahyna_commented_at_2024-06-19_1500"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178921851">2024-06-19 15:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-19_1500" title="Permanent link">&para;</a></h4>
+<p>Fedora is also using OpenQA (
+<a href="https://fedoraproject.org/wiki/OpenQA">https://fedoraproject.org/wiki/OpenQA</a>
+), but it does not seem to solve our problems: does not look like a test
+infrastructure that will provide VMs to you, but rather a test system
+that you would use on an infrastructure that you already have. But I am
+not sure here. Also, the description does not look like it is
+particularly suitable:</p>
+<blockquote>
+<p>openQA is an automated test system designed around operating
+system-level testing. Its key feature is that it interacts with the
+system under test much like a human would, by sending input using a
+virtual keyboard and mouse (or serial console input), and monitoring
+the screen, serial console and audio outputs for output.</p>
+</blockquote>
+<p>While this kind of simulated interactive testing could be somewhat
+useful for ReaR, thanks to good unattended / automatic capabilities of
+ReaR it is not at all the main problem to solve when starting to develop
+a backup / recovery test (it is rather the interaction of the test with
+rebooting the test VM itself which is the main problem).</p>
+<h4 id="jsmeix_commented_at_2024-06-19_1511"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2178945161">2024-06-19 15:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-19_1511" title="Permanent link">&para;</a></h4>
+<p>I was more thinking about possibly "misusing" openQA<br />
+but I it would not surprise me if openQA does not provide<br />
+what I would like to have - nevertheless I will ask,<br />
+perhaps someone at SUSE knows an infrastructure<br />
+as I would like to have.</p>
+<p>But I would like to postpone that advanced CI testing<br />
+to after the ReaR 3.0 release (as time permits).</p>
+<h4 id="pcahyna_commented_at_2024-06-25_0942"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3242#issuecomment-2188449081">2024-06-25 09:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-25_0942" title="Permanent link">&para;</a></h4>
+<p>@jsmeix yes, certainly try asking around if there is an established way
+to test on SUSE distros on public infrastructure (just like Testing Farm
+is for Fedora-derived distros). Agree to keep it until after 3.0. I will
+also investigate about support for spawning your VMs inside Testing Farm
+VMs.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-10.3242.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
