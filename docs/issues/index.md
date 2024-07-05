@@ -3031,6 +3031,7 @@
 - [\#3017 Issue](2023-06-25.3017.issue.open.md) `open`: Recovery system fails to start up on Fedora 39 (systemd errors
 - [\#3018 Issue](2023-06-26.3018.issue.closed.md) `closed`: BACKUP=SESAM default excludes dysfunctional
 - [\#3019 PR](2023-06-26.3019.pr.merged.md) `merged`: issue: \#3018: fix sesam default exlude pathes
+- [\#3021 Issue](2023-06-27.3021.issue.closed.md) `closed`: systemd private library libsystemd-shared-252.so not found by 'ldd'
 - [\#3021 Issue](2023-06-27.3021.issue.open.md) `open`: libsystemd-shared-252.so not found
 - [\#3022 Issue](2023-06-27.3022.issue.closed.md) `closed`: Where can I find the public GPG keys used to verfiy packages published?
 - [\#3023 PR](2023-07-03.3023.pr.merged.md) `merged`: issue: \#3018: remove $SESAM\_WORK\_DIR from excludes
@@ -3188,12 +3189,15 @@
 - [\#3140 Issue](2024-01-26.3140.issue.open.md) `open`: How to mount USB device during recover (but not during mkbackup
 - [\#3141 Issue](2024-01-29.3141.issue.closed.md) `closed`: /sbin/mount.nfs Binary not available during disaster recovery
 - [\#3141 Issue](2024-01-29.3141.issue.open.md) `open`: /sbin/mount.nfs Binary not available during disaster recovery
+- [\#3142 Issue](2024-01-29.3142.issue.closed.md) `closed`: Enable automated source code formatting
 - [\#3142 Issue](2024-01-29.3142.issue.open.md) `open`: Enable automated source code formatting
+- [\#3143 Issue](2024-01-30.3143.issue.closed.md) `closed`: Implementing own backup method in rear
 - [\#3143 Issue](2024-01-30.3143.issue.open.md) `open`: Implementing own backup method in rear
 - [\#3144 Issue](2024-02-06.3144.issue.open.md) `open`: delete prep/Linux-s390/305\_include\_s390\_tools.sh
 - [\#3145 PR](2024-02-06.3145.pr.merged.md) `merged`: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection
 - [\#3146 Issue](2024-02-07.3146.issue.closed.md) `closed`: mkopalpba fails on Fedora 39
 - [\#3146 Issue](2024-02-07.3146.issue.open.md) `open`: mkopalpba fails on Fedora 39
+- [\#3147 Issue](2024-02-08.3147.issue.closed.md) `closed`: clevis luks bind (no clevis support in ReaR
 - [\#3147 Issue](2024-02-08.3147.issue.open.md) `open`: clevis luks bind
 - [\#3148 Issue](2024-02-08.3148.issue.closed.md) `closed`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
 - [\#3148 Issue](2024-02-08.3148.issue.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
@@ -3242,8 +3246,10 @@
 - [\#3181 PR](2024-03-18.3181.pr.closed.md) `closed`: FYI: Fix for issue 3180 (will be done together with \#3168
 - [\#3182 PR](2024-03-18.3182.pr.merged.md) `merged`: \#3067 use exit code of nc to check BACULA directory availability
 - [\#3183 PR](2024-03-18.3183.pr.merged.md) `merged`: Stale NFS detection in a very early stage \#3109
+- [\#3185 Issue](2024-03-27.3185.issue.closed.md) `closed`: RAID issue: several RAID1 arrays on partitions on disks with 'unknown' partition tables
 - [\#3185 Issue](2024-03-27.3185.issue.open.md) `open`: RAID issue: several RAID1 arrays on partitions on disks with 'unknown' partition tables
 - [\#3186 Issue](2024-03-27.3186.issue.open.md) `open`: error: ../../grub-core/loader/i386/efi/linux.c:158:can't allocate initrd
+- [\#3187 Issue](2024-03-28.3187.issue.closed.md) `closed`: Bareos+ReaR: Problem booting the system after successful recovery
 - [\#3187 Issue](2024-03-28.3187.issue.open.md) `open`: Bareos+ReaR: Problem booting the system after successful recovery
 - [\#3188 PR](2024-04-01.3188.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.0 to 5.1.1
 - [\#3189 Issue](2024-04-02.3189.issue.closed.md) `closed`: BACKUP=TSM booting rescue system (ISO
@@ -3251,15 +3257,20 @@
 - [\#3190 Issue](2024-04-03.3190.issue.closed.md) `closed`: Feature Idea: Create portable rear recover solution OUTPUT=PORTABLE
 - [\#3191 Issue](2024-04-03.3191.issue.closed.md) `closed`: x86\_64 UEFI system needs GRUB2\_IMAGE\_FORMAT=x86\_64-efi
 - [\#3192 PR](2024-04-04.3192.pr.merged.md) `merged`: Set GRUB2\_IMAGE\_FORMAT correctly in prep/Linux-i386/330\_set\_efi\_arch.sh
+- [\#3193 Issue](2024-04-04.3193.issue.closed.md) `closed`: recover only disk layout (partitions, logical volumes and filesystems
 - [\#3193 Issue](2024-04-04.3193.issue.open.md) `open`: recover only disk layout (partitions, logical volumes and filesystems
 - [\#3194 Issue](2024-04-04.3194.issue.open.md) `open`: PBA environment is stuck in Linux kernel log messages
 - [\#3195 Issue](2024-04-04.3195.issue.closed.md) `closed`: `rear mkopalpba` fails
 - [\#3196 PR](2024-04-04.3196.pr.closed.md) `closed`: Fix swapped image formats in 330\_set\_efi\_arch.sh
 - [\#3197 Issue](2024-04-05.3197.issue.closed.md) `closed`: Bug: /var/run should be a symlink to /run, not a directory
 - [\#3198 Issue](2024-04-05.3198.issue.closed.md) `closed`: Bug: ReaR should abort as early as possible if rear recover is run outside rescue system
+- [\#3199 Issue](2024-04-05.3199.issue.closed.md) `closed`: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP\_URL?
 - [\#3199 Issue](2024-04-05.3199.issue.open.md) `open`: Proceed regardless that 'mkrescue' could be destructive with a 'iso' BACKUP\_URL?
+- [\#3200 Issue](2024-04-06.3200.issue.closed.md) `closed`: Redhat recover failed: / cannot be remounted rw
 - [\#3200 Issue](2024-04-06.3200.issue.open.md) `open`: Redhat recover failed: / cannot be remounted rw
+- [\#3201 Issue](2024-04-07.3201.issue.closed.md) `closed`: are these errors a problem?
 - [\#3201 Issue](2024-04-07.3201.issue.open.md) `open`: are these errors a problem?
+- [\#3202 Issue](2024-04-08.3202.issue.closed.md) `closed`: What to improve in ReaR project as lesson learned from XZ Attack?
 - [\#3202 Issue](2024-04-08.3202.issue.open.md) `open`: What to improve in ReaR project as lesson learned from XZ Attack?
 - [\#3203 PR](2024-04-09.3203.pr.open.md) `open`: On hold: New source\_variable\_from\_file(
 - [\#3204 PR](2024-04-09.3204.pr.merged.md) `merged`: Better describe OUTPUT\_PREFIX and NETFS\_PREFIX
@@ -3291,9 +3302,40 @@
 - [\#3230 Issue](2024-05-22.3230.issue.open.md) `open`: ReaR confuses Device Mapper Multipathing (DM
 - [\#3231 Issue](2024-05-22.3231.issue.open.md) `open`: I cant able to recover my ubuntu machine, its getting terminted
 - [\#3232 PR](2024-05-22.3232.pr.merged.md) `merged`: 400\_save\_directories.sh dirty hack to fix issue 3222 for now
+- [\#3233 PR](2024-05-23.3233.pr.merged.md) `merged`: On POWER tell the user when the initrd is big
 - [\#3233 PR](2024-05-23.3233.pr.open.md) `open`: On POWER tell the user when the initrd is big
 - [\#3234 Issue](2024-05-27.3234.issue.open.md) `open`: Replace direct usage of /etc/rear-release with RECOVERY\_MODE
 - [\#3235 Issue](2024-05-30.3235.issue.closed.md) `closed`: Rear 2.7 for Debian 11 signatures invalid (25.05.24
 - [\#3236 PR](2024-06-01.3236.pr.open.md) `open`: Bump codacy/codacy-analysis-cli-action from 4.4.0 to 4.4.1
+- [\#3237 PR](2024-06-01.3237.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
 - [\#3237 PR](2024-06-01.3237.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
+- [\#3238 Issue](2024-06-05.3238.issue.open.md) `open`: RFC: Preparations towards new release of ReaR v3.0
+- [\#3239 PR](2024-06-06.3239.pr.merged.md) `merged`: Fix version test in udev start by desupporting systemd &lt; 190
+- [\#3240 PR](2024-06-07.3240.pr.merged.md) `merged`: Improve Bareos integration
+- [\#3241 Issue](2024-06-09.3241.issue.open.md) `open`: mkrescue fails
+- [\#3242 PR](2024-06-10.3242.pr.merged.md) `merged`: Fix IPv6 address support in OUTPUT\_URL/BACKUP\_URL
+- [\#3243 Issue](2024-06-11.3243.issue.closed.md) `closed`: rear checklayout: possibility to ignore certain logical volume?
+- [\#3244 PR](2024-06-12.3244.pr.merged.md) `merged`: Replace obsolete `egrep` with `grep -E`
+- [\#3245 PR](2024-06-12.3245.pr.open.md) `open`: Avoid returning 1 from a script if all is OK
+- [\#3246 PR](2024-06-12.3246.pr.merged.md) `merged`: Reenable CentOS Stream 8 CI builds and tests
+- [\#3247 Issue](2024-06-13.3247.issue.open.md) `open`: How to setup ReaR for Fedora-Cloud-Base-Generic.x86\_64-40-VERSION.qcow2
+- [\#3248 Issue](2024-06-13.3248.issue.open.md) `open`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
+- [\#3249 Issue](2024-06-14.3249.issue.open.md) `open`: Excluding LV does not work when using 'vgcfgrestore'
+- [\#3250 PR](2024-06-14.3250.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh fix issue \#3021
+- [\#3251 Issue](2024-06-17.3251.issue.open.md) `open`: Decide on test matrix of distributions/versions
+- [\#3252 PR](2024-06-17.3252.pr.merged.md) `merged`: Reduce the matrix of CI runs: disable the Fedora rawhide and 40 tests, Koji scratch builds, openSUSE Copr builds
+- [\#3253 Issue](2024-06-18.3253.issue.open.md) `open`: Having any 'sedutil-cli' makes normal "rear mkrescue" fail
+- [\#3254 PR](2024-06-18.3254.pr.merged.md) `merged`: Replace '/tmp/rear.XXX...' by '/var/tmp/rear.XXX...' in comments
+- [\#3255 Issue](2024-06-18.3255.issue.open.md) `open`: IPv6 address and special character issues in OUTPUT\_URL/BACKUP\_URL
+- [\#3256 Issue](2024-06-18.3256.issue.open.md) `open`: Potential issues with backup path containing glob or whitespace characters
+- [\#3257 Issue](2024-06-19.3257.issue.open.md) `open`: OUTPUT option to only have a grub/efi entry but no ISO?
+- [\#3258 PR](2024-06-19.3258.pr.open.md) `open`: On hold: Implement SourceTrustworthy function
+- [\#3259 Issue](2024-06-21.3259.issue.open.md) `open`: ReaR must not carelessly 'source' files
+- [\#3260 Issue](2024-06-21.3260.issue.open.md) `open`: Generic method how to safely and reliably read shell-style config files
+- [\#3261 PR](2024-06-25.3261.pr.merged.md) `merged`: bareos: require Bareos Director &gt;= 21
+- [\#3262 Issue](2024-06-27.3262.issue.open.md) `open`: Rear Recovery is it supported on Linux Node OpenSVC ?
+- [\#3263 Issue](2024-07-02.3263.issue.open.md) `open`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
+- [\#3264 Issue](2024-07-02.3264.issue.open.md) `open`: Automatic release notes creation as a WIKI page
+- [\#3265 Issue](2024-07-03.3265.issue.open.md) `open`: Issue with mkrescue on EFI servers with multipath devices
+- [\#3267 PR](2024-07-04.3267.pr.open.md) `open`: improve device recognition when creating efibootmgr entry
 - # Issues History of Relax-and-Recover (index.md)
