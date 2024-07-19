@@ -51,11 +51,11 @@ on Github:
 [Github project](http://github.com/rear/rear/)
 
 In case you have questions, ideas or feedback about this document, you
-can contact the development team on the Relax-and-Recover User Guide issues at:
+can contact the development team by creating  an item on the Relax-and-Recover User Guide issues pages at:
 https://github.com/rear/rear-user-guide/issues
 
 !!! note
-       You may always prepare of pull request with your updates, being a new chapter, typos and so on.
+       You may always prepare a pull request with your updates, being a new chapter, typos and so on.
 
 
 ## Design concepts
