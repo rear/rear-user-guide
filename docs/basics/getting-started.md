@@ -1,6 +1,6 @@
 # Getting started with ReaR
 
-Relax-and-Recover (ReaR) is a DR tool written for GNU/Linux, but as we all know there are hundreds of GNU/Linux variants and we do our best to support the majorty of them. However, keep in mind we cannot please everybody.
+Relax-and-Recover (ReaR) is a disaster recovery tool designed for GNU/Linux. Given the vast number of GNU/Linux variants, we strive to support the majority of them. However, please understand that it is not possible to accommodate every variant.
 
 ## Software requirements
 Relax-and-Recover aims to have as little dependencies as possible, however over time certain capabilities were added using utilities and specific

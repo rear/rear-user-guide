@@ -51,13 +51,11 @@ on Github:
 [Github project](http://github.com/rear/rear/)
 
 In case you have questions, ideas or feedback about this document, you
-can contact the development team on the Relax-and-Recover mailinglist at:
-rear-users@lists.relax-and-recover.org.
+can contact the development team on the Relax-and-Recover User Guide issues at:
+https://github.com/rear/rear-user-guide/issues
 
 !!! note
-       Note that you have to be subscribed to be able to send mails to the
-       Relax-and-Recover mailinglist. You can subscribe to the list at:
-       [http://lists.relax-and-recover.org/mailman/listinfo/rear-users](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
+       You may always prepare of pull request with your updates, being a new chapter, typos and so on.
 
 
 ## Design concepts
@@ -71,13 +69,11 @@ defined, and improved over time:
  - Easy to use and easy to extend
  - Easy to integrate with *real* backup software (Open Source and commercial solutions)
 
-The goal is to make Relax-and-Recover as least demanding as possible, it will
-require only the applications necessary to fulfill the job Relax-and-Recover
-is configured (and designed) for.
+The goal is to make Relax-and-Recover as user-friendly as possible. It will require
+only the applications necessary to fulfill the tasks for which it is configured and designed.
 
-Furthermore, Relax-and-Recover should be platform independent and ideally
-install just as a set of scripts that utilizes everything that the Linux
-operating system provides.
+Furthermore, Relax-and-Recover should be platform-independent and ideally install as a set 
+of scripts that utilize the resources provided by the Linux operating system.
 
 
 ## Features and functionality
