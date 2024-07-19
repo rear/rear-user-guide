@@ -52,7 +52,7 @@ on Github:
 
 In case you have questions, ideas or feedback about this document, you
 can contact the development team by creating  an item on the Relax-and-Recover User Guide issues pages at:
-https://github.com/rear/rear-user-guide/issues
+[https://github.com/rear/rear-user-guide/issues](https://github.com/rear/rear-user-guide/issues)
 
 !!! note
        You may always prepare a pull request with your updates, being a new chapter, typos and so on.
