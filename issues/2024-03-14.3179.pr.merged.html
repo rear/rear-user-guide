@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3179 PR merged: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3179 PR merged: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration";
+        var mkdocs_page_input_path = "issues/2024-03-14.3179.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3179 PR merged: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3179_pr_merged_migrate_mac_addresses_and_interface_names_in_networkmanager_keyfiles_during_network_configuration_migration"><a href="https://github.com/rear/rear/pull/3179">#3179 PR</a> <code>merged</code>: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration<a class="headerlink" href="#3179_pr_merged_migrate_mac_addresses_and_interface_names_in_networkmanager_keyfiles_during_network_configuration_migration" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="pcahyna_opened_issue_at_2024-03-14_0807"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3179">2024-03-14 08:07</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2024-03-14_0807" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Migration of Fedora Linux system to different hardware (different
+    NICs). With this patch, the network connections are preserved and
+    functional after recovery, even though the NICs have different names
+    and different MAC adresses.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Migrate NM keyfiles during network conf migration. See
+    <a href="https://fedoramagazine.org/converting-networkmanager-from-ifcfg-to-keyfiles/">https://fedoramagazine.org/converting-networkmanager-from-ifcfg-to-keyfiles/</a>
+    for more details on NetworkManager keyfiles.<br />
+    Only MAC addresses and interface names are migrated for now.<br />
+    TODO: migrate also IP addresses and routes.</p>
+</li>
+</ul>
+<h4 id="pcahyna_commented_at_2024-03-14_2233"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-1998592244">2024-03-14 22:33</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-14_2233" title="Permanent link">&para;</a></h4>
+<p>Regarding "TODO: migrate also IP addresses and routes."</p>
+<p>Is it worth supporting migration of IP addresses and routes? What is the
+use case? I suppose it is for machine cloning to several not completely
+identical (different network address) copies, as I don't see how it is
+useful for the typical use of ReaR (disaster and recovery) where you
+need an identical address after recovery. Would it be acceptable to
+remove this feature (say in ReaR 3.0)?</p>
+<h4 id="jsmeix_commented_at_2024-03-15_0736"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-1999090980">2024-03-15 07:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-15_0736" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+offhandedly I don't know what the use case is<br />
+for migration of IP addresses and routes.</p>
+<p>My guess is similar as yours that at some time in the past<br />
+someone (mis?)used ReaR for migration of networking setup?</p>
+<p>Perhaps (also only a guess) the idea behind is to use ReaR<br />
+to migrate a system from one environment into a different<br />
+environment, for example from bare metal hardware in one<br />
+network environment to a VM in another network environment<br />
+or something like that?</p>
+<p>On the one hand ReaR has too many (often half-baked) features<br />
+that are almost never used in practice (and bit-rotting)<br />
+so I would like to drop corner-case features that are not<br />
+sufficiently well implemented and basically unmaintained<br />
+at ReaR upstream because it is a nightmare to maintain<br />
+when customers have issues with such features.</p>
+<p>On the other hand such features can be a starting point for<br />
+further development to get them sufficiently well implemented<br />
+so such features could become business opportunities when<br />
+customers want to pay for further development.</p>
+<p>I think the solution out of this conflict is<br />
+deprecation via <code>ErrorIfDeprecated()</code>.</p>
+<p>This way we learn via somewhat enforced user feedback<br />
+which of those features are actually in use and<br />
+we can ask back those users what their use-case is<br />
+so we better understand those corner-case features<br />
+and then we can make an informed decision<br />
+what to do with each individual corner-case feature<br />
+(drop it, keep it as is, further develop it).</p>
+<h4 id="jsmeix_commented_at_2024-03-15_0758"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-1999117329">2024-03-15 07:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-15_0758" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you by the way show $network_config_file values<br />
+in user output messages with <code>'</code> to make it clear<br />
+when a single value consists of more than one word.</p>
+<p>As far as I see it is those two code places</p>
+<pre><code>Log "Wrote new MAC addresses and network interfaces in $network_config_file"
+...
+LogPrintError "Failed to rewrite MAC addresses and network interfaces in $network_config_file"
+</code></pre>
+<p>that should be enhanced to</p>
+<pre><code>Log "Wrote new MAC addresses and network interfaces in '$network_config_file'"
+...
+LogPrintError "Failed to rewrite MAC addresses and network interfaces in '$network_config_file'"
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-15_1358"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-1999726493">2024-03-15 13:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-15_1358" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>My guess is similar as yours that at some time in the past someone
+(mis?)used ReaR for migration of networking setup?</p>
+<p>Perhaps (also only a guess) the idea behind is to use ReaR to migrate
+a system from one environment into a different environment, for
+example from bare metal hardware in one network environment to a VM in
+another network environment or something like that?</p>
+</blockquote>
+<p>I supposed the idea was to use ReaR for cloning, i.e. backup a machine
+once and then restore it to multiple instances, each one will then need
+a different IP address. It seems though that according to the commit
+message of 844d50b75ac4b7722f4fee7a5ee3350b93f3adb7 by @schlomo where
+this functionality was introduced, they had indeed rather the idea of
+"migrating bare metal hardware in one network environment to a VM in
+another network environment" in mind.</p>
+<h4 id="schlomo_commented_at_2024-03-15_1411"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-1999755249">2024-03-15 14:11</a>:<a class="headerlink" href="#schlomo_commented_at_2024-03-15_1411" title="Permanent link">&para;</a></h4>
+<p>Oh yes, that was the first version of migration support developed for
+P2V.</p>
+<h4 id="pcahyna_commented_at_2024-03-15_1639"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2000041814">2024-03-15 16:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-15_1639" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna could you by the way show $network_config_file values in
+user output messages with <code>'</code> to make it clear when a single value
+consists of more than one word.</p>
+<p>As far as I see it is those two code places</p>
+<pre><code>Log "Wrote new MAC addresses and network interfaces in $network_config_file"
+...
+LogPrintError "Failed to rewrite MAC addresses and network interfaces in $network_config_file"
+</code></pre>
+<p>that should be enhanced to</p>
+<pre><code>Log "Wrote new MAC addresses and network interfaces in '$network_config_file'"
+...
+LogPrintError "Failed to rewrite MAC addresses and network interfaces in '$network_config_file'"
+</code></pre>
+</blockquote>
+<p>@jsmeix sure, 5ea58a7f91d80aa2dbe4da16802ab2a8c46b28a5</p>
+<h4 id="pcahyna_commented_at_2024-03-15_1641"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2000044704">2024-03-15 16:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-15_1641" title="Permanent link">&para;</a></h4>
+<p>I now pushed another change, 5ea58a7f91d80aa2dbe4da16802ab2a8c46b28a5,
+for a proper test for an empty array. Unfortunately, the code is now
+untested, as I have not tested with this change.</p>
+<h4 id="schlomo_commented_at_2024-05-24_1744"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2130069170">2024-05-24 17:44</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-24_1744" title="Permanent link">&para;</a></h4>
+<p>Ping @rear/contributors can we merge this or should we drop this?</p>
+<h4 id="gdha_commented_at_2024-06-14_1234"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2167937814">2024-06-14 12:34</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-14_1234" title="Permanent link">&para;</a></h4>
+<p>@pcahyna The milestone should be updated and merge this code or drop it
+- it is up to you</p>
+<h4 id="gdha_commented_at_2024-06-20_0952"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2180276276">2024-06-20 09:52</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-20_0952" title="Permanent link">&para;</a></h4>
+<p>I cleared the milestone due to lack of activity in the PR</p>
+<h4 id="schlomo_commented_at_2024-07-12_0842"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3179#issuecomment-2225105784">2024-07-12 08:42</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_0842" title="Permanent link">&para;</a></h4>
+<p>I like this change and don't see any harm in it.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-14.3179.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

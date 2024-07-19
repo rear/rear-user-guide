@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3277 PR open: WIP: Autodetect EFI shim - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3277 PR open: WIP: Autodetect EFI shim";
+        var mkdocs_page_input_path = "issues/2024-07-12.3277.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3277 PR open: WIP: Autodetect EFI shim</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3277_pr_open_wip_autodetect_efi_shim"><a href="https://github.com/rear/rear/pull/3277">#3277 PR</a> <code>open</code>: WIP: Autodetect EFI shim<a class="headerlink" href="#3277_pr_open_wip_autodetect_efi_shim" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="pcahyna_opened_issue_at_2024-07-12_1118"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3277">2024-07-12 11:18</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2024-07-12_1118" title="Permanent link">&para;</a></h4>
+<p>fixes #3276</p>
+<h4 id="schlomo_commented_at_2024-07-12_1240"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225496266">2024-07-12 12:40</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1240" title="Permanent link">&para;</a></h4>
+<h2 id="ubuntu_2404">Ubuntu 24.04 ⚠️<a class="headerlink" href="#ubuntu_2404" title="Permanent link">&para;</a></h2>
+<pre><code>root@rear-u2404:/src/rear-pcahyna# REAR_VAR=/tmp/rear ./usr/sbin/rear -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 3728 date 2024-07-12 12:18:13)
+Using log file: /tmp/rear/log/rear/rear-rear-u2404.log
+Running workflow mkrescue on the normal/original system
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using autodetected kernel '/boot/vmlinuz-6.8.0-38-generic' as kernel in the recovery system
+Creating disk layout
+Verifying that the entries in /tmp/rear/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /tmp/rear/lib/rear/layout/disklayout.conf)
+Creating recovery system root filesystem skeleton layout
+Skipping 'lo': not bound to any physical interface.
+Trying to autodetect from EFI variables what to use as UEFI bootloader file...
+Detected current EFI bootloader /boot/efi/EFI/ubuntu/shimx64.efi
+Detected distribution EFI bootloader shimx64.efi in /boot/efi/EFI/ubuntu/BOOTX64.CSV
+Trying to find what to use as UEFI bootloader...
+Trying to find grub*.efi in the directory of the Secure Boot bootloader /boot/efi/EFI/ubuntu/shimx64.efi to be used as UEFI bootloader...
+Using '/boot/efi/EFI/ubuntu/shimx64.efi' as UEFI Secure Boot bootloader file
+Copying logfile /tmp/rear/log/rear/rear-rear-u2404.log into initramfs as '/tmp/rear-rear-u2404-partial-2024-07-12T12:18:18+00:00.log'
+Copying files and directories
+Copying binaries and libraries
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+Testing that the recovery system in /var/tmp/rear.k8egAkMMqKPF8jd/rootfs contains a usable system
+/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-255.so requires additional libraries
+        libsystemd-shared-255.so =&gt; not found
+ReaR recovery system in '/var/tmp/rear.k8egAkMMqKPF8jd/rootfs' needs additional libraries, check /tmp/rear/log/rear/rear-rear-u2404.log for details
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (81021118 bytes) in 9 seconds
+Did not find /boot/grub/locale files (minor issue for UEFI ISO boot)
+Making ISO image
+Wrote ISO image: /tmp/rear/lib/rear/output/rear-rear-u2404.iso (198M)
+Copying resulting files to nfs location
+Saving /tmp/rear/log/rear/rear-rear-u2404.log as rear-rear-u2404.log to nfs location
+Copying result files '/tmp/rear/lib/rear/output/rear-rear-u2404.iso /var/tmp/rear.k8egAkMMqKPF8jd/tmp/VERSION /var/tmp/rear.k8egAkMMqKPF8jd/tmp/README /var/tmp/rear.k8egAkMMqKPF8jd/tmp/rear-rear-u2404.log' to /var/tmp/rear.k8egAkMMqKPF8jd/outputfs/rear-u2404 at nfs location
+Exiting rear mkrescue (PID 3728) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>But the resulting ISO image is not bootable.</p>
+<p>Log file from <code>rear -D mkrescue</code>:
+<a href="https://github.com/user-attachments/files/16194131/rear-rear-u2404.log">rear-rear-u2404.log</a></p>
+<p>The <code>isofs</code> directory:</p>
+<pre><code>root@rear-u2404:/var/tmp/rear.XAjwSd2enV3Cv6t/tmp/isofs# tree -f
+.
+├── ./EFI
+│   └── ./EFI/BOOT
+│       ├── ./EFI/BOOT/BOOTX64.efi
+│       ├── ./EFI/BOOT/fonts
+│       │   └── ./EFI/BOOT/fonts/unicode.pf2
+│       ├── ./EFI/BOOT/grub.cfg
+│       ├── ./EFI/BOOT/grubx64.efi
+│       └── ./EFI/BOOT/locale
+├── ./boot
+│   ├── ./boot/efiboot.img
+│   └── ./boot/grub
+│       └── ./boot/grub/grub.cfg
+└── ./isolinux
+    ├── ./isolinux/chain.c32
+    ├── ./isolinux/hdt.c32
+    ├── ./isolinux/initrd.cgz
+    ├── ./isolinux/isolinux.bin
+    ├── ./isolinux/isolinux.cfg
+    ├── ./isolinux/kernel
+    ├── ./isolinux/libcom32.c32
+    ├── ./isolinux/libgpl.c32
+    ├── ./isolinux/libmenu.c32
+    ├── ./isolinux/libutil.c32
+    ├── ./isolinux/menu.c32
+    ├── ./isolinux/message
+    ├── ./isolinux/pci.ids
+    ├── ./isolinux/rear.help
+    ├── ./isolinux/reboot.c32
+    └── ./isolinux/vesamenu.c32
+</code></pre>
+<p>and the comparison between the efi files:</p>
+<pre><code>root@rear-u2404:/var/tmp/rear.XAjwSd2enV3Cv6t/tmp/isofs# ll ./EFI/BOOT/BOOTX64.efi ./EFI/BOOT/grubx64.efi /boot/efi/EFI/ubuntu/shimx64.efi /boot/efi/EFI/ubuntu/grubx64.efi 
+-rwx------ 1 root root 2656136 Jul 12 12:33 ./EFI/BOOT/BOOTX64.efi*
+-rwx------ 1 root root 2656136 Jul 12 12:33 ./EFI/BOOT/grubx64.efi*
+-rwxr-xr-x 1 root root 2656136 Jul 12 12:03 /boot/efi/EFI/ubuntu/grubx64.efi*
+-rwxr-xr-x 1 root root  966664 Jul 12 12:03 /boot/efi/EFI/ubuntu/shimx64.efi*
+</code></pre>
+<p>so it seems to not have picked the shim even though the console output
+during <code>mkrescue</code> suggested that it did:</p>
+<pre><code>Trying to autodetect from EFI variables what to use as UEFI bootloader file...
+Detected current EFI bootloader /boot/efi/EFI/ubuntu/shimx64.efi
+Detected distribution EFI bootloader shimx64.efi in /boot/efi/EFI/ubuntu/BOOTX64.CSV
+Trying to find what to use as UEFI bootloader...
+Trying to find grub*.efi in the directory of the Secure Boot bootloader /boot/efi/EFI/ubuntu/shimx64.efi to be used as UEFI bootloader...
+Using '/boot/efi/EFI/ubuntu/shimx64.efi' as UEFI Secure Boot bootloader file
+</code></pre>
+<p>HTH</p>
+<h4 id="pcahyna_commented_at_2024-07-12_1302"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225540425">2024-07-12 13:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-12_1302" title="Permanent link">&para;</a></h4>
+<p>Thanks @schlomo for your test - tests on other distributions is exactly
+what is needed.</p>
+<p>I recall now that the code has had one more huge gap - it is OUTPUT=USB
+only, support for OUTPUT=ISO has needed to be added IIRC. Can you please
+retry on Ubuntu, but with OUTPUT=USB ?</p>
+<h4 id="schlomo_commented_at_2024-07-12_1307"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225555058">2024-07-12 13:07</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1307" title="Permanent link">&para;</a></h4>
+<p>@pcahyna unfortunately I don't know how to test USB mode on VirtualBox,
+and I don't have any time left.</p>
+<p>SLE15.6 also doesn't work, similar to Ubuntu.</p>
+<p>I'd like to suggest using #3278 as a quick fix for the moment and this
+version as an improvement on that. The approaches are fundamentally
+different so that they can either complement each other or you'll simply
+remove the 1 file I added.</p>
+<p>WDYT?</p>
+<h4 id="schlomo_commented_at_2024-07-12_1349"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225630138">2024-07-12 13:49</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1349" title="Permanent link">&para;</a></h4>
+<p>@pcahyna do you see any chance to unify the EFI boot between at least
+ISO and USB, preferably also RAWDISK? Maybe using functions to do the
+actual work? Or symlinking scripts between the different directories?</p>
+<p>Maybe another approach could be to use your improved "getting infos from
+EFI vars" code with my simpler "enable secure boot if shim is used" idea
+in #3278? Maybe that would be less effort?</p>
+<p>Will you find time to complete this work in the near future or for the
+planned 3.0 release?</p>
+<h4 id="pcahyna_commented_at_2024-07-12_1555"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225875543">2024-07-12 15:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-12_1555" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Will you find time to complete this work in the near future or for the
+planned 3.0 release?</p>
+</blockquote>
+<p>I believe I will, but without any attempt at</p>
+<blockquote>
+<p>unify the EFI boot between at least ISO and USB, preferably also
+RAWDISK? Maybe using functions to do the actual work? Or symlinking
+scripts between the different directories?</p>
+</blockquote>
+<p>This would be too much work, I am afraid. Unless the ISO part proves to
+be easier to do this way rather than via an incremental change, which I
+doubt.</p>
+<h4 id="pcahyna_commented_at_2024-07-12_1556"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225877947">2024-07-12 15:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-12_1556" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Maybe another approach could be to use your improved "getting infos
+from EFI vars" code with my simpler "enable secure boot if shim is
+used" idea in
+<a href="https://github.com/rear/rear/pull/3278">https://github.com/rear/rear/pull/3278</a>?
+Maybe that would be less effort?</p>
+</blockquote>
+<p>I think not, but I need to check again what needs to be done for ISO and
+why you have not needed any such change in your simpler approach.</p>
+<h4 id="pcahyna_commented_at_2024-07-12_1659"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2225970700">2024-07-12 16:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-12_1659" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna unfortunately I don't know how to test USB mode on
+VirtualBox, and I don't have any time left.</p>
+<p>SLE15.6 also doesn't work, similar to Ubuntu.</p>
+</blockquote>
+<p>@schlomo I am sorry that I forgot why I had not proposed this PR earlier
+in the first place (testing on other distros was not the main reason -
+the need to complete the ISO support was) and had to be reminded via
+your test failure and thus I wasted your time.</p>
+<p>This brings me a larger question though: who will test changes on
+Ubuntu/Debian? Will you be able to find the time to retest again after
+this is completed? I don't have any Ubuntu or Debian test environment
+and this is not the first time that the desire of supporting
+Ubuntu/Debian and the simultaneous lack of ability of testing changes on
+it has been an obstacle. I checked the Ubuntu package: it is in the
+Universe repository, meaning Community-maintained instead of
+Canonical-supported - a very different situation from Red Hat and SUSE
+who provide supported versions to customers and employ people that
+support their distros. In Ubuntu, the package seems to be simply taken
+from Debian. And in Debian, the maintainer (Frédéric Bonnard) has not
+touched the package for a long time and even the one CVE bug is still
+unpatched:
+<a href="https://tracker.debian.org/pkg/rear">https://tracker.debian.org/pkg/rear</a>
+.</p>
+<p>I am afraid that this model for Debian and Ubuntu support is not
+sustainable.</p>
+<blockquote>
+<p>I'd like to suggest using #3278 as a quick fix for the moment and
+this version as an improvement on that. The approaches are
+fundamentally different so that they can either complement each other
+or you'll simply remove the 1 file I added.</p>
+</blockquote>
+<p>Generally I prefer to not add half-finished stuff, but if it does not
+make integrating a more complete solution more difficult, I think that
+perfect is the enemy of good and what you suggest is the best solution.
+Let me check in more detail what the exact differences between the
+approaches are, please, and I will give my review on #3278 then.</p>
+<h4 id="gdha_commented_at_2024-07-17_0628"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2232527258">2024-07-17 06:28</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-17_0628" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @schlomo I prefer to have a solid solution and not force a v3.0
+release on short notice. WDYT?</p>
+<h4 id="schlomo_commented_at_2024-07-17_0635"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2232537772">2024-07-17 06:35</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-17_0635" title="Permanent link">&para;</a></h4>
+<p>@gdha I'm actually for iterative improvement. #3278 adds support for
+secure boot auto-configuration without improving anything for systems
+where secure boot is not active. And it doesn't change anything else,
+too.</p>
+<p>All users with active secure boot will benefit from it and I would like
+to give that to our users.</p>
+<p>In the absence of paid development or a roadmap with people committing
+to work on it within a given time I think that as an Open Source project
+we need to take what we can get when it comes.</p>
+<h4 id="gdha_commented_at_2024-07-17_0640"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2232544241">2024-07-17 06:40</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-17_0640" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<blockquote>
+<p>In the absence of paid development or a roadmap with people committing
+to work on it within a given time I think that as an Open Source
+project we need to take what we can get when it comes.</p>
+</blockquote>
+<p>Indeed, that is true. However, remember our words "<em>why rush it if we
+are not paid for a new release?</em>"</p>
+<h4 id="pcahyna_commented_at_2024-07-17_1841"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2234005772">2024-07-17 18:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-17_1841" title="Permanent link">&para;</a></h4>
+<p>I am with @schlomo here. I would prefer to take longer for a solid
+solution, if the less solid solution either: -- makes things worse in
+some cases (I don't see this in the case
+<a href="https://github.com/rear/rear/pull/3278">https://github.com/rear/rear/pull/3278</a>
+), or: -- adds poorly designed configuration options or changes the
+interpretation of current configuration options in future-incompatible
+way, as it would create more work for the user (basically they would
+have to adapt again when a more solid solution is implemented and I
+don't think this would be the case in #3278 either, although I still
+need to check).</p>
+<p>And I don't think it necessarily means to force a v3.0 release on short
+notice - we can still attempt to get this PR merged before 3.0, it
+merely means that if it proves too difficult, we have at least
+something.</p>
+<p>Regarding "we are not paid for ...", any thoughts on the "we are not
+paid for Ubuntu /Debian, yet we support it" problem?</p>
+<h4 id="gdha_commented_at_2024-07-18_0637"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3277#issuecomment-2235734931">2024-07-18 06:37</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-18_0637" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>Regarding "we are not paid for ...", any thoughts on the "we are not
+paid for Ubuntu /Debian, yet we support it" problem?</p>
+</blockquote>
+<p>That is an unfair statement! It will not help the Open Source movement
+by throwing mud.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-12.3277.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

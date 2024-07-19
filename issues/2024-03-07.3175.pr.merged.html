@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3175 PR merged: Automatically include mounted btrfs subvolumes in NETFS backups - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3175 PR merged: Automatically include mounted btrfs subvolumes in NETFS backups";
+        var mkdocs_page_input_path = "issues/2024-03-07.3175.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3175 PR merged: Automatically include mounted btrfs subvolumes in NETFS backups</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3175_pr_merged_automatically_include_mounted_btrfs_subvolumes_in_netfs_backups"><a href="https://github.com/rear/rear/pull/3175">#3175 PR</a> <code>merged</code>: Automatically include mounted btrfs subvolumes in NETFS backups<a class="headerlink" href="#3175_pr_merged_automatically_include_mounted_btrfs_subvolumes_in_netfs_backups" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-03-07_1200"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3175">2024-03-07 12:00</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-03-07_1200" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear/issues/2928">https://github.com/rear/rear/issues/2928</a></p>
+</li>
+<li>
+<p>How was this pull request tested? <code>rear savelayout</code> and manual
+    inspection of generated files and backup/restore of a Fedora Rawhide
+    machine</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+<ul>
+<li>automatically include mounted btrfs subvolumes in NETFS backups</li>
+<li>improve generation of <code>$RESTORE_EXCLUDE_FILE</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-03-07_1324"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983498175">2024-03-07 13:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1324" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+thank you for this enhancement!</p>
+<p>I will test how it behaves on SLES systems<br />
+with their rather complicated default btrfs structure.</p>
+<p>Offhandedly I think the main problem is<br />
+possibly mounted btrfs snapshot subvolumes, see<br />
+"When btrfs is used with snapshots ...<br />
+then usual backup and restore cannot work." in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#btrfs">https://en.opensuse.org/SDB:Disaster_Recovery#btrfs</a></p>
+<p>I.e. when there are mounted btrfs "thingies"<br />
+listed as 'btrfsmountedsubvol' in disklayout.conf<br />
+that are also listed as '#btrfssnapshotsubvol'.</p>
+<p>For example a disklayout.conf on SLES15-SP5 (excerpts)</p>
+<pre><code>btrfsdefaultsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+...
+#btrfssnapshotsubvol /dev/sda2 / 272 @/.snapshots/2/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 273 @/.snapshots/3/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 274 @/.snapshots/4/snapshot
+...
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+btrfsmountedsubvol /dev/sda2 /boot/grub2/x86_64-efi rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi @/boot/grub2/x86_64-efi
+btrfsmountedsubvol /dev/sda2 /root rw,relatime,space_cache,subvolid=262,subvol=/@/root @/root
+btrfsmountedsubvol /dev/sda2 /opt rw,relatime,space_cache,subvolid=263,subvol=/@/opt @/opt
+btrfsmountedsubvol /dev/sda2 /home rw,relatime,space_cache,subvolid=264,subvol=/@/home @/home
+btrfsmountedsubvol /dev/sda2 /boot/grub2/i386-pc rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 /srv rw,relatime,space_cache,subvolid=261,subvol=/@/srv @/srv
+btrfsmountedsubvol /dev/sda2 /tmp rw,relatime,space_cache,subvolid=260,subvol=/@/tmp @/tmp
+btrfsmountedsubvol /dev/sda2 /usr/local rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local @/usr/local
+btrfsmountedsubvol /dev/sda2 /var rw,relatime,space_cache,subvolid=258,subvol=/@/var @/var
+</code></pre>
+<p>For example assume in addition to @/.snapshots/1/snapshot<br />
+that is the current system snapshot which is mounted at /<br />
+also<br />
+some other snapshots of the system like<br />
+@/.snapshots/2/snapshot and @/.snapshots/4/snapshot<br />
+are mounted e.g. at /snapshot2 and /snapshot4</p>
+<p>Then a 'tar' backup would contain the system files<br />
+basically three times:</p>
+<ol>
+<li>the files of what is mounted at /</li>
+<li>the files of what is mounted at /snapshot2</li>
+<li>the files of what is mounted at /snapshot4</li>
+</ol>
+<p>So the backup would be basically about three times<br />
+as big as if only what is mounted at / was backed up.</p>
+<p>But during 'tar' restore there is no deduplication<br />
+so the restore would basically need about three times<br />
+the disk space as the original system needed.</p>
+<h4 id="pcahyna_commented_at_2024-03-07_1332"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983517679">2024-03-07 13:32</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1332" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think the main problem is<br />
+possibly mounted btrfs snapshot subvolumes</p>
+</blockquote>
+<p>I am not a btrfs expert at all, but is it possible to distinguish
+snapshot subvolumes from "normal" (non-snapshot) subvolumes? Then we
+could save this subvolume metadata (snapshot yes/no) and do something
+based on the information when recreating and restoring. First we would
+probably just skip snapshots, later we could do something more
+intelligent if possible.<br />
+It is definitely possible to distinguish snapshots from regular
+filesystems (filessytems are equivalent to btrfs subvolumes) in ZFS. It
+is also possible to recognize snapshots from regular volumes in LVM.</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1349"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983546230">2024-03-07 13:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1349" title="Permanent link">&para;</a></h4>
+<p>Only an offhanded thought:</p>
+<p>I fear btrfs normal subvolumes versus btrfs snapshot subvolumes<br />
+is only one example of a very generic problem when by default<br />
+every mounted "thingy" is included in the 'tar' backup:</p>
+<p>I think it is in general possible that one same<br />
+"mountable thingy" can be mounted at the same time<br />
+at different mount points e.g. at '/here' and '/there'.</p>
+<p>When '/here' and '/there' are included in a 'tar' backup<br />
+things may get restored twice as distinct sets of files<br />
+and not as one same set of files that is mounted two times<br />
+under the mountpoint directories '/here' and '/there'.</p>
+<p>Tomorrow I will experiment a bit with that.</p>
+<h4 id="jsmeix_commented_at_2024-03-07_1352"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1983552670">2024-03-07 13:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-07_1352" title="Permanent link">&para;</a></h4>
+<p>Perhaps we can by default have every mounted "thingy"<br />
+included in the 'tar' backup<br />
+BUT<br />
+we may need some check for duplicates in the 'tar' backup<br />
+i.e. something that detects when one same "mountable thingy"<br />
+will become included in the 'tar' backup more than once.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_0849"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985290555">2024-03-08 08:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_0849" title="Permanent link">&para;</a></h4>
+<p>Currently I am exploring how 'tar' behaves in general<br />
+when exact same files are provided as 'tar' arguments<br />
+to be archived.</p>
+<p>It seems 'tar' behaves well forgiving in this case:</p>
+<pre><code># mkdir test
+
+# cd test
+
+# echo foo &gt;foo
+
+# tar -cvvvf test.tar foo foo
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# tar -tvvvf test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# mkdir untartest
+
+# cd untartest/
+
+# tar -xvvvf ../test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# ls -l
+total 4
+-rw-r--r-- 1 root root 4 Mar  8 09:41 foo
+</code></pre>
+<p>So perhaps only mounted btrfs snapshot subvolumes<br />
+added to 'tar' arcives cause real problems in practice.<br />
+In this case btrfs snapshot subvolumes should be excluded<br />
+by default from being added to what 'tar' should archive.</p>
+<p>I think it is OK if a user mounts the same stuff<br />
+at different mount points and ReaR includes those<br />
+mount points by default in the 'tar' backup<br />
+then it is up to the user to manually exclude things<br />
+as needed from his backup.</p>
+<h4 id="pcahyna_commented_at_2024-03-08_0859"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985306750">2024-03-08 08:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_0859" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>I fear btrfs normal subvolumes versus btrfs snapshot subvolumes is
+only one example of a very generic problem when by default every
+mounted "thingy" is included in the 'tar' backup:</p>
+<p>I think it is in general possible that one same "mountable thingy" can
+be mounted at the same time at different mount points</p>
+</blockquote>
+<p>I disagree that it is an example of this problem. Snapshots are not the
+same thing mounted at different places. They are different things
+mounted at different places - snapshots exist because their content is
+(at least in principle) different.</p>
+<p>One filesystem mounted at more places can occur as well, and it will
+result in an explosion of backup data, but it restoring it twice then
+should not result in an increase of the size of the restored system,
+only in a slower restore, because you keep restoring to the same
+filesystem.</p>
+<p>I would not try to solve these two problems in the same way (cf. RFC
+1925 item 5).</p>
+<h4 id="pcahyna_commented_at_2024-03-08_0951"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985382738">2024-03-08 09:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_0951" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>It seems 'tar' behaves well forgiving in this case:</p>
+<pre><code># mkdir test
+
+# cd test
+
+# echo foo &gt;foo
+
+# tar -cvvvf test.tar foo foo
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# tar -tvvvf test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# mkdir untartest
+
+# cd untartest/
+
+# tar -xvvvf ../test.tar
+-rw-r--r-- root/root         4 2024-03-08 09:41 foo
+hrw-r--r-- root/root         0 2024-03-08 09:41 foo link to foo
+
+# ls -l
+total 4
+-rw-r--r-- 1 root root 4 Mar  8 09:41 foo
+</code></pre>
+</blockquote>
+<p>It thinks that the doubled file names are different names for the same
+files (i.e. hardlinks), which is not entirely correct - not sure if it
+can have some unwanted consequences or not.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985593096">2024-03-08 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1216" title="Permanent link">&para;</a></h4>
+<p>Yes.</p>
+<p>The whole point of my experiments with 'tar' here<br />
+is to find out if my "fear" above is true or not and<br />
+in general to better understand what we have to deal with.</p>
+<p>If it is actually only one root problem<br />
+then this root problem should be solved<br />
+(instead of solving each of its instances).</p>
+<p>If it is actually several separated problems then<br />
+each separated problem should be solved separately.</p>
+<p><a href="https://github.com/rear/rear/pull/3175#issuecomment-1985290555">https://github.com/rear/rear/pull/3175#issuecomment-1985290555</a><br />
+indicates that it is several separated problems<br />
+(but this is only my very first test in this area).</p>
+<p>From my experiments with 'tar' in the past I know that<br />
+'tar' behaves deterministically (i.e. as programmed and<br />
+documented when reading the whole 'tar' manual carefully)<br />
+but that could appear rather often 'unexpectedly'<br />
+(i.e. different than what one may expect offhandedly), e.g.<br />
+<a href="https://github.com/rear/rear/issues/2911#issuecomment-1398346148">https://github.com/rear/rear/issues/2911#issuecomment-1398346148</a></p>
+<h4 id="pcahyna_commented_at_2024-03-08_1245"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">2024-03-08 12:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1245" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If it is actually only one root problem then this root problem should
+be solved (instead of solving each of its instances).</p>
+<p>If it is actually several separated problems then each separated
+problem should be solved separatedly.</p>
+</blockquote>
+<p>That's an interesting idea. For multiple identical arguments to <code>tar</code>,
+tar duplicates the backup and considers the secondary copy as a hardlink
+to the first copy. I checked that the same happens when there is a
+filesystem mounted multiple times:</p>
+<pre><code># mkdir /mnt/mount1
+# mkdir /mnt/mount2
+# mount /dev/vdb /mnt/mount1
+# mount /dev/vdb /mnt/mount2
+# touch /mnt/mount1/foo
+# ls -l /mnt/mount2/foo
+-rwxr-xr-x. 1 root root 0 Mar  8 07:36 /mnt/mount2/foo
+# tar cvvf /dev/null /mnt/mount1 /mnt/mount2
+tar: Removing leading `/' from member names
+drwxr-xr-x root/root         0 1969-12-31 19:00 /mnt/mount1/
+-rwxr-xr-x root/root         0 2024-03-08 07:36 /mnt/mount1/foo
+tar: Removing leading `/' from hard link targets
+drwxr-xr-x root/root         0 1969-12-31 19:00 /mnt/mount2/
+hrwxr-xr-x root/root         0 2024-03-08 07:36 /mnt/mount2/foo link to mnt/mount1/foo
+</code></pre>
+<p>Is the same happening with different btrfs snapshots mounted at
+different mountpoints? I.e. does tar consider files in different
+snapshots (originally same, but possibly different when they have been
+modified since the snapshot was taken) as hardlinks to the same file?</p>
+<h4 id="lzaoral_commented_at_2024-03-08_1248"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985635686">2024-03-08 12:48</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-08_1248" title="Permanent link">&para;</a></h4>
+<p>Thank you for the feedback, @jsmeix! I'll amend the code to skip backup
+of all mounted btrfs snapshot subvolumes.</p>
+<p>The duplication of files in backup when a filesystem/btrfs subvolume is
+mounted more than once is a different (though related) issue, therefore,
+I suggest to resolve it separately.</p>
+<h4 id="jsmeix_commented_at_2024-03-08_1535"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">2024-03-08 15:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-08_1535" title="Permanent link">&para;</a></h4>
+<p>I tested it with SLES15-SP5<br />
+with the default btrfs structure<br />
+on a QEMU/KVM test VM:</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sda    ata  disk           15G 
+|-/dev/sda1      part            8M 
+|-/dev/sda2      part btrfs     13G /var
+|                                   /usr/local
+|                                   /root
+|                                   /tmp
+|                                   /srv
+|                                   /boot/grub2/i386-pc
+|                                   /opt
+|                                   /home
+|                                   /boot/grub2/x86_64-efi
+|                                   /.snapshots
+|                                   /
+`-/dev/sda3      part swap       2G [SWAP]
+</code></pre>
+<p>I was in particular interested how things behave<br />
+with the "well known" (to SLES users) SUSE specific</p>
+<pre><code>BACKUP_PROG_INCLUDE=( $( findmnt -n -r -o TARGET -t btrfs | grep -v '^/$' | egrep -v 'snapshots|crash' ) )
+</code></pre>
+<p>manual setting in etc/rear/local.conf<br />
+cf. conf/examples/SLE12-SP2-btrfs-example.conf<br />
+so I have</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/i386-pc /boot/grub2/x86_64-efi /home /opt /root /srv /tmp /usr/local /var )
+</code></pre>
+<p>With that I got duplicated things in the backup.tar.gz</p>
+<p>To make ReaR behave backward compatible for SLES users<br />
+and because it seems to be "the right thing" in general<br />
+I implemented<br />
+<a href="https://github.com/rear/rear/pull/3177">https://github.com/rear/rear/pull/3177</a></p>
+<p>With this additional changes I get no longer<br />
+duplicated things in the backup.tar.gz<br />
+BUT<br />
+I did not yet test "rear recover".<br />
+This will be done next week.</p>
+<p>@lzaoral @pcahyna @rear/contributors<br />
+I wish you a relaxed and recovering weekend!</p>
+<h4 id="pcahyna_commented_at_2024-03-08_1619"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985986432">2024-03-08 16:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-08_1619" title="Permanent link">&para;</a></h4>
+<p>@jsmeix if you have snapshots, can you please test
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">https://github.com/rear/rear/pull/3175#issuecomment-1985632419</a>
+: "does tar consider files in different snapshots (originally same, but
+possibly different when they have been modified since the snapshot was
+taken) as hardlinks to the same file?" ?</p>
+<h4 id="pcahyna_commented_at_2024-03-10_1334"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1987233565">2024-03-10 13:34</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-10_1334" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I was in particular interested how things behave with the "well known"
+(to SLES users) SUSE specific</p>
+<pre><code>BACKUP_PROG_INCLUDE=( $( findmnt -n -r -o TARGET -t btrfs | grep -v '^/$' | egrep -v 'snapshots|crash' ) )
+</code></pre>
+<p>manual setting in etc/rear/local.conf cf.
+conf/examples/SLE12-SP2-btrfs-example.conf so I have</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/i386-pc /boot/grub2/x86_64-efi /home /opt /root /srv /tmp /usr/local /var )
+</code></pre>
+<p>With that I got duplicated things in the backup.tar.gz</p>
+</blockquote>
+<p>Is it a regression with this PR, or did you get duplicated entries in
+backup.tar.gz even before? What are the duplicated entries? Aren't you
+missing <code>BACKUP_ONLY_INCLUDE="yes"</code>? (but then you should probably add
+<code>/boot</code> to <code>BACKUP_PROG_INCLUDE</code> unless on SLES you have <code>/boot</code> as part
+of <code>/</code>).</p>
+<h4 id="pcahyna_commented_at_2024-03-11_1323"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-1988433347">2024-03-11 13:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-11_1323" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@jsmeix if you have snapshots, can you please test <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985632419">#3175
+(comment)</a>
+: "does tar consider files in different snapshots (originally same,
+but possibly different when they have been modified since the snapshot
+was taken) as hardlinks to the same file?" ?</p>
+</blockquote>
+<p>I tested ZFS and the same files in a snapshot and in the original
+filesystem do not show up as hardlinks to the same file in the <code>tar</code>
+output. Of course, although Btrfs is in many ways analogous to ZFS, it
+can behave differently in details like that.</p>
+<h4 id="pcahyna_commented_at_2024-03-26_1643"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2020955508">2024-03-26 16:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-26_1643" title="Permanent link">&para;</a></h4>
+<p>Hi all, reviewing what needs to be done there.</p>
+<ul>
+<li>[ ] what are the duplicated entries in backup.tar.gz currently?
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">https://github.com/rear/rear/pull/3175#issuecomment-1985907542</a></li>
+<li>[ ] avoid <code>sort -u</code> , to be replaced by <code>uniq_unsorted</code> in #3177</li>
+<li>[ ] test recovery with the SUSE-specific BACKUP_PROG_INCLUDE
+    setting
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985907542">https://github.com/rear/rear/pull/3175#issuecomment-1985907542</a></li>
+<li>[ ] test snapshots: does tar consider files in different snapshots
+    (originally same, but possibly different when they have been
+    modified since the snapshot was taken) as hardlinks to the same
+    file?
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985986432">https://github.com/rear/rear/pull/3175#issuecomment-1985986432</a></li>
+<li>[ ] exclude snapshots from backup:
+    <a href="https://github.com/rear/rear/pull/3175#issuecomment-1985635686">https://github.com/rear/rear/pull/3175#issuecomment-1985635686</a></li>
+</ul>
+<h4 id="pcahyna_commented_at_2024-04-09_1004"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2044626832">2024-04-09 10:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-09_1004" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix can you please have a look? I believe the first four items in
+the checklist above are for you (the second only partially, you
+implement <code>uniq_unsorted</code> in #3177 and then @lzaoral will use it here).
+Is the task list ok?</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1248"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2045106512">2024-04-09 12:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1248" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I will have a look.</p>
+<p>First I would like to implement <code>uniq_unsorted</code><br />
+or perhaps even better named <code>unique_unsorted</code> cf.<br />
+<a href="https://github.com/rear/rear/pull/3177#issuecomment-2045095158">https://github.com/rear/rear/pull/3177#issuecomment-2045095158</a><br />
+so that @lzaoral could use it here.</p>
+<h4 id="lzaoral_commented_at_2024-04-29_1123"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2082465751">2024-04-29 11:23</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-04-29_1123" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Thank you for implementing <code>unique_unsorted</code>! Hopefully, I'll
+get to the exclusion of snapshot volumes this week.</p>
+<h4 id="lzaoral_commented_at_2024-05-14_0759"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2109526849">2024-05-14 07:59</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-05-14_0759" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @pcahyna The automatic exclusion of snapshots from backups is
+implemented in 027785f6e9f1cabee334b43ac9afa0fc8291dc75.</p>
+<h4 id="jsmeix_commented_at_2024-05-14_0813"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2109554865">2024-05-14 08:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-14_0813" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+see my<br />
+<a href="https://github.com/rear/rear/commit/47429060f749f6c2968ca867c529f995be053f0a#r141983908">https://github.com/rear/rear/commit/47429060f749f6c2968ca867c529f995be053f0a#r141983908</a><br />
+which I copy here to be safe that it is not lost because<br />
+<a href="https://github.com/rear/rear/commit/027785f6e9f1cabee334b43ac9afa0fc8291dc75">https://github.com/rear/rear/commit/027785f6e9f1cabee334b43ac9afa0fc8291dc75</a><br />
+shows</p>
+<pre><code>This commit does not belong to any branch on this repository,
+and may belong to a fork outside of the repository.
+</code></pre>
+<p>Copy of my<br />
+<a href="https://github.com/rear/rear/commit/47429060f749f6c2968ca867c529f995be053f0a#r141983908">https://github.com/rear/rear/commit/47429060f749f6c2968ca867c529f995be053f0a#r141983908</a><br />
+follows here:</p>
+<pre><code>                    echo "Mounted btrfs snapshot subvolumes are autoexcluded.
+</code></pre>
+<p>Here you must use</p>
+<pre><code>echo "# ..."
+</code></pre>
+<p>because here STDOUT gets written into disklayout.conf<br />
+because that code is within the</p>
+<pre><code># Begin of group command that appends its stdout to DISKLAYOUT_FILE:
+{
+
+...
+
+} 1&gt;&gt;$DISKLAYOUT_FILE
+# End of group command that appends its stdout to DISKLAYOUT_FILE
+</code></pre>
+<p>Yes - I know - that is horrible coding style<br />
+which needs to be cleaned up - at some time -<br />
+as time permits - i.e. "never in practice" :-(</p>
+<h4 id="jsmeix_commented_at_2024-05-14_0847"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2109625775">2024-05-14 08:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-14_0847" title="Permanent link">&para;</a></h4>
+<p>The automatic exclusion of snapshots from backups<br />
+with fixed <code>echo "# ..."</code> is implemented in<br />
+<a href="https://github.com/rear/rear/commit/018c5281a96b33cff49dd23c6a22428554d189e2">https://github.com/rear/rear/commit/018c5281a96b33cff49dd23c6a22428554d189e2</a></p>
+<h4 id="jsmeix_commented_at_2024-05-14_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2110149523">2024-05-14 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-14_1250" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+if time permits please have a look at my<br />
+<a href="https://github.com/rear/rear/pull/3221">https://github.com/rear/rear/pull/3221</a><br />
+if it fits together with your changes here<br />
+in particular regarding your changed<br />
+layout/save/default/340_generate_mountpoint_device.sh</p>
+<h4 id="jsmeix_commented_at_2024-05-15_0726"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2111776529">2024-05-15 07:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_0726" title="Permanent link">&para;</a></h4>
+<p>I tested "rear -D mkbackup"<br />
+for this pull request here<br />
+together with my changes in my<br />
+<a href="https://github.com/rear/rear/pull/3221">https://github.com/rear/rear/pull/3221</a><br />
+on my SLES15 SP5 tests VM with the<br />
+SUSE default btrfs structure<br />
+and as far as I see up to now<br />
+all looks perfectly well<br />
+except one possible issue that I described<br />
+near the end of my "Details" at "BUT".</p>
+<p>Details:</p>
+<p>Disk layout:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS /dev/sda
+
+NAME        KNAME     PKNAME   TRAN TYPE FSTYPE SIZE MOUNTPOINTS
+/dev/sda    /dev/sda           ata  disk         15G 
+|-/dev/sda1 /dev/sda1 /dev/sda      part          8M 
+|-/dev/sda2 /dev/sda2 /dev/sda      part btrfs   13G /var
+|                                                    /usr/local
+|                                                    /root
+|                                                    /tmp
+|                                                    /boot/grub2/i386-pc
+|                                                    /srv
+|                                                    /boot/grub2/x86_64-efi
+|                                                    /opt
+|                                                    /home
+|                                                    /.snapshots
+|                                                    /
+`-/dev/sda3 /dev/sda3 /dev/sda      part swap     2G [SWAP]
+</code></pre>
+<p>SUSE default btrfs structure:</p>
+<pre><code># findmnt -t btrfs
+
+TARGET                   SOURCE                              FSTYPE OPTIONS
+/                        /dev/sda2[/@/.snapshots/1/snapshot] btrfs  rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot
+├─/home                  /dev/sda2[/@/home]                  btrfs  rw,relatime,space_cache,subvolid=264,subvol=/@/home
+├─/tmp                   /dev/sda2[/@/tmp]                   btrfs  rw,relatime,space_cache,subvolid=260,subvol=/@/tmp
+├─/root                  /dev/sda2[/@/root]                  btrfs  rw,relatime,space_cache,subvolid=262,subvol=/@/root
+├─/opt                   /dev/sda2[/@/opt]                   btrfs  rw,relatime,space_cache,subvolid=263,subvol=/@/opt
+├─/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi] btrfs  rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi
+├─/var                   /dev/sda2[/@/var]                   btrfs  rw,relatime,space_cache,subvolid=258,subvol=/@/var
+├─/.snapshots            /dev/sda2[/@/.snapshots]            btrfs  rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots
+├─/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]    btrfs  rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc
+├─/srv                   /dev/sda2[/@/srv]                   btrfs  rw,relatime,space_cache,subvolid=261,subvol=/@/srv
+└─/usr/local             /dev/sda2[/@/usr/local]             btrfs  rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local
+</code></pre>
+<p>etc/rear/local.conf</p>
+<pre><code># grep -v '^#' etc/rear/local.conf
+
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr )
+PROGS+=( lsattr su )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/i386-pc
+                      /boot/grub2/x86_64-efi
+                      /home
+                      /opt
+                      /root
+                      /srv
+                      /tmp
+                      /usr/local
+                      /var
+                      /
+                      /boot/grub2/i386-pc
+                      /boot/grub2/x86_64-efi
+                      /boot/grub2/i386-pc
+                      /home
+                      /
+                      /opt )
+BACKUP_PROG_EXCLUDE=( /var/tmp
+                      /qqq
+                      /var/tmp
+                      /tmp )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD='rear'
+USE_DHCLIENT="yes"
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+MODULES=( loaded_modules )
+FIRMWARE_FILES=( no )
+</code></pre>
+<p>The duplicates in BACKUP_PROG_INCLUDE and BACKUP_PROG_EXCLUDE<br />
+are intentional to test that subsequent duplicates are ignored.</p>
+<p>disklayout.conf</p>
+<pre><code># grep -v '^#' var/lib/rear/layout/disklayout.conf 
+disk /dev/sda 16106127360 gpt
+part /dev/sda 8388608 1048576 rear-noname bios_grub /dev/sda1
+part /dev/sda 13949206528 9437184 rear-noname legacy_boot /dev/sda2
+part /dev/sda 2147466752 13958643712 rear-noname swap /dev/sda3
+fs /dev/sda2 / btrfs uuid=bdec53c2-1ee8-4268-90f9-5ec523774035 label= options=rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot
+btrfsdefaultsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+btrfsnormalsubvol /dev/sda2 / 256 @
+btrfsnormalsubvol /dev/sda2 / 258 @/var
+btrfsnormalsubvol /dev/sda2 / 259 @/usr/local
+btrfsnormalsubvol /dev/sda2 / 260 @/tmp
+btrfsnormalsubvol /dev/sda2 / 261 @/srv
+btrfsnormalsubvol /dev/sda2 / 262 @/root
+btrfsnormalsubvol /dev/sda2 / 263 @/opt
+btrfsnormalsubvol /dev/sda2 / 264 @/home
+btrfsnormalsubvol /dev/sda2 / 265 @/boot/grub2/x86_64-efi
+btrfsnormalsubvol /dev/sda2 / 266 @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+btrfsmountedsubvol /dev/sda2 /home rw,relatime,space_cache,subvolid=264,subvol=/@/home @/home
+btrfsmountedsubvol /dev/sda2 /opt rw,relatime,space_cache,subvolid=263,subvol=/@/opt @/opt
+btrfsmountedsubvol /dev/sda2 /boot/grub2/x86_64-efi rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi @/boot/grub2/x86_64-efi
+btrfsmountedsubvol /dev/sda2 /srv rw,relatime,space_cache,subvolid=261,subvol=/@/srv @/srv
+btrfsmountedsubvol /dev/sda2 /boot/grub2/i386-pc rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 /tmp rw,relatime,space_cache,subvolid=260,subvol=/@/tmp @/tmp
+btrfsmountedsubvol /dev/sda2 /root rw,relatime,space_cache,subvolid=262,subvol=/@/root @/root
+btrfsmountedsubvol /dev/sda2 /usr/local rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local @/usr/local
+btrfsmountedsubvol /dev/sda2 /var rw,relatime,space_cache,subvolid=258,subvol=/@/var @/var
+btrfsnocopyonwrite @/var
+swap /dev/sda3 uuid=921157bc-e4d6-4869-8796-7e09207e49a9 label=
+</code></pre>
+<p>What I get in the backup included and excluded</p>
+<pre><code># grep '^2024-05-15 08:42:44.4' var/log/rear/rear-localhost.log
+
+2024-05-15 08:42:44.431801741 Including backup/NETFS/default/500_make_backup.sh
+2024-05-15 08:42:44.433571019 Entering debugscript mode via 'set -x'.
+2024-05-15 08:42:44.441702528 Making backup (using backup method NETFS)
+2024-05-15 08:42:44.444339934 Backup include list (backup-include.txt contents without subsequent duplicates):
+2024-05-15 08:42:44.446633014   /
+2024-05-15 08:42:44.448576168   /.snapshots
+2024-05-15 08:42:44.450386272   /home
+2024-05-15 08:42:44.452304609   /opt
+2024-05-15 08:42:44.454133219   /boot/grub2/x86_64-efi
+2024-05-15 08:42:44.455978840   /srv
+2024-05-15 08:42:44.457852313   /boot/grub2/i386-pc
+2024-05-15 08:42:44.459744581   /tmp
+2024-05-15 08:42:44.462067798   /root
+2024-05-15 08:42:44.464037722   /usr/local
+2024-05-15 08:42:44.466416713   /var
+2024-05-15 08:42:44.468387840 Backup exclude list (backup-exclude.txt contents):
+2024-05-15 08:42:44.470268486   /var/tmp
+2024-05-15 08:42:44.472209757   /qqq
+2024-05-15 08:42:44.474048124   /tmp
+2024-05-15 08:42:44.476293264 Creating tar archive '/var/tmp/rear.cxFuYt1rYYpLGtB/outputfs/localhost/backup.tar.gz'
+2024-05-15 08:42:44.485411273 tar --warning=no-xdev --sparse --block-number --totals --verbose --no-wildcards-match-slash --one-file-system --ignore-failed-read --anchored --xattrs --xattrs-include=security.capability --xattrs-include=security.selinux --acls --gzip -X /var/tmp/rear.cxFuYt1rYYpLGtB/tmp/backup-exclude.txt -C / -c -f - / /.snapshots /home /opt /boot/grub2/x86_64-efi /srv /boot/grub2/i386-pc /tmp /root /usr/local /var /root/rear.lzaoral-backup-mounted-btrfs-subvolumes/var/log/rear/rear-localhost.log | dd of=/var/tmp/rear.cxFuYt1rYYpLGtB/outputfs/localhost/backup.tar.gz bs=1M
+</code></pre>
+<p>The only thing that worried me is /.snapshots<br />
+so I had a closer look what it means<br />
+when /.snapshots gets included in the backup:</p>
+<pre><code># find /.snapshots | wc -l
+304850
+</code></pre>
+<p>looks scaring - more than 300 thousand files<br />
+but intentionally we use</p>
+<pre><code>tar ... --one-file-system ...
+</code></pre>
+<p>so what actually matters is</p>
+<pre><code># find /.snapshots -xdev
+/.snapshots
+/.snapshots/1
+/.snapshots/1/snapshot
+/.snapshots/1/info.xml
+/.snapshots/2
+/.snapshots/2/snapshot
+/.snapshots/2/info.xml
+/.snapshots/2/grub-snapshot.cfg
+/.snapshots/3
+/.snapshots/3/snapshot
+/.snapshots/3/grub-snapshot.cfg
+/.snapshots/3/info.xml
+/.snapshots/4
+/.snapshots/4/snapshot
+/.snapshots/4/info.xml
+/.snapshots/4/grub-snapshot.cfg
+/.snapshots/4/filelist-3.txt
+/.snapshots/grub-snapshot.cfg
+
+# du -hs --one-file-system /.snapshots
+40K     /.snapshots
+</code></pre>
+<p>which looks much better<br />
+so I verfied what I got actually in the backup</p>
+<pre><code>NFS-server # tar -tvzf /nfs/localhost/backup.tar.gz | grep snapshots
+drwxr-x--- root/root    0 2024-02-14 13:17 .snapshots/
+drwxr-x--- root/root    0 2024-02-14 13:17 .snapshots/
+drwxr-xr-x root/root    0 2024-02-14 13:03 .snapshots/1/
+drwxr-xr-x root/root    0 2024-03-19 12:41 .snapshots/1/snapshot/
+-rw------- root/root  168 2024-02-14 13:03 .snapshots/1/info.xml
+drwxr-xr-x root/root    0 2024-02-14 13:07 .snapshots/2/
+drwxr-xr-x root/root    0 2024-02-14 13:04 .snapshots/2/snapshot/
+-rw------- root/root  268 2024-02-14 13:07 .snapshots/2/info.xml
+-rw-r--r-- root/root  504 2024-02-14 13:17 .snapshots/2/grub-snapshot.cfg
+drwxr-xr-x root/root    0 2024-02-14 13:17 .snapshots/3/
+drwxr-xr-x root/root    0 2024-02-14 13:04 .snapshots/3/snapshot/
+-rw-r----- root/root  502 2024-02-14 13:17 .snapshots/3/grub-snapshot.cfg
+-rw------- root/root  258 2024-02-14 13:17 .snapshots/3/info.xml
+drwxr-xr-x root/root    0 2024-02-14 13:17 .snapshots/4/
+drwxr-xr-x root/root    0 2024-02-14 13:04 .snapshots/4/snapshot/
+-rw------- root/root  240 2024-02-14 13:17 .snapshots/4/info.xml
+-rw-r----- root/root  503 2024-02-14 13:17 .snapshots/4/grub-snapshot.cfg
+-rw------- root/root 4939 2024-02-14 13:17 .snapshots/4/filelist-3.txt
+-rw-r----- root/root  508 2024-02-14 13:17 .snapshots/grub-snapshot.cfg
+</code></pre>
+<p>so when /.snapshots gets included in the backup<br />
+it does not matter regarding the backup size.</p>
+<p>BUT<br />
+when /.snapshots gets restored from the backup<br />
+during "rear recover" those old files likely mess up<br />
+the snapshot configuration of the recreated system<br />
+because during "rear recover" the whole<br />
+SUSE btrfs structure with its snapshot stuff<br />
+gets recreated anew from scratch so I assume<br />
+when that is recreated from scratch at least</p>
+<pre><code>/.snapshots
+/.snapshots/1
+/.snapshots/1/snapshot
+/.snapshots/1/info.xml
+</code></pre>
+<p>got recreated during disk layout recreation<br />
+so that later during backup restore<br />
+those snapshot configuration files<br />
+must not be overwritten by outdated files<br />
+from the backup e.g. like</p>
+<pre><code># cat /.snapshots/1/info.xml
+&lt;?xml version="1.0"?&gt;
+&lt;snapshot&gt;
+  &lt;type&gt;single&lt;/type&gt;
+  &lt;num&gt;1&lt;/num&gt;
+  &lt;date&gt;2024-02-14 12:03:57&lt;/date&gt;
+  &lt;description&gt;first root filesystem&lt;/description&gt;
+&lt;/snapshot&gt;
+</code></pre>
+<p>I will test what happens when I do "rear recover"<br />
+with that backup here which has /.snapshots included...</p>
+<h4 id="lzaoral_commented_at_2024-05-15_1101"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112211398">2024-05-15 11:01</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-05-15_1101" title="Permanent link">&para;</a></h4>
+<p>Thank you for the feedback, @jsmeix! In that case, it might be a good
+idea to autoexclude <code>snapper_base_subvolume</code> (<code>@/.snapshots</code>) from the
+backup as well so that it is still recreated but not restored so that we
+do not overwrite its metadata by stale information from the backup.</p>
+<p>edit: The snapper btfrs subvolume is handled here:
+<a href="https://github.com/rear/rear/blob/a86b68e347e6457e40d5a0cb36bf38159396ad09/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh#L363">https://github.com/rear/rear/blob/a86b68e347e6457e40d5a0cb36bf38159396ad09/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh#L363</a></p>
+<h4 id="jsmeix_commented_at_2024-05-15_1324"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112519793">2024-05-15 13:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1324" title="Permanent link">&para;</a></h4>
+<p>Test what happens when I do "rear recover"<br />
+with that backup here which has /.snapshots included:</p>
+<pre><code>RESCUE localhost:~ # export MIGRATION_MODE='true'
+
+RESCUE localhost:~ # rear -D recover
+...
+Start system layout restoration.
+Disk '/dev/sda': creating 'gpt' partition table
+Disk '/dev/sda': creating partition number 1 with name ''sda1''
+Disk '/dev/sda': creating partition number 2 with name ''sda2''
+Disk '/dev/sda': creating partition number 3 with name ''sda3''
+Creating filesystem of type btrfs with mount point / on /dev/sda2.
+Mounting filesystem /
+Running snapper/installation-helper
+Creating swap on /dev/sda3
+Disk layout created.
+Recreated storage layout:
+NAME        KNAME     TRAN TYPE FSTYPE  LABEL     SIZE MOUNTPOINTS
+/dev/sda    /dev/sda  ata  disk                    15G 
+|-/dev/sda1 /dev/sda1      part                     8M 
+|-/dev/sda2 /dev/sda2      part btrfs              13G /mnt/local/var
+|                                                      /mnt/local/usr/local
+|                                                      /mnt/local/root
+|                                                      /mnt/local/tmp
+|                                                      /mnt/local/boot/grub2/i386-pc
+|                                                      /mnt/local/srv
+|                                                      /mnt/local/boot/grub2/x86_64-efi
+|                                                      /mnt/local/opt
+|                                                      /mnt/local/home
+|                                                      /mnt/local/.snapshots
+|                                                      /mnt/local
+`-/dev/sda3 /dev/sda3      part swap                2G 
+/dev/sr0    /dev/sr0  ata  rom  iso9660 REAR-ISO 77.7M 
+UserInput -I LAYOUT_MIGRATED_CONFIRMATION needed in /usr/share/rear/layout/recreate/default/200_run_layout_code.sh line 168
+Confirm the recreated disk layout or go back one step
+1) Confirm recreated disk layout and continue 'rear recover'
+2) Go back one step to redo disk layout recreation
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 300 seconds)
+3
+UserInput: Valid choice number result 'Use Relax-and-Recover shell and return back to here'
+
+Welcome to Relax-and-Recover.
+
+rear&gt; find /mnt/local/.snapshots
+/mnt/local/.snapshots
+/mnt/local/.snapshots/1
+/mnt/local/.snapshots/1/snapshot
+/mnt/local/.snapshots/1/snapshot/etc
+/mnt/local/.snapshots/1/snapshot/etc/snapper
+/mnt/local/.snapshots/1/snapshot/etc/snapper/configs
+/mnt/local/.snapshots/1/snapshot/etc/snapper/configs/root
+/mnt/local/.snapshots/1/snapshot/.snapshots
+/mnt/local/.snapshots/1/snapshot/home
+/mnt/local/.snapshots/1/snapshot/opt
+/mnt/local/.snapshots/1/snapshot/boot
+/mnt/local/.snapshots/1/snapshot/boot/grub2
+/mnt/local/.snapshots/1/snapshot/boot/grub2/x86_64-efi
+/mnt/local/.snapshots/1/snapshot/boot/grub2/i386-pc
+/mnt/local/.snapshots/1/snapshot/srv
+/mnt/local/.snapshots/1/snapshot/tmp
+/mnt/local/.snapshots/1/snapshot/root
+/mnt/local/.snapshots/1/snapshot/usr
+/mnt/local/.snapshots/1/snapshot/usr/local
+/mnt/local/.snapshots/1/snapshot/var
+/mnt/local/.snapshots/1/info.xml
+
+rear&gt; mv /mnt/local/.snapshots/1 /mnt/local/.snapshots/1.recreated
+
+rear&gt; exit
+...
+Running 'restore' stage ======================
+Restoring from '/var/tmp/rear.tKYATuV8uCkXC3G/outputfs/localhost/backup.tar.gz' (restore log in /var/lib/rear/restore/recover.backup.tar.gz.760.restore.log) ...
+Backup restore program 'tar' started in subshell (PID=5671)
+Restored 467 MiB [avg. 95775 KiB/sec] 
+Restored 933 MiB [avg. 95617 KiB/sec] 
+Restored 1481 MiB [avg. 101156 KiB/sec] 
+Restored 1917 MiB [avg. 98151 KiB/sec] 
+Restored 2314 MiB [avg. 94792 KiB/sec] 
+Restored 2665 MiB [avg. 90992 KiB/sec] 
+Restored 3021 MiB [avg. 88389 KiB/sec] 
+Restored 3416 MiB [avg. 87452 KiB/sec] 
+OK
+...
+
+RESCUE localhost:~ # find /mnt/local/.snapshots -xdev -ls
+ 256 0 drwxr-x--- 1 root root   64 Feb 14 13:17 /mnt/local/.snapshots
+ 257 0 drwxr-xr-x 1 root root   32 May 15 14:57 /mnt/local/.snapshots/1.recreated
+ 256 0 drwxr-xr-x 1 root root  188 May 15 15:00 /mnt/local/.snapshots/1.recreated/snapshot
+ 258 4 -rw------- 1 root root  168 May 15 14:57 /mnt/local/.snapshots/1.recreated/info.xml
+ 259 0 drwxr-xr-x 1 root root   32 Feb 14 13:03 /mnt/local/.snapshots/1
+ 260 0 drwxr-xr-x 1 root root    0 Mar 19 12:41 /mnt/local/.snapshots/1/snapshot
+ 261 4 -rw------- 1 root root  168 Feb 14 13:03 /mnt/local/.snapshots/1/info.xml
+ 262 0 drwxr-xr-x 1 root root   66 Feb 14 13:07 /mnt/local/.snapshots/2
+ 263 0 drwxr-xr-x 1 root root    0 Feb 14 13:04 /mnt/local/.snapshots/2/snapshot
+ 264 4 -rw------- 1 root root  268 Feb 14 13:07 /mnt/local/.snapshots/2/info.xml
+ 265 4 -rw-r--r-- 1 root root  504 Feb 14 13:17 /mnt/local/.snapshots/2/grub-snapshot.cfg
+ 266 0 drwxr-xr-x 1 root root   66 Feb 14 13:17 /mnt/local/.snapshots/3
+ 267 0 drwxr-xr-x 1 root root    0 Feb 14 13:04 /mnt/local/.snapshots/3/snapshot
+ 268 4 -rw-r----- 1 root root  502 Feb 14 13:17 /mnt/local/.snapshots/3/grub-snapshot.cfg
+ 269 4 -rw------- 1 root root  258 Feb 14 13:17 /mnt/local/.snapshots/3/info.xml
+ 270 0 drwxr-xr-x 1 root root   94 Feb 14 13:17 /mnt/local/.snapshots/4
+ 271 0 drwxr-xr-x 1 root root    0 Feb 14 13:04 /mnt/local/.snapshots/4/snapshot
+ 272 4 -rw------- 1 root root  240 Feb 14 13:17 /mnt/local/.snapshots/4/info.xml
+ 273 4 -rw-r----- 1 root root  503 Feb 14 13:17 /mnt/local/.snapshots/4/grub-snapshot.cfg
+ 274 8 -rw------- 1 root root 4939 Feb 14 13:17 /mnt/local/.snapshots/4/filelist-3.txt
+ 275 4 -rw-r----- 1 root root  508 Feb 14 13:17 /mnt/local/.snapshots/grub-snapshot.cfg
+</code></pre>
+<p>So /.snapshots must be excluded from the backup restore<br />
+to avoid that after "rear recover" one has /.snapshots<br />
+messed up with old files - in particular the new created<br />
+and only correct one .snapshots/1 would get overwritten<br />
+with old files from the backup.</p>
+<p>@lzaoral<br />
+That /.snapshots must be excluded from the backup restore<br />
+is a separated task for me so you could merge this one<br />
+and then I will care about /.snapshots via a separated<br />
+issue and/or pull request.</p>
+<h4 id="jsmeix_commented_at_2024-05-15_1348"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112594449">2024-05-15 13:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1348" title="Permanent link">&para;</a></h4>
+<p>Mainly for my own information here<br />
+an addendum that is unrelated to this pull request<br />
+only because I noticed it here during my above<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112519793">https://github.com/rear/rear/pull/3175#issuecomment-2112519793</a></p>
+<p>Excerpts from /var/log/rear/rear-localhost.log</p>
+<pre><code>2024-05-15 14:56:33.854911738 Relax-and-Recover 2.7 / Git
+2024-05-15 14:56:33.857055807 Running rear recover (PID 760 date 2024-05-15 14:56:33)
+2024-05-15 14:56:33.859021352 Command line options: /bin/rear -D recover
+2024-05-15 14:56:33.861149993 Using log file: /var/log/rear/rear-localhost.log
+2024-05-15 14:56:33.863542518 Using build area: /var/tmp/rear.tKYATuV8uCkXC3G
+2024-05-15 14:56:33.866203857 Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+...
+2024-05-15 15:02:33.797818313 Recreating initrd with /usr/bin/dracut...
+++ chroot /mnt/local /bin/bash -c 'PATH=/sbin:/usr/sbin:/usr/bin:/bin /usr/bin/dracut --force'
+realpath: /var/tmp: No such file or directory
+dracut: Invalid tmpdir '/var/tmp'.
+++ LogPrintError 'Warning:
+Failed to recreate initrd with /usr/bin/dracut.
+Check '\''/var/log/rear/rear-localhost.log'\'' why /usr/bin/dracut failed
+and decide if the recreated system will boot
+with the initrd '\''as is'\'' from the backup restore.
+'
+</code></pre>
+<p>Indeed there is no var/tmp in the recreated system</p>
+<pre><code>RESCUE localhost:~ # ls -l /mnt/local/var
+total 16
+drwxr-xr-x 1 root root 106 Feb 14 13:08 adm
+lrwxrwxrwx 1 root root  11 Jan  9  2023 agentx -&gt; /run/agentx
+drwxr-xr-x 1 root root  86 Feb 14 13:06 cache
+drwxr-xr-x 1 root root   0 Mar 15  2022 crash
+drwxr-xr-x 1 root root 402 May 15 15:00 lib
+lrwxrwxrwx 1 root root   9 Feb 14 13:04 lock -&gt; /run/lock
+drwxr-xr-x 1 root root 716 May 15 15:02 log
+lrwxrwxrwx 1 root root  10 Mar 15  2022 mail -&gt; spool/mail
+drwxr-xr-x 1 root root   0 Mar 15  2022 opt
+lrwxrwxrwx 1 root root   4 Feb 14 13:04 run -&gt; /run
+drwxr-xr-x 1 root root 108 Feb 14 13:06 spool
+
+RESCUE localhost:~ # ls -ld /mnt/local/tmp
+drwxr-xr-x 1 root root 0 May 15 15:02 /mnt/local/tmp
+</code></pre>
+<p>My current guess is that there is no var/tmp<br />
+in the recreated system because I have</p>
+<pre><code>BACKUP_PROG_EXCLUDE=( /var/tmp
+                      /qqq
+                      /var/tmp
+                      /tmp )
+</code></pre>
+<p>but what is a real bug is that</p>
+<pre><code>Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+</code></pre>
+<p>because during "rear recover" TMPDIR should not be set at all<br />
+so I added 'set -x' to /bin/rear to see what goes on</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
++ readonly TMPDIR_ORIG=
++ TMPDIR_ORIG=
++ source /usr/share/rear/conf/default.conf
+++ export TMPDIR=/var/tmp
+++ TMPDIR=/var/tmp
+...
++ test -e /etc/rear-release
++ RECOVERY_MODE=y
++ readonly RECOVERY_MODE
++ test recover '!=' help
+++ readlink -e /var/tmp
++ export TMPDIR=/var/tmp
++ TMPDIR=/var/tmp
++ test -d /var/tmp
+++ mktemp -d -t rear.XXXXXXXXXXXXXXX
++ BUILD_DIR=/var/tmp/rear.awoCzxeHag4tpr9
++ QuietAddExitTask cleanup_build_area_and_end_program
++ EXIT_TASKS=("$*" "${EXIT_TASKS[@]}")
++ ROOTFS_DIR=/var/tmp/rear.awoCzxeHag4tpr9/rootfs
++ mkdir -p /var/tmp/rear.awoCzxeHag4tpr9/rootfs
++ TMP_DIR=/var/tmp/rear.awoCzxeHag4tpr9/tmp
++ mkdir -p /var/tmp/rear.awoCzxeHag4tpr9/tmp
++ [[ -n y ]]
++ test ''
++ tmpdir_debug_info='Setting TMPDIR to '\''/var/tmp'\'' (was unset when ReaR was launched)'
++ mkdir -p /var/tmp/rear.awoCzxeHag4tpr9/rootfs/var/tmp
++ BACKUP_PROG_EXCLUDE+=("$BUILD_DIR")
++ saved_tmpdir=/var/tmp
+</code></pre>
+<p>I think I found the root cause why there is no var/tmp<br />
+in the recreated system<br />
+(excerpt from /var/log/rear/rear-localhost.log)</p>
+<pre><code>+ source /usr/share/rear/restore/default/900_create_missing_directories.sh
+++ local directories_permissions_owner_group_file=/var/lib/rear/recovery/directories_permissions_owner_group
+++ test ''
+++ pushd /mnt/local
+/mnt/local ~
+++ test -f /var/lib/rear/recovery/directories_permissions_owner_group
+++ popd
+~
++ source_return_code=0
+</code></pre>
+<p>i.e. restore/default/900_create_missing_directories.sh<br />
+that should recreate var/tmp in the recreated system<br />
+if it is missing does noting in my case because<br />
+in my case there is no<br />
+/var/lib/rear/recovery/directories_permissions_owner_group<br />
+because during "rear -D mkbackup" I had<br />
+(except from var/log/rear/rear-localhost.log<br />
+in a git clone directory)</p>
+<pre><code>2024-05-15 08:42:19.453890604 Including prep/default/400_save_directories.sh
+2024-05-15 08:42:19.455467932 Entering debugscript mode via 'set -x'.
++ source /root/rear.lzaoral-backup-mounted-btrfs-subvolumes/usr/share/rear/prep/default/400_save_directories.sh
+++ local directories_permissions_owner_group_file=/root/rear.lzaoral-backup-mounted-btrfs-subvolumes/var/lib/rear/recovery/directories_permissions_owner_group
+++ :
+/root/rear.lzaoral-backup-mounted-btrfs-subvolumes/usr/share/rear/prep/default/400_save_directories.sh: line 12: /root/rear.lzaoral-backup-mounted-btrfs-subvolumes/var/
+lib/rear/recovery/directories_permissions_owner_group: No such file or directory
+</code></pre>
+<p>which is true at that point in time<br />
+when "rear mkrescue/mkbackup" is run for the first time<br />
+because <code>$VAR_DIR/recovery/</code> is not yet created<br />
+when prep/default/400_save_directories.sh runs<br />
+because <code>$VAR_DIR/recovery/</code> gets created later in<br />
+layout/save/GNU/Linux/100_create_layout_file.sh<br />
+(the 'prep' stage runs before the 'layout/save' stage).</p>
+<h4 id="jsmeix_commented_at_2024-05-15_1518"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112838240">2024-05-15 15:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1518" title="Permanent link">&para;</a></h4>
+<p>I re-did "rear -D mkbackup"<br />
+but now additionally with the change in<br />
+<a href="https://github.com/rear/rear/pull/3223">https://github.com/rear/rear/pull/3223</a><br />
+and additionally with /.snapshots in BACKUP_PROG_EXCLUDE</p>
+<pre><code>BACKUP_PROG_EXCLUDE=( /var/tmp /qqq /var/tmp /tmp /.snapshots )
+</code></pre>
+<p>I also did</p>
+<pre><code># rm -rf var/lib/rear/*
+</code></pre>
+<p>to verify that the change in<br />
+<a href="https://github.com/rear/rear/pull/3223">https://github.com/rear/rear/pull/3223</a><br />
+works.</p>
+<p>After "rear -D mkbackup" I got in particular</p>
+<pre><code># cat /var/tmp/rear.ml6GAML0RZ4F8e4/rootfs/root/rear.lzaoral-backup-mounted-btrfs-subvolumes/var/lib/rear/recovery/directories_permissions_owner_group
+/.snapshots 750 root root
+/boot/grub2/x86_64-efi 755 root root
+/boot/grub2/i386-pc 755 root root
+/home 755 root root
+/opt 755 root root
+/srv 755 root root
+/tmp 1777 root root
+/usr/local 755 root root
+/root 700 root root
+/var 755 root root
+/bin 755 root root
+/boot 755 root root
+/dev 755 root root
+/etc 755 root root
+/etc/opt 755 root root
+/etc/X11 755 root root
+/lib 755 root root
+/lib64 755 root root
+/mnt 755 root root
+/proc 555 root root
+/run 755 root root
+/sbin 755 root root
+/sys 555 root root
+/usr 755 root root
+/usr/bin 755 root root
+/usr/include 755 root root
+/usr/lib 755 root root
+/usr/lib64 755 root root
+/usr/libexec 755 root root
+/usr/sbin 755 root root
+/usr/share 755 root root
+/usr/src 755 root root
+/var/cache 755 root root
+/var/lib 755 root root
+/var/lock -&gt; /run/lock
+/var/log 755 root root
+/var/mail -&gt; spool/mail
+/var/opt 755 root root
+/var/run -&gt; /run
+/var/spool 755 root root
+/var/spool/mail 1777 root root
+/var/tmp 1777 root root
+</code></pre>
+<p>note therein /.snapshots (because it is a mountpoint)<br />
+and /tmp and /var/tmp (because they are FHS directories).</p>
+<p>With that I re-did "rear -D recover"</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 758 date 2024-05-15 17:04:53)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-localhost.log
+Using build area: /var/tmp/rear.OAs2m4kG2emMuph
+Setting TMPDIR to '/var/tmp' (was unset when ReaR was launched)
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+...
+Finished 'recover'. The target system is mounted at '/mnt/local'.
+</code></pre>
+<p>In the recreated sytem I got in particular</p>
+<pre><code>RESCUE localhost:~ # find /mnt/local/.snapshots/ -xdev -ls
+ 256 0 drwxr-x--- 1 root root   2 May 15 17:05 /mnt/local/.snapshots/
+ 257 0 drwxr-xr-x 1 root root  32 May 15 17:05 /mnt/local/.snapshots/1
+ 256 0 drwxr-xr-x 1 root root 188 May 15 17:05 /mnt/local/.snapshots/1/snapshot
+ 258 4 -rw------- 1 root root 168 May 15 17:05 /mnt/local/.snapshots/1/info.xml
+</code></pre>
+<p>which looks perfectly right now.</p>
+<p>I rebooted the recreated system<br />
+and things look OK as far as I currently see</p>
+<pre><code>localhost:~ # snapper ls
+ # | Type   | Pre # | Date                             | User | Used Space | Cleanup | Description           | Userdata
+---+--------+-------+----------------------------------+------+------------+---------+-----------------------+---------
+0  | single |       |                                  | root |            |         | current               |         
+1* | single |       | Wed 15 May 2024 05:05:03 PM CEST | root |   2.26 GiB |         | first root filesystem |
+
+# cat /.snapshots/1/info.xml 
+&lt;?xml version="1.0"?&gt;
+&lt;snapshot&gt;
+  &lt;type&gt;single&lt;/type&gt;
+  &lt;num&gt;1&lt;/num&gt;
+  &lt;date&gt;2024-05-15 15:05:03&lt;/date&gt;
+  &lt;description&gt;first root filesystem&lt;/description&gt;
+&lt;/snapshot&gt;
+</code></pre>
+<p>(15:05:03 UTC equals 05:05:03 PM CEST)</p>
+<h4 id="jsmeix_commented_at_2024-05-15_1528"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112860734">2024-05-15 15:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1528" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+I think you cannot merge it yourself,<br />
+so perhaps @pcahyna could merge it for you?</p>
+<p>Therefore I also assigned this pull request to him<br />
+so he could have another look and<br />
+merge it if it looks OK to him.</p>
+<p>I could also merge it but I already reviewed it and<br />
+I would prefer when another ReaR upstream maintainer<br />
+gets also involved when a pull request gets merged.<br />
+Perhaps @pcahyna may spot something?</p>
+<h4 id="jsmeix_commented_at_2024-05-15_1553"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2112913809">2024-05-15 15:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1553" title="Permanent link">&para;</a></h4>
+<p>Oops!<br />
+I forgot to test when one has other snapshot subvolumes mounted<br />
+(i.e. snapshot subvolumes that are not mounted at '/').<br />
+I will test that tomorrow.</p>
+<h4 id="jsmeix_commented_at_2024-05-16_0818"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2114420830">2024-05-16 08:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_0818" title="Permanent link">&para;</a></h4>
+<p>Test when one has other snapshot subvolumes mounted<br />
+(i.e. snapshot subvolumes that are not mounted at '/')<br />
+on the same SLES15 SP5 tests VM as above in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2111776529">https://github.com/rear/rear/pull/3175#issuecomment-2111776529</a></p>
+<p>I mount btrfs snapshot 2 at /snapshot2 and<br />
+snapshot 3 two times at /snapshot3 and /snapshot3again</p>
+<pre><code># btrfs subvolume list -a / | grep snapshots
+ID 267 gen 3472 top level 256 path &lt;FS_TREE&gt;/@/.snapshots
+ID 268 gen 3485 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/1/snapshot
+ID 272 gen 43 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/2/snapshot
+ID 273 gen 64 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/3/snapshot
+ID 274 gen 65 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/4/snapshot
+
+# mkdir /snapshot2
+# mkdir /snapshot3
+# mkdir /snapshot3again
+
+# mount -t btrfs -o subvolid=272 /dev/sda2 /snapshot2
+# mount -t btrfs -o subvolid=273 /dev/sda2 /snapshot3
+# mount -t btrfs -o subvolid=273 /dev/sda2 /snapshot3again
+
+# findmnt -at btrfs
+TARGET                   SOURCE                              FSTYPE OPTIONS
+/                        /dev/sda2[/@/.snapshots/1/snapshot] btrfs  rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot
+|-/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi] btrfs  rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi
+|-/srv                   /dev/sda2[/@/srv]                   btrfs  rw,relatime,space_cache,subvolid=261,subvol=/@/srv
+|-/root                  /dev/sda2[/@/root]                  btrfs  rw,relatime,space_cache,subvolid=262,subvol=/@/root
+|-/home                  /dev/sda2[/@/home]                  btrfs  rw,relatime,space_cache,subvolid=264,subvol=/@/home
+|-/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]    btrfs  rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc
+|-/.snapshots            /dev/sda2[/@/.snapshots]            btrfs  rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots
+|-/var                   /dev/sda2[/@/var]                   btrfs  rw,relatime,space_cache,subvolid=258,subvol=/@/var
+|-/opt                   /dev/sda2[/@/opt]                   btrfs  rw,relatime,space_cache,subvolid=263,subvol=/@/opt
+|-/tmp                   /dev/sda2[/@/tmp]                   btrfs  rw,relatime,space_cache,subvolid=260,subvol=/@/tmp
+|-/usr/local             /dev/sda2[/@/usr/local]             btrfs  rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local
+|-/snapshot2             /dev/sda2[/@/.snapshots/2/snapshot] btrfs  rw,relatime,space_cache,subvolid=272,subvol=/@/.snapshots/2/snapshot
+|-/snapshot3             /dev/sda2[/@/.snapshots/3/snapshot] btrfs  rw,relatime,space_cache,subvolid=273,subvol=/@/.snapshots/3/snapshot
+`-/snapshot3again        /dev/sda2[/@/.snapshots/3/snapshot] btrfs  rw,relatime,space_cache,subvolid=273,subvol=/@/.snapshots/3/snapshot
+</code></pre>
+<p>Did again "rear -D mkbackup" as before in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112838240">https://github.com/rear/rear/pull/3175#issuecomment-2112838240</a><br />
+in particular as before with</p>
+<pre><code>BACKUP_PROG_EXCLUDE=( /var/tmp /qqq /var/tmp /tmp /.snapshots )
+</code></pre>
+<p>i.e. without explicitly excluding the mounted btrfs snapshots.</p>
+<p>backup.tar.gz size from before in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112838240">https://github.com/rear/rear/pull/3175#issuecomment-2112838240</a><br />
+was 2.1G and is now the same</p>
+<p>disklayout.conf is now</p>
+<pre><code># grep -v '^#' var/lib/rear/layout/disklayout.conf 
+disk /dev/sda 16106127360 gpt
+part /dev/sda 8388608 1048576 rear-noname bios_grub /dev/sda1
+part /dev/sda 13949206528 9437184 rear-noname legacy_boot /dev/sda2
+part /dev/sda 2147466752 13958643712 rear-noname swap /dev/sda3
+fs /dev/sda2 / btrfs uuid=bdec53c2-1ee8-4268-90f9-5ec523774035 label= options=rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot
+btrfsdefaultsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+btrfsnormalsubvol /dev/sda2 / 256 @
+btrfsnormalsubvol /dev/sda2 / 258 @/var
+btrfsnormalsubvol /dev/sda2 / 259 @/usr/local
+btrfsnormalsubvol /dev/sda2 / 260 @/tmp
+btrfsnormalsubvol /dev/sda2 / 261 @/srv
+btrfsnormalsubvol /dev/sda2 / 262 @/root
+btrfsnormalsubvol /dev/sda2 / 263 @/opt
+btrfsnormalsubvol /dev/sda2 / 264 @/home
+btrfsnormalsubvol /dev/sda2 / 265 @/boot/grub2/x86_64-efi
+btrfsnormalsubvol /dev/sda2 / 266 @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+btrfsmountedsubvol /dev/sda2 /boot/grub2/x86_64-efi rw,relatime,space_cache,subvolid=265,subvol=/@/boot/grub2/x86_64-efi @/boot/grub2/x86_64-efi
+btrfsmountedsubvol /dev/sda2 /home rw,relatime,space_cache,subvolid=264,subvol=/@/home @/home
+btrfsmountedsubvol /dev/sda2 /opt rw,relatime,space_cache,subvolid=263,subvol=/@/opt @/opt
+btrfsmountedsubvol /dev/sda2 /boot/grub2/i386-pc rw,relatime,space_cache,subvolid=266,subvol=/@/boot/grub2/i386-pc @/boot/grub2/i386-pc
+btrfsmountedsubvol /dev/sda2 /srv rw,relatime,space_cache,subvolid=261,subvol=/@/srv @/srv
+btrfsmountedsubvol /dev/sda2 /root rw,relatime,space_cache,subvolid=262,subvol=/@/root @/root
+btrfsmountedsubvol /dev/sda2 /tmp rw,relatime,space_cache,subvolid=260,subvol=/@/tmp @/tmp
+btrfsmountedsubvol /dev/sda2 /usr/local rw,relatime,space_cache,subvolid=259,subvol=/@/usr/local @/usr/local
+btrfsmountedsubvol /dev/sda2 /var rw,relatime,space_cache,subvolid=258,subvol=/@/var @/var
+btrfsnocopyonwrite @/var
+swap /dev/sda3 uuid=921157bc-e4d6-4869-8796-7e09207e49a9 label=
+</code></pre>
+<p>in particular the disabled btrfs entries</p>
+<pre><code># grep '^#btrfs' var/lib/rear/layout/disklayout.conf 
+#btrfssnapshotsubvol /dev/sda2 / 272 @/.snapshots/2/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 273 @/.snapshots/3/snapshot
+#btrfssnapshotsubvol /dev/sda2 / 274 @/.snapshots/4/snapshot
+#btrfsnormalsubvol /dev/sda2 / 267 @/.snapshots
+#btrfsnormalsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+#btrfsmountedsubvol /dev/sda2 /snapshot2 rw,relatime,space_cache,subvolid=272,subvol=/@/.snapshots/2/snapshot @/.snapshots/2/snapshot
+#btrfsmountedsubvol /dev/sda2 /snapshot3 rw,relatime,space_cache,subvolid=273,subvol=/@/.snapshots/3/snapshot @/.snapshots/3/snapshot
+#btrfsmountedsubvol /dev/sda2 /snapshot3again rw,relatime,space_cache,subvolid=273,subvol=/@/.snapshots/3/snapshot @/.snapshots/3/snapshot
+</code></pre>
+<p>The only things that backup.tar.gz contains<br />
+regarding btrfs snapshots is (on the NFS server)</p>
+<pre><code># tar -tvzf /nfs/localhost/backup.tar.gz
+...
+drwxr-xr-x root/root ... snapshot2/
+drwxr-xr-x root/root ... snapshot3/
+drwxr-xr-x root/root ... snapshot3again/
+</code></pre>
+<p>After "rear -D recover"<br />
+all looks well in particular</p>
+<pre><code>RESCUE localhost:~ # find /mnt/local/snapshot*      
+/mnt/local/snapshot2
+/mnt/local/snapshot3
+/mnt/local/snapshot3again
+</code></pre>
+<p>Also 'df -h' looks well</p>
+<pre><code>RESCUE localhost:~ # df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M  8.0K  4.0M   1% /dev
+tmpfs           2.0G     0  2.0G   0% /dev/shm
+tmpfs           783M  8.5M  775M   2% /run
+tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/.snapshots
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/boot/grub2/x86_64-efi
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/home
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/opt
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/boot/grub2/i386-pc
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/srv
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/root
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/tmp
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/usr/local
+/dev/sda2        13G  3.7G  9.1G  29% /mnt/local/var
+</code></pre>
+<p>for comparison on the original system</p>
+<pre><code># df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs           983M  4.0K  983M   1% /dev/shm
+tmpfs           394M  5.9M  388M   2% /run
+tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
+/dev/sda2        13G  4.5G  7.9G  37% /
+/dev/sda2        13G  4.5G  7.9G  37% /.snapshots
+/dev/sda2        13G  4.5G  7.9G  37% /boot/grub2/x86_64-efi
+/dev/sda2        13G  4.5G  7.9G  37% /home
+/dev/sda2        13G  4.5G  7.9G  37% /opt
+/dev/sda2        13G  4.5G  7.9G  37% /boot/grub2/i386-pc
+/dev/sda2        13G  4.5G  7.9G  37% /srv
+/dev/sda2        13G  4.5G  7.9G  37% /root
+/dev/sda2        13G  4.5G  7.9G  37% /tmp
+/dev/sda2        13G  4.5G  7.9G  37% /usr/local
+/dev/sda2        13G  4.5G  7.9G  37% /var
+tmpfs           197M  4.0K  197M   1% /run/user/0
+/dev/sda2        13G  4.5G  7.9G  37% /snapshot2
+/dev/sda2        13G  4.5G  7.9G  37% /snapshot3
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-16_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2114478980">2024-05-16 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-16_0831" title="Permanent link">&para;</a></h4>
+<p>Mainly for my own information here<br />
+an addendum that is unrelated to this pull request<br />
+only because I noticed it here during my above<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2114420830">https://github.com/rear/rear/pull/3175#issuecomment-2114420830</a></p>
+<p>In the recreated system '/tmp/' has wrong permissions<br />
+but '/var/tmp/' has right permissions</p>
+<pre><code>RESCUE localhost:~ # ls -ld /mnt/local/tmp/ /mnt/local/var/tmp/
+drwxr-xr-x 1 root root 0 May 16 10:08 /mnt/local/tmp/
+drwxrwxrwt 1 root root 0 May 16 10:09 /mnt/local/var/tmp/
+</code></pre>
+<p>for comparison on the original system</p>
+<pre><code># ls -ld /tmp /var/tmp
+drwxrwxrwt 1 root root 254 May 16 10:21 /tmp
+drwxrwxrwt 1 root root 236 May 16 09:19 /var/tmp
+</code></pre>
+<p>Excepts from the "rear -D recover" log file</p>
+<pre><code>+ source /usr/share/rear/restore/default/900_create_missing_directories.sh
+...
+++ read directory mode owner group junk
+++ test /tmp
+++ directory=tmp
+++ test '-&gt;' = 1777
+++ test -e tmp
+++ continue
+...
+++ read directory mode owner group junk
+++ test /var/tmp
+++ directory=var/tmp
+++ test '-&gt;' = 1777
+++ test -e var/tmp
+++ test -L var/tmp
+++ mkdir -v -p var/tmp
+mkdir: created directory 'var/tmp'
+++ test 1777
+++ chmod -v 1777 var/tmp
+mode of 'var/tmp' changed from 0755 (rwxr-xr-x) to 1777 (rwxrwxrwt)
+++ test root
+++ test root
+++ chroot /mnt/local /bin/bash --login -c 'chown -v root:root var/tmp'
+ownership of 'var/tmp' retained as root:root
+</code></pre>
+<p>In backup.tar.gz there is neither 'tmp' nor 'var/tmp'<br />
+so those directories are not restored from the backup<br />
+nevertheless /mnt/local/tmp/ gets somehow created<br />
+during "rear recover" but /mnt/local/var/tmp/ is not<br />
+created during "rear recover" so that<br />
+restore/default/900_create_missing_directories.sh<br />
+skips to create /mnt/local/tmp/<br />
+but creates /mnt/local/var/tmp/</p>
+<p>I think I found the root cause why /mnt/local/tmp<br />
+is created during "rear recover"<br />
+(excerpts from /var/log/rear/rear-localhost.log)</p>
+<pre><code>++ for snapshot_subvolume_device_and_path in $snapshot_subvolumes_devices_and_paths
+++ snapshot_subvolume_device=/dev/sda2
+++ snapshot_subvolume_path=@/.snapshots/4/snapshot
+++ test /dev/sda2 = /dev/sda2 -a @/tmp = @/.snapshots/4/snapshot
+++ target_system_mountpoint=/mnt/local/tmp
+++ test / = /tmp
+++ Log 'Mounting btrfs normal subvolume @/tmp on /dev/sda2 at /tmp (if not something is already mounted there).'
+2024-05-16 10:08:32.542234436 Mounting btrfs normal subvolume @/tmp on /dev/sda2 at /tmp (if not something is already mounted there).
+++ echo '# Mounting btrfs normal subvolume @/tmp on /dev/sda2 at /mnt/local/tmp (if not something is already mounted there):'
+++ echo 'if ! mount -t btrfs | tr -s '\''[:blank:]'\'' '\'' '\'' | grep -q '\'' on /mnt/local/tmp '\'' ; then'
+++ echo '    if ! test -d /mnt/local/tmp ; then'
+++ echo '        mkdir -p /mnt/local/tmp'
+++ echo '    fi'
+++ echo '    mount -t btrfs -o rw,relatime,space_cache -o subvol=@/tmp /dev/sda2 /mnt/local/tmp'
+++ echo fi
+</code></pre>
+<p>so in .../var/lib/rear/layout/diskrestore.sh there is</p>
+<pre><code># Mounting btrfs normal subvolume @/tmp on /dev/sda2 at /mnt/local/tmp (if not something is already mounted there):
+if ! mount -t btrfs | tr -s '[:blank:]' ' ' | grep -q ' on /mnt/local/tmp ' ; then
+    if ! test -d /mnt/local/tmp ; then
+        mkdir -p /mnt/local/tmp
+    fi
+    mount -t btrfs -o rw,relatime,space_cache -o subvol=@/tmp /dev/sda2 /mnt/local/tmp
+fi
+</code></pre>
+<p>This happens because on the original system there is</p>
+<pre><code># findmnt -at btrfs
+TARGET                   SOURCE                              FSTYPE OPTIONS
+...
+|-/tmp                   /dev/sda2[/@/tmp]                   btrfs  rw,relatime,space_cache,subvolid=260,subvol=/@/tmp
+</code></pre>
+<p>The cause is my</p>
+<pre><code>BACKUP_PROG_EXCLUDE=( /var/tmp /qqq /var/tmp /tmp /.snapshots )
+</code></pre>
+<p>and the root cause is my ignorance<br />
+to not read our fine documentation<br />
+in default.conf (excerpt)</p>
+<pre><code># In /etc/rear/local.conf use BACKUP_PROG_EXCLUDE+=( '/this/*' '/that/*' )
+# to specify your particular items that should be excluded from the backup in addition to what
+# gets excluded from the backup by default here (see also BACKUP_ONLY_EXCLUDE below):
+BACKUP_PROG_EXCLUDE=( '/tmp/*' '/dev/shm/*' "$VAR_DIR/output/*" )
+</code></pre>
+<p>so with</p>
+<pre><code>BACKUP_PROG_EXCLUDE+=( '/var/tmp/rear.*' /.snapshots )
+</code></pre>
+<p>all works reasonably well<br />
+and after "rear recover" I have</p>
+<pre><code>RESCUE localhost:~ # ls -ld /mnt/local/tmp/ /mnt/local/var/tmp/
+drwxrwxrwt 1 root root   0 May 16 11:07 /mnt/local/tmp/
+drwxrwxrwt 1 root root 156 May 16 11:15 /mnt/local/var/tmp/
+</code></pre>
+<p>because now in my backup.tar.gz there is</p>
+<pre><code># tar -tvzf /nfs/localhost/backup.tar.gz | grep '[0-9] tmp'
+drwxrwxrwt root/root           0 2024-05-16 11:07 tmp/
+drwxrwxrwt root/root           0 2024-05-16 11:07 tmp/
+
+# tar -tvzf /nfs/localhost/backup.tar.gz | grep '[0-9] var/tmp'
+drwxrwxrwt root/root           0 2024-05-16 11:06 var/tmp/
+drwx------ root/root           0 2024-05-16 08:31 var/tmp/systemd-private-c8620fb31f694e2ebf200b321b40aa8f-systemd-logind.service-9xVRrj/
+drwxrwxrwt root/root           0 2024-05-16 08:31 var/tmp/systemd-private-c8620fb31f694e2ebf200b321b40aa8f-systemd-logind.service-9xVRrj/tmp/
+</code></pre>
+<p>so /tmp/ and /var/tmp/ get restored<br />
+with right permissions from the backup<br />
+and restore/default/900_create_missing_directories.sh<br />
+skips both /tmp/ and /var/tmp/</p>
+<p>But because of this I found out that <code>/var/tmp/rear.*</code><br />
+should be added to BACKUP_PROG_EXCLUDE in default.conf<br />
+because since ReaR uses <code>/var/tmp/rear.*</code> as BUILD_DIR<br />
+one gets at least the whole BUILD_DIR of the current<br />
+"rear mkbackup" run in the backup by default.</p>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/3224">https://github.com/rear/rear/pull/3224</a><br />
+<code>'/var/tmp/rear.*'</code> will be added to BACKUP_PROG_EXCLUDE<br />
+in default.conf</p>
+<h4 id="lzaoral_commented_at_2024-05-17_1514"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2117821632">2024-05-17 15:14</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-05-17_1514" title="Permanent link">&para;</a></h4>
+<p>@jsmeix No worries, the exclusion of snapper base subvolume is quite
+simple. Could you please test the following patch on SLES? Thank you!</p>
+<pre><code>diff --git a/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh b/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh
+index cdeca6de..d34a4881 100644
+--- a/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh
++++ b/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh
+@@ -467,12 +467,14 @@ fi
+                 # see https://btrfs.wiki.kernel.org/index.php/Mount_options
+                 test "/" != "$btrfs_subvolume_path" &amp;&amp; btrfs_subvolume_path=${btrfs_subvolume_path#/}
+
++                # Automatically exclude all mounted snapper and snapshot subvolumes from the backup.
++                # See https://github.com/rear/rear/pull/3175#issuecomment-1983498175 and
++                # https://github.com/rear/rear/pull/3175#issuecomment-2111776529
++                if test "$snapper_base_subvolume" = "$btrfs_subvolume_path" || btrfs_snapshot_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
++                    echo "#btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 # Finally, test whether the btrfs subvolume listed as mounted actually exists. A running docker
+                 # daemon apparently can convince the system to list a non-existing btrfs volume as mounted.
+                 # See https://github.com/rear/rear/issues/1496
+-                if btrfs_snapshot_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
+-                    # Exclude mounted snapshot subvolumes
+-                    echo "#btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 elif btrfs_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
+                     echo "btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 else
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-29_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2137297094">2024-05-29 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-29_1230" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+I'm afraid, currently I don't have time for it<br />
+because of maintenance updates for SLES,<br />
+a.k.a. "customers first" ;-)</p>
+<h4 id="lzaoral_commented_at_2024-05-29_1234"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2137306689">2024-05-29 12:34</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-05-29_1234" title="Permanent link">&para;</a></h4>
+<p>@jsmeix No worries, that's completely understandable! Fortunately, this
+PR is not critical.</p>
+<h4 id="jsmeix_commented_at_2024-06-05_1037"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2149466207">2024-06-05 10:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-05_1037" title="Permanent link">&para;</a></h4>
+<p>Our CI automated backup &amp; recovery test<br />
+on Fedora 40 and later fails because<br />
+this pull request here is needed for that, see<br />
+<a href="https://github.com/rear/rear-integration-tests/pull/5#issue-2335381474">https://github.com/rear/rear-integration-tests/pull/5#issue-2335381474</a></p>
+<p>Unfortunately I still don't have time for this pull request<br />
+because of some more maintenance updates for SLES.</p>
+<p>@lzaoral @pcahyna<br />
+feel free to merge this one "as is" to get your<br />
+backup &amp; recovery test on Fedora 40 and later<br />
+working again.<br />
+If issues appear on SLES when this pull request<br />
+was merged "as is" I can care about them later<br />
+as time permits (current GitHub master code is under<br />
+development and never guaranteed to not have issues).</p>
+<h4 id="pcahyna_commented_at_2024-06-05_1346"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2150003172">2024-06-05 13:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-05_1346" title="Permanent link">&para;</a></h4>
+<p>@jsmeix would it make sense to add the patch in
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2117821632">https://github.com/rear/rear/pull/3175#issuecomment-2117821632</a>
+before merging, even if untested?</p>
+<h4 id="pcahyna_commented_at_2024-06-06_0954"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151878753">2024-06-06 09:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_0954" title="Permanent link">&para;</a></h4>
+<p>@jsmeix ok, the CI is still failing anyway ... I got a console log,
+something is wrong with the backup (can't be restored):</p>
+<pre><code>Disk layout created.
+Restoring from '/var/tmp/rear.4jIt7b4dUiBF65P/outputfs/backup/backup.tar.gz' (restore log in /var/lib/rear/restore/recover.backup.tar.gz.869.restore.log) ...
+[2K
+Backup restore program 'tar' started in subshell (PID=3778)78[KOK
+Backup restore program tar failed with exit code 2, check /var/log/rear/rear-ip-172-31-17-157.log and /var/lib/rear/restore/recover.backup.tar.gz.869.restore.log and the restored system
+Restoring finished (verify backup restore log messages in /var/lib/rear/restore/recover.backup.tar.gz.869.restore.log)
+Created SELinux /mnt/local/.autorelabel file : after reboot SELinux will relabel all files
+Checking if certain restored files are consistent with the recreated system
+Restored files in /mnt/local do not fully match the recreated system
+(files in the backup are not same as when the ReaR rescue/recovery system was made)
+
+Manually check if those changed files cause issues in your recreated system
+Failed to bind-mount /proc at /mnt/local/proc
+Failed to bind-mount /sys at /mnt/local/sys
+Failed to bind-mount /run at /mnt/local/run
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-06-06_1006"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151900152">2024-06-06 10:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_1006" title="Permanent link">&para;</a></h4>
+<p>log from backup looks ok:</p>
+<pre><code>2024-06-05 13:49:11.553713683 Including backup/NETFS/default/500_make_backup.sh
+2024-06-05 13:49:11.562082414 Making backup (using backup method NETFS)
+2024-06-05 13:49:11.565502818 Backup include list (backup-include.txt contents without subsequent duplicates):
+2024-06-05 13:49:11.571206100   /boot/efi
+2024-06-05 13:49:11.574437355   /boot
+2024-06-05 13:49:11.577993296   /
+2024-06-05 13:49:11.581303954   /home
+2024-06-05 13:49:11.584482186   /var
+2024-06-05 13:49:11.587748992 Backup exclude list (backup-exclude.txt contents):
+2024-06-05 13:49:11.590971757   /tmp/*
+2024-06-05 13:49:11.594173340   /dev/shm/*
+2024-06-05 13:49:11.597365693   /var/lib/rear/output/*
+2024-06-05 13:49:11.600535204   /var/tmp/rear.V6WBOVQcEgUhWvG
+2024-06-05 13:49:11.603854423 Creating tar archive '/var/tmp/rear.V6WBOVQcEgUhWvG/tmp/isofs/backup/backup.tar.gz'
+2024-06-05 13:49:11.616711219 tar --warning=no-xdev --sparse --block-number --totals --verbose --no-wildcards-match-slash --one-file-system --ignore-failed-read --anchored --xattrs --xattrs-include=security.capability --xattrs-include=security.selinux --acls --gzip -X /var/tmp/rear.V6WBOVQcEgUhWvG/tmp/backup-exclude.txt -C / -c -f - /boot/efi /boot / /home /var /var/log/rear/rear-ip-172-31-17-157.log | dd of=/var/tmp/rear.V6WBOVQcEgUhWvG/tmp/isofs/backup/backup.tar.gz bs=1M
+2024-06-05 13:50:36.134079316 Archived 837 MiB in 84 seconds [avg 10203 KiB/sec]
+'/var/tmp/rear.V6WBOVQcEgUhWvG/tmp/backup.log' -&gt; '/var/tmp/rear.V6WBOVQcEgUhWvG/tmp/isofs/backup/backup.log'
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-06-06_1029"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151940835">2024-06-06 10:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-06_1029" title="Permanent link">&para;</a></h4>
+<p>I tested<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2117821632">https://github.com/rear/rear/pull/3175#issuecomment-2117821632</a><br />
+but I implemented it as a more verbose change</p>
+<pre><code>--- usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh.unpatched     2024-05-15 08:33:32.752041754 +0200
++++ usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh.patched       2024-06-06 10:10:25.688306824 +0200
+@@ -467,12 +467,16 @@ fi
+                 # see https://btrfs.wiki.kernel.org/index.php/Mount_options
+                 test "/" != "$btrfs_subvolume_path" &amp;&amp; btrfs_subvolume_path=${btrfs_subvolume_path#/}
+
++                # Automatically exclude all mounted snapper and snapshot subvolumes from the backup.
++                # See https://github.com/rear/rear/pull/3175#issuecomment-1983498175 and
++                # https://github.com/rear/rear/pull/3175#issuecomment-2111776529
++                if test "$snapper_base_subvolume" = "$btrfs_subvolume_path" || btrfs_snapshot_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
++                    DebugPrint "Excluded mounted snapper or snapshot subvolume from the backup: $subvolume_mountpoint"
++                    echo "# Excluded mounted snapper or snapshot subvolume from the backup:"
++                    echo "#btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 # Finally, test whether the btrfs subvolume listed as mounted actually exists. A running docker
+                 # daemon apparently can convince the system to list a non-existing btrfs volume as mounted.
+                 # See https://github.com/rear/rear/issues/1496
+-                if btrfs_snapshot_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
+-                    # Exclude mounted snapshot subvolumes
+-                    echo "#btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 elif btrfs_subvolume_exists "$subvolume_mountpoint" "$btrfs_subvolume_path"; then
+                     echo "btrfsmountedsubvol $device $subvolume_mountpoint $mount_options $btrfs_subvolume_path"
+                 else
+</code></pre>
+<p>With the unpatched I got in the backup</p>
+<pre><code># tar -tvzf /nfs/localhost/backup.tar.gz.unpatched | grep snapshots
+drwxr-x--- root/root         0 2024-02-14 13:17 .snapshots/
+drwxr-x--- root/root           0 2024-02-14 13:17 .snapshots/
+drwxr-xr-x root/root           0 2024-02-14 13:03 .snapshots/1/
+drwxr-xr-x root/root           0 2024-05-16 09:00 .snapshots/1/snapshot/
+-rw------- root/root         168 2024-02-14 13:03 .snapshots/1/info.xml
+drwxr-xr-x root/root           0 2024-02-14 13:07 .snapshots/2/
+drwxr-xr-x root/root           0 2024-02-14 13:04 .snapshots/2/snapshot/
+-rw------- root/root         268 2024-02-14 13:07 .snapshots/2/info.xml
+-rw-r--r-- root/root         504 2024-02-14 13:17 .snapshots/2/grub-snapshot.cfg
+drwxr-xr-x root/root           0 2024-02-14 13:17 .snapshots/3/
+drwxr-xr-x root/root           0 2024-02-14 13:04 .snapshots/3/snapshot/
+-rw-r----- root/root         502 2024-02-14 13:17 .snapshots/3/grub-snapshot.cfg
+-rw------- root/root         258 2024-02-14 13:17 .snapshots/3/info.xml
+drwxr-xr-x root/root           0 2024-02-14 13:17 .snapshots/4/
+drwxr-xr-x root/root           0 2024-02-14 13:04 .snapshots/4/snapshot/
+-rw------- root/root         240 2024-02-14 13:17 .snapshots/4/info.xml
+-rw-r----- root/root         503 2024-02-14 13:17 .snapshots/4/grub-snapshot.cfg
+-rw------- root/root        4939 2024-02-14 13:17 .snapshots/4/filelist-3.txt
+-rw-r----- root/root         508 2024-02-14 13:17 .snapshots/grub-snapshot.cfg
+</code></pre>
+<p>With the patched I got</p>
+<pre><code># usr/sbin/rear -D mkbackup
+...
+Excluded mounted snapper or snapshot subvolume from the backup: /.snapshots
+...
+</code></pre>
+<p>and in the backup</p>
+<pre><code># tar -tvzf /nfs/localhost/backup.tar.gz.patched | grep snapshots
+drwxr-x--- root/root         0 2024-02-14 13:17 .snapshots/
+</code></pre>
+<p>So far things look good in the backup.</p>
+<p>BUT:</p>
+<p>The patch is at least somehow wrong<br />
+because what the patch actually does<br />
+is not to exclude .snapshots/ from the backup.</p>
+<p>Instead the patch actually excludes .snapshots/<br />
+from the disk layout:</p>
+<pre><code># diff -U0 var/lib/rear/layout/disklayout.conf.unpatched var/lib/rear/layout/disklayout.conf.patched
+...
+-btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
++# Excluded mounted snapper or snapshot subvolume from the backup:
++#btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+</code></pre>
+<p>This results that after "rear recover"<br />
+.snapshots/ is not a mounted btrfs subvolume<br />
+i.e. .snapshots/ is a btrfs subvolume but it is not mounted:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Marking component '/dev/sda' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda1' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda2' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda3' as done in /var/lib/rear/layout/disktodo.conf
+Doing SLES-like btrfs subvolumes setup for /dev/sda2 on / (BTRFS_SUBVOLUME_SLES_SETUP contains /dev/sda2)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Marking component 'fs:/' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/boot/grub2/i386-pc' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/boot/grub2/x86_64-efi' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/home' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/opt' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/srv' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/root' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/tmp' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/usr/local' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/var' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'swap:/dev/sda3' as done in /var/lib/rear/layout/disktodo.conf
+...
+Finished 'recover'. The target system is mounted at '/mnt/local'.
+...
+
+RESCUE localhost:~ # lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,PARTLABEL,SIZE,MOUNTPOINTS
+NAME        KNAME     PKNAME   TRAN TYPE FSTYPE  LABEL    PARTLABEL  SIZE MOUNTPOINTS
+/dev/sda    /dev/sda           ata  disk                              15G 
+|-/dev/sda1 /dev/sda1 /dev/sda      part                  sda1         8M 
+|-/dev/sda2 /dev/sda2 /dev/sda      part btrfs            sda2        13G /mnt/local/var
+|                                                                         /mnt/local/usr/local
+|                                                                         /mnt/local/tmp
+|                                                                         /mnt/local/root
+|                                                                         /mnt/local/srv
+|                                                                         /mnt/local/opt
+|                                                                         /mnt/local/home
+|                                                                         /mnt/local/boot/grub2/x86_64-efi
+|                                                                         /mnt/local/boot/grub2/i386-pc
+|                                                                         /mnt/local
+`-/dev/sda3 /dev/sda3 /dev/sda      part swap             sda3         2G 
+/dev/sr0    /dev/sr0           ata  rom  iso9660 REAR-ISO           77.7M
+
+RESCUE localhost:~ # findmnt -a -t btrfs -o TARGET,SOURCE
+TARGET                             SOURCE
+/mnt/local                         /dev/sda2[/@/.snapshots/1/snapshot]
+|-/mnt/local/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]
+|-/mnt/local/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi]
+|-/mnt/local/home                  /dev/sda2[/@/home]
+|-/mnt/local/opt                   /dev/sda2[/@/opt]
+|-/mnt/local/srv                   /dev/sda2[/@/srv]
+|-/mnt/local/root                  /dev/sda2[/@/root]
+|-/mnt/local/tmp                   /dev/sda2[/@/tmp]
+|-/mnt/local/usr/local             /dev/sda2[/@/usr/local]
+`-/mnt/local/var                   /dev/sda2[/@/var]
+
+RESCUE localhost:~ # btrfs subvolume list -a /mnt/local
+ID 256 gen 20 top level 5 path &lt;FS_TREE&gt;/@
+ID 258 gen 26 top level 256 path &lt;FS_TREE&gt;/@/var
+ID 259 gen 24 top level 256 path &lt;FS_TREE&gt;/@/usr/local
+ID 260 gen 24 top level 256 path &lt;FS_TREE&gt;/@/tmp
+ID 261 gen 24 top level 256 path &lt;FS_TREE&gt;/@/srv
+ID 262 gen 25 top level 256 path &lt;FS_TREE&gt;/@/root
+ID 263 gen 24 top level 256 path &lt;FS_TREE&gt;/@/opt
+ID 264 gen 24 top level 256 path &lt;FS_TREE&gt;/@/home
+ID 265 gen 24 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/x86_64-efi
+ID 266 gen 26 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/i386-pc
+ID 267 gen 20 top level 256 path &lt;FS_TREE&gt;/@/.snapshots
+ID 268 gen 27 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/1/snapshot
+</code></pre>
+<p>Interestingly things look OK<br />
+on the rebooted recreated system:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,PARTLABEL,SIZE,MOUNTPOINTS
+NAME        KNAME     PKNAME   TRAN TYPE FSTYPE  LABEL    PARTLABEL  SIZE MOUNTPOINTS
+/dev/sda    /dev/sda           ata  disk                              15G 
+|-/dev/sda1 /dev/sda1 /dev/sda      part                  sda1         8M 
+|-/dev/sda2 /dev/sda2 /dev/sda      part btrfs            sda2        13G /var
+|                                                                         /usr/local
+|                                                                         /tmp
+|                                                                         /root
+|                                                                         /srv
+|                                                                         /opt
+|                                                                         /home
+|                                                                         /boot/grub2/i386-pc
+|                                                                         /boot/grub2/x86_64-efi
+|                                                                         /.snapshots
+|                                                                         /
+`-/dev/sda3 /dev/sda3 /dev/sda      part swap             sda3         2G [SWAP]
+/dev/sr0    /dev/sr0           ata  rom  iso9660 REAR-ISO           77.7M
+
+# findmnt -a -t btrfs -o TARGET,SOURCE
+TARGET                   SOURCE
+/                        /dev/sda2[/@/.snapshots/1/snapshot]
+|-/home                  /dev/sda2[/@/home]
+|-/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]
+|-/var                   /dev/sda2[/@/var]
+|-/.snapshots            /dev/sda2[/@/.snapshots]
+|-/tmp                   /dev/sda2[/@/tmp]
+|-/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi]
+|-/opt                   /dev/sda2[/@/opt]
+|-/srv                   /dev/sda2[/@/srv]
+|-/root                  /dev/sda2[/@/root]
+`-/usr/local             /dev/sda2[/@/usr/local]
+
+# btrfs subvolume list -a /
+ID 256 gen 20 top level 5 path &lt;FS_TREE&gt;/@
+ID 258 gen 29 top level 256 path &lt;FS_TREE&gt;/@/var
+ID 259 gen 24 top level 256 path &lt;FS_TREE&gt;/@/usr/local
+ID 260 gen 29 top level 256 path &lt;FS_TREE&gt;/@/tmp
+ID 261 gen 24 top level 256 path &lt;FS_TREE&gt;/@/srv
+ID 262 gen 25 top level 256 path &lt;FS_TREE&gt;/@/root
+ID 263 gen 24 top level 256 path &lt;FS_TREE&gt;/@/opt
+ID 264 gen 24 top level 256 path &lt;FS_TREE&gt;/@/home
+ID 265 gen 24 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/x86_64-efi
+ID 266 gen 26 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/i386-pc
+ID 267 gen 20 top level 256 path &lt;FS_TREE&gt;/@/.snapshots
+ID 268 gen 29 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/1/snapshot
+</code></pre>
+<p>On the rebooted recreated system .snapshots/ is<br />
+a btrfs subvolume which is mounted.</p>
+<p>For comparison how it looks on the original system:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,PARTLABEL,SIZE,MOUNTPOINTS
+NAME        KNAME     PKNAME   TRAN TYPE FSTYPE  LABEL                            PARTLABEL  SIZE MOUNTPOINTS
+/dev/sda    /dev/sda           ata  disk                                                      15G 
+|-/dev/sda1 /dev/sda1 /dev/sda      part                                                       8M 
+|-/dev/sda2 /dev/sda2 /dev/sda      part btrfs                                                13G /var
+|                                                                                                 /usr/local
+|                                                                                                 /tmp
+|                                                                                                 /root
+|                                                                                                 /srv
+|                                                                                                 /opt
+|                                                                                                 /home
+|                                                                                                 /boot/grub2/x86_64-efi
+|                                                                                                 /boot/grub2/i386-pc
+|                                                                                                 /.snapshots
+|                                                                                                 /
+`-/dev/sda3 /dev/sda3 /dev/sda      part swap                                                  2G [SWAP]
+/dev/sr0    /dev/sr0           ata  rom  iso9660 SLE-15-SP5-Full-x86_64120.11.001           14.1G
+
+# findmnt -a -t btrfs -o TARGET,SOURCE
+TARGET                   SOURCE
+/                        /dev/sda2[/@/.snapshots/1/snapshot]
+|-/root                  /dev/sda2[/@/root]
+|-/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi]
+|-/.snapshots            /dev/sda2[/@/.snapshots]
+|-/var                   /dev/sda2[/@/var]
+|-/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]
+|-/home                  /dev/sda2[/@/home]
+|-/opt                   /dev/sda2[/@/opt]
+|-/srv                   /dev/sda2[/@/srv]
+|-/tmp                   /dev/sda2[/@/tmp]
+`-/usr/local             /dev/sda2[/@/usr/local]
+
+# btrfs subvolume list -a /
+ID 256 gen 32 top level 5 path &lt;FS_TREE&gt;/@
+ID 258 gen 12143 top level 256 path &lt;FS_TREE&gt;/@/var
+ID 259 gen 12029 top level 256 path &lt;FS_TREE&gt;/@/usr/local
+ID 260 gen 12143 top level 256 path &lt;FS_TREE&gt;/@/tmp
+ID 261 gen 12028 top level 256 path &lt;FS_TREE&gt;/@/srv
+ID 262 gen 12133 top level 256 path &lt;FS_TREE&gt;/@/root
+ID 263 gen 12028 top level 256 path &lt;FS_TREE&gt;/@/opt
+ID 264 gen 12027 top level 256 path &lt;FS_TREE&gt;/@/home
+ID 265 gen 4724 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/x86_64-efi
+ID 266 gen 4724 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/i386-pc
+ID 267 gen 12050 top level 256 path &lt;FS_TREE&gt;/@/.snapshots
+ID 268 gen 12027 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/1/snapshot
+ID 272 gen 43 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/2/snapshot
+ID 273 gen 64 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/3/snapshot
+ID 274 gen 65 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/4/snapshot
+</code></pre>
+<p>For comparison how "rear recover" looks<br />
+without the patch:</p>
+<pre><code>RESCUE localhost:~ # grep snapshot /var/lib/rear/layout/disklayout.conf
+...
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+
+RESCUE localhost:~ # rear -D recover
+...
+Marking component '/dev/sda' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda1' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda2' as done in /var/lib/rear/layout/disktodo.conf
+Marking component '/dev/sda3' as done in /var/lib/rear/layout/disktodo.conf
+Doing SLES-like btrfs subvolumes setup for /dev/sda2 on / (BTRFS_SUBVOLUME_SLES_SETUP contains /dev/sda2)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Marking component 'fs:/' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/.snapshots' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/boot/grub2/i386-pc' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/boot/grub2/x86_64-efi' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/home' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/opt' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/srv' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/root' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/tmp' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/usr/local' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'btrfsmountedsubvol:/var' as done in /var/lib/rear/layout/disktodo.conf
+Marking component 'swap:/dev/sda3' as done in /var/lib/rear/layout/disktodo.conf
+...
+Finished 'recover'. The target system is mounted at '/mnt/local'.
+...
+
+RESCUE localhost:~ # lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,PARTLABEL,SIZE,MOUNTPOINTS
+NAME        KNAME     PKNAME   TRAN TYPE FSTYPE  LABEL    PARTLABEL  SIZE MOUNTPOINTS
+/dev/sda    /dev/sda           ata  disk                              15G 
+|-/dev/sda1 /dev/sda1 /dev/sda      part                  sda1         8M 
+|-/dev/sda2 /dev/sda2 /dev/sda      part btrfs            sda2        13G /mnt/local/var
+|                                                                         /mnt/local/usr/local
+|                                                                         /mnt/local/tmp
+|                                                                         /mnt/local/root
+|                                                                         /mnt/local/srv
+|                                                                         /mnt/local/opt
+|                                                                         /mnt/local/home
+|                                                                         /mnt/local/boot/grub2/x86_64-efi
+|                                                                         /mnt/local/boot/grub2/i386-pc
+|                                                                         /mnt/local/.snapshots
+|                                                                         /mnt/local
+`-/dev/sda3 /dev/sda3 /dev/sda      part swap             sda3         2G 
+/dev/sr0    /dev/sr0           ata  rom  iso9660 REAR-ISO           77.7M
+
+RESCUE localhost:~ # findmnt -a -t btrfs -o TARGET,SOURCE
+TARGET                             SOURCE
+/mnt/local                         /dev/sda2[/@/.snapshots/1/snapshot]
+|-/mnt/local/.snapshots            /dev/sda2[/@/.snapshots]
+|-/mnt/local/boot/grub2/i386-pc    /dev/sda2[/@/boot/grub2/i386-pc]
+|-/mnt/local/boot/grub2/x86_64-efi /dev/sda2[/@/boot/grub2/x86_64-efi]
+|-/mnt/local/home                  /dev/sda2[/@/home]
+|-/mnt/local/opt                   /dev/sda2[/@/opt]
+|-/mnt/local/srv                   /dev/sda2[/@/srv]
+|-/mnt/local/root                  /dev/sda2[/@/root]
+|-/mnt/local/tmp                   /dev/sda2[/@/tmp]
+|-/mnt/local/usr/local             /dev/sda2[/@/usr/local]
+`-/mnt/local/var                   /dev/sda2[/@/var]
+
+RESCUE localhost:~ # btrfs subvolume list -a /mnt/local
+ID 256 gen 20 top level 5 path &lt;FS_TREE&gt;/@
+ID 258 gen 28 top level 256 path &lt;FS_TREE&gt;/@/var
+ID 259 gen 24 top level 256 path &lt;FS_TREE&gt;/@/usr/local
+ID 260 gen 24 top level 256 path &lt;FS_TREE&gt;/@/tmp
+ID 261 gen 24 top level 256 path &lt;FS_TREE&gt;/@/srv
+ID 262 gen 26 top level 256 path &lt;FS_TREE&gt;/@/root
+ID 263 gen 24 top level 256 path &lt;FS_TREE&gt;/@/opt
+ID 264 gen 23 top level 256 path &lt;FS_TREE&gt;/@/home
+ID 265 gen 23 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/x86_64-efi
+ID 266 gen 28 top level 256 path &lt;FS_TREE&gt;/@/boot/grub2/i386-pc
+ID 267 gen 25 top level 256 path &lt;FS_TREE&gt;/@/.snapshots
+ID 268 gen 26 top level 267 path &lt;FS_TREE&gt;/@/.snapshots/1/snapshot
+</code></pre>
+<p>From a lot of (painful) personal experience<br />
+with the (over)-complicated SUSE btrfs default structure<br />
+I know that small or subtle differences<br />
+could have scaring (possibly disastrous) consequences.</p>
+<p>So I would very much perfer to stay on the safe side<br />
+and get things recreated during "rear recover"<br />
+as much as possible exactly as it was<br />
+on the original system.</p>
+<h4 id="jsmeix_commented_at_2024-06-06_1035"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151951631">2024-06-06 10:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-06_1035" title="Permanent link">&para;</a></h4>
+<p>@lzaoral @pcahyna see my above<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2112519793">https://github.com/rear/rear/pull/3175#issuecomment-2112519793</a><br />
+(excerpt)</p>
+<pre><code>That /.snapshots must be excluded from the backup restore
+is a separated task for me so you could merge this one
+and then I will care about /.snapshots via a separated
+issue and/or pull request.
+</code></pre>
+<p>So feel free to merge it "as is" - i.e. without the patch in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2117821632">https://github.com/rear/rear/pull/3175#issuecomment-2117821632</a><br />
+and later - as time permits - I will care about /.snapshots</p>
+<h4 id="pcahyna_commented_at_2024-06-06_1037"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151954465">2024-06-06 10:37</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_1037" title="Permanent link">&para;</a></h4>
+<p>I see this during recovery, is it expected?</p>
+<pre><code>Fallback SLES-like btrfs subvolumes setup for /dev/vda4 on / (no match in BTRFS_SUBVOLUME_GENERIC_SETUP or BTRFS_SUBVOLUME_SLES_SETUP)
+</code></pre>
+<h4 id="lzaoral_commented_at_2024-06-06_1038"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2151957151">2024-06-06 10:38</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-06-06_1038" title="Permanent link">&para;</a></h4>
+<p>@jsmeix No worries, the patch is not included in this PR anyway. I'll
+let you to implement the snapper support properly in a follow-up PR.</p>
+<h4 id="jsmeix_commented_at_2024-06-06_1054"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2152006670">2024-06-06 10:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-06_1054" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+welcome to the hell of btrfs!<br />
+I had been toasted there ;-)</p>
+<p>I implemented BTRFS_SUBVOLUME_SLES_SETUP<br />
+and BTRFS_SUBVOLUME_GENERIC_SETUP in<br />
+<a href="https://github.com/rear/rear/commit/b144e9082511442b6f2426c9006e66d6c611edf9">https://github.com/rear/rear/commit/b144e9082511442b6f2426c9006e66d6c611edf9</a><br />
+from<br />
+<a href="https://github.com/rear/rear/pull/2080">https://github.com/rear/rear/pull/2080</a><br />
+as a follow up of<br />
+<a href="https://github.com/rear/rear/pull/2079">https://github.com/rear/rear/pull/2079</a></p>
+<p>Offhandedly I do not remember the details<br />
+but as far as I remember my basic reasoning was<br />
+that from a lot of (painful) personal experience<br />
+with the (over)-complicated SUSE btrfs default structure<br />
+I knew that small or subtle differences<br />
+could have scaring (possibly disastrous) consequences<br />
+so I perferred to stay on the safe side<br />
+and did not change the existing and tested<br />
+SLES-specific btrfs setup in ReaR.</p>
+<h4 id="pcahyna_commented_at_2024-06-06_1156"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2152214977">2024-06-06 11:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_1156" title="Permanent link">&para;</a></h4>
+<p>I see this error when booting the rescue system on Fedora Rawhide:</p>
+<pre><code>Running 40-start-udev-or-load-modules.sh...
+/etc/scripts/system-setup.d/40-start-udev-or-load-modules.sh: line 24: [[: 256~rc3: syntax error in expression (error token is "~rc3")
+Loading storage modules ...
+[    8.926226] 3ware Storage Controller device driver for Linux v1.26.02.003.
+[    8.950701] 3ware 9000 Storage Controller device driver for Linux v2.26.02.014.
+[    9.134259] db_root: cannot open: /etc/target
+Module nbd excluded from being autoloaded.
+Running 41-load-special-modules.sh...
+Running 42-engage-scsi.sh...
+Running 45-serial-console.sh...
+Serial console support enabled for ttyS0 at speed 115200
+Running 55-migrate-network-devices.sh...
+Running 58-start-dhclient.sh...
+Attempting to start the DHCP client daemon
+read_config: /etc/dhcpcd.conf: No such file or directory
+dhcpcd-10.0.6 starting
+read_config: /etc/dhcpcd.conf: No such file or directory
+script_runreason: No such file or directory
+script_runreason: No such file or directory
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-06-06_1311"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2152424946">2024-06-06 13:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_1311" title="Permanent link">&para;</a></h4>
+<pre><code># systemd-notify --version 2&gt;/dev/null | grep systemd | awk '{ print $2; }'
+256~rc3
+RESCUE default-0:~ # systemd_version=$( systemd-notify --version 2&gt;/dev/null | grep systemd | awk '{ print $2; }' )
+RESCUE default-0:~ # echo $systemd_version 
+256~rc3
+RESCUE default-0:~ # test "$systemd_version" || systemd_version=0
+RESCUE default-0:~ # [[ $systemd_version -gt 190 ]]
+-bash: [[: 256~rc3: syntax error in expression (error token is "~rc3")
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-06-06_1314"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2152437087">2024-06-06 13:14</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-06_1314" title="Permanent link">&para;</a></h4>
+<p>@jsmeix what worries me is <code>SLES-like btrfs subvolumes setup</code>. Is it
+something that will work on non-SLES distros?</p>
+<h4 id="jsmeix_commented_at_2024-06-07_0632"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2154181600">2024-06-07 06:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-07_0632" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+of course (as "SLES-like" indicates)<br />
+the "SLES-like btrfs subvolumes setup" method<br />
+may not work on non-SLES systems.</p>
+<p>Because in<br />
+<a href="https://github.com/rear/rear-integration-tests/pull/5">https://github.com/rear/rear-integration-tests/pull/5</a><br />
+you mentioned "Kiwi"</p>
+<pre><code>on Fedora 40 and later distributed cloud images,
+as the cloud images changed their layout a bit
+and have separate /var as a btrfs subvolume
+due to the switch to Kiwi
+</code></pre>
+<p>and because Kiwi<br />
+<a href="https://github.com/OSInside/kiwi">https://github.com/OSInside/kiwi</a><br />
+is developed by (open)SUSE, cf.<br />
+<a href="https://en.wikipedia.org/wiki/KIWI_(openSUSE)">https://en.wikipedia.org/wiki/KIWI_(openSUSE)</a><br />
+and because a "separate /var as a btrfs subvolume"<br />
+indicates that Kiwi may - at least partially - do<br />
+a "SLES-like btrfs subvolumes setup",<br />
+so it may in your particular case work<br />
+(or even be the actually right way)<br />
+to recreate your btrfs subvolumes structure<br />
+via the "SLES-like btrfs subvolumes setup" method.</p>
+<p>You may experiment with BTRFS_SUBVOLUME_SLES_SETUP<br />
+versus BTRFS_SUBVOLUME_GENERIC_SETUP what actually<br />
+works better in your particular case.<br />
+After
+<a href="https://github.com/rear/rear/pull/2079">https://github.com/rear/rear/pull/2079</a><br />
+and
+<a href="https://github.com/rear/rear/pull/2080">https://github.com/rear/rear/pull/2080</a><br />
+I never tested BTRFS_SUBVOLUME_GENERIC_SETUP again.</p>
+<h4 id="pcahyna_commented_at_2024-06-11_1449"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2160961648">2024-06-11 14:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1449" title="Permanent link">&para;</a></h4>
+<p>Is there any code to actually mount the recovered subvolumes during
+layout restoration?</p>
+<p>After a lot of effort (due to console log from tests missing b/c of
+Testing Farm poor handling of serial console output), I see this on the
+console during recovery:</p>
+<pre><code>Start system layout restoration.
+Disk '/dev/nvme0n1': creating 'gpt' partition table
+Disk '/dev/nvme0n1': creating partition number 1 with name ''p.legacy''
+Disk '/dev/nvme0n1': creating partition number 2 with name ''p.UEFI''
+Disk '/dev/nvme0n1': creating partition number 3 with name ''p.lxboot''
+Disk '/dev/nvme0n1': creating partition number 4 with name ''p.lxroot''
+Creating filesystem of type btrfs with mount point / on /dev/nvme0n1p4.
+Mounting filesystem /
+Creating filesystem of type ext4 with mount point /boot on /dev/nvme0n1p3.
+Mounting filesystem /boot
+Creating filesystem of type vfat with mount point /boot/efi on /dev/nvme0n1p2.
+Mounting filesystem /boot/efi
+Disk layout created.
+Restoring from '/var/tmp/rear.8TwCBQyXhvIcfv1/outputfs/backup/backup.tar.gz' (restore log in /var/lib/rear/restore/recover.backup.tar.gz.596.restore.log) ...
+</code></pre>
+<p>There is nothing about mounting <code>/var</code> or <code>/home</code>. I suspect that backup
+gets restored into <code>/var</code> on the <code>/</code> mount, i.e. not into the mounted
+subvolume, and thus gets shadowed by an empty <code>/var</code> subvolume after
+recovery and reboot, and that's why the tests error out.</p>
+<h4 id="jsmeix_commented_at_2024-06-11_1508"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161006975">2024-06-11 15:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-11_1508" title="Permanent link">&para;</a></h4>
+<p>Yes - of course because I need it on SLES since years - there<br />
+is code to properly recreate the SUSE btrfs structure<br />
+during "rear recover" before the backup gets restored,<br />
+e.g. see how things look for me on SLES in my above<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2151940835">https://github.com/rear/rear/pull/3175#issuecomment-2151940835</a></p>
+<p>But I don't know how the btrfs structure looks like<br />
+on your Testing Farm systems.<br />
+Is there some documentation (rather foolproof for me)<br />
+how I could install such a typical Testing Farm system<br />
+on one of my local KVM/QEMU virtual machines so that<br />
+I could have a direct look at such a system?</p>
+<p>@pcahyna<br />
+I think it could help you a lot if you could install<br />
+such a Testing Farm system locally on a virtual machine<br />
+so that you have usual direct access to such a system.</p>
+<h4 id="pcahyna_commented_at_2024-06-11_1517"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161027457">2024-06-11 15:17</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1517" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think it could help you a lot if you could install<br />
+such a Testing Farm system locally on a virtual machine<br />
+so that you have usual direct access to such a system.</p>
+</blockquote>
+<p>That's indeed how I was able to debug the previous problems, but now the
+local tests pass, so I am lost. (Which also suggests that not mounting
+<code>/var</code> is not the full story, as this problem should appear even in
+local tests, but I don't have any other hints.)</p>
+<h4 id="pcahyna_commented_at_2024-06-11_1529"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161052473">2024-06-11 15:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1529" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>But I don't know how the btrfs structure looks like on your Testing
+Farm systems. Is there some documentation (rather foolproof for me)
+how I could install such a typical Testing Farm system on one of my
+local KVM/QEMU virtual machines so that I could have a direct look at
+such a system?</p>
+</blockquote>
+<p>I think the easiest is to install testcloud (
+<a href="https://pypi.org/project/testcloud/">https://pypi.org/project/testcloud/</a>
+) and run <code>testcloud create fedora:40</code>.</p>
+<p>Here (
+<a href="https://artifacts.dev.testing-farm.io/c02f01a7-83d0-4187-b69e-91dc043a457a/work-backup-and-restorez5wihv38/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/output.txt">https://artifacts.dev.testing-farm.io/c02f01a7-83d0-4187-b69e-91dc043a457a/work-backup-and-restorez5wihv38/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/output.txt</a>
+) is the output of lsblk in the system before recovery:</p>
+<pre><code>NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+zram0       252:0    0  3.7G  0 disk [SWAP]
+nvme0n1     259:0    0  100G  0 disk 
+|-nvme0n1p1 259:1    0    2M  0 part 
+|-nvme0n1p2 259:2    0  100M  0 part /boot/efi
+|-nvme0n1p3 259:3    0 1000M  0 part /boot
+`-nvme0n1p4 259:4    0 98.9G  0 part /var
+                                     /home
+                                     /
+</code></pre>
+<p>If that's enough.</p>
+<h4 id="pcahyna_commented_at_2024-06-11_1549"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161095552">2024-06-11 15:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1549" title="Permanent link">&para;</a></h4>
+<p>By the way the image is generated by Kiwi, apparently using the config
+here:
+<a href="https://pagure.io/fedora-kiwi-descriptions/blob/rawhide/f/teams/cloud/cloud.xml#_92">https://pagure.io/fedora-kiwi-descriptions/blob/rawhide/f/teams/cloud/cloud.xml#_92</a></p>
+<h4 id="pcahyna_commented_at_2024-06-11_1553"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161103402">2024-06-11 15:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1553" title="Permanent link">&para;</a></h4>
+<p>And here's disklayout.conf produced by mkbackup:
+<a href="https://artifacts.dev.testing-farm.io/ce8f73de-fc4e-4e56-85d1-e733a94d3765/work-backup-and-restore32iemcbu/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/data/disklayout.conf">https://artifacts.dev.testing-farm.io/ce8f73de-fc4e-4e56-85d1-e733a94d3765/work-backup-and-restore32iemcbu/tests/plans/backup-and-restore/execute/data/guest/default-0/make-backup-and-restore-iso-1/data/disklayout.conf</a></p>
+<h4 id="pcahyna_commented_at_2024-06-11_1705"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2161237036">2024-06-11 17:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-11_1705" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the useless noise / red herring. I believe that the
+problem lies elsewhere.</p>
+<h4 id="jsmeix_commented_at_2024-06-12_0801"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2162361881">2024-06-12 08:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_0801" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+no need to be sorry for "noise".</p>
+<p>And your "noise" was not useless because now<br />
+I became interested to have a look (as time permits)<br />
+how such Kiwi made systems look like<br />
+in particular regarding their btrfs structure<br />
+because their btrfs structure is noticeable<br />
+different compared to the SLES btrfs structure.</p>
+<p>As far as I see at first glance the main difference is<br />
+that on such Kiwi made systems what is mounted at '/'<br />
+is not a btrfs subvolume but the whole btrfs itself<br />
+or something like that - 'findmnt -t btrfs' would tell.</p>
+<p>Perhaps in this case (i.e. when what is mounted at '/'<br />
+is the whole btrfs itself) data in btrfs subvolumes<br />
+is not accessible via the usual directory path?<br />
+I don't remember such btrfs behavioural details.<br />
+If my guess here is right, then when e.g. 'var' is<br />
+a btrfs subvolume, one needs an entry in /etc/fstab<br />
+to get the 'var' btrfs subvolume mounted at /var<br />
+or something like that.</p>
+<p>Curretly this is only blind guesswork.<br />
+I have to see such a Kiwi made system on my own.</p>
+<p>FYI<br />
+what comments I put into disklayout.conf on SLES<br />
+(excerpts):</p>
+<pre><code># Btrfs default subvolume for /dev/sda2 at /
+# Format: btrfsdefaultsubvol &lt;device&gt; &lt;mountpoint&gt; &lt;btrfs_subvolume_ID&gt; &lt;btrfs_subvolume_path&gt;
+btrfsdefaultsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+...
+# Btrfs normal subvolumes for /dev/sda2 at /
+# Format: btrfsnormalsubvol &lt;device&gt; &lt;mountpoint&gt; &lt;btrfs_subvolume_ID&gt; &lt;btrfs_subvolume_path&gt;
+# SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+# Btrfs subvolumes that belong to snapper are listed here only as documentation.
+# Snapper's base subvolume '/@/.snapshots' is deactivated here because during 'rear recover'
+# it is created by 'snapper/installation-helper --step 1' (which fails if it already exists).
+# Furthermore any normal btrfs subvolume under snapper's base subvolume would be wrong.
+# See https://github.com/rear/rear/issues/944#issuecomment-238239926
+# and https://github.com/rear/rear/issues/963#issuecomment-240061392
+# how to create a btrfs subvolume in compliance with the SLES12 default brtfs structure.
+# In short: Normal btrfs subvolumes on SLES12 must be created directly below '/@/'
+# e.g. '/@/var/lib/mystuff' (which requires that the btrfs root subvolume is mounted)
+# and then the subvolume is mounted at '/var/lib/mystuff' to be accessible from '/'
+# plus usually an entry in /etc/fstab to get it mounted automatically when booting.
+# Because any '@/.snapshots' subvolume would let 'snapper/installation-helper --step 1' fail
+# such subvolumes are deactivated here to not let 'rear recover' fail:
+#btrfsnormalsubvol /dev/sda2 / 267 @/.snapshots
+#btrfsnormalsubvol /dev/sda2 / 268 @/.snapshots/1/snapshot
+btrfsnormalsubvol /dev/sda2 / 256 @
+btrfsnormalsubvol /dev/sda2 / 258 @/var
+...
+# All mounted btrfs subvolumes (including mounted btrfs default subvolumes and mounted btrfs snapshot subvolumes).
+# Determined by the findmnt command that shows the mounted btrfs_subvolume_path.
+# Format: btrfsmountedsubvol &lt;device&gt; &lt;subvolume_mountpoint&gt; &lt;mount_options&gt; &lt;btrfs_subvolume_path&gt;
+btrfsmountedsubvol /dev/sda2 / rw,relatime,space_cache,subvolid=268,subvol=/@/.snapshots/1/snapshot @/.snapshots/1/snapshot
+btrfsmountedsubvol /dev/sda2 /.snapshots rw,relatime,space_cache,subvolid=267,subvol=/@/.snapshots @/.snapshots
+...
+btrfsmountedsubvol /dev/sda2 /var rw,relatime,space_cache,subvolid=258,subvol=/@/var @/var
+</code></pre>
+<p>I guess during "rear mkrescue" you don't get this<br />
+on such a Kiwi made system as I get it on SLES</p>
+<pre><code># usr/sbin/rear -D mkrescue
+Relax-and-Recover 2.7 / Git
+...
+Creating disk layout
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.NtfByEWMhJYsXGQ/rootfs/etc/rear/rescue.conf
+...
+</code></pre>
+<p>which would prove that on such a Kiwi made system<br />
+the btrfs structure is noticeable different<br />
+compared to the SLES btrfs structure.</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163116469">2024-06-12 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1410" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your above<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2161052473">https://github.com/rear/rear/pull/3175#issuecomment-2161052473</a></p>
+<pre><code>I think the easiest is to install testcloud
+( https://pypi.org/project/testcloud/ ) and run
+ testcloud create fedora:40.
+</code></pre>
+<p>Sigh :-(<br />
+It seems I am again hit by a<br />
+"too many indirections stack overflow exit".</p>
+<p>I wished there is a directly installable image<br />
+of such a Kiwi made system somewhere available<br />
+that I could download and somehow put onto<br />
+a virtual disk of a KVM/QEMU virtual machine.</p>
+<p>As far as I remember from some experiments with Kiwi<br />
+(long ago) it makes some "image" that one can install.<br />
+I think a Kiwi image is some self-extracting and/or<br />
+self-installing "thingy" that one somehow "dumps"<br />
+onto a disk - but all that is long ago so I may<br />
+remember things falsely and/or things may have<br />
+very much changed since then.</p>
+<h4 id="pcahyna_commented_at_2024-06-12_1413"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163125075">2024-06-12 14:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-12_1413" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I wished there is a directly installable image<br />
+of such a Kiwi made system somewhere available<br />
+that I could download and somehow put onto<br />
+a virtual disk of a KVM/QEMU virtual machine.</p>
+</blockquote>
+<p>there is:
+<a href="https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images/">https://download.fedoraproject.org/pub/fedora/linux/releases/40/Cloud/x86_64/images/</a></p>
+<h4 id="jsmeix_commented_at_2024-06-12_1435"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163180550">2024-06-12 14:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1435" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you!<br />
+I downloaded</p>
+<pre><code>https://mirror.23m.com/fedora/linux/releases/40/Cloud/x86_64/images/Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2
+</code></pre>
+<p>and run that now in a KVM/QEMU virtual machine.<br />
+But I do not know the Fedora 40 default root password<br />
+so currently I cannot log in.<br />
+Do you know what the Fedora 40 default root password is?</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1459"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163264761">2024-06-12 14:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1459" title="Permanent link">&para;</a></h4>
+<p>I mounted the Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2<br />
+manually directly as described in<br />
+<a href="https://gist.github.com/shamil/62935d9b456a6f9877b5">https://gist.github.com/shamil/62935d9b456a6f9877b5</a></p>
+<pre><code># modprobe nbd max_part=8
+
+# qemu-nbd --connect=/dev/nbd0 Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2
+
+# fdisk /dev/nbd0 -l
+Disk /dev/nbd0: 5 GiB, 5368709120 bytes, 10485760 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: EDB052F7-644C-490E-807C-FAD7E596DB80
+Device        Start      End Sectors  Size Type
+/dev/nbd0p1    2048     6143    4096    2M BIOS boot
+/dev/nbd0p2    6144   210943  204800  100M EFI System
+/dev/nbd0p3  210944  2258943 2048000 1000M Linux extended boot
+/dev/nbd0p4 2258944 10485726 8226783  3.9G Linux root (x86-64)
+
+# mkdir fedora40mp
+
+# mount /dev/nbd0p4 fedora40mp
+
+# cd fedora40mp
+
+# ls -l
+total 0
+drwxr-xr-x. 1 root root   0 Jan 24 01:00 home
+drwxrwxr-x. 1 root root 212 Apr 15 00:56 root
+drwxr-xr-x. 1 root root 170 Jun 12 16:33 var
+
+# ls -l root
+total 24
+dr-xr-xr-x. 1 root root    0 Jan 24 01:00 afs
+lrwxrwxrwx. 1 root root    7 Jan 24 01:00 bin -&gt; usr/bin
+dr-xr-xr-x. 1 root root    0 Apr 15 00:56 boot
+-rw-rw-r--. 1 root root  134 Apr 15 00:56 config.bootoptions
+-rw-rw-r--. 1 root root   71 Apr 15 00:56 config.partids
+drwxrwxr-x. 1 root root   60 Apr 15 00:55 dev
+drwxr-xr-x. 1 root root 2610 Jun 12 16:33 etc
+drwxrwxr-x. 1 root root   10 Apr 15 00:56 grub2
+drwxrwxr-x. 1 root root    0 Apr 15 00:56 home
+lrwxrwxrwx. 1 root root    7 Jan 24 01:00 lib -&gt; usr/lib
+lrwxrwxrwx. 1 root root    9 Jan 24 01:00 lib64 -&gt; usr/lib64
+drwxr-xr-x. 1 root root    0 Jan 24 01:00 media
+drwxr-xr-x. 1 root root    0 Jan 24 01:00 mnt
+drwxr-xr-x. 1 root root    0 Jan 24 01:00 opt
+drwxrwxr-x. 1 root root    0 Apr 15 00:53 proc
+dr-xr-x---. 1 root root   98 Apr 15 00:54 root
+drwxr-xr-x. 1 root root   38 Apr 15 00:56 run
+lrwxrwxrwx. 1 root root    8 Jan 24 01:00 sbin -&gt; usr/sbin
+drwxr-xr-x. 1 root root    0 Jan 24 01:00 srv
+drwxrwxr-x. 1 root root    0 Apr 15 00:53 sys
+drwxrwxrwt. 1 root root    0 Apr 15 00:56 tmp
+drwxr-xr-x. 1 root root  100 Apr 15 00:54 usr
+drwxrwxr-x. 1 root root    0 Apr 15 00:56 var
+
+# btrfs subvolume list -a .
+ID 256 gen 36 top level 5 path root
+ID 257 gen 33 top level 5 path home
+ID 258 gen 34 top level 5 path var
+</code></pre>
+<p>Ugh!<br />
+That doesn't look normal - at least not on first glance.<br />
+It seems what one expects to be in '/' is here<br />
+in a btrfs subvolume that is called 'root'.<br />
+I thought the btrfs subvolume that is called 'root'<br />
+contains what '/root/' contains - i.e. the home directory<br />
+of the user 'root' - I do hate such menaingless vague<br />
+unclear ambiguous words where one has to reverse-engineer<br />
+its actual meaning e.g. like 'root' in this case :-(</p>
+<h4 id="pcahyna_commented_at_2024-06-12_1501"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163269254">2024-06-12 15:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-12_1501" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>It seems what one expects to be in '/' is here<br />
+in a btrfs subvolume that is called 'root'.</p>
+</blockquote>
+<p>that's indeed how I understand it. Does SLES use <code>@</code> instead?</p>
+<h4 id="jsmeix_commented_at_2024-06-12_1519"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163308619">2024-06-12 15:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1519" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+let me inverstigate a bit more<br />
+how that thingy is set up<br />
+and let me try out how "rear mkbackup" and<br />
+"rear recover" behave with that,<br />
+i.e. please be patient until tomorrow<br />
+(or perhaps even later - as time permits).</p>
+<p>For the log what I did up to now:</p>
+<p>In my manually directly mounted<br />
+Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2<br />
+I changed root/etc/passwd to no password for 'root'</p>
+<pre><code># head root/etc/passwd
+root::0:0:Super User:/root:/bin/bash
+...
+
+# cd
+
+# umount /dev/nbd0p4
+
+# qemu-nbd --disconnect /dev/nbd0
+/dev/nbd0 disconnected
+
+# rmmod nbd
+</code></pre>
+<p>and umounted it and disabled nbd again.</p>
+<p>Now I can log in as root when I run that<br />
+Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2<br />
+in a KVM/QEMU virtual machine.</p>
+<p>To be able to log in via 'ssh' I had to add<br />
+a normal user 'tux' with a (non empty) password<br />
+then I can log in as 'tux' via 'ssh' and finally<br />
+I can do 'su -' to become 'root' (via 'ssh').</p>
+<p>I got:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,PARTLABEL,SIZE,MOUNTPOINTS
+NAME        KNAME      PKNAME   TRAN   TYPE FSTYPE LABEL  PARTLABEL  SIZE MOUNTPOINTS
+/dev/zram0  /dev/zram0                 disk                          1.9G [SWAP]
+/dev/vda    /dev/vda            virtio disk                            5G 
+|-/dev/vda1 /dev/vda1  /dev/vda virtio part               p.legacy     2M 
+|-/dev/vda2 /dev/vda2  /dev/vda virtio part vfat   EFI    p.UEFI     100M /boot/efi
+|-/dev/vda3 /dev/vda3  /dev/vda virtio part ext4   BOOT   p.lxboot  1000M /boot
+`-/dev/vda4 /dev/vda4  /dev/vda virtio part btrfs  fedora p.lxroot   3.9G /var
+                                                                          /home
+                                                                          /
+
+# findmnt -at btrfs
+TARGET  SOURCE           FSTYPE OPTIONS
+/       /dev/vda4[/root] btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=256,subvol=/root
+|-/home /dev/vda4[/home] btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=257,subvol=/home
+`-/var  /dev/vda4[/var]  btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=258,subvol=/var
+
+# btrfs subvolume list -a /
+ID 256 gen 50 top level 5 path &lt;FS_TREE&gt;/root
+ID 257 gen 46 top level 5 path &lt;FS_TREE&gt;/home
+ID 258 gen 49 top level 5 path &lt;FS_TREE&gt;/var
+
+# cat /etc/fstab 
+UUID=8424dfd0-f878-4302-8ee5-b2ec6e5eb868 / btrfs compress=zstd:1,defaults,subvol=root 0 1
+UUID=0c1e380a-7f1b-4e86-8fa0-629d10202a44 /boot ext4 defaults 0 0
+UUID=8424dfd0-f878-4302-8ee5-b2ec6e5eb868 /home btrfs compress=zstd:1,subvol=home 0 0
+UUID=8424dfd0-f878-4302-8ee5-b2ec6e5eb868 /var btrfs compress=zstd:1,subvol=var 0 0
+UUID=F011-3319 /boot/efi vfat defaults,umask=0077,shortname=winnt 0 0
+
+# cat /proc/cmdline 
+BOOT_IMAGE=(hd0,gpt3)/vmlinuz-6.8.5-301.fc40.x86_64 no_timer_check net.ifnames=0 console=tty1 console=ttyS0,115200n8 root=UUID=8424dfd0-f878-4302-8ee5-b2ec6e5eb868 rootflags=subvol=root
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-06-12_1535"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163344890">2024-06-12 15:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1535" title="Permanent link">&para;</a></h4>
+<p>SLES sets the btrfs default subvolume<br />
+to the one that should appear at '/'.</p>
+<p>SLES uses the '/@/' directory<br />
+in the btrfs root subvolume (again a 'root'!)<br />
+to have the other btrfs subvolumes therein.</p>
+<p>The btrfs root subvolume is the 'root' of the<br />
+whole btrfs filesystem.</p>
+<p>The btrfs default subvolume is the btrfs subvolume<br />
+that is used when a btrfs filesystem is mounted<br />
+without a mount option that specifies a subvolume<br />
+i.e. the btrfs default subvolume appears at the mountpoint<br />
+when a btrfs filesystem is "just mounted".<br />
+This means when one mounts a btrfs filesystem with<br />
+a btrfs default subvolume which is not the btrfs root subvolume<br />
+one does not get the whole btrfs filesystem visible at<br />
+the mountpoint but only the limited view of what is<br />
+in and below the btrfs default subvolume.</p>
+<p>But you can (as root) always mount a btrfs filesystem<br />
+at its btrfs root subvolume at an arbitraty mountpoint<br />
+like (here in that running Fedora 40 system)</p>
+<pre><code># mkdir btrfsroot
+
+# mount -t btrfs -o subvolid=0 /dev/vda4 btrfsroot
+
+# ls -l btrfsroot
+total 0
+drwxr-xr-x. 1 root root   6 Jun 12 15:11 home
+drwxrwxr-x. 1 root root 212 Apr 14 22:56 root
+drwxr-xr-x. 1 root root 170 Jun 12 14:33 var
+
+# findmnt -at btrfs
+TARGET            SOURCE           FSTYPE OPTIONS
+/                 /dev/vda4[/root] btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=256,subvol=/root
+|-/home           /dev/vda4[/home] btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=257,subvol=/home
+|-/var            /dev/vda4[/var]  btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=258,subvol=/var
+`-/root/btrfsroot /dev/vda4        btrfs  rw,relatime,seclabel,compress=zstd:1,discard=async,space_cache=v2,subvolid=5,subvol=/
+</code></pre>
+<p>so under the 'btrfsroot' mountpoint<br />
+now the whole btrfs filesystem appears<br />
+in its "natural ordering" of directories,<br />
+same as I got above when I directly mounted<br />
+Fedora-Cloud-Base-Generic.x86_64-40-1.14.qcow2<br />
+in my<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2163264761">https://github.com/rear/rear/pull/3175#issuecomment-2163264761</a></p>
+<h4 id="jsmeix_commented_at_2024-06-12_1539"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2163353122">2024-06-12 15:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-12_1539" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+if you feel a bit confused now,<br />
+don't worry - that's normal - and it won't go away ;-)</p>
+<p>But now it's time for me to go away :-)<br />
+Have a nice evening!</p>
+<h4 id="jsmeix_commented_at_2024-06-13_0726"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2164813707">2024-06-13 07:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-13_0726" title="Permanent link">&para;</a></h4>
+<p>I separated the issue<br />
+"how to setup ReaR for a Fedora 40 Cloud Base Image"<br />
+into<br />
+<a href="https://github.com/rear/rear/issues/3247">https://github.com/rear/rear/issues/3247</a></p>
+<h4 id="pcahyna_commented_at_2024-06-13_1145"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2165422334">2024-06-13 11:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-13_1145" title="Permanent link">&para;</a></h4>
+<p>Some observations about the CI errors in Fedora 40 and Rawhide,
+collected by runs in my personal repo
+<a href="https://github.com/pcahyna/rear/pull/16/checks?check_run_id=26139657787">https://github.com/pcahyna/rear/pull/16/checks?check_run_id=26139657787</a></p>
+<ul>
+<li>the backup tarball looks good and seems to contain everything needed</li>
+<li>layout gets restored and backup gets recreated without error</li>
+<li>btrfs subvolumes look properly mounted after layout restoration:</li>
+</ul>
+<!-- -->
+
+<pre><code>/dev/nvme0n1p4 on /mnt/local/home type btrfs (rw,relatime,compress=zstd:1,ssd,space_cache=v2,subvolid=257,subvol=/home)
+/dev/nvme0n1p4 on /mnt/local/var type btrfs (rw,relatime,compress=zstd:1,ssd,space_cache=v2,subvolid=258,subvol=/var)
+/dev/nvme0n1p3 on /mnt/local/boot type ext4 (rw,relatime)
+/dev/nvme0n1p2 on /mnt/local/boot/efi type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro)
+</code></pre>
+<ul>
+<li>the recovered system reboots, but TMT then tries to rsync something
+    to it and complains that it can not find the target directory:</li>
+</ul>
+<!-- -->
+
+<pre><code>Command 'rsync -s -p --chmod=755 -e 'ssh -oForwardX11=no -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectionAttempts=5 -oConnectTimeout=60 -oServerAliveInterval=5 -oServerAliveCountMax=60 -oIdentitiesOnly=yes -p22 -i /etc/citool.d/id_rsa_artemis -oPasswordAuthentication=no -S/tmp/tmpdsgkztm6' /var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover/default-0/tests/tests/make-backup-and-restore-iso/tmt-test-wrapper.sh-default-0-default-0 root@18.191.153.93:/var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover/default-0/tests/tests/make-backup-and-restore-iso/tmt-test-wrapper.sh-default-0-default-0' returned 3.
+
+        stderr (3 lines)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Warning: Permanently added '18.191.153.93' (ED25519) to the list of known hosts.
+        rsync: [Receiver] change_dir#3 "/var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover/default-0/tests/tests/make-backup-and-restore-iso" failed: No such file or directory (2)
+        rsync error: errors selecting input/output files, dirs (code 3) at main.c(829) [Receiver=3.3.0]
+</code></pre>
+<ul>
+<li>the directory
+    <code>/var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover/default-0/tests/tests/make-backup-and-restore-iso/tmt-test-wrapper.sh-default-0-default-0</code>
+    exists in the system at the end of recovery though:</li>
+</ul>
+<!-- -->
+
+<pre><code>ls -R /mnt/local//var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover
+...
+/mnt/local//var/ARTIFACTS/work-backup-and-restoresmh43m1c/tests/plans/backup-and-restore/discover/default-0/tests/tests/make-backup-and-restore-iso:
+Makefile  main.fmf    tmt-test-wrapper.sh-default-0-default-0
+PURPOSE   runtest.sh
+</code></pre>
+<p>I am afraid that further attempts at debugging are a waste of time until
+Testing Farm can collect console logs from the last reboot (this is
+missing in the log currently) or let us login to the problematic test VM
+after the test errors out to examine what's wrong there. I am thus going
+to turn the Fedora 40 and Rawhide tests off in order to avoid
+permanently broken test results.</p>
+<h4 id="pcahyna_commented_at_2024-06-13_1215"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2165485838">2024-06-13 12:15</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-13_1215" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>of course (as "SLES-like" indicates)<br />
+the "SLES-like btrfs subvolumes setup" method<br />
+may not work on non-SLES systems.</p>
+</blockquote>
+<p>my problem is that <code>BTRFS_SUBVOLUME_SLES_SETUP</code> and
+<code>BTRFS_SUBVOLUME_GENERIC_SETUP</code> are not documented in <code>default.conf</code> and
+thus I do not know what they are supposed to do, so I do not know how to
+determine which one is more suitable to our case (other than blind
+experimenting or reading the source code).</p>
+<h4 id="jsmeix_commented_at_2024-06-13_1307"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2165620041">2024-06-13 13:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-13_1307" title="Permanent link">&para;</a></h4>
+<p>BTRFS_SUBVOLUME_SLES_SETUP and BTRFS_SUBVOLUME_GENERIC_SETUP<br />
+are deliberately not (yet) documented in default.conf<br />
+see<br />
+<a href="https://github.com/rear/rear/commit/b144e9082511442b6f2426c9006e66d6c611edf9">https://github.com/rear/rear/commit/b144e9082511442b6f2426c9006e66d6c611edf9</a></p>
+<pre><code>Currently it is not documented because it is
+work in progress where arbitrary further changes will happen
+so one has to inspect the current code
+and its comments to see how things currently work.
+</code></pre>
+<p>As I wrote above in<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2154181600">https://github.com/rear/rear/pull/3175#issuecomment-2154181600</a></p>
+<pre><code>After https://github.com/rear/rear/pull/2079
+and https://github.com/rear/rear/pull/2080
+I never tested BTRFS_SUBVOLUME_GENERIC_SETUP again
+</code></pre>
+<p>so that "work in progress" state<br />
+did not change since then - in particular<br />
+regarding BTRFS_SUBVOLUME_GENERIC_SETUP.</p>
+<h4 id="pcahyna_commented_at_2024-06-13_1633"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2166175976">2024-06-13 16:33</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-13_1633" title="Permanent link">&para;</a></h4>
+<p>I tried <code>BTRFS_SUBVOLUME_GENERIC_SETUP</code> and the result is the same as
+before - Fedora 39 test passes (the recovered layout appears to be
+identical to the original layout) and Fedora 40 fails.</p>
+<h4 id="pcahyna_commented_at_2024-06-13_1647"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2166215434">2024-06-13 16:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-13_1647" title="Permanent link">&para;</a></h4>
+<p>There is at least one difference resulting from it.</p>
+<p>Original <code>mount</code> output:</p>
+<pre><code>/dev/nvme0n1p5 on / type btrfs (rw,relatime,seclabel,compress=zstd:1,ssd,space_cache=v2,subvolid=256,subvol=/root)
+/dev/nvme0n1p5 on /home type btrfs (rw,relatime,seclabel,compress=zstd:1,ssd,space_cache=v2,subvolid=257,subvol=/home)
+</code></pre>
+<p><code>mount</code> output after recovery:</p>
+<pre><code>/dev/nvme0n1p5 on / type btrfs (rw,relatime,seclabel,compress=zstd:1,ssd,space_cache=v2,subvolid=257,subvol=/root)
+/dev/nvme0n1p5 on /home type btrfs (rw,relatime,seclabel,compress=zstd:1,ssd,space_cache=v2,subvolid=256,subvol=/home)
+</code></pre>
+<p>Note the different subvolid. Not sure if this is significant or if one
+can expect this to be preserved.</p>
+<h4 id="jsmeix_commented_at_2024-06-14_0544"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2167253997">2024-06-14 05:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-14_0544" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+as far as I remember btrfs subvolume numbers (i.e. 'subvolid')<br />
+are in the same way meaningless like disk device node letters<br />
+(e.g. sda vs. sdb for two disks) - i.e. they are basically<br />
+unpredictable enunmeration IDs.<br />
+So when btrfs subvolumes are referenced by 'subvolid'<br />
+one has to check before that what is referenced by 'subvolid'<br />
+is the actually intended btrfs subvolume.<br />
+But right now I could not quickly find<br />
+btrfs documentation that clearly describes that.</p>
+<p>I think<br />
+(in contrast to disk device node letters which may<br />
+change from system boot to system boot - but are stable<br />
+as long as the system is running and as long as a disk<br />
+is connected - cf. removable disks e.g. USB disks)<br />
+btrfs subvolume 'subvolid' numbers are stable<br />
+as long as a btrfs subvolume exists.<br />
+This may lead users to the false assumption that they<br />
+can use a btrfs subvolume 'subvolid' number as a stable<br />
+identifier to reference a btrfs subvolume.</p>
+<p>So when after "rear recover" btrfs subvolumes got<br />
+recreated with different 'subvolid' numbers<br />
+compared to what it was on the original system<br />
+this is technically correct behaviour of "rear recover"<br />
+but nevertheless some users may get hit by the changed<br />
+btrfs subvolume 'subvolid' numbers.</p>
+<p>I think also with BTRFS_SUBVOLUME_SLES_SETUP<br />
+btrfs subvolumes get recreated with possibly<br />
+different 'subvolid' numbers.<br />
+I think I experienced that years ago during my tests<br />
+while I implemented the BTRFS_SUBVOLUME_SLES_SETUP method.<br />
+I never got a SLES user problem report because of this.<br />
+I assume system setup stuff deals correctly with the<br />
+unpredictable 'subvolid' numbers.<br />
+I think only some user's selfmade setup stuff may<br />
+falsely rely on stable 'subvolid' numbers.</p>
+<h4 id="gdha_commented_at_2024-06-14_1235"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2167939782">2024-06-14 12:35</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-14_1235" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @jsmeix @lzaoral According the discussions we better move the
+milestone to "3.1", no?</p>
+<h4 id="lzaoral_commented_at_2024-06-14_1253"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2167973674">2024-06-14 12:53</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-06-14_1253" title="Permanent link">&para;</a></h4>
+<p>@ghda If you think that it is fine, that ReaR nukes the /home directory
+on default Fedora disk setups without any warnings, then feel free to
+postpone this PR to 3.1. Also, this PR is necessary (but not sufficient)
+to fix the CI failures on Fedora 40 and 41.</p>
+<h4 id="jsmeix_commented_at_2024-06-17_0701"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2172449380">2024-06-17 07:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_0701" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+have there been behavioural changes since my<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2151951631">https://github.com/rear/rear/pull/3175#issuecomment-2151951631</a><br />
+i.e. changes that require that I test its current state again?</p>
+<p>If not,<br />
+@gdha @lzaoral @pcahyna<br />
+I think it can and should be merged in its current state.<br />
+It is a major improvement that should not be omitted<br />
+from ReaR 3.0 - and because of the major version change<br />
+ReaR 3.0 behaviour can be rather backward incompatible<br />
+provided backward incompatible changes are sufficiently<br />
+well documented - I will care about that (as usual), cf.<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2172487767">https://github.com/rear/rear/issues/3238#issuecomment-2172487767</a></p>
+<h4 id="jsmeix_commented_at_2024-06-17_0709"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2172463047">2024-06-17 07:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_0709" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+I would like to merge it this week on Thursday afternoon<br />
+(or sooner if @pcahyna agrees) unless there are objections.</p>
+<h4 id="jsmeix_commented_at_2024-06-17_0739"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2172525517">2024-06-17 07:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_0739" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+what confuses me are your commits here after my<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2151951631">https://github.com/rear/rear/pull/3175#issuecomment-2151951631</a><br />
+that are shown here (in the GitHub web UI) directly before<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2160961648">https://github.com/rear/rear/pull/3175#issuecomment-2160961648</a></p>
+<p>When I click on "Compare" there which has URL<br />
+<a href="https://github.com/rear/rear/compare/3fe88cc47041a85e0b31ce9eca7cac57a333c6e3..9668297d3980a50514353fa4c599736bfeb50f65">https://github.com/rear/rear/compare/3fe88cc47041a85e0b31ce9eca7cac57a333c6e3..9668297d3980a50514353fa4c599736bfeb50f65</a><br />
+what that shows me looks unrelated to this pull request.</p>
+<p>So it seems your commits here after my<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2151951631">https://github.com/rear/rear/pull/3175#issuecomment-2151951631</a><br />
+did not change something that actually belongs<br />
+to this pull request but are only other (unrelated)<br />
+changes in ReaR because you<br />
+"force-pushed your backup-mounted-btrfs-subvolumes branch".</p>
+<p>But I cannot be sure if those commits are really only<br />
+other (unrelated) changes in ReaR or if perhaps<br />
+something that actually belongs to this pull request<br />
+is somewhere intermixed?</p>
+<p>I don't know how I could clearly see at a glance<br />
+whether or not something actually changed here since my<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2151951631">https://github.com/rear/rear/pull/3175#issuecomment-2151951631</a></p>
+<p>Is this somehow possible via the GitHub web UI?</p>
+<h4 id="lzaoral_commented_at_2024-06-17_1040"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2173018658">2024-06-17 10:40</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-06-17_1040" title="Permanent link">&para;</a></h4>
+<p>@jsmeix The PR itself is unchanged from the last time you have reviewed
+it. The diff you linked shows cahnges were added during a rebase against
+<code>main</code> because @pcahyna wanted to see if #3239 and this PR are enough
+to fix the Testing Farm CI.</p>
+<p>I'm not sure if it is possible to separate new changes added to a PR
+while also rebasing it in the GH UI.</p>
+<p>please, let's wait for @pcahyna's review before merging.</p>
+<h4 id="pcahyna_commented_at_2024-06-17_1320"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2173382629">2024-06-17 13:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-17_1320" title="Permanent link">&para;</a></h4>
+<p>@jsmeix you are basically asking whether the old version of the PR
+(before rebase and force-push, 3fe88cc) introduces the same changes as
+the new version (after rebase and force-push, 9668297). This can be
+achieved by comparing the diff that the old version introduces with the
+diff that the new version introduces (I know, comparing diffs, which are
+themselves comparisons, a bit clumsy). I am afraid that the easiest way
+is quite manual: look at the first diff (
+<a href="https://github.com/rear/rear/compare/master...3fe88cc47041a85e0b31ce9eca7cac57a333c6e3">https://github.com/rear/rear/compare/master...3fe88cc47041a85e0b31ce9eca7cac57a333c6e3</a>
+) and the second diff (
+<a href="https://github.com/rear/rear/compare/master...9668297d3980a50514353fa4c599736bfeb50f65">https://github.com/rear/rear/compare/master...9668297d3980a50514353fa4c599736bfeb50f65</a>
+) side-by-side and you will see that they are the same. Note the three
+dots in the URL, as opposed to the two dots in the compare URL that you
+show,
+<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons</a>
+.</p>
+<p>I am sorry that I can't offer anything easier, I know that this is a
+drawback of updating PRs by rebasing them (OTOH, the history looks
+cleaner afterwards).</p>
+<h4 id="pcahyna_commented_at_2024-06-17_1440"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2173603589">2024-06-17 14:40</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-17_1440" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I found a more a automated way! Since you can add <code>.diff</code> (or
+<code>.patch</code> if you want also the commit metadata) to the GitHub comparison
+URL to download the comparison in a text form, you can then diff the
+results:</p>
+<pre><code>diff -u &lt;(wget -O - https://github.com/rear/rear/compare/master...3fe88cc47041a85e0b31ce9eca7cac57a333c6e3.patch) &lt;(wget -O - https://github.com/rear/rear/compare/master...9668297d3980a50514353fa4c599736bfeb50f65.patch)
+</code></pre>
+<p>which show that the only thing that changes are the commit SHA ids.</p>
+<h4 id="jsmeix_commented_at_2024-06-17_1508"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2173670208">2024-06-17 15:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_1508" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+WOW! THANK YOU!</p>
+<p>I optimized your command a bit<br />
+by using <code>diff -U0</code> and <code>wget -q</code><br />
+and <code>diff</code> instead of <code>patch</code>:</p>
+<pre><code># old=3fe88cc47041a85e0b31ce9eca7cac57a333c6e3 \
+ new=9668297d3980a50514353fa4c599736bfeb50f65 ; \
+ diff -U0 \
+ &lt;(wget -q -O - https://github.com/rear/rear/compare/master...$old.diff) \
+ &lt;(wget -q -O - https://github.com/rear/rear/compare/master...$new.diff)
+
+[no output]
+</code></pre>
+<p>Perfect!</p>
+<p>FYI:<br />
+I experimeted with "w3m"<br />
+(I didn't know that I have to add <code>.diff</code> or <code>.patch</code> to make things
+work in "w3m")<br />
+but that does not work (without <code>.diff</code> or <code>.patch</code>) because</p>
+<pre><code># w3m https://github.com/rear/rear/compare/master...3fe88cc47041a85e0b31ce9eca7cac57a333c6e3 | less
+
+...
+This comparison is taking too long to generate.
+
+Unfortunately it looks like we can’t render this comparison for you right now.
+It might be too big, or there might be something weird with your repository.
+
+You can try running this command locally to see the comparison on your machine:
+git diff master...3fe88cc47041a85e0b31ce9eca7cac57a333c6e3
+
+...
+</code></pre>
+<p>So I tried with a local clone</p>
+<pre><code># git clone https://github.com/lzaoral/rear.git
+
+# mv rear rear.lzaoral
+
+# cd rear.lzaoral
+
+# git checkout backup-mounted-btrfs-subvolumes
+</code></pre>
+<p>but that does not contain the git commit<br />
+3fe88cc47041a85e0b31ce9eca7cac57a333c6e3<br />
+It only contains the git commit<br />
+9668297d3980a50514353fa4c599736bfeb50f65<br />
+Also <code>git clone https://github.com/rear/rear.git</code><br />
+does not contain the git commit<br />
+3fe88cc47041a85e0b31ce9eca7cac57a333c6e3<br />
+so currently I don't know where the git commit<br />
+3fe88cc47041a85e0b31ce9eca7cac57a333c6e3<br />
+could be found so that I gave up.</p>
+<h4 id="pcahyna_commented_at_2024-06-17_1543"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2173750014">2024-06-17 15:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-17_1543" title="Permanent link">&para;</a></h4>
+<p>@jsmeix that's an interesting problem. I did not know how to solve it,
+so a quick web search (my search term were
+<code>git clone unreachable commits</code>) revealed this:
+<a href="https://stackoverflow.com/questions/25416003/clone-a-git-repository-and-keep-unreachable-commits#comment53417187_25416117">https://stackoverflow.com/questions/25416003/clone-a-git-repository-and-keep-unreachable-commits#comment53417187_25416117</a></p>
+<p>Adapted to our case (I already have a git remote called <code>lzaoral</code> in my
+repo):</p>
+<pre><code>$ git fetch lzaoral 3fe88cc47041a85e0b31ce9eca7cac57a333c6e3:refs/remotes/lzaoral/orphaned-backup-mounted-btrfs-subvolumes
+From github.com:lzaoral/rear
+ * [new ref]             3fe88cc47041a85e0b31ce9eca7cac57a333c6e3 -&gt; lzaoral/orphaned-backup-mounted-btrfs-subvolumes
+$ git show lzaoral/orphaned-backup-mounted-btrfs-subvolumes
+commit 3fe88cc47041a85e0b31ce9eca7cac57a333c6e3 (lzaoral/orphaned-backup-mounted-btrfs-subvolumes, lzaoral/backup-mounted-btrfs-subvolumes)
+Author: Lukáš Zaoral &lt;lzaoral@redhat.com&gt;
+Date:   Thu Mar 7 10:59:24 2024 +0100
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-06-20_0833"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2180123209">2024-06-20 08:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-20_0833" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I would like to merge it today afternoon, cf.<br />
+<a href="https://github.com/rear/rear/pull/3175#issuecomment-2172463047">https://github.com/rear/rear/pull/3175#issuecomment-2172463047</a><br />
+unless there are objections.</p>
+<h4 id="pcahyna_commented_at_2024-06-25_0945"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2188455579">2024-06-25 09:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-06-25_0945" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay, let me quickly check the code.</p>
+<h4 id="schlomo_commented_at_2024-07-12_0843"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2225108180">2024-07-12 08:43</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_0843" title="Permanent link">&para;</a></h4>
+<p>2 approvals including from @jsmeix who knows more about btrfs than me,
+don't see a reason to not merge.</p>
+<h4 id="lzaoral_commented_at_2024-07-12_1700"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2225973655">2024-07-12 17:00</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-07-12_1700" title="Permanent link">&para;</a></h4>
+<p>@schlomo This was still pending a review from @pcahyna who is the ReaR
+SME for Fedora and RHEL and we both co-maintain ReaR in these
+distributions. Please, do not merge my PRs unless they are trivial or
+have been also reviewed by @pcahyna. Thank you!</p>
+<h4 id="schlomo_commented_at_2024-07-12_1702"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2225976693">2024-07-12 17:02</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1702" title="Permanent link">&para;</a></h4>
+<p>Ah, OK. no problem. Next time, please kindly mark them as WIP or draft
+so that we see that they are not ready for merging.</p>
+<p>PRs that have approvals and that don't look like they need more work to
+be done should be allowed to be merged any time, IMHO.</p>
+<h4 id="schlomo_commented_at_2024-07-12_1703"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3175#issuecomment-2225978838">2024-07-12 17:03</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1703" title="Permanent link">&para;</a></h4>
+<p>@lzaoral about this PR specifically: Do you want me to un-merge it? Or
+can you and @pcahyna finish the review and fix any potential issues in a
+new PR or directly on master (for obvious things I prefer this)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-03-07.3175.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

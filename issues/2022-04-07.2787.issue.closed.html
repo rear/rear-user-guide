@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2787 Issue closed: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2787 Issue closed: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency";
+        var mkdocs_page_input_path = "issues/2022-04-07.2787.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2787 Issue closed: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2787_issue_closed_rescue_iso_is_dependant_of_files_on_the_backup_for_example_etcfstab_the_crond_job_will_break_the_coherency"><a href="https://github.com/rear/rear/issues/2787">#2787 Issue</a> <code>closed</code>: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency<a class="headerlink" href="#2787_issue_closed_rescue_iso_is_dependant_of_files_on_the_backup_for_example_etcfstab_the_crond_job_will_break_the_coherency" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>,
+<code>won't fix / can't fix / obsolete</code></p>
+<h4 id="bwelterl_opened_issue_at_2022-04-07_1338"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> opened issue at <a href="https://github.com/rear/rear/issues/2787">2022-04-07 13:38</a>:<a class="headerlink" href="#bwelterl_opened_issue_at_2022-04-07_1338" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_issue_template">Relax-and-Recover (ReaR) Issue Template<a class="headerlink" href="#relax-and-recover_rear_issue_template" title="Permanent link">&para;</a></h4>
+<p>Fill in the following items before submitting a new issue<br />
+(quick response is not guaranteed with free support):</p>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    rear 2.6</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    RHEL8</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<p>It's related to the issue
+<a href="https://github.com/rear/rear/pull/2786">https://github.com/rear/rear/pull/2786</a></p>
+<p>To reproduce the issue, change the UUID of the UEFI partition:</p>
+<p>disklayout.conf before the change:</p>
+<pre><code>fs /dev/vda1 /boot/efi vfat uuid=ACC0-624F label= options=rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro
+</code></pre>
+<p>fstab before the change:</p>
+<pre><code>UUID=ACC0-624F          /boot/efi               vfat    umask=0077,shortname=winnt 0 2
+</code></pre>
+<p>Then change the label:</p>
+<pre><code>mlabel -N 12345678 -i /dev/vda1 ::
+</code></pre>
+<p>Then, the cron.d job (or new systemd job) will recreate the rescue iso
+because the layout changed:</p>
+<pre><code>30 1 * * * root test -f /var/lib/rear/layout/disklayout.conf &amp;&amp; /usr/sbin/rear checklayout || /usr/sbin/rear mkrescue
+</code></pre>
+<p>New disklayout.conf:</p>
+<pre><code>options=rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro
+</code></pre>
+<p>But the /etc/fstab file that will be used during the recover, and that
+should be patched, is still the one in the backup, thus the old one with
+old UUID.<br />
+And the patch will fail ... (without a warning :D).<br />
+And the system will not boot.</p>
+<ul>
+<li>Workaround, if any:</li>
+</ul>
+<p>A rescue ISO should not be built if the required data in the backup is
+not updated also.</p>
+<p>The recover of the system layout should rely on the data in the rescue
+ISO and not on the backup.<br />
+Thus all the files that should be patched to update the UUID should be
+embedded in the rescue.</p>
+<p>Thanks !</p>
+<ul>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<h4 id="jsmeix_commented_at_2022-04-07_1403"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091780338">2022-04-07 14:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-07_1403" title="Permanent link">&para;</a></h4>
+<p>@bwelterl<br />
+thank you for your enlightning issue report!</p>
+<p>I have to think a bit deeper about it - it looks complicated.</p>
+<h4 id="jsmeix_commented_at_2022-04-07_1411"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091793474">2022-04-07 14:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-07_1411" title="Permanent link">&para;</a></h4>
+<p>Problem summary as far as I see it:</p>
+<p>What should ReaR do when UUIDs in restored files like /etc/fstab<br />
+do not exist on the recreated system?</p>
+<p>Cf.<br />
+<a href="https://github.com/rear/rear/issues/2785#issuecomment-1091773765">https://github.com/rear/rear/issues/2785#issuecomment-1091773765</a><br />
+(excerpt):</p>
+<pre><code>When the filesystems get recreated with the UUPDs from disklayout.conf
+old and new UUIDs are the same in FS_UUID_MAP (which is the usual case)
+so finalize/GNU/Linux/280_migrate_uuid_tags.sh won't change anything.
+</code></pre>
+<p>So the recreated UUIDs are normally consistent with what is in
+disklayout.conf<br />
+but they can be inconsistent with what there is in restored config
+files.</p>
+<p>So comparing UUIDs in disklayout.conf with the actually recreated
+UUIDs<br />
+(e.g. via FS_UUID_MAP) won't help to detect that inconsistency.</p>
+<p>My immediate idea is a simple test as a start:<br />
+When a actually recreated UUID does not appear in a config file<br />
+it could indicate that something is fishy with this particular UUID<br />
+or all is well because that kind of UUID is never used in a config file.</p>
+<h4 id="pcahyna_commented_at_2022-04-07_1416"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091798086">2022-04-07 14:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-07_1416" title="Permanent link">&para;</a></h4>
+<p>The ReaR development version got rid of the cron job some time ago
+already, #2139</p>
+<h4 id="bwelterl_commented_at_2022-04-07_1420"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091803217">2022-04-07 14:20</a>:<a class="headerlink" href="#bwelterl_commented_at_2022-04-07_1420" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Yes (still in RHEL8 :D) but the issue remains with systemd job
+!</p>
+<h4 id="pcahyna_commented_at_2022-04-07_1425"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091807774">2022-04-07 14:25</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-07_1425" title="Permanent link">&para;</a></h4>
+<p>yeah, I know that the cron job is in RHEL 8.</p>
+<p>concerning systemd job, I don't see any in the sources right now and
+this issue shows that it may be a bad idea.</p>
+<h4 id="pcahyna_commented_at_2022-04-07_1426"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091808920">2022-04-07 14:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-07_1426" title="Permanent link">&para;</a></h4>
+<p>Fedora ships the cron job and systemd job examples as documentation</p>
+<h4 id="jsmeix_commented_at_2022-04-07_1500"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091849149">2022-04-07 15:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-07_1500" title="Permanent link">&para;</a></h4>
+<p>Whether or not there is a cron job doesn't actually matter here<br />
+i.e. it doesn't matter how "rear mkrescue" got launched.</p>
+<p>The issue is that there can be inconsistencies between<br />
+what gets recreated according to disklayout.conf<br />
+and what gets restored from the backup and<br />
+currently ReaR cannot detect that because the current<br />
+FS_UUID_MAP stuff only detects when there are inconsistencies<br />
+between what is in disklayout.conf and what was actually recreated<br />
+(i.e. different UUID recreated than what is in disklayout.conf) so<br />
+<strong>currently ReaR cannot migrate restored files from the backup</strong><br />
+in most cases because nowadays filesystem UUIDs are normally<br />
+successfully recreated with the UUIDs in disklayout.conf</p>
+<h4 id="pcahyna_commented_at_2022-04-07_1522"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1091873102">2022-04-07 15:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-07_1522" title="Permanent link">&para;</a></h4>
+<p>If the backup is taken after <code>mkrescue</code>, one can detect the problem, by
+running <code>checklayout</code> before taking the backup.<br />
+But if the backup is taken before <code>mkrescue</code> (and that's the case of the
+cron job that triggered the problem here), I don't see how to detect it
+easily.</p>
+<h4 id="jsmeix_commented_at_2022-04-08_1320"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1092853451">2022-04-08 13:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-08_1320" title="Permanent link">&para;</a></h4>
+<p>I got distracted by other things and now weekend is almost there...</p>
+<p>My primary intent is not to let ReaR automatically fix such
+inconsistencies<br />
+but to only detect them which is what @bwelterl intends with his<br />
+<a href="https://github.com/rear/rear/pull/2786">https://github.com/rear/rear/pull/2786</a></p>
+<p>For internal backup methods we may run what <code>checklayout</code> does<br />
+during <code>mkbackuponly</code> to avoid that an inconsistent backup<br />
+is taken with <code>mkbackuponly</code> after <code>mkrescue</code>.</p>
+<p>When an inconsistent backup is taken with an external backup method<br />
+after <code>mkrescue</code> there is nothing we can do to detect or avoid that.</p>
+<p>When an inconsistent backup was taken before <code>mkrescue</code><br />
+there is nothing we can do during <code>mkrescue</code> because we cannot know<br />
+if a backup was taken before and what there is in the backup.</p>
+<p>So all we have during <code>rear recover</code> is what there is in
+disklayout.conf<br />
+and what is actually recreated versus what there is in the restored
+files.</p>
+<p>So all what we can do after the backup was restored during
+<code>rear recover</code><br />
+is to compare what there is in disklayout.conf and what is actually
+recreated<br />
+versus what there is in the restored files, cf. my above<br />
+<a href="https://github.com/rear/rear/issues/2787#issuecomment-1091793474">https://github.com/rear/rear/issues/2787#issuecomment-1091793474</a></p>
+<p>This are currently only offhanded ideas in my head.<br />
+I will have to try out something and play around with it<br />
+to get some better understanding how things really behave.</p>
+<p>@pcahyna @bwelterl @rear/contributors<br />
+I wish you all a relaxed and recovering weekend!</p>
+<h4 id="jsmeix_commented_at_2022-04-08_1332"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1092864706">2022-04-08 13:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-08_1332" title="Permanent link">&para;</a></h4>
+<p>I think it is no bug in ReaR that things in the recovery system<br />
+must be consistent with what there is in the backup.</p>
+<p>In some cases we may avoid inconsistencies<br />
+e.g. avoid that an inconsistent backup is taken with mkbackuponly after
+mkrescue<br />
+cf.
+<a href="https://github.com/rear/rear/issues/2787#issuecomment-1092853451">https://github.com/rear/rear/issues/2787#issuecomment-1092853451</a><br />
+but I think in most cases we cannot do anything in ReaR to avoid<br />
+inconsistencies between recovery system and what there is in the
+backup<br />
+so it is mostly up to the user to keep recovery system and backup in
+sync.</p>
+<h4 id="pcahyna_commented_at_2022-04-11_1227"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1094988418">2022-04-11 12:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-11_1227" title="Permanent link">&para;</a></h4>
+<p>I have been thinking about how to help the user to avoid such
+inconsistencies.</p>
+<blockquote>
+<p>For internal backup methods we may run what checklayout does<br />
+during mkbackuponly to avoid that an inconsistent backup<br />
+is taken with mkbackuponly after mkrescue.</p>
+<p>When an inconsistent backup is taken with an external backup method<br />
+after mkrescue there is nothing we can do to detect or avoid that.</p>
+</blockquote>
+<p>We can advise the user to run <code>checklayout</code> before (and possibly after)
+their external backup procedure to imitate what the internal backup
+would do.</p>
+<blockquote>
+<p>When an inconsistent backup was taken before mkrescue<br />
+there is nothing we can do during mkrescue because we cannot know<br />
+if a backup was taken before and what there is in the backup.</p>
+</blockquote>
+<p>This case is a more difficult one. It could be solved by saving the
+layout at the time <code>mkbackuponly</code> is executed to some place under
+<code>/var/lib/rear</code> and have a special variant of <code>checklayout</code> that would
+check the current layout not against the layout saved by <code>mkrescue</code>
+(under <code>/var/lib/rear/layout</code>) but against the layout saved by
+<code>mkbackuponly</code>. In essence have two saved layouts, one by <code>mkrescue</code>,
+the other by <code>mkbackuponly</code>, and when each of the two commands detect a
+difference from the layout saved by the other command, it is an
+inconsistency, thus abort.</p>
+<h4 id="pcahyna_commented_at_2022-04-11_1231"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1094991908">2022-04-11 12:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-11_1231" title="Permanent link">&para;</a></h4>
+<p>Another option would be to embed some files in the rescue image:</p>
+<blockquote>
+<p>Rear is checking some files to update the UUID during the recovery,
+these files should be embedded in the rescue ISO.</p>
+</blockquote>
+<p>and restore them from the rescue image instead of from the backup. This
+of course opens a potential can of worms: one could then gradually embed
+all the system in the rescue image, and we would not have a separate
+backup anymore (that's the approach we don't want to take in general, I
+suppose). But embedding only files that need to be edited in the
+recovered system could be an acceptable and well-defined subset.</p>
+<h4 id="jsmeix_commented_at_2022-04-11_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1095029576">2022-04-11 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-11_1308" title="Permanent link">&para;</a></h4>
+<p>I am currently working on some initial simple attempt to at least be
+able<br />
+to detect when something went wrong or looks wrong with UUIDs.<br />
+An initial pull request will come soon so you can have a look...</p>
+<h4 id="jsmeix_commented_at_2022-04-11_1359"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1095089623">2022-04-11 13:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-11_1359" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+yes, we must make it very clear to the user that he is responsible<br />
+to keep his backup in sync with his ReaR recovery system and<br />
+that he can and should use "rear checklayout" to check it.</p>
+<p>In general he should make an up-to-date backup<br />
+when he made a new ReaR recovery system to be<br />
+on the safe side or that he should in general make the<br />
+backup and the ReaR recovery system at the same time<br />
+in one single run to be on the safe side.</p>
+<p>Simply put<br />
+he should use "rear mkbackup" to be on the safe side<br />
+or the equivalent for external backup tools i.e.<br />
+"rear mkrescue &amp;&amp; make a new external backup".</p>
+<h4 id="pcahyna_commented_at_2022-04-11_1409"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1095100675">2022-04-11 14:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-11_1409" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When an inconsistent backup is taken with an external backup method<br />
+after <code>mkrescue</code> there is nothing we can do to detect or avoid that.</p>
+</blockquote>
+<p>Some external backup methods are executed from ReaR : looking at
+<code>usr/share/rear/backup</code>, that's at least <code>BORG</code>, <code>DUPLICITY</code>, <code>TSM</code>.
+Although it depends on the choice of terminology: maybe you consider
+backups that are triggered from inside ReaR internal and leave the term
+"external" only for backups that are taken completely outside ReaR.</p>
+<h4 id="jsmeix_commented_at_2022-04-12_1240"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1096674908">2022-04-12 12:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-04-12_1240" title="Permanent link">&para;</a></h4>
+<p>I used the term "external backup" in a sloppy way when I basically<br />
+meant that the backup is made outside of ReaR.</p>
+<p>Regarding TSM backup via "rear mkbackup":<br />
+I guess this is not often used by TSM users.<br />
+I think most TSM users use a native TSM method to make their backup.<br />
+I assume most TSM users have TSM integrated in whatever bigger stuff<br />
+so they do their backups via that bigger stuff (e.g. whatever backup<br />
+management solution or something like that).<br />
+So I think that in most cases a TSM backup is made outside of ReaR.<br />
+But I am not a TSM user so this is only a guess and I could be wrong.</p>
+<h4 id="bwelterl_commented_at_2022-04-12_1245"><img src="https://avatars.githubusercontent.com/u/32841830?v=4" width="50"><a href="https://github.com/bwelterl">bwelterl</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1096681125">2022-04-12 12:45</a>:<a class="headerlink" href="#bwelterl_commented_at_2022-04-12_1245" title="Permanent link">&para;</a></h4>
+<p>I think in customer solution, TSM is used to backup data, and rear the
+system (what is expected), but then rear is using TSM also to save the
+rear backup.<br />
+I think there is no solution to restore an OS in TSM like rear.</p>
+<h4 id="pcahyna_commented_at_2022-04-13_1619"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1098244865">2022-04-13 16:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-04-13_1619" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>TSM is used to backup data, and rear the system (what is expected)</p>
+</blockquote>
+<p>Sure, but the question was, is the TSM backup of system files made by
+invoking <code>rear mkbackup(only)</code>, or outside of ReaR's control?</p>
+<blockquote>
+<p>then rear is using TSM also to save the rear backup</p>
+</blockquote>
+<p>Now I don't understand what you mean, is TSM used to save the recovery
+media (ISO image)? Or what is "the rear backup" in this context, do you
+mean the backup of system files?</p>
+<blockquote>
+<p>I guess this is not often used by TSM users.<br />
+I think most TSM users use a native TSM method to make their backup.<br />
+I assume most TSM users have TSM integrated in whatever bigger stuff<br />
+so they do their backups via that bigger stuff (e.g. whatever backup<br />
+management solution or something like that).<br />
+So I think that in most cases a TSM backup is made outside of ReaR.<br />
+But I am not a TSM user so this is only a guess and I could be wrong.</p>
+</blockquote>
+<p>I am not a TSM user either, so I am interested in @bwelterl 's (or
+@rmetrich 's) opinion, in case they know some representative sample of
+ReaR + TSM users. Is the above true? As a counterexample, issue #2762
+is from a user who found that he needed to modify
+<code>usr/share/rear/backup/TSM/default/500_make_TSM_backup.sh</code>, so
+presumably he is using ReaR to take TSM backup.</p>
+<p>@xslima00 is my understanding correct that you take TSM backups of the
+system by running <code>rear mkbackup</code> or <code>rear mkbackuponly</code> ?</p>
+<h4 id="xslima00_commented_at_2022-04-13_2010"><img src="https://avatars.githubusercontent.com/u/28806908?u=45651cb1102180dcd57e18be6526196d379d50c8&v=4" width="50"><a href="https://github.com/xslima00">xslima00</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1098439855">2022-04-13 20:10</a>:<a class="headerlink" href="#xslima00_commented_at_2022-04-13_2010" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>Hello,</p>
+<p>TSM backups can be triggered by Rear or outside of Rear control. In both
+cases is backup incremental. So in case it´s triggered outside and
+<code>rear mkbackup</code> in next hour (we use it like this) it will simply build
+backup ISO and another incremental backup which finish within seconds
+(just new ISO is uploaded to TSM server and very few files). Problem of
+standalone TSM backup is you cannot boot from it. That´s why we use
+Rear. In case of crash TSM admin restore ISO to some location, I will
+boot from it and make rear restore (via TSM client).</p>
+<p><a href="https://github.com/rear/rear/issues/2762">issue 2762</a> - in standard
+situation there is no need to modify scripts. But we want to backup TSM
+server itself to another TSM server. That´s why was necessary perform
+workaround I described to force TSM client backup to correct server.</p>
+<h4 id="jsmeix_commented_at_2022-05-05_1102"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1118423959">2022-05-05 11:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-05_1102" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/2795">https://github.com/rear/rear/pull/2795</a>
+merged<br />
+we have code that might be also used to solve this issue here.</p>
+<p>While
+<a href="https://github.com/rear/rear/pull/2795">https://github.com/rear/rear/pull/2795</a><br />
+detects when restored basic system files<br />
+do not match the recreated system during "rear recover"<br />
+the ultimate goal of this issue here is to detect inconsistencies
+beween<br />
+basic system files in the backup and what is stored in the recovery
+system<br />
+i.e. detect inconsistencies early between "rear mkrescue" and "rear
+mkbackuponly"<br />
+and not detect inconsistencies (possibly too) late during "rear
+recover".</p>
+<h4 id="pcahyna_commented_at_2022-05-05_1320"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1118541686">2022-05-05 13:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-05-05_1320" title="Permanent link">&para;</a></h4>
+<p>I believe we should leave this issue open. #2795 introduces detection
+of inconsistency at recovery time, when it is a bit too late. The proper
+fix would be to avoid inconsistency before it bites, by detecting it
+during <code>mkrescue</code> &amp; <code>mkbackuponly</code> and ideally introducing a
+<code>savelayout</code>-like command that one could use for consistency enforcement
+when an external backup method is used instead of <code>mkbackuponly</code>.<br />
+EDIT: which is basically what you wrote.</p>
+<h4 id="jsmeix_commented_at_2022-05-05_1327"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1118551130">2022-05-05 13:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-05_1327" title="Permanent link">&para;</a></h4>
+<p>Yes, this issue will (of course) not be done for the (already delayed)
+ReaR 2.7.<br />
+After the ReaR 2.7 release I intend to have a look - as time permits.</p>
+<h4 id="github-actions_commented_at_2022-07-05_0326"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1174563155">2022-07-05 03:26</a>:<a class="headerlink" href="#github-actions_commented_at_2022-07-05_0326" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="pcahyna_commented_at_2022-07-13_0741"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1182876620">2022-07-13 07:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-07-13_0741" title="Permanent link">&para;</a></h4>
+<p>Well, this does not look "completed", reopening.</p>
+<h4 id="jsmeix_commented_at_2022-07-19_1140"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1188947642">2022-07-19 11:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-07-19_1140" title="Permanent link">&para;</a></h4>
+<p>Regarding how to do a basic check that a backup via "rear
+mkbackuponly"<br />
+is consistent with a "rear mkrescue" that had been done before:</p>
+<p>I noticed right now during "rear mkbackuponly"</p>
+<pre><code># usr/sbin/rear -D mkbackuponly
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Disabling excluded components in /var/tmp/rear.sbMwPY4tMjELAQ0/tmp/backuplayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Verifying that the entries in /var/tmp/rear.sbMwPY4tMjELAQ0/tmp/backuplayout.conf are correct
+Created disk layout (check the results in /var/tmp/rear.sbMwPY4tMjELAQ0/tmp/backuplayout.conf)
+Running 'backup' stage ======================
+...
+</code></pre>
+<p>so it creates a current disk layout in .../tmp/backuplayout.conf<br />
+because of</p>
+<pre><code>DISKLAYOUT_FILE=$TMP_DIR/backuplayout.conf
+</code></pre>
+<p>in lib/mkbackuponly-workflow.sh<br />
+but as far as I see on first glance it does not compare<br />
+the current disk layout in .../tmp/backuplayout.conf<br />
+with an existing disk layout in var/lib/rear/layout/disklayout.conf</p>
+<p>I have no idea why "rear mkbackuponly" creates a disk layout at all<br />
+but when it creates one anew which does not match an existing one<br />
+in var/lib/rear/layout/disklayout.conf it indicates that something<br />
+is wrong so "rear mkbackuponly" may error out to be on the safe side.</p>
+<p>In my case both are same except comments with dates:</p>
+<pre><code># diff -U0 var/lib/rear/layout/disklayout.conf /var/tmp/rear.sbMwPY4tMjELAQ0/tmp/backuplayout.conf
+--- var/lib/rear/layout/disklayout.conf 2022-07-19 13:22:12.957330441 +0200
++++ /var/tmp/rear.sbMwPY4tMjELAQ0/tmp/backuplayout.conf 2022-07-19 13:23:35.749330441 +0200
+@@ -1 +1 @@
+-# Disk layout dated 20220719132209 (YYYYmmddHHMMSS)
++# Disk layout dated 20220719132330 (YYYYmmddHHMMSS)
+@@ -37 +37 @@
+-#        Update Time : Tue Jul 19 13:21:43 2022
++#        Update Time : Tue Jul 19 13:23:34 2022
+</code></pre>
+<p>(the "Update Time" is from a mdadm output comment for a RAID array)</p>
+<h4 id="pcahyna_commented_at_2022-07-25_1101"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1193901619">2022-07-25 11:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-07-25_1101" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I have no idea why "rear mkbackuponly" creates a disk layout at all</p>
+</blockquote>
+<p>I believe this is needed to determine what gets included/excluded in the
+backup.</p>
+<blockquote>
+<p>but when it creates one anew which does not match an existing one<br />
+in var/lib/rear/layout/disklayout.conf it indicates that something<br />
+is wrong so "rear mkbackuponly" may error out to be on the safe side.</p>
+</blockquote>
+<p>yes, this is a good idea and probably easy to do. Doing the opposite
+(detecting at <code>mkrescue</code> time if we are consistent with what we saved
+during <code>mkbackuponly</code>) is more difficult. I outlined a possible approach
+above:</p>
+<blockquote>
+<p>It could be solved by saving the layout at the time mkbackuponly is
+executed to some place under /var/lib/rear and have a special variant
+of checklayout that would check the current layout not against the
+layout saved by mkrescue (under /var/lib/rear/layout) but against the
+layout saved by mkbackuponly. In essence have two saved layouts, one
+by mkrescue, the other by mkbackuponly, and when each of the two
+commands detect a difference from the layout saved by the other
+command, it is an inconsistency, thus abort.</p>
+</blockquote>
+<p>The fact that <code>mkbackuponly</code> saves the layout under <code>$TMP_DIR</code> makes it
+easier (we need to let it save to a persistent location and extend it).</p>
+<h4 id="github-actions_commented_at_2022-10-11_0358"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1274053769">2022-10-11 03:58</a>:<a class="headerlink" href="#github-actions_commented_at_2022-10-11_0358" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-12-11_0240"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1345439963">2022-12-11 02:40</a>:<a class="headerlink" href="#github-actions_commented_at_2022-12-11_0240" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-02-11_0230"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1426579816">2023-02-11 02:30</a>:<a class="headerlink" href="#github-actions_commented_at_2023-02-11_0230" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-04-30_0220"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1528921854">2023-04-30 02:20</a>:<a class="headerlink" href="#github-actions_commented_at_2023-04-30_0220" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-07-08_0248"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1626557721">2023-07-08 02:48</a>:<a class="headerlink" href="#github-actions_commented_at_2023-07-08_0248" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-09-09_0159"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1712383602">2023-09-09 01:59</a>:<a class="headerlink" href="#github-actions_commented_at_2023-09-09_0159" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-11-11_0239"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1806640581">2023-11-11 02:39</a>:<a class="headerlink" href="#github-actions_commented_at_2023-11-11_0239" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-01-13_0209"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-1890254307">2024-01-13 02:09</a>:<a class="headerlink" href="#github-actions_commented_at_2024-01-13_0209" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-03-16_0200"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-2001104928">2024-03-16 02:00</a>:<a class="headerlink" href="#github-actions_commented_at_2024-03-16_0200" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-05-16_0208"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-2113831607">2024-05-16 02:08</a>:<a class="headerlink" href="#github-actions_commented_at_2024-05-16_0208" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-07-16_0223"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-2229877758">2024-07-16 02:23</a>:<a class="headerlink" href="#github-actions_commented_at_2024-07-16_0223" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2024-07-18_1141"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2787#issuecomment-2236289972">2024-07-18 11:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-18_1141" title="Permanent link">&para;</a></h4>
+<p>I close it because in practice I won't find time for it.</p>
+<p>I think at least for now what we meanwhile have via<br />
+<a href="https://github.com/rear/rear/pull/2795">https://github.com/rear/rear/pull/2795</a><br />
+at least mitigates this issue or could be<br />
+even sufficient for what is needed in practice.</p>
+<p>Of course we at ReaR upstream will continue<br />
+to fix and improve things step by step<br />
+when users report issues to us.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2022-04-07.2787.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

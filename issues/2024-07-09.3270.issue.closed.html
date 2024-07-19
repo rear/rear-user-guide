@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3270 Issue closed: reduzing the initrd size? - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3270 Issue closed: reduzing the initrd size?";
+        var mkdocs_page_input_path = "issues/2024-07-09.3270.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3270 Issue closed: reduzing the initrd size?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3270_issue_closed_reduzing_the_initrd_size"><a href="https://github.com/rear/rear/issues/3270">#3270 Issue</a> <code>closed</code>: reduzing the initrd size?<a class="headerlink" href="#3270_issue_closed_reduzing_the_initrd_size" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="damm620_opened_issue_at_2024-07-09_0903"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> opened issue at <a href="https://github.com/rear/rear/issues/3270">2024-07-09 09:03</a>:<a class="headerlink" href="#damm620_opened_issue_at_2024-07-09_0903" title="Permanent link">&para;</a></h4>
+<p>With the option <code>FIRMWARE_FILES</code> one can minimize the firmwares that are
+being loaded into the ReaR initrd.</p>
+<p>We currently have the issue, that on CentOS 9 servers we do have big
+initrds (like 500-650MB). We try to reduze that, but the
+<code>FIRMWARE_FILES</code> parameter only allows a "whitelist" on what firmware
+will be loaded.</p>
+<p>Is it possible to blacklist firmware?<br />
+I am asking this because than I would go though the <code>lib*/firmware</code>
+folder and blacklist firmwares that are pretty big in size but will
+probably never used within the rear environment.</p>
+<p>If that is not possible, can this feature please be developed?</p>
+<p>Is there any other option that minimize the firmwares that are being
+loaded into the ReaR initrd to reduze the initrd size?<br />
+The only other option I see is the <code>REAR_INITRD_COMPRESSION</code> which we
+already discovered. But the lzma compression only shrinks the size about
+10%.</p>
+<h4 id="gdha_commented_at_2024-07-09_0920"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217134268">2024-07-09 09:20</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-09_0920" title="Permanent link">&para;</a></h4>
+<p>Did you try <code>FIRMWARE_FILES=( 'no' )</code> already?</p>
+<h4 id="damm620_commented_at_2024-07-09_0937"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217168818">2024-07-09 09:37</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-09_0937" title="Permanent link">&para;</a></h4>
+<p>As I understand, that means ReaR does not load any firmware, correct?<br />
+Can you please explain for what ReaR needs firmwares?</p>
+<h4 id="jsmeix_commented_at_2024-07-09_0939"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217172957">2024-07-09 09:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-09_0939" title="Permanent link">&para;</a></h4>
+<p>@damm620<br />
+I think right now the most simple and straightforward way<br />
+to get what you need is to add a new script like<br />
+usr/share/rear/build/default/980_remove_needless.sh<br />
+where you do something like</p>
+<pre><code>pushd $ROOTFS_DIR 1&gt;&amp;2
+  rm relative_path/to/files
+popd 1&gt;&amp;2
+</code></pre>
+<p>to remove what you don't need from within<br />
+your particular ReaR recovery system.</p>
+<h4 id="jsmeix_commented_at_2024-07-09_0945"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217183536">2024-07-09 09:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-09_0945" title="Permanent link">&para;</a></h4>
+<p>@damm620<br />
+ReaR does not need any firmware nor does ReaR load any.<br />
+Certain hardware needs firmware and the kernel loads it.<br />
+For example NICs and GPUs (GPU firmware is often big).<br />
+Without proper firmware such hardware won't work.<br />
+Bad when the kernel booted fine (except firmware loading)<br />
+and the ReaR recovery system is up and running<br />
+but you sit in front of a black screen without network access ;-)<br />
+In general fully virtualized VMs usually don't need firmware.<br />
+It depends on your hardware and/or on the VM if firmware is needed.<br />
+So try out if the ReaR recovery system works on your hardware<br />
+with <code>FIRMWARE_FILES=( 'no' )</code> and if yes all is fine.<br />
+Otherwise - provided you know what firmware files<br />
+your hardware needs - specify the needed firmware<br />
+via <code>FIRMWARE_FILES</code>.</p>
+<h4 id="damm620_commented_at_2024-07-09_1014"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217245691">2024-07-09 10:14</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-09_1014" title="Permanent link">&para;</a></h4>
+<p>So as long as I can boot into rear (grub or ISO), see all disk, have
+network connectivity and the tsm backup client works, the test should be
+sufficient right?</p>
+<h4 id="jsmeix_commented_at_2024-07-09_1024"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217265890">2024-07-09 10:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-09_1024" title="Permanent link">&para;</a></h4>
+<p>Yes, this should be sufficient to check<br />
+that the ReaR recovery system works for your needs.</p>
+<p>But in general see<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#No_disaster_recovery_without_testing_and_continuous_validation">https://en.opensuse.org/SDB:Disaster_Recovery#No_disaster_recovery_without_testing_and_continuous_validation</a></p>
+<h4 id="jsmeix_commented_at_2024-07-09_1309"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2217703746">2024-07-09 13:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-09_1309" title="Permanent link">&para;</a></h4>
+<p>An addedum regarding</p>
+<pre><code>... provided you know what firmware files your hardware
+needs - specify the needed firmware via FIRMWARE_FILES
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/issues/2681#issuecomment-930879162">https://github.com/rear/rear/issues/2681#issuecomment-930879162</a><br />
+why it is not easy to know or to find out what<br />
+firmware files get used on one's own hardware.<br />
+There is nothing we can do in ReaR against that<br />
+(i.e. we cannot determine what firmware files are used)<br />
+so to be on the safe side we include by default<br />
+all firmware files in the ReaR recovery system<br />
+(except on architectures like ppc64 or ppc64le).</p>
+<h4 id="schlomo_commented_at_2024-07-11_1246"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2222846309">2024-07-11 12:46</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-11_1246" title="Permanent link">&para;</a></h4>
+<p>See also
+<a href="https://youtu.be/QN6vk5DfzAk?si=GTj74bC98dtduC26&amp;t=1464">https://youtu.be/QN6vk5DfzAk?si=GTj74bC98dtduC26&amp;t=1464</a>
+...</p>
+<p>I use this configuration to reduce the rescue image size and build
+times:</p>
+<pre><code>FIRMWARE_FILES=('no')
+MODULES=('loaded_modules')
+EXCLUDE_MD5SUM_VERIFICATION=all
+</code></pre>
+<p>About modules and firmware files you need to understand where you
+<strong>might</strong> want to boot a rescue image. With these options limiting the
+modules and firmware files your rescue image will only work on identical
+or extremely similar hardware, e.g. perfect for recovering a virtual
+machine.</p>
+<p>For recovering on physical hardware, that could be very different from
+the original, I'd recommend to include more or all modules and firmware
+files. The more you test and know your recovery environment, the more
+you can narrow it down. If you don't know then take it all, just to be
+sure.</p>
+<p>If you need to reduce the rescue image even further and want to use ReaR
+for recovery without the ReaR rescue system, then you might take a look
+at the new <code>PORTABLE</code> output mode:
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc</a></p>
+<p>@damm620 please kindly close the issue when appropriate.</p>
+<h4 id="damm620_commented_at_2024-07-11_1307"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2222896040">2024-07-11 13:07</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-11_1307" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<p>Thanks for your answer.</p>
+<blockquote>
+<p>With these options limiting the modules and firmware files your rescue
+image will only work on identical or extremely similar hardware, e.g.
+perfect for recovering a virtual machine.</p>
+</blockquote>
+<p>What exacltly do you mean with this? In most cases we want to recover on
+the same or very similar hardware. Does this work when I remove all
+firmware? Why is this?<br />
+When I remove all firmware but the ReaR(-kernel) needs some firmware for
+the network hardware for example to get it running, then I am stuck when
+recovering because the network in the ReaR does not work, right?</p>
+<p>Can you please clearify? We will scale this out to a few thousands
+servers and I just want to be sure that I understood correctly.</p>
+<p>by the way: nice presentation :)</p>
+<h4 id="schlomo_commented_at_2024-07-11_1344"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2222981059">2024-07-11 13:44</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-11_1344" title="Permanent link">&para;</a></h4>
+<p>@damm620 the dependency goes like this: <code>kernel</code> -&gt; <code>modules</code> -&gt;
+<code>firmware</code>.</p>
+<p>So you would need to know the modules that your hardware requires and
+then you can check with those modules for required firmware. We could,
+TBH, actually determine this automatically because <code>modinfo</code> reports the
+potential firmware files used ba a module.</p>
+<p>In my experience you don't need any firmware on virtual machines. On
+physical hardware you might have drivers that require firmware files.</p>
+<p>The reason that ReaR takes along all drivers and all firmware is so that
+you could recover even a very old system on brand new hardware, as long
+as the kernel of that old system supports the new hardware.</p>
+<p>So to answer your question:</p>
+<ol>
+<li>know your potential recovery hardware</li>
+<li>determine which modules are required for that, and use either
+    <code>MODULES=('loaded_modules')</code> or specify the modules you need</li>
+<li>determine if any of those modules require firmware and add that to
+    <code>FIRMWARE_FILES</code>, e.g. as a pattern.</li>
+<li>Repeat if your potential recovery hardware changes</li>
+</ol>
+<p>And yes, my suggestion from above might be just what you need - but
+please validate.</p>
+<p>BTW, if you plan to roll out ReaR to thousands of systems then I'd like
+to suggest for you to reach out to us for a little bit of
+<a href="https://relax-and-recover.org/support/">consulting</a> around design and
+architecture. For such a large installation there is usually a lot of
+stuff that ReaR can do for you that is not so obvious and where our
+experience from other large installations can be useful.</p>
+<h4 id="damm620_commented_at_2024-07-11_1431"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2223096893">2024-07-11 14:31</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-11_1431" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<p>So ReaR per default when setting <code>FIRMWARE_FILES=( 'no' )</code> is going to
+load all modules (incl. their firmware if there are dependencies), but
+non "additional" firmware right? So all dependend firmware is going to
+be loaded but no extra ones?</p>
+<p>second questions: So only modules can load firmware, not the kernel
+itself? Because I did check via
+<code>lsmod -&gt; modinfo $module|grep -i firmware</code> if there are any firmware
+loaded on our servers. I turns out none of them does.</p>
+<h4 id="schlomo_commented_at_2024-07-11_1444"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2223126842">2024-07-11 14:44</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-11_1444" title="Permanent link">&para;</a></h4>
+<p>@damm620 no, sorry. <code>FIRMWARE_FILES=( 'no' )</code> simply doesn't take any
+firmware files, no automagic here (yet). I just realised that we could
+do some automagic here by running <code>modprobe</code> against all modules that we
+include.</p>
+<p>Kernel can load firmware if something that needs firmware is compiled
+into the kernel. Sorry for being imprecise here. Additionally, there
+could be firmware compiled <em>into</em> the kernel, but then ReaR wouldn't
+have to deal with that.</p>
+<p>IIRC there was also some kind of kernel magic to match firmware device
+IDs or such to filenames to auto-load firmware, but maybe I remember
+that wrong.</p>
+<p>In the end, testing is the best way. If you can't find any firmware that
+plays a role on your systems then I'd think it to be safe to disable
+firmware inclusion in the rescue system. Worst case, you'll have to add
+another initramfs file to the boot media to add the missing firmware
+files as a hot patch for an existing ReaR rescue image.</p>
+<h4 id="damm620_commented_at_2024-07-11_1452"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2223146610">2024-07-11 14:52</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-11_1452" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<p>okay, we use only official centos, rhel and suse distros. So I doubt
+that there are any modules backed into the kernel, that will load
+firmware, right? Or is this assumption incorrect?</p>
+<p>Can you show me the part of the code in ReaR (or file/folder) so that I
+can maybe develop an "automagic" doing something like:</p>
+<pre><code>- get all kernel modules with lsmod
+- modprobe each of them and grep after "firmware"
+- if s.th. is found include this firmware into the initrd
+</code></pre>
+<h4 id="schlomo_commented_at_2024-07-11_1501"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2223169068">2024-07-11 15:01</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-11_1501" title="Permanent link">&para;</a></h4>
+<p><code>usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh</code> would be
+your friend. It runs already after the modules so that you can rely on
+the previous script that copied the modules.</p>
+<p>For a PR I'd suggest to give the <code>FIRMWARE_FILES</code> variable a new special
+value of <code>auto</code> which would trigger the autodetect. We could potentially
+set <code>FIRMWARE_FILES=auto</code> if <code>MODULES=loaded_modules</code> if we assume that
+this would be typically used together</p>
+<p>Please make sure that you also handle the CPU microcode updates, I don't
+know if and how that works and if ReaR rescue systems that include all
+firmware files would update CPU microcode correctly.</p>
+<h4 id="gdha_commented_at_2024-07-15_1551"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2228835469">2024-07-15 15:51</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-15_1551" title="Permanent link">&para;</a></h4>
+<p>@damm620 Are your questions sufficient answered?</p>
+<h4 id="damm620_commented_at_2024-07-16_0705"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3270#issuecomment-2230174297">2024-07-16 07:05</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-16_0705" title="Permanent link">&para;</a></h4>
+<p>Yes thank you guys very much :)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-09.3270.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3282 Issue open: Remove cronjob of RPM package on RHEL - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3282 Issue open: Remove cronjob of RPM package on RHEL";
+        var mkdocs_page_input_path = "issues/2024-07-18.3282.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3282 Issue open: Remove cronjob of RPM package on RHEL</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3282_issue_open_remove_cronjob_of_rpm_package_on_rhel"><a href="https://github.com/rear/rear/issues/3282">#3282 Issue</a> <code>open</code>: Remove cronjob of RPM package on RHEL<a class="headerlink" href="#3282_issue_open_remove_cronjob_of_rpm_package_on_rhel" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="gitarplayer_opened_issue_at_2024-07-18_1405"><img src="https://avatars.githubusercontent.com/u/51920729?v=4" width="50"><a href="https://github.com/GitarPlayer">GitarPlayer</a> opened issue at <a href="https://github.com/rear/rear/issues/3282">2024-07-18 14:05</a>:<a class="headerlink" href="#gitarplayer_opened_issue_at_2024-07-18_1405" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<!-- -->
+
+<pre><code>Relax-and-Recover 2.6 / 2020-06-17
+</code></pre>
+<ul>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:<br />
+    This is the latest version available through my dnf package manager
+    on RHEL8.</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Red Hat Enterprise Linux"
+VERSION="8.10 (Ootpa)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="8.10"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Red Hat Enterprise Linux 8.10 (Ootpa)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:redhat:enterprise_linux:8::baseos"
+HOME_URL="https://www.redhat.com/"
+DOCUMENTATION_URL="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 8"
+REDHAT_BUGZILLA_PRODUCT_VERSION=8.10
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="8.10"
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    default</li>
+<li>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    KVM guest</li>
+<li>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</li>
+<li>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    BIOS, GRUB</li>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    DM</li>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                             KNAME      PKNAME    TRAN   TYPE FSTYPE      LABEL  SIZE MOUNTPOINT
+/dev/sda                         /dev/sda                    disk                    100G 
+|-/dev/sda1                      /dev/sda1  /dev/sda         part xfs         boot     1G /boot
+`-/dev/sda2                      /dev/sda2  /dev/sda         part LVM2_member         99G 
+  |-/dev/mapper/rootvg-root      /dev/dm-0  /dev/sda2        lvm  xfs                 23G /
+  |-/dev/mapper/rootvg-swap      /dev/dm-1  /dev/sda2        lvm  swap                 4G [SWAP]
+  |-/dev/mapper/rootvg-journal   /dev/dm-3  /dev/sda2        lvm  xfs                  4G /var/log/journal
+  |-/dev/mapper/rootvg-audit     /dev/dm-4  /dev/sda2        lvm  xfs                  4G /var/log/audit
+  |-/dev/mapper/rootvg-log       /dev/dm-5  /dev/sda2        lvm  xfs                  4G /var/log
+  |-/dev/mapper/rootvg-crash     /dev/dm-6  /dev/sda2        lvm  xfs                  8G /var/crash
+  |-/dev/mapper/rootvg-var       /dev/dm-7  /dev/sda2        lvm  xfs                  8G /var
+  |-/dev/mapper/rootvg-opt       /dev/dm-8  /dev/sda2        lvm  xfs                 16G /opt
+  |-/dev/mapper/rootvg-home      /dev/dm-9  /dev/sda2        lvm  xfs                  8G 
+  `-/dev/mapper/rootvg-cortex    /dev/dm-10 /dev/sda2        lvm  xfs                 10G /opt/traps
+/dev/sdb                         /dev/sdb                    disk LVM2_member         50G 
+`-/dev/mapper/datavg-export_home /dev/dm-2  /dev/sdb         lvm  xfs                 50G /home
+/dev/sr0                         /dev/sr0             sata   rom                    1024M
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    If I install the rear package it also includes a cronjob in
+    /etc/cron.d/rear. I don't think this should be part of the package
+    because without any additional configuration this daily cronjob will
+    fail daily. I was searching through the repo where this cronjob is
+    included but I could not find it. I would have submitted a pull
+    request otherwise. Apologies for not finding it.</li>
+<li>Workaround, if any:<br />
+    Remove /etc/cron.d/rear manually or as part of the installtion
+    process with ansible</li>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<h4 id="lzaoral_commented_at_2024-07-18_1436"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3282#issuecomment-2236743567">2024-07-18 14:36</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-07-18_1436" title="Permanent link">&para;</a></h4>
+<p>Hello, @GitarPlayer! The package sources for CentOS Stream 8 / RHEL 8
+are available here:
+<a href="https://gitlab.com/redhat/centos-stream/rpms/rear/-/tree/c8s/">https://gitlab.com/redhat/centos-stream/rpms/rear/-/tree/c8s/</a></p>
+<p>I suggest to report this problem on the official issue tracker instead:
+<a href="https://issues.redhat.com">https://issues.redhat.com</a></p>
+<h4 id="pcahyna_commented_at_2024-07-18_1446"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3282#issuecomment-2236768754">2024-07-18 14:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-18_1446" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If I install the rear package it also includes a cronjob in
+/etc/cron.d/rear. I don't think this should be part of the package
+because without any additional configuration this daily cronjob will
+fail daily. I was searching through the repo where this cronjob is
+included but I could not find it. I would have submitted a pull
+request otherwise. Apologies for not finding it.</p>
+</blockquote>
+<p>I also think that having this cron job was a bad idea, but I don't think
+it is a good idea to remove it at a so late stage in the RHEL 8
+lifecycle. RHEL 9 does not have the cron job anymore (it is installed
+into a documentation directory as an example and you have to copy to
+/etc/cron.d and modify it). See the deprecation notice in the RHEL 8
+release notes.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-18.3282.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
