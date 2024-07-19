@@ -2658,6 +2658,7 @@
 - [\#2663 Issue](2021-07-29.2663.issue.closed.md) `closed`: Serial config for kernel commandline
 - [\#2664 PR](2021-08-02.2664.pr.merged.md) `merged`: Default TMPDIR should be /var/tmp
 - [\#2665 PR](2021-08-03.2665.pr.merged.md) `merged`: On POWER require bootlist & ofpathname if needed
+- [\#2666 Issue](2021-08-06.2666.issue.closed.md) `closed`: Further enhancements and cleanup for GRUB2 with OUTPUT=USB
 - [\#2666 Issue](2021-08-06.2666.issue.open.md) `open`: Further enhancements and cleanup for GRUB2 with OUTPUT=USB
 - [\#2667 Issue](2021-08-06.2667.issue.closed.md) `closed`: 'rear recover' does not entirely remove build area (any more
 - [\#2668 Issue](2021-08-10.2668.issue.closed.md) `closed`: REAR ISO cannot be created as bootable
@@ -2775,6 +2776,7 @@
 - [\#2784 PR](2022-04-04.2784.pr.closed.md) `closed`: Merge 2768, build in packit
 - [\#2785 Issue](2022-04-07.2785.issue.closed.md) `closed`: No error is printed if UUID are not updated during recover (no sed output
 - [\#2786 PR](2022-04-07.2786.pr.closed.md) `closed`: Print error if UUID not updated
+- [\#2787 Issue](2022-04-07.2787.issue.closed.md) `closed`: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency
 - [\#2787 Issue](2022-04-07.2787.issue.open.md) `open`: Rescue ISO is dependant of files on the backup, for example /etc/fstab. The cron.d job will break the coherency
 - [\#2788 PR](2022-04-11.2788.pr.closed.md) `closed`: Detect by UUIDs if restored config files do not match what was recreated
 - [\#2789 PR](2022-04-13.2789.pr.closed.md) `closed`: Show the users the starting point of the execution of the PRE/POS\_RECOVERY\_SCRIPTs
@@ -2917,6 +2919,7 @@
 - [\#2925 Issue](2023-02-13.2925.issue.closed.md) `closed`: "rear mkrescue" does not error out when COPY\_AS\_IS="/some/dir" results broken recovery system
 - [\#2926 Issue](2023-02-13.2926.issue.closed.md) `closed`: ERROR 420\_autoresize\_last\_partitions.sh: line 73: 10: command not found
 - [\#2927 Issue](2023-02-14.2927.issue.closed.md) `closed`: SUSE 15.4 layout recreation fails due to missing chattr binary
+- [\#2928 Issue](2023-02-14.2928.issue.closed.md) `closed`: NETFS tar backup no btrfs subvolumes by default
 - [\#2928 Issue](2023-02-14.2928.issue.open.md) `open`: NETFS tar backup no btrfs subvolumes by default
 - [\#2929 Issue](2023-02-14.2929.issue.closed.md) `closed`: Automatic recovery should not wait for user input
 - [\#2930 Issue](2023-02-14.2930.issue.closed.md) `closed`: Ensure config array variables are specified as arrays by the user
@@ -3058,6 +3061,7 @@
 - [\#3039 PR](2023-08-07.3039.pr.merged.md) `merged`: Describe expose-secrets in rear.8.adoc
 - [\#3040 Issue](2023-08-11.3040.issue.closed.md) `closed`: Failed to boot ReaR ISO on a new VM in VMware with vCenter
 - [\#3040 Issue](2023-08-11.3040.issue.open.md) `open`: Failed to boot ReaR ISO on a new VM in VMware with vCenter
+- [\#3041 PR](2023-08-11.3041.pr.merged.md) `merged`: Reorder systemd units in the rescue system and make sure syslog is started
 - [\#3041 PR](2023-08-11.3041.pr.open.md) `open`: Reorder systemd units in the rescue system and make sure syslog is started
 - [\#3042 Issue](2023-08-17.3042.issue.closed.md) `closed`: use\_devicesfile in RHEL9
 - [\#3043 PR](2023-08-24.3043.pr.merged.md) `merged`: Remove the lvmdevices file at the end of recovery
@@ -3080,6 +3084,7 @@
 - [\#3056 Issue](2023-10-19.3056.issue.closed.md) `closed`: OBS remove whole Archiving:Backup:Rear:Snapshot (all is old and outdated
 - [\#3057 PR](2023-10-23.3057.pr.merged.md) `merged`: Better explain apply\_layout\_mappings(
 - [\#3058 PR](2023-10-25.3058.pr.merged.md) `merged`: Skip useless xfs mount options when mounting during recovery
+- [\#3059 Issue](2023-10-27.3059.issue.closed.md) `closed`: Make "rear recover" robust against problematic mount options
 - [\#3059 Issue](2023-10-27.3059.issue.open.md) `open`: Make "rear recover" robust against problematic mount options
 - [\#3060 Issue](2023-10-29.3060.issue.closed.md) `closed`: Configuring bacula recovery environment to use bextract
 - [\#3061 PR](2023-10-30.3061.pr.merged.md) `merged`: Save LVM pool metadata volume size in disk layout
@@ -3162,6 +3167,7 @@
 - [\#3122 Issue](2024-01-08.3122.issue.closed.md) `closed`: ReaR creates world-readable initrd with GRUB\_RESCUE=Y
 - [\#3123 PR](2024-01-08.3123.pr.merged.md) `merged`: Make initrd accessible only by root
 - [\#3124 PR](2024-01-08.3124.pr.merged.md) `merged`: Take AUTOEXCLUDE\_PATH into account in layout doc
+- [\#3125 PR](2024-01-09.3125.pr.merged.md) `merged`: Improve layout configuration part of the user guide
 - [\#3125 PR](2024-01-09.3125.pr.open.md) `open`: Improve layout configuration part of the user guide
 - [\#3126 Issue](2024-01-12.3126.issue.closed.md) `closed`: Implement BACKUP=PPDM for Dell PowerProtect Data Manager
 - [\#3126 Issue](2024-01-12.3126.issue.open.md) `open`: Implement BACKUP=PPDM for Dell PowerProtect Data Manager
@@ -3223,6 +3229,7 @@
 - [\#3160 PR](2024-02-20.3160.pr.open.md) `open`: New TextPrefix function
 - [\#3161 Issue](2024-02-21.3161.issue.closed.md) `closed`: Multiple disks recovery & external disk backup/recovery
 - [\#3161 Issue](2024-02-21.3161.issue.open.md) `open`: Multiple disks recovery & external disk backup/recovery
+- [\#3162 Issue](2024-02-22.3162.issue.closed.md) `closed`: RFC: Why does "rear recover" regenerate the original's system initrd in any case?
 - [\#3162 Issue](2024-02-22.3162.issue.open.md) `open`: RFC: Why does "rear recover" regenerate the original's system initrd in any case?
 - [\#3163 PR](2024-02-23.3163.pr.merged.md) `merged`: Error out if TMPDIR is set in user config
 - [\#3164 Issue](2024-02-27.3164.issue.closed.md) `closed`: Backup of only /dev/sdb
@@ -3237,10 +3244,12 @@
 - [\#3172 PR](2024-03-01.3172.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.0.2 to 5.1.0
 - [\#3173 PR](2024-03-01.3173.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.3.0 to 4.4.0
 - [\#3174 PR](2024-03-06.3174.pr.merged.md) `merged`: Allow 'shell' workflow in recovery system
+- [\#3175 PR](2024-03-07.3175.pr.merged.md) `merged`: Automatically include mounted btrfs subvolumes in NETFS backups
 - [\#3175 PR](2024-03-07.3175.pr.open.md) `open`: Automatically include mounted btrfs subvolumes in NETFS backups
 - [\#3176 PR](2024-03-07.3176.pr.merged.md) `merged`: Skip btrfs subvolumes when detecting ESP partitions
 - [\#3177 PR](2024-03-08.3177.pr.merged.md) `merged`: New unique\_unsorted(
 - [\#3178 Issue](2024-03-12.3178.issue.open.md) `open`: rear does not recognize nvme when trying to format it with "rear format"
+- [\#3179 PR](2024-03-14.3179.pr.merged.md) `merged`: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration
 - [\#3179 PR](2024-03-14.3179.pr.open.md) `open`: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration
 - [\#3180 Issue](2024-03-18.3180.issue.closed.md) `closed`: Scaring Error(
 - [\#3181 PR](2024-03-18.3181.pr.closed.md) `closed`: FYI: Fix for issue 3180 (will be done together with \#3168
@@ -3287,6 +3296,7 @@
 - [\#3215 PR](2024-05-01.3215.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.1 to 5.1.2
 - [\#3216 PR](2024-05-03.3216.pr.merged.md) `merged`: enable default ramdisk if not set to satisfy Veeam 12.1 requirements
 - [\#3217 Issue](2024-05-03.3217.issue.closed.md) `closed`: Check for empty NETFS 'tar' backup
+- [\#3218 Issue](2024-05-08.3218.issue.closed.md) `closed`: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file
 - [\#3218 Issue](2024-05-08.3218.issue.open.md) `open`: HOW TO CLONE A new physical server RHEL9 using REAR utility (using the rear-hostname.iso file
 - [\#3219 PR](2024-05-14.3219.pr.merged.md) `merged`: default.conf COPY\_AS\_IS\_EXCLUDE\_TSM example better explained
 - [\#3220 PR](2024-05-14.3220.pr.merged.md) `merged`: Fix & improve snapshot release building & testing
@@ -3306,16 +3316,19 @@
 - [\#3233 PR](2024-05-23.3233.pr.open.md) `open`: On POWER tell the user when the initrd is big
 - [\#3234 Issue](2024-05-27.3234.issue.open.md) `open`: Replace direct usage of /etc/rear-release with RECOVERY\_MODE
 - [\#3235 Issue](2024-05-30.3235.issue.closed.md) `closed`: Rear 2.7 for Debian 11 signatures invalid (25.05.24
+- [\#3236 PR](2024-06-01.3236.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.4.0 to 4.4.1
 - [\#3236 PR](2024-06-01.3236.pr.open.md) `open`: Bump codacy/codacy-analysis-cli-action from 4.4.0 to 4.4.1
 - [\#3237 PR](2024-06-01.3237.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
 - [\#3237 PR](2024-06-01.3237.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
 - [\#3238 Issue](2024-06-05.3238.issue.open.md) `open`: RFC: Preparations towards new release of ReaR v3.0
 - [\#3239 PR](2024-06-06.3239.pr.merged.md) `merged`: Fix version test in udev start by desupporting systemd &lt; 190
 - [\#3240 PR](2024-06-07.3240.pr.merged.md) `merged`: Improve Bareos integration
+- [\#3241 Issue](2024-06-09.3241.issue.closed.md) `closed`: mkrescue fails
 - [\#3241 Issue](2024-06-09.3241.issue.open.md) `open`: mkrescue fails
 - [\#3242 PR](2024-06-10.3242.pr.merged.md) `merged`: Fix IPv6 address support in OUTPUT\_URL/BACKUP\_URL
 - [\#3243 Issue](2024-06-11.3243.issue.closed.md) `closed`: rear checklayout: possibility to ignore certain logical volume?
 - [\#3244 PR](2024-06-12.3244.pr.merged.md) `merged`: Replace obsolete `egrep` with `grep -E`
+- [\#3245 PR](2024-06-12.3245.pr.merged.md) `merged`: Avoid returning 1 from a script if all is OK
 - [\#3245 PR](2024-06-12.3245.pr.open.md) `open`: Avoid returning 1 from a script if all is OK
 - [\#3246 PR](2024-06-12.3246.pr.merged.md) `merged`: Reenable CentOS Stream 8 CI builds and tests
 - [\#3247 Issue](2024-06-13.3247.issue.open.md) `open`: How to setup ReaR for Fedora-Cloud-Base-Generic.x86\_64-40-VERSION.qcow2
@@ -3336,6 +3349,24 @@
 - [\#3262 Issue](2024-06-27.3262.issue.open.md) `open`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3263 Issue](2024-07-02.3263.issue.open.md) `open`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
 - [\#3264 Issue](2024-07-02.3264.issue.open.md) `open`: Automatic release notes creation as a WIKI page
+- [\#3265 Issue](2024-07-03.3265.issue.closed.md) `closed`: Issue with mkrescue on EFI servers with multipath devices
 - [\#3265 Issue](2024-07-03.3265.issue.open.md) `open`: Issue with mkrescue on EFI servers with multipath devices
+- [\#3267 PR](2024-07-04.3267.pr.merged.md) `merged`: improve device recognition when creating efibootmgr entry
 - [\#3267 PR](2024-07-04.3267.pr.open.md) `open`: improve device recognition when creating efibootmgr entry
+- [\#3268 Issue](2024-07-07.3268.issue.open.md) `open`: configuration question
+- [\#3269 PR](2024-07-08.3269.pr.merged.md) `merged`: Add spellcheck workflow and fix the typos
+- [\#3270 Issue](2024-07-09.3270.issue.closed.md) `closed`: reduzing the initrd size?
+- [\#3271 Issue](2024-07-10.3271.issue.open.md) `open`: USB config not working
+- [\#3272 Issue](2024-07-10.3272.issue.open.md) `open`: I would like to step back from personal responsibility for ReaR
+- [\#3273 Issue](2024-07-11.3273.issue.open.md) `open`: IPv6 interface has no IP in ReaR enviroment
+- [\#3274 Issue](2024-07-11.3274.issue.open.md) `open`: REQUEST\_RESTORE should signal when it is ready to
+- [\#3275 PR](2024-07-12.3275.pr.merged.md) `merged`: Enhance the spellcheck workflow
+- [\#3276 Issue](2024-07-12.3276.issue.open.md) `open`: Secure Boot with GRUB shim should work automatically
+- [\#3277 PR](2024-07-12.3277.pr.open.md) `open`: WIP: Autodetect EFI shim
+- [\#3278 PR](2024-07-12.3278.pr.open.md) `open`: Autodetect secure boot via mokutil and guess the secure boot shim
+- [\#3280 PR](2024-07-18.3280.pr.open.md) `open`: skel/default/etc/rsyslog.conf : others should not have read permissions
+- [\#3281 PR](2024-07-18.3281.pr.open.md) `open`: conf: reintroduce `Linux-s390.conf`
+- [\#3282 Issue](2024-07-18.3282.issue.open.md) `open`: Remove cronjob of RPM package on RHEL
+- [\#3283 Issue](2024-07-18.3283.issue.open.md) `open`: Improve output on missing libraries for systemd core lib
+- [\#3284 Issue](2024-07-19.3284.issue.open.md) `open`: Disklayout.conf missing partition
 - # Issues History of Relax-and-Recover (index.md)
