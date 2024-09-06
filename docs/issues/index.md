@@ -2844,6 +2844,7 @@
 - [\#2850 Issue](2022-08-12.2850.issue.closed.md) `closed`: mkrescue with PXE\_CREATE\_LINKS=MAC does not respect PXE\_CONFIG\_GRUB\_STYLE=y
 - [\#2851 PR](2022-08-12.2851.pr.merged.md) `merged`: insert missing prefix to fix \#2850
 - [\#2852 Issue](2022-08-19.2852.issue.closed.md) `closed`: cannot recover on clean install system
+- [\#2853 Issue](2022-08-31.2853.issue.closed.md) `closed`: Let ReaR deal with LVM VGs without LVs
 - [\#2853 Issue](2022-08-31.2853.issue.open.md) `open`: Let ReaR deal with LVM VGs without LVs
 - [\#2854 PR](2022-08-31.2854.pr.closed.md) `closed`: skip LVM PVs mounted on /dev/loop
 - [\#2855 PR](2022-09-01.2855.pr.merged.md) `merged`: GitHub Workflows security hardening
@@ -3100,6 +3101,7 @@
 - [\#3067 Issue](2023-11-06.3067.issue.closed.md) `closed`: Trying to build rescue ISO for Bacula backup
 - [\#3067 Issue](2023-11-06.3067.issue.open.md) `open`: Trying to build rescue ISO for Bacula backup
 - [\#3068 Issue](2023-11-06.3068.issue.closed.md) `closed`: ISO\_RECOVERY\_MODE=unattended reboot loop if ISO CD-ROM is first boot device
+- [\#3069 Issue](2023-11-07.3069.issue.closed.md) `closed`: BACKUP=NSR: "rear checklayout" always results exit code 1
 - [\#3069 Issue](2023-11-07.3069.issue.open.md) `open`: BACKUP=NSR: "rear checklayout" always results exit code 1
 - [\#3070 PR](2023-11-07.3070.pr.merged.md) `merged`: Add REBOOT\_COMMANDS (issue 3068
 - [\#3072 PR](2023-11-09.3072.pr.merged.md) `merged`: Add USER\_INPUT\_UNATTENDED\_TIMEOUT config variable
@@ -3117,6 +3119,7 @@
 - [\#3082 Issue](2023-11-14.3082.issue.closed.md) `closed`: ERROR: Bacula client status unknown on director.
 - [\#3082 Issue](2023-11-14.3082.issue.open.md) `open`: ERROR: Bacula client status unknown on director.
 - [\#3083 Issue](2023-11-15.3083.issue.open.md) `open`: In etc/scripts/system-setup also source additional config files
+- [\#3084 Issue](2023-11-15.3084.issue.closed.md) `closed`: rear should automatically use ebiso if UEFI bootloader is found on SLES/OpenSUSE/…
 - [\#3084 Issue](2023-11-15.3084.issue.open.md) `open`: rear should automatically use ebiso if UEFI bootloader is found on SLES/OpenSUSE/…
 - [\#3085 Issue](2023-11-17.3085.issue.closed.md) `closed`: write\_protected\_candidate\_device called for '/sys/block/nvme0c0n1' but '/dev/nvme0c0n1' is no block device
 - [\#3086 Issue](2023-11-17.3086.issue.closed.md) `closed`: Support for Amazon Linux 2 and 2023
@@ -3199,6 +3202,7 @@
 - [\#3142 Issue](2024-01-29.3142.issue.open.md) `open`: Enable automated source code formatting
 - [\#3143 Issue](2024-01-30.3143.issue.closed.md) `closed`: Implementing own backup method in rear
 - [\#3143 Issue](2024-01-30.3143.issue.open.md) `open`: Implementing own backup method in rear
+- [\#3144 Issue](2024-02-06.3144.issue.closed.md) `closed`: delete prep/Linux-s390/305\_include\_s390\_tools.sh
 - [\#3144 Issue](2024-02-06.3144.issue.open.md) `open`: delete prep/Linux-s390/305\_include\_s390\_tools.sh
 - [\#3145 PR](2024-02-06.3145.pr.merged.md) `merged`: Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection
 - [\#3146 Issue](2024-02-07.3146.issue.closed.md) `closed`: mkopalpba fails on Fedora 39
@@ -3356,17 +3360,48 @@
 - [\#3268 Issue](2024-07-07.3268.issue.open.md) `open`: configuration question
 - [\#3269 PR](2024-07-08.3269.pr.merged.md) `merged`: Add spellcheck workflow and fix the typos
 - [\#3270 Issue](2024-07-09.3270.issue.closed.md) `closed`: reduzing the initrd size?
+- [\#3271 Issue](2024-07-10.3271.issue.closed.md) `closed`: USB config not working
 - [\#3271 Issue](2024-07-10.3271.issue.open.md) `open`: USB config not working
 - [\#3272 Issue](2024-07-10.3272.issue.open.md) `open`: I would like to step back from personal responsibility for ReaR
 - [\#3273 Issue](2024-07-11.3273.issue.open.md) `open`: IPv6 interface has no IP in ReaR enviroment
 - [\#3274 Issue](2024-07-11.3274.issue.open.md) `open`: REQUEST\_RESTORE should signal when it is ready to
 - [\#3275 PR](2024-07-12.3275.pr.merged.md) `merged`: Enhance the spellcheck workflow
+- [\#3276 Issue](2024-07-12.3276.issue.closed.md) `closed`: Secure Boot with GRUB shim should work automatically
 - [\#3276 Issue](2024-07-12.3276.issue.open.md) `open`: Secure Boot with GRUB shim should work automatically
 - [\#3277 PR](2024-07-12.3277.pr.open.md) `open`: WIP: Autodetect EFI shim
+- [\#3278 PR](2024-07-12.3278.pr.merged.md) `merged`: Autodetect secure boot via mokutil and guess the secure boot shim
 - [\#3278 PR](2024-07-12.3278.pr.open.md) `open`: Autodetect secure boot via mokutil and guess the secure boot shim
 - [\#3280 PR](2024-07-18.3280.pr.open.md) `open`: skel/default/etc/rsyslog.conf : others should not have read permissions
+- [\#3281 PR](2024-07-18.3281.pr.merged.md) `merged`: conf: reintroduce `Linux-s390.conf`
 - [\#3281 PR](2024-07-18.3281.pr.open.md) `open`: conf: reintroduce `Linux-s390.conf`
 - [\#3282 Issue](2024-07-18.3282.issue.open.md) `open`: Remove cronjob of RPM package on RHEL
+- [\#3283 Issue](2024-07-18.3283.issue.closed.md) `closed`: Improve output on missing libraries for systemd core lib
 - [\#3283 Issue](2024-07-18.3283.issue.open.md) `open`: Improve output on missing libraries for systemd core lib
 - [\#3284 Issue](2024-07-19.3284.issue.open.md) `open`: Disklayout.conf missing partition
+- [\#3285 Issue](2024-07-19.3285.issue.closed.md) `closed`: Checking where ReaR does source third party files and try to mitigate those cases
+- [\#3286 Issue](2024-07-19.3286.issue.closed.md) `closed`: deleting tmp files?
+- [\#3287 Issue](2024-07-20.3287.issue.closed.md) `closed`: ERROR: Failed to create 'Relax-and-Recover' UEFI boot entry
+- [\#3288 Issue](2024-07-20.3288.issue.open.md) `open`: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted
+- [\#3289 Issue](2024-07-22.3289.issue.closed.md) `closed`: OBS signing key has expired (The gpg key signing file 'repomd.xml' has expired
+- [\#3290 Issue](2024-07-22.3290.issue.closed.md) `closed`: OBS remove old and outdated ReaR versions from Archiving:Backup:Rear
+- [\#3291 Issue](2024-07-23.3291.issue.open.md) `open`: skel/default/etc/syslog-ng\*.conf may source third party code
+- [\#3292 Issue](2024-07-23.3292.issue.open.md) `open`: lib/sesam-functions.sh may source third party code
+- [\#3293 Issue](2024-07-23.3293.issue.open.md) `open`: BACKUP=DUPLICITY may source third party code
+- [\#3294 Issue](2024-07-23.3294.issue.closed.md) `closed`: DRLM\_MANAGED=yes may source third party code from a remote host
+- [\#3295 Issue](2024-07-23.3295.issue.open.md) `open`: How is skel/default/bin/dhcpcd.sh meant to work?
+- [\#3296 Issue](2024-07-23.3296.issue.closed.md) `closed`: Setting ISO\_MKISOFS\_BIN default parameter in site or local.conf results in recovery error
+- [\#3297 Issue](2024-07-24.3297.issue.open.md) `open`: Better DRLM integration
+- [\#3298 PR](2024-08-01.3298.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.3.0 to 5.4.0
+- [\#3299 PR](2024-08-01.3299.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.4.1 to 4.4.5
+- [\#3300 Issue](2024-08-01.3300.issue.closed.md) `closed`: \[SLES\] add SECURE\_BOOT\_BOOTLOADER into SUSE\_LINUX.conf
+- [\#3301 Issue](2024-08-15.3301.issue.closed.md) `closed`: rescue-and-backup-on-same-ISO-image-example.conf - bad TMPDIR
+- [\#3302 Issue](2024-08-22.3302.issue.open.md) `open`: \[RFE\] Distribute `rear-release-notes.txt` under a more permissive license
+- [\#3304 Issue](2024-08-25.3304.issue.closed.md) `closed`: Issue when starting recovery system (NVIDIA related / console log flodding
+- [\#3306 PR](2024-08-29.3306.pr.merged.md) `merged`: Overhauled SLE11-SLE12-SAP-HANA-UEFI-example.conf
+- [\#3307 PR](2024-08-30.3307.pr.merged.md) `merged`: Make .codespellignore ASCII
+- [\#3308 PR](2024-09-03.3308.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh show relative paths in user messages for files in ROOTFS\_DIR
+- [\#3309 PR](2024-09-05.3309.pr.merged.md) `merged`: BACKUP=NSR: Deprecate 650\_check\_iso\_recoverable.sh
+- [\#3310 PR](2024-09-05.3310.pr.open.md) `open`: Update README.adoc
+- [\#3311 Issue](2024-09-05.3311.issue.open.md) `open`: Any thoughts why we can't use `find_device` here?
+- [\#3312 PR](2024-09-06.3312.pr.open.md) `open`: \#3178 improve USB device detection
 - # Issues History of Relax-and-Recover (index.md)
