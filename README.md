@@ -124,7 +124,7 @@ Example:
 
 
 # Get in touch
-The ReaR team can found on [gitter](https://gitter.im/rear/rear).
-Feel free to reach out to us there or simply file an [issue](//github.com/rear/rear-usr-guide/issues) if you have any questions.
+
+Feel free to reach out to us by filing an [issue](//github.com/rear/rear-usr-guide/issues) if you have any questions.
 
 We appreciate your support and contributions!
