@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3304 Issue closed: Issue when starting recovery system (NVIDIA related / console log flodding) . rear not useable - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3304 Issue closed: Issue when starting recovery system (NVIDIA related / console log flodding) . rear not useable";
+        var mkdocs_page_input_path = "issues/2024-08-25.3304.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3304 Issue closed: Issue when starting recovery system (NVIDIA related / console log flodding) . rear not useable</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3304_issue_closed_issue_when_starting_recovery_system_nvidia_related_console_log_flodding_rear_not_useable"><a href="https://github.com/rear/rear/issues/3304">#3304 Issue</a> <code>closed</code>: Issue when starting recovery system (NVIDIA related / console log flodding) . rear not useable<a class="headerlink" href="#3304_issue_closed_issue_when_starting_recovery_system_nvidia_related_console_log_flodding_rear_not_useable" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="rmueck_opened_issue_at_2024-08-25_0716"><img src="https://avatars.githubusercontent.com/u/5815843?v=4" width="50"><a href="https://github.com/rmueck">rmueck</a> opened issue at <a href="https://github.com/rear/rear/issues/3304">2024-08-25 07:16</a>:<a class="headerlink" href="#rmueck_opened_issue_at_2024-08-25_0716" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+<code>Relax-and-Recover 2.6 / Git</code></p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:<br />
+    Package in repo is at V 2.6</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>Distributor ID: Linuxmint
+Description:    Linux Mint 21.3
+Release:    21.3
+Codename:   virginia
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=PXE
+BACKUP=NETFS
+FULLBACKUPDAY=( Mon  Fri )
+BACKUP_TYPE=incremental
+FULLBACKUP_OUTDATED_DAYS=14
+OUTPUT_URL=nfs://nas.fritz.box/volume1/PXE/images
+BACKUP_URL=nfs://nas.fritz.box/volume1/PXE/images
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+<code>PC</code></p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+<code>x86 compatible</code></p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>BIOS
+GRUB
+</code></pre>
+<ul>
+<li>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):</li>
+</ul>
+<!-- -->
+
+<pre><code>SSD
+</code></pre>
+<ul>
+<li>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</li>
+</ul>
+<!-- -->
+
+<pre><code>/dev/nvme0n1     /dev/nvme0n1                nvme   disk                     931,5G
+|-/dev/nvme0n1p1 /dev/nvme0n1p1 /dev/nvme0n1 nvme   part xfs                 488,3G /
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>When booting via PXE environment for rear i get flodding console
+messages and rear is not useable even it is running.<br />
+The flodding message is (repeating forever):</p>
+<pre><code>MEKADEV nvmem
+/run/udev or or .... Aborting MAKEDEV
+</code></pre>
+<p>Flodding with message (looping forever):</p>
+<p><code>[   89.713053] NVRM: The NVIDIA probe routine was not called for 1 device(s).</code></p>
+<p>NB: I am trying to recover to original source system.</p>
+<p>Any help is highly appreciated!</p>
+<h4 id="abbbi_commented_at_2024-08-25_1435"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2308876004">2024-08-25 14:35</a>:<a class="headerlink" href="#abbbi_commented_at_2024-08-25_1435" title="Permanent link">&para;</a></h4>
+<p>have you tried blacklisting the module causing these warnings using the
+grub boot commandline, as in</p>
+<p><code>modprobe.blacklist=MODULE_NAME</code></p>
+<p>like</p>
+<p><code>modprobe.blacklist=nouveau</code></p>
+<p>complete output of the boot messages would be helpful, too.<br />
+Not sure what the exact parameter name ist, the linux kernel command
+line list shows:</p>
+<pre><code>        module_blacklist=  [KNL] Do not load a comma-separated list of
+                        modules.  Useful for debugging problem modules.
+</code></pre>
+<p><a href="https://superuser.com/questions/153792/skip-kernel-module-at-boot">https://superuser.com/questions/153792/skip-kernel-module-at-boot</a></p>
+<h4 id="rmueck_commented_at_2024-08-26_0426"><img src="https://avatars.githubusercontent.com/u/5815843?v=4" width="50"><a href="https://github.com/rmueck">rmueck</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2309285145">2024-08-26 04:26</a>:<a class="headerlink" href="#rmueck_commented_at_2024-08-26_0426" title="Permanent link">&para;</a></h4>
+<p>@abbbi : Thank you for the hint!<br />
+By using this stanza in <code>site.conf</code>
+<code>KERNEL_CMDLINE="modprobe.blacklist=nouveau"</code> the flodding message is
+gone,<br />
+and the nvidia related modules are loaded (verified by ssh into rescue
+system) - BUT: the screen turns black and i was unable to wake it up at
+the end - strange! I will do some more investigations ASAP.</p>
+<h4 id="jsmeix_commented_at_2024-08-26_0743"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2309557237">2024-08-26 07:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-08-26_0743" title="Permanent link">&para;</a></h4>
+<p>@rmueck<br />
+regarding "the screen turns black":</p>
+<p>Does this mean that booting works so far for you,<br />
+so you see the bootloader menu correctly on your screen<br />
+and you also see some initial kernel boot messages<br />
+but then "the screen turns black"?</p>
+<p>This could be an issue with false kernel command line<br />
+settings for the 'console'.</p>
+<p>Regarding no further messages on the console see<br />
+<a href="https://github.com/rear/rear/issues/2843">https://github.com/rear/rear/issues/2843</a><br />
+therein<br />
+<a href="https://github.com/rear/rear/issues/2843#issuecomment-1196337765">https://github.com/rear/rear/issues/2843#issuecomment-1196337765</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2843#issuecomment-1196588256">https://github.com/rear/rear/issues/2843#issuecomment-1196588256</a><br />
+what usually helps when you do not have a serial console.</p>
+<p>When you do not have a serial console<br />
+but there are 'console' kernel command line settings<br />
+(check the kernel command line in your bootloader menu)<br />
+it usually helps to remove all 'console' settings<br />
+from the kernel command line to get the kernel default<br />
+behaviour which usually works best.</p>
+<h4 id="jsmeix_commented_at_2024-08-26_0756"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2309582944">2024-08-26 07:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-08-26_0756" title="Permanent link">&para;</a></h4>
+<p>@rmueck<br />
+regarding kernel video mode setting issues:</p>
+<p>Sometimes it helps to specify the kernel command<br />
+line option <code>nomodeset</code> to avoid kernel video mode<br />
+setting issues.</p>
+<p>In particular when using the ReaR recovery system<br />
+the simple kernel framebuffer driver with some<br />
+traditional VGA resolution should be sufficient.</p>
+<p>Cf. starting at<br />
+<a href="https://github.com/rear/rear/issues/3194#issuecomment-2047646496">https://github.com/rear/rear/issues/3194#issuecomment-2047646496</a><br />
+and some subsequent comments.</p>
+<h4 id="rmueck_commented_at_2024-08-26_0841"><img src="https://avatars.githubusercontent.com/u/5815843?v=4" width="50"><a href="https://github.com/rmueck">rmueck</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2309670321">2024-08-26 08:41</a>:<a class="headerlink" href="#rmueck_commented_at_2024-08-26_0841" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+Thanks for all this great tips! Finally the working solution is a
+combination of <code>nomodeset</code> and <code>vga=7</code> (have not tried other resolutions
+yet - i am sure they will work as well)<br />
+And the combination with the tip of @abbbi regarding the
+<code>KERNEL_CMDLINE="modprobe.blacklist=nouveau"</code></p>
+<p>I must say the rear community is great - thanks! Going to close the
+issue.</p>
+<h4 id="jsmeix_commented_at_2024-08-26_0849"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3304#issuecomment-2309687308">2024-08-26 08:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-08-26_0849" title="Permanent link">&para;</a></h4>
+<p>@rmueck<br />
+thank you for your prompt reply and in particular<br />
+for your information what exactly made it work for you<br />
+because that may later also help others.</p>
+<p>@abbbi<br />
+special thanks to you for your help here<br />
+even at non-working times on Sunday afternoon!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-08-25.3304.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

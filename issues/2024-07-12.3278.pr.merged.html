@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3278 PR merged: Autodetect secure boot via mokutil and guess the secure boot shim - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3278 PR merged: Autodetect secure boot via mokutil and guess the secure boot shim";
+        var mkdocs_page_input_path = "issues/2024-07-12.3278.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3278 PR merged: Autodetect secure boot via mokutil and guess the secure boot shim</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3278_pr_merged_autodetect_secure_boot_via_mokutil_and_guess_the_secure_boot_shim"><a href="https://github.com/rear/rear/pull/3278">#3278 PR</a> <code>merged</code>: Autodetect secure boot via mokutil and guess the secure boot shim<a class="headerlink" href="#3278_pr_merged_autodetect_secure_boot_via_mokutil_and_guess_the_secure_boot_shim" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="schlomo_opened_issue_at_2024-07-12_1131"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> opened issue at <a href="https://github.com/rear/rear/pull/3278">2024-07-12 11:31</a>:<a class="headerlink" href="#schlomo_opened_issue_at_2024-07-12_1131" title="Permanent link">&para;</a></h4>
+<p>Fixes #3276</p>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p>#3276</p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>Manually on OL9u3 with secure boot and on Ubuntu 22 and openSUSE Leap
+15.4 without secure boot</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>use <code>mokutil</code> to check for secure boot and guess the shim file - failing
+back to the previous behaviour if this doesn't work.</p>
+<p>probably #3277 is a better or more complete implementation, however
+this one just adds a single file to automate the configuration that I
+had to add manually so far.</p>
+<h4 id="schlomo_commented_at_2024-07-12_1232"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2225482717">2024-07-12 12:32</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1232" title="Permanent link">&para;</a></h4>
+<h2 id="ubuntu_2204">Ubuntu 22.04 ✔️<a class="headerlink" href="#ubuntu_2204" title="Permanent link">&para;</a></h2>
+<pre><code>root@rear-u2404:/src/rear# REAR_VAR=/tmp/rear ./usr/sbin/rear -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 20965 date 2024-07-12 12:26:58)
+Using log file: /tmp/rear/log/rear/rear-rear-u2404.log
+Running workflow mkrescue on the normal/original system
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot auto-configuration using '/boot/efi/EFI/ubuntu/shimx64.efi' as UEFI bootloader
+Using autodetected kernel '/boot/vmlinuz-6.8.0-38-generic' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /tmp/rear/lib/rear/layout/disklayout.conf
+Verifying that the entries in /tmp/rear/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /tmp/rear/lib/rear/layout/disklayout.conf)
+Creating recovery system root filesystem skeleton layout
+Skipping 'lo': not bound to any physical interface.
+Using '/boot/efi/EFI/ubuntu/shimx64.efi' as UEFI Secure Boot bootloader file
+Copying logfile /tmp/rear/log/rear/rear-rear-u2404.log into initramfs as '/tmp/rear-rear-u2404-partial-2024-07-12T12:27:04+00:00.log'
+Copying files and directories
+Copying binaries and libraries
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+Testing that the recovery system in /var/tmp/rear.TtxlkmoYTi1argv/rootfs contains a usable system
+/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-255.so requires libraries where 'ldd' shows 'not found'
+/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-255.so requires libsystemd-shared-255.so which was not found by 'ldd' but exists as /var/tmp/rear.TtxlkmoYTi1argv/rootfs/usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-255.so
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (78 MiB) in 10 seconds
+Did not find /boot/grub/locale files (minor issue for UEFI ISO boot)
+Making ISO image
+Wrote ISO image: /tmp/rear/lib/rear/output/rear-rear-u2404.iso (197M)
+Copying resulting files to nfs location
+Saving /tmp/rear/log/rear/rear-rear-u2404.log as rear-rear-u2404.log to nfs location
+Copying result files '/tmp/rear/lib/rear/output/rear-rear-u2404.iso /var/tmp/rear.TtxlkmoYTi1argv/tmp/VERSION /var/tmp/rear.TtxlkmoYTi1argv/tmp/README /var/tmp/rear.TtxlkmoYTi1argv/tmp/rear-rear-u2404.log' to /var/tmp/rear.TtxlkmoYTi1argv/outputfs/rear-u2404 at nfs location
+Exiting rear mkrescue (PID 20965) and its descendant processes ...
+Running exit tasks
+root@rear-u2404:/src/rear#
+</code></pre>
+<p>and rescue systemm boots:<br />
+<img alt="image" src="https://github.com/user-attachments/assets/eda44050-2634-4988-81d7-3f7aacce8e39" /></p>
+<h4 id="pcahyna_commented_at_2024-07-12_1250"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2225512155">2024-07-12 12:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-12_1250" title="Permanent link">&para;</a></h4>
+<p>I need to check why is my approach so much more complicated than this,
+but IIRC this is related to the code comment:</p>
+<pre><code># The good solution would check the EFI variables for the bootloader
+# that is used to boot the system. But this is not implemented yet for
+# secure boot.
+#
+# The code in usr/share/rear/rescue/default/850_save_sysfs_uefi_vars.sh
+# could be used as a starting point for this, however currently
+# it tries to read the actual boot loader# used only as a last resort
+# if well-known files are not found.
+</code></pre>
+<p>Indeed, in
+<a href="https://github.com/rear/rear/pull/3277">https://github.com/rear/rear/pull/3277</a>
+I check whether the EFI variables point to the shim as the initial
+bootloader, and use file pattern matching only as last resort.</p>
+<h4 id="schlomo_commented_at_2024-07-12_1301"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2225538918">2024-07-12 13:01</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1301" title="Permanent link">&para;</a></h4>
+<h2 id="opensuse_leap_156">OpenSUSE Leap 15.6 ✔️<a class="headerlink" href="#opensuse_leap_156" title="Permanent link">&para;</a></h2>
+<p>it required installing <code>xorriso</code> as mentioned in #3084</p>
+<pre><code>rear-sle15sp6:/src/rear # REAR_VAR=/tmp/rear ./usr/sbin/rear -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 25196 date 2024-07-12 14:54:25)
+Using log file: /tmp/rear/log/rear/rear-rear-sle15sp6.log
+Running workflow mkrescue on the normal/original system
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot auto-configuration using '/boot/efi/EFI/opensuse/shim.efi' as UEFI bootloader
+Using autodetected kernel '/boot/vmlinuz-6.4.0-150600.23.7-default' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /tmp/rear/lib/rear/layout/disklayout.conf
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.esjRZPTwqJlMZEb/rootfs/etc/rear/rescue.conf
+Using sysconfig bootloader 'grub2-efi' for 'rear recover'
+Verifying that the entries in /tmp/rear/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /tmp/rear/lib/rear/layout/disklayout.conf)
+Creating recovery system root filesystem skeleton layout
+Skipping 'lo': not bound to any physical interface.
+Using '/boot/efi/EFI/opensuse/shim.efi' as UEFI Secure Boot bootloader file
+Copying logfile /tmp/rear/log/rear/rear-rear-sle15sp6.log into initramfs as '/tmp/rear-rear-sle15sp6-partial-2024-07-12T14:54:30+02:00.log'
+Copying files and directories
+Copying binaries and libraries
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+Testing that the recovery system in /var/tmp/rear.esjRZPTwqJlMZEb/rootfs contains a usable system
+/usr/lib64/systemd/libsystemd-core-254.so requires libraries where 'ldd' shows 'not found'
+/usr/lib64/systemd/libsystemd-core-254.so requires libsystemd-shared-254.so which was not found by 'ldd' but exists as /var/tmp/rear.esjRZPTwqJlMZEb/rootfs/usr/lib64/systemd/libsystemd-shared-254.so
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (67 MiB) in 8 seconds
+Making ISO image
+Wrote ISO image: /tmp/rear/lib/rear/output/rear-rear-sle15sp6.iso (188M)
+Copying resulting files to nfs location
+Saving /tmp/rear/log/rear/rear-rear-sle15sp6.log as rear-rear-sle15sp6.log to nfs location
+Copying result files '/tmp/rear/lib/rear/output/rear-rear-sle15sp6.iso /var/tmp/rear.esjRZPTwqJlMZEb/tmp/VERSION /var/tmp/rear.esjRZPTwqJlMZEb/tmp/README /var/tmp/rear.esjRZPTwqJlMZEb/tmp/rear-rear-sle15sp6.log' to /var/tmp/rear.esjRZPTwqJlMZEb/outputfs/rear-sle15sp6 at nfs location
+Exiting rear mkrescue (PID 25196) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>Rescue system boots and shows secure boot to be active:</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/e6a902c8-2af1-44f2-b031-957caef3c5e1" /></p>
+<h4 id="schlomo_commented_at_2024-07-12_1346"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2225625428">2024-07-12 13:46</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-12_1346" title="Permanent link">&para;</a></h4>
+<p>@pcahyna to summarise: I'd suggest merging this as a step towards better
+secure boot support. It is meant as a simple fix to autoconfigure the
+shim. Nothing more.</p>
+<h4 id="schlomo_commented_at_2024-07-13_2210"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2227116642">2024-07-13 22:10</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-13_2210" title="Permanent link">&para;</a></h4>
+<p>@pcahyna I thought about what you wrote and here is another idea: What
+about unconditionally using the shim if it is available?</p>
+<p>In
+<a href="https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh">https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh</a>
+I tried to put this together and this code managed to recover a
+non-secure-boot Ubuntu 22.04 on a secure boot recovery system,
+effectively migrating the system onto secure boot :-)</p>
+<p>I still have a problem with it: On a non-secure boot system with shim
+the grub menu doesn't load automatically, but the system stops at the
+grub prompt.</p>
+<h4 id="jsmeix_commented_at_2024-07-17_1206"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2233161606">2024-07-17 12:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-17_1206" title="Permanent link">&para;</a></h4>
+<p>Only as a minor side note by the way:<br />
+I am wondering if the right spelling is:<br />
+'secure boot' or 'Secure Boot'?<br />
+Curently we use both in ReaR (and also 'Secure booting').<br />
+But<br />
+<a href="https://en.wikipedia.org/wiki/UEFI#Secure_Boot">https://en.wikipedia.org/wiki/UEFI#Secure_Boot</a><br />
+indicates the right spelling is 'Secure Boot'.</p>
+<h4 id="jsmeix_commented_at_2024-07-17_1214"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2233177949">2024-07-17 12:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-17_1214" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+thank you for this valuable improvement step!</p>
+<p>I do fully agree with your reasoning in your<br />
+<a href="https://github.com/rear/rear/pull/3277#issuecomment-2232537772">https://github.com/rear/rear/pull/3277#issuecomment-2232537772</a></p>
+<p>Better moving forward little step by little step<br />
+(usually two steps forward, one step back and one step sideways)<br />
+than to not move forward at all.</p>
+<p>In particular in this case where all is ReaR internal code<br />
+(except the small info comment in default.conf)<br />
+we can later "just" adapt and enhance things as we like.</p>
+<h4 id="schlomo_commented_at_2024-07-17_1232"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2233212124">2024-07-17 12:32</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-17_1232" title="Permanent link">&para;</a></h4>
+<p>Ok, thank you all for the discussion.</p>
+<p>If I don't hear a request to change stuff and if nobody vetoes this then
+I'll merge it Thursday evening</p>
+<h4 id="pcahyna_commented_at_2024-07-18_0959"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2236111512">2024-07-18 09:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-18_0959" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I thought about what you wrote and here is another idea: What about
+unconditionally using the shim if it is available?</p>
+<p>In
+<a href="https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh">https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh</a>
+I tried to put this together and this code managed to recover a
+non-secure-boot Ubuntu 22.04 on a secure boot recovery system,
+effectively migrating the system onto secure boot :-)</p>
+<p>I still have a problem with it: On a non-secure boot system with shim
+the grub menu doesn't load automatically, but the system stops at the
+grub prompt.</p>
+</blockquote>
+<p>@schlomo what do you mean? The GRUB menu of the recovered system, or of
+the rescue image? And is it a problem only with your alternative
+implementation at
+<a href="https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh">https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh</a>
+or also with the current changes in this PR?</p>
+<p>In any case, I would consider this a serious regression - the current
+code just works on a non Secure Boot with shim (except that after
+recovery the bootloader is set to GRUB directly bypassing the shim, as I
+already mentioned earlier - but the system works fine).</p>
+<h4 id="schlomo_commented_at_2024-07-18_1525"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2236857662">2024-07-18 15:25</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-18_1525" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@schlomo what do you mean? The GRUB menu of the recovered system, or
+of the rescue image? And is it a problem only with your alternative
+implementation at
+<a href="https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh">https://github.com/rear/rear/blob/76791f9b1a821ed019063ced48e502ba9a468857/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh</a>
+or also with the current changes in this PR?</p>
+<p>In any case, I would consider this a serious regression - the current
+code just works on a non Secure Boot with shim (except that after
+recovery the bootloader is set to GRUB directly bypassing the shim, as
+I already mentioned earlier - but the system works fine).</p>
+</blockquote>
+<p>that was only with the alternative implementation that used the shim
+whenever found. I'll double check to be sure.</p>
+<h4 id="schlomo_commented_at_2024-07-19_0646"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2238464171">2024-07-19 06:46</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-19_0646" title="Permanent link">&para;</a></h4>
+<p>I slightly reworked the code to bail out if Secure Boot is active but we
+cannot find a shim:</p>
+<pre><code>...
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+ERROR: 
+====================
+BUG in /src/rear/usr/share/rear/prep/Linux-i386/370_detect_secure_boot.sh line 22:
+Secure Boot is active, cannot auto-configure Secure Boot support:
+ No shim.efi or shimx64.efi found in /boot/efi/EFI/*/ directory.
+
+ As a workaround you can set SECURE_BOOT_BOOTLOADER to the correct shim.efi or shimx64.efi file
+--------------------
+Please report it at https://github.com/rear/rear/issues
+and include all related parts from /tmp/rear/log/rear/rear-rear-u2404.log
+preferably the whole debug information via 'rear -D mkrescue'
+====================
+Some latest log messages since the last called script 370_detect_secure_boot.sh:
+  2024-07-19 06:45:33.920589412 Entering debugscript mode via 'set -x'.
+  /usr/bin/mokutil
+Aborting due to an error, check /tmp/rear/log/rear/rear-rear-u2404.log for details
+</code></pre>
+<h4 id="schlomo_commented_at_2024-07-19_0649"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2238481010">2024-07-19 06:49</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-19_0649" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors I consider this PR now ready for merging and plan to
+do so on Sunday.</p>
+<h4 id="pcahyna_commented_at_2024-07-19_1104"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2238911590">2024-07-19 11:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1104" title="Permanent link">&para;</a></h4>
+<p>Side note: what's up with the <strong>Build Packages</strong> step?</p>
+<p>I see:</p>
+<pre><code>== Building Pacman package rear-2.7-git.5498.18b69305.securebootautoconfigure ==
+rm -rf /tmp/rear-2.7-git.5498.18b69305.securebootautoconfigure
+mkdir -p /tmp/rear-2.7-git.5498.18b69305.securebootautoconfigure
+cp packaging/arch/PKGBUILD.local /tmp/rear-2.7-git.5498.18b69305.securebootautoconfigure/PKGBUILD
+cp dist/rear-2.7-git.5498.18b69305.securebootautoconfigure.tar.gz /tmp/rear-2.7-git.5498.18b69305.securebootautoconfigure/
+cd /tmp/rear-2.7-git.5498.18b69305.securebootautoconfigure ; \
+    sed -i -e 's/VERSION/202407190647/' \
+        -e 's/SOURCE/rear-2.7-git.5498.18b69305.securebootautoconfigure.tar.gz/' \
+        -e 's/MD5SUM/21273efd7ea2f37e0c9dff744c848c58/' \
+        PKGBUILD ; \
+    chmod -R o+rwX . ; ls -l ; \
+    runuser -u nobody -- makepkg -c
+total 956
+-rw-r--rw- 1 root root    729 Jul 19 07:04 PKGBUILD
+-rw-r--rw- 1 root root 974272 Jul 19 07:04 rear-2.7-git.5498.18b69305.securebootautoconfigure.tar.gz
+==&gt; ERROR: Cannot find the debugedit binary required for including source files in debug packages.
+make: *** [Makefile:302: pacman] Error 15
+</code></pre>
+<p>if Pacman packages can't be built, this step should be removed from the
+CI run. We should not get used to CI jobs failing being something
+normal.</p>
+<h4 id="gdha_commented_at_2024-07-19_1113"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2238923428">2024-07-19 11:13</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-19_1113" title="Permanent link">&para;</a></h4>
+<p>@schlomo</p>
+<blockquote>
+<p>==&gt; ERROR: Cannot find the debugedit binary required for including
+source files in debug packages.<br />
+make: *** [Makefile:302: pacman] Error 15</p>
+<pre><code>if Pacman packages can't be built, this step should be removed from the CI run. We should not get used to CI jobs failing being something normal.
+</code></pre>
+</blockquote>
+<p>Just add <code>debugedit</code> to the line
+<a href="https://github.com/rear/rear/blob/master/tools/run-in-docker#L100">https://github.com/rear/rear/blob/master/tools/run-in-docker#L100</a></p>
+<h4 id="schlomo_commented_at_2024-07-21_1605"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3278#issuecomment-2241698487">2024-07-21 16:05</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-21_1605" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Just add <code>debugedit</code> to the line
+<a href="https://github.com/rear/rear/blob/master/tools/run-in-docker#L100">https://github.com/rear/rear/blob/master/tools/run-in-docker#L100</a></p>
+</blockquote>
+<p>Thank you, I'll do so on <code>master</code> to not mix up this PR with other
+problems.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-12.3278.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

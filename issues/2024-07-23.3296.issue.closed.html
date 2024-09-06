@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3296 Issue closed: Setting ISO_MKISOFS_BIN default parameter in site or local.conf results in recovery error - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3296 Issue closed: Setting ISO_MKISOFS_BIN default parameter in site or local.conf results in recovery error";
+        var mkdocs_page_input_path = "issues/2024-07-23.3296.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3296 Issue closed: Setting ISO_MKISOFS_BIN default parameter in site or local.conf results in recovery error</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3296_issue_closed_setting_iso_mkisofs_bin_default_parameter_in_site_or_localconf_results_in_recovery_error"><a href="https://github.com/rear/rear/issues/3296">#3296 Issue</a> <code>closed</code>: Setting ISO_MKISOFS_BIN default parameter in site or local.conf results in recovery error<a class="headerlink" href="#3296_issue_closed_setting_iso_mkisofs_bin_default_parameter_in_site_or_localconf_results_in_recovery_error" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>documentation</code>, <code>support / question</code>,
+<code>fixed / solved / done</code></p>
+<h4 id="damm620_opened_issue_at_2024-07-23_1323"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> opened issue at <a href="https://github.com/rear/rear/issues/3296">2024-07-23 13:23</a>:<a class="headerlink" href="#damm620_opened_issue_at_2024-07-23_1323" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.7</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    CENTOS/9.0</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>cat /etc/rear/site.conf
+OUTPUT=ISO               # Creates an ISO file - other e.g. RAMDISK
+BACKUP=TSM               # Backup/Restore method - other e.g. rsync
+COPY_AS_IS_TSM=( "/etc/adsm/ /opt/tivoli/tsm/client /usr/local/ibm/gsk8* /SZIR/data/inclexcl2 /SZIR/data/dsm.sys /SZIR/data/dsm.opt" )  # Files which should be in the ISO
+# Skip language files to reduce the ISO size
+COPY_AS_IS_EXCLUDE_TSM=( "/opt/tivoli/tsm/client/ba/bin/ZH_CN/*" "/opt/tivoli/tsm/client/ba/bin/ZH_TW/*" "/opt/tivoli/tsm/client/ba/bin/IT_IT/*" "/opt/tivoli/tsm/client/ba/bin/CS_CZ/*" "/opt/tivoli/tsm/client/ba/bin/ES_ES*" "/opt/tivoli/tsm/client/ba/bin/FR_FR/*" "/opt/tivoli/tsm/client/ba/bin/HU_HU/*" "/opt/tivoli/tsm/client/ba/bin/KO_KR/*" "/opt/tivoli/tsm/client/ba/bin/PL_PL/*" "/opt/tivoli/tsm/client/ba/bin/PT_BR/*" "/opt/tivoli/tsm/client/ba/bin/JA_JP/*" "/opt/tivoli/tsm/client/ba/bin/RU_RU/*" "/opt/tivoli/tsm/client/ba/bin/plugins/*" "/opt/tivoli/tsm/client/api/bin64/CS_CZ*" "/opt/tivoli/tsm/client/api/bin64/DE_DE/*" "/opt/tivoli/tsm/client/api/bin64/dsmenc" "/opt/tivoli/tsm/client/api/bin64/dsm.opt.smp" "/opt/tivoli/tsm/client/api/bin64/dsm.sys.smp" "/opt/tivoli/tsm/client/api/bin64/dsmtca" "/opt/tivoli/tsm/client/api/bin64/EN_US" "/opt/tivoli/tsm/client/api/bin64/ES_ES" "/opt/tivoli/tsm/client/api/bin64/FR_FR" "/opt/tivoli/tsm/client/api/bin64/HU_HU" "/opt/tivoli/tsm/client/api/bin64/IT_IT" "/opt/tivoli/tsm/client/api/bin64/JA_JP" "/opt/tivoli/tsm/client/api/bin64/KO_KR" "/opt/tivoli/tsm/client/api/bin64/PL_PL" "/opt/tivoli/tsm/client/api/bin64/PT_BR" "/opt/tivoli/tsm/client/api/bin64/RU_RU" "/opt/tivoli/tsm/client/api/bin64/sample" "/opt/tivoli/tsm/client/api/bin64/ZH_CN" "/opt/tivoli/tsm/client/api/bin64/ZH_TW" )
+CHECK_CONFIG_FILES=( '/etc/adsm/' '/etc/drbd/' '/etc/drbd.conf' '/etc/lvm/lvm.conf' '/etc/multipath.conf' '/etc/rear/' '/etc/udev/udev.conf' '/opt/tivoli/tsm/client/ba/bin/dsmc' )
+PROGS_TSM=(dsmc)
+PROGS=( ${PROGS[@]} "vconfig vi vim" )
+NON_FATAL_BINARIES_WITH_MISSING_LIBRARY=("/opt/tivoli/tsm/client/*|/usr/local/ibm/gsk8_64/bin/")
+GRUB_RESCUE=y
+AUTOEXCLUDE_MULTIPATH=y  # Default Wert=y - multipath devices are not created/saved. Which is usually not necessary
+                         # If these must be restored nevertheless e.g. "rm -rf /". The restore must be performed manually afterwards
+TSM_RESULT_SAVE=n        # Don't save ISO in TSM
+KEEP_BUILD_DIR=n         # Remove build directory (dir in /tmp) in any case to prevent full filesystem
+USER_INPUT_TIMEOUT=900   # Increase timeout for user input from 5 to 15 minutes
+USE_DHCLIENT="n"
+ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"
+
+cat /etc/rear/local.conf
+# Default is to create Relax-and-Recover rescue media as ISO image
+# set OUTPUT to change that
+# set BACKUP to activate an automated (backup and) restore of your data
+# Possible configuration values can be found in /usr/share/rear/conf/default.conf
+#
+# This file (local.conf) is intended for manual configuration. For configuration
+# through packages and other automated means we recommend creating a new
+# file named site.conf next to this file and to leave the local.conf as it is.
+# Our packages will never ship with a site.conf.
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    VMware</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    BIOS</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    local</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                                      KNAME      PKNAME    TRAN TYPE FSTYPE      LABEL  SIZE MOUNTPOINT
+/dev/sda                                                  /dev/sda                  disk                     80G
+|-/dev/sda1                                               /dev/sda1  /dev/sda       part xfs                  1G /boot
+`-/dev/sda2                                               /dev/sda2  /dev/sda       part LVM2_member         79G
+  |-/dev/mapper/vg00-root                                 /dev/dm-0  /dev/sda2      lvm  xfs                  2G /
+  |-/dev/mapper/vg00-swap                                 /dev/dm-1  /dev/sda2      lvm  swap                 4G [SWAP]
+  |-/dev/mapper/vg00-usr                                  /dev/dm-2  /dev/sda2      lvm  xfs                  4G /usr
+  [...]
+/dev/sr0
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>The default of the parameter <code>ISO_MKISOFS_BIN</code> is
+<code>ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"</code>.<br />
+This configuration is maintained in the
+<code>/usr/share/rear/conf/default.conf</code>.</p>
+<p>We wanted to make sure, that the default is always this way and we set
+the parameter in the /etc/rear/site.conf.<br />
+This resulted in the following error:</p>
+<pre><code>RESCUE SERVERNAME:~ # grep ISO_MKISOFS_BIN /etc/rear/site.conf
+ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"
+
+RESCUE SERVERNAME:~ # rear -v recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 584 date 2024-07-23 15:17:36)
+Using log file: /var/log/rear/rear-SERVERNAME.log
+ERROR: Failed to Source /etc/rear/site.conf
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /var/log/rear/rear-SERVERNAME.log for details
+Exiting rear recover (PID 584) and its descendant processes ...
+Running exit tasks
+Terminated
+
+RESCUE SERVERNAME:~ # set -x ;rear -D recover
++ rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 1076 date 2024-07-23 15:17:56)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-SERVERNAME.log
+Using build area: /var/tmp/rear.HjRaTy69R1AUZ47
+ERROR: Failed to Source /etc/rear/site.conf
+Aborting due to an error, check /var/log/rear/rear-SERVERNAME.log for details
+Exiting rear recover (PID 1076) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<p>Setting this parameter in the /etc/rear/local.conf resulted in the
+(nearly) same error:</p>
+<pre><code>RESCUE SERVERNAME:~ # grep ISO_MKISOFS_BIN /etc/rear/local.conf
++ grep ISO_MKISOFS_BIN /etc/rear/local.conf
+ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"
+RESCUE SERVERNAME:~ # set -x ;rear -D recover
++ set -x
++ rear -D recover
+Relax-and-Recover 2.7 / Git
+Running rear recover (PID 1366 date 2024-07-23 15:19:12)
+Command line options: /bin/rear -D recover
+Using log file: /var/log/rear/rear-SERVERNAME.log
+Using build area: /var/tmp/rear.ykhOby3UkGnzfMH
+ERROR: Failed to Source /etc/rear/local.conf
+Aborting due to an error, check /var/log/rear/rear-SERVERNAME.log for details
+Exiting rear recover (PID 1366) and its descendant processes ...
+Running exit tasks
+Terminated
+</code></pre>
+<p>Should it be this way? We just want to force the value of
+ISO_MKISOFS_BIN and do not want to alter the default.conf under /usr
+because it is bad practise and there are the site or local.conf for it
+right?</p>
+<h4 id="jsmeix_commented_at_2024-07-24_0706"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247064516">2024-07-24 07:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_0706" title="Permanent link">&para;</a></h4>
+<p>@damm620<br />
+yes, it behaves as intended.</p>
+<p>Reasoning:</p>
+<p>In usr/sbin/rear there is</p>
+<pre><code>for config in site local rescue ; do
+    if test -r "$CONFIG_DIR/$config.conf" ; then
+        ...
+        Source "$CONFIG_DIR/$config.conf" || Error "Failed to Source $CONFIG_DIR/$config.conf"
+    fi
+done
+</code></pre>
+<p>and the Source function in<br />
+usr/share/rear/lib/framework-functions.sh<br />
+does</p>
+<pre><code>function Source () {
+    local source_file="$1"
+    local source_return_code=0
+    ...
+    # The actual work (source the source file):
+    # Do not error out here when 'source' fails (i.e. when 'source' returns a non-zero exit code)
+    # because scripts usually return the exit code of their last command
+    # cf. https://github.com/rear/rear/issues/1965#issuecomment-439330017
+    # and in general ReaR should not error out in a (helper) function but instead
+    # a function should return an error code so that its caller can decide what to do
+    # cf. https://github.com/rear/rear/pull/1418#issuecomment-316004608
+    source "$source_file"
+    source_return_code=$?
+    ...
+    # Return the return value of the actual work (source the source file):
+    return $source_return_code
+}
+</code></pre>
+<p>Because</p>
+<pre><code>ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"
+</code></pre>
+<p>is the last command in your /etc/rear/site.conf<br />
+it seems this command somehow fails in your case<br />
+so sourcing /etc/rear/site.conf exits with non-zero exit code.</p>
+<p>I don't know why this command fails in your case<br />
+because for me it works both on command line</p>
+<pre><code># ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )" &amp;&amp; echo OK || echo FAIL
+OK
+
+# echo "'$ISO_MKISOFS_BIN'"
+'/usr/bin/xorrisofs'
+
+# ( set -x ; ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )" &amp;&amp; echo OK || echo FAIL )
+++ type -p xorrisofs
++ ISO_MKISOFS_BIN=/usr/bin/xorrisofs
++ echo OK
+OK
+</code></pre>
+<p>and also as last command in my /etc/rear/local.conf</p>
+<h4 id="jsmeix_commented_at_2024-07-24_0714"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247077510">2024-07-24 07:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_0714" title="Permanent link">&para;</a></h4>
+<p>Ah! - It seems now I see it:<br />
+You wrote</p>
+<pre><code>RESCUE SERVERNAME
+</code></pre>
+<p>so I assume it also works for you on your original system<br />
+but it fails (only when) inside the ReaR recovery system.</p>
+<p>It fails inside the ReaR recovery system<br />
+because there is neither xorrisofs nor mkisofs<br />
+nor genisoimage inside the ReaR recovery system:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.yLl36HSECpPTpTb
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.yLl36HSECpPTpTb
+
+# chroot /var/tmp/rear.yLl36HSECpPTpTb/rootfs
+
+bash-4.4# ( set -x ; ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )" &amp;&amp; echo OK || echo FAIL )
+++ type -p xorrisofs
+++ type -p mkisofs
+++ type -p genisoimage
++ ISO_MKISOFS_BIN=
++ echo FAIL
+FAIL
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-07-24_0719"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247085096">2024-07-24 07:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_0719" title="Permanent link">&para;</a></h4>
+<p>In ReaR's recovery system <code>/etc/rear-release</code> is unique<br />
+(it does not exist otherwise) so you can use it to test<br />
+if you are inside the ReaR recovery system<br />
+for example like</p>
+<pre><code>test -e "/etc/rear-release" || ISO_MKISOFS_BIN="$( type -p xorrisofs || type -p mkisofs || type -p genisoimage )"
+</code></pre>
+<h4 id="damm620_commented_at_2024-07-24_0722"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247089872">2024-07-24 07:22</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-24_0722" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>test -e "/etc/rear-release"</p>
+</blockquote>
+<p>Thank you for your quick response!<br />
+You solution looks nice. I have to test that, but my workload is quite
+high. I will give a feedback as soon as I get it done.</p>
+<h4 id="jsmeix_commented_at_2024-07-24_0737"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247117512">2024-07-24 07:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_0737" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/94016e7ad6939ce11e37b4d7bf5e889ee47f9daf">https://github.com/rear/rear/commit/94016e7ad6939ce11e37b4d7bf5e889ee47f9daf</a><br />
+I enhanced the local.conf comment to explain that<br />
+one must ensure commands in configuration files<br />
+work always without errors regardless in which<br />
+environment those commands will be run,<br />
+in particular on the original system and<br />
+also within the ReaR recovery system.</p>
+<h4 id="jsmeix_commented_at_2024-07-24_0759"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3296#issuecomment-2247155151">2024-07-24 07:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_0759" title="Permanent link">&para;</a></h4>
+<p>@damm620<br />
+to avoid this error exit you could move this command<br />
+up to an earlier line i.e. away from being the last command<br />
+because the exit code of the last command is what the<br />
+exit code of 'source' is.<br />
+Or alternatively add a 'true' command as last command.</p>
+<p>The reason why we error out when 'source config_file'<br />
+results a non-zero exit code is mainly to detect<br />
+when things can not at all work in config files,<br />
+for example syntax errors.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-23.3296.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

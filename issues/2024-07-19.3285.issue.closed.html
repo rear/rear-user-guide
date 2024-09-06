@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3285 Issue closed: Checking where ReaR does source third party files and try to mitigate those cases - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3285 Issue closed: Checking where ReaR does source third party files and try to mitigate those cases";
+        var mkdocs_page_input_path = "issues/2024-07-19.3285.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3285 Issue closed: Checking where ReaR does source third party files and try to mitigate those cases</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3285_issue_closed_checking_where_rear_does_source_third_party_files_and_try_to_mitigate_those_cases"><a href="https://github.com/rear/rear/issues/3285">#3285 Issue</a> <code>closed</code>: Checking where ReaR does source third party files and try to mitigate those cases<a class="headerlink" href="#3285_issue_closed_checking_where_rear_does_source_third_party_files_and_try_to_mitigate_those_cases" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-07-19_1158"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3285">2024-07-19 11:58</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-07-19_1158" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2236317735">https://github.com/rear/rear/issues/3260#issuecomment-2236317735</a><br />
+that reads</p>
+<pre><code>What I will do here for ReaR 3.0 is
+that I will check the specific cases in
+https://github.com/rear/rear/pull/3203#issuecomment-2063439858
+where ReaR seems to source "third party" files
+i.e. files that seem to not belong to ReaR itself
+whether or not those individual cases are problematic.
+
+When I found a case that is problematic I will think about
+how I could mitigate the particular case.
+
+As last resort for problematic cases that are too obscure for me
+I may even error out with BugError to enforce user feedback
+about such functionality e.g. when I have no clue what
+a "third party" (config) file may contain.
+</code></pre>
+<p>See also<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2228434196">https://github.com/rear/rear/issues/3260#issuecomment-2228434196</a><br />
+that reads (excerpt)</p>
+<pre><code>According to
+https://github.com/rear/rear/pull/3203#issuecomment-2063439858
+I found 43 places where we call 'source' in our scripts.
+But I did not check at how many code places something
+is sourced via the alternative bash builtin '.'
+I have no good idea how to distinguish code places with '.'
+where '.' means 'source' from other code places where
+'.' means something else (I hate compressed code), cf.
+https://github.com/rear/rear/pull/3165#discussion_r1503932927
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-07-19_1203"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2238995638">2024-07-19 12:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1203" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/restore/NBKDC/default/400_restore_backup.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/skel/NBKDC/etc/scripts/system-setup.d/90-start-nbkdc.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+</code></pre>
+<p>ReaR does not source a third party file because<br />
+$VAR_DIR/recovery/nbkdc_settings<br />
+is created by ReaR</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep 'nbkdc_settings'
+
+usr/share/rear/restore/NBKDC/default/400_restore_backup.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+
+usr/share/rear/skel/NBKDC/etc/scripts/system-setup.d/90-start-nbkdc.sh:
+source $VAR_DIR/recovery/nbkdc_settings
+
+usr/share/rear/prep/NBKDC/default/400_prep_nbkdc.sh:
+# Now generate nbkdc_settings for use during the rescue stage
+...
+cat &gt;$VAR_DIR/recovery/nbkdc_settings &lt;&lt;-EOF
+</code></pre>
+<p>and usr/share/rear/prep/NBKDC/default/400_prep_nbkdc.sh<br />
+contains</p>
+<pre><code># Now generate nbkdc_settings for use during the rescue stage
+cat &gt;$VAR_DIR/recovery/nbkdc_settings &lt;&lt;-EOF
+NBKDC_DIR=$NBKDC_DIR
+NBKDC_HIB_DIR=$NBKDC_HIB_DIR
+NBKDC_HIB_LST=$NBKDC_HIBLST_DIR
+NBKDC_HIB_TMP=$NBKDC_HIBTMP_DIR
+NBKDC_HIB_TPD=$NBKDC_HIBTPD_DIR
+NBKDC_HIB_TAP=$NBKDC_HIBTAP_DIR
+NBKDC_HIB_MSG=$NBKDC_HIBMSG_DIR
+NBKDC_HIB_LOG=$NBKDC_HIBLOG_DIR
+NBKDC_HIB_SSL_ENABLED=$NBKDC_HIBSSL_ENABLED
+EOF
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-07-19_1207"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239001975">2024-07-19 12:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1207" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/layout/recreate/default/200_run_layout_code.sh:
+        ( source $LAYOUT_CODE )
+
+usr/share/rear/layout/prepare/default/200_recreate_hpraid.sh:
+        ( source $LAYOUT_CODE )
+
+usr/share/rear/layout/prepare/Linux-s390/400_run_dasd_format_code.sh:
+    ( source $DASD_FORMAT_CODE )
+</code></pre>
+<p>ReaR does not source a third party file because<br />
+$LAYOUT_CODE and $DASD_FORMAT_CODE are files<br />
+that are generated by ReaR</p>
+<h4 id="jsmeix_commented_at_2024-07-19_1213"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239010050">2024-07-19 12:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1213" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/layout/save/GNU/Linux/190_opaldisk_layout.sh:
+    source "$(opal_device_attributes "$device" attributes)"
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/lib/opaladmin-workflow.sh:
+        source "$(opal_device_attributes "$device" attributes)"
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/lib/opal-functions.sh:
+    source "$(opal_device_attributes "$device" attributes)"
+        source "$(opal_device_attributes "$device" attributes)"
+</code></pre>
+<p>ReaR does not source a third party file because<br />
+opal_device_attributes is a ReaR function in<br />
+usr/share/rear/lib/opal-functions.sh<br />
+which parses the</p>
+<pre><code>sedutil-cli --query "$device"
+</code></pre>
+<p>command output.</p>
+<h4 id="jsmeix_commented_at_2024-07-19_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239021728">2024-07-19 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1221" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/default/bin/dhclient-script:
+source /etc/scripts/dhcp-setup-functions.sh
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/skel/default/etc/scripts/system-setup.d/58-start-dhclient.sh:
+source /etc/scripts/dhcp-setup-functions.sh
+</code></pre>
+<p>ReaR does source a third party file because<br />
+/etc/scripts/dhcp-setup-functions.sh<br />
+inside the ReaR recovery system is<br />
+usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh<br />
+which is a third party file<br />
+according to its initial comment which reads</p>
+<pre><code># Set of functions that will be used by our own implementation of dhclient-script.
+# Most of the functions are coming from an old fedora-14 dhclient-script.
+# See also usr/share/rear/lib/network-functions.sh and
+# cf. https://github.com/rear/rear/issues/1517
+</code></pre>
+<p>but I think - unless proven otherwise - we can probably trust<br />
+that "old fedora-14 dhclient-script" where it originates from.<br />
+Further adaptions came from us at ReaR upstream, e.g. see<br />
+<a href="https://github.com/rear/rear/issues/1517#issuecomment-334505498">https://github.com/rear/rear/issues/1517#issuecomment-334505498</a></p>
+<h4 id="jsmeix_commented_at_2024-07-19_1236"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239044707">2024-07-19 12:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1236" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/default/etc/profile:
+        source "$script"
+</code></pre>
+<p>that code in usr/share/rear/skel/default/etc/profile is</p>
+<pre><code>for script in /etc/profile.d/*.sh; do
+    if [ -r "$script" ]; then
+        source "$script"
+    fi
+done
+</code></pre>
+<p>where inside the ReaR recovery system the files<br />
+in /etc/profile.d/*.sh are made by "rear mkrescue".<br />
+Currently there is only one place where such a file is made:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep 'profile\.d'
+
+usr/share/rear/skel/default/etc/profile:
+for script in /etc/profile.d/*.sh; do
+
+usr/share/rear/rescue/GALAXY11/default/600_include_galaxy_path.sh:
+cat &gt;&gt;$ROOTFS_DIR/etc/profile.d/galaxy11.sh &lt;&lt;EOF
+</code></pre>
+<p>where the whole script<br />
+usr/share/rear/rescue/GALAXY11/default/600_include_galaxy_path.sh<br />
+is</p>
+<pre><code># Add path to CommVault Base Dir to rescue system
+cat &gt;&gt;$ROOTFS_DIR/etc/profile.d/galaxy11.sh &lt;&lt;EOF
+PATH=\$PATH:$GALAXY11_HOME_DIRECTORY
+EOF
+</code></pre>
+<p>and it seems GALAXY11_HOME_DIRECTORY is set in<br />
+usr/share/rear/prep/GALAXY11/default/400_prep_galaxy.sh<br />
+via</p>
+<pre><code>function set_variable_from_commvault_status {
+        (( $# == 2 )) || BugError "set_variable_from_commvault_status not called with 2 args: $*"
+        local var_name="$1" ; shift 
+        local -n var=$var_name # $var is not a pointer to the variable to set
+        local match="$1" ; shift
+        var=$(sed -n -E -e "/$match/s/.*= //p" &lt;&lt;&lt;"$commvault_status")
+        var=${var## *} # strip trailing blanks
+        contains_visible_char "$var" || Error "Could not set $var_name variable matching $match from 'commvault status':$LF$commvault_status"
+}
+
+...
+
+local commvault_status
+commvault_status=$(commvault status) || Error "Cannot determine CommVault status, check 'commvault status'"
+Log "CommVault Status:\n$commvault_status"
+
+if ! test "$GALAXY11_CORE_DIRECTORY" \
+        -a "$GALAXY11_HOME_DIRECTORY" \
+        -a "$GALAXY11_LOG_DIRECTORY" \
+        -a "$GALAXY11_TEMP_DIRECTORY" \
+        -a "$GALAXY11_JOBS_RESULTS_DIRECTORY" ; then
+        set_variable_from_commvault_status GALAXY11_CORE_DIRECTORY "Core Directory"
+        set_variable_from_commvault_status GALAXY11_HOME_DIRECTORY "Home Directory"
+        set_variable_from_commvault_status GALAXY11_LOG_DIRECTORY "Log Directory"
+        set_variable_from_commvault_status GALAXY11_TEMP_DIRECTORY "Temp Directory"
+        set_variable_from_commvault_status GALAXY11_JOBS_RESULTS_DIRECTORY "Job Results Directory"
+fi
+</code></pre>
+<p>so bascally set_variable_from_commvault_status<br />
+parses the output of the command</p>
+<pre><code>commvault status
+</code></pre>
+<p>so currently ReaR does not source a third party file<br />
+via</p>
+<pre><code>usr/share/rear/skel/default/etc/profile:
+        source "$script"
+</code></pre>
+<p>because the only case that I found<br />
+only parses the output of <code>commvault status</code></p>
+<h4 id="jsmeix_commented_at_2024-07-19_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239066391">2024-07-19 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1250" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/default/etc/syslog-ng-v3.conf:
+source src {
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/skel/default/etc/syslog-ng.conf:
+source src {
+</code></pre>
+<p>The whole<br />
+usr/share/rear/skel/default/etc/syslog-ng-v3.conf<br />
+is</p>
+<pre><code>@version: VERSION
+# Send everything to /dev/tty12
+
+options { create_dirs (yes); };
+source src {
+   internal();
+   unix-dgram("/dev/log");
+   file("/proc/kmsg");
+};
+destination console { file("/dev/tty12"); };
+destination messages { file("/var/log/messages"); };
+log { source(src); destination(console); };
+log { source(src); destination(messages); };
+</code></pre>
+<p>and<br />
+the whole<br />
+usr/share/rear/skel/default/etc/syslog-ng.conf<br />
+is</p>
+<pre><code># Send everything to /dev/tty12
+
+options { long_hostnames(off); sync(0); };
+source src {
+        internal();
+        unix-dgram("/dev/log");
+};
+destination console { file("/dev/tty12"); };
+destination messages { file("/var/log/messages"); };
+log { source(src); destination(console); };
+log { source(src); destination(messages); };
+</code></pre>
+<p>At least currently I cannot make sense of that code.<br />
+It is Friday afternoon (where even CrowdStrike strikes ;-)<br />
+and I am looking forward to a relaxed and recovering weekend :-)<br />
+so I leave this case for others as an exercise to prove<br />
+that this code does not execute a third party file ;-P</p>
+<h4 id="pcahyna_commented_at_2024-07-19_1253"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239071913">2024-07-19 12:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1253" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>But I did not check at how many code places something<br />
+is sourced via the alternative bash builtin '.'</p>
+</blockquote>
+<p><a href="https://github.com/rear/rear/blob/0fa49b3089ad0015f1ab67335c596fc28066f2df/usr/share/rear/skel/default/bin/dhcpcd.sh#L24">https://github.com/rear/rear/blob/0fa49b3089ad0015f1ab67335c596fc28066f2df/usr/share/rear/skel/default/bin/dhcpcd.sh#L24</a></p>
+<h4 id="jsmeix_commented_at_2024-07-19_1256"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239076093">2024-07-19 12:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1256" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you!</p>
+<p>How did you find it?<br />
+By chance or via a sophisticated regular expression?</p>
+<h4 id="pcahyna_commented_at_2024-07-19_1258"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239079106">2024-07-19 12:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1258" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna thank you!</p>
+<p>How did you find it? By chance or via a sophisticated regular
+expression?</p>
+</blockquote>
+<p><code>^[[:blank]]*[^#].*\.</code></p>
+<p>Not sophisticated enough - it finds plenty of false positives.</p>
+<h4 id="pcahyna_commented_at_2024-07-19_1259"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239081512">2024-07-19 12:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1259" title="Permanent link">&para;</a></h4>
+<p>oops, I see a mistake there :-)</p>
+<h4 id="pcahyna_commented_at_2024-07-19_1301"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239084687">2024-07-19 13:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1301" title="Permanent link">&para;</a></h4>
+<p>after correcting the obvious mistake it does not work. Sigh.</p>
+<h4 id="jsmeix_commented_at_2024-07-19_1306"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239093220">2024-07-19 13:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-19_1306" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/9422b2cfcf3307bfae357248036f4f918b0544a5">https://github.com/rear/rear/commit/9422b2cfcf3307bfae357248036f4f918b0544a5</a><br />
+I dared to just clean up such shitty code<br />
+directly in our master branch.<br />
+I am rather fed up with such kind of code<br />
+so I do not want to waste any second longer<br />
+of my precious lifetime than actually needed<br />
+with endlessly cleaning up such crap, cf.<br />
+<a href="https://www.youtube.com/watch?v=j6dXmsR4_VQ">https://www.youtube.com/watch?v=j6dXmsR4_VQ</a></p>
+<h4 id="pcahyna_commented_at_2024-07-19_1456"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2239404621">2024-07-19 14:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-07-19_1456" title="Permanent link">&para;</a></h4>
+<p>Well, at least the shitty code quotes the variable expansion properly,
+unlike the many other examples that you have checked.</p>
+<p>Of course, an exploit of the possibility of expansions of shell
+metacharacters and blanks in directory names like those we use would
+work only in very special situations and be exceedingly unrealistic, but
+from the reliability point of view sourcing an unquoted variable
+expansion is not a good idea.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0656"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244394271">2024-07-23 06:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0656" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/default/etc/scripts/system-setup:
+source /usr/share/rear/conf/default.conf || echo -e "\n'source /usr/share/rear/conf/default.conf' failed with exit code $?"
+        source /etc/rear/$conf.conf || echo -e "\n'source /etc/rear/$conf.conf' failed with exit code $?"
+        source $system_setup_script || echo -e "\n'source $system_setup_script' results exit code $?\n"
+        if ! source $system_setup_script ; then
+</code></pre>
+<p>the matching code pieces in<br />
+usr/share/rear/skel/default/etc/scripts/system-setup<br />
+where possibly third party files might be sourced<br />
+are</p>
+<pre><code>for conf in site local rescue ; do
+    if test -s /etc/rear/$conf.conf ; then
+        source /etc/rear/$conf.conf || echo -e "\n'source /etc/rear/$conf.conf' failed with exit code $?"
+    fi
+done
+</code></pre>
+<p>so no third party file is sourced here<br />
+and</p>
+<pre><code>for system_setup_script in /etc/scripts/system-setup.d/*.sh ; do
+    if rear_debug ; then
+        ...
+        source $system_setup_script || echo -e "\n'source $system_setup_script' results exit code $?\n"
+        ...
+    else
+        ...
+        if ! source $system_setup_script ; then
+</code></pre>
+<p>so no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0711"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244419826">2024-07-23 07:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0711" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/default/etc/scripts/unlock-opal-disks:
+source /usr/share/rear/lib/opal-functions.sh
+[[ -f /.OPAL_PBA_SETTINGS.sh ]] &amp;&amp; source /.OPAL_PBA_SETTINGS.sh
+[[ ${#OPAL_PBA_TKNPATH[@]} -gt 0 ]] &amp;&amp; source /usr/share/rear/lib/authtoken-functions.sh
+    source "/etc/scripts/system-setup.d/$system_setup_script"
+</code></pre>
+<p><code>OPAL_PBA_SETTINGS</code> gets created in<br />
+usr/share/rear/build/OPALPBA/Linux-i386/820_store_settings.sh<br />
+by</p>
+<pre><code>cat &gt; "$ROOTFS_DIR/.OPAL_PBA_SETTINGS.sh" &lt;&lt; -EOF-
+OPAL_PBA_UNLOCK_MODE='$OPAL_PBA_UNLOCK_MODE'
+OPAL_PBA_DEBUG_PASSWORD='$OPAL_PBA_DEBUG_PASSWORD'
+OPAL_PBA_DEBUG_DEVICE_COUNT='$OPAL_PBA_DEBUG_DEVICE_COUNT'
+
+OPAL_PBA_SBWARN='$OPAL_PBA_SBWARN'
+OPAL_PBA_NOSUCCESSMSG='$OPAL_PBA_NOSUCCESSMSG'
+OPAL_PBA_GPT_PARTITION_NAME='$RAWDISK_GPT_PARTITION_NAME'
+
+OPAL_PBA_TKNPATH=( ${OPAL_PBA_TKNPATH[@]} )
+OPAL_PBA_TKNOFFSET=$OPAL_PBA_TKNOFFSET
+OPAL_PBA_TKNKEY='$OPAL_PBA_TKNKEY'
+OPAL_PBA_TKNBIND='$OPAL_PBA_TKNBIND'
+
+OPAL_PBA_TKN2FAMAXTRIES=$OPAL_PBA_TKN2FAMAXTRIES
+OPAL_PBA_TKN2FAFAILWIPE='$OPAL_PBA_TKN2FAFAILWIPE'
+
+OPAL_PBA_TKNDBG='$OPAL_PBA_TKNDBG'
+-EOF-
+</code></pre>
+<p>so no third party file is sourced here.</p>
+<p>All the variables</p>
+<pre><code>OPAL_PBA_UNLOCK_MODE
+OPAL_PBA_DEBUG_PASSWORD
+OPAL_PBA_DEBUG_DEVICE_COUNT
+OPAL_PBA_SBWARN
+OPAL_PBA_NOSUCCESSMSG
+OPAL_PBA_TKNPATH
+OPAL_PBA_TKNOFFSET
+OPAL_PBA_TKNKEY
+OPAL_PBA_TKNBIND
+OPAL_PBA_TKN2FAMAXTRIES
+OPAL_PBA_TKN2FAFAILWIPE
+OPAL_PBA_TKNDBG
+</code></pre>
+<p>are user config variables in default.conf<br />
+except</p>
+<pre><code>OPAL_PBA_GPT_PARTITION_NAME
+</code></pre>
+<p>which is set in<br />
+usr/share/rear/build/OPALPBA/Linux-i386/820_store_settings.sh</p>
+<pre><code>OPAL_PBA_GPT_PARTITION_NAME='$RAWDISK_GPT_PARTITION_NAME'
+</code></pre>
+<p>and RAWDISK_GPT_PARTITION_NAME is a user config variable<br />
+in default.conf</p>
+<p>So no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0743"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244488622">2024-07-23 07:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0743" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/skel/SESAM/etc/scripts/system-setup.d/59-start-sesam-client.sh:
+        source $SHARE_DIR/lib/sesam-functions.sh
+        source $SESAM_VAR_DIR/var/ini/sesam2000.profile
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/prep/SESAM/default/400_prep_sesam.sh:
+        source $SHARE_DIR/lib/sesam-functions.sh
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/lib/sesam-functions.sh:
+source $sesam2000ini_file
+</code></pre>
+<p><code>$SHARE_DIR/lib/sesam-functions.sh</code> is<br />
+usr/share/rear/lib/sesam-functions.sh<br />
+so no third party file is sourced here.</p>
+<p>SESAM_VAR_DIR is set in<br />
+usr/share/rear/lib/sesam-functions.sh<br />
+which does (whole sesam-functions.sh):</p>
+<pre><code># read sesam configuration values, referenced by
+#
+# prep/SESAM/default/400_prep_sesam.sh
+# skel/SESAM/etc/scripts/system-setup.d/59-start-sesam-client.sh
+
+sesam2000ini_file="/etc/sesam2000.ini"
+
+if ! test -r $sesam2000ini_file ; then
+    return 0
+fi
+
+# for later use in build/default/990_verify_rootfs.sh to avoid issues
+# with missing library dependencies during rootfs check
+source $sesam2000ini_file
+SESAM_LD_LIBRARY_PATH=$SM_BIN_SESAM:$SM_BIN_SESAM/python3/:$SM_BIN_SMS
+
+SM_INI="$( grep SM_INI $sesam2000ini_file 2&gt;/dev/null | cut -d '=' -f 2 )"
+test -z "$SM_INI" &amp;&amp; return 0
+
+# Avoid ShellCheck false error indication
+# SC1097: Unexpected ==. For assignment, use =
+# for code like
+#   while IFS== read key value
+# by quoting the assigned character:
+while IFS='=' read key value ; do
+    case "$key" in
+        (gv_ro) SESAM_BIN_DIR="$value" ;;
+        (gv_rw) SESAM_VAR_DIR="$value" ;;
+    esac
+done &lt;"$SM_INI"
+
+SESAM_WORK_DIR="${SESAM_VAR_DIR%%/}/var/work/*"
+SESAM_TMP_DIR="${SESAM_VAR_DIR%%/}/var/tmp/*"
+SESAM_LIS_DIR="${SESAM_VAR_DIR%%/}/var/lis"
+SESAM_LGC_DIR="${SESAM_VAR_DIR%%/}/var/log/lgc/*"
+SESAM_SMS_DIR="${SESAM_VAR_DIR%%/}/var/log/sms/*"
+SESAM_PROT_DIR="${SESAM_VAR_DIR%%/}/var/prot/*"
+</code></pre>
+<p>The crucial part is</p>
+<pre><code>sesam2000ini_file="/etc/sesam2000.ini"
+...
+source $sesam2000ini_file
+</code></pre>
+<p>so it does source a third party file as</p>
+<pre><code>source /etc/sesam2000.ini
+</code></pre>
+<p>By quick googling I found 'sesam2000.ini' mentioned in<br />
+<a href="https://wiki.sepsoftware.com/wiki/index.php/Archive:Admin_Manual_4.2">https://wiki.sepsoftware.com/wiki/index.php/Archive:Admin_Manual_4.2</a></p>
+<pre><code>On Unix you can find the installation directories in the file /etc/sesam2000.ini .
+</code></pre>
+<p>but it does not tell about the syntax of 'sesam2000.ini'.<br />
+The example shell scripts in<br />
+<a href="https://wiki.sepsoftware.com/wiki/index.php/Archive:Admin_Manual_4.2">https://wiki.sepsoftware.com/wiki/index.php/Archive:Admin_Manual_4.2</a><br />
+indicate that 'sesam2000.ini' consists of</p>
+<pre><code>VARIABLE=VALUE
+</code></pre>
+<p>pairs but I won't try to mitigate</p>
+<pre><code>source /etc/sesam2000.ini
+</code></pre>
+<p>here based on guesses about a software<br />
+that I neither have nor know about<br />
+i.e. SEP Sesam with BACKUP=SESAM).</p>
+<p>Fortunately SEP is a German company see<br />
+<a href="https://www.sep.de/contact/contact/">https://www.sep.de/contact/contact/</a><br />
+so I hope one from SEP could clarify this.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0756"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244513769">2024-07-23 07:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0756" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/lib/framework-functions.sh:
+    source "$source_file"
+</code></pre>
+<p>is this code</p>
+<pre><code>function Source () {
+    ...
+    source "$source_file"
+</code></pre>
+<p>ReaR's Source function is called at those code places<br />
+(I already removed the false positives here):</p>
+<pre><code>usr/sbin/rear:
+    Source "$CONFIG_DIR/os.conf" || Error "Failed to Source $CONFIG_DIR/os.conf"
+    Source "$CONFIG_DIR/$WORKFLOW.conf" || Error "Failed to Source $CONFIG_DIR/$WORKFLOW.conf"
+        Source "$SHARE_DIR/conf/$config.conf" || BugError "Failed to Source $SHARE_DIR/conf/$config.conf"
+        Source "$CONFIG_DIR/$config.conf" || Error "Failed to Source $CONFIG_DIR/$config.conf"
+            Source "$config_append_file_path" || Error "Failed to Source $config_append_file_path"
+            Source "$config_append_file_path.conf" || Error "Failed to Source $config_append_file_path.conf"
+
+usr/share/rear/layout/recreate/default/200_run_layout_code.sh:                    Source $SHARE_DIR/layout/recreate/default/150_wipe_disks.sh
+
+usr/share/rear/lib/savelayout-workflow.sh:
+    Source $SHARE_DIR/prep/default/320_include_uefi_env.sh
+
+usr/share/rear/lib/framework-functions.sh:
+        Source $SHARE_DIR/$stage/"$script"
+</code></pre>
+<p>So no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0812"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244545130">2024-07-23 08:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0812" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/prep/DUPLICITY/default/200_find_duply_profile.sh:
+            source $CONF    # is a normal shell configuration file
+    source $DUPLY_PROFILE_FILE
+</code></pre>
+<p>and</p>
+<pre><code>usr/share/rear/lib/global-functions.sh:
+        source $CONF    # is a normal shell configuration file
+</code></pre>
+<p>The</p>
+<pre><code>source $CONF    # is a normal shell configuration file
+</code></pre>
+<p>appears twice because<br />
+the function find_duply_profile is defined twice<br />
+in<br />
+usr/share/rear/lib/global-functions.sh</p>
+<pre><code># Purpose is to find a working DUPLY profile configuration
+# Duply is a wrapper script around duplicity - this function is
+# used in the prep phase (for mkbackup) and in the verify phase
+# (to check the TEMP_DIR directory - it must be defined and cannot
+# be /tmp as this is usually a tmpfs file system which is too small)
+function find_duply_profile ()
+{
+    # there could be more then one profile present - select where SOURCE='/'
+    for CONF in $(echo "$1")
+    do
+        [[ ! -f $CONF ]] &amp;&amp; continue
+        source $CONF    # is a normal shell configuration file
+        LogIfError "Could not source $CONF [duply profile]"
+        [[ -z "$SOURCE" ]] &amp;&amp; continue
+        [[ -z "$TARGET" ]] &amp;&amp; continue
+        # still here?
+        if [[ "$SOURCE" = "/" ]]; then
+            DUPLY_PROFILE_FILE=$CONF
+            DUPLY_PROFILE=$( dirname $CONF  )   # /root/.duply/mycloud/conf -&gt; /root/.duply/mycloud
+            DUPLY_PROFILE=${DUPLY_PROFILE##*/}  # /root/.duply/mycloud      -&gt; mycloud
+            break # the loop
+        else
+            DUPLY_PROFILE=""
+            continue
+        fi
+    done
+}
+</code></pre>
+<p>and same in<br />
+usr/share/rear/prep/DUPLICITY/default/200_find_duply_profile.sh</p>
+<pre><code>    function find_duply_profile ()
+    {
+        # there could be more then one profile present - select where SOURCE='/'
+        for CONF in $(echo "$1")
+        do
+            [[ ! -f $CONF ]] &amp;&amp; continue
+            source $CONF    # is a normal shell configuration file
+            LogIfError "Could not source $CONF [duply profile]"
+            [[ -z "$SOURCE" ]] &amp;&amp; continue
+            [[ -z "$TARGET" ]] &amp;&amp; continue
+            # still here?
+            if [[ "$SOURCE" = "/" ]]; then
+                DUPLY_PROFILE_FILE=$CONF
+                DUPLY_PROFILE="$( dirname "$CONF"  )"   # /root/.duply/mycloud/conf -&gt; /root/.duply/mycloud
+                DUPLY_PROFILE=${DUPLY_PROFILE##*/}  # /root/.duply/mycloud      -&gt; mycloud
+                break # the loop
+            else
+                DUPLY_PROFILE=""
+                continue
+            fi
+        done
+    }
+</code></pre>
+<p>So it does source a third party files as</p>
+<pre><code>for CONF in $(echo "$1")
+do
+    source $CONF
+</code></pre>
+<p>At least at first glance that looks rather messy.</p>
+<p>I won't try to mitigate that now<br />
+based on guesses about a software<br />
+that I neither have nor know about<br />
+i.e. DUPLICITY with BACKUP=DUPLICITY.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0817"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244555297">2024-07-23 08:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0817" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/rescue/GNU/Linux/220_load_modules_from_initrd.sh:
+        source /etc/sysconfig/kernel
+            source /etc/dracut.conf
+                source $s
+</code></pre>
+<p>the code of the <code>source $s</code> case is</p>
+<pre><code>            for s in /etc/dracut.conf.d/*.conf ; do
+                source $s
+            done
+</code></pre>
+<p>So /etc/sysconfig/kernel<br />
+and /etc/dracut.conf and /etc/dracut.conf.d/*.conf<br />
+get sourced.</p>
+<p>I think - unless proven otherwise - we can probably trust<br />
+/etc/sysconfig/kernel<br />
+and /etc/dracut.conf and /etc/dracut.conf.d/*.conf<br />
+to be sourced.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0818"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244557878">2024-07-23 08:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0818" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/lib/rear-shell.bashrc:
+for script in $SHARE_DIR/lib/*functions.sh ; do source $script ; done
+source $SHARE_DIR/lib/progresssubsystem.nosh
+</code></pre>
+<p>no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0826"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244575251">2024-07-23 08:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0826" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/lib/drlm-functions.sh:
+                source $DRLM_CFG
+            source $DRLM_CFG
+</code></pre>
+<p>the code is</p>
+<pre><code>        if [ "$CONFIG_APPEND_FILES" ]; then
+            for config_append_file in $CONFIG_APPEND_FILES ; do
+                LogPrint "DRLM_MANAGED: Loading configuration '$config_append_file' from DRLM ..."
+                local DRLM_CFG="$TMP_DIR/$config_append_file"
+                local http_response_code=$(curl $verbose -f -s -S -w '%{http_code}' $DRLM_REST_OPTS -o $DRLM_CFG https://$DRLM_SERVER/clients/$DRLM_ID/config/$config_append_file)
+                test "200" = "$http_response_code" || Error "DRLM_MANAGED: curl failed with HTTP response code '$http_response_code' trying to load '$config_append_file' from DRLM."
+                source $DRLM_CFG
+                rm $DRLM_CFG
+            done
+        else
+            LogPrint "DRLM_MANAGED: Loading configuration from DRLM ..."
+            local DRLM_CFG="$TMP_DIR/drlm_config"
+            local http_response_code=$(curl $verbose -f -s -S -w '%{http_code}' $DRLM_REST_OPTS -o $DRLM_CFG https://$DRLM_SERVER/clients/$DRLM_ID/config)
+            test "200" = "$http_response_code" || Error "DRLM_MANAGED: curl failed with HTTP response code '$http_response_code' trying to load configuration from DRLM."
+            source $DRLM_CFG
+            rm $DRLM_CFG
+        fi
+</code></pre>
+<p>so it does source third party files<br />
+even third party files downloaded from a remote host.</p>
+<p>I won't try to mitigate that now on my own<br />
+based on guesses about a software that I neither have<br />
+nor know about its usage and implementation details<br />
+i.e. DRLM see <a href="https://drlm.org/">https://drlm.org/</a></p>
+<p>Fortunately we cooperate well with the DRLM authors<br />
+so I will let them check their specific case<br />
+via a separated ReaR issue.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0832"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244586077">2024-07-23 08:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0832" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/build/OPALPBA/Linux-i386/810_deduplicate_files.sh:
+source "$deduplication_script"
+</code></pre>
+<p>That deduplication_script is generated in<br />
+usr/share/rear/build/OPALPBA/Linux-i386/810_deduplicate_files.sh<br />
+which works on files only in ROOTFS_DIR via</p>
+<pre><code>find "$ROOTFS_DIR" ... | awk ... &gt; "$deduplication_script"
+</code></pre>
+<p>so no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0838"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244598503">2024-07-23 08:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0838" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/share/rear/build/USB/default/800_enforce_usb_output.sh:
+local_conf_output=$( source $ROOTFS_DIR/etc/rear/local.conf ; echo $OUTPUT )
+</code></pre>
+<p>no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0840"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244603501">2024-07-23 08:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0840" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a></p>
+<pre><code>usr/sbin/rear:
+if ! source $SHARE_DIR/conf/default.conf ; then
+if ! source $SHARE_DIR/lib/_input-output-functions.sh ; then
+    source $script || BugError "Failed to source $script"
+    source $SHARE_DIR/lib/progresssubsystem.nosh || BugError "Failed to source $SHARE_DIR/lib/progresssubsystem.nosh"
+</code></pre>
+<p>the part</p>
+<pre><code>source $script || BugError "Failed to source $script"
+</code></pre>
+<p>is this code</p>
+<pre><code>for script in $SHARE_DIR/lib/[a-z]*.sh ; do
+    source $script || BugError "Failed to source $script"
+done
+</code></pre>
+<p>no third party file is sourced here.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_0841"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244606681">2024-07-23 08:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_0841" title="Permanent link">&para;</a></h4>
+<p>I will now make separated ReaR issues<br />
+for the cases where a third party file could be sourced.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_1008"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244796274">2024-07-23 10:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_1008" title="Permanent link">&para;</a></h4>
+<p>I made separated ReaR issues for each case I found<br />
+where third party code could be execututed by 'source'<br />
+so this issue is done.</p>
+<p>Cases where third party code could be execututed by '.'<br />
+need to be handled via separated issues.<br />
+First we need to find the code places where<br />
+something is execututed by '.'</p>
+<h4 id="jsmeix_commented_at_2024-07-23_1048"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2244882253">2024-07-23 10:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_1048" title="Permanent link">&para;</a></h4>
+<p>Regarding skel/default/bin/dhcpcd.sh<br />
+see above<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2239071913">https://github.com/rear/rear/issues/3285#issuecomment-2239071913</a></p>
+<p>I fail to understand how the dhcpcd related code in ReaR<br />
+is meant to work so I filed<br />
+<a href="https://github.com/rear/rear/issues/3295">https://github.com/rear/rear/issues/3295</a></p>
+<h4 id="jsmeix_commented_at_2024-07-25_0739"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3285#issuecomment-2249664581">2024-07-25 07:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-25_0739" title="Permanent link">&para;</a></h4>
+<p>I removed the "critical/security/legal" label<br />
+because in this issue here there is no longer<br />
+a case which is "critical/security/legal".<br />
+Cases found in this issue here which could be<br />
+"critical/security/legal" were separated into<br />
+new separated issues</p>
+<p><a href="https://github.com/rear/rear/issues/3291">https://github.com/rear/rear/issues/3291</a><br />
+skel/default/etc/syslog-ng*.conf may source third party code</p>
+<p><a href="https://github.com/rear/rear/issues/3292">https://github.com/rear/rear/issues/3292</a><br />
+lib/sesam-functions.sh may source third party code</p>
+<p><a href="https://github.com/rear/rear/issues/3293">https://github.com/rear/rear/issues/3293</a><br />
+BACKUP=DUPLICITY may source third party code</p>
+<p><a href="https://github.com/rear/rear/issues/3294">https://github.com/rear/rear/issues/3294</a><br />
+DRLM_MANAGED=yes may source third party code from a remote host</p>
+<p>and</p>
+<p><a href="https://github.com/rear/rear/issues/3295">https://github.com/rear/rear/issues/3295</a><br />
+How is skel/default/bin/dhcpcd.sh meant to work?</p>
+<p>cf.<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2247708345">https://github.com/rear/rear/issues/3260#issuecomment-2247708345</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-19.3285.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

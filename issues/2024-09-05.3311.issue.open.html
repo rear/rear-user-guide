@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3311 Issue open: Any thoughts why we can't use find_device here? - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3311 Issue open: Any thoughts why we can\u0027t use find_device here?";
+        var mkdocs_page_input_path = "issues/2024-09-05.3311.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3311 Issue open: Any thoughts why we can't use find_device here?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3311_issue_open_any_thoughts_why_we_cant_use_find_device_here"><a href="https://github.com/rear/rear/issues/3311">#3311 Issue</a> <code>open</code>: Any thoughts why we can't use <code>find_device</code> here?<a class="headerlink" href="#3311_issue_open_any_thoughts_why_we_cant_use_find_device_here" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>cleanup</code></p>
+<h4 id="gdha_opened_issue_at_2024-09-05_1513"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/issues/3311">2024-09-05 15:13</a>:<a class="headerlink" href="#gdha_opened_issue_at_2024-09-05_1513" title="Permanent link">&para;</a></h4>
+<pre><code>          Any thoughts why we can't use `find_device` here?
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/2073e77f1ed213653bbf846d67bef346a9f65da9/usr/share/rear/format/USB/default/200_check_usb_layout.sh#L12-L13">https://github.com/rear/rear/blob/2073e77f1ed213653bbf846d67bef346a9f65da9/usr/share/rear/format/USB/default/200_check_usb_layout.sh#L12-L13</a></p>
+<p>It seems to me like our code simply doesn't handle the nvme use case
+yet, it assumes a sysfs device path like
+<code>/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb/sdb1</code>
+whereas in your example we have
+<code>devices/pci0000:c0/0000:c0:03.3/0000:c5:00.0/nvme/nvme0/nvme0n1</code></p>
+<p>@xwhitebeltx have you tried creating a partition and specifying that
+instead of the whole disk?</p>
+<p><em>Originally posted by @schlomo in
+<a href="https://github.com/rear/rear/issues/3178#issuecomment-2004477308">https://github.com/rear/rear/issues/3178#issuecomment-2004477308</a></em></p>
+<h4 id="gdha_commented_at_2024-09-05_1521"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3311#issuecomment-2331998374">2024-09-05 15:21</a>:<a class="headerlink" href="#gdha_commented_at_2024-09-05_1521" title="Permanent link">&para;</a></h4>
+<p>@schlomo To use the <code>find_disk</code> function in script
+<code>lib/layout-functions.sh</code> there is a problem in function
+<code>get_parent_components</code> on line <code>done &lt; $LAYOUT_DEPS</code><br />
+The $LAYOUT_DEPS is empty.<br />
+When we add in the function
+<code>LAYOUT_DEPS="$VAR_DIR/layout/diskdeps.conf"</code> then it works better.<br />
+However, that being said it is better not to use <code>find_disk</code> function as
+it searches the diskdeps.conf file for the parent device. And, in this
+case (nvme0n1) it will not find it as it is skipped as an empty device
+(by savelayout).<br />
+The reason why LAYOUT_DEPS variable is empty in above case (with
+treating nvme0n1 as an USB device) is because the initialization of
+these variables is only done in the savelayout workflow.<br />
+We need to find a better why.</p>
+<p>Therefore, I propose to remove the comments in
+<a href="https://github.com/rear/rear/blob/2073e77f1ed213653bbf846d67bef346a9f65da9/usr/share/rear/format/USB/default/200_check_usb_layout.sh#L12-L13">rear/usr/share/rear/format/USB/default/200_check_usb_layout.sh</a>
+as it is misleading info.</p>
+<h4 id="gdha_commented_at_2024-09-06_0932"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3311#issuecomment-2333656365">2024-09-06 09:32</a>:<a class="headerlink" href="#gdha_commented_at_2024-09-06_0932" title="Permanent link">&para;</a></h4>
+<p>Was able to get it to work - still need to test it with legacy USB
+devices.</p>
+<pre><code>#-&gt; rear -v -d -D format -- --efi /dev/nvme7n1
+Relax-and-Recover 2.6 / 2020-06-17
+Running rear format (PID 2853731)
+Using log file: /var/log/rear/rear-AWSABLIRLL000K.log
+Running workflow format on the normal/original system
+USB device /dev/nvme7n1 is not formatted with ext2/3/4 or btrfs filesystem
+UserInput -I USB_DEVICE_CONFIRM_FORMAT needed in /usr/share/rear/format/USB/default/200_check_usb_layout.sh line 68
+Type exactly 'Yes' to format /dev/nvme7n1 with ext3 filesystem
+(default 'No' timeout 300 seconds)
+Yes
+UserInput: No choices - result is 'Yes'
+Repartitioning '/dev/nvme7n1'
+The --efi toggle was used with format - making an EFI bootable device '/dev/nvme7n1'
+Creating GUID partition table (GPT) on '/dev/nvme7n1'
+Creating EFI system partition with size 1024 MiB aligned at 8 MiB on '/dev/nvme7n1'
+Creating ReaR data partition up to 100% of '/dev/nvme7n1'
+Setting 'boot' flag on /dev/nvme7n1
+Creating vfat filesystem on EFI system partition on '/dev/nvme7n1p1'
+Creating ext3 filesystem with label 'REAR-000' on '/dev/nvme7n1p2'
+Adjusting filesystem parameters on '/dev/nvme7n1p2'
+Exiting rear format (PID 2853731) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-09-05.3311.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

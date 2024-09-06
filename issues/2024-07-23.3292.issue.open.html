@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3292 Issue open: lib/sesam-functions.sh may source third party code - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3292 Issue open: lib/sesam-functions.sh may source third party code";
+        var mkdocs_page_input_path = "issues/2024-07-23.3292.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3292 Issue open: lib/sesam-functions.sh may source third party code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3292_issue_open_libsesam-functionssh_may_source_third_party_code"><a href="https://github.com/rear/rear/issues/3292">#3292 Issue</a> <code>open</code>: lib/sesam-functions.sh may source third party code<a class="headerlink" href="#3292_issue_open_libsesam-functionssh_may_source_third_party_code" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-07-23_0922"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3292">2024-07-23 09:22</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-07-23_0922" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244488622">https://github.com/rear/rear/issues/3285#issuecomment-2244488622</a><br />
+which reads (excerpts):</p>
+<p>usr/share/rear/lib/sesam-functions.sh</p>
+<p>The crucial part is</p>
+<pre><code>sesam2000ini_file="/etc/sesam2000.ini"
+...
+source $sesam2000ini_file
+</code></pre>
+<p>so it does source a third party file as</p>
+<pre><code>source /etc/sesam2000.ini
+</code></pre>
+<p>I don't know the syntax of 'sesam2000.ini'<br />
+so I cannot mitigate it.</p>
+<p>Perhaps /etc/sesam2000.ini can be trusted<br />
+to be sourced like other config files,<br />
+for example /etc/sysconfig/kernel and<br />
+/etc/dracut.conf and /etc/dracut.conf.d/*.conf cf.<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244555297">https://github.com/rear/rear/issues/3285#issuecomment-2244555297</a></p>
+<p>@rear/contributors<br />
+it should be verified before the ReaR 3.0 release<br />
+if third party code could be sourced here<br />
+or if it is reasonably safe.</p>
+<h4 id="abbbi_commented_at_2024-07-23_1130"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2244983803">2024-07-23 11:30</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-23_1130" title="Permanent link">&para;</a></h4>
+<p>hi,</p>
+<p>the file /etc/sesam2000.ini basically just includes<br />
+the configuration variables that point to the installation<br />
+path of the installed sesam component and its configuration files.</p>
+<p>It looks basically like this:</p>
+<pre><code>VERSION=5.1.0.51
+SM_BIN_SESAM=/opt/sesam/bin/sesam/
+SM_BIN_SMS=/opt/sesam/bin/sms/
+SMS_INI=/var/opt/sesam/var/ini/sms.ini
+STPD_INI=/var/opt/sesam/var/ini/stpd.ini
+SM_INI=/var/opt/sesam/var/ini/sm.ini
+SM_CTRL_INI=/var/opt/sesam/var/ini/sm.ini
+</code></pre>
+<p>It will not contain other things than these variable definitions.<br />
+Speaking as SEP employee, this file can be trusted.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_1159"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2245039783">2024-07-23 11:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_1159" title="Permanent link">&para;</a></h4>
+<p>@abbbi<br />
+thank you for your prompt reply!</p>
+<p>When the syntax is strictly only</p>
+<pre><code>VARIABLE=VALUE
+</code></pre>
+<p>it is not needed to 'source' it<br />
+so security could be improved (with reasonable effort)<br />
+to be safe even without the need to trust it<br />
+by not executing it but only parsing it<br />
+when for such simple syntax correct parsing<br />
+is sufficiently simple to be implemented like</p>
+<pre><code>myvar="$( grep '^VARIABLE=' /etc/sesam2000.ini | cut -d '=' -f2 )"
+</code></pre>
+<p>Or could it happen that a user specifies things like</p>
+<pre><code>  VERSION=5.1.0.51
+SM_BIN_SESAM='/opt/sesam/bin/sesam/'
+SM_BIN_SMS="$( echo /opt/sesam/*/sms/ )"
+test -s /opt/sesam/var/ini/sms.ini &amp;&amp; SMS_INI=/opt/sesam/var/ini/sms.ini || SMS_INI=/var/opt/sesam/var/ini/sms.ini
+</code></pre>
+<p>i.e. things like indentation or quotation<br />
+or command substitution or conditionals<br />
+which would basically require execution?</p>
+<h4 id="abbbi_commented_at_2024-07-23_1234"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2245133814">2024-07-23 12:34</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-23_1234" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>i.e. things like indentation or quotation or command substitution or
+conditionals which would basically require execution?</p>
+</blockquote>
+<p>no</p>
+<h4 id="jsmeix_commented_at_2024-07-24_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2247763188">2024-07-24 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1216" title="Permanent link">&para;</a></h4>
+<p>@abbbi<br />
+would you agree when I make a pull request<br />
+to improve security by only parsing it<br />
+(instead of executing it)?</p>
+<p>Or would you reject such a change and prefer<br />
+to execute it e.g. to be future proof against<br />
+things like indentation or quotation<br />
+or command substitution or conditionals<br />
+which would basically require execution?</p>
+<h4 id="jsmeix_commented_at_2024-07-25_0742"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2249670113">2024-07-25 07:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-25_0742" title="Permanent link">&para;</a></h4>
+<p>I removed the "critical/security/legal" label from this issue<br />
+because it is no longer "critical/security/legal", cf.<br />
+<a href="https://github.com/rear/rear/issues/3292#issuecomment-2244983803">https://github.com/rear/rear/issues/3292#issuecomment-2244983803</a></p>
+<h4 id="abbbi_commented_at_2024-07-25_1129"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2250102673">2024-07-25 11:29</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-25_1129" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@abbbi would you agree when I make a pull request to improve security
+by only parsing it (instead of executing it)?</p>
+<p>Or would you reject such a change and prefer to execute it e.g. to be
+future proof against things like indentation or quotation or command
+substitution or conditionals which would basically require execution?</p>
+</blockquote>
+<p>no objections from my side..</p>
+<h4 id="jsmeix_commented_at_2024-09-05_0912"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3292#issuecomment-2331009910">2024-09-05 09:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-05_0912" title="Permanent link">&para;</a></h4>
+<p>I postponed it to the ReaR v3.1 milestone<br />
+because things are currently OK, see<br />
+<a href="https://github.com/rear/rear/issues/3292#issuecomment-2249670113">https://github.com/rear/rear/issues/3292#issuecomment-2249670113</a><br />
+so this could be improved for ReaR v3.1 as time permits.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-23.3292.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

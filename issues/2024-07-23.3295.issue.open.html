@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3295 Issue open: How is skel/default/bin/dhcpcd.sh meant to work? - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3295 Issue open: How is skel/default/bin/dhcpcd.sh meant to work?";
+        var mkdocs_page_input_path = "issues/2024-07-23.3295.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3295 Issue open: How is skel/default/bin/dhcpcd.sh meant to work?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3295_issue_open_how_is_skeldefaultbindhcpcdsh_meant_to_work"><a href="https://github.com/rear/rear/issues/3295">#3295 Issue</a> <code>open</code>: How is skel/default/bin/dhcpcd.sh meant to work?<a class="headerlink" href="#3295_issue_open_how_is_skeldefaultbindhcpcdsh_meant_to_work" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>cleanup</code>, <code>discuss / RFC</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-07-23_1045"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3295">2024-07-23 10:45</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-07-23_1045" title="Permanent link">&para;</a></h4>
+<p>Triggered by<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2239071913">https://github.com/rear/rear/issues/3285#issuecomment-2239071913</a><br />
+I tried to make sense how<br />
+skel/default/bin/dhcpcd.sh<br />
+is meant to work but I fail to understand it.</p>
+<p>As far as I see we at SUSE do no longer provide dhcpcd<br />
+at least not in openSUSE Leap but likely since earlier<br />
+so I cannot try out dhcpcd with reasonable effort<br />
+(I use only dhclient).</p>
+<p>In<br />
+prep/GNU/Linux/210_include_dhclient.sh<br />
+I noticed</p>
+<pre><code># We made our own /etc/dhclient.conf and /bin/dhclient-script files (no need to copy these
+# from the local Linux system for dhclient). For dhcpcd we have /bin/dhcpcd.sh foreseen.
+</code></pre>
+<p>In<br />
+skel/default/etc/scripts/system-setup.d/58-start-dhclient.sh<br />
+there is</p>
+<pre><code>        case "$DHCLIENT_BIN" in
+            ...
+                (dhcpcd*)
+                        "$DHCLIENT_BIN" ${DEVICE}
+                    ;;
+</code></pre>
+<p>but I think this cannot work<br />
+because from plain looking at the code in<br />
+skel/default/bin/dhcpcd.sh</p>
+<pre><code>if [ $# -lt 2 ]; then
+  logger -s -p local0.err -t dhcpcd.sh "wrong usage"
+  exit 1
+fi
+</code></pre>
+<p>it exits when there are less than 2 arguments.</p>
+<h4 id="jsmeix_commented_at_2024-07-23_1105"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2244929735">2024-07-23 11:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-23_1105" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+could you please (as time permits) have a look here?</p>
+<h4 id="schlomo_commented_at_2024-07-23_1700"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2245768426">2024-07-23 17:00</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-23_1700" title="Permanent link">&para;</a></h4>
+<p>I'm wondering which distros actually use dhcpcd by default instead of
+dhclient?</p>
+<h4 id="jsmeix_commented_at_2024-07-24_1157"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247727730">2024-07-24 11:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1157" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @lzaoral<br />
+do you know if Red Hat or Fedora based distros<br />
+may use dhcpcd instead of dhclient?</p>
+<h4 id="jsmeix_commented_at_2024-07-24_1208"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247746235">2024-07-24 12:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1208" title="Permanent link">&para;</a></h4>
+<p>FYI regarding SUSE and openSUSE:</p>
+<p>In openSUSE Factory (i.e. SUSE's "head of development"<br />
+wherefrom openSUSE Tubleweed gets built)<br />
+there is since 11. July 2024 a new package 'dhcpcd'<br />
+see<br />
+<a href="https://build.opensuse.org/package/show/openSUSE:Factory/dhcpcd">https://build.opensuse.org/package/show/openSUSE:Factory/dhcpcd</a><br />
+and<br />
+<a href="https://build.opensuse.org/request/show/1185096">https://build.opensuse.org/request/show/1185096</a><br />
+where the latter tells about a reason behind:</p>
+<pre><code>New dhcp client package to allow replacing of the
+deprecated dhclient from dhcp-server in e.g. cloud-init.
+</code></pre>
+<p>So in future SLES versions there will be likely 'dhcpcd'<br />
+but that is not something I worry about right now.</p>
+<p>When 'dhcpcd' will be in a future SLES version<br />
+I will have a look how that actually behaves - but<br />
+not earlier because currently I have other things to do<br />
+which have higher importance / priority than that.</p>
+<h4 id="lzaoral_commented_at_2024-07-24_1242"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247816337">2024-07-24 12:42</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-07-24_1242" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>do you know if Red Hat or Fedora based distros may use dhcpcd instead
+of dhclient?</p>
+</blockquote>
+<p>@jsmeix Yes, they even have to. Our <code>rear</code> packages already use it on
+Fedora and RHEL 10 because <code>dhclient</code> is removed in RHEL 10 and
+deprecated in Fedora:
+<a href="https://fedoraproject.org/wiki/Changes/dhclient_deprecation">https://fedoraproject.org/wiki/Changes/dhclient_deprecation</a></p>
+<h4 id="jsmeix_commented_at_2024-07-24_1258"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247848934">2024-07-24 12:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1258" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+thank you for your prompt reply!</p>
+<p>I think hereby you "won the price" to have a look<br />
+how skel/default/bin/dhcpcd.sh is meant to work ;-)</p>
+<p>Would you mind when I assign this issue to you?</p>
+<h4 id="lzaoral_commented_at_2024-07-24_1303"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247867440">2024-07-24 13:03</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-07-24_1303" title="Permanent link">&para;</a></h4>
+<p>Sure! Me or @pcahyna can take a look. But beware that I have zero
+knowledge how <code>dhcpcd</code> work. I have just swapped the <code>Requires:</code> in the
+spec file and it worked automagically with rear out of the box. 😄</p>
+<h4 id="jsmeix_commented_at_2024-07-24_1304"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247868453">2024-07-24 13:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1304" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+my current only problem for the ReaR 3.0 release is<br />
+to find out if in skel/default/bin/dhcpcd.sh<br />
+sourcing the HostInfoFilePath e.g /var/lib/dhcpcd/dhcpcd-eth0.info<br />
+is sufficiently safe - in particular if that may<br />
+(by chance, by accident) source third party code?<br />
+Cf.<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/bin/dhcpcd.sh#L24">https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/bin/dhcpcd.sh#L24</a></p>
+<h4 id="jsmeix_commented_at_2024-07-24_1307"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3295#issuecomment-2247879920">2024-07-24 13:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-24_1307" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+interestingly - as far as I understand it - your<br />
+<a href="https://github.com/rear/rear/issues/3295#issuecomment-2247867440">https://github.com/rear/rear/issues/3295#issuecomment-2247867440</a><br />
+seems to prove that the 'dhcpcd' code in ReaR<br />
+"just works" in practice<br />
+(regardless that from plain looking at the code<br />
+at least I do not understand how it works).</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-23.3295.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
