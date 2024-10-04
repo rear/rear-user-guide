@@ -53,15 +53,15 @@ testing and contributing to support those distributions.
 Currently we aim to support the following distributions by testing them
 regularly:
 
- - Red Hat Enterprise Linux and derivatives: RHEL6, RHEL7 and RHEL8
+ - Red Hat Enterprise Linux and derivatives: RHEL7, RHEL8 and RHEL9
  - SUSE Linux Enterprise Server 12 and 15
- - Ubuntu LTS: 17, 18, 20
+ - Ubuntu LTS: 18, 20, 22, 24
 
 Distributions dropped as supported:
 
- - Ubuntu LTS <17
- - Fedora <29
- - RHEL 3, 4 and 5
+ - Ubuntu LTS <18
+ - Fedora <30
+ - RHEL 3, 4, 5, and 6
  - SLES <12
  - openSUSE <11
  - Debian <8
