@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3319 Issue closed: Checking where ReaR sources files with '.' and trying to verify those cases - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3319 Issue closed: Checking where ReaR sources files with \u0027.\u0027 and trying to verify those cases";
+        var mkdocs_page_input_path = "issues/2024-09-17.3319.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3319 Issue closed: Checking where ReaR sources files with '.' and trying to verify those cases</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3319_issue_closed_checking_where_rear_sources_files_with_and_trying_to_verify_those_cases"><a href="https://github.com/rear/rear/issues/3319">#3319 Issue</a> <code>closed</code>: Checking where ReaR sources files with '.' and trying to verify those cases<a class="headerlink" href="#3319_issue_closed_checking_where_rear_sources_files_with_and_trying_to_verify_those_cases" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-09-17_0907"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3319">2024-09-17 09:07</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-09-17_0907" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2331033842">https://github.com/rear/rear/issues/3260#issuecomment-2331033842</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2248252572">https://github.com/rear/rear/issues/3260#issuecomment-2248252572</a><br />
+(excerpt)</p>
+<pre><code>usr/share/rear/skel/default/bin/dhclient-script:
+                    . ${f}
+            . ${ETCDIR}/dhclient-${interface}-down-hooks
+            . ${ETCDIR}/dhclient-down-hooks
+                    . ${f}
+
+usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh:
+        . ${ETCDIR}/dhclient-exit-hooks
+            . ${ETCDIR}/dhclient-${interface}-up-hooks
+            . ${ETCDIR}/dhclient-up-hooks
+
+usr/share/rear/skel/default/etc/scripts/run-syslog:
+    . /usr/share/rear/lib/layout-functions.sh
+
+usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh:
+. /usr/share/rear/lib/global-functions.sh
+. /usr/share/rear/lib/network-functions.sh
+
+usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh:
+       . ./GxCmd
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-09-17_0923"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355010955">2024-09-17 09:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_0923" title="Permanent link">&para;</a></h4>
+<p>Regarding</p>
+<pre><code>usr/share/rear/skel/default/bin/dhclient-script:
+                    . ${f}
+            . ${ETCDIR}/dhclient-${interface}-down-hooks
+            . ${ETCDIR}/dhclient-down-hooks
+                    . ${f}
+
+usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh:
+        . ${ETCDIR}/dhclient-exit-hooks
+            . ${ETCDIR}/dhclient-${interface}-up-hooks
+            . ${ETCDIR}/dhclient-up-hooks
+</code></pre>
+<p>According to</p>
+<pre><code># git log -p --follow usr/share/rear/skel/default/bin/dhclient-script | egrep '^commit| \. '
+...
+commit 38d5bd280654dd4e05a8a408daad8e08925c3ab0
++                    . ${f}
++            . ${ETCDIR}/dhclient-${interface}-down-hooks
++            . ${ETCDIR}/dhclient-down-hooks
++                    . ${f}
+
+# git log -p --follow usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh | egrep '^commit| \. '
+...
+commit 38d5bd280654dd4e05a8a408daad8e08925c3ab0
++        . ${ETCDIR}/dhclient-exit-hooks
++            . ${ETCDIR}/dhclient-${interface}-up-hooks
++            . ${ETCDIR}/dhclient-up-hooks
+</code></pre>
+<p>sourcing via '.' in<br />
+usr/share/rear/skel/default/bin/dhclient-script and<br />
+usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh<br />
+originate from<br />
+<a href="https://github.com/rear/rear/commit/38d5bd280654dd4e05a8a408daad8e08925c3ab0">https://github.com/rear/rear/commit/38d5bd280654dd4e05a8a408daad8e08925c3ab0</a><br />
+which has only this commit message</p>
+<pre><code>Added DHCP client support to rear. Sponsored by J&amp;J.
+</code></pre>
+<p>but this commit is also where<br />
+usr/share/rear/lib/network-functions.sh<br />
+originated and this contains</p>
+<pre><code>+# set of functions that will be used by our own implementation
++# of dhclient-script, but these can/could be used by other
++# scripts as well
++#
++# Most of the functions are coming from the fedora dhclient-script
+</code></pre>
+<p>So I guess that also<br />
+usr/share/rear/skel/default/bin/dhclient-script and<br />
+usr/share/rear/skel/default/etc/scripts/dhcp-setup-functions.sh<br />
+came from Fedora at the time of that commit<br />
+i.e. on Dec 10, 2010</p>
+<p>On the one hand this indicates that this code in ReaR<br />
+could be OK (because we may assume Fedora code is OK).</p>
+<p>On the other hand this code in ReaR is rather old<br />
+(more than 13 years meanwhile) and I assume<br />
+possible (security) bug fixes at Fedora<br />
+were not backported into ReaR.</p>
+<p>This code in ReaR should be checked if it is considered<br />
+to be still sufficiently OK for what ReaR needs<br />
+(DHCP client support in the ReaR recovery system)<br />
+so I filed<br />
+<a href="https://github.com/rear/rear/issues/3320">https://github.com/rear/rear/issues/3320</a></p>
+<h4 id="pcahyna_commented_at_2024-09-17_0931"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355033810">2024-09-17 09:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-09-17_0931" title="Permanent link">&para;</a></h4>
+<p>I would like to use some more sophisticated parser to identify this use
+of <code>.</code>, but I have not started this yet.</p>
+<p>If you want to make sure that no <code>.</code> is used and <code>source</code> is used
+instead, <code>enable -n .</code> is your friend. The <code>bash</code> manual says about <code>.</code>
+that "This builtin is equivalent to ‘source’.", but they can be enabled
+or disabled separately:</p>
+<pre><code>$ cat print_foo 
+echo foo
+$ enable -n .
+$ source print_foo 
+foo
+$ . print_foo 
+bash: .: command not found
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-09-17_0932"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355037630">2024-09-17 09:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_0932" title="Permanent link">&para;</a></h4>
+<p>Regarding</p>
+<pre><code>usr/share/rear/skel/default/etc/scripts/run-syslog:
+    . /usr/share/rear/lib/layout-functions.sh
+
+usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh:
+. /usr/share/rear/lib/global-functions.sh
+. /usr/share/rear/lib/network-functions.sh
+</code></pre>
+<p>/usr/share/rear/lib/layout-functions.sh<br />
+/usr/share/rear/lib/global-functions.sh<br />
+/usr/share/rear/lib/network-functions.sh<br />
+are ReaR's own files so no third-party file is sourced here.</p>
+<p>I will replace '.' by 'source' - done right now via<br />
+<a href="https://github.com/rear/rear/commit/d19d51993853e763c1aba5f9828075acf0dfdf07">https://github.com/rear/rear/commit/d19d51993853e763c1aba5f9828075acf0dfdf07</a><br />
+and<br />
+<a href="https://github.com/rear/rear/commit/a1bcb21a54cb27a7e2ce5564a7ef05b79c5cdacd">https://github.com/rear/rear/commit/a1bcb21a54cb27a7e2ce5564a7ef05b79c5cdacd</a></p>
+<h4 id="jsmeix_commented_at_2024-09-17_0955"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355118862">2024-09-17 09:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_0955" title="Permanent link">&para;</a></h4>
+<p>Regarding</p>
+<pre><code>usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh:
+       . ./GxCmd
+</code></pre>
+<p>From plain looking at the code I cannot make sense of it.<br />
+In particular 'GxCmd' appears only in<br />
+usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh<br />
+(excerpts)</p>
+<pre><code># GxCmd checks for $# and calls the GxCmdLine script if there are any cmdline args.
+...
+        . ./GxCmd
+...
+        ./GxCmd -cmd restore ...
+</code></pre>
+<p>so it seems GxCmd (and GxCmdLine) belong to<br />
+the BACKUP=GALAXY software.<br />
+In this case it is probably OK to source GxCmd<br />
+because the BACKUP=GALAXY software can be trusted.<br />
+Nevertheless it should be verified whether or not<br />
+my above assumption that '. ./GxCmd' can be trusted<br />
+actually holds so I filed<br />
+<a href="https://github.com/rear/rear/issues/3321">https://github.com/rear/rear/issues/3321</a></p>
+<p>I will replace '.' by 'source' - done right now via<br />
+<a href="https://github.com/rear/rear/commit/f3de9e84949f181b5eb8ab8a1e702e87c5d236d5">https://github.com/rear/rear/commit/f3de9e84949f181b5eb8ab8a1e702e87c5d236d5</a></p>
+<h4 id="jsmeix_commented_at_2024-09-17_1028"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355234467">2024-09-17 10:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_1028" title="Permanent link">&para;</a></h4>
+<p>All cases that I found and listed in this issue<br />
+are now done so I close this issue as done.</p>
+<p>For possibly further cases where '.' is used<br />
+to source files, see<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2355192852">https://github.com/rear/rear/issues/3260#issuecomment-2355192852</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2355205283">https://github.com/rear/rear/issues/3260#issuecomment-2355205283</a></p>
+<h4 id="jsmeix_commented_at_2024-09-17_1049"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2355300400">2024-09-17 10:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_1049" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/issues/3319#issuecomment-2355033810">https://github.com/rear/rear/issues/3319#issuecomment-2355033810</a><br />
+in particular the part about <code>enable -n .</code></p>
+<p>'man bash' reads</p>
+<pre><code>enable [-a] [-dnps] [-f filename] [name ...]
+  Enable and disable builtin shell commands.
+  Disabling a builtin allows a disk command
+  which has the same name as a shell builtin
+  to be  executed ...
+</code></pre>
+<p>Could it be ever possible that a disk command<br />
+named '.' can exist?<br />
+I think it cannot because '.' is the current directory<br />
+but I don't know for sure.</p>
+<p>In ReaR we use already in<br />
+usr/share/rear/lib/_input-output-functions.sh</p>
+<pre><code># Make sure nobody else can use trap:
+function trap () {
+    BugError "Forbidden usage of trap with '$*'. Use AddExitTask instead."
+}
+</code></pre>
+<p>which seems to also work:</p>
+<pre><code># function . () { echo "Forbidden usage of '.'" ; }
+
+# type -a .
+. is a function
+. () 
+{ 
+    echo "Forbidden usage of '.'"
+}
+. is a shell builtin
+
+# . print_foo
+Forbidden usage of '.'
+
+# builtin . print_foo
+foo
+</code></pre>
+<p>Perhaps it is better to use a '.' function?<br />
+In both cases one can still call the shell builtin '.'<br />
+via 'builtin':</p>
+<pre><code># unset -f .
+
+# type -a .
+. is a shell builtin
+
+# enable -n .
+
+# type -a .
+bash: type: .: not found
+
+# builtin . print_foo
+foo
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-09-19_0958"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2360546784">2024-09-19 09:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-19_0958" title="Permanent link">&para;</a></h4>
+<p>I think it is better to use a '.' function<br />
+instead of <code>enable -n .</code> because with a function<br />
+we can implement what should happen when '.' is used<br />
+(e.g. BugError or whatever else we like).</p>
+<p>I tested with current GitHub master code<br />
+if '.' is used in my personal test case<br />
+by adding at the beginning of sbin/rear</p>
+<pre><code>function . () { echo "Forbidden usage of '.'" ; exit 99 ; }
+</code></pre>
+<p>My personal test case etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS=( "${REQUIRED_PROGS[@]}" snapper chattr lsattr )
+COPY_AS_IS=( "${COPY_AS_IS[@]}" /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+BACKUP_PROG_INCLUDE=( /boot/grub2/x86_64-efi /boot/grub2/i386-pc /home /opt /root /srv /tmp /var /usr/local )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+USE_SERIAL_CONSOLE=''
+</code></pre>
+<p>on a SLES15-SP6 test VM with 15 GiB disk and default btrfs structure.</p>
+<p>I tested the following workflows</p>
+<ul>
+<li>mkbackup</li>
+<li>recover (on another test VM)</li>
+<li>help</li>
+<li>checklayout</li>
+<li>dump</li>
+<li>savelayout</li>
+<li>shell</li>
+<li>validate</li>
+</ul>
+<p>All worked for me in my personal test case.<br />
+Of course this cannot check if '.' is used for other use cases.</p>
+<h4 id="jsmeix_commented_at_2024-09-20_1156"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3319#issuecomment-2363556217">2024-09-20 11:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-20_1156" title="Permanent link">&para;</a></h4>
+<p>While thinking about<br />
+using a '.' function to forbid usage of '.'<br />
+it crossed my mind<br />
+that we could also use a 'source' wrapper function<br />
+so normal usage of 'source' in scripts<br />
+calls our 'source' wrapper function<br />
+so we get a central place in ReaR<br />
+where we keep control over what is sourced<br />
+and where we could implement what we need<br />
+like path-based checks or whatever else<br />
+(e.g. log details in debug mode).</p>
+<p>Of course this is not for ReaR 3.0<br />
+but for a ReaR version after ReaR 3.0.</p>
+<p>What I will never ever do again is to<br />
+manually search in a clumsy and annoying way<br />
+through all our code where something is sourced.</p>
+<p>I did a quick proof of concept<br />
+with current GitHub master code<br />
+by adding at the beginning of sbin/rear</p>
+<pre><code>function source () { echo "Sourcing '$*'" 1&gt;&amp;2 ; builtin source "$@" ; }
+</code></pre>
+<p>on the same SLES15-SP6 test VM<br />
+with 15 GiB disk and default btrfsstructure as above and<br />
+"rear -D mkrescue" worked for my particular test case.</p>
+<p>Redirection to stderr is mandatory in the 'source' function<br />
+otherwise things badly error out in 400_copy_modules.sh<br />
+which happens - as far as I see at first glance - because of<br />
+usr/share/rear/rescue/GNU/Linux/220_load_modules_from_initrd.sh</p>
+<pre><code># Fedora, Red Hat &amp; new SUSE uses dracut
+if test -s /etc/dracut.conf ; then
+    MODULES_LOAD+=(
+        $(
+            add_drivers=
+            source /etc/dracut.conf
+            for s in /etc/dracut.conf.d/*.conf ; do
+                source $s
+            done
+            echo $add_drivers
+        )
+    )
+fi
+</code></pre>
+<p>cf.
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244555297">https://github.com/rear/rear/issues/3285#issuecomment-2244555297</a></p>
+<p>So stdout of 'source ...' gets added to MODULES_LOAD<br />
+which makes 400_copy_modules.sh error out with</p>
+<pre><code>Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+ERROR: Sourcing loaded or to be loaded but no module file?
+</code></pre>
+<p>when 'Sourcing' appears on stdout of the 'source' wrapper function.</p>
+<p>By the way:<br />
+I found the reason why 400_copy_modules.sh errors out<br />
+rather fast and easily via</p>
+<pre><code># grep '^Sourcing ' var/log/rear/rear-localhost.log | grep -v 'usr/share/rear/'
+Sourcing '/root/rear.github.master/etc/rear/local.conf'
+Sourcing '/etc/dracut.conf'
+Sourcing '/etc/dracut.conf.d/10-persistent_policy.conf'
+Sourcing '/etc/dracut.conf.d/99-debug.conf'
+Sourcing '/etc/dracut.conf.d/ostree.conf'
+</code></pre>
+<p>i.e. the /etc/dracut.conf* files are the only ones<br />
+we 'source' which look "suspicious" ;-)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-09-17.3319.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

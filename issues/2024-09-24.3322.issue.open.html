@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3322 Issue open: BUG in /usr/share/rear/output/USB/Linux-i386/850_make_USB_bootable.sh line 12: RAW_USB_DEVICE and REAL_USB_DEVICE are not both set - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3322 Issue open: BUG in /usr/share/rear/output/USB/Linux-i386/850_make_USB_bootable.sh line 12: RAW_USB_DEVICE and REAL_USB_DEVICE are not both set";
+        var mkdocs_page_input_path = "issues/2024-09-24.3322.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3322 Issue open: BUG in /usr/share/rear/output/USB/Linux-i386/850_make_USB_bootable.sh line 12: RAW_USB_DEVICE and REAL_USB_DEVICE are not both set</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3322_issue_open_bug_in_usrsharerearoutputusblinux-i386850_make_usb_bootablesh_line_12_raw_usb_device_and_real_usb_device_are_not_both_set"><a href="https://github.com/rear/rear/issues/3322">#3322 Issue</a> <code>open</code>: BUG in /usr/share/rear/output/USB/Linux-i386/850_make_USB_bootable.sh line 12: RAW_USB_DEVICE and REAL_USB_DEVICE are not both set<a class="headerlink" href="#3322_issue_open_bug_in_usrsharerearoutputusblinux-i386850_make_usb_bootablesh_line_12_raw_usb_device_and_real_usb_device_are_not_both_set" title="Permanent link">&para;</a></h1>
+<h4 id="macmikey_opened_issue_at_2024-09-24_1639"><img src="https://avatars.githubusercontent.com/u/10867016?u=29fe82deebf251cad82857c210034673b2d73590&v=4" width="50"><a href="https://github.com/macMikey">macMikey</a> opened issue at <a href="https://github.com/rear/rear/issues/3322">2024-09-24 16:39</a>:<a class="headerlink" href="#macmikey_opened_issue_at_2024-09-24_1639" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"): Relax-and-Recover 2.7 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    NAME="Red Hat Enterprise Linux Server"<br />
+    VERSION="7.9 (Maipo)"<br />
+    ID="rhel"<br />
+    ID_LIKE="fedora"<br />
+    VARIANT="Server"<br />
+    VARIANT_ID="server"<br />
+    VERSION_ID="7.9"<br />
+    PRETTY_NAME="Red Hat Enterprise Linux"<br />
+    ANSI_COLOR="0;31"<br />
+    CPE_NAME="cpe:/o:redhat:enterprise_linux:7.9:GA:server"<br />
+    HOME_URL="<a href="https://www.redhat.com/">https://www.redhat.com/</a>"<br />
+    BUG_REPORT_URL="<a href="https://bugzilla.redhat.com/">https://bugzilla.redhat.com/</a>"</p>
+</li>
+</ul>
+<p>REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 7"<br />
+REDHAT_BUGZILLA_PRODUCT_VERSION=7.9<br />
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"<br />
+REDHAT_SUPPORT_PRODUCT_VERSION="7.9"</p>
+<ul>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    OUTPUT=USB<br />
+    BACKUP=NETFS<br />
+    BACKUP_URL="usb:///dev/disk/by-label/REAR-000"</p>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    SMBIOS 3.0.0 present.</p>
+</li>
+</ul>
+<p>Handle 0x0001, DMI type 1, 27 bytes<br />
+System Information<br />
+Manufacturer: HPE<br />
+Product Name: ProLiant MicroServer Gen10<br />
+Version: Rev B<br />
+Serial Number: 7CE732P0J5<br />
+UUID: ba8f516f-b1a5-2d41-91db-98f2b3e87446<br />
+Wake-up Type: Power Switch<br />
+SKU Number: 870208-001<br />
+Family: ProLiant</p>
+<p>Handle 0x001A, DMI type 12, 5 bytes<br />
+System Configuration Options<br />
+Option 1: Default string</p>
+<p>Handle 0x0021, DMI type 32, 20 bytes<br />
+System Boot Information<br />
+Status: No errors detected</p>
+<ul>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    GRUB<br />
+    SMBIOS 3.0.0 present.</p>
+</li>
+</ul>
+<p>Handle 0x0000, DMI type 0, 24 bytes<br />
+BIOS Information<br />
+Vendor: American Megatrends Inc.<br />
+Version: 5.12<br />
+Release Date: 06/05/2017<br />
+Address: 0xF0000<br />
+Runtime Size: 64 kB<br />
+ROM Size: 8192 kB<br />
+Characteristics:<br />
+PCI is supported<br />
+BIOS is upgradeable<br />
+BIOS shadowing is allowed<br />
+Boot from CD is supported<br />
+Selectable boot is supported<br />
+BIOS ROM is socketed<br />
+EDD is supported<br />
+5.25"/1.2 MB floppy services are supported (int 13h)<br />
+3.5"/720 kB floppy services are supported (int 13h)<br />
+3.5"/2.88 MB floppy services are supported (int 13h)<br />
+Print screen service is supported (int 5h)<br />
+Serial services are supported (int 14h)<br />
+Printer services are supported (int 17h)<br />
+ACPI is supported<br />
+USB legacy is supported<br />
+BIOS boot specification is supported<br />
+Targeted content distribution is supported<br />
+UEFI is supported<br />
+BIOS Revision: 5.12</p>
+<p>Handle 0x0055, DMI type 13, 22 bytes<br />
+BIOS Language Information<br />
+Language Description Format: Long<br />
+Installable Languages: 1<br />
+en|US|iso8859-1<br />
+Currently Installed Language: en|US|iso8859-1</p>
+<ul>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    local SSD</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    see title</p>
+</li>
+<li>
+<p>Workaround, if any:</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</p>
+</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code>verbatim content
+</code></pre>
+<p><a href="https://github.com/user-attachments/files/17117783/rear-toaster.log">rear-toaster.log</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-09-24.3322.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
