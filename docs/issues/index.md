@@ -3402,6 +3402,19 @@
 - [\#3308 PR](2024-09-03.3308.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh show relative paths in user messages for files in ROOTFS\_DIR
 - [\#3309 PR](2024-09-05.3309.pr.merged.md) `merged`: BACKUP=NSR: Deprecate 650\_check\_iso\_recoverable.sh
 - [\#3310 PR](2024-09-05.3310.pr.open.md) `open`: Update README.adoc
+- [\#3311 Issue](2024-09-05.3311.issue.closed.md) `closed`: Any thoughts why we can't use `find_device` here?
 - [\#3311 Issue](2024-09-05.3311.issue.open.md) `open`: Any thoughts why we can't use `find_device` here?
+- [\#3312 PR](2024-09-06.3312.pr.merged.md) `merged`: \#3178 improve USB device detection
 - [\#3312 PR](2024-09-06.3312.pr.open.md) `open`: \#3178 improve USB device detection
+- [\#3313 Issue](2024-09-06.3313.issue.closed.md) `closed`: testing-farm:fedora-39-x86\_64 issue with the backup & recovery tests
+- [\#3314 PR](2024-09-06.3314.pr.merged.md) `merged`: Request BIOS for backup and restore tests
+- [\#3315 Issue](2024-09-08.3315.issue.open.md) `open`: ReaR BACKUP=BACULA director not responding but bacula works perfectly on ubuntu 20.04 how to resove
+- [\#3316 Issue](2024-09-09.3316.issue.open.md) `open`: Question : Does REAR can backup OracleASM shared disk ?
+- [\#3317 PR](2024-09-09.3317.pr.merged.md) `merged`: Disable the backup & recovery test on Fedora
+- [\#3318 PR](2024-09-13.3318.pr.open.md) `open`: Create wiki-release-notes.yml
+- [\#3319 Issue](2024-09-17.3319.issue.closed.md) `closed`: Checking where ReaR sources files with '.' and trying to verify those cases
+- [\#3320 Issue](2024-09-17.3320.issue.open.md) `open`: Check sourcing via '.' in DHCP client support code
+- [\#3321 Issue](2024-09-17.3321.issue.open.md) `open`: BACKUP=GALAXY: Verify that sourcing ./GxCmd can be trusted
+- [\#3322 Issue](2024-09-24.3322.issue.open.md) `open`: BUG in /usr/share/rear/output/USB/Linux-i386/850\_make\_USB\_bootable.sh line 12: RAW\_USB\_DEVICE and REAL\_USB\_DEVICE are not both set
+- [\#3324 Issue](2024-09-30.3324.issue.open.md) `open`: Creating BMR ISO for Rubrik Recovery
 - # Issues History of Relax-and-Recover (index.md)
