@@ -16,8 +16,11 @@ BACKUP_URL=nfs://<NFS_SERVER_IP>/path/to/backup
 2. Explanation:
 
 * `OUTPUT=ISO`: Specifies that the output should be a bootable ISO image.
+
 * `BACKUP=NETFS`: Uses the NETFS method for backup, which supports network file systems like NFS.
+
 * `BACKUP_OPTIONS="nfsvers=3,nolock"`: Sets the NFS mount options. Here, it specifies NFS version 3 and disables file locking.
+
 * `BACKUP_URL=nfs://<NFS_SERVER_IP>/path/to/backup`: The URL of the NFS server where the backup will be stored. Replace <NFS_SERVER_IP> with the actual IP address of your NFS server and /path/to/backup with the actual path on the NFS server.
 
 ## Running the Backup
