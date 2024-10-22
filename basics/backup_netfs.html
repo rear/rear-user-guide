@@ -150,32 +150,20 @@
                 <h1 id="configuring_backupnetfs_example">Configuring BACKUP=NETFS example<a class="headerlink" href="#configuring_backupnetfs_example" title="Permanent link">&para;</a></h1>
 <p>This configuration will create a bootable ISO image and store the backup on an NFS server.</p>
 <h2 id="configuration_example">Configuration Example<a class="headerlink" href="#configuration_example" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Create or edit the local.conf file:</li>
-</ol>
+<p>Create or edit the local.conf file:</p>
 <p> <pre><code class=bash># /etc/rear/local.conf
 OUTPUT=ISO
 BACKUP=NETFS
 BACKUP_OPTIONS=&quot;nfsvers=3,nolock&quot;
 BACKUP_URL=nfs://&lt;NFS_SERVER_IP&gt;/path/to/backup
 </code></pre></p>
-<ol>
-<li>
 <p>Explanation:</p>
-</li>
-<li>
-<p><code>OUTPUT=ISO</code>: Specifies that the output should be a bootable ISO image.</p>
-</li>
-<li>
-<p><code>BACKUP=NETFS</code>: Uses the NETFS method for backup, which supports network file systems like NFS.</p>
-</li>
-<li>
-<p><code>BACKUP_OPTIONS="nfsvers=3,nolock"</code>: Sets the NFS mount options. Here, it specifies NFS version 3 and disables file locking.</p>
-</li>
-<li>
-<p><code>BACKUP_URL=nfs://&lt;NFS_SERVER_IP&gt;/path/to/backup</code>: The URL of the NFS server where the backup will be stored. Replace <NFS_SERVER_IP> with the actual IP address of your NFS server and /path/to/backup with the actual path on the NFS server.</p>
-</li>
-</ol>
+<ul>
+<li><code>OUTPUT=ISO</code>: Specifies that the output should be a bootable ISO image.</li>
+<li><code>BACKUP=NETFS</code>: Uses the NETFS method for backup, which supports network file systems like NFS.</li>
+<li><code>BACKUP_OPTIONS="nfsvers=3,nolock"</code>: Sets the NFS mount options. Here, it specifies NFS version 3 and disables file locking.</li>
+<li><code>BACKUP_URL=nfs://&lt;NFS_SERVER_IP&gt;/path/to/backup</code>: The URL of the NFS server where the backup will be stored. Replace <NFS_SERVER_IP> with the actual IP address of your NFS server and /path/to/backup with the actual path on the NFS server.</li>
+</ul>
 <h2 id="running_the_backup">Running the Backup<a class="headerlink" href="#running_the_backup" title="Permanent link">&para;</a></h2>
 <p>To create the backup, run the following command:</p>
 <p> <pre><code class=bash>rear -v mkbackup
