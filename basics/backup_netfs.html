@@ -85,6 +85,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#configuration_example">Configuration Example</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running_the_backup">Running the Backup</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -151,24 +153,27 @@
 <ol>
 <li>Create or edit the local.conf file:</li>
 </ol>
-<p>``bash</p>
-<h1 id="etcrearlocalconf">/etc/rear/local.conf<a class="headerlink" href="#etcrearlocalconf" title="Permanent link">&para;</a></h1>
-<p>OUTPUT=ISO
+<p> <pre><code class=bash># /etc/rear/local.conf
+OUTPUT=ISO
 BACKUP=NETFS
-BACKUP_OPTIONS="nfsvers=3,nolock"
-BACKUP_URL=nfs://<NFS_SERVER_IP>/path/to/backup
-``
-2. Explanation:</p>
-<ul>
-<li><code>OUTPUT=ISO</code>: Specifies that the output should be a bootable ISO image.</li>
+BACKUP_OPTIONS=&quot;nfsvers=3,nolock&quot;
+BACKUP_URL=nfs://&lt;NFS_SERVER_IP&gt;/path/to/backup
+</code></pre></p>
+<ol>
+<li>
+<p>Explanation:</p>
+</li>
+<li>
+<p><code>OUTPUT=ISO</code>: Specifies that the output should be a bootable ISO image.</p>
+</li>
 <li><code>BACKUP=NETFS</code>: Uses the NETFS method for backup, which supports network file systems like NFS.</li>
 <li><code>BACKUP_OPTIONS="nfsvers=3,nolock"</code>: Sets the NFS mount options. Here, it specifies NFS version 3 and disables file locking.</li>
 <li><code>BACKUP_URL=nfs://&lt;NFS_SERVER_IP&gt;/path/to/backup</code>: The URL of the NFS server where the backup will be stored. Replace <NFS_SERVER_IP> with the actual IP address of your NFS server and /path/to/backup with the actual path on the NFS server.</li>
-</ul>
+</ol>
 <h2 id="running_the_backup">Running the Backup<a class="headerlink" href="#running_the_backup" title="Permanent link">&para;</a></h2>
 <p>To create the backup, run the following command:</p>
-<p><code>bash
-rear -v mkbackup</code></p>
+<p> <pre><code class=bash>rear -v mkbackup
+</code></pre></p>
 <p>This command will create the backup and store it on the specified NFS share.</p>
               
             </div>
