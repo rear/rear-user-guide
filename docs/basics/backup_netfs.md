@@ -6,13 +6,13 @@ This configuration will create a bootable ISO image and store the backup on an N
 
 1. Create or edit the local.conf file:
 
-``bash
+```bash
 # /etc/rear/local.conf
 OUTPUT=ISO
 BACKUP=NETFS
 BACKUP_OPTIONS="nfsvers=3,nolock"
 BACKUP_URL=nfs://<NFS_SERVER_IP>/path/to/backup
-``
+```
 2. Explanation:
 
 * `OUTPUT=ISO`: Specifies that the output should be a bootable ISO image.
@@ -24,8 +24,8 @@ BACKUP_URL=nfs://<NFS_SERVER_IP>/path/to/backup
 
 To create the backup, run the following command:
 
-``bash
+```bash
 rear -v mkbackup
-``
+```
 
 This command will create the backup and store it on the specified NFS share.
