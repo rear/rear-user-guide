@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3288 Issue closed: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3288 Issue closed: Can\u0027t Restore ReaR backup on RHEL9 (ISO image got corrupted)";
+        var mkdocs_page_input_path = "issues/2024-07-20.3288.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3288 Issue closed: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3288_issue_closed_cant_restore_rear_backup_on_rhel9_iso_image_got_corrupted"><a href="https://github.com/rear/rear/issues/3288">#3288 Issue</a> <code>closed</code>: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted)<a class="headerlink" href="#3288_issue_closed_cant_restore_rear_backup_on_rhel9_iso_image_got_corrupted" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="msharif4_opened_issue_at_2024-07-20_1613"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> opened issue at <a href="https://github.com/rear/rear/issues/3288">2024-07-20 16:13</a>:<a class="headerlink" href="#msharif4_opened_issue_at_2024-07-20_1613" title="Permanent link">&para;</a></h4>
+<p>Hi ReaR team,<br />
+I installed ReaR in a rhel9 server and configured it. I took a full
+backup last week, and now the server is not working after patching it. I
+am trying to restore the server from the ReaR backup. However, I am
+getting an error <strong>"failed to load ldlinux.c32".</strong> The backup was stored
+in an NFS share, and I am using the Iventoy tool to boot the system from
+the network. I have both the iso file and the zip file with full backup.
+Did misconfigure the /etc/local.conf file? Now, can I restore the backup
+when the system is only starting on rescue mode? I am stressed out and
+desperate; please help me out. Below is the configuration file content,
+and the second one is the backup directory files list.</p>
+<pre><code>OUTPUT_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+#NETFS_KEEP_OLD_BACKUP_COPY=y
+BACKUP_TYPE=incremental
+FULLBACKUPDAY=( Sun )
+
+[root@pxe iso]# ll rhel-server-02/
+total 4135152
+-rw-------. 1 root root 3592429931 Jul 19 18:24 2024-07-19-0000-F.tar.gz
+-rw-------. 1 root root    9372601 Jul 19 18:24 backup.log
+-rw-------. 1 root root        202 Jul 19 18:24 README
+-rw-------. 1 root root  631203840 Jul 19 18:24 rear-rhel-server-02.iso
+-rw-------. 1 root root     169446 Jul 19 18:24 rear-rhel-server-02.log
+-rw-------. 1 root root          0 Jul 19 18:24 selinux.autorelabel
+-rw-------. 1 root root        287 Jul 19 18:24 VERSION
+</code></pre>
+<p>I appreciate your help.<br />
+<img alt="Screenshot 2024-07-19
+180258" src="https://github.com/user-attachments/assets/8a338902-3da1-4b0e-9773-1fbc59354205" /></p>
+<h4 id="abbbi_commented_at_2024-07-20_1703"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241212973">2024-07-20 17:03</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-20_1703" title="Permanent link">&para;</a></h4>
+<p>i dont know about iventoy, you may consider booting the iso in a
+different way. I guess the iso image thats been created may not be
+compatible to PXE boot.</p>
+<p>To be able to boot the generated ISO Image via PXE you would have
+needed<code>OUTPUT=PXE</code> in your configuration file (which is not present,
+see:
+<a href="https://relax-and-recover.org/rear-user-guide/basics/configuration.html">https://relax-and-recover.org/rear-user-guide/basics/configuration.html</a>)</p>
+<p>The generated ISO image may only boot via USB or using an emulated ISO
+image forward via the servers remote console (or other ways to attach
+the iso image virtually, if not possible on site)</p>
+<h4 id="msharif4_commented_at_2024-07-20_1832"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241255098">2024-07-20 18:32</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-20_1832" title="Permanent link">&para;</a></h4>
+<p>I included OUTPUT=PXE and ran the command rear -v mkbackup, and it ran
+successfully. However, it didn't include an iso file. Just curious that
+without an iso, how can we restore the backup through PXE? Updated
+/etc/rear/local.conf file contents and backup file's content. Is there
+anything else that needs to be done?</p>
+<pre><code>OUTPUT=PXE
+OUTPUT_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+#NETFS_KEEP_OLD_BACKUP_COPY=y
+BACKUP_TYPE=incremental
+FULLBACKUPDAY=( Sun )
+
+root@backup:/mnt/backup/rhel-server-03# ll
+-rw------- 1 root root 1675321694 Jul 20 11:00 2024-07-20-1053-F.tar.gz
+-rw------- 1 root root    5005087 Jul 20 11:00 backup.log
+-rw------- 1 root root        516 Jul 20 10:56 README
+-rw------- 1 root root        489 Jul 20 10:56 rear-rhel-server-03
+-rw------- 1 root root     155071 Jul 20 10:56 rear-rhel-server-03.log
+-rw------- 1 root root          0 Jul 20 11:00 selinux.autorelabel
+-r-------- 1 root root  615039052 Jul 20 10:56 rhel-server-03.initrd.cgz
+-r-------- 1 root root   13609080 Jul 20 10:56 rhel-server-03.kernel
+-r-------- 1 root root        282 Jul 20 10:56 rhel-server-03.message
+-rw------- 1 root root        282 Jul 20 10:56 VERSION
+</code></pre>
+<p>Thanks,</p>
+<h4 id="msharif4_commented_at_2024-07-20_1937"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241272027">2024-07-20 19:37</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-20_1937" title="Permanent link">&para;</a></h4>
+<p>It didn't allow me to attach it as an attachment so it got uploaded to
+the<br />
+Google drive. It's a virtual machine that created Linux KVM. Please let
+me<br />
+know if anything else is needed. Thanks</p>
+<p>Edit: I removed the ISO link; I wasn't sure if it's publicly
+available.<br />
+On Sat, Jul 20, 2024 at 10:04 AM Michael Ablassmeier &lt;<br />
+***@***.***&gt; wrote:</p>
+<blockquote>
+<p>more info required.<br />
+you may want to share the iso image youve created. Could it be that
+the<br />
+system in question is an UEFI system and youre attempting to boot
+via<br />
+regular BIOS and SYSLINUX while the iso image is an UEFI bootable?</p>
+<p>—<br />
+Reply to this email directly, view it on GitHub<br />
+<a href="https://github.com/rear/rear/issues/3288#issuecomment-2241212973">https://github.com/rear/rear/issues/3288#issuecomment-2241212973</a>,
+or<br />
+unsubscribe<br />
+<a href="https://github.com/notifications/unsubscribe-auth/BGF7YZTTFMVFHQWV37V2UZLZNKKABAVCNFSM6AAAAABLGBSWSGVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDENBRGIYTEOJXGM">https://github.com/notifications/unsubscribe-auth/BGF7YZTTFMVFHQWV37V2UZLZNKKABAVCNFSM6AAAAABLGBSWSGVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDENBRGIYTEOJXGM</a><br />
+.<br />
+You are receiving this because you authored the thread.Message ID:<br />
+***@***.***&gt;</p>
+</blockquote>
+<h4 id="abbbi_commented_at_2024-07-20_2032"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241286934">2024-07-20 20:32</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-20_2032" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I included OUTPUT=PXE</p>
+</blockquote>
+<p>yes, in this situation an initrd an kernel image are stored with the
+backups instead of an ISO image.</p>
+<blockquote>
+<p>-r-------- 1 root root 615039052 Jul 20 10:56
+rhel-server-03.initrd.cgz<br />
+-r-------- 1 root root 13609080 Jul 20 10:56 rhel-server-03.kernel</p>
+</blockquote>
+<p>which can then be booted via PXE, depending on the environment you need
+to place these files on an PXE boot<br />
+server which serves these via TFTP to boot.</p>
+<p>The main problem however is why the generated iso image does not boot.</p>
+<h4 id="abbbi_commented_at_2024-07-20_2040"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241288862">2024-07-20 20:40</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-20_2040" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>rear-bitwarden.iso</p>
+</blockquote>
+<p>i loop mounted the iso image on my system and it seems like most files
+within the generated iso image are corrupted. The iso images contents
+dont look sane to me. So either there has been a problem during creation
+of the iso image or it has been corrupted by a third party (like
+storage, even some anti-virus software are known to alter files they
+think they are suspicious to them).</p>
+<p>The syslinux files and especially the file which cant be loaded during
+boot are usually ELF executable files:</p>
+<pre><code>file /usr/lib/syslinux/modules/bios/ldlinux.c32
+/usr/lib/syslinux/modules/bios/ldlinux.c32: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, stripped
+</code></pre>
+<p>but within your iso image most of them are only "data" files containing
+basically only zeroes, even the kernel and initrd:</p>
+<pre><code>/mnt/isolinux/ 
+hexdump -C kernel
+00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+*
+00cf9870  00 00 00 00 00 00 00 00                           |........|
+</code></pre>
+<p>some files are OK, but most of them are corrupt:</p>
+<pre><code>mount -o loop rear-bitwarden.iso /mnt
+file /mnt/isolinux/*
+/mnt/isolinux/boot.cat:     data
+/mnt/isolinux/chain.c32:    ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, stripped
+/mnt/isolinux/hdt.c32:      ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, stripped
+/mnt/isolinux/initrd.cgz:   data
+/mnt/isolinux/isolinux.bin: data
+/mnt/isolinux/isolinux.cfg: data
+/mnt/isolinux/kernel:       data
+/mnt/isolinux/ldlinux.c32:  data
+/mnt/isolinux/libcom32.c32: data
+/mnt/isolinux/libgpl.c32:   data
+/mnt/isolinux/libmenu.c32:  data
+/mnt/isolinux/libutil.c32:  data
+/mnt/isolinux/menu.c32:     data
+/mnt/isolinux/message:      data
+/mnt/isolinux/pci.ids:      data
+/mnt/isolinux/poweroff.c32: data
+/mnt/isolinux/rear.help:    data
+/mnt/isolinux/reboot.c32:   data
+/mnt/isolinux/vesamenu.c32: data
+</code></pre>
+<p>This explains why the ISO image does not boot. Either there was an
+broken iso image created (which i doubt) or the image was corrupted due
+to other issues.</p>
+<p>Does the backup log where the ISO Image was created
+(rear-rhel-server-02.log) still exist?</p>
+<h4 id="msharif4_commented_at_2024-07-20_2157"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241306039">2024-07-20 21:57</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-20_2157" title="Permanent link">&para;</a></h4>
+<p>Can you provide me with all the contents that need to be added to the
+local<br />
+.conf file? I added all the content to the ticket. I will be using
+another<br />
+server via NFS to store the backup files. I don’t want to have the
+same<br />
+issue in the future. If you can update the existing content with the<br />
+correct parameters, I can use it.<br />
+I appreciate your help.</p>
+<p>On Sat, Jul 20, 2024 at 1:40 PM Michael Ablassmeier &lt;<br />
+***@***.***&gt; wrote:</p>
+<blockquote>
+<p>rear-bitwarden.iso</p>
+<p>i loop mounted the iso image on my system and it seems like all
+files<br />
+within the generated iso image are somewhat<br />
+broken. The iso images contents dont look sane to me. So either there
+has<br />
+been a problem during creation of the iso image or the storage where
+the<br />
+iso image comes from is broken..</p>
+<p>—<br />
+Reply to this email directly, view it on GitHub<br />
+<a href="https://github.com/rear/rear/issues/3288#issuecomment-2241288862">https://github.com/rear/rear/issues/3288#issuecomment-2241288862</a>,
+or<br />
+unsubscribe<br />
+<a href="https://github.com/notifications/unsubscribe-auth/BGF7YZX3Y5EVEO77PO634JDZNLDMNAVCNFSM6AAAAABLGBSWSGVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDENBRGI4DQOBWGI">https://github.com/notifications/unsubscribe-auth/BGF7YZX3Y5EVEO77PO634JDZNLDMNAVCNFSM6AAAAABLGBSWSGVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDENBRGI4DQOBWGI</a><br />
+.<br />
+You are receiving this because you authored the thread.Message ID:<br />
+***@***.***&gt;</p>
+</blockquote>
+<h4 id="msharif4_commented_at_2024-07-21_0313"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241411791">2024-07-21 03:13</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-21_0313" title="Permanent link">&para;</a></h4>
+<p>No, the log file doesn't exist; I had two cron jobs run an hour apart,
+the first one ran to take backup, and the second one deleted the log
+file. That log file is removed, and the server is not booting up; that's
+why I wanted to restore the backup. Thanks</p>
+<h4 id="msharif4_commented_at_2024-07-21_2215"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2241791586">2024-07-21 22:15</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-21_2215" title="Permanent link">&para;</a></h4>
+<p>Hi, I found the backup.log file. I am attaching it if that helps.
+Thanks,<br />
+[<br />
+<a href="https://github.com/user-attachments/files/16326233/backup.log">backup.log</a><br />
+](url)</p>
+<h4 id="abbbi_commented_at_2024-07-22_0839"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2242405584">2024-07-22 08:39</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-22_0839" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi, I found the backup.log file. I am attaching it if that helps.
+Thanks, [
+<a href="https://github.com/user-attachments/files/16326233/backup.log">backup.log</a>
+](url)</p>
+</blockquote>
+<p>unfortunately not, this is the log of the backup command (tar) not the
+log of the mkrescue step that generated the image.</p>
+<h4 id="msharif4_commented_at_2024-07-23_0108"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2244065212">2024-07-23 01:08</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-23_0108" title="Permanent link">&para;</a></h4>
+<p>When the mkbackup job ran, it created a full backup; I mean, with iso,
+there is also a tar file <strong>2024-07-19-0000-F.tar.gz</strong>, which contains
+all of the directories such as / var, etc. boot, usr, etc. Is there a
+way to restore the server using the .tar.gz file? Thanks</p>
+<h4 id="abbbi_commented_at_2024-07-23_0559"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2244316112">2024-07-23 05:59</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-23_0559" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When the mkbackup job ran, it created a full backup; I mean, with iso,
+there is also a tar file <strong>2024-07-19-0000-F.tar.gz</strong>, which contains
+all of the directories such as / var, etc. boot, usr, etc. Is there a
+way to restore the server using the .tar.gz file? Thanks</p>
+</blockquote>
+<p>without a working iso image it will be complicated. You can only setup a
+system (re-install) with similar layout and restore the contents from
+the file backup (2024-07-19-0000-F.tar.gz) manually as required.</p>
+<h4 id="msharif4_commented_at_2024-07-23_1813"><img src="https://avatars.githubusercontent.com/u/160169062?v=4" width="50"><a href="https://github.com/msharif4">msharif4</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2245934259">2024-07-23 18:13</a>:<a class="headerlink" href="#msharif4_commented_at_2024-07-23_1813" title="Permanent link">&para;</a></h4>
+<p>Understood. I will reinstall the OS and test the file copying process.
+To prevent a similar issue in the future, I believe it's necessary to
+re-configure the local.conf file with the correct parameters. I've added
+the following content to the file and executed the 'rear -v mkbackup'
+command. This command successfully created a full backup, but it did not
+generate a .iso file. Could it be that the 'pxe' value for output field
+in local.conf file is preventing the creation of an iso file? My aim is
+to have a backup that can be restored via network boot.</p>
+<pre><code>OUTPUT=PXE
+OUTPUT_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.1.118/mnt/backup/rhel
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash')
+#NETFS_KEEP_OLD_BACKUP_COPY=y
+BACKUP_TYPE=incremental
+FULLBACKUPDAY=( Sun )
+</code></pre>
+<p>Thanks,</p>
+<h4 id="abbbi_commented_at_2024-07-23_2010"><img src="https://avatars.githubusercontent.com/u/3919561?u=473291dd3dbd58fd0af45714935992a3d416aa6e&v=4" width="50"><a href="https://github.com/abbbi">abbbi</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2246224816">2024-07-23 20:10</a>:<a class="headerlink" href="#abbbi_commented_at_2024-07-23_2010" title="Permanent link">&para;</a></h4>
+<p>OUTPUT=PXE will create two files as explained before. The linux kernel
+image and the initrd (rhel-server-XX[kernel,].initrd.cgz) Both can be
+booted via PXE. Complete ISO images are usually not booted via PXE, the
+PXE boot solution (iventoy) you are using seems to extract required
+contents from the ISO Image to make them boot via PXE.</p>
+<p>On a regular PXE server you only need to place these two files and serve
+them via TFtP to boot from it.</p>
+<p>You can also try with OUTPUT=ISO and create an iso image as before
+(which hopefully is not corrupted this time) and attempt to configure
+this one in your iventoy server, but i dont know if this is going to
+work. It seems iventoy has a curated list of supported ISO images:</p>
+<p><a href="https://www.iventoy.com/en/isolist.html">https://www.iventoy.com/en/isolist.html</a></p>
+<p>it can well be that iventoy cannot handle the REAR iso image due to its
+specific folder layout. Best would probably be to create the iso image
+and test booting it with QEMU/virt-manager, to rule out an general
+issue.</p>
+<h4 id="jsmeix_commented_at_2024-08-27_1345"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2312609202">2024-08-27 13:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-08-27_1345" title="Permanent link">&para;</a></h4>
+<p>@abbbi<br />
+thank you for your help, in particular for<br />
+your debugging what the root cause was, cf.<br />
+<a href="https://github.com/rear/rear/issues/3288#issuecomment-2241288862">https://github.com/rear/rear/issues/3288#issuecomment-2241288862</a></p>
+<h4 id="jsmeix_commented_at_2024-11-08_1505"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3288#issuecomment-2464987472">2024-11-08 15:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-08_1505" title="Permanent link">&para;</a></h4>
+<p>I assume it is sufficiently answered because "no news is good news".<br />
+(If not, reopen it with continuative information.)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-20.3288.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

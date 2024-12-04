@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3347 PR merged: Skip to add /.snapshots by default to the backup include list - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3347 PR merged: Skip to add /.snapshots by default to the backup include list";
+        var mkdocs_page_input_path = "issues/2024-11-27.3347.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3347 PR merged: Skip to add /.snapshots by default to the backup include list</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3347_pr_merged_skip_to_add_snapshots_by_default_to_the_backup_include_list"><a href="https://github.com/rear/rear/pull/3347">#3347 PR</a> <code>merged</code>: Skip to add /.snapshots by default to the backup include list<a class="headerlink" href="#3347_pr_merged_skip_to_add_snapshots_by_default_to_the_backup_include_list" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-11-27_0824"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3347">2024-11-27 08:24</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-11-27_0824" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong><br />
+    High impact (i.e. "highly needed") only on SLES with btrfs.</p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3346">https://github.com/rear/rear/issues/3346</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    see below</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In backup/NETFS/default/400_create_include_exclude_files.sh<br />
+skip to add /.snapshots by default to the backup include list<br />
+because btrfs snapshots cannot be recreated</p>
+<h4 id="jsmeix_commented_at_2024-11-27_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3347#issuecomment-2503237118">2024-11-27 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-27_0831" title="Permanent link">&para;</a></h4>
+<p>On SLES16-SP6 with its default btrfs structure<br />
+and with this etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+</code></pre>
+<p>I get</p>
+<pre><code># usr/sbin/rear -D mkbackuponly
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/vda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/vda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.5Cyn1w6VGN2YFok/rootfs/etc/rear/rescue.conf
+...
+Running 'backup' stage ======================
+By default skip /.snapshots in the backup include list (btrfs snapshots cannot be recreated)
+Making backup (using backup method NETFS)
+...
+</code></pre>
+<p>What I get in the backup regarding 'snapshots'<br />
+is only the plain .snapshots/ directory.</p>
+<p>With the <code>BACKUP_PROG_EXCLUDE+=( /.snapshots )</code> workaround<br />
+(cf.
+<a href="https://github.com/rear/rear/issues/3346">https://github.com/rear/rear/issues/3346</a>)<br />
+there is no .snapshots/ directory in the backup<br />
+which does not harm because it gets created anyway<br />
+anew from scratch during "rear recover".</p>
+<h4 id="jsmeix_commented_at_2024-11-27_0839"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3347#issuecomment-2503252429">2024-11-27 08:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-27_0839" title="Permanent link">&para;</a></h4>
+<p>"rear recover" test worked well for me.</p>
+<p>Some details:</p>
+<p>Original system:</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN   TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sr0    sata   rom  iso9660 15.3G 
+/dev/vda    virtio disk           15G 
+|-/dev/vda1 virtio part            8M 
+|-/dev/vda2 virtio part btrfs     13G /var
+|                                     /usr/local
+|                                     /tmp
+|                                     /srv
+|                                     /root
+|                                     /home
+|                                     /opt
+|                                     /boot/grub2/x86_64-efi
+|                                     /boot/grub2/i386-pc
+|                                     /.snapshots
+|                                     /
+`-/dev/vda3 virtio part swap       2G [SWAP]
+
+localhost:~/rear.github.master # find /.snapshots -xdev
+/.snapshots
+/.snapshots/1
+/.snapshots/1/snapshot
+/.snapshots/1/info.xml
+/.snapshots/2
+/.snapshots/2/snapshot
+/.snapshots/2/info.xml
+/.snapshots/2/grub-snapshot.cfg
+/.snapshots/9
+/.snapshots/9/snapshot
+/.snapshots/9/info.xml
+/.snapshots/9/grub-snapshot.cfg
+...
+/.snapshots/16
+/.snapshots/16/snapshot
+/.snapshots/16/info.xml
+/.snapshots/16/grub-snapshot.cfg
+/.snapshots/16/filelist-15.txt
+/.snapshots/grub-snapshot.cfg
+</code></pre>
+<p>In the ReaR recovery system after "rear recover":</p>
+<pre><code>RESCUE localhost:~ # lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN   TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sr0    sata   rom  iso9660 84.1M 
+/dev/vda    virtio disk           15G 
+|-/dev/vda1 virtio part            8M 
+|-/dev/vda2 virtio part btrfs     13G /mnt/local/var
+|                                     /mnt/local/usr/local
+|                                     /mnt/local/tmp
+|                                     /mnt/local/srv
+|                                     /mnt/local/root
+|                                     /mnt/local/home
+|                                     /mnt/local/opt
+|                                     /mnt/local/boot/grub2/x86_64-efi
+|                                     /mnt/local/boot/grub2/i386-pc
+|                                     /mnt/local/.snapshots
+|                                     /mnt/local
+`-/dev/vda3 virtio part swap       2G
+
+RESCUE localhost:~ # find /mnt/local/.snapshots -xdev
+/mnt/local/.snapshots
+/mnt/local/.snapshots/1
+/mnt/local/.snapshots/1/snapshot
+/mnt/local/.snapshots/1/info.xml
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-11-27_0841"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3347#issuecomment-2503256980">2024-11-27 08:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-27_0841" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here if it is OK for you.</p>
+<p>Provided there are no objections<br />
+I would like to merge it tomorrow afternoon.</p>
+<h4 id="jsmeix_commented_at_2024-11-27_1409"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3347#issuecomment-2503976318">2024-11-27 14:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-27_1409" title="Permanent link">&para;</a></h4>
+<p>A side note primarily for my own information<br />
+because I detected it right now here:</p>
+<p>In the rebooted recreadted system directly after "rear recover":</p>
+<pre><code># find /.snapshots -xdev
+/.snapshots
+/.snapshots/1
+/.snapshots/1/snapshot
+/.snapshots/1/info.xml
+</code></pre>
+<p>I called</p>
+<pre><code># yast2 users
+</code></pre>
+<p>but did not change anything therein and just closed it with <code>OK</code><br />
+to get artificially some snapshots created<br />
+(YaST creates a snapshot before and after a YaST module run)<br />
+so after <code>yast2 users</code> I have now</p>
+<pre><code># find /.snapshots -xdev
+/.snapshots
+/.snapshots/1
+/.snapshots/1/snapshot
+/.snapshots/1/info.xml
+/.snapshots/2
+/.snapshots/2/snapshot
+/.snapshots/2/info.xml
+/.snapshots/2/grub-snapshot.cfg
+/.snapshots/3
+/.snapshots/3/snapshot
+/.snapshots/3/info.xml
+/.snapshots/3/grub-snapshot.cfg
+/.snapshots/3/filelist-2.txt
+/.snapshots/grub-snapshot.cfg
+</code></pre>
+<p>and - voila! - after reboot I got "magically"<br />
+that additional GRUB boot menu entry<br />
+<code>Start bootloader from a read-only snapshot</code></p>
+<p><img alt="Screenshot from 2024-11-27
+15-07-13" src="https://github.com/user-attachments/assets/3b540aaa-be52-4418-a86e-b165e6557664" /></p>
+<p>So - hooray! - I now finally understand what "magic"<br />
+makes that additional GRUB boot menu entry :-)</p>
+<h4 id="jsmeix_commented_at_2024-11-28_1104"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3347#issuecomment-2505849466">2024-11-28 11:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-28_1104" title="Permanent link">&para;</a></h4>
+<p>An addedum to my above side note<br />
+<a href="https://github.com/rear/rear/pull/3347#issuecomment-2503976318">https://github.com/rear/rear/pull/3347#issuecomment-2503976318</a><br />
+which is about the SUSE specific additional boot menu entry</p>
+<pre><code>Start bootloader from a read-only snapshot
+</code></pre>
+<p>see also<br />
+<a href="https://github.com/rear/rear/pull/3025#issuecomment-1639798077">https://github.com/rear/rear/pull/3025#issuecomment-1639798077</a><br />
+which is about another SUSE specific additional boot menu entry</p>
+<pre><code>UEFI Firmware Settings
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-11-27.3347.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

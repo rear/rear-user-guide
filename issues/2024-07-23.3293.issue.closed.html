@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3293 Issue closed: BACKUP=DUPLICITY may source third party code - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3293 Issue closed: BACKUP=DUPLICITY may source third party code";
+        var mkdocs_page_input_path = "issues/2024-07-23.3293.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3293 Issue closed: BACKUP=DUPLICITY may source third party code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3293_issue_closed_backupduplicity_may_source_third_party_code"><a href="https://github.com/rear/rear/issues/3293">#3293 Issue</a> <code>closed</code>: BACKUP=DUPLICITY may source third party code<a class="headerlink" href="#3293_issue_closed_backupduplicity_may_source_third_party_code" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code>,
+<code>critical / security / legal</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-07-23_0946"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3293">2024-07-23 09:46</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-07-23_0946" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244545130">https://github.com/rear/rear/issues/3285#issuecomment-2244545130</a></p>
+<p>The current code related to the find_duply_profile function<br />
+and the DUPLY_PROFILE* variables looks rather messy.</p>
+<p>At least at first glance I cannot make sense of it.</p>
+<p>@rear/contributors<br />
+it should be verified before the ReaR 2.8 release<br />
+if third party code could be sourced here<br />
+or if all is reasonably safe.</p>
+<h4 id="gdha_commented_at_2024-08-13_0908"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2285751357">2024-08-13 09:08</a>:<a class="headerlink" href="#gdha_commented_at_2024-08-13_0908" title="Permanent link">&para;</a></h4>
+<p>Details can be found at
+<a href="https://www.thomas-krenn.com/en/wiki/Backup_on_Linux_with_duply#conf_File">https://www.thomas-krenn.com/en/wiki/Backup_on_Linux_with_duply#conf_File</a><br />
+Duply is a wrapper around duplicity.<br />
+It is up to the end-user to enter his/her password in the configuration
+file of duply. We advise <strong>never</strong> to write passwords in plain text
+files, but rather use secure key pairs.</p>
+<h4 id="github-actions_commented_at_2024-11-12_0233"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2469468920">2024-11-12 02:33</a>:<a class="headerlink" href="#github-actions_commented_at_2024-11-12_0233" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2024-11-13_0752"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2472725876">2024-11-13 07:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-13_0752" title="Permanent link">&para;</a></h4>
+<p>In<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244545130">https://github.com/rear/rear/issues/3285#issuecomment-2244545130</a><br />
+I wrote</p>
+<pre><code>I won't try to mitigate that now
+based on guesses about a software
+that I neither have nor know about
+i.e. DUPLICITY with BACKUP=DUPLICITY.
+</code></pre>
+<p>So I won't make a decision here whether or not<br />
+BACKUP=DUPLICITY may source third party code<br />
+because I won't reverse engineer code<br />
+where I never had something to do with and<br />
+where I neither have nor know about the software<br />
+that is used by that code.</p>
+<p>When we have obscure code in ReaR that deals with<br />
+third-party (backup) software which we do not have<br />
+and/or where we do not know about,<br />
+i.e. when we have code in ReaR where we do not or cannot<br />
+understand with reasonable effort what it actually does,<br />
+i.e. when we have code in ReaR which we cannot<br />
+maintain with reasonable effort,<br />
+then<br />
+I would rather remove that code to keep ReaR maintainable<br />
+instead of keeping unmaintainable (old) code in ReaR,<br />
+in particular when such code could be a security issue.</p>
+<p>In this case it would mean to deprecate BACKUP=DUPLICITY<br />
+(unless someone can and does maintain its code in ReaR).</p>
+<h4 id="schlomo_commented_at_2024-11-13_0910"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2472915460">2024-11-13 09:10</a>:<a class="headerlink" href="#schlomo_commented_at_2024-11-13_0910" title="Permanent link">&para;</a></h4>
+<p>Maybe we should introduce a list of backup methods with maintainers and
+others who "care" about it, or are knowledgable. Based on that we can
+then also declare a maturity for every backup method, or a level of
+support and commitment to it.</p>
+<p>I'd not deprecate and remove it just because it sources something, as
+that problem affects only user of Duplicity and not everybody. I'd
+remove code where we have no way to know if it works and where we can't
+find anybody to care about it.</p>
+<p>For that "find somebody to care" we could add a shoutout for help to
+<code>BACKUP=DUPLICITY</code> to give users of that a chance to come to us and
+help. ATM that seems the only way to contact our users (and yes, this is
+almost like a useless warning, but maybe OK in this case)</p>
+<h4 id="loyeyoung_commented_at_2024-11-13_2336"><img src="https://avatars.githubusercontent.com/u/19331993?v=4" width="50"><a href="https://github.com/loyeyoung">loyeyoung</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2475040712">2024-11-13 23:36</a>:<a class="headerlink" href="#loyeyoung_commented_at_2024-11-13_2336" title="Permanent link">&para;</a></h4>
+<p>I do care about BACKUP=DUPLICITY. I have it running on clients' servers.</p>
+<p>I do not yet understand the problem that's being discussed here or
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244545130">there</a>.</p>
+<p>Do you have something specific you'd like me to run down or to test?</p>
+<h4 id="jsmeix_commented_at_2024-11-14_0930"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2475837051">2024-11-14 09:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-14_0930" title="Permanent link">&para;</a></h4>
+<p>@loyeyoung<br />
+great that you responded!</p>
+<p>FIY first my generic "boilerplate"<br />
+regarding third-party backup tools:</p>
+<pre><code>In general regarding third-party backup tools:
+
+Usually we at ReaR upstream do not have or use
+third-party backup tools so usually we cannot
+reproduce issues with third-party backup tools
+(in particular not if a third-party backup tool
+is proprietary software).
+
+In case of issues with third-party backup tools
+we at ReaR upstream can usually do nothing
+but totally depend on contributions and help
+from those specific users who use and know
+about each specific third-party backup tool.
+</code></pre>
+<p>This case here is one specific case<br />
+of the generic issue<br />
+<a href="https://github.com/rear/rear/issues/3259">https://github.com/rear/rear/issues/3259</a></p>
+<p>I fail to understand what the BACKUP=DUPLICITY code<br />
+which I mentioned in<br />
+<a href="https://github.com/rear/rear/issues/3285#issuecomment-2244545130">https://github.com/rear/rear/issues/3285#issuecomment-2244545130</a><br />
+actually does.</p>
+<p>I think the intent of that code is to read<br />
+all or some needed values from DUPLY_PROFILE_FILE.</p>
+<p>I think this is done by executing DUPLY_PROFILE_FILE<br />
+via 'source' as <code>source $CONF</code>.</p>
+<p>So any command in DUPLY_PROFILE_FILE gets executed<br />
+as 'root' (because usr/sbin/rear runs as 'root').</p>
+<p>This means any user who can modify DUPLY_PROFILE_FILE<br />
+can get any command executed as 'root' when<br />
+'root' runs usr/sbin/rear with BACKUP=DUPLICITY</p>
+<p>So we need to carefully check if<br />
+executing DUPLY_PROFILE_FILE is really needed<br />
+of if it is possible to improve security<br />
+by only parsing it (without executing it), cf.<br />
+<a href="https://github.com/rear/rear/issues/3292">https://github.com/rear/rear/issues/3292</a></p>
+<p>@loyeyoung<br />
+when you can test if ReaR with BACKUP=DUPLICITY works<br />
+for your particular use case, you could help me a lot<br />
+because then I could try to clean up and improve the<br />
+current "read DUPLY_PROFILE_FILE" code in ReaR<br />
+and you would test and verify that my modifications<br />
+don't break things - at least not for your particular<br />
+use case - which is very much more than no test at all.</p>
+<h4 id="gdha_commented_at_2024-11-14_1020"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2475958490">2024-11-14 10:20</a>:<a class="headerlink" href="#gdha_commented_at_2024-11-14_1020" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I just remember about an old blog
+<a href="https://www.it3.be/2015/09/02/rear-using-duply/">https://www.it3.be/2015/09/02/rear-using-duply/</a>
+which showed an example of DUPLY_PROFILE usage.</p>
+<h4 id="jsmeix_commented_at_2024-11-20_1259"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2488523440">2024-11-20 12:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-20_1259" title="Permanent link">&para;</a></h4>
+<p>For ReaR 2.8 I will now clean up things with<br />
+sourcing DUPLY_PROFILE_FILE for BACKUP=DUPLICITY<br />
+to get that code reasonably simple and straightforward<br />
+which will make that stuff reasonably secure to use<br />
+and by the way may make it reasonably maintainable.</p>
+<h4 id="loyeyoung_commented_at_2024-11-20_1840"><img src="https://avatars.githubusercontent.com/u/19331993?v=4" width="50"><a href="https://github.com/loyeyoung">loyeyoung</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2489303163">2024-11-20 18:40</a>:<a class="headerlink" href="#loyeyoung_commented_at_2024-11-20_1840" title="Permanent link">&para;</a></h4>
+<p>I expect to be able to test the changes @jsmeix makes.</p>
+<blockquote>
+<p>code reasonably simple and straightforward</p>
+</blockquote>
+<p>Much appreciated.</p>
+<blockquote>
+<p>reasonably secure to use</p>
+</blockquote>
+<p>Methinks the issue is not so much root privileges as
+<a href="https://www.freecodecamp.org/news/orthogonality-in-software-engineering/">orthogonality</a>.</p>
+<p>Bare metal backups require root privileges, both for ReaR and for
+whatever third party solution is used for encryption, rotation, etc. So
+duply/duplicity will always need root privileges anyway, and sourcing
+the config file does not escalate privilege.</p>
+<p>However, because the duply and duplicity configuration files are sourced
+directly, bash will treat any line in those config files as a command
+and try to execute. Because the duply/duplicity developers (and perhaps
+end users) are not considering any implications the config file will
+have on ReaR, we cannot have any assurance that the duply/duplicity
+config file will not cause a problem for ReaR.</p>
+<p>It seems that it should be possible to run duply/duplicity without
+directly sourcing its config file. I hope to dive into the setup of
+duply/duplicity and figure out if ReaR needs to source the config file
+at all. (@jsmeix's cleanup of the code will make that analysis much
+easier!)</p>
+<h4 id="jsmeix_commented_at_2024-11-21_1301"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2491085941">2024-11-21 13:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1301" title="Permanent link">&para;</a></h4>
+<p>Sourcing files in ReaR does not escalate privileges<br />
+because usr/sbin/rear runs already as 'root'.</p>
+<p>But sourcing files in ReaR that are not trustworthy<br />
+to be executed by 'root' is the problem, see the section<br />
+"Protecting Against Code Injections" in<br />
+<a href="https://relax-and-recover.org/documentation/security-architecture">https://relax-and-recover.org/documentation/security-architecture</a></p>
+<p>Best is to not source files in ReaR that do not need<br />
+to be executed (e.g. ReaR itself needs to source<br />
+its own scripts to get ReaR's own code executed).</p>
+<p>Whether or not third-party (backup) software (config) files<br />
+need to be executed is an issue that is on our<br />
+todo list for the next ReaR major version 3.0, see<br />
+<a href="https://relax-and-recover.org/documentation/security-architecture">https://relax-and-recover.org/documentation/security-architecture</a></p>
+<p>For the current next ReaR version 2.8<br />
+that we want to get released rather soon<br />
+(the last release 2.7. was more than 2 years ago)<br />
+we prefer to keep things working backward compatible<br />
+as far as possible with reasonable effort.</p>
+<p>In this case here I do not know what the syntax of the<br />
+duply profile is - I am not a duplicity or duply user.<br />
+Is it full bash syntax (e.g. with "if then else fi")<br />
+or is is restricted to only simple (how simple?)<br />
+bash style varaible assingnments of the form</p>
+<pre><code>NAME=fixed_literal_value
+</code></pre>
+<p>and what quoting characters are allowed<br />
+or is indirection allowed like</p>
+<pre><code>THIS='string of words'
+THAT="prefix $THIS suffix"
+</code></pre>
+<p>and whatnot?</p>
+<p>So for now for the 2.8 release I cannot replace<br />
+the possibly insecure sourcing/executing of the<br />
+duply profile with e.g. only 'grep' the needed values<br />
+out of it.</p>
+<p>Therefore I decided to enforce that the user must<br />
+explicitly specify his correct and fully trusted<br />
+DUPLY_PROFILE, see my explanation in default.conf in<br />
+<a href="https://github.com/rear/rear/pull/3345/files">https://github.com/rear/rear/pull/3345/files</a></p>
+<p>This is a needed backward incompatible change<br />
+to get things reasonably secure right now<br />
+as far as possible with reasonable effort and<br />
+this backward incompatibility is sufficiently easy<br />
+to be solved by the user.</p>
+<h4 id="jsmeix_commented_at_2024-11-21_1311"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2491110947">2024-11-21 13:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1311" title="Permanent link">&para;</a></h4>
+<p>@loyeyoung<br />
+regarding testing my current changes, see<br />
+<a href="https://github.com/rear/rear/pull/3345#issuecomment-2491107351">https://github.com/rear/rear/pull/3345#issuecomment-2491107351</a></p>
+<h4 id="jsmeix_commented_at_2024-11-25_1216"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2497858302">2024-11-25 12:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-25_1216" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/3345">https://github.com/rear/rear/pull/3345</a>
+merged<br />
+this issue should be sufficiently mitigated for now, cf.<br />
+<a href="https://github.com/rear/rear/issues/3293#issuecomment-2491085941">https://github.com/rear/rear/issues/3293#issuecomment-2491085941</a></p>
+<h4 id="jsmeix_commented_at_2024-11-25_1255"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3293#issuecomment-2497948640">2024-11-25 12:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-25_1255" title="Permanent link">&para;</a></h4>
+<p>@loyeyoung<br />
+with
+<a href="https://github.com/rear/rear/pull/3345">https://github.com/rear/rear/pull/3345</a>
+merged<br />
+my DUPLICITY code changes are in GitHub master code<br />
+so for testing it you do no longer need to do a</p>
+<pre><code>git checkout jsmeix-source-DUPLY_PROFILE
+</code></pre>
+<p>cf.
+<a href="https://github.com/rear/rear/pull/3345#issuecomment-2491107351">https://github.com/rear/rear/pull/3345#issuecomment-2491107351</a><br />
+instead you can test with GitHub master code directly<br />
+as described in the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-07-23.3293.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

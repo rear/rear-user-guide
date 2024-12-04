@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3149 Issue closed: OS vendor and version autodetection fails on Fedora - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3149 Issue closed: OS vendor and version autodetection fails on Fedora";
+        var mkdocs_page_input_path = "issues/2024-02-08.3149.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3149 Issue closed: OS vendor and version autodetection fails on Fedora</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3149_issue_closed_os_vendor_and_version_autodetection_fails_on_fedora"><a href="https://github.com/rear/rear/issues/3149">#3149 Issue</a> <code>closed</code>: OS vendor and version autodetection fails on Fedora<a class="headerlink" href="#3149_issue_closed_os_vendor_and_version_autodetection_fails_on_fedora" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-02-08_1226"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/issues/3149">2024-02-08 12:26</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-02-08_1226" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"): latest <code>HEAD</code></p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>$ cat /etc/os-release
+NAME="Fedora Linux"
+VERSION="39 (Thirty Nine)"
+ID=fedora
+VERSION_ID=39
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f39"
+PRETTY_NAME="Fedora Linux 39 (Thirty Nine)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:39"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://fedoraproject.org/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f39/system-administrators-guide/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=39
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=39
+SUPPORT_END=2024-11-12
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>ReaR does not properly detect OS vendor and version on Fedora:</p>
+<pre><code># /usr/sbin/rear dump
+...
+# System definition:
+  ARCH="Linux-arm"
+  OS="GNU/Linux"
+  OS_MASTER_VENDOR="Fedora"
+  OS_MASTER_VERSION="VERSION_ID=39"
+  OS_MASTER_VENDOR_ARCH="Fedora/arm"
+  OS_MASTER_VENDOR_VERSION="Fedora/VERSION_ID=39"
+  OS_MASTER_VENDOR_VERSION_ARCH="Fedora/VERSION_ID=39/arm"
+  OS_VENDOR="RedHatEnterpriseServer"
+  OS_VERSION="VERSION_ID=39"
+  OS_VENDOR_ARCH="RedHatEnterpriseServer/arm"
+  OS_VENDOR_VERSION="RedHatEnterpriseServer/VERSION_ID=39"
+  OS_VENDOR_VERSION_ARCH="RedHatEnterpriseServer/VERSION_ID=39/arm"
+...
+</code></pre>
+<p>The version should be only <code>39</code> and not <code>VERSION_ID=39</code> and the vendor
+should be <code>Fedora</code>. Therefore, both the <code>OS_VENDOR_*</code> and
+<code>OS_MASTER_VENDOR_*</code> should be equal.</p>
+<p>cc: @pcahyna</p>
+<h4 id="jsmeix_commented_at_2024-02-08_1536"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1934386437">2024-02-08 15:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-08_1536" title="Permanent link">&para;</a></h4>
+<p>As far as I know this variables are set by the function<br />
+SetOSVendorAndVersion<br />
+in lib/config-functions.sh</p>
+<p>I think this function is rather fragile<br />
+(some time ago I have had "not so much fun" with it).<br />
+I assume most of its values are not actually used in ReaR scripts<br />
+so perhaps things could be simplified to what is actually used?</p>
+<h4 id="jsmeix_commented_at_2024-02-08_1543"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1934402243">2024-02-08 15:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-08_1543" title="Permanent link">&para;</a></h4>
+<p>FYI:</p>
+<p>What variables are set by SetOSVendorAndVersion:</p>
+<pre><code># grep -o '[A-Z][A-Z_]*=' usr/share/rear/lib/config-functions.sh | cut -d '=' -f1 | sort -u
+OS_MASTER_VENDOR
+OS_MASTER_VENDOR_ARCH
+OS_MASTER_VENDOR_VERSION
+OS_MASTER_VENDOR_VERSION_ARCH
+OS_MASTER_VERSION
+OS_VENDOR
+OS_VENDOR_ARCH
+OS_VENDOR_VERSION
+OS_VENDOR_VERSION_ARCH
+OS_VERSION
+VERSION_ID
+</code></pre>
+<p>Where those variables are used in ReaR scripts:<br />
+Here I excluded ReaR scripts that use those variables<br />
+in a generic way which are</p>
+<pre><code>usr/share/rear/lib/config-functions.sh
+usr/share/rear/lib/dump-workflow.sh
+usr/share/rear/lib/framework-functions.sh
+usr/share/rear/lib/validate-workflow.sh
+usr/sbin/rear
+usr/share/rear/build/default/975_update_os_conf.sh
+usr/share/rear/rescue/default/010_merge_skeletons.sh
+usr/share/rear/finalize/default/890_finish_checks.sh
+usr/share/rear/init/default/005_verify_os_conf.sh
+</code></pre>
+<p>so only those ReaR scripts should be left<br />
+where the behaviour of ReaR depends on those variables:</p>
+<pre><code># for v in $( grep -o '[A-Z][A-Z_]*=' usr/share/rear/lib/config-functions.sh | cut -d '=' -f1 | sort -u ) ; \
+ do echo $v ; \
+    find usr/sbin/rear usr/share/rear -type f | xargs grep "$v" | grep -v ': *#' ; \
+    echo ======================== ; \
+ done \
+ | egrep -v 'usr/share/rear/lib/config-functions.sh|usr/share/rear/lib/dump-workflow.sh|usr/share/rear/lib/framework-functions.sh|usr/share/rear/lib/validate-workflow.sh|usr/sbin/rear|usr/share/rear/build/default/975_update_os_conf.sh|usr/share/rear/rescue/default/010_merge_skeletons.sh|usr/share/rear/finalize/default/890_finish_checks.sh|usr/share/rear/init/default/005_verify_os_conf.sh
+
+OS_MASTER_VENDOR
+usr/share/rear/layout/prepare/Linux-s390/205_s390_enable_disk.sh:case $OS_MASTER_VENDOR in
+usr/share/rear/layout/prepare/Linux-s390/205_s390_enable_disk.sh:        LogPrintError "No code for DASD disk device enablement on $OS_MASTER_VENDOR"
+usr/share/rear/rescue/GNU/Linux/310_network_devices.sh:if [[ "$ARCH" == "Linux-s390" &amp;&amp; "$OS_MASTER_VENDOR" != "SUSE_LINUX" ]] ; then
+usr/share/rear/lib/layout-functions.sh:            case $OS_MASTER_VENDOR in
+========================
+OS_MASTER_VENDOR_ARCH
+========================
+OS_MASTER_VENDOR_VERSION
+========================
+OS_MASTER_VENDOR_VERSION_ARCH
+========================
+OS_MASTER_VERSION
+usr/share/rear/lib/layout-functions.sh:                    if (( $OS_MASTER_VERSION &lt; 12 )) ; then
+usr/share/rear/lib/layout-functions.sh:                        if (( $OS_MASTER_VERSION &lt; 7 )) ; then
+========================
+OS_VENDOR
+usr/share/rear/conf/default.conf:OS_VENDOR=generic
+usr/share/rear/rescue/GNU/Linux/990_sysreqs.sh:    echo "${OS_VENDOR} ${OS_VERSION}"
+usr/share/rear/lib/bootloader-functions.sh:    echo "echo \"build from host: $HOSTNAME ($OS_VENDOR $OS_VERSION $ARCH)\""
+usr/share/rear/finalize/Linux-i386/610_EFISTUB_run_efibootmgr.sh:--label ${OS_VENDOR} --loader "$loader" \
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    LogPrint "Creating  EFI Boot Manager entry '$OS_VENDOR $OS_VERSION' for '$bootloader' (UEFI_BOOTLOADER='$UEFI_BOOTLOADER') "
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    Log efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label \"${OS_VENDOR} ${OS_VERSION}\" --loader \"\\${bootloader}\"
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    if efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}" ; then
+========================
+OS_VENDOR_ARCH
+========================
+OS_VENDOR_VERSION
+========================
+OS_VENDOR_VERSION_ARCH
+========================
+OS_VERSION
+usr/share/rear/conf/default.conf:OS_VERSION=none
+usr/share/rear/rescue/GNU/Linux/990_sysreqs.sh:    echo "${OS_VENDOR} ${OS_VERSION}"
+usr/share/rear/lib/bootloader-functions.sh:    echo "echo \"build from host: $HOSTNAME ($OS_VENDOR $OS_VERSION $ARCH)\""
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    LogPrint "Creating  EFI Boot Manager entry '$OS_VENDOR $OS_VERSION' for '$bootloader' (UEFI_BOOTLOADER='$UEFI_BOOTLOADER') "
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    Log efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label \"${OS_VENDOR} ${OS_VERSION}\" --loader \"\\${bootloader}\"
+usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh:    if efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}" ; then
+========================
+VERSION_ID
+========================
+</code></pre>
+<p>So it seems (according to that quick and dirty test)<br />
+those variables are not actually used in ReaR scripts</p>
+<pre><code>OS_MASTER_VENDOR_ARCH
+OS_MASTER_VENDOR_VERSION
+OS_MASTER_VENDOR_VERSION_ARCH
+OS_VENDOR_ARCH
+OS_VENDOR_VERSION
+OS_VENDOR_VERSION_ARCH
+VERSION_ID
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-02-08_1619"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1934474211">2024-02-08 16:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-08_1619" title="Permanent link">&para;</a></h4>
+<p>What directories we have where the value of such variables<br />
+is used as directory name (also a quick and dirty test):</p>
+<p>I exluded some generic directories<br />
+and those where the OUTPUT value</p>
+<pre><code># grep -o 'OUTPUT=[A-Z]*' usr/share/rear/conf/default.conf | sort -u
+
+OUTPUT=ISO
+OUTPUT=OBDR
+OUTPUT=PXE
+OUTPUT=RAMDISK
+OUTPUT=RAWDISK
+OUTPUT=USB
+</code></pre>
+<p>or the BACKUP value</p>
+<pre><code># grep -o 'BACKUP=[A-Z][A-Z0-9]*' usr/share/rear/conf/default.conf | sort -u
+
+BACKUP=AVA
+BACKUP=BACULA
+BACKUP=BAREOS
+BACKUP=BLOCKCLONE
+BACKUP=BORG
+BACKUP=CDM
+BACKUP=DP
+BACKUP=DUPLICITY
+BACKUP=EXTERNAL
+BACKUP=FDRUPSTREAM
+BACKUP=GALAXY
+BACKUP=GALAXY10
+BACKUP=GALAXY11
+BACKUP=GALAXY7
+BACKUP=NBKDC
+BACKUP=NBU
+BACKUP=NETFS
+BACKUP=NFS4SERVER
+BACKUP=NSR
+BACKUP=RBME
+BACKUP=REQUESTRESTORE
+BACKUP=RSYNC
+BACKUP=SESAM
+BACKUP=TSM
+BACKUP=YUM
+BACKUP=ZYPPER
+</code></pre>
+<p>and where <code>GNU</code> and <code>Linux</code><br />
+is the last directory name</p>
+<pre><code># pushd  usr/share/rear/ ; \
+ find . \
+ | sed -e 's|/[0-9][0-9][0-9].*.sh||g' \
+ | sort -u \
+ | egrep -v '/conf/examples|/conf/templates|/lib|/skel|/default|readme|README|shellcheckrc' \
+ | egrep -v '/ISO$|/OBDR$|/PXE$|/RAMDISK$|/RAWDISK$|/USB$' \
+ | egrep -v '/AVA$|/BACULA$|/BAREOS$|/BLOCKCLONE$|/BORG$|/CDM$|/DP$|/DUPLICITY$|/EXTERNAL$|/FDRUPSTREAM$|/GALAXY$|/GALAXY10$|/GALAXY11$|/GALAXY7$|/NBKDC$|/NBU$|/NETFS$|/NFS4SERVER$|/NSR$|/RBME$|/REQUESTRESTORE$|/RSYNC$|/SESAM$|/TSM$|/YUM$|/ZYPPER$' \
+ | egrep -v '/GNU$|/Linux$' ; \
+ popd
+
+.
+./backup
+./build
+./build/Debian
+./build/Debian/i386
+./build/OPALPBA
+./build/OPALPBA/Linux-i386
+./build/SUSE_LINUX
+./check
+./conf
+./conf/Debian
+./conf/Debian/ia64.conf
+./conf/GNU/Linux.conf
+./conf/Linux-i386.conf
+./conf/Linux-ia64.conf
+./conf/Linux-ppc64.conf
+./conf/Linux-ppc64le.conf
+./conf/SUSE_LINUX.conf
+./conf/Ubuntu
+./conf/Ubuntu.conf
+./conf/Ubuntu/7.10.conf
+./final-mount
+./finalize
+./finalize/Debian
+./finalize/Debian/i386
+./finalize/Debian/ppc64le
+./finalize/Fedora
+./finalize/Fedora/s390
+./finalize/Linux-arm
+./finalize/Linux-i386
+./finalize/Linux-ia64
+./finalize/Linux-ppc64
+./finalize/Linux-ppc64le
+./finalize/SUSE_LINUX
+./finalize/SUSE_LINUX/i386
+./finalize/SUSE_LINUX/ppc64
+./finalize/SUSE_LINUX/ppc64le
+./finalize/SUSE_LINUX/s390
+./format
+./init
+./layout
+./layout/compare
+./layout/do-mount
+./layout/precompare
+./layout/prep-for-mount
+./layout/prep-for-mount/Linux-s390
+./layout/prepare
+./layout/prepare/Linux-s390
+./layout/recreate
+./layout/save
+./layout/save/FDRUPSTREAM/Linux-s390
+./layout/save/Linux-arm
+./output
+./output/IPL
+./output/IPL/Linux-s390
+./output/ISO/Linux-i386
+./output/ISO/Linux-ia64
+./output/ISO/Linux-ppc64
+./output/ISO/Linux-ppc64le
+./output/OBDR/Linux-i386
+./output/OBDR/Linux-ia64
+./output/OBDR/Linux-ppc64
+./output/OBDR/Linux-ppc64le
+./output/RAWDISK/Linux-i386
+./output/USB/Linux-i386
+./pack
+./prep
+./prep/ISO/Linux-i386
+./prep/ISO/Linux-ia64
+./prep/Linux-arm
+./prep/Linux-s390
+./prep/OBDR/Linux-i386
+./prep/OBDR/Linux-ia64
+./prep/OPALPBA
+./prep/OPALPBA/Linux-i386
+./prep/RAWDISK/Linux-i386
+./prep/TAPE
+./prep/USB/Linux-arm
+./prep/USB/Linux-i386
+./prep/USB/Linux-ppc64
+./prep/USB/Linux-ppc64le
+./prep/USB/Linux-s390
+./rescue
+./restore
+./restore/Fedora
+./restore/NETFS/Linux-i386
+./restore/OPALPBA
+./restore/SUSE_LINUX
+./setup
+./verify
+./wrapup
+</code></pre>
+<p>So it seems only those values are actually used<br />
+as directory names:</p>
+<pre><code>Debian
+Fedora
+IPL
+Linux-arm
+Linux-i386
+Linux-ia64
+Linux-ppc64
+Linux-ppc64le
+Linux-s390
+SUSE_LINUX
+Ubuntu
+i386
+ppc64
+ppc64le
+s390
+</code></pre>
+<p>By the way:<br />
+Currently I do not understand how<br />
+usr/share/rear/output/IPL/Linux-s390/800_create_ipl.sh<br />
+gets called because I fail to see<br />
+where the value IPL is set in ReaR.</p>
+<h4 id="lzaoral_commented_at_2024-02-09_0924"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1935586311">2024-02-09 09:24</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-09_0924" title="Permanent link">&para;</a></h4>
+<p>I have also found a related bug. If I create a custom
+<code>/etc/rear/os.conf</code> with correct values for Fedora, the <code>OS_*</code> and
+<code>OS_MASTER_*</code> variables will match. Therefore, the <code>scripts</code> array in
+the <code>SourceStage</code> function will contain some Fedora-specific entries
+twice because duplicates will not be discarded:<br />
+<a href="https://github.com/rear/rear/blob/096bfde5e234f5a803bae74f24e3821798022c7c/usr/share/rear/lib/framework-functions.sh#L120-L125">https://github.com/rear/rear/blob/096bfde5e234f5a803bae74f24e3821798022c7c/usr/share/rear/lib/framework-functions.sh#L120-L125</a></p>
+<p>For example, the initrd regeneration is then executed twice
+(<code>rear recover</code> log on <code>s390x</code>):</p>
+<pre><code>...
+2024-02-06 10:56:46.249979866 ======================
+2024-02-06 10:56:46.251775722 Running 'restore' stage
+2024-02-06 10:56:46.253627052 ======================
+2024-02-06 10:56:46.259645721 Including restore/Fedora/050_copy_dev_files.sh
+2024-02-06 10:56:46.270044331 Including restore/Fedora/050_copy_dev_files.sh            &lt;-- DUPLICATE
+2024-02-06 10:56:46.278551895 Including restore/default/050_remount_async.sh
+2024-02-06 10:56:46.281950834 Including restore/NETFS/default/100_mount_NETFS_path.s
+...
+2024-02-06 10:57:07.404822080 Including finalize/default/520_confirm_finalize.sh
+2024-02-06 10:57:07.408345447 Including finalize/Fedora/550_rebuild_initramfs.sh
+2024-02-06 10:57:07.411208165 Original OLD_INITRD_MODULES=(  )
+2024-02-06 10:57:07.417129059 New INITRD_MODULES=' dasd_eckd_mod dasd_fba_mod dasd_mod'
+2024-02-06 10:57:07.425685641 Running dracut...
+2024-02-06 10:57:17.506420149 Updated initrd with new drivers for kernel 6.8.0-0.rc0.20240112git70d201a40823.5.fc40.s390x.
+2024-02-06 10:57:17.511338220 Including finalize/Fedora/550_rebuild_initramfs.sh        &lt;-- DUPLICATE
+2024-02-06 10:57:17.514697050 Original OLD_INITRD_MODULES=(  )
+2024-02-06 10:57:17.519743182 New INITRD_MODULES=' dasd_eckd_mod dasd_fba_mod dasd_mod'
+2024-02-06 10:57:17.529820643 Running dracut...
+2024-02-06 10:57:26.938005410 Updated initrd with new drivers for kernel 6.8.0-0.rc0.20240112git70d201a40823.5.fc40.s390x.
+2024-02-06 10:57:26.944130040 Including finalize/Fedora/s390/660_install_zipl.sh
+2024-02-06 10:57:26.946353158 Installing boot loader ZIPL...
+2024-02-06 10:57:28.017620673 Including finalize/Fedora/s390/660_install_zipl.sh        &lt;-- DUPLICATE
+2024-02-06 10:57:28.021901091 Including finalize/default/880_check_for_mount_by_id.sh
+...
+</code></pre>
+<h4 id="lzaoral_commented_at_2024-02-09_0926"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1935589747">2024-02-09 09:26</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-09_0926" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>By the way:<br />
+Currently I do not understand how<br />
+usr/share/rear/output/IPL/Linux-s390/800_create_ipl.sh<br />
+gets called because I fail to see<br />
+where the value IPL is set in ReaR.</p>
+</blockquote>
+<p>It is a supported <code>OUTPUT</code> value on <code>s390x</code>. It just seems that the
+documentation in <code>default.conf</code> is missing the <code>OUTPUT=IPL</code> entry.</p>
+<h4 id="jsmeix_commented_at_2024-02-09_0944"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1935613297">2024-02-09 09:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-09_0944" title="Permanent link">&para;</a></h4>
+<p>Regarding scripts get called twice<br />
+when different variables have same value:<br />
+Ugh!<br />
+It seems whenever I look at ReaR code what I see is a mess<br />
+that has grown over longer times :-(</p>
+<h4 id="jsmeix_commented_at_2024-02-09_0952"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1935624516">2024-02-09 09:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-09_0952" title="Permanent link">&para;</a></h4>
+<p>Regarding missing "OUTPUT=IPL" documentation in default.conf:</p>
+<p>@lzaoral<br />
+could you please make a pull request with the missing<br />
+"OUTPUT=IPL" documentation in default.conf<br />
+because you actually use ReaR on s390x so you know better<br />
+than me what to tell our users about "OUTPUT=IPL".<br />
+I do no longer test ReaR on IBM Z and I never managed to boot the<br />
+ReaR recovery system via the initial program loader on IBM Z 'zipl'.<br />
+Thank you in advance!</p>
+<h4 id="lzaoral_commented_at_2024-02-12_1227"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1938585829">2024-02-12 12:27</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-12_1227" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Hopefully, I'll get to the documentation of the <code>IPL</code> output
+option this week. Right now, me and @pcahyna are fixing the packaging of
+ReaR in Fedora (which we finally co-maintain) in the preparation of the
+initial branching of CentOS Stream 10.</p>
+<h4 id="lzaoral_commented_at_2024-02-13_1419"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1941620475">2024-02-13 14:19</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-13_1419" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I've found out, that the initial PR with s390x support in ReaR
+was a bit messy. The <code>IPL</code> option is completely redundant because it
+does the exact same thing as the already existing and documented
+<code>RAMDISK</code> option:<br />
+<a href="https://github.com/rear/rear/blob/d48d071ddb6e8d70a42cbc3e6ffec0cb037e1ba1/usr/share/rear/output/IPL/Linux-s390/800_create_ipl.sh#L1-L4">https://github.com/rear/rear/blob/d48d071ddb6e8d70a42cbc3e6ffec0cb037e1ba1/usr/share/rear/output/IPL/Linux-s390/800_create_ipl.sh#L1-L4</a></p>
+<p>vs.</p>
+<p><a href="https://github.com/rear/rear/blob/d48d071ddb6e8d70a42cbc3e6ffec0cb037e1ba1/usr/share/rear/output/RAMDISK/default/900_copy_ramdisk.sh#L15-L23">https://github.com/rear/rear/blob/d48d071ddb6e8d70a42cbc3e6ffec0cb037e1ba1/usr/share/rear/output/RAMDISK/default/900_copy_ramdisk.sh#L15-L23</a></p>
+<p>Therefore, I suggest to just remove the <code>IPL</code> subtree and to add a
+fallback that will replace <code>OUTPUT=IPL</code> with <code>OUTPUT=RAMDISK</code> during the
+<code>prep</code> phase to be backwards compatible with existing <code>local.conf</code>
+files. Unless there are objections, I'll prepare this clean-up PR
+tomorrow.</p>
+<h4 id="jsmeix_commented_at_2024-02-14_0927"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1943375764">2024-02-14 09:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-14_0927" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+thank you for having a look at our s390 code!</p>
+<p>That IPL is redundant (same as RAMDISK)<br />
+is what I also thought but I was unsure<br />
+because I could no longer test ReaR on IBM Z<br />
+and because your above<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1935589747">https://github.com/rear/rear/issues/3149#issuecomment-1935589747</a><br />
+indicated that IPL is actually used.</p>
+<p>I fully agree with your proposed clean-up<br />
+and I look forward to your PR!</p>
+<p>By the way regarding documentation about<br />
+ReaR on IBM Z:</p>
+<p>Could you write some initial documentation about<br />
+"ReaR on IBM Z"?</p>
+<p>Only something short so that we have a starting point<br />
+which then can get enhanced step by step as needed?</p>
+<p>In particular I would be much interested in<br />
+some documentation how to use ReaR on IBM Z<br />
+because I never tested what @mutable-dan had<br />
+implemented.<br />
+But I would like to try that out (as time permits)<br />
+to get at least an initial basic experience<br />
+how ReaR can be used on IBM Z.</p>
+<p>In particular my main point where I know basically<br />
+nothing is how to make some "IPL-able thingy"<br />
+from ReaR's initrd and the kernel and how to<br />
+actually "IPL" that on a replacement VM on IBM Z.<br />
+I got lots of IBM documenation also about booting<br />
+on IBM Z - but that is a so much different world<br />
+that I gave up trying to understand all that<br />
+(hundreds of pages of IBM Z domain specific language).<br />
+So what I would like to get is some real example<br />
+how to make some real "IPL-able thingy" and<br />
+how to actually "IPL" that on one specific<br />
+kind of IBM Z VM.</p>
+<h4 id="lzaoral_commented_at_2024-02-26_1433"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1964290116">2024-02-26 14:33</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-26_1433" title="Permanent link">&para;</a></h4>
+<p>Hmm, the code used to parse the <code>/etc/os-release</code> is quite brittle.
+Problems I've encountered so far:</p>
+<ol>
+<li>
+<p>The only reason Fedora gets classified as RHEL is this:</p>
+<pre><code>$ grep -i -E '(centos|redhat|scientific|oracle)' /etc/os-release
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=39
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=39
+</code></pre>
+<p>which is clearly wrong. <s>The <code>NAME="Fedora Linux"</code> value should
+have been parsed instead.</s> edit: Using <code>ID=fedora</code> is even
+better.</p>
+</li>
+<li>
+<p>The <code>VERSION_ID</code> value is parsed incorrectly because there is no <code>"</code>
+    character on Fedora:</p>
+<pre><code>$ grep "^VERSION_ID=" /etc/os-release | cut -d\" -f2
+VERSION_ID=39
+</code></pre>
+<p>The expected value is <code>39</code>. The solution proposed in
+<a href="https://github.com/rear/rear/pull/2950#discussion_r1129753898">https://github.com/rear/rear/pull/2950#discussion_r1129753898</a>
+would have fixed that.</p>
+</li>
+<li>
+<p>The generation of the <code>/etc/rear/os.conf</code> file is permanent. Once it
+    is created, it won't be regenerated unless it is manually removed. I
+    have overridden that in the <code>rear</code> Fedora package but ReaR installs
+    from upstream will contain bogus values due to bugs above and/or
+    will contains incorrect information after major version system
+    upgrades (this applies to any other OS).</p>
+<p>I don't see a reason to create this file at all because it may do
+more harm than good. I suggest to just get rid of it as also
+implied/discussed in
+<a href="https://github.com/rear/rear/issues/1639#issuecomment-361560572">https://github.com/rear/rear/issues/1639#issuecomment-361560572</a>
+or
+<a href="https://github.com/rear/rear/pull/2954#issuecomment-1467929248">https://github.com/rear/rear/pull/2954#issuecomment-1467929248</a>).</p>
+</li>
+</ol>
+<p>edit: reformatted</p>
+<h4 id="lzaoral_commented_at_2024-02-27_0855"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1966068640">2024-02-27 08:55</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-27_0855" title="Permanent link">&para;</a></h4>
+<p>While investigating a possible solution for problems above, I've also
+found two additional problems:</p>
+<ul>
+<li>
+<p>When <code>OS_VENDOR</code> is set to <code>RedHatEnterpriseServer</code>,
+    <code>OS_MASTER_VENDOR</code> is set to <code>Fedora</code> and the <code>OS_MASTER_VERSION</code> is
+    set to the major version for RHEL 5-7 or unchanged for newer
+    releases. This is wrong for at least two reasons:</p>
+<ol>
+<li>
+<p>The following version comparison will fail for newer RHELs, e.g.
+    8.8:<br />
+<a href="https://github.com/rear/rear/blob/9793364ba85aac019f367f45f906e55e2e4d4648/usr/share/rear/lib/layout-functions.sh#L1045-L1064">https://github.com/rear/rear/blob/9793364ba85aac019f367f45f906e55e2e4d4648/usr/share/rear/lib/layout-functions.sh#L1045-L1064</a><br />
+    because:
+        $ bash -c '(( "8.8" &lt; 7 ))'
+        bash: line 1: ((: 8.8 &lt; 7 : syntax error: invalid arithmetic operator (error token is ".8 &lt; 7 ")</p>
+</li>
+<li>
+<p>Since <code>OS_MASTER_VENDOR</code> is <code>Fedora</code>, it would be more sensible
+    to use the actual Fedora release that the given RHEL release
+    branched from (e.g. <code>34</code> for RHEL 9).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>For all SUSE-relates systems, <code>OS_MASTER_VENDOR</code> is set to <code>SUSE</code> so
+    the following comparison will always be true:<br />
+<a href="https://github.com/rear/rear/blob/9793364ba85aac019f367f45f906e55e2e4d4648/usr/share/rear/rescue/GNU/Linux/310_network_devices.sh#L26">https://github.com/rear/rear/blob/9793364ba85aac019f367f45f906e55e2e4d4648/usr/share/rear/rescue/GNU/Linux/310_network_devices.sh#L26</a></p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-02-28_0840"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1968483977">2024-02-28 08:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-02-28_0840" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+while you are at it and<br />
+if you really have nothing better to do ;-)<br />
+feel free to mercilessly simplify and clean up that part in ReaR<br />
+as you think what works best for Red Hat and Fedora.<br />
+Then I will have a look how far things still work for SUSE<br />
+and if needed I will make further adaptions for SUSE.<br />
+But because at least I have something better to do ;-)<br />
+it is perfectly OK for me when you do only minimal changes<br />
+to make things work again for Red Hat and Fedora and<br />
+leave the "great cleanup work" to others - as I do :-)</p>
+<h4 id="lzaoral_commented_at_2024-02-28_0852"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1968508048">2024-02-28 08:52</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-02-28_0852" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I have already some changes locally that rework the
+<code>SetOSVendorAndVersion</code> function by properly parsing relevant fields in
+<code>/etc/os-release</code>. I've just split changes that should be more or less
+safe into #3165.</p>
+<h4 id="jsmeix_commented_at_2024-03-01_0824"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1972731026">2024-03-01 08:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-01_0824" title="Permanent link">&para;</a></h4>
+<p>Regarding OS_VENDOR values:</p>
+<p>What OS_VENDOR value dependant scripts we have:</p>
+<pre><code># for OS_VENDOR in Arch RedHatEnterpriseServer Debian Fedora SUSE_LINUX Ubuntu ; \
+ do echo $OS_VENDOR ; find usr/sbin/rear usr/share/rear/ | grep "$OS_VENDOR" ; \
+    echo ============================================== ; \
+ done | grep -v 'usr/share/rear/lib/validated'
+
+Arch
+==============================================
+RedHatEnterpriseServer
+==============================================
+Debian
+usr/share/rear/conf/Debian
+usr/share/rear/conf/Debian/ia64.conf
+usr/share/rear/skel/Debian
+usr/share/rear/skel/Debian/default.tar.gz
+usr/share/rear/finalize/Debian
+usr/share/rear/finalize/Debian/ppc64le
+usr/share/rear/finalize/Debian/ppc64le/550_rebuild_initramfs.sh
+usr/share/rear/finalize/Debian/i386
+usr/share/rear/finalize/Debian/i386/550_rebuild_initramfs.sh
+usr/share/rear/build/Debian
+usr/share/rear/build/Debian/610_jessie_link_systemd_lib.sh
+usr/share/rear/build/Debian/i386
+usr/share/rear/build/Debian/i386/600_fix_debian_stuff.sh
+==============================================
+Fedora
+usr/share/rear/restore/Fedora
+usr/share/rear/restore/Fedora/050_copy_dev_files.sh
+usr/share/rear/skel/Fedora
+usr/share/rear/skel/Fedora/default
+usr/share/rear/skel/Fedora/default/etc
+usr/share/rear/skel/Fedora/default/etc/sysconfig
+usr/share/rear/skel/Fedora/default/etc/sysconfig/network-scripts
+usr/share/rear/skel/Fedora/default/etc/sysconfig/network-scripts/.gitignore
+usr/share/rear/skel/Fedora/default/var
+usr/share/rear/skel/Fedora/default/var/run
+usr/share/rear/skel/Fedora/default/var/run/rpcbind
+usr/share/rear/skel/Fedora/default/var/run/rpcbind/.gitignore
+usr/share/rear/finalize/Fedora
+usr/share/rear/finalize/Fedora/s390
+usr/share/rear/finalize/Fedora/s390/660_install_zipl.sh
+usr/share/rear/finalize/Fedora/550_rebuild_initramfs.sh
+==============================================
+SUSE_LINUX
+usr/share/rear/conf/SUSE_LINUX.conf
+usr/share/rear/restore/SUSE_LINUX
+usr/share/rear/restore/SUSE_LINUX/910_create_missing_directories.sh
+usr/share/rear/finalize/SUSE_LINUX
+usr/share/rear/finalize/SUSE_LINUX/ppc64
+usr/share/rear/finalize/SUSE_LINUX/ppc64/550_rebuild_initramfs.sh
+usr/share/rear/finalize/SUSE_LINUX/s390
+usr/share/rear/finalize/SUSE_LINUX/s390/660_install_grub2_and_zipl.sh
+usr/share/rear/finalize/SUSE_LINUX/ppc64le
+usr/share/rear/finalize/SUSE_LINUX/ppc64le/550_rebuild_initramfs.sh
+usr/share/rear/finalize/SUSE_LINUX/i386
+usr/share/rear/finalize/SUSE_LINUX/i386/675_install_shim.sh
+usr/share/rear/finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh
+usr/share/rear/build/SUSE_LINUX
+usr/share/rear/build/SUSE_LINUX/610_link_systemd_lib.sh
+==============================================
+Ubuntu
+usr/share/rear/conf/Ubuntu
+usr/share/rear/conf/Ubuntu/7.10.conf
+usr/share/rear/conf/Ubuntu.conf
+==============================================
+</code></pre>
+<p>So we neither have scripts for 'Arch'<br />
+nor for 'RedHatEnterpriseServer'.</p>
+<p>In particular regarding 'RedHatEnterpriseServer':</p>
+<p>Where 'RedHatEnterpriseServer' appears in our code:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f \
+ | xargs grep 'RedHatEnterpriseServer' \
+ | grep -v 'usr/share/rear/lib/validated'
+
+usr/share/rear/rescue/GNU/Linux/990_sysreqs.sh:
+    # OS_VENDOR=RedHatEnterpriseServer
+
+usr/share/rear/lib/config-functions.sh:
+grep -q -i -E '(centos|redhat|scientific|oracle)' /etc/os-release &amp;&amp; OS_VENDOR=RedHatEnterpriseServer
+grep -q -i -E '(centos|redhat|scientific|oracle)' /etc/system-release &amp;&amp; OS_VENDOR=RedHatEnterpriseServer
+OS_VENDOR=RedHatEnterpriseServer
+</code></pre>
+<p>So I think setting 'RedHatEnterpriseServer' can be removed<br />
+in SetOSVendorAndVersion() in lib/config-functions.sh<br />
+because 'RedHatEnterpriseServer' is nowhere used.</p>
+<p>Regarding where 'Arch' is used in our code:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f \
+ | xargs grep 'Arch' \
+ | grep -v 'usr/share/rear/lib/validated' \
+ | egrep -v 'Archiv|Architecture'
+
+usr/share/rear/conf/default.conf:
+#   /usr/share/kbd/keymaps is used by SUSE and Arch Linux
+
+usr/share/rear/finalize/Fedora/s390/660_install_zipl.sh:
+#       | Arch           | Bootloader | Configuration File              |
+
+usr/share/rear/prep/default/320_include_uefi_env.sh:
+# Most likely, only recent OSes will be UEFI capable, such as SLES11, RHEL6, Ubuntu 12.10, Fedora 18, Arch Linux
+
+usr/share/rear/prep/GNU/Linux/400_guess_kernel.sh:
+    # Arch Linux kernel may not have been found above under /boot
+            Log "No Arch Linux kernel file '$KERNEL_FILE' found"
+
+usr/share/rear/rescue/default/100_hostname.sh:
+# For Arch Linux storing the host name in /etc/hostname (lowercase)
+# put hostname in $ROOTFS_DIR/etc/hostsname (Needed by Arch Linux)
+
+usr/share/rear/rescue/GNU/Linux/500_clone_keyboard_mappings.sh:
+#   Arch Linux: /usr/share/kbd/keymaps
+#   /usr/share/kbd/keymaps is used by SUSE and Arch Linux
+
+usr/share/rear/lib/config-functions.sh:
+            grep -q -i 'arch' /etc/os-release &amp;&amp; OS_VENDOR=Arch
+            OS_MASTER_VENDOR="Arch"
+</code></pre>
+<p>So I think setting 'Arch' might be removed<br />
+in SetOSVendorAndVersion() in lib/config-functions.sh<br />
+because the value 'Arch' is nowhere used in our code.<br />
+On the other hand detection of Arch Linux<br />
+via SetOSVendorAndVersion() could be useful in general<br />
+regardless that currently support for Arch Linux<br />
+is implemented generically without using the<br />
+value 'Arch' explicitly in the code.</p>
+<p>Because the value 'Arch' is not used<br />
+I would suggest to introduce a non-ambiguous value<br />
+for Arch Linux detection in SetOSVendorAndVersion()<br />
+i.e. 'Arch_Linux' instead of the ambiguous 'Arch'<br />
+(the latter is the usual abbreviation for 'Architecture').</p>
+<h4 id="jsmeix_commented_at_2024-03-01_0901"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1972786350">2024-03-01 09:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-01_0901" title="Permanent link">&para;</a></h4>
+<p>What I think what is needed and what works in practice<br />
+(in particular what is maintainable in practice) is<br />
+only two semantically different/separated variables:</p>
+<ul>
+<li>one for the Linux distribution</li>
+<li>one for the hardware architecture</li>
+</ul>
+<p>Nothing more - in particular no versions.</p>
+<p>Why no versions<br />
+Testing for version values is almost always plain wrong<br />
+because testing for version values is almost always<br />
+not testing "the real thing" so a version value test<br />
+could too easily have a wrong result.<br />
+E.g. assume in version 1 there is /etc/old<br />
+which is replaced since version 2 by /etc/new<br />
+then /etc/old versus /etc/new should be directly tested<br />
+instead of an indirect test of the version that has<br />
+a wrong result when e.g. /etc/old is still used<br />
+regardless that version 2 is already there.</p>
+<p>So when I have nothing better to do<br />
+cf.
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1968483977">https://github.com/rear/rear/issues/3149#issuecomment-1968483977</a><br />
+I would mercilessly simplify and clean up that part in ReaR<br />
+to have only two variables left</p>
+<ul>
+<li>DISTRIBUTION</li>
+<li>ARCHITECTURE</li>
+</ul>
+<p>which matches what we actually have as scripts<br />
+for 'Debian' 'Fedora' and 'SUSE_LINUX'<br />
+(nothing version dependant there), cf.<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1972731026">https://github.com/rear/rear/issues/3149#issuecomment-1972731026</a></p>
+<p>This is known to be sufficient and works<br />
+in practice since many years.</p>
+<p>The only exception is</p>
+<pre><code>usr/share/rear/conf/Ubuntu/7.10.conf
+usr/share/rear/conf/Ubuntu.conf
+</code></pre>
+<p>where usr/share/rear/conf/Ubuntu/7.10.conf<br />
+has 'logd' additionally in PROGS<br />
+which looks solvable generically (i.e. without version ).</p>
+<h4 id="lzaoral_commented_at_2024-03-01_0905"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1972792335">2024-03-01 09:05</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-01_0905" title="Permanent link">&para;</a></h4>
+<p>I agree with your suggestion, @jsmeix! Just for the sake of
+completeness, <code>OS_MASTER_VERSION</code> is also used in
+<code>usr/share/rear/lib/layout-functions.sh</code>.</p>
+<h4 id="jsmeix_commented_at_2024-03-01_1459"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-1973347166">2024-03-01 14:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-01_1459" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+when you finished all what you need to do<br />
+in particular for Fedora and Red Hat<br />
+(no rush, step by step, take your time)<br />
+and when that also works for SUSE/openSUSE<br />
+then<br />
+(as a totally separated subsequent major step)<br />
+I will have a look<br />
+if I could do such a "great cleanup work"<br />
+(i.e. simplify it to only DISTRIBUTION and ARCHITECTURE)<br />
+with reasonable effort<br />
+(provided time permits and provided I have nothing better to do).</p>
+<h4 id="github-actions_commented_at_2024-05-01_0210"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2087872089">2024-05-01 02:10</a>:<a class="headerlink" href="#github-actions_commented_at_2024-05-01_0210" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-07-02_0219"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2201690800">2024-07-02 02:19</a>:<a class="headerlink" href="#github-actions_commented_at_2024-07-02_0219" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="gdha_commented_at_2024-09-05_0806"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2330875613">2024-09-05 08:06</a>:<a class="headerlink" href="#gdha_commented_at_2024-09-05_0806" title="Permanent link">&para;</a></h4>
+<p>@lzaoral milestone is still 'ReaR v2.8' - please adjust as you think it
+best fits (v3.0 or v3.1). Thanks.</p>
+<h4 id="lzaoral_commented_at_2024-09-05_0809"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2330883105">2024-09-05 08:09</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-09-05_0809" title="Permanent link">&para;</a></h4>
+<p>@gdha I don't have necessary permissions to do that but
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a>
+which targets v2.8 should fix this issue.</p>
+<h4 id="jsmeix_commented_at_2024-11-25_1229"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2497888294">2024-11-25 12:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-25_1229" title="Permanent link">&para;</a></h4>
+<p>@lzaoral @pcahyna<br />
+is the actual subject of this issue<br />
+"OS vendor and version autodetection fails on Fedora"<br />
+solved at least for now for ReaR 2.8<br />
+with
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a><br />
+and
+<a href="https://github.com/rear/rear/pull/3344">https://github.com/rear/rear/pull/3344</a>
+merged?</p>
+<h4 id="lzaoral_commented_at_2024-11-25_1303"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3149#issuecomment-2497966228">2024-11-25 13:03</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-11-25_1303" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Yes, the main issue should be fixed now, but the OS detection
+code itself is still very brittle.</p>
+<p>I've pushed the original contents of #3171 here:
+<a href="https://github.com/lzaoral/rear/tree/fix-os-detection-parse-id-idlike">https://github.com/lzaoral/rear/tree/fix-os-detection-parse-id-idlike</a>
+Anyone who wants to rewrite it using <code>ID</code> and <code>ID_LIKE</code> fields can use
+that branch as a starting point/inspiration.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-08.3149.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

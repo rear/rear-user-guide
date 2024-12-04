@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3171 PR merged: Make OS detection from /etc/os-release more robust - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3171 PR merged: Make OS detection from /etc/os-release more robust";
+        var mkdocs_page_input_path = "issues/2024-02-29.3171.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3171 PR merged: Make OS detection from /etc/os-release more robust</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3171_pr_merged_make_os_detection_from_etcos-release_more_robust"><a href="https://github.com/rear/rear/pull/3171">#3171 PR</a> <code>merged</code>: Make OS detection from <code>/etc/os-release</code> more robust<a class="headerlink" href="#3171_pr_merged_make_os_detection_from_etcos-release_more_robust" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-02-29_1628"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3171">2024-02-29 16:28</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-02-29_1628" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear/issues/3149">https://github.com/rear/rear/issues/3149</a></p>
+</li>
+<li>
+<p>How was this pull request tested? <code>rear dump</code> and then rescue on
+    x86_64 Fedora Rawhide and RHEL 9.4</p>
+</li>
+<li>
+<p>Description of the changes in this pull request - Notable changes:</p>
+<ol>
+<li>
+<p>Search for <code>rhel</code> when detecting RHEL  </p>
+<p>The <code>redhat</code> substring is present only in auxiliary variables
+and URLs in <code>/etc/os-release</code> both on Fedora and RHEL.
+Therefore, the <code>grep</code> worked only by accident on RHEL and was
+broken on Fedora because it wrongly classified Fedora as RHEL
+because its <code>BUG_REPORT_URL</code> refers to Red Hat's Bugzilla.  </p>
+<p>On the other hand, <code>rhel</code> is the actual <code>ID</code> of RHEL and this
+string is<br />
+not present in Fedora's <code>/etc/os-release</code> at all.  </p>
+<p>Resolves:
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1964290116">https://github.com/rear/rear/issues/3149#issuecomment-1964290116</a></p>
+</li>
+<li>
+<p>Always source a script in <code>SourceStage</code> at most once  </p>
+<p><code>sort -u</code> makes sure that each relevant script is listed and
+sourced<br />
+only and that duplicates get discarded.  </p>
+<p>Otherwise, some scripts could have been executed repeatedly (see
+the last<br />
+linked comment). Especially, when <code>OS_VENDOR</code> and
+<code>OS_MASTER_VENDOR</code> have the<br />
+same value which is the case at least on Fedora.  </p>
+<p>Related:
+<a href="https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291">https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291</a><br />
+Resolves:
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1935586311">https://github.com/rear/rear/issues/3149#issuecomment-1935586311</a></p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="lzaoral_commented_at_2024-03-01_0928"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1972828204">2024-03-01 09:28</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-01_0928" title="Permanent link">&para;</a></h4>
+<p>Thank you for the analysis, @jsmeix! I've pushed changes that rename
+<code>Arch</code> to <code>Arch_Linux</code> and completely remove <code>RedHatEnterpriseServer</code>. I
+still have to test these changes on an actual RHEL machine so I'll let
+you know ASAP if the recovery is still ok.</p>
+<h4 id="lzaoral_commented_at_2024-03-01_1004"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1972887597">2024-03-01 10:04</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-01_1004" title="Permanent link">&para;</a></h4>
+<p>Good news is that the changes recovered the machine successfully.
+However, I've just remembered that ReaR uses <code>OS_VENDOR</code> for the name of
+the recreated EFI boot entry so we will not get <code>Fedora</code> for all
+Fedora-like distributions.</p>
+<p>@pcahyna What do you think?</p>
+<h4 id="rvdkraan_commented_at_2024-03-01_1035"><img src="https://avatars.githubusercontent.com/u/46997988?u=8a7e4c8e33630d8d8e2f75c0c26e88b735e420b6&v=4" width="50"><a href="https://github.com/rvdkraan">rvdkraan</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1972941178">2024-03-01 10:35</a>:<a class="headerlink" href="#rvdkraan_commented_at_2024-03-01_1035" title="Permanent link">&para;</a></h4>
+<p>Hi<br />
+Clould this OS detection fix also solve the root problem for #3170 ?<br />
+Which is in my opinion also related to OS detection.</p>
+<h4 id="lzaoral_commented_at_2024-03-01_1148"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1973046586">2024-03-01 11:48</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-01_1148" title="Permanent link">&para;</a></h4>
+<p>Hey @rvdkraan! Unfortunately, this PR will not fix your issues because
+both the <code>OS_VENDOR</code> and <code>OS_MASTER_VENDOR</code> variables from your report
+were already correct.</p>
+<h4 id="jsmeix_commented_at_2024-03-06_1302"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1980825137">2024-03-06 13:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-06_1302" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you please have a look here (as time permits), cf.<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-1972887597">https://github.com/rear/rear/pull/3171#issuecomment-1972887597</a></p>
+<h4 id="pcahyna_commented_at_2024-03-07_1118"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-1983295860">2024-03-07 11:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-07_1118" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay, I will have a look.</p>
+<h4 id="jsmeix_commented_at_2024-03-20_1238"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2009471753">2024-03-20 12:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_1238" title="Permanent link">&para;</a></h4>
+<p>Some further thoughts regarding the<br />
+get_var_from_file() function:</p>
+<p>Because at least at first glance it looks rather confusing<br />
+what $0 $1 $2 actually is when looking at the<br />
+get_var_from_file() function code, better tell in a comment<br />
+how get_var_from_file() needs to be called,<br />
+e.g. like</p>
+<pre><code># get_var_from_file file_name variable_name
+</code></pre>
+<p>I think it would be good to BugError()<br />
+when $file_name is no readable file<br />
+and/or when $variable_name is empty.</p>
+<p>Perhaps it is somehow possible to let<br />
+get_var_from_file() provide a useful exit code.<br />
+Currently it always results exit code 0 because<br />
+<code>echo something</code> is (basically) always successful:</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0"; echo "${!1}"' "$1" "$2"; }
+
+# get_var_from_file /etc/os-release ID &amp;&amp; echo OK || echo FAIL
+opensuse-leap
+OK
+
+# get_var_from_file qqq ID &amp;&amp; echo OK || echo FAIL
+qqq: qqq: No such file or directory
+
+OK
+
+# get_var_from_file /etc/os-release QQQ &amp;&amp; echo OK || echo FAIL
+
+OK
+
+# cat my-invalid-assignments
+if then
+VAR="value"
+
+# get_var_from_file my-invalid-assignments VAR &amp;&amp; echo OK || echo FAIL
+my-invalid-assignments: line 1: syntax error near unexpected token `then'
+my-invalid-assignments: line 1: `if then'
+
+OK
+</code></pre>
+<p>Therefore I suggest a better implementation<br />
+of the actual get_var_from_file() code body:</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" &amp;&amp; echo "${!1}" || false' "$1" "$2" ; }
+
+# get_var_from_file my-invalid-assignments VAR &amp;&amp; echo OK || echo FAIL
+my-invalid-assignments: line 1: syntax error near unexpected token `then'
+my-invalid-assignments: line 1: `if then'
+FAIL
+
+# get_var_from_file /etc/os-release QQQ &amp;&amp; echo OK || echo FAIL
+
+OK
+
+# get_var_from_file qqq ID &amp;&amp; echo OK || echo FAIL
+qqq: qqq: No such file or directory
+FAIL
+
+# get_var_from_file /etc/os-release ID &amp;&amp; echo OK || echo FAIL
+opensuse-leap
+OK
+</code></pre>
+<p>An offhanded proposal how to let get_var_from_file()<br />
+return non-zero exit code when $variable_name is not assigned:</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" || false ; test -v "$1" &amp;&amp; echo "${!1}" || false' "$1" "$2" ; }
+
+# get_var_from_file /etc/os-release ID &amp;&amp; echo OK || echo FAIL
+opensuse-leap
+OK
+
+# get_var_from_file /etc/os-release QQQ &amp;&amp; echo OK || echo FAIL
+FAIL
+
+# get_var_from_file qqq ID &amp;&amp; echo OK || echo FAIL
+qqq: qqq: No such file or directory
+FAIL
+
+# get_var_from_file my-invalid-assignments VAR &amp;&amp; echo OK || echo FAIL
+my-invalid-assignments: line 1: syntax error near unexpected token `then'
+my-invalid-assignments: line 1: `if then'
+FAIL
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-20_1241"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2009476719">2024-03-20 12:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-20_1241" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+I am afraid - again it gets long and longer.<br />
+Hopefully you don't mind too much<br />
+when I make such kind of pedantic comments?</p>
+<h4 id="lzaoral_commented_at_2024-03-21_1125"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2012011314">2024-03-21 11:25</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-21_1125" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hopefully you don't mind too much when I make such kind of pedantic
+comments?</p>
+</blockquote>
+<p>@jsmeix Not at all, both yours and @pcahyna's suggestions are very
+constructive!</p>
+<h4 id="lzaoral_commented_at_2024-03-21_1206"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2012100925">2024-03-21 12:06</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-03-21_1206" title="Permanent link">&para;</a></h4>
+<p>@jsmeix A bit shorter approach is to use the <code>-u</code> shell option. Also,
+<code>source "$0" || false ; ...</code> will not halt the execution immediately in
+your second implementation.</p>
+<p>This should return <code>0</code> if the sourcing succeeded and the given variable
+is set. Otherwise, it returns <code>1</code> (the final <code>|| return 1</code> is necessary
+because bash returns <code>127</code> on unbound variables).</p>
+<pre><code>$ function get() { bash -c 'source "$0" || exit 1; set -u; echo "${!1}"' "$1" "$2" || return 1 }
+$ get /etc/os-release ID; echo $?
+fedora
+0
+$ get /etc/osrelease ID; echo $?
+/etc/osrelease: line 1: /etc/osrelease: No such file or directory
+1
+$ get /etc/os-release IDD; echo $?
+/etc/os-release: line 1: !1: unbound variable
+1
+</code></pre>
+<p>On the other hand, if it would be ok to fail on any problems in the
+sourced file as well, <code>bash -euc ...</code> may be enough.</p>
+<h4 id="jsmeix_commented_at_2024-03-22_1316"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2015082283">2024-03-22 13:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-22_1316" title="Permanent link">&para;</a></h4>
+<p>I like <code>bash -euc</code> very much because it is simple<br />
+and it makes useful use of the "bash in between"<br />
+which was up to now more a workaround for <code>source</code><br />
+that has a problem with <code>readonly</code> variables,<br />
+cf. our "late but helpful party guest" ;-) comment<br />
+<a href="https://github.com/rear/rear/pull/3171#discussion_r1521750947">https://github.com/rear/rear/pull/3171#discussion_r1521750947</a></p>
+<p>So I played around with <code>bash -euc</code> and<br />
+this seems to behave best at least for my tests:</p>
+<pre><code># function get_var_from_file() { bash -eu -c 'source "$0" &amp;&amp; echo "${!1}"' "$1" "$2" ; }
+</code></pre>
+<p>FYI: Intentionally I separated <code>-eu</code> form <code>-c</code> to make it<br />
+more clear that there is different meaning of arguments<br />
+and I used <code>source ... &amp;&amp; echo</code> to make it more clear<br />
+that successful <code>source</code> is a condition for <code>echo</code><br />
+(instead of having this condition as an implicit result of <code>-e</code>).</p>
+<p>During my tests how it behaves in error cases<br />
+I was thinking about that it could be helpful for debugging<br />
+when also within the bash inside that function<br />
+ReaR's outer DEBUGSCRIPTS setting would be supported,<br />
+so I enhanced it further to</p>
+<pre><code># function get_var_from_file() { test "$DEBUGSCRIPTS" &amp;&amp; local debug="-x" ; bash $debug -eu -c 'source "$0" &amp;&amp; echo "${!1}"' "$1" "$2" ; }
+</code></pre>
+<p>That seems to behave well at least for me on command line</p>
+<pre><code># unset myvar ; myvar="$( get_var_from_file qqq VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
+qqq: qqq: No such file or directory
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-invalid-assignments VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
+my-invalid-assignments: line 1: syntax error near unexpected token `then'
+my-invalid-assignments: line 1: `if then'
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments QQQ &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
+my-shell-assignments: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
+OK
+declare -- myvar="value"
+
+# DEBUGSCRIPTS=1
+
+# unset myvar ; myvar="$( get_var_from_file qqq VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source qqq
+qqq: qqq: No such file or directory
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-invalid-assignments VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-invalid-assignments
+my-invalid-assignments: line 1: syntax error near unexpected token `then'
+my-invalid-assignments: line 1: `if then'
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments QQQ &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
+my-shell-assignments: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments VAR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
++ echo value
+OK
+declare -- myvar="value"
+</code></pre>
+<p>The last two examples (i.e. when 'source' succeeds with
+DEBUGSCRIPTS=1)<br />
+show that the whole sourced file gets output via 'set -x'<br />
+which might be unwanted e.g. when that file is huge and<br />
+which might expose (sensitive) variable values in ReaR's log file<br />
+(where stderr is redirected within ReaR's runtime environment).</p>
+<p>So we must also test it within ReaR's runtime environment.</p>
+<p>Perhaps it is best to "Keep It Simple and Secure"<br />
+and omit such transitive DEBUGSCRIPTS setting?</p>
+<p>For completeness:<br />
+Tests with added EMPTY and BLANK variables and<br />
+with STRING (correct) and ARR (wrong) results<br />
+(with <code>DEBUGSCRIPTS=1</code>):</p>
+<pre><code># cat my-shell-assignments 
+VAR="value"
+EMPTY=
+BLANK=' '
+STRING="lvalue \
+= \
+rvalue"
+ARR=( 'first element = 1'
+      'second element = 2'
+      'last element = 3' )
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments EMPTY &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ EMPTY=
+++ BLANK=' '
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
++ echo ''
+OK
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments BLANK &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ EMPTY=
+++ BLANK=' '
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
++ echo ' '
+OK
+declare -- myvar=" "
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments STRING &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ EMPTY=
+++ BLANK=' '
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
++ echo 'lvalue = rvalue'
+OK
+declare -- myvar="lvalue = rvalue"
+
+# unset myvar ; myvar="$( get_var_from_file my-shell-assignments ARR &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2  )" ; declare -p myvar
++ source my-shell-assignments
+++ VAR=value
+++ EMPTY=
+++ BLANK=' '
+++ STRING='lvalue = rvalue'
+++ ARR=('first element = 1' 'second element = 2' 'last element = 3')
++ echo 'first element = 1'
+OK
+declare -- myvar="first element = 1"
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-22_1654"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2015507343">2024-03-22 16:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-22_1654" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps it is best to "Keep It Simple and Secure"<br />
+and omit such transitive DEBUGSCRIPTS setting?</p>
+</blockquote>
+<p>I think so, I would not bother with it.</p>
+<p>More important question is whether it is ok to fail on any problems in
+the sourced file as well. I think that the sourced file may use variable
+assignments that are not intended to work correctly with <code>set -eu</code>. For
+example FOO="$BAR" where BAR is unset. For this reason I think I would
+prefer to add <code>set -u</code> or <code>set -eu</code> after the <code>source</code> instead of having
+-eu as flags on the <code>bash</code> invocation.</p>
+<h4 id="jsmeix_commented_at_2024-03-25_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2017986309">2024-03-25 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-25_1315" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2015507343">https://github.com/rear/rear/pull/3171#issuecomment-2015507343</a></p>
+<p>I do fully agree.</p>
+<p>Meanwhile<br />
+(after I had some "deep thought" about it over the weekend)<br />
+I consider hardcoded "transitive DEBUG options setting"<br />
+a horrible idea regarding security and privacy.</p>
+<p>Not only in this specific case but in general:<br />
+I.e. when ReaR scripts run with 'set -x'<br />
+it does not mean that programs which are called by ReaR<br />
+also run with whatever program-specific debug settings.</p>
+<p>Reasoning<br />
+with this specific case as an example:</p>
+<p>For example (as far as I know) some networking config files<br />
+could contain confidential data (like WLAN passwords)<br />
+so when ReaR needs some other value from such a file<br />
+the whole file (except bash comments)<br />
+would appear in the log (in DEBUGSCRIPTS mode)<br />
+so the confidential values would leak out =&gt; security issue.</p>
+<p>Furthermore when whole user config files (except bash comments)<br />
+appear in the log (in DEBUGSCRIPTS mode)<br />
+ReaR would cross a privacy boundary:<br />
+From what belongs to ReaR (e.g. the value that ReaR needs<br />
+from a user config file) to what belongs only to the user<br />
+i.e. his whole config file with all his values =&gt; privacy issue.</p>
+<p>If at all "transitive DEBUG options setting" might be enabled<br />
+only on explicit user request via '--expose-secrets'.</p>
+<p>But in this specific case "transitive DEBUGSCRIPTS setting"<br />
+is not needed in practice because also without 'set -x'<br />
+the stderr messages tell sufficiently what the problem is<br />
+so that the user can inspect his config file on his own<br />
+what the actual reason inside his config file is.<br />
+Also when a user reports an issue to us<br />
+we can show him by the stderr messages what the problem is<br />
+but we neither need to know all his config values<br />
+nor should we know all his config values<br />
+to help him sufficiently.</p>
+<h4 id="jsmeix_commented_at_2024-03-25_1324"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2018002598">2024-03-25 13:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-25_1324" title="Permanent link">&para;</a></h4>
+<p>The current implementation</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0"; echo "${!1}"' "$1" "$2" ; }
+</code></pre>
+<p>does not yet work correctly<br />
+when there is stdout output of the sourced file</p>
+<pre><code># cat my-assignment 
+if echo HELLO ; then
+  VAR="value"
+fi
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2 ; declare -p myvar
+OK
+declare -- myvar="HELLO
+value"
+
+# unset VAR ; source my-assignment &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2 ; declare -p VAR
+HELLO
+OK
+declare -- VAR="value"
+</code></pre>
+<p>This one fixes it for me:</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" 1&gt;/dev/null ; echo "${!1}"' "$1" "$2" ; }
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2 ; declare -p myvar
+OK
+declare -- myvar="value"
+</code></pre>
+<p>The fix here (by added <code>1&gt;/dev/null</code> to the 'source' call)<br />
+is only meant as an offhanded proposal to fix<br />
+when there is stdout output of the sourced file.</p>
+<p>It is not meant as a proposal how to deal with errors<br />
+(via <code>set -e</code> or <code>set -eu</code> or <code>... || exit 1</code> or ...).</p>
+<h4 id="pcahyna_commented_at_2024-03-25_1422"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2018119545">2024-03-25 14:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-25_1422" title="Permanent link">&para;</a></h4>
+<p>Yes, you are right; nit: <code>1</code> is superfluous, <code>&gt;/dev/null</code> is enough.</p>
+<h4 id="jsmeix_commented_at_2024-03-25_1452"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2018187735">2024-03-25 14:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-25_1452" title="Permanent link">&para;</a></h4>
+<p>A 'nit' reply only for the fun of it:<br />
+I prefer <code>1&gt;</code> over <code>&gt;</code> because I prefer explicit code.<br />
+In particular explicit <code>1&gt;</code> would make it easier<br />
+in theory to search the code where stdout is redirected.<br />
+In practice this does not work because also <code>&gt;</code> is used<br />
+so in the end it does not matter if <code>1&gt;</code> or <code>&gt;</code> is used<br />
+and I am fine with both.</p>
+<h4 id="pcahyna_commented_at_2024-03-25_1457"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2018199250">2024-03-25 14:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-25_1457" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I happen to disagree here because everyone knows <code>&gt; /dev/null</code>
+and is used to it, so if I see <code>1&gt; /dev/null</code>, I have to think about
+what is the <code>1</code> doing there, while <code>&gt; /dev/null</code> is immediately obvious.
+Related: <code>&gt; /dev/null</code> is more visually recognizable from let's say
+<code>7&gt; /dev/null</code>, and we use numbered redirections often in ReaR.</p>
+<h4 id="jsmeix_commented_at_2024-03-26_0705"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2019531750">2024-03-26 07:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_0705" title="Permanent link">&para;</a></h4>
+<p>Sigh - endless problems - here the next one:</p>
+<p>We cannot fail when 'source' fails because<br />
+'source' returns the status of the last command<br />
+executed in the sourced file so</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" &gt;/dev/null || exit 1 ; set -u ; echo "${!1}"' "$1" "$2" || return 1 ; }
+
+# cat my-assignment 
+echo HELLO &amp;&amp; VAR="hello"
+ls QQQ &amp;&amp; VAR="qqq"
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2 ; declare -p myvar
+ls: cannot access 'QQQ': No such file or directory
+FAIL with 1
+declare -- myvar=""
+
+# unset VAR ; source my-assignment &amp;&amp; echo OK 1&gt;&amp;2 || echo FAIL with $? 1&gt;&amp;2 ; declare -p VAR
+HELLO
+ls: cannot access 'QQQ': No such file or directory
+FAIL with 2
+declare -- VAR="hello"
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-26_0713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2019541083">2024-03-26 07:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_0713" title="Permanent link">&para;</a></h4>
+<p>What seems to behave correctly<br />
+(at least for me with what I test here)<br />
+is</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1 ; }
+
+# cat my-assignment
+echo HELLO &amp;&amp; VAR="hello"
+ls QQQ &amp;&amp; VAR="qqq"
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+ls: cannot access 'QQQ': No such file or directory
+OK
+declare -- myvar="hello"
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment qqq )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+ls: cannot access 'QQQ': No such file or directory
+my-assignment: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file qqq VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+qqq: qqq: No such file or directory
+qqq: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# cat my-assignment
+if then
+echo HELLO &amp;&amp; VAR="hello"
+ls QQQ &amp;&amp; VAR="qqq"
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+my-assignment: line 1: syntax error near unexpected token `then'
+my-assignment: line 1: `if then'
+my-assignment: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# cat my-assignment
+echo HELLO &amp;&amp; VAR="hello"
+if then
+ls QQQ &amp;&amp; VAR="qqq"
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+my-assignment: line 2: syntax error near unexpected token `then'
+my-assignment: line 2: `if then'
+OK
+declare -- myvar="hello"
+
+# cat my-assignment
+echo HELLO &amp;&amp; VAR="hello"
+ls QQQ &amp;&amp; VAR="qqq"
+if then
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+ls: cannot access 'QQQ': No such file or directory
+my-assignment: line 3: syntax error near unexpected token `then'
+my-assignment: line 3: `if then'
+OK
+declare -- myvar="hello"
+</code></pre>
+<h4 id="pcahyna_commented_at_2024-03-26_1336"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2020450590">2024-03-26 13:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-26_1336" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>We cannot fail when 'source' fails because<br />
+'source' returns the status of the last command<br />
+executed in the sourced file so (...)</p>
+</blockquote>
+<p>... so what? Let me quote the os-release(5) manual page:</p>
+<blockquote>
+<p>The format of os-release is a newline-separated list of<br />
+environment-like shell-compatible variable assignments. It is
+possible<br />
+to source the configuration from Bourne shell scripts, however,
+<strong>beyond<br />
+mere variable assignments, no shell features are supported</strong> (this
+means<br />
+variable expansion is explicitly not supported), allowing
+applications<br />
+to read the file <strong>without implementing a shell compatible execution<br />
+engine</strong>.</p>
+</blockquote>
+<p>(emphasis mine).</p>
+<p>So, why to worry about the exit status from <code>source</code> if the only allowed
+statements are variable assignment statements? (<code>ls</code> in your example is
+thus not allowed.) I consider this a non-issue.</p>
+<h4 id="jsmeix_commented_at_2024-03-26_1358"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2020504167">2024-03-26 13:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-26_1358" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+in your<br />
+<a href="https://github.com/rear/rear/pull/3171#discussion_r1521750947">https://github.com/rear/rear/pull/3171#discussion_r1521750947</a><br />
+you wrote that<br />
+"the get_var_from_file function is meant to be generic"<br />
+which was the reason that I suggested in my<br />
+<a href="https://github.com/rear/rear/pull/3171#discussion_r1523283636">https://github.com/rear/rear/pull/3171#discussion_r1523283636</a><br />
+that "it fits perhaps better in lib/global-functions.sh"</p>
+<p>When we have a generic get_var_from_file function<br />
+then it must work reasonably well for any file<br />
+that can be sourced, in particular for a bash script.</p>
+<p>Otherwise when we only want a function to get values<br />
+from os-release then we must not have such a function<br />
+as a generic function lib/global-functions.sh<br />
+but preferably as it was before only a "local" function<br />
+called explicitly get_var_from_os_release to make it clear<br />
+that this function cannot be used generically<br />
+to get a value from any file that can be sourced.</p>
+<p>But why not have a generic get_var_from_file function<br />
+when it seems it can be implemented reasonably well,<br />
+for example as I proposed in my last<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2019541083">https://github.com/rear/rear/pull/3171#issuecomment-2019541083</a></p>
+<p>Or is there something severely wrong with my recent proposal?</p>
+<p>I mean: It is certainly possible to make a bash script<br />
+where my recent get_var_from_file function fails<br />
+but in "sufficiently normal" cases it seems to work OK</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1 ; }
+
+# cat my-assignment 
+echo HELLO &amp;&amp; VAR="$( echo -n "Today is $( date )" )"
+ls QQQ &amp;&amp; VAR="qqq"
+if then
+
+# unset myvar ; myvar="$( get_var_from_file my-assignment VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar ; date
+ls: cannot access 'QQQ': No such file or directory
+my-assignment: line 3: syntax error near unexpected token `then'
+my-assignment: line 3: `if then'
+OK
+declare -- myvar="Today is Tue 26 Mar 2024 03:06:09 PM CET"
+Tue 26 Mar 2024 03:06:09 PM CET
+</code></pre>
+<p>For the fun of it:<br />
+I even found a simple bash script where<br />
+my recent get_var_from_file function fails,<br />
+something like:</p>
+<pre><code>poweroff
+sleep 120
+VAR="value"
+</code></pre>
+<p>;-)</p>
+<h4 id="pcahyna_commented_at_2024-03-26_1421"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2020565632">2024-03-26 14:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-03-26_1421" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When we have a generic get_var_from_file function<br />
+then it must work reasonably well for any file<br />
+that can be sourced, in particular for a bash script.</p>
+</blockquote>
+<p>Depends on how "generic" we want it to have. We can define it as being
+generic enough to be able to read files that have the same format as
+os-release, i.e. variable assignments but no other shell commands. I
+believe that files under <code>/etc/sysconfig</code> fall in this category.</p>
+<blockquote>
+<p>But why not have a generic get_var_from_file function<br />
+when it seems it can be implemented reasonably well,<br />
+for example as I proposed in my last<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2019541083">https://github.com/rear/rear/pull/3171#issuecomment-2019541083</a><br />
+Or is there something severely wrong with my recent proposal?</p>
+</blockquote>
+<p>My only problem with it is that we lose the ability to detect errors
+when sourcing the file (including file not found or readable), compared
+to the <code>source ... || exit 1</code> version.</p>
+<h4 id="jsmeix_commented_at_2024-03-27_0841"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2022217821">2024-03-27 08:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_0841" title="Permanent link">&para;</a></h4>
+<p>It also fails for file not found or not readable</p>
+<pre><code># function get_var_from_file() { bash -c 'source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1 ; }
+
+# unset myvar ; myvar="$( get_var_from_file qqq VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+qqq: qqq: No such file or directory
+qqq: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+
+# unset myvar ; myvar="$( get_var_from_file /etc/shadow VAR )" &amp;&amp; echo OK || echo FAIL with $? ; declare -p myvar
+/etc/shadow: /etc/shadow: Permission denied
+/etc/shadow: !1: unbound variable
+FAIL with 1
+declare -- myvar=""
+</code></pre>
+<p>but it always fails at 'set -u' because of "unbound variable".</p>
+<p>As far as I see it is not possible to<br />
+fail at 'source' for file not found or not readable<br />
+but not fail at 'source' when the last command in file<br />
+results non-zero exit code which is usually '1'</p>
+<pre><code>$ source /etc/shadow || echo $?
+bash: /etc/shadow: Permission denied
+1
+
+$ source qqq || echo $?
+bash: qqq: No such file or directory
+1
+
+$ cat my-script
+grep qqq /etc/fstab
+
+$ source my-script || echo $?
+1
+</code></pre>
+<p>so we would have to add special checks<br />
+for cases like file not found or not readable.</p>
+<p>I think such specific checks are not needed<br />
+because stderr shows the root cause why it failed<br />
+regardless that actually it failed at 'set -u'.</p>
+<h4 id="jsmeix_commented_at_2024-03-27_1146"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2022575784">2024-03-27 11:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_1146" title="Permanent link">&para;</a></h4>
+<p>Bottom line of what I mean is:</p>
+<p>As far as I see</p>
+<pre><code>function get_var_from_file() {
+    bash -c 'source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1
+}
+</code></pre>
+<p>provides simple "all or nothing" return code behaviour:</p>
+<p>Zero return code means the variable was set in the file and<br />
+stdout is the value of the variable (could be empty or blank).</p>
+<p>Non-zero return code in all other cases.</p>
+<p>So get_var_from_file can be used in a simple way like</p>
+<pre><code>if my_var="$( get_var_from_file FILE_NAME VAR_NAME )" ; then
+    # Code when VAR_NAME was set in FILE_NAME:
+    ...
+else
+    # Code when the value of VAR_NAME is unknown
+    # (e.g. error handling code or fallback code):
+    ...
+fi
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-03-27_1215"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2022625255">2024-03-27 12:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_1215" title="Permanent link">&para;</a></h4>
+<p>For the fun of craziness:</p>
+<p>My above described simple "all or nothing" return code behaviour<br />
+does not hold in any case, in particular not for shell variables:</p>
+<pre><code># cat my-assignment
+VAR="value"
+BASH="my bash"
+BASHPID=99999999
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASH )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+declare -- myvar="my bash"
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASHPID )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+declare -- myvar="6854"
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASH_COMMAND )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+declare -- myvar="echo \"\${!1}\""
+</code></pre>
+<p>but BASHPID cannot be set in my-assignment because it is readonly<br />
+and BASH_COMMAND was not set in my-assignment.</p>
+<p>So for the fun of craziness I further enhanced it:</p>
+<pre><code># function get_var_from_file() { bash -c 'unset $1 || exit 1 ; source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1 ; }
+</code></pre>
+<p>This seems to even behave correctly - as far as I tested:</p>
+<pre><code># unset myvar ; if myvar="$( get_var_from_file my-assignment VAR )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+declare -- myvar="value"
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASH )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+declare -- myvar="my bash"
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASHPID )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+my-assignment: line 0: unset: BASHPID: cannot unset: readonly variable
+FAIL with 1
+
+# unset myvar ; if myvar="$( get_var_from_file my-assignment BASH_COMMAND )" ; then declare -p myvar ; else echo FAIL with $? ; fi
+my-assignment: !1: unbound variable
+FAIL with 1
+</code></pre>
+<p>The idea behind to ensure the above described<br />
+simple "all or nothing" return code behaviour<br />
+is:</p>
+<p>When VAR_NAME cannot be unset before 'source FILE_NAME'<br />
+then VAR_NAME cannot be (successfully) set in FILE_NAME<br />
+so get_var_from_file must return non-zero return code.</p>
+<p>@lzaoral @pcahyna<br />
+I know I am here far beyond what is reasonable<br />
+but I currently have "just fun" to play around<br />
+with even such crazy exceptional corner cases, cf.<br />
+<a href="https://github.com/rear/rear/pull/3168#issuecomment-1991713382">https://github.com/rear/rear/pull/3168#issuecomment-1991713382</a></p>
+<h4 id="jsmeix_commented_at_2024-03-27_1244"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2022676968">2024-03-27 12:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_1244" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @lzaoral<br />
+when you agree that having a generic function</p>
+<pre><code>function get_var_from_file() {
+    bash -c 'unset $1 || exit 1 ; source "$0" &gt;/dev/null ; set -u ; echo "${!1}"' "$1" "$2" || return 1
+}
+</code></pre>
+<p>is useful in ReaR - in particular when you think<br />
+the above implementation is reasonably correct,<br />
+would it then help you with this pull request here<br />
+when I make a pull request to add that function<br />
+to lib/global-functions.sh so that this part<br />
+can be excluded from this pull request?</p>
+<p>And in case of issues with that function<br />
+I am to "git blame" for it ;-)</p>
+<h4 id="jsmeix_commented_at_2024-03-27_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2022699855">2024-03-27 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-03-27_1254" title="Permanent link">&para;</a></h4>
+<p>FYI:<br />
+How it behaves for /etc/os-release for me</p>
+<pre><code># for varname in $( cut -s -d '=' -f1 /etc/os-release ) ; \
+  do unset myvar ; \
+     if myvar="$( get_var_from_file /etc/os-release $varname )" ; \
+     then grep "^$varname=" /etc/os-release ; \
+          declare -p myvar ; \
+          echo ; \
+     else echo FAIL with $? ; \
+     fi ; \
+   done
+
+NAME="openSUSE Leap"
+declare -- myvar="openSUSE Leap"
+
+VERSION="15.5"
+declare -- myvar="15.5"
+
+ID="opensuse-leap"
+declare -- myvar="opensuse-leap"
+
+ID_LIKE="suse opensuse"
+declare -- myvar="suse opensuse"
+
+VERSION_ID="15.5"
+declare -- myvar="15.5"
+
+PRETTY_NAME="openSUSE Leap 15.5"
+declare -- myvar="openSUSE Leap 15.5"
+
+ANSI_COLOR="0;32"
+declare -- myvar="0;32"
+
+CPE_NAME="cpe:/o:opensuse:leap:15.5"
+declare -- myvar="cpe:/o:opensuse:leap:15.5"
+
+BUG_REPORT_URL="https://bugs.opensuse.org"
+declare -- myvar="https://bugs.opensuse.org"
+
+HOME_URL="https://www.opensuse.org/"
+declare -- myvar="https://www.opensuse.org/"
+
+DOCUMENTATION_URL="https://en.opensuse.org/Portal:Leap"
+declare -- myvar="https://en.opensuse.org/Portal:Leap"
+
+LOGO="distributor-logo-Leap"
+declare -- myvar="distributor-logo-Leap"
+</code></pre>
+<p>Same result when I do this inside ReaR<br />
+by adding that code at the beginning of<br />
+init/default/001_verify_config_arrays.sh</p>
+<h4 id="pcahyna_commented_at_2024-04-09_1012"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2044642518">2024-04-09 10:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-04-09_1012" title="Permanent link">&para;</a></h4>
+<p>Sorry @jsmeix , we got a bit lost in the discussion - please implement
+the proposed <code>get_var_from_file</code>.</p>
+<h4 id="jsmeix_commented_at_2024-04-09_1145"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2044901901">2024-04-09 11:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-09_1145" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+my pleasure:
+<a href="https://github.com/rear/rear/pull/3203">https://github.com/rear/rear/pull/3203</a></p>
+<h4 id="gdha_commented_at_2024-04-26_0706"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2078759804">2024-04-26 07:06</a>:<a class="headerlink" href="#gdha_commented_at_2024-04-26_0706" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @pcahyna @lzaoral is this issue now also on hold because of
+#3203 ?</p>
+<h4 id="lzaoral_commented_at_2024-04-29_1229"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2082606311">2024-04-29 12:29</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-04-29_1229" title="Permanent link">&para;</a></h4>
+<p>@gdha Not necessarily. If the original approach to parse
+<code>/etc/os-release</code></p>
+<pre><code>eval "$(grep '^ID=' /etc/os-release)"
+</code></pre>
+<p>is fine by you and @schlomo, I can revert the PR to that state.</p>
+<h4 id="jsmeix_commented_at_2024-04-29_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2082651756">2024-04-29 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-04-29_1254" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+yes, please change things as needed<br />
+so that we can move forward<br />
+with this specific case here and<br />
+again thank you for your patience with us!</p>
+<p><a href="https://github.com/rear/rear/pull/3203">https://github.com/rear/rear/pull/3203</a><br />
+and all what is related to that can of worms will take<br />
+a lot of time to get sorted out and properly solved.</p>
+<p>In particular my last finding that we basically<br />
+carelessly "just source" various files at<br />
+about 43 places in our scripts scares me<br />
+so "something needs to be done".</p>
+<h4 id="lzaoral_commented_at_2024-05-13_1507"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2107913279">2024-05-13 15:07</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-05-13_1507" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @gdha I've rebased the PR and removed usage of
+<code>get_var_from_file</code>.</p>
+<h4 id="jsmeix_commented_at_2024-05-13_1553"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2108082864">2024-05-13 15:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-13_1553" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+in usr/share/rear/lib/config-functions.sh<br />
+in the</p>
+<pre><code>    # set OS_MASTER_VENDOR in case this is a derived OS and ReaR differentiates it
+    case "${OS_VENDOR,,}" in
+...
+    esac
+</code></pre>
+<p>section<br />
+could you keep a simplified version of the comment</p>
+<pre><code># When OS_VENDOR_VERSION contains 'SUSE', set OS_MASTER_VENDOR to 'SUSE'
+# but do not set OS_MASTER_VENDOR same as OS_VENDOR (i.e. 'SUSE_LINUX')
+# (cf. above: all SUSE distributions ... must be unified to 'SUSE_LINUX')
+# because then scripts in a .../SUSE_LINUX/... sub-directoriy and conf/SUSE_LINUX.conf
+# get sourced twice by the (buggy) SourceStage function in lib/framework-functions.sh
+</code></pre>
+<p>that tells why it is crucial to<br />
+not set OS_MASTER_VENDOR same as OS_VENDOR?</p>
+<p>I needed some second and third looks to understand that<br />
+OS_MASTER_VENDOR same as OS_VENDOR is carefully avoided<br />
+in the current code but that is neither obvious<br />
+nor explicitly visible in the code.</p>
+<p>For example you may add something like</p>
+<pre><code>    # Set OS_MASTER_VENDOR in case this is a derived OS and ReaR differentiates it.
+    # Do not set OS_MASTER_VENDOR same as OS_VENDOR
+    # e.g. OS_MASTER_VENDOR = OS_VENDOR = Some_Vendor
+    # because then scripts in .../Some_Vendor/... sub-directories
+    # and conf/Some_Vendor.conf get sourced twice by the (buggy)
+    # SourceStage function in lib/framework-functions.sh
+    # cf. https://github.com/rear/rear/pull/1241
+    case "${OS_VENDOR,,}" in
+    ...
+        OS_MASTER_VENDOR=...
+    ...
+    esac
+</code></pre>
+<p>Or - perhaps even better - BugError when both are same like</p>
+<pre><code>    # set OS_MASTER_VENDOR in case this is a derived OS and ReaR differentiates it
+    case "${OS_VENDOR,,}" in
+    ...
+        OS_MASTER_VENDOR=...
+    ...
+    esac
+    # OS_MASTER_VENDOR must not be same as OS_VENDOR
+    # e.g. OS_MASTER_VENDOR = OS_VENDOR = Some_Vendor
+    # because then scripts in .../Some_Vendor/... sub-directories
+    # and conf/Some_Vendor.conf get sourced twice by the (buggy)
+    # SourceStage function in lib/framework-functions.sh
+    # cf. https://github.com/rear/rear/pull/1241#issuecomment-295292372
+    test "$OS_MASTER_VENDOR" != "$OS_VENDOR" || BugError "OS_MASTER_VENDOR must not be same as OS_VENDOR '$OS_VENDOR'"
+</code></pre>
+<p>cf.
+<a href="https://github.com/rear/rear/pull/1241#issuecomment-295292372">https://github.com/rear/rear/pull/1241#issuecomment-295292372</a></p>
+<h4 id="schlomo_commented_at_2024-05-14_1051"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2109889490">2024-05-14 10:51</a>:<a class="headerlink" href="#schlomo_commented_at_2024-05-14_1051" title="Permanent link">&para;</a></h4>
+<p>To follow up, in 1ed656d6ab631ef606f967d460c9643c28d21f61 I fixed the
+problem with Archlinux and Manjaro so that we now get this, IMHO also
+broken, behaviour on those distros:</p>
+<pre><code>❯ tools/run-in-docker -a amd64 arch manj -- "grep 'ID.*=' /etc/os-release || echo NO /etc/os-release FOUND ; echo ; rear dump | grep OS_ || echo REAR ERROR"
+Using architecture amd64 instead of default Docker architecture aarch64
+********** archlinux                                **********
+ID=arch
+BUILD_ID=rolling
+VERSION_ID=20240101.0.204074
+
+  OS_MASTER_VENDOR=""
+  OS_MASTER_VERSION="20240101.0.204074"
+  OS_MASTER_VENDOR_ARCH="i386"
+  OS_MASTER_VENDOR_VERSION="20240101.0.204074"
+  OS_MASTER_VENDOR_VERSION_ARCH="20240101.0.204074/i386"
+  OS_VENDOR="Arch"
+  OS_VERSION="20240101.0.204074"
+  OS_VENDOR_ARCH="Arch/i386"
+  OS_VENDOR_VERSION="Arch/20240101.0.204074"
+  OS_VENDOR_VERSION_ARCH="Arch/20240101.0.204074/i386"
+********** manjarolinux/base                        **********
+ID=manjaro
+ID_LIKE=arch
+BUILD_ID=rolling
+
+  OS_MASTER_VENDOR=""
+  OS_MASTER_VERSION="none"
+  OS_MASTER_VENDOR_ARCH="i386"
+  OS_MASTER_VENDOR_VERSION="none"
+  OS_MASTER_VENDOR_VERSION_ARCH="none/i386"
+  OS_VENDOR="Arch"
+  OS_VERSION="none"
+  OS_VENDOR_ARCH="Arch/i386"
+  OS_VENDOR_VERSION="Arch/none"
+  OS_VENDOR_VERSION_ARCH="Arch/none/i386"
+** SCRIPT RUN TIME 16 SECONDS **
+</code></pre>
+<p>Here we have even more broken variables so that I think that fixing the
+OS detection will be a very good improvement.</p>
+<p>Thank you @lzaoral for opening this up!</p>
+<h4 id="jsmeix_commented_at_2024-05-14_1311"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2110203576">2024-05-14 13:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-14_1311" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+see my quick first analysis starting at<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1934386437">https://github.com/rear/rear/issues/3149#issuecomment-1934386437</a></p>
+<p>Some results from my offhanded tests:</p>
+<p><a href="https://github.com/rear/rear/issues/3149#issuecomment-1934402243">https://github.com/rear/rear/issues/3149#issuecomment-1934402243</a><br />
+excerpts</p>
+<pre><code>Where those variables are used in ReaR scripts:
+
+...
+
+So it seems (according to that quick and dirty test)
+those variables are not actually used in ReaR scripts
+
+OS_MASTER_VENDOR_ARCH
+OS_MASTER_VENDOR_VERSION
+OS_MASTER_VENDOR_VERSION_ARCH
+OS_VENDOR_ARCH
+OS_VENDOR_VERSION
+OS_VENDOR_VERSION_ARCH
+VERSION_ID
+</code></pre>
+<p><a href="https://github.com/rear/rear/issues/3149#issuecomment-1934474211">https://github.com/rear/rear/issues/3149#issuecomment-1934474211</a><br />
+excerpts</p>
+<pre><code>What directories we have where the value of such variables
+is used as directory name (also a quick and dirty test):
+
+...
+
+So it seems only those values are actually used
+as directory names:
+
+Debian
+Fedora
+IPL
+Linux-arm
+Linux-i386
+Linux-ia64
+Linux-ppc64
+Linux-ppc64le
+Linux-s390
+SUSE_LINUX
+Ubuntu
+i386
+ppc64
+ppc64le
+s390
+</code></pre>
+<p>And some other tests later<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1972731026">https://github.com/rear/rear/issues/3149#issuecomment-1972731026</a><br />
+excerpts</p>
+<pre><code>What OS_VENDOR value dependant scripts we have
+
+...
+
+So we neither have scripts for 'Arch'
+nor for 'RedHatEnterpriseServer'.
+</code></pre>
+<p>And finally my personal opinion<br />
+as a result of my above tests:<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1972786350">https://github.com/rear/rear/issues/3149#issuecomment-1972786350</a><br />
+excerpt</p>
+<pre><code>What I think what is needed and what works in practice
+(in particular what is maintainable in practice) is
+only two semantically different/separated variables:
+
+    one for the Linux distribution
+    one for the hardware architecture
+
+Nothing more - in particular no versions.
+
+Why no versions
+Testing for version values is almost always plain wrong
+because testing for version values is almost always
+not testing "the real thing" so a version value test
+could too easily have a wrong result.
+E.g. assume in version 1 there is /etc/old
+which is replaced since version 2 by /etc/new
+then /etc/old versus /etc/new should be directly tested
+instead of an indirect test of the version that has
+a wrong result when e.g. /etc/old is still used
+regardless that version 2 is already there.
+
+...
+
+I would mercilessly simplify and clean up that part in ReaR
+to have only two variables left
+
+    DISTRIBUTION
+    ARCHITECTURE
+
+which matches what we actually have as scripts
+for 'Debian' 'Fedora' and 'SUSE_LINUX'
+(nothing version dependant there),
+...
+This is known to be sufficient and works
+in practice since many years.
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-05-15_1205"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2112350976">2024-05-15 12:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-05-15_1205" title="Permanent link">&para;</a></h4>
+<p>To avoid possible misunderstanding of my above<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2110203576">https://github.com/rear/rear/pull/3171#issuecomment-2110203576</a></p>
+<p>I did not mean we should do such a<br />
+"merciless simplification and clean up"<br />
+right now.</p>
+<p>I meant that we should not spend more time<br />
+than really needed right now for current real issues<br />
+with all that variables, cf. my<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1968483977">https://github.com/rear/rear/issues/3149#issuecomment-1968483977</a><br />
+excerpt</p>
+<pre><code>it is perfectly OK for me when you do only minimal changes
+to make things work again for Red Hat and Fedora and
+leave the "great cleanup work" to others...
+</code></pre>
+<p>and my<br />
+<a href="https://github.com/rear/rear/issues/3149#issuecomment-1973347166">https://github.com/rear/rear/issues/3149#issuecomment-1973347166</a><br />
+excerpt</p>
+<pre><code>(as a totally separated subsequent major step)
+I will have a look
+if I could do such a "great cleanup work"
+(i.e. simplify it to only DISTRIBUTION and ARCHITECTURE)
+with reasonable effort
+(provided time permits and provided I have nothing better to do).
+</code></pre>
+<p>Bottom line:<br />
+I would like to keep this pull request limited<br />
+to what it was originally meant to fix:<br />
+Some specific bug with that variables<br />
+for Red Hat and Fedora.</p>
+<p>I think it is not the task of @lzaoral<br />
+to do some major generic work in ReaR.<br />
+Of course if he likes to contribute that<br />
+then I would very much appreciate it.<br />
+What I mean is that we should not ask contributors<br />
+who like to contribute just one specific thing<br />
+to do major generic work "by the way".</p>
+<p>Or in other words:<br />
+Keep Separated Issues Separated "KSIS" ;-)</p>
+<h4 id="gdha_commented_at_2024-06-11_0845"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2160144097">2024-06-11 08:45</a>:<a class="headerlink" href="#gdha_commented_at_2024-06-11_0845" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors @lzaoral the milestone "2.8" will never be released
+as we go for the "3.0". However, it may be wise to select milestone
+"3.1" for this issue, no?</p>
+<h4 id="lzaoral_commented_at_2024-06-11_1009"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2160355332">2024-06-11 10:09</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-06-11_1009" title="Permanent link">&para;</a></h4>
+<p>@gdha This should be fixed in 3.0 rather than later because the OS
+detection in ReaR on Fedora is completely broken.</p>
+<h4 id="lzaoral_commented_at_2024-10-17_0721"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2418759962">2024-10-17 07:21</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-10-17_0721" title="Permanent link">&para;</a></h4>
+<p>I've split c4c25839ecef77d9ecfd44a6bd412b371220b23a into a separate PR
+#3331 since it is needed for RHEL 10.</p>
+<h4 id="jsmeix_commented_at_2024-10-25_0727"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2437087938">2024-10-25 07:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-25_0727" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+because this pull request is meant for ReaR 3.0<br />
+I would like to know how far things meanwhile work<br />
+for you with current Red Hat and Fedora versions<br />
+with what is already merged in current master code<br />
+(e.g.
+<a href="https://github.com/rear/rear/pull/3331">https://github.com/rear/rear/pull/3331</a>)
+?</p>
+<p>In other words:<br />
+Is more needed to make ReaR 3.0 work<br />
+with current Red Hat and Fedora versions<br />
+or is the current master code already "good enough"<br />
+(likely not really good but perhaps OK for now)?</p>
+<p>Simply put:<br />
+Is
+<a href="https://github.com/rear/rear/issues/3149">https://github.com/rear/rear/issues/3149</a><br />
+good enough fixed for now in current master code?</p>
+<h4 id="lzaoral_commented_at_2024-10-25_0838"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2437219729">2024-10-25 08:38</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-10-25_0838" title="Permanent link">&para;</a></h4>
+<p>Hey @jsmeix!<br />
+The current state is definitely better than it was in January but two
+major issues raised in
+<a href="https://github.com/rear/rear/issues/3149">https://github.com/rear/rear/issues/3149</a>
+are still not resolved. The current state is:</p>
+<p>Fixed:</p>
+<ul>
+<li>Version parsing (bullet 2.
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1964290116">https://github.com/rear/rear/issues/3149#issuecomment-1964290116</a>) -
+    fixed by #3165</li>
+<li>Permanent OS vendor and version caching (bullet 3. in
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1964290116">https://github.com/rear/rear/issues/3149#issuecomment-1964290116</a>) -
+    fixed by #3165</li>
+<li>Inconsistent use of <code>OS_MASTER_VERSION</code> (bullet 1. in
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1966068640">https://github.com/rear/rear/issues/3149#issuecomment-1966068640</a>) -
+    fixed by #3331</li>
+</ul>
+<p>Not fixed:</p>
+<ul>
+<li>Fedora gets classified as RHEL (bullet 1.
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1935586311">https://github.com/rear/rear/issues/3149#issuecomment-1935586311</a>) -
+    unmerged fix in #3171</li>
+<li>Duplicated code execution whenever <code>OS_MASTER_VENDOR</code> and
+    <code>OS_VENDOR</code> have the same values
+    (<a href="https://github.com/rear/rear/issues/3149#issuecomment-1935586311">https://github.com/rear/rear/issues/3149#issuecomment-1935586311</a>) -
+    partial unmerged fix in #3171</li>
+<li><strong>Minor</strong> Incorrect use of <code>OS_MASTER_VENDOR</code> on SUSE (bullet 2.
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1966068640">https://github.com/rear/rear/issues/3149#issuecomment-1966068640</a>) -
+    unmerged fix in #3171<ul>
+<li>Minor issue from RH/Fedora point since it is only related to
+    SUSE on IBM mainframes.</li>
+</ul>
+</li>
+</ul>
+<p>Of course, I have no abjections against splitting this PR into multiple
+smaller ones to move this effort further.</p>
+<p>edit: fix broken comment link</p>
+<h4 id="lzaoral_commented_at_2024-10-25_0841"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2437225817">2024-10-25 08:41</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-10-25_0841" title="Permanent link">&para;</a></h4>
+<p>I've also rebased this PR to resolve the conflicts.</p>
+<h4 id="jsmeix_commented_at_2024-11-11_0925"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2467642426">2024-11-11 09:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-11_0925" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+I am sorry that I could not reply earlier,<br />
+too much other stuff filled up my brain :-(</p>
+<p>I would much appreciate it if you could<br />
+split this PR into separated parts<br />
+i.e. one for each separated "Not fixed" issue in<br />
+<a href="https://github.com/rear/rear/pull/3171#issuecomment-2437219729">https://github.com/rear/rear/pull/3171#issuecomment-2437219729</a></p>
+<p>I think this could make this issue move forward<br />
+because smaller steps are easier to deal with.</p>
+<p>But do not split it up into artificial parts<br />
+where the partial changes depend on each other,<br />
+i.e. keep together what technically belongs together.<br />
+But you can split up one same global task into parts<br />
+where each change implements/fixes a separated part.</p>
+<p>Again sorry that this issue is delayed for such a long time.<br />
+For me personally the main reason is that in this case here<br />
+from plain looking at only the changes in this PR<br />
+I fail to understand what the changes mean in practice.<br />
+So in this case a proper review is rather hard for me.<br />
+I hope separated parts make the review easier for me.</p>
+<h4 id="jsmeix_commented_at_2024-11-15_0755"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2478166544">2024-11-15 07:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-15_0755" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @lzaoral<br />
+it is still approved "bona fide" by me (see my first comment)<br />
+so for me personally it is fine when @pcahyna approves it<br />
+and merges it as he likes.<br />
+I.e. you do not need to get an additional review from me.</p>
+<p>There is still @schlomo who requests changes<br />
+but currently I cannot find out what it is or was<br />
+where he requested changes.<br />
+In the GitHub web frontend view at the top right of this<br />
+pull request in the "Reviewers" part in the "schlomo" line<br />
+at the right the red frame with <code>+</code> and <code>-</code> in it links to<br />
+<a href="https://github.com/rear/rear/pull/3171/files/4300f05411f263f2b69da95a67c243248e0f52ba">https://github.com/rear/rear/pull/3171/files/4300f05411f263f2b69da95a67c243248e0f52ba</a><br />
+which shows</p>
+<pre><code>We went looking everywhere, but couldn’t find those commits.
+Sometimes commits can disappear after a force-push.
+Head back to the latest changes here
+https://github.com/rear/rear/pull/3171/files
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-11-15_0804"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2478179485">2024-11-15 08:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-15_0804" title="Permanent link">&para;</a></h4>
+<p>One can still access<br />
+<a href="https://github.com/rear/rear/commit/4300f05411f263f2b69da95a67c243248e0f52ba">https://github.com/rear/rear/commit/4300f05411f263f2b69da95a67c243248e0f52ba</a><br />
+so this commit did not really disappear but GitHub shows</p>
+<pre><code>This commit does not belong to any branch on this repository,
+and may belong to a fork outside of the repository.
+</code></pre>
+<p>and this commit alone does not tell<br />
+what it was why @schlomo requested changes.</p>
+<h4 id="lzaoral_commented_at_2024-11-19_1059"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2485376783">2024-11-19 10:59</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-11-19_1059" title="Permanent link">&para;</a></h4>
+<p>Sorry everyone for not replying sooner, everyone! I was really busy with
+other projects. When going through @schlomo's main concerns in
+<a href="https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291">https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291</a>,
+I propose the following:</p>
+<ol>
+<li>Move the SUSE/s390x-related change and the rename of <code>Arch</code> to
+    <code>Arch_Linux</code> (suggested by @jsmeix at the bottom of
+    <a href="https://github.com/rear/rear/issues/3149#issuecomment-1972731026">https://github.com/rear/rear/issues/3149#issuecomment-1972731026</a>
+    to precent confusion with "Architecture") to a separate PR. These
+    two changes are independent of the rest and I'll create this PR
+    ASAP. edit: Created as
+    <a href="https://github.com/rear/rear/pull/3344/">https://github.com/rear/rear/pull/3344/</a>.</li>
+<li>Make only a minimal change to fix detection of Fedora (and move the
+    rest of this PR on-hold). The plain chain of <code>grep</code> commands used
+    currently (without any actual parsing) classifies Fedora as RHEL,
+    because Fedora uses RH bugzilla for bug-tracking:</li>
+</ol>
+<!-- -->
+
+<pre><code>$ grep -i -E '(centos|redhat|scientific|oracle)' /etc/os-release
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=41
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=41
+</code></pre>
+<p>Amusingly, on actual RHEL the situation is somewhat similar (I've tried
+7.9, 9.5 and 10 Beta), primarily URLs with the <code>redhat</code> substring get
+matched:</p>
+<pre><code>$ grep -i -E '(centos|redhat|scientific|oracle)' /etc/os-release
+CPE_NAME="cpe:/o:redhat:enterprise_linux:9::baseos"
+HOME_URL="https://www.redhat.com/"
+DOCUMENTATION_URL="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9"
+BUG_REPORT_URL="https://issues.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 9"
+REDHAT_BUGZILLA_PRODUCT_VERSION=9.5
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="9.5"
+</code></pre>
+<p>In both cases, the grepped value (<code>redhat</code>) was never present in the
+<code>ID</code> (or <code>ID_LIKE</code>) fields of <code>/etc/os-release</code> so this always worked
+"by accident".</p>
+<p>This minimal patch fixes the autodetection (at least) on Fedora 40
+(though the original proposed commit is more robust):</p>
+<pre><code>diff --git a/usr/share/rear/lib/config-functions.sh b/usr/share/rear/lib/config-functions.sh
+index daeeb416..0a7f8b6a 100644
+--- a/usr/share/rear/lib/config-functions.sh
++++ b/usr/share/rear/lib/config-functions.sh
+@@ -20,7 +20,7 @@ function SetOSVendorAndVersion () {
+         # Try to find all the required information from that file
+         if [[ -f /etc/os-release ]] ; then
+             grep -q -i 'fedora' /etc/os-release &amp;&amp; OS_VENDOR=Fedora
+-            grep -q -i -E '(centos|redhat|scientific|oracle)' /etc/os-release &amp;&amp; OS_VENDOR=RedHatEnterpriseServer
++            grep -q -i -E '(centos|rhel|scientific|oracle)' /etc/os-release &amp;&amp; OS_VENDOR=RedHatEnterpriseServer
+             grep -q -i 'suse' /etc/os-release &amp;&amp; OS_VENDOR=SUSE_LINUX
+             grep -q -i 'debian' /etc/os-release &amp;&amp; OS_VENDOR=Debian
+             grep -q -i -E '(ubuntu|linuxmint)' /etc/os-release &amp;&amp; OS_VENDOR=Ubuntu
+</code></pre>
+<p>This way, the actual logic for setting <code>OS_VERSION</code> and
+<code>OS_MASTER_VERSION</code> stays unchanged.</p>
+<ol>
+<li>We still need to decide what to do about:</li>
+</ol>
+<blockquote>
+<p>Duplicated code execution whenever OS_MASTER_VENDOR and OS_VENDOR
+have the same values</p>
+</blockquote>
+<p>The original idea was to leave <code>OS_MASTER_VENDOR</code> empty for non-derived
+systems but that was discouraged by @schlomo in
+<a href="https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291">https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291</a>
+and I see his concerns. If nobody has objections, I'll implement the
+following suggestion by @schlomo
+(<a href="https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291">https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291</a>)
+instead:</p>
+<blockquote>
+<p>I'm wondering if we maybe should "fix" the problem of duplicate script
+inclusion via a sort -u in SourceStage instead, even if this is a bit
+hackish?</p>
+</blockquote>
+<p>Once again my apologies for not moving this further sooner. @jsmeix
+@gdha @schlomo @pcahyna Your suggestions and comments are welcome. Thank
+you!</p>
+<p>edit: fix typo and add link to
+<a href="https://github.com/rear/rear/pull/3344">https://github.com/rear/rear/pull/3344</a></p>
+<h4 id="jsmeix_commented_at_2024-11-19_1515"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2485997508">2024-11-19 15:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-19_1515" title="Permanent link">&para;</a></h4>
+<p>I fully support to</p>
+<pre><code>Make only a minimal change to fix detection of Fedora
+(and move the rest of this PR on-hold).
+</code></pre>
+<h4 id="lzaoral_commented_at_2024-11-20_1527"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2488885088">2024-11-20 15:27</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-11-20_1527" title="Permanent link">&para;</a></h4>
+<p>@schlomo @pcahyna @jsmeix I've rebased the PR to implement the
+absolutely minimal change to correctly classify Fedora as Fedora (but
+the current parsing logic is still rather brittle) and to resolve
+duplicated stage executions when <code>OS_VENDOR</code> and <code>OS_VENDOR_MASTER</code>
+match. Thank you in advance for the review!</p>
+<h4 id="jsmeix_commented_at_2024-11-22_0827"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2493161912">2024-11-22 08:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-22_0827" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+provided there are no objections<br />
+I would merge it on Monday afternoon</p>
+<h4 id="jsmeix_commented_at_2024-11-25_1227"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2497883267">2024-11-25 12:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-25_1227" title="Permanent link">&para;</a></h4>
+<p>Puh!<br />
+So (hopefully) it is DONE now - at least for now<br />
+what is needed to release ReaR 2.8.</p>
+<p>@lzaoral @pcahyna<br />
+please test (as time permits) current GitHub master code<br />
+with this merged pull request and ideally when things work<br />
+report what you tested successfully in<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8</a></p>
+<h4 id="lzaoral_commented_at_2024-11-29_1354"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3171#issuecomment-2507867506">2024-11-29 13:54</a>:<a class="headerlink" href="#lzaoral_commented_at_2024-11-29_1354" title="Permanent link">&para;</a></h4>
+<p>Thnak you for the reminder, @jsmeix! Hopefully, I'll get to the testing
+next week.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-02-29.3171.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

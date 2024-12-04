@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3326 Issue closed: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution): UEFI booting from ReaR ISO image does not work - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3326 Issue closed: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution): UEFI booting from ReaR ISO image does not work";
+        var mkdocs_page_input_path = "issues/2024-10-04.3326.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3326 Issue closed: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution): UEFI booting from ReaR ISO image does not work</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3326_issue_closed_oracle_linux_server_with_red_hat_compatible_kernel_fedora_linux_distribution_uefi_booting_from_rear_iso_image_does_not_work"><a href="https://github.com/rear/rear/issues/3326">#3326 Issue</a> <code>closed</code>: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution): UEFI booting from ReaR ISO image does not work<a class="headerlink" href="#3326_issue_closed_oracle_linux_server_with_red_hat_compatible_kernel_fedora_linux_distribution_uefi_booting_from_rear_iso_image_does_not_work" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="stefanfrommunich_opened_issue_at_2024-10-04_0921"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> opened issue at <a href="https://github.com/rear/rear/issues/3326">2024-10-04 09:21</a>:<a class="headerlink" href="#stefanfrommunich_opened_issue_at_2024-10-04_0921" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.7 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:<br />
+    Does not apply</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Oracle Linux Server"
+VERSION="8.10"
+ID="ol"
+ID_LIKE="fedora"
+VARIANT="Server"
+VARIANT_ID="server"
+VERSION_ID="8.10"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Oracle Linux Server 8.10"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:oracle:linux:8:10:server"
+HOME_URL="https://linux.oracle.com/"
+BUG_REPORT_URL="https://github.com/oracle/oracle-linux"
+
+ORACLE_BUGZILLA_PRODUCT="Oracle Linux 8"
+ORACLE_BUGZILLA_PRODUCT_VERSION=8.10
+ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+ORACLE_SUPPORT_PRODUCT_VERSION=8.10
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=nfs://193.14.236.134/volume1/Rear
+BACKUP=NETFS
+BACKUP_URL=nfs://193.14.236.134/volume1/Rear
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash' '/u02' '/dev/nvme0n1'  '/dev/nvme1n1'  '/dev/nvme2n1'  '/dev/nvme3n1'  '/dev/nvme4n1'  '/dev/nvme5n1' )
+EXCLUDE_COMPONENTS=( "${EXCLUDE_COMPONENTS[@]}" "/dev/nvme0n1"  "/dev/nvme1n1"  "/dev/nvme2n1"  "/dev/nvme3n1"  "/dev/nvme4n1"  "/dev/nvme5n1" )
+NETFS_KEEP_OLD_BACKUP_COPY=
+UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+EXCLUDE_MOUNTPOINTS=( '/u03/flashdata/ZVK_MUC' '/u02/oradata/ZVK_MUC' )
+AUTOEXCLUDE_MULTIPATH=n
+AUTORESIZE_PARTITIONS=false
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    PC</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI and bootloader GRUB</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SSD (DM and NVMe)</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                      KNAME          PKNAME         TRAN   TYPE  FSTYPE          LABEL   SIZE MOUNTPOINT
+/dev/sda                                  /dev/sda                      sata   disk  isw_raid_member       447,1G
+|-/dev/sda1                               /dev/sda1      /dev/sda              part  vfat                    600M
+|-/dev/sda2                               /dev/sda2      /dev/sda              part  xfs                       1G
+|-/dev/sda3                               /dev/sda3      /dev/sda              part  LVM2_member             154G
+|-/dev/sda4                               /dev/sda4      /dev/sda              part  LVM2_member           269,2G
+`-/dev/md126                              /dev/md126     /dev/sda              raid1                       424,8G
+  |-/dev/md126p1                          /dev/md126p1   /dev/md126            md    vfat                    600M /boot/efi
+  |-/dev/md126p2                          /dev/md126p2   /dev/md126            md    xfs                       1G /boot
+  |-/dev/md126p3                          /dev/md126p3   /dev/md126            md    LVM2_member             154G
+  | |-/dev/mapper/ol-root                 /dev/dm-0      /dev/md126p3          lvm   xfs                      30G /
+  | |-/dev/mapper/ol-swap                 /dev/dm-1      /dev/md126p3          lvm   swap                     24G [SWAP]
+  | `-/dev/mapper/ol-u01                  /dev/dm-11     /dev/md126p3          lvm   xfs                     100G /u01
+  `-/dev/md126p4                          /dev/md126p4   /dev/md126            md    LVM2_member           269,2G
+/dev/sdb                                  /dev/sdb                      sata   disk  isw_raid_member       447,1G
+|-/dev/sdb1                               /dev/sdb1      /dev/sdb              part  vfat                    600M
+|-/dev/sdb2                               /dev/sdb2      /dev/sdb              part  xfs                       1G
+|-/dev/sdb3                               /dev/sdb3      /dev/sdb              part  LVM2_member             154G
+|-/dev/sdb4                               /dev/sdb4      /dev/sdb              part  LVM2_member           269,2G
+`-/dev/md126                              /dev/md126     /dev/sdb              raid1                       424,8G
+  |-/dev/md126p1                          /dev/md126p1   /dev/md126            md    vfat                    600M /boot/efi
+  |-/dev/md126p2                          /dev/md126p2   /dev/md126            md    xfs                       1G /boot
+  |-/dev/md126p3                          /dev/md126p3   /dev/md126            md    LVM2_member             154G
+  | |-/dev/mapper/ol-root                 /dev/dm-0      /dev/md126p3          lvm   xfs                      30G /
+  | |-/dev/mapper/ol-swap                 /dev/dm-1      /dev/md126p3          lvm   swap                     24G [SWAP]
+  | `-/dev/mapper/ol-u01                  /dev/dm-11     /dev/md126p3          lvm   xfs                     100G /u01
+  `-/dev/md126p4                          /dev/md126p4   /dev/md126            md    LVM2_member           269,2G
+/dev/nvme0n1                              /dev/nvme0n1                  nvme   disk                          5,8T
+`-/dev/nvme0n1p1                          /dev/nvme0n1p1 /dev/nvme0n1   nvme   part  LVM2_member             5,8T
+  |-/dev/mapper/vg_oracle-u02_zvk_muc     /dev/dm-2      /dev/nvme0n1p1        lvm   ext4                    2,5T /u02/oradata/ZVK_MUC
+  |-/dev/mapper/vg_oracle-u02_zvk_da      /dev/dm-3      /dev/nvme0n1p1        lvm   ext4                   1000G /u02/oradata/ZVK_DA
+  |-/dev/mapper/vg_oracle-u02_bsv         /dev/dm-4      /dev/nvme0n1p1        lvm   ext4                   1000G /u02/oradata/BSV
+  |-/dev/mapper/vg_oracle-u02_kvv         /dev/dm-5      /dev/nvme0n1p1        lvm   ext4                    500G /u02/oradata/KVV
+  `-/dev/mapper/vg_oracle-u02_daisy       /dev/dm-6      /dev/nvme0n1p1        lvm   ext4                    500G /u02/oradata/DAISY
+/dev/nvme3n1                              /dev/nvme3n1                  nvme   disk                          2,9T
+/dev/nvme1n1                              /dev/nvme1n1                  nvme   disk                          5,8T
+`-/dev/nvme1n1p1                          /dev/nvme1n1p1 /dev/nvme1n1   nvme   part  LVM2_member             5,8T
+  |-/dev/mapper/vg_oracle-u02_vip         /dev/dm-7      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VIP
+  |-/dev/mapper/vg_oracle-u02_vbo--portal /dev/dm-8      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VBO-Portal
+  |-/dev/mapper/vg_oracle-u02_bsv--portal /dev/dm-9      /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/BSV-Portal
+  `-/dev/mapper/vg_oracle-u02_vbo         /dev/dm-10     /dev/nvme1n1p1        lvm   ext4                    500G /u02/oradata/VBO
+/dev/nvme4n1                              /dev/nvme4n1                  nvme   disk                          2,9T
+/dev/nvme2n1                              /dev/nvme2n1                  nvme   disk                          2,9T
+`-/dev/nvme2n1p1                          /dev/nvme2n1p1 /dev/nvme2n1   nvme   part  ext4                    2,9T /u03/flashdata/ZVK_MUC
+/dev/nvme5n1                              /dev/nvme5n1                  nvme   disk                          2,9T
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>There seems to be something wrong with the ISO image.<br />
+The virtual machine cannot be booted with it.<br />
+Attached you will find three screenshots with the screen messages.<br />
+The numbering corresponds to the order in which the screen messages
+appear.<br />
+After "Press any key to continue..." nothing happens.<br />
+What else do I have to do to make the machine bootable?</p>
+<p>I also noticed that the two files xzio and fshelp,<br />
+which were not found during the boot process,<br />
+are entered in the backup log file:<br />
+block 7609484: /usr/lib/grub/x86_64-efi/xzio.mod<br />
+block 7600337: /usr/lib/grub/x86_64-efi/fshelp.mod</p>
+<p>Only kernel.exec is entered in the ISO log file:<br />
+/usr/lib/grub/x86_64-efi/kernel.exec</p>
+<p>The two files xzio and fshelp were not entered into the ISO log file.<br />
+The initrd.cgz file is included in the ISO log file:<br />
+2024-09-04 11:35:00.755448505 Created initrd.cgz with gzip default
+compression (778 MiB) in 56 seconds</p>
+<ul>
+<li>
+<p>Workaround, if any:<br />
+    No</p>
+</li>
+<li>
+<p>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):<br />
+<img alt="Rear_boot_Screen1" src="https://github.com/user-attachments/assets/bb82c765-3028-46e0-8e7c-8bda85c1c355" /><br />
+<img alt="Rear_boot_Screen2" src="https://github.com/user-attachments/assets/e03b2b8c-f616-4599-bd7d-62b536669eb6" /><br />
+<img alt="Rear_boot_Screen3" src="https://github.com/user-attachments/assets/aa2a0e02-ced5-42ab-b13c-cadf65afeeea" /></p>
+</li>
+</ul>
+<h4 id="stefanfrommunich_commented_at_2024-10-04_0930"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2393272664">2024-10-04 09:30</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-10-04_0930" title="Permanent link">&para;</a></h4>
+<p>First analysis was performed by jsmeix for issue #3230:</p>
+<p>according to your<br />
+#3230 (comment)<br />
+(excerpt)</p>
+<pre><code>There are no more problems with the multipath devices.
+
+However, there seems to be something wrong with the ISO image.
+The virtual machine cannot be booted with it.
+</code></pre>
+<p>this issue has now changed its topic / subject<br />
+from something about</p>
+<pre><code>NVMe multipathing devices
+</code></pre>
+<p>to something about</p>
+<pre><code>UEFI booting from ReaR's ISO image
+</code></pre>
+<p>which is somewhat problematic for us because<br />
+we at ReaR upstream (and in particular I)<br />
+prefer separated issues for separated topics<br />
+so that the right people who know best about<br />
+a certain area could focus on a particular issue.</p>
+<p>So ideally I wished you could re-report your<br />
+"UEFI booting from ReaR's ISO image" issue<br />
+as a new separated issue here at GitHub.</p>
+<p>I am not at all an expert in UEFI booting and<br />
+I am also in general not an expert in booting stuff<br />
+so personally I cannot help much with booting issues.</p>
+<p>In particular am not a Red Hat / Fedora / Oracle Linux user<br />
+so I cannot reproduce issues which are specific for<br />
+those Linux distributions (and in particular booting issues<br />
+are often specific for a particular Linux distribution).</p>
+<p>For my personal experience with UEFI booting<br />
+from ReaR's ISO image you may read through<br />
+#3084<br />
+in particular therein see<br />
+#3084 (comment)<br />
+(and follow the links therein as needed)<br />
+and see<br />
+#3084 (comment)<br />
+and finally see<br />
+#3084 (comment)</p>
+<p>By the way:<br />
+I think both</p>
+<pre><code>UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+</code></pre>
+<p>are currently not supported in ReaR because<br />
+setting SECURE_BOOT_BOOTLOADER overwrites UEFI_BOOTLOADER<br />
+and when SECURE_BOOT_BOOTLOADER is set it specifies the<br />
+first-stage bootloader (which is shim) and then shim<br />
+runs as second-stage bootloader something that is<br />
+basically hardcoded inside shim so that what ReaR does<br />
+is to copy all possible second-stage bootloaders<br />
+(basicaly all GRUB EFI binaries as far as I remember)<br />
+into the ISO to make shim's second-stage bootloader<br />
+available via the ISO, cf. the comments in<br />
+usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh<br />
+starting at</p>
+<pre><code># Copy UEFI bootloader:
+if test -f "$SECURE_BOOT_BOOTLOADER" ; then
+</code></pre>
+<p>currently online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh#L65">https://github.com/rear/rear/blob/master/usr/share/rear/output/USB/Linux-i386/100_create_efiboot.sh#L65</a><br />
+This is for OUTPUT=USB but since<br />
+#3031<br />
+it is similar as what is done for OUTPUT=ISO.<br />
+For background information what I had done in the past<br />
+you may have a look at<br />
+#3031<br />
+(and follow the links therein as needed).</p>
+<h4 id="stefanfrommunich_commented_at_2024-10-04_0946"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2393302181">2024-10-04 09:46</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-10-04_0946" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>Thank you for the detailed initial analysis.<br />
+The Red Hat Customer Portal recommends the following entries in the
+local.conf configuration file:</p>
+<pre><code>UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+</code></pre>
+<p>The recommendation is marked as SOLUTION VERIFIED and dated August 2,
+2024. The recommendation has the following link:<br />
+<a href="https://access.redhat.com/solutions/2115051">https://access.redhat.com/solutions/2115051</a></p>
+<p>Based on this recommendation, should I keep the two entries in the
+configuration file or delete the entries and then try to create a
+bootable ISO image again?</p>
+<h4 id="jsmeix_commented_at_2024-10-07_1502"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2397184535">2024-10-07 15:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-07_1502" title="Permanent link">&para;</a></h4>
+<p>@StefanFromMunich<br />
+I am not a Oracle Linux user so I cannot actually help<br />
+with issues that seem to be specific for Oracle Linux.</p>
+<p>In general support here at ReaR upstream<br />
+is on a voluntary base as time permits<br />
+as best-effort without guarantee/warranty/liability<br />
+(in particular when people work on other things<br />
+that have higher priority by their employer ;-)</p>
+<h4 id="jsmeix_commented_at_2024-10-07_1506"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2397196273">2024-10-07 15:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-07_1506" title="Permanent link">&para;</a></h4>
+<p>Whoops!<br />
+I falsely thought it is about Red Hat<br />
+but actually it is Oracle Linux Server.</p>
+<p>So @StefanFromMunich<br />
+when you have an Oracle Linux Server support contract<br />
+you may better contact them directly for further help.</p>
+<p>@pcahyna<br />
+I am sorry for causing confusion.<br />
+I edited my above comment accordingly.</p>
+<h4 id="stefanfrommunich_commented_at_2024-10-09_1005"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2401890161">2024-10-09 10:05</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-10-09_1005" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I do not have an Oracle Linux Server support contract or a Red Hat Linux
+support contract.<br />
+Therefore, I need the solution from ReaR support.</p>
+<p>I have chosen the Oracle Linux Server with the following operating
+system option:<br />
+<strong>Red Hat Compatible Kernel</strong></p>
+<p>This means that the kernel of the Oracle Linux Server is identical to
+the kernel that is supplied with Red Hat Enterprise Linux.<br />
+I am working with an x86_64 client. Red Hat Enterprise Linux equips
+these clients with the <strong>Fedora Linux distribution</strong>.<br />
+The development of the Fedora Linux distribution is controlled by the
+Fedora project.<br />
+The manufacturer Red Hat is the leader of the Fedora project.</p>
+<p>Since you are the expert on Red Hat Linux distributions, it is also
+right that you are dealing with the topic.<br />
+So please tell me what steps I have to take to get a bootable ISO image?</p>
+<h4 id="stefanfrommunich_commented_at_2024-10-10_1106"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2404791068">2024-10-10 11:06</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-10-10_1106" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+The Red Hat Customer Portal recommends the following entries in the
+local.conf configuration file:</p>
+<pre><code>UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+</code></pre>
+<p>The recommendation is marked as SOLUTION VERIFIED and dated August 2,
+2024. The recommendation has the following link:<br />
+<a href="https://access.redhat.com/solutions/2115051">https://access.redhat.com/solutions/2115051</a></p>
+<p>Now I checked the availability of the two files on the server in the
+path /boot/efi/EFI/redhat/:</p>
+<pre><code>$ sudo ls -al /boot/efi/EFI/redhat/
+drwx------. 3 root root    4096  4. Sep 09:26 .
+drwx------. 5 root root    4096 12. Apr 2021  ..
+-rwx------. 1 root root     134 23. Apr 19:37 BOOTX64.CSV
+drwx------. 2 root root    4096  7. Jun 08:34 fonts
+-rwx------. 1 root root    6511 11. Dez 2023  grub.cfg
+-rwx------. 1 root root    1024  4. Sep 09:26 grubenv
+-rwx------. 1 root root 2367664  7. Jun 08:34 grubx64.efi
+-rwx------. 1 root root  861512 23. Apr 19:37 mmx64.efi
+-rwx------. 1 root root  960272 23. Apr 19:37 shimx64.efi
+-rwx------. 1 root root  963088 23. Apr 19:37 shimx64-oracle.efi
+</code></pre>
+<p>Both files are located in the path that needs to be referenced in the
+configuration file.<br />
+What do you suggest next?</p>
+<h4 id="gdha_commented_at_2024-11-09_1605"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2466269020">2024-11-09 16:05</a>:<a class="headerlink" href="#gdha_commented_at_2024-11-09_1605" title="Permanent link">&para;</a></h4>
+<p>@StefanFromMunich Perhaps you could add the 2 missing modules:</p>
+<pre><code>block 7609484: /usr/lib/grub/x86_64-efi/xzio.mod
+block 7600337: /usr/lib/grub/x86_64-efi/fshelp.mod
+</code></pre>
+<p>in the /etc/rear/local.conf file with the variable:</p>
+<pre><code>COPY_AS_IS+=( /usr/lib/grub/x86_64-efi )
+</code></pre>
+<h4 id="stefanfrommunich_commented_at_2024-11-22_0921"><img src="https://avatars.githubusercontent.com/u/158028301?v=4" width="50"><a href="https://github.com/StefanFromMunich">StefanFromMunich</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2493296786">2024-11-22 09:21</a>:<a class="headerlink" href="#stefanfrommunich_commented_at_2024-11-22_0921" title="Permanent link">&para;</a></h4>
+<p>Unfortunately, the computer cannot be booted with the new COPY_AS_IS
+configuration parameter.<br />
+I have now found out that it is due to ReaR version 2.7.<br />
+The virtual machine can be booted with ReaR version 2.6.<br />
+There is no alternative to using ReaR version 2.6.<br />
+We have also now found that it is difficult to perform a disaster
+recovery with a virtual machine.<br />
+You have to configure a lot with ReaR and even if it works, we think the
+test is not very meaningful.<br />
+We are therefore planning to replace the two SATA disks from the
+original computer with two new SATA disks.<br />
+We then want to perform a disaster recovery on the new disks in the
+original computer. After that, the original computer should work
+perfectly again.<br />
+We will then test that.<br />
+If there are any problems with this test, I will let you know.<br />
+In any case, this incident can be closed due to the available
+workaround.</p>
+<h4 id="jsmeix_commented_at_2024-11-22_1349"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3326#issuecomment-2493813104">2024-11-22 13:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-22_1349" title="Permanent link">&para;</a></h4>
+<p>@StefanFromMunich</p>
+<p>FYI regarding</p>
+<pre><code>We are therefore planning to replace the two SATA disks
+from the original computer with two new SATA disks.
+We then want to perform a disaster recovery on the new disks
+in the original computer.
+</code></pre>
+<p>When the new disks do not have exact same size and type<br />
+as the old ones, you do a migration onto different<br />
+(physical or virtual) hardware.<br />
+See in conf/default.conf the description about<br />
+MIGRATION_MODE<br />
+and see also in conf/default.conf the description about<br />
+DISKS_TO_BE_WIPED<br />
+and the sections<br />
+"Prepare replacement hardware for disaster recovery"<br />
+and<br />
+"Fully compatible replacement hardware is needed"<br />
+in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>In particular when you use virtual disks<br />
+I would recommend to make the new ones with<br />
+exact same size and same type as the old ones<br />
+(usually one can set up various kind of virtual disks)<br />
+to avoid "migration onto different hardware" issues,<br />
+i.e. so that when the old one was e.g. a<br />
+123456.0 MiB /dev/sda virtual disk, then the new one<br />
+should be also a 123456.0 MiB /dev/sda virtual disk.</p>
+<p>Regarding migration to a system with a bit smaller or a bit bigger
+disk<br />
+see in conf/default.conf the description of the config variables<br />
+AUTORESIZE_PARTITIONS<br />
+AUTORESIZE_EXCLUDE_PARTITIONS<br />
+AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE<br />
+AUTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE</p>
+<p>I recommend to not use AUTORESIZE_PARTITIONS="yes"<br />
+with layout/prepare/default/430_autoresize_all_partitions.sh<br />
+because that may result bad aligned partitions in particular<br />
+bad aligned for what flash memory based disks (i.e. SSDs) need<br />
+that usually need a 4MiB or 8MiB alignment (a too small value<br />
+will result lower speed and less lifetime of flash memory devices),<br />
+see the comment at USB_PARTITION_ALIGN_BLOCK_SIZE<br />
+in default.conf</p>
+<p>In general regarding system migration with ReaR<br />
+(e.g. to a system with substantially different disk size):</p>
+<p>In general migrating a system onto different hardware<br />
+(where "hardware" could be also a virtual machine)<br />
+does not "just work", cf. "Inappropriate expectations" at<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>In sufficiently simple cases it may "just work" but in general<br />
+do not expect too much built-in intelligence from a program<br />
+(written in plain bash which is not a programming language<br />
+that is primarily meant for artificial intelligence ;-)<br />
+to automatically do the annoying legwork for you.</p>
+<p>In general ReaR is first and foremost meant to recreate<br />
+a system as much as possible exactly as it was before.</p>
+<p>Additionally ReaR supports to migrate a system<br />
+but here "supports" means that ReaR provides a lot<br />
+that should help you to get such a task done<br />
+but it does not mean that it would "just work" without<br />
+possibly laborious manual settings and adaptions<br />
+with trial and error legwork until you made things work<br />
+for you in your particular case.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-10-04.3326.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

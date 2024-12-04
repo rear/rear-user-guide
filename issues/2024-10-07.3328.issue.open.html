@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3328 Issue open: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270_create_grub2_efi_bootloader.sh returns more than one directory - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3328 Issue open: rear crashes with \"ERROR: Could not create Grub modules directory\" when find in 270_create_grub2_efi_bootloader.sh returns more than one directory";
+        var mkdocs_page_input_path = "issues/2024-10-07.3328.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3328 Issue open: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270_create_grub2_efi_bootloader.sh returns more than one directory</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3328_issue_open_rear_crashes_with_error_could_not_create_grub_modules_directory_when_find_in_270_create_grub2_efi_bootloadersh_returns_more_than_one_directory"><a href="https://github.com/rear/rear/issues/3328">#3328 Issue</a> <code>open</code>: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270_create_grub2_efi_bootloader.sh returns more than one directory<a class="headerlink" href="#3328_issue_open_rear_crashes_with_error_could_not_create_grub_modules_directory_when_find_in_270_create_grub2_efi_bootloadersh_returns_more_than_one_directory" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>minor bug</code></p>
+<h4 id="kmonticolo_opened_issue_at_2024-10-07_1949"><img src="https://avatars.githubusercontent.com/u/12016647?u=23b08e0366122f7c6517112772546db91977c0b8&v=4" width="50"><a href="https://github.com/kmonticolo">kmonticolo</a> opened issue at <a href="https://github.com/rear/rear/issues/3328">2024-10-07 19:49</a>:<a class="headerlink" href="#kmonticolo_opened_issue_at_2024-10-07_1949" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    2.7 / Git</p>
+</li>
+<li>
+<p>If your ReaR version is not the current version, explain why you
+    can't upgrade:</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):<br />
+    No LSB modules are available.<br />
+    Distributor ID: Debian<br />
+    Description: Debian GNU/Linux 12 (bookworm)<br />
+    Release: 12<br />
+    Codename: bookworm</p>
+</li>
+<li>
+<p>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):<br />
+    OUTPUT_URL=nfs://192.168.1.230/volume1/backup<br />
+    OUTPUT=RAWDISK<br />
+    BACKUP=NETFS<br />
+    BACKUP_URL=nfs://192.168.1.230/volume1/backup<br />
+    FIRMWARE_FILES=('no')<br />
+    EXCLUDE_MD5SUM_VERIFICATION=all<br />
+    AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE=80<br />
+    SECURE_BOOT_BOOTLOADER=(/boot/efi/EFI/*/shmix64.efi)</p>
+</li>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    PC Lenovo</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    grub2</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    NVMe</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                                                                                                KNAME          PKNAME         TRAN   TYPE FSTYPE         LABEL   SIZE MOUNTPOINT
+/dev/sda                                                                                                            /dev/sda                      sata   disk LVM2_member          119.2G 
+`-/dev/mapper/ceph--7568b0c0--58a8--4591--953f--1bf1e1c09254-osd--block--d0e95406--baee--4798--abae--979d36c52a45   /dev/dm-0      /dev/sda              lvm  ceph_bluestore       119.2G 
+/dev/sdb                                                                                                            /dev/sdb                      usb    disk LVM2_member          119.2G 
+`-/dev/mapper/ceph--6c4129ef--9622--4020--b7a0--fe73943a0e32-osd--block--f2999e56--dd98--48cd--b5ad--c3156befd504   /dev/dm-5      /dev/sdb              lvm  ceph_bluestore       119.2G 
+/dev/mmcblk0                                                                                                        /dev/mmcblk0                         disk                        233G 
+`-/dev/mmcblk0p1                                                                                                    /dev/mmcblk0p1 /dev/mmcblk0          part LVM2_member            233G 
+  `-/dev/mapper/volmmc1-lv01                                                                                        /dev/dm-4      /dev/mmcblk0p1        lvm                         233G 
+/dev/nvme0n1                                                                                                        /dev/nvme0n1                  nvme   disk                      119.2G 
+|-/dev/nvme0n1p1                                                                                                    /dev/nvme0n1p1 /dev/nvme0n1   nvme   part                       1007K 
+|-/dev/nvme0n1p2                                                                                                    /dev/nvme0n1p2 /dev/nvme0n1   nvme   part vfat                     1G /boot/efi
+|-/dev/nvme0n1p3                                                                                                    /dev/nvme0n1p3 /dev/nvme0n1   nvme   part LVM2_member             60G 
+| |-/dev/mapper/pve-swap                                                                                            /dev/dm-2      /dev/nvme0n1p3        lvm  swap                     8G [SWAP]
+| `-/dev/mapper/pve-root                                                                                            /dev/dm-3      /dev/nvme0n1p3        lvm  ext4                  39.6G /
+`-/dev/nvme0n1p4                                                                                                    /dev/nvme0n1p4 /dev/nvme0n1   nvme   part LVM2_member           58.2G 
+  `-/dev/mapper/ceph--e98fa1e4--b618--40e0--9819--37b0cc07f482-osd--block--9643fb51--c03d--40f6--a9fe--d8636a645716 /dev/dm-1      /dev/nvme0n1p4        lvm                        58.2G
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce
+    it):<br />
+    rear crashes when find returns more than one directory due to "\n"
+    between them during mkdir.<br />
+    I have 6 similar nodes, but it happens only to one of them.</li>
+</ul>
+<p>in
+usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+file<br />
+if the following line returns more that one output it crashes:<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh#L77">https://github.com/rear/rear/blob/master/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh#L77</a><br />
+local grub_target_directory="$(dirname "$(find
+"$RAWDISK_BOOT_EFI_STAGING_ROOT" -iname grub${EFI_ARCH}.efi
+-print)")"</p>
+<p>in my case:</p>
+<pre><code>RAWDISK_BOOT_EFI_STAGING_ROOT=/var/tmp/rear.m9vtTGHep9LAFky/tmp/EFI
+EFI_ARCH=x64
+find "$RAWDISK_BOOT_EFI_STAGING_ROOT" -iname grub${EFI_ARCH}.efi -print
+/var/tmp/rear.m9vtTGHep9LAFky/tmp/EFI/proxmox/grubx64.efi
+/var/tmp/rear.m9vtTGHep9LAFky/tmp/EFI/BOOT/grubx64.efi
+</code></pre>
+<ul>
+<li>Workaround, if any:<br />
+    Was trying to overcome it using the following diff, but no luck.</li>
+</ul>
+<!-- -->
+
+<pre><code>diff --git a/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh b/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+index 0dbf1754..e749d436 100644
+--- a/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
++++ b/usr/share/rear/output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+@@ -74,10 +74,12 @@ if [[ -n "$SECURE_BOOT_BOOTLOADER" ]]; then
+     local grub_modules_directory="$GRUB2_IMAGE_FORMAT"
+     local additional_grub_modules=( all_video.mod )
+     if [[ -d "$additional_grub_directory/$grub_modules_directory" ]]; then
+-        local grub_target_directory="$(dirname "$(find "$RAWDISK_BOOT_EFI_STAGING_ROOT" -iname grub${EFI_ARCH}.efi -print)")"
++        local grub_target_directory="$(dirname "$(find "$RAWDISK_BOOT_EFI_STAGING_ROOT" -iname grub${EFI_ARCH}.efi -print | tr '\n' ' ')")"
+         [[ "$grub_target_directory" == "." ]] &amp;&amp; Error "Could not find Grub executable"  # dirname "" returns "."
+
+-        mkdir "$grub_target_directory/$grub_modules_directory" || Error "Could not create Grub modules directory"
++       for directory in "$grub_target_directory"; do
++          mkdir "$directory/$grub_modules_directory" || Error "Could not create Grub modules directory"
++       done
+         for module in "${additional_grub_modules[@]}"; do
+             cp -a $v "$additional_grub_directory/$grub_modules_directory/$module" "$grub_target_directory/$grub_modules_directory"
+             StopIfError "Could not copy additional Grub module '$module'"
+</code></pre>
+<p><a href="https://github.com/user-attachments/files/17290230/rear-pve1.log.gz">rear-pve1.log.gz</a></p>
+<ul>
+<li>Attachments, as applicable ("rear -D mkrescue/mkbackup/recover"
+    debug log files):</li>
+</ul>
+<p>You can drag-drop log files into this editor to create an attachment<br />
+or paste verbatim text like command output or file content<br />
+by including it between a leading and a closing line of<br />
+three backticks like this:</p>
+<pre><code> sudo usr/sbin/rear -D -v mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 595481 date 2024-10-07 21:46:30)
+Command line options: usr/sbin/rear -D -v mkrescue
+Using log file: /root/rear/var/log/rear/rear-pve1.log
+Using build area: /var/tmp/rear.mBc47lXuIAhwWb7
+Setting TMPDIR to ReaR's '/var/tmp/rear.mBc47lXuIAhwWb7/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+Running 'prep' stage ======================
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/nvme0n1p2 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot auto-configuration using '/boot/efi/EFI/proxmox/shimx64.efi' as UEFI bootloader
+Using autodetected kernel '/boot/vmlinuz-6.8.12-2-pve' as kernel in the recovery system
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.mBc47lXuIAhwWb7/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear/var/lib/rear/layout/disklayout.conf
+Automatically excluding disk /dev/mmcblk0 (not used by any mounted filesystem)
+Marking component '/dev/mmcblk0' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/mmcblk0p1 is a child of component /dev/mmcblk0
+Marking component '/dev/mmcblk0p1' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component pv:/dev/mmcblk0p1 is a child of component /dev/mmcblk0
+Marking component 'pv:/dev/mmcblk0p1' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/volmmc1 is a child of component /dev/mmcblk0
+Marking component '/dev/volmmc1' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/mapper/volmmc1-lv01 is a child of component /dev/mmcblk0
+Marking component '/dev/mapper/volmmc1-lv01' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sda (not used by any mounted filesystem)
+Marking component '/dev/sda' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component pv:/dev/sda is a child of component /dev/sda
+Marking component 'pv:/dev/sda' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/ceph-7568b0c0-58a8-4591-953f-1bf1e1c09254 is a child of component /dev/sda
+Marking component '/dev/ceph-7568b0c0-58a8-4591-953f-1bf1e1c09254' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/mapper/ceph--7568b0c0--58a8--4591--953f--1bf1e1c09254-osd--block--d0e95406--baee--4798--abae--979d36c52a45 is a child of component /dev/sda
+Marking component '/dev/mapper/ceph--7568b0c0--58a8--4591--953f--1bf1e1c09254-osd--block--d0e95406--baee--4798--abae--979d36c52a45' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Marking component '/dev/sdb' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component pv:/dev/sdb is a child of component /dev/sdb
+Marking component 'pv:/dev/sdb' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/ceph-6c4129ef-9622-4020-b7a0-fe73943a0e32 is a child of component /dev/sdb
+Marking component '/dev/ceph-6c4129ef-9622-4020-b7a0-fe73943a0e32' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/mapper/ceph--6c4129ef--9622--4020--b7a0--fe73943a0e32-osd--block--f2999e56--dd98--48cd--b5ad--c3156befd504 is a child of component /dev/sdb
+Marking component '/dev/mapper/ceph--6c4129ef--9622--4020--b7a0--fe73943a0e32-osd--block--f2999e56--dd98--48cd--b5ad--c3156befd504' as done in /root/rear/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/mmcblk0' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/mmcblk0' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sda' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdb' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmgrp /dev/ceph-6c4129ef-9622-4020-b7a0-fe73943a0e32' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmgrp /dev/volmmc1' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmgrp /dev/ceph-7568b0c0-58a8-4591-953f-1bf1e1c09254' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmdev /dev/ceph-6c4129ef-9622-4020-b7a0-fe73943a0e32' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmdev /dev/volmmc1' in /root/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'lvmdev /dev/ceph-7568b0c0-58a8-4591-953f-1bf1e1c09254' in /root/rear/var/lib/rear/layout/disklayout.conf
+GRUB found in first bytes on /dev/nvme0n1 and GRUB 2 is installed, using GRUB2 as a guessed bootloader for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear/var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Skipping 'bonding_masters': not bound to any physical interface.
+Handling network interface 'enp2s0'
+enp2s0 is a physical device
+Handled network interface 'enp2s0'
+Skipping 'lo': not bound to any physical interface.
+Handling network interface 'vmbr0'
+vmbr0 is a bridge
+vmbr0 has lower interface enp2s0
+enp2s0 already handled...
+Handled network interface 'vmbr0'
+Included current keyboard mapping (via 'dumpkeys -f')
+No default US keyboard mapping included (no KEYMAPS_DEFAULT_DIRECTORY specified)
+No support for different keyboard layouts (neither KEYMAPS_DEFAULT_DIRECTORY nor KEYMAPS_DIRECTORIES specified)
+Using '/boot/efi/EFI/proxmox/shimx64.efi' as UEFI Secure Boot bootloader file
+Copying logfile /root/rear/var/log/rear/rear-pve1.log into initramfs as '/tmp/rear-pve1-partial-2024-10-07T21:46:39+02:00.log'
+Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/6.8.12-2-pve (MODULES contains 'all_modules')
+Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+Skip copying broken symlink '/etc/mtab' target '/proc/607039/mounts' on /proc/ /sys/ /dev/ or /run/
+Testing that the ReaR recovery system in '/var/tmp/rear.mBc47lXuIAhwWb7/rootfs' contains a usable system
+Testing each binary with 'ldd' for 'not found' libraries within the ReaR recovery system
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-252.so requires libraries where 'ldd' shows 'not found'
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-252.so requires libsystemd-shared-252.so which exists as usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-252.so
+Testing that the existing programs in the PROGS array can be found as executable command within the ReaR recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the ReaR recovery system
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (218 MiB) in 33 seconds
+Running 'output' stage ======================
+Using Grub 2 to create an EFI bootloader
+Secure Boot: Using the original EFI configuration from '/boot/efi/EFI'
+ERROR: Could not create Grub modules directory
+Some latest log messages since the last called script 270_create_grub2_efi_bootloader.sh:
+  '/boot/efi/EFI/./proxmox/mmx64.efi' -&gt; '/var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/proxmox/mmx64.efi'
+  '/boot/efi/EFI/./proxmox/fbx64.efi' -&gt; '/var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/proxmox/fbx64.efi'
+  '/boot/efi/EFI/./proxmox/BOOTX64.CSV' -&gt; '/var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/proxmox/BOOTX64.CSV'
+  /var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/BOOT/grubx64.efi'
+  /var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/BOOT'
+  /var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/BOOT == \. ]]
+  /var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/BOOT/x86_64-efi'
+  mkdir: cannot create directory '/var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/proxmox/grubx64.efi\n/var/tmp/rear.mBc47lXuIAhwWb7/tmp/EFI/BOOT/x86_64-efi': No such file or directory
+Aborting due to an error, check /root/rear/var/log/rear/rear-pve1.log for details
+Exiting rear mkrescue (PID 595481) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.mBc47lXuIAhwWb7
+Terminated
+</code></pre>
+<h4 id="gdha_commented_at_2024-10-28_1605"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3328#issuecomment-2442006906">2024-10-28 16:05</a>:<a class="headerlink" href="#gdha_commented_at_2024-10-28_1605" title="Permanent link">&para;</a></h4>
+<p>@kmonticolo The problem seems that the <code>find</code> command returns 2
+<code>grub64.efi</code> lines, but that you already knew of course.</p>
+<pre><code>++++ find /var/tmp/rear.LlkQQC65t2prqzD/tmp/EFI -iname grubx64.efi -print
++++ dirname '/var/tmp/rear.LlkQQC65t2prqzD/tmp/EFI/proxmox/grubx64.efi
+/var/tmp/rear.LlkQQC65t2prqzD/tmp/EFI/BOOT/grubx64.efi'
+</code></pre>
+<p>Perhaps, you can work-around it by defining in <code>/etc/rear/local.conf</code>
+file:</p>
+<pre><code>SECURE_BOOT_BOOTLOADER=(/boot/efi/EFI/*/shmix64.efi)
+UEFI_BOOTLOADER=/boot/efi/EFI/BOOT/grubx64.efi
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-10-07.3328.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3345 PR merged: Make sourcing DUPLY_PROFILE reasonably secure - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3345 PR merged: Make sourcing DUPLY_PROFILE reasonably secure";
+        var mkdocs_page_input_path = "issues/2024-11-20.3345.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3345 PR merged: Make sourcing DUPLY_PROFILE reasonably secure</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3345_pr_merged_make_sourcing_duply_profile_reasonably_secure"><a href="https://github.com/rear/rear/pull/3345">#3345 PR</a> <code>merged</code>: Make sourcing DUPLY_PROFILE reasonably secure<a class="headerlink" href="#3345_pr_merged_make_sourcing_duply_profile_reasonably_secure" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>bug</code>, <code>cleanup</code>, <code>fixed / solved / done</code>,
+<code>critical / security / legal</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-11-20_1419"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3345">2024-11-20 14:19</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-11-20_1419" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>Security Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Critical</strong></p>
+</li>
+</ul>
+<p>"Relatively" critical impact for two reasons:<br />
+It is a required security enhancement and<br />
+it is a backward incompatible change.</p>
+<p>It is only "relatively" critical because<br />
+it is only when BACKUP=DUPLICITY is used<br />
+so it is not a backward incompatible change<br />
+that hits all or a lot of users.</p>
+<ul>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3293">https://github.com/rear/rear/issues/3293</a><br />
+<a href="https://github.com/rear/rear/issues/3259">https://github.com/rear/rear/issues/3259</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Cannot test it because I neither use duplicity nor duply.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Overhauled prep/DUPLICITY/default/200_find_duply_profile.sh<br />
+so that now only an explicitly user specified DUPLY_PROFILE<br />
+will get sourced to avoid that some automatism<br />
+finds and sources whatever it may have found.</p>
+<p>Error out when DUPLY_PROFILE is empty or does not exist<br />
+to make the user aware that he must explicitly specify<br />
+his correct DUPLY_PROFILE.</p>
+<h4 id="jsmeix_commented_at_2024-11-20_1422"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2488717274">2024-11-20 14:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-20_1422" title="Permanent link">&para;</a></h4>
+<p>Next steps within this pull request<br />
+(to keep together what belongs together)<br />
+are:</p>
+<p>Removal of the find_duply_profile function call in<br />
+restore/DUPLICITY/default/110_check_temp_dir_with_duply.sh</p>
+<p>Removal of the find_duply_profile function<br />
+from lib/global-functions.sh:function</p>
+<p>Change the DUPLY_PROFILE description in default.conf</p>
+<h4 id="jsmeix_commented_at_2024-11-20_1740"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2489197728">2024-11-20 17:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-20_1740" title="Permanent link">&para;</a></h4>
+<p>Tomorrow I will try to test it in a generic way<br />
+even without having duplicity or duply installed<br />
+e.g. by things like using artificial placeholder<br />
+programs for duplicity and/or duply (e.g. /bin/true)<br />
+so that I could only see in the ReaR log file<br />
+(with debugscript mode) if my changed scripts<br />
+seem to work as intended.</p>
+<h4 id="jsmeix_commented_at_2024-11-21_1003"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2490639323">2024-11-21 10:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1003" title="Permanent link">&para;</a></h4>
+<p>With using /usr/bin/true as artificial placeholder program<br />
+for duplicity and duply and python<br />
+"rear -D mkrescue" finishes for me without error<br />
+with this etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=DUPLICITY
+DUPLY_PROFILE="/root/qqqq/duply.profile"
+BACKUP_URL=file:///other/
+BACKUP_ONLY_INCLUDE="yes"
+BACKUP_PROG_INCLUDE=( /home/tux )
+{ SSH_ROOT_PASSWORD='rear' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+</code></pre>
+<p>and this /root/qqqq/duply.profile</p>
+<pre><code>GPG_KEY='BD4A8DCC'
+GPG_PW='my_secret_key_phrase'
+TARGET='scp://root:my_secret_password@freedom//exports/archives/ubuntu-15-04'
+SOURCE='/'
+MAX_AGE=1M
+MAX_FULL_BACKUPS=1
+MAX_FULLS_WITH_INCRS=1
+VERBOSITY=5
+TEMP_DIR=/tmp
+</code></pre>
+<p>from<br />
+<a href="https://www.it3.be/2015/09/02/rear-using-duply/">https://www.it3.be/2015/09/02/rear-using-duply/</a></p>
+<h4 id="jsmeix_commented_at_2024-11-21_1006"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2490647561">2024-11-21 10:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1006" title="Permanent link">&para;</a></h4>
+<p>While testing I found out that the DUPLY_PROFILE<br />
+is not included in the ReaR recovery system<br />
+and I wonder how it ever was included<br />
+because I see nowhere in the old DUPLICITY code<br />
+(i.e. the DUPLICITY code without my changes here)<br />
+that it could be included:</p>
+<pre><code># for f in $( find usr/sbin/rear usr/share/rear/ -type f | grep DUPLICITY ) ; do grep COPY_AS_IS $f ; done
+    COPY_AS_IS+=( /etc/fuse.conf )
+COPY_AS_IS+=(
+        [ "x$SKRIPT_FILES" != "x" ] &amp;&amp; COPY_AS_IS+=( "$SKRIPT_FILES" )
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-11-21_1232"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2491016907">2024-11-21 12:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1232" title="Permanent link">&para;</a></h4>
+<p>Tested again "rear -D mkrescue" plus "rear -D mkbackuponly"<br />
+with latest changes here on a test VM<br />
+which both finished for me without error<br />
+with this etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=nfs://192.168.178.66/nfs
+BACKUP=DUPLICITY
+DUPLY_PROFILE="/root/qqqq/duply.profile"
+...
+</code></pre>
+<p>and again /usr/bin/true as placeholder program<br />
+for duplicity and duply and python<br />
+and same /root/qqqq/duply.profile as above.</p>
+<p>Then I booted on another test VM<br />
+the ReaR recovery system ISO<br />
+and did "rear -D recover"<br />
+which also worked for me without error<br />
+up to and including the point of the backup restore<br />
+with restore/DUPLICITY/default/150_restore_duply.sh<br />
+i.e. via</p>
+<pre><code>duply "$DUPLY_PROFILE" restore $TARGET_FS_ROOT/restore
+</code></pre>
+<p>But after the backup restore things failed as expected<br />
+because I use /usr/bin/true as placeholder for duply<br />
+so nothing was restored (/mnt/local/ is basically empty)<br />
+so that certain things could not work in the subsequent<br />
+'finalize' stage, in particular recreating initrd and<br />
+installing a bootloader cannot work on empty /mnt/local/.</p>
+<h4 id="jsmeix_commented_at_2024-11-21_1310"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2491107351">2024-11-21 13:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1310" title="Permanent link">&para;</a></h4>
+<p>@loyeyoung<br />
+could you test how far ReaR with my changes here<br />
+works for you with real duplicity and duply?</p>
+<p>See the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you could try out the current ReaR upstream<br />
+GitHub master code without conflicts with a<br />
+normally installed ReaR version.</p>
+<p>To test my changes in this pull request here<br />
+(which is not yet merged into GitHub master code)<br />
+you would have checkout my branch e.g. like</p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear.github.master.jsmeix-source-DUPLY_PROFILE
+
+cd rear.github.master.jsmeix-source-DUPLY_PROFILE
+
+git checkout jsmeix-source-DUPLY_PROFILE
+
+vi etc/rear/local.conf
+
+usr/sbin/rear -D mkbackup
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-11-21_1449"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2491434006">2024-11-21 14:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-21_1449" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+from my point of view my changes seem to be OK<br />
+but I could not test them in real practice<br />
+because I am not a duplicity and/or duply user<br />
+so I would appreciate it if you could have a look here,<br />
+perhaps you spot problems from plain looking at the code?</p>
+<h4 id="jsmeix_commented_at_2024-11-22_0827"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3345#issuecomment-2493160537">2024-11-22 08:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-22_0827" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+provided there are no objections<br />
+I would like to merge it on Monday afternoon</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-11-20.3345.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

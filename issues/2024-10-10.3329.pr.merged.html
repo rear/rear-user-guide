@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3329 PR merged: Fix partition naming on RHEL when migrating devices - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3329 PR merged: Fix partition naming on RHEL when migrating devices";
+        var mkdocs_page_input_path = "issues/2024-10-10.3329.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3329 PR merged: Fix partition naming on RHEL when migrating devices</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3329_pr_merged_fix_partition_naming_on_rhel_when_migrating_devices"><a href="https://github.com/rear/rear/pull/3329">#3329 PR</a> <code>merged</code>: Fix partition naming on RHEL when migrating devices<a class="headerlink" href="#3329_pr_merged_fix_partition_naming_on_rhel_when_migrating_devices" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="rmetrich_opened_issue_at_2024-10-10_1226"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> opened issue at <a href="https://github.com/rear/rear/pull/3329">2024-10-10 12:26</a>:<a class="headerlink" href="#rmetrich_opened_issue_at_2024-10-10_1226" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested? Code tested in the following
+    cases.</p>
+</li>
+</ul>
+<p>With QEMU SCSI disk ID "0000a":</p>
+<pre><code>rear&gt; lsblk
+NAME                           MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+sda                              8:0    0    20G  0 disk
+|-sda1                           8:1    0     1G  0 part
+|-sda2                           8:2    0    19G  0 part
+`-0QEMU_QEMU_HARDDISK_0000a    253:0    0    20G  0 mpath
+  |-0QEMU_QEMU_HARDDISK_0000a1 253:1    0     1G  0 part
+  `-0QEMU_QEMU_HARDDISK_0000a2 253:2    0    19G  0 part
+sdb                              8:16   0    20G  0 disk
+|-sdb1                           8:17   0     1G  0 part
+|-sdb2                           8:18   0    19G  0 part
+`-0QEMU_QEMU_HARDDISK_0000a    253:0    0    20G  0 mpath
+  |-0QEMU_QEMU_HARDDISK_0000a1 253:1    0     1G  0 part
+  `-0QEMU_QEMU_HARDDISK_0000a2 253:2    0    19G  0 part
+sr0                             11:0    1 614.7M  0 rom
+</code></pre>
+<p>With QEMU SCSI disk ID "0000":</p>
+<pre><code>rear&gt; lsblk
+NAME                           MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+sda                              8:0    0    20G  0 disk
+|-sda1                           8:1    0     1G  0 part
+|-sda2                           8:2    0    19G  0 part
+`-0QEMU_QEMU_HARDDISK_0000     253:0    0    20G  0 mpath
+  |-0QEMU_QEMU_HARDDISK_0000p1 253:1    0     1G  0 part
+  `-0QEMU_QEMU_HARDDISK_0000p2 253:2    0    19G  0 part
+sdb                              8:16   0    20G  0 disk
+|-sdb1                           8:17   0     1G  0 part
+|-sdb2                           8:18   0    19G  0 part
+`-0QEMU_QEMU_HARDDISK_0000     253:0    0    20G  0 mpath
+  |-0QEMU_QEMU_HARDDISK_0000p1 253:1    0     1G  0 part
+  `-0QEMU_QEMU_HARDDISK_0000p2 253:2    0    19G  0 part
+sr0                             11:0    1 614.7M  0 rom
+</code></pre>
+<p>With default friendly name ("mpatha"):</p>
+<pre><code>rear&gt; lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+sda           8:0    0    20G  0 disk
+|-sda1        8:1    0     1G  0 part
+|-sda2        8:2    0    19G  0 part
+`-mpatha    253:0    0    20G  0 mpath
+  |-mpatha1 253:1    0     1G  0 part
+  `-mpatha2 253:2    0    19G  0 part
+sdb           8:16   0    20G  0 disk
+|-sdb1        8:17   0     1G  0 part
+|-sdb2        8:18   0    19G  0 part
+`-mpatha    253:0    0    20G  0 mpath
+  |-mpatha1 253:1    0     1G  0 part
+  `-mpatha2 253:2    0    19G  0 part
+sr0          11:0    1 614.7M  0 rom
+</code></pre>
+<p>With friendly name ending with a digit ("disk0"):</p>
+<pre><code>rear&gt; lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+sda           8:0    0    20G  0 disk
+|-sda1        8:1    0     1G  0 part
+|-sda2        8:2    0    19G  0 part
+`-disk0     253:0    0    20G  0 mpath
+  |-disk0p1 253:1    0     1G  0 part
+  `-disk0p2 253:2    0    19G  0 part
+sdb           8:16   0    20G  0 disk
+|-sdb1        8:17   0     1G  0 part
+|-sdb2        8:18   0    19G  0 part
+`-disk0     253:0    0    20G  0 mpath
+  |-disk0p1 253:1    0     1G  0 part
+  `-disk0p2 253:2    0    19G  0 part
+sr0          11:0    1 614.7M  0 rom
+</code></pre>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>The previous code was appending a "p" to the device name
+unconditionally, which ended up having partition names such as 'wwidp0'
+instead of 'wwid1', when the device name (e.g. 'wwid') ended with a
+letter and not a digit.<br />
+The new code applies the proper naming, which is 'wwid1' when device
+doesn't end with a digit (e.g. 'wwid'), and 'wwid0000p1' when the device
+(e.g. 'wwid0000') ends with a digit.</p>
+<p>See also <a href="https://access.redhat.com/solutions/2354631">When WWID does not end in digit, no <code>p</code> is added to the
+partition name of a multipath device in
+RHEL7</a></p>
+<h4 id="jsmeix_commented_at_2024-10-11_0729"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2406723276">2024-10-11 07:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-11_0729" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+please have a look here and merge it as you like</p>
+<h4 id="jsmeix_commented_at_2024-10-11_0736"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2406733695">2024-10-11 07:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-11_0736" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+it seems you could simulate and test multipath things via QEMU.<br />
+If yes, is there an explanatory description how to do that?<br />
+I.e. how to setup a VM to simulate a multipath system<br />
+on a usual workstation that has no multipath hardware.<br />
+I do not setup KVM/QEMU VMs via command line<br />
+but I use only the graphical UI of virt-manager.<br />
+Is it also possible to setup a VM with virt-manager<br />
+that simulates a multipath system?</p>
+<h4 id="rmetrich_commented_at_2024-10-11_0747"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2406750432">2024-10-11 07:47</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-11_0747" title="Permanent link">&para;</a></h4>
+<p>Yes you can, it's easy, at least on RHEL :-)</p>
+<p>When you create the VM, specify to use a RAW disk instead of QCOW2 and
+make sure SCSI controller is used instead of VirtIO. Also make sure to
+not use Cache mode, set a Serial number for the disk and select
+Shareable.<br />
+Finally add an additional disk, reuse the previously created disk and
+set the cache mode to None and set Serial number to same value, and you
+get your Multipath.</p>
+<p>Example of XML:</p>
+<pre><code>    &lt;disk type="file" device="disk"&gt;
+      &lt;driver name="qemu" type="raw" cache="none" discard="unmap"/&gt;
+      &lt;source file="/var/lib/libvirt/images/multipath9-recovery.img"/&gt;
+      &lt;target dev="sda" bus="scsi"/&gt;
+      &lt;shareable/&gt;
+      &lt;serial&gt;0000&lt;/serial&gt;
+      &lt;address type="drive" controller="0" bus="0" target="0" unit="0"/&gt;
+    &lt;/disk&gt;
+    &lt;disk type="file" device="disk"&gt;
+      &lt;driver name="qemu" type="raw" cache="none" discard="unmap"/&gt;
+      &lt;source file="/var/lib/libvirt/images/multipath9-recovery.img"/&gt;
+      &lt;target dev="sdb" bus="scsi"/&gt;
+      &lt;shareable/&gt;
+      &lt;serial&gt;0000&lt;/serial&gt;
+      &lt;address type="drive" controller="0" bus="0" target="0" unit="1"/&gt;
+    &lt;/disk&gt;
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-10-11_1358"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2407476217">2024-10-11 13:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-11_1358" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+thank you so much for your description!</p>
+<p>I will try it out as soon as possible<br />
+i.e. when time permits - which may take some time<br />
+because currently I am messed up with overhyped<br />
+security excitement about cups-browsed when some<br />
+fools run it accessible from untrusted networks<br />
+like the public Internet, cf.<br />
+<a href="https://en.opensuse.org/SDB:CUPS_and_SANE_Firewall_settings#Automated_print_queue_setup_via_cups-browsed">https://en.opensuse.org/SDB:CUPS_and_SANE_Firewall_settings#Automated_print_queue_setup_via_cups-browsed</a></p>
+<h4 id="pcahyna_commented_at_2024-10-16_1642"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2417372618">2024-10-16 16:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-16_1642" title="Permanent link">&para;</a></h4>
+<p>I think it is ok as a quick fix, but in longer term I would very much
+prefer to get rid of fragile text manipulations like this (note how many
+code branches there are and how many conditions they depend on). I
+believe the format of the partition device name can be determined from
+the layout, e.g. the layout contains</p>
+<pre><code>part /dev/mapper/362cea7f0a24d79002c16131a09f376a1 2199022206976 1048576 primary none /dev/mapper/362cea7f0a24d79002c16131a09f376a1p1
+</code></pre>
+<p>so we know that the partition prefix is
+<code>/dev/mapper/362cea7f0a24d79002c16131a09f376a1p</code> , if we know what
+suffix to substract, and this can be done quite easily by adding the
+partition number (<code>1</code>) to the layout as an additional field.</p>
+<h4 id="jsmeix_commented_at_2024-10-17_0826"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2418891830">2024-10-17 08:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-17_0826" title="Permanent link">&para;</a></h4>
+<p>Regarding a future generic cleanup to get rid of fragile code:</p>
+<p>@rmetrich @pcahyna<br />
+could you please attach your disklayout.conf files<br />
+(or excerpts of the relevant data in disklayout.conf)<br />
+for each of the different cases that you mentioned here<br />
+because I fail to imagine how your disklayout.conf<br />
+exactly looks like for all those different cases.</p>
+<p>I like to understand to what extent we already know<br />
+in disklayout.conf for each child (partition) device<br />
+what its parent (disk/mpath) device is.</p>
+<p>Because if we knew them like</p>
+<pre><code>parent (disk/mpath) device         child (partition) device
+0QEMU_QEMU_HARDDISK_0000a          0QEMU_QEMU_HARDDISK_0000a1
+0QEMU_QEMU_HARDDISK_0000a          0QEMU_QEMU_HARDDISK_0000a2
+0QEMU_QEMU_HARDDISK_0000           0QEMU_QEMU_HARDDISK_0000p1
+0QEMU_QEMU_HARDDISK_0000           0QEMU_QEMU_HARDDISK_0000p2
+mpatha                             mpatha1
+mpatha                             mpatha2
+disk0                              disk0p1
+disk0                              disk0p2
+362cea7f0a24d79002c16131a09f376a1  362cea7f0a24d79002c16131a09f376a1p1
+</code></pre>
+<p>we could generically determine what the used<br />
+"partition separator string" is (which could be empty)<br />
+by subtracting from the child (partition) device<br />
+all trailing numbers (i.e. the partition number) and<br />
+also subtracting the leading parent (disk/mpath) device.</p>
+<p>When we know what "partition separator string" is used<br />
+(the "partition separator string" could be empty)<br />
+we can append it in any case to parent (disk/mpath) devices.</p>
+<h4 id="rmetrich_commented_at_2024-10-17_0903"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2418973604">2024-10-17 09:03</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-17_0903" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/user-attachments/files/17409264/disklayout.txt">disklayout.txt</a></p>
+<h4 id="rmetrich_commented_at_2024-10-17_0904"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2418976027">2024-10-17 09:04</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-17_0904" title="Permanent link">&para;</a></h4>
+<p>All is based on this disklayout, then I boot a different the recovery
+system in migration mode.</p>
+<h4 id="jsmeix_commented_at_2024-10-17_1033"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2419163322">2024-10-17 10:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-17_1033" title="Permanent link">&para;</a></h4>
+<p>Ah!<br />
+So it seems the problem appears when the ReaR recovery system<br />
+with its disklayout.conf of the original system<br />
+is booted on different replacement hardware and then<br />
+it can happen that on different replacement hardware<br />
+a different "partition separator string" is used<br />
+than what was used on the original system<br />
+which is in this case here</p>
+<pre><code>multipath /dev/mapper/0QEMU_QEMU_HARDDISK_0000c 21474836480 msdos /dev/sda,/dev/sdb
+part /dev/mapper/0QEMU_QEMU_HARDDISK_0000c 1073741824 1048576 primary boot /dev/mapper/0QEMU_QEMU_HARDDISK_0000c1
+part /dev/mapper/0QEMU_QEMU_HARDDISK_0000c 20400046080 1074790400 primary lvm /dev/mapper/0QEMU_QEMU_HARDDISK_0000c2
+</code></pre>
+<p>so the "partition separator string" on the original system<br />
+was empty in this case but on the replacement hardware<br />
+a different "partition separator string" gets used<br />
+like 'p' or '-part' or '_part' or whatever.</p>
+<p>Do I understand it correctly?</p>
+<p>If I understand it correctly I wonder<br />
+what the reason is why on different replacement hardware<br />
+a different "partition separator string" may get used?</p>
+<p>I.e. what conditions or settings or automatisms<br />
+determine what "partition separator string" gets used?</p>
+<p>I understand that a "partition separator string"<br />
+needs to be inserted when the parent (disk/mpath) device<br />
+ends with a number to separate the partition number but<br />
+I do not yet understand how on different replacement hardware<br />
+the parent (disk/mpath) device naming scheme can be different<br />
+(i.e. with or without a number at its end)<br />
+compared to the original system?</p>
+<h4 id="jsmeix_commented_at_2024-10-21_0717"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2425820319">2024-10-21 07:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-21_0717" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+is there a reason why you don't merge it, cf. my<br />
+<a href="https://github.com/rear/rear/pull/3329#issuecomment-2406723276">https://github.com/rear/rear/pull/3329#issuecomment-2406723276</a><br />
+or should I "just merge" it soon?</p>
+<p>@rear/contributors<br />
+unless there are objections<br />
+I would like to merge it tomorrow afternoon.</p>
+<h4 id="pcahyna_commented_at_2024-10-21_1029"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426270887">2024-10-21 10:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-21_1029" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>is there a reason why you don't merge it</p>
+</blockquote>
+<p>It's just that I was on a short holiday - but after that I found some
+things that are unclear with the code.</p>
+<h4 id="rmetrich_commented_at_2024-10-21_1120"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426390773">2024-10-21 11:20</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-21_1120" title="Permanent link">&para;</a></h4>
+<p>It's done on line 1050, line 1049 is a condition, it will match either
+OS &lt; RHEL7 (unsupported now) and cases where device name ends with a
+digit.</p>
+<h4 id="pcahyna_commented_at_2024-10-21_1154"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426460581">2024-10-21 11:54</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-21_1154" title="Permanent link">&para;</a></h4>
+<p>@rmetrich and what happens if neither condition matches? I don't see any
+<code>else</code> there.</p>
+<h4 id="rmetrich_commented_at_2024-10-21_1211"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426497020">2024-10-21 12:11</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-21_1211" title="Permanent link">&para;</a></h4>
+<p>Then it uses the default initialization, which is on line 1002: no
+device name change</p>
+<h4 id="jsmeix_commented_at_2024-10-21_1227"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426531707">2024-10-21 12:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-21_1227" title="Permanent link">&para;</a></h4>
+<p>A side note for the fun of it:</p>
+<p>What a pleasure for me to see how unclear code can be<br />
+for others who did not make a specific piece of code<br />
+(even when they are experienced with a project's code)<br />
+without comprehensive and explanatory comments ;-)</p>
+<p>So the basic reasoning in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why">https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why</a></p>
+<pre><code>Even if all is totally obvious for you, others ...
+may understand nothing at all about your code ...
+</code></pre>
+<p>is (at least to some extent) true.</p>
+<h4 id="pcahyna_commented_at_2024-10-21_1244"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426569659">2024-10-21 12:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-21_1244" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Then it uses the default initialization, which is on line 1002: no
+device name change</p>
+</blockquote>
+<p>Ah ok, thanks. Line 1085 (former 1071) is quite confusing then.</p>
+<h4 id="pcahyna_commented_at_2024-10-21_1247"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426576630">2024-10-21 12:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-21_1247" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>A side note for the fun of it:</p>
+<p>What a pleasure for me to see how unclear code can be for others who
+did not make a specific piece of code (even when they are experienced
+with a project's code) without comprehensive and explanatory comments
+;-)</p>
+</blockquote>
+<p>It is not a question of comments in this case, the problem is that the
+structure of the code - the other branches and especially line<br />
+<a href="https://github.com/rear/rear/blob/ba835cd47f6abb97ff08814e24f6eb8fa016c1eb/usr/share/rear/lib/layout-functions.sh#L1071">https://github.com/rear/rear/blob/ba835cd47f6abb97ff08814e24f6eb8fa016c1eb/usr/share/rear/lib/layout-functions.sh#L1071</a><br />
+indicates that all cases need to be covered (there is always an <code>else</code>
+or a default case) and the new code breaks this pattern.</p>
+<h4 id="rmetrich_commented_at_2024-10-21_1248"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426577458">2024-10-21 12:48</a>:<a class="headerlink" href="#rmetrich_commented_at_2024-10-21_1248" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<p>Then it uses the default initialization, which is on line 1002: no
+device name change</p>
+</blockquote>
+<p>Ah ok, thanks. Line 1085 (former 1071) is quite confusing then.</p>
+</blockquote>
+<p>It's debian code, I didn't change this code because i have no debian.</p>
+<h4 id="pcahyna_commented_at_2024-10-21_1250"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426581699">2024-10-21 12:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-21_1250" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Then it uses the default initialization, which is on line 1002: no
+device name change</p>
+</blockquote>
+<p>Ah ok, thanks. Line 1085 (former 1071) is quite confusing then.</p>
+</blockquote>
+<p>It's debian code, I didn't change this code because i have no debian.</p>
+</blockquote>
+<p>Sorry, I meant line 1071 (former 1085) - this is not for Debian, it is
+the default case.</p>
+<h4 id="jsmeix_commented_at_2024-10-21_1314"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3329#issuecomment-2426651458">2024-10-21 13:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-21_1314" title="Permanent link">&para;</a></h4>
+<p>Yes, I see,<br />
+it is not a question of comments in this case<br />
+but in general a question of the basic ideas in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<p>I think in this case it is (at least also) a question<br />
+of basically meaningless variable names like</p>
+<pre><code>part_name="$device_name"
+</code></pre>
+<p>where that line of code on its own tells<br />
+(at least to me) nothing what it is meant to do.<br />
+So one must reverse engineer major code parts<br />
+to build up some idea what it may actually do.</p>
+<p>But this is not something @rmetrich introduced<br />
+so he should not be made responsible here<br />
+to clean up and overhaul old code.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-10-10.3329.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
