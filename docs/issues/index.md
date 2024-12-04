@@ -3211,6 +3211,7 @@
 - [\#3147 Issue](2024-02-08.3147.issue.open.md) `open`: clevis luks bind
 - [\#3148 Issue](2024-02-08.3148.issue.closed.md) `closed`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
 - [\#3148 Issue](2024-02-08.3148.issue.open.md) `open`: ErrorIfDeprecated when 'gpt\_sync\_mbr' is used
+- [\#3149 Issue](2024-02-08.3149.issue.closed.md) `closed`: OS vendor and version autodetection fails on Fedora
 - [\#3149 Issue](2024-02-08.3149.issue.open.md) `open`: OS vendor and version autodetection fails on Fedora
 - [\#3150 PR](2024-02-08.3150.pr.merged.md) `merged`: Add veeam support
 - [\#3150 PR](2024-02-08.3150.pr.open.md) `open`: Add veeam support
@@ -3242,8 +3243,10 @@
 - [\#3166 PR](2024-02-27.3166.pr.open.md) `open`: WIP: Use the new TextPrefix function
 - [\#3167 Issue](2024-02-28.3167.issue.closed.md) `closed`: default TMPDIR /var/tmp leaves temporary files of called programs
 - [\#3168 PR](2024-02-28.3168.pr.merged.md) `merged`: Set TMPDIR to ReaR's TMP\_DIR=$BUILD\_DIR/tmp for programs that are called by ReaR
+- [\#3169 Issue](2024-02-29.3169.issue.closed.md) `closed`: questions to the ReaR release cycle - best current version
 - [\#3169 Issue](2024-02-29.3169.issue.open.md) `open`: questions to the ReaR release cycle - best current version
 - [\#3170 Issue](2024-02-29.3170.issue.closed.md) `closed`: Alma Linux 9.3 not able to install bootloader.
+- [\#3171 PR](2024-02-29.3171.pr.merged.md) `merged`: Make OS detection from `/etc/os-release` more robust
 - [\#3171 PR](2024-02-29.3171.pr.open.md) `open`: Make OS detection from `/etc/os-release` more robust
 - [\#3172 PR](2024-03-01.3172.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.0.2 to 5.1.0
 - [\#3173 PR](2024-03-01.3173.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.3.0 to 4.4.0
@@ -3261,6 +3264,7 @@
 - [\#3183 PR](2024-03-18.3183.pr.merged.md) `merged`: Stale NFS detection in a very early stage \#3109
 - [\#3185 Issue](2024-03-27.3185.issue.closed.md) `closed`: RAID issue: several RAID1 arrays on partitions on disks with 'unknown' partition tables
 - [\#3185 Issue](2024-03-27.3185.issue.open.md) `open`: RAID issue: several RAID1 arrays on partitions on disks with 'unknown' partition tables
+- [\#3186 Issue](2024-03-27.3186.issue.closed.md) `closed`: error: ../../grub-core/loader/i386/efi/linux.c:158:can't allocate initrd
 - [\#3186 Issue](2024-03-27.3186.issue.open.md) `open`: error: ../../grub-core/loader/i386/efi/linux.c:158:can't allocate initrd
 - [\#3187 Issue](2024-03-28.3187.issue.closed.md) `closed`: Bareos+ReaR: Problem booting the system after successful recovery
 - [\#3187 Issue](2024-03-28.3187.issue.open.md) `open`: Bareos+ReaR: Problem booting the system after successful recovery
@@ -3313,7 +3317,9 @@
 - [\#3227 Issue](2024-05-21.3227.issue.open.md) `open`: What comes after SYSLINUX? Support modern PXE booting via iPXE
 - [\#3228 PR](2024-05-21.3228.pr.merged.md) `merged`: Set RECOVERY\_MODE also in PORTABLE mode
 - [\#3229 PR](2024-05-21.3229.pr.merged.md) `merged`: Do not exclude '/var/tmp/rear.\*' in default.conf
+- [\#3230 Issue](2024-05-22.3230.issue.closed.md) `closed`: ReaR confuses Device Mapper Multipathing (DM
 - [\#3230 Issue](2024-05-22.3230.issue.open.md) `open`: ReaR confuses Device Mapper Multipathing (DM
+- [\#3231 Issue](2024-05-22.3231.issue.closed.md) `closed`: I cant able to recover my ubuntu machine, its getting terminted
 - [\#3231 Issue](2024-05-22.3231.issue.open.md) `open`: I cant able to recover my ubuntu machine, its getting terminted
 - [\#3232 PR](2024-05-22.3232.pr.merged.md) `merged`: 400\_save\_directories.sh dirty hack to fix issue 3222 for now
 - [\#3233 PR](2024-05-23.3233.pr.merged.md) `merged`: On POWER tell the user when the initrd is big
@@ -3336,6 +3342,7 @@
 - [\#3245 PR](2024-06-12.3245.pr.open.md) `open`: Avoid returning 1 from a script if all is OK
 - [\#3246 PR](2024-06-12.3246.pr.merged.md) `merged`: Reenable CentOS Stream 8 CI builds and tests
 - [\#3247 Issue](2024-06-13.3247.issue.open.md) `open`: How to setup ReaR for Fedora-Cloud-Base-Generic.x86\_64-40-VERSION.qcow2
+- [\#3248 Issue](2024-06-13.3248.issue.closed.md) `closed`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
 - [\#3248 Issue](2024-06-13.3248.issue.open.md) `open`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
 - [\#3249 Issue](2024-06-14.3249.issue.open.md) `open`: Excluding LV does not work when using 'vgcfgrestore'
 - [\#3250 PR](2024-06-14.3250.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh fix issue \#3021
@@ -3350,6 +3357,7 @@
 - [\#3259 Issue](2024-06-21.3259.issue.open.md) `open`: ReaR must not carelessly 'source' files
 - [\#3260 Issue](2024-06-21.3260.issue.open.md) `open`: Generic method how to safely and reliably read shell-style config files
 - [\#3261 PR](2024-06-25.3261.pr.merged.md) `merged`: bareos: require Bareos Director &gt;= 21
+- [\#3262 Issue](2024-06-27.3262.issue.closed.md) `closed`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3262 Issue](2024-06-27.3262.issue.open.md) `open`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3263 Issue](2024-07-02.3263.issue.open.md) `open`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
 - [\#3264 Issue](2024-07-02.3264.issue.open.md) `open`: Automatic release notes creation as a WIKI page
@@ -3357,12 +3365,15 @@
 - [\#3265 Issue](2024-07-03.3265.issue.open.md) `open`: Issue with mkrescue on EFI servers with multipath devices
 - [\#3267 PR](2024-07-04.3267.pr.merged.md) `merged`: improve device recognition when creating efibootmgr entry
 - [\#3267 PR](2024-07-04.3267.pr.open.md) `open`: improve device recognition when creating efibootmgr entry
+- [\#3268 Issue](2024-07-07.3268.issue.closed.md) `closed`: configuration question
 - [\#3268 Issue](2024-07-07.3268.issue.open.md) `open`: configuration question
 - [\#3269 PR](2024-07-08.3269.pr.merged.md) `merged`: Add spellcheck workflow and fix the typos
 - [\#3270 Issue](2024-07-09.3270.issue.closed.md) `closed`: reduzing the initrd size?
 - [\#3271 Issue](2024-07-10.3271.issue.closed.md) `closed`: USB config not working
 - [\#3271 Issue](2024-07-10.3271.issue.open.md) `open`: USB config not working
+- [\#3272 Issue](2024-07-10.3272.issue.closed.md) `closed`: I would like to step back from personal responsibility for ReaR
 - [\#3272 Issue](2024-07-10.3272.issue.open.md) `open`: I would like to step back from personal responsibility for ReaR
+- [\#3273 Issue](2024-07-11.3273.issue.closed.md) `closed`: IPv6 interface has no IP in ReaR enviroment
 - [\#3273 Issue](2024-07-11.3273.issue.open.md) `open`: IPv6 interface has no IP in ReaR enviroment
 - [\#3274 Issue](2024-07-11.3274.issue.open.md) `open`: REQUEST\_RESTORE should signal when it is ready to
 - [\#3275 PR](2024-07-12.3275.pr.merged.md) `merged`: Enhance the spellcheck workflow
@@ -3374,6 +3385,7 @@
 - [\#3280 PR](2024-07-18.3280.pr.open.md) `open`: skel/default/etc/rsyslog.conf : others should not have read permissions
 - [\#3281 PR](2024-07-18.3281.pr.merged.md) `merged`: conf: reintroduce `Linux-s390.conf`
 - [\#3281 PR](2024-07-18.3281.pr.open.md) `open`: conf: reintroduce `Linux-s390.conf`
+- [\#3282 Issue](2024-07-18.3282.issue.closed.md) `closed`: Remove cronjob of RPM package on RHEL
 - [\#3282 Issue](2024-07-18.3282.issue.open.md) `open`: Remove cronjob of RPM package on RHEL
 - [\#3283 Issue](2024-07-18.3283.issue.closed.md) `closed`: Improve output on missing libraries for systemd core lib
 - [\#3283 Issue](2024-07-18.3283.issue.open.md) `open`: Improve output on missing libraries for systemd core lib
@@ -3381,26 +3393,31 @@
 - [\#3285 Issue](2024-07-19.3285.issue.closed.md) `closed`: Checking where ReaR does source third party files and try to mitigate those cases
 - [\#3286 Issue](2024-07-19.3286.issue.closed.md) `closed`: deleting tmp files?
 - [\#3287 Issue](2024-07-20.3287.issue.closed.md) `closed`: ERROR: Failed to create 'Relax-and-Recover' UEFI boot entry
+- [\#3288 Issue](2024-07-20.3288.issue.closed.md) `closed`: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted
 - [\#3288 Issue](2024-07-20.3288.issue.open.md) `open`: Can't Restore ReaR backup on RHEL9 (ISO image got corrupted
 - [\#3289 Issue](2024-07-22.3289.issue.closed.md) `closed`: OBS signing key has expired (The gpg key signing file 'repomd.xml' has expired
 - [\#3290 Issue](2024-07-22.3290.issue.closed.md) `closed`: OBS remove old and outdated ReaR versions from Archiving:Backup:Rear
 - [\#3291 Issue](2024-07-23.3291.issue.open.md) `open`: skel/default/etc/syslog-ng\*.conf may source third party code
 - [\#3292 Issue](2024-07-23.3292.issue.open.md) `open`: lib/sesam-functions.sh may source third party code
+- [\#3293 Issue](2024-07-23.3293.issue.closed.md) `closed`: BACKUP=DUPLICITY may source third party code
 - [\#3293 Issue](2024-07-23.3293.issue.open.md) `open`: BACKUP=DUPLICITY may source third party code
 - [\#3294 Issue](2024-07-23.3294.issue.closed.md) `closed`: DRLM\_MANAGED=yes may source third party code from a remote host
 - [\#3295 Issue](2024-07-23.3295.issue.open.md) `open`: How is skel/default/bin/dhcpcd.sh meant to work?
 - [\#3296 Issue](2024-07-23.3296.issue.closed.md) `closed`: Setting ISO\_MKISOFS\_BIN default parameter in site or local.conf results in recovery error
+- [\#3297 Issue](2024-07-24.3297.issue.closed.md) `closed`: Better DRLM integration
 - [\#3297 Issue](2024-07-24.3297.issue.open.md) `open`: Better DRLM integration
 - [\#3298 PR](2024-08-01.3298.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.3.0 to 5.4.0
 - [\#3299 PR](2024-08-01.3299.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.4.1 to 4.4.5
 - [\#3300 Issue](2024-08-01.3300.issue.closed.md) `closed`: \[SLES\] add SECURE\_BOOT\_BOOTLOADER into SUSE\_LINUX.conf
 - [\#3301 Issue](2024-08-15.3301.issue.closed.md) `closed`: rescue-and-backup-on-same-ISO-image-example.conf - bad TMPDIR
+- [\#3302 Issue](2024-08-22.3302.issue.closed.md) `closed`: \[RFE\] Distribute `rear-release-notes.txt` under a more permissive license
 - [\#3302 Issue](2024-08-22.3302.issue.open.md) `open`: \[RFE\] Distribute `rear-release-notes.txt` under a more permissive license
 - [\#3304 Issue](2024-08-25.3304.issue.closed.md) `closed`: Issue when starting recovery system (NVIDIA related / console log flodding
 - [\#3306 PR](2024-08-29.3306.pr.merged.md) `merged`: Overhauled SLE11-SLE12-SAP-HANA-UEFI-example.conf
 - [\#3307 PR](2024-08-30.3307.pr.merged.md) `merged`: Make .codespellignore ASCII
 - [\#3308 PR](2024-09-03.3308.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh show relative paths in user messages for files in ROOTFS\_DIR
 - [\#3309 PR](2024-09-05.3309.pr.merged.md) `merged`: BACKUP=NSR: Deprecate 650\_check\_iso\_recoverable.sh
+- [\#3310 PR](2024-09-05.3310.pr.closed.md) `closed`: Update README.adoc
 - [\#3310 PR](2024-09-05.3310.pr.open.md) `open`: Update README.adoc
 - [\#3311 Issue](2024-09-05.3311.issue.closed.md) `closed`: Any thoughts why we can't use `find_device` here?
 - [\#3311 Issue](2024-09-05.3311.issue.open.md) `open`: Any thoughts why we can't use `find_device` here?
@@ -3408,13 +3425,43 @@
 - [\#3312 PR](2024-09-06.3312.pr.open.md) `open`: \#3178 improve USB device detection
 - [\#3313 Issue](2024-09-06.3313.issue.closed.md) `closed`: testing-farm:fedora-39-x86\_64 issue with the backup & recovery tests
 - [\#3314 PR](2024-09-06.3314.pr.merged.md) `merged`: Request BIOS for backup and restore tests
+- [\#3315 Issue](2024-09-08.3315.issue.closed.md) `closed`: ReaR BACKUP=BACULA director not responding but bacula works perfectly on ubuntu 20.04 how to resove
 - [\#3315 Issue](2024-09-08.3315.issue.open.md) `open`: ReaR BACKUP=BACULA director not responding but bacula works perfectly on ubuntu 20.04 how to resove
 - [\#3316 Issue](2024-09-09.3316.issue.open.md) `open`: Question : Does REAR can backup OracleASM shared disk ?
 - [\#3317 PR](2024-09-09.3317.pr.merged.md) `merged`: Disable the backup & recovery test on Fedora
+- [\#3318 PR](2024-09-13.3318.pr.closed.md) `closed`: Create wiki-release-notes.yml
 - [\#3318 PR](2024-09-13.3318.pr.open.md) `open`: Create wiki-release-notes.yml
 - [\#3319 Issue](2024-09-17.3319.issue.closed.md) `closed`: Checking where ReaR sources files with '.' and trying to verify those cases
 - [\#3320 Issue](2024-09-17.3320.issue.open.md) `open`: Check sourcing via '.' in DHCP client support code
 - [\#3321 Issue](2024-09-17.3321.issue.open.md) `open`: BACKUP=GALAXY: Verify that sourcing ./GxCmd can be trusted
+- [\#3322 Issue](2024-09-24.3322.issue.closed.md) `closed`: BUG in /usr/share/rear/output/USB/Linux-i386/850\_make\_USB\_bootable.sh line 12: RAW\_USB\_DEVICE and REAL\_USB\_DEVICE are not both set
 - [\#3322 Issue](2024-09-24.3322.issue.open.md) `open`: BUG in /usr/share/rear/output/USB/Linux-i386/850\_make\_USB\_bootable.sh line 12: RAW\_USB\_DEVICE and REAL\_USB\_DEVICE are not both set
+- [\#3324 Issue](2024-09-30.3324.issue.closed.md) `closed`: Creating BMR ISO for Rubrik Recovery
 - [\#3324 Issue](2024-09-30.3324.issue.open.md) `open`: Creating BMR ISO for Rubrik Recovery
+- [\#3326 Issue](2024-10-04.3326.issue.closed.md) `closed`: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution
+- [\#3328 Issue](2024-10-07.3328.issue.open.md) `open`: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270\_create\_grub2\_efi\_bootloader.sh returns more than one directory
+- [\#3329 PR](2024-10-10.3329.pr.merged.md) `merged`: Fix partition naming on RHEL when migrating devices
+- [\#3330 Issue](2024-10-15.3330.issue.closed.md) `closed`: Why ReaR does not make important vars available as env vars for PRE/POST\_BACKUP\_SCRIPT ?
+- [\#3331 PR](2024-10-17.3331.pr.merged.md) `merged`: Use `OS_MASTER_VERSION` for major releases
+- [\#3332 Issue](2024-10-17.3332.issue.closed.md) `closed`: Unable to boot recover image on SuSE Linux ppc
+- [\#3333 Issue](2024-10-21.3333.issue.open.md) `open`: Is it possible to build a IMG File of a SDcard from a running Raspberry PI ?
+- [\#3334 PR](2024-10-22.3334.pr.merged.md) `merged`: Fix get\_disklabel\_type(
+- [\#3335 Issue](2024-10-26.3335.issue.closed.md) `closed`: Is there any example configuration for creating a bootable medium and backup on one device?
+- [\#3337 PR](2024-10-31.3337.pr.merged.md) `merged`: Do not stale issues or PR assigned to team members
+- [\#3338 Issue](2024-11-01.3338.issue.closed.md) `closed`: "chattr: command not found" Running rear recover using rescue ISO on openSUSE Tumbleweed
+- [\#3339 Issue](2024-11-02.3339.issue.closed.md) `closed`: Directories Missing in REAR Backup, openSUSE Tumbleweed
+- [\#3340 Issue](2024-11-05.3340.issue.open.md) `open`: Error out on removed deprecated features
+- [\#3341 Issue](2024-11-08.3341.issue.closed.md) `closed`: Change the milestone 3.0 of closed issues to 2.8
+- [\#3342 Issue](2024-11-08.3342.issue.closed.md) `closed`: Clean up the “future” Milestone
+- [\#3343 Issue](2024-11-09.3343.issue.open.md) `open`: Disable /dev/zram0 in disklayout.conf
+- [\#3344 PR](2024-11-19.3344.pr.merged.md) `merged`: Minor os-detection improvements
+- [\#3345 PR](2024-11-20.3345.pr.merged.md) `merged`: Make sourcing DUPLY\_PROFILE reasonably secure
+- [\#3346 Issue](2024-11-26.3346.issue.closed.md) `closed`: On SLES: /.snapshots should be excluded from the backup by default
+- [\#3347 PR](2024-11-27.3347.pr.merged.md) `merged`: Skip to add /.snapshots by default to the backup include list
+- [\#3348 PR](2024-11-27.3348.pr.merged.md) `merged`: Call 'lsblk' with 'MOUNTPOINTS' to show all mounted btrfs subvolumes
+- [\#3349 PR](2024-11-27.3349.pr.merged.md) `merged`: After doing lots of experiments with RAMdisks it is good to have some…
+- [\#3350 Issue](2024-12-02.3350.issue.closed.md) `closed`: find on menu.c32 hangs on NFS mount point (via 300\_create\_isolinux.s
+- [\#3351 PR](2024-12-02.3351.pr.merged.md) `merged`: fix: add -xdev option to find to avoid hanging NFS (\#3350
+- [\#3352 PR](2024-12-03.3352.pr.open.md) `open`: cleanup: move grubby and grub2-editenv to 300\_include\_grub\_tools.sh (\#3349
+- [\#3353 PR](2024-12-03.3353.pr.open.md) `open`: cleanup: Finish the change of "Arch to "Arch\_Linux"
 - # Issues History of Relax-and-Recover (index.md)
