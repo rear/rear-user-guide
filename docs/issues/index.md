@@ -2025,6 +2025,7 @@
 - [\#2026 Issue](2019-01-29.2026.issue.closed.md) `closed`: rear.spec: Remove obsolete BuildRoot tag
 - [\#2027 Issue](2019-01-29.2027.issue.closed.md) `closed`: rear.spec: Remove obsolete Group tag
 - [\#2028 Issue](2019-02-01.2028.issue.closed.md) `closed`: BTRFS Raid / Multi Disk setup is currently not supported
+- [\#2028 Issue](2019-02-01.2028.issue.open.md) `open`: BTRFS Raid / Multi Disk setup is currently not supported
 - [\#2029 Issue](2019-02-01.2029.issue.closed.md) `closed`: No /verify/BORG/ script to verify a BORG backup can be restored
 - [\#2030 PR](2019-02-04.2030.pr.merged.md) `merged`: Basic support for EFISTUB booting.
 - [\#2031 PR](2019-02-04.2031.pr.merged.md) `merged`: Documentation for EFISTUB boot support.
@@ -3427,6 +3428,7 @@
 - [\#3314 PR](2024-09-06.3314.pr.merged.md) `merged`: Request BIOS for backup and restore tests
 - [\#3315 Issue](2024-09-08.3315.issue.closed.md) `closed`: ReaR BACKUP=BACULA director not responding but bacula works perfectly on ubuntu 20.04 how to resove
 - [\#3315 Issue](2024-09-08.3315.issue.open.md) `open`: ReaR BACKUP=BACULA director not responding but bacula works perfectly on ubuntu 20.04 how to resove
+- [\#3316 Issue](2024-09-09.3316.issue.closed.md) `closed`: Question : Does REAR can backup OracleASM shared disk ?
 - [\#3316 Issue](2024-09-09.3316.issue.open.md) `open`: Question : Does REAR can backup OracleASM shared disk ?
 - [\#3317 PR](2024-09-09.3317.pr.merged.md) `merged`: Disable the backup & recovery test on Fedora
 - [\#3318 PR](2024-09-13.3318.pr.closed.md) `closed`: Create wiki-release-notes.yml
@@ -3462,6 +3464,25 @@
 - [\#3349 PR](2024-11-27.3349.pr.merged.md) `merged`: After doing lots of experiments with RAMdisks it is good to have some…
 - [\#3350 Issue](2024-12-02.3350.issue.closed.md) `closed`: find on menu.c32 hangs on NFS mount point (via 300\_create\_isolinux.s
 - [\#3351 PR](2024-12-02.3351.pr.merged.md) `merged`: fix: add -xdev option to find to avoid hanging NFS (\#3350
+- [\#3352 PR](2024-12-03.3352.pr.closed.md) `closed`: cleanup: move grubby and grub2-editenv to 300\_include\_grub\_tools.sh (\#3349
 - [\#3352 PR](2024-12-03.3352.pr.open.md) `open`: cleanup: move grubby and grub2-editenv to 300\_include\_grub\_tools.sh (\#3349
+- [\#3353 PR](2024-12-03.3353.pr.merged.md) `merged`: cleanup: Finish the change of "Arch to "Arch\_Linux"
 - [\#3353 PR](2024-12-03.3353.pr.open.md) `open`: cleanup: Finish the change of "Arch to "Arch\_Linux"
+- [\#3354 PR](2024-12-04.3354.pr.merged.md) `merged`: cleanup: move grubby and grub2-editenv to 300\_include\_grub\_tools.sh (\#3349
+- [\#3355 PR](2024-12-04.3355.pr.open.md) `open`: Storing and reading Self Encrypted Disk (SED
+- [\#3356 PR](2024-12-04.3356.pr.merged.md) `merged`: In 100\_copy\_as\_is.sh error out if symlinking VAR\_DIR SHARE\_DIR fails
+- [\#3357 Issue](2024-12-05.3357.issue.open.md) `open`: finalize/.../660\_install\_grub2.sh automatism fails on RAID1
+- [\#3359 Issue](2024-12-10.3359.issue.open.md) `open`: BACKUP\_PROG=rsync: Is it possible to backup and restore to/from an NFS share that has root squash enabled?
+- [\#3360 Issue](2024-12-11.3360.issue.open.md) `open`: Officially support Alma Linux, Rocky Linux and Oracle Linux as RHEL clones
+- [\#3361 Issue](2024-12-11.3361.issue.open.md) `open`: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2
+- [\#3362 Issue](2024-12-11.3362.issue.open.md) `open`: Artix Linux: update defaults or documentation to make EFI-bootable rescue systems on USB devices simpler
+- [\#3363 Issue](2024-12-12.3363.issue.open.md) `open`: ReaR does not recognise USB SSD but sees USB flashdrive
+- [\#3364 PR](2024-12-16.3364.pr.merged.md) `merged`: Fix some typos
+- [\#3365 PR](2024-12-16.3365.pr.merged.md) `merged`: savelayout: error out on mounted multi-disk BTRFS filesystems
+- [\#3366 PR](2024-12-17.3366.pr.open.md) `open`: Make the auto detection for USING\_UEFI\_BOOTLOADER probe /efi too
+- [\#3367 PR](2024-12-17.3367.pr.merged.md) `merged`: Schlomo prepare for release 2.8
+- [\#3368 Issue](2024-12-18.3368.issue.open.md) `open`: "make dist" ReaR tarball misses usr/share/rear/skel/default/root/.vimrc
+- [\#3369 Issue](2024-12-18.3369.issue.open.md) `open`: Makefile contains "obsproject = Archiving:Backup:Rear:Snapshot" which does no longer exist
+- [\#3370 PR](2024-12-18.3370.pr.merged.md) `merged`: ReaR 2.8 release preparations
+- [\#3371 PR](2024-12-19.3371.pr.open.md) `open`: Do not remove dotfiles from the release archive
 - # Issues History of Relax-and-Recover (index.md)
