@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3361 Issue open: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3361 Issue open: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2";
+        var mkdocs_page_input_path = "issues/2024-12-11.3361.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3361 Issue open: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3361_issue_open_artix_linux_luks2_hash_is_not_correctly_recognized_when_the_cryptdevice_contains_a_key-slot_with_pbkdf2"><a href="https://github.com/rear/rear/issues/3361">#3361 Issue</a> <code>open</code>: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2<a class="headerlink" href="#3361_issue_open_artix_linux_luks2_hash_is_not_correctly_recognized_when_the_cryptdevice_contains_a_key-slot_with_pbkdf2" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="castilma_opened_issue_at_2024-12-11_1317"><img src="https://avatars.githubusercontent.com/u/17392981?u=b3ed5e11972846e089ecac7aeb7830607cb64b86&v=4" width="50"><a href="https://github.com/castilma">castilma</a> opened issue at <a href="https://github.com/rear/rear/issues/3361">2024-12-11 13:17</a>:<a class="headerlink" href="#castilma_opened_issue_at_2024-12-11_1317" title="Permanent link">&para;</a></h4>
+<!-- Relax-and-Recover (ReaR) Issue Template
+Fill in the following items when submitting a new issue.
+Use GitHub Markdown, see "Basic writing and formatting syntax" on
+https://docs.github.com/en/get-started/writing-on-github
+Support is voluntary without guarantee/warranty/liability -->
+
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    Relax-and-Recover 2.7 / Git</p>
+</li>
+<li>
+<p>OS version ("cat /etc/os-release" or "lsb_release -a" or "cat
+    /etc/rear/os.conf"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME="Artix Linux"
+PRETTY_NAME="Artix Linux"
+ID=artix
+BUILD_ID=rolling
+ANSI_COLOR="0;36"
+HOME_URL="https://www.artixlinux.org/"
+DOCUMENTATION_URL="https://wiki.artixlinux.org/"
+SUPPORT_URL="https://forum.artixlinux.org/"
+BUG_REPORT_URL="https://bugs.artixlinux.org/"
+PRIVACY_POLICY_URL="https://terms.artixlinux.org/docs/privacy-policy/"
+LOGO=artixlinux-logo
+</code></pre>
+<ul>
+<li>ReaR configuration files ("cat /etc/rear/site.conf" and/or "cat
+    /etc/rear/local.conf"):</li>
+</ul>
+<!-- -->
+
+<pre><code>OUTPUT=RAWDISK
+#OUTPUT_URL=
+
+BACKUP=REQUESTRESTORE
+
+REQUIRED_PROGS+=( restic )
+
+KEYMAP="de-neo"
+BOOTLOADER="GRUB2"
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    PC</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    UEFI, GRUB</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    SSD</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME KNAME     PKNAME    TRAN   TYPE  FSTYPE LABEL   SIZE MOUNTPOINT
+/dev/sda
+|    /dev/sda            sata   disk               447,1G 
+|-/dev/sda1
+|    /dev/sda1 /dev/sda         part                 200M /efi
+|-/dev/sda2
+|    /dev/sda2 /dev/sda         part                   1M 
+`-/dev/sda3
+  |  /dev/sda3 /dev/sda         part               446,9G 
+  `-/dev/mapper/lvmSystem
+    |  /dev/dm-0 /dev/sda3        crypt              446,9G 
+    |-/dev/mapper/lvmSystem-volSwap
+    |  /dev/dm-1 /dev/dm-0        lvm                    8G [SWAP]
+    `-/dev/mapper/lvmSystem-volRoot
+       /dev/dm-2 /dev/dm-0        lvm                438,9G /
+/dev/sr0
+     /dev/sr0            sata   rom                  7,8G
+</code></pre>
+<ul>
+<li>Description of the issue (ideally so that others can reproduce it):</li>
+</ul>
+<p>If a key-slot uses the key derivation function <code>pbkdf2</code>, luksDump
+outputs a <code>Hash:</code> line for that entry. This<br />
+breaks the 'hash' checking code in <code>260_crypt_layout.sh</code>, because
+multiple <code>Hash:</code> lines exist and the test argument is not quoted:<br />
+<a href="https://github.com/rear/rear/blob/40cbaaf50b689b73be77b9a12b4321a787db6681/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh#L118">https://github.com/rear/rear/blob/40cbaaf50b689b73be77b9a12b4321a787db6681/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh#L118</a></p>
+<p>Like in line 87, the extraction should probably just choose one line,
+but not always the first one! Right now it accepts all lines:<br />
+<a href="https://github.com/rear/rear/blob/40cbaaf50b689b73be77b9a12b4321a787db6681/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh#L88">https://github.com/rear/rear/blob/40cbaaf50b689b73be77b9a12b4321a787db6681/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh#L88</a></p>
+<p>Reproduce like this:</p>
+<pre><code>$ head -c 10M /dev/zero &gt;img.iso
+$ cryptsetup luksFormat --type luks1 img.iso 
+$ cryptsetup convert /tmp/img.iso  --type luks2
+$ cryptsetup luksDump /tmp/img.iso 
+LUKS header information
+Version:        2
+Epoch:          2
+Metadata area:  16384 [bytes]
+Keyslots area:  2064384 [bytes]
+UUID:           f100df28-dd7b-4fd4-890f-da0115a7e079
+Label:          (no label)
+Subsystem:      (no subsystem)
+Flags:          (no flags)
+
+Data segments:
+  0: crypt
+    offset: 2097152 [bytes]
+    length: (whole device)
+    cipher: aes-xts-plain64
+    sector: 512 [bytes]
+
+Keyslots:
+  0: luks2
+    Key:        512 bits
+    Priority:   normal
+    Cipher:     aes-xts-plain64
+    Cipher key: 512 bits
+    PBKDF:      pbkdf2
+    Hash:       sha256
+    Iterations: 1222116
+    Salt:       ae d6 86 ce 59 8d 45 a1 83 12 e6 1e 76 df ca 20 
+                a2 f7 0e cb f5 18 15 b0 fd bc d1 14 54 f3 5a a1 
+    AF stripes: 4000
+    AF hash:    sha256
+    Area offset:32768 [bytes]
+    Area length:258048 [bytes]
+    Digest ID:  0
+Tokens:
+Digests:
+  0: pbkdf2
+    Hash:       sha256
+    Iterations: 76293
+    Salt:       d5 86 16 6c 54 2c 62 da 36 b4 82 31 84 67 9d f5 
+                6f 3c e5 a0 d3 82 33 32 54 bd d0 0d ec 89 ac b0 
+    Digest:     75 7b b1 29 cd 6b 14 98 22 26 72 1c c4 ca a5 fd 
+                db 3e fd a3
+</code></pre>
+<p>Note the new 'Hash:' line in the first key slot. I believe rear is
+interested in the second one under <code>Digests:</code>.</p>
+<p>Background: I upgraded my LUKS1 device to LUKS2 (after reading <a href="https://mjg59.dreamwidth.org/66429.html">this
+PSA</a>), but did not follow the
+last step to update the pbkdf to argon, which I is the default for luks2
+devices. So I ended up having a keyslot with the 'pbkdf2', which should
+be pretty rare with luks2.</p>
+<ul>
+<li>Workaround, if any:<br />
+    Update the keyslot by running
+    <code>$ cryptsetup luksConvertKey &lt;DEVICE&gt; --pbkdf argon2id</code> with the
+    corresponding password.</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-12-11_1427"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3361#issuecomment-2536152881">2024-12-11 14:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-11_1427" title="Permanent link">&para;</a></h4>
+<p>@castilma<br />
+did you get some</p>
+<pre><code>"No 'hash' value for LUKS.. volume ..."
+</code></pre>
+<p>message on your terminal?<br />
+If at all you would have got such a message only<br />
+if you did run "rear mkbackup/mkrescue" in verbose mode.</p>
+<p>As far as I see in its comments the current code in<br />
+layout/save/GNU/Linux/260_crypt_layout.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh">https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/260_crypt_layout.sh</a><br />
+seems to work as intended</p>
+<pre><code>    79          # More than one keyslot may be defined - use key_size from the first slot.
+    80          # Depending on the version the "cryptsetup luksDump" command outputs the key_size value
+    81          # as a line like
+    82          #         Key:        512 bits
+    83          # and/or as a line like
+    84          #         Cipher key: 512 bits
+    85          # cf. https://github.com/rear/rear/pull/2504#issuecomment-718729198 and subsequent comments
+    86          # so we grep for both lines but use only the first match from the first slot:
+    87          key_size=$( grep -E -m 1 "Key:|Cipher key:" $TMP_DIR/cryptsetup.luksDump | sed -r 's/^.+:\s*(.+) bits$/\1/' )
+    88          hash=$( grep "Hash" $TMP_DIR/cryptsetup.luksDump | sed -r 's/^.+:\s*(.+)$/\1/' )
+...
+   102      # Using plain test to ensure a value is a single non empty and non blank word
+   103      # without quoting because test " " would return zero exit code
+   104      # cf. "Beware of the emptiness" in https://github.com/rear/rear/wiki/Coding-Style
+...
+   118      if ! test $hash ; then
+</code></pre>
+<p>which does not mean that the current code<br />
+will work for all possible cases<br />
+so the current code may need to be enhanced<br />
+to error out if a mandatory condition is not fulfilled<br />
+or to even also work for more special cases like this one.</p>
+<p>Perhaps in current code</p>
+<pre><code>   118      if ! test $hash ; then
+   119          LogPrint "No 'hash' value for LUKS$version volume $target_name in $source_device"
+   120      fi
+</code></pre>
+<p>LogPrint should be at least LogPrintError or even Error<br />
+but right now I don't know if a hash value is mandatory.</p>
+<h4 id="castilma_commented_at_2024-12-11_1922"><img src="https://avatars.githubusercontent.com/u/17392981?u=b3ed5e11972846e089ecac7aeb7830607cb64b86&v=4" width="50"><a href="https://github.com/castilma">castilma</a> commented at <a href="https://github.com/rear/rear/issues/3361#issuecomment-2536915692">2024-12-11 19:22</a>:<a class="headerlink" href="#castilma_commented_at_2024-12-11_1922" title="Permanent link">&para;</a></h4>
+<p>Yes, I got some of these<br />
+<code>"No 'hash' value for LUKS.. volume ..."</code> lines. (I think it was with -v
+passed.)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-12-11.3361.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

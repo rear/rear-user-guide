@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3368 Issue open: "make dist" ReaR tarball misses usr/share/rear/skel/default/root/.vimrc - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3368 Issue open: \"make dist\" ReaR tarball misses usr/share/rear/skel/default/root/.vimrc";
+        var mkdocs_page_input_path = "issues/2024-12-18.3368.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3368 Issue open: "make dist" ReaR tarball misses usr/share/rear/skel/default/root/.vimrc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3368_issue_open_make_dist_rear_tarball_misses_usrsharerearskeldefaultrootvimrc"><a href="https://github.com/rear/rear/issues/3368">#3368 Issue</a> <code>open</code>: "make dist" ReaR tarball misses usr/share/rear/skel/default/root/.vimrc<a class="headerlink" href="#3368_issue_open_make_dist_rear_tarball_misses_usrsharerearskeldefaultrootvimrc" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>minor bug</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-12-18_1346"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3368">2024-12-18 13:46</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-12-18_1346" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2551305334">https://github.com/rear/rear/issues/3238#issuecomment-2551305334</a><br />
+excerpt</p>
+<pre><code># make dist OFFICIAL=1 &amp;&amp; echo OK || echo FAILED
+...
+OK
+
+# git ls-files . --ignored --exclude-standard --others
+dist/rear-2.7.tar.gz
+</code></pre>
+<p>usr/share/rear/skel/default/root/.vimrc<br />
+is not in dist/rear-2.7.tar.gz<br />
+but this file is needed because<br />
+<a href="https://github.com/rear/rear/issues/3151">https://github.com/rear/rear/issues/3151</a><br />
+cf.<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2551280753">https://github.com/rear/rear/issues/3238#issuecomment-2551280753</a></p>
+<h4 id="jsmeix_commented_at_2024-12-18_1349"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551373630">2024-12-18 13:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1349" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+could you please have a look here?</p>
+<p>I think this should be fixed for ReaR 2.8<br />
+because otherwise the minor issue<br />
+<a href="https://github.com/rear/rear/issues/3151">https://github.com/rear/rear/issues/3151</a><br />
+would not be fixed in ReaR 2.8 packages<br />
+that are built from our dist/rear-2.8.tar.gz</p>
+<h4 id="schlomo_commented_at_2024-12-18_1354"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551385989">2024-12-18 13:54</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1354" title="Permanent link">&para;</a></h4>
+<p>Let's just add an empty <code>.vimrc</code> to <code>skel/default</code> with a comment line
+explaining why it is there. Or we can add it to <code>/etc/vimrc</code> same place?
+Wouldn't that have the same effect and it would be more obvious?</p>
+<p>Users who want to carry along their own VIM config can still use
+<code>COPY_AS_IS</code> to do so and it will override our empty default</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551421568">2024-12-18 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1410" title="Permanent link">&para;</a></h4>
+<p>I have the same <code>.vimrc</code></p>
+<pre><code>" An empty vimrc file to avoid that 'vi' inside the ReaR recovery system shows
+" Failed to source defaults.vim - Press ENTER or type command to continue
+" see https://github.com/rear/rear/issues/3151
+</code></pre>
+<p>as copies now in<br />
+usr/share/rear/skel/default/etc/.vimrc<br />
+usr/share/rear/skel/default/.vimrc<br />
+usr/share/rear/skel/default/root/.vimrc<br />
+and did</p>
+<pre><code>make dist OFFICIAL=1
+</code></pre>
+<p>and all three are missing in dist/rear-2.7.tar.gz</p>
+<p>BUT<br />
+when I make another copy as<br />
+usr/share/rear/skel/default/root/vimrc<br />
+(i.e. without leading dot)<br />
+then it gets included in dist/rear-2.7.tar.gz<br />
+so it seems dot-files are ignored.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1410"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551421789">2024-12-18 14:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1410" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>usr/share/rear/skel/default/root/.vimrc<br />
+is not in dist/rear-2.7.tar.gz</p>
+</blockquote>
+<p>Do you know why?</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1411"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551423280">2024-12-18 14:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1411" title="Permanent link">&para;</a></h4>
+<p>If I knew why I would "just fix" it, cf.<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2551334213">https://github.com/rear/rear/issues/3238#issuecomment-2551334213</a></p>
+<h4 id="pcahyna_commented_at_2024-12-18_1417"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551436909">2024-12-18 14:17</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1417" title="Permanent link">&para;</a></h4>
+<p>I guess it is because of <code>--exclude=".??*"</code> passed to tar, which
+originates in 56959b54fc by @schlomo .</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1419"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551442705">2024-12-18 14:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1419" title="Permanent link">&para;</a></h4>
+<p>Unfortunately, if we remove this, I suspect we will get unwanted stuff
+in the build, like <code>.github</code>, <code>.fmf</code> and <code>.shellcheckrc</code>.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1420"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551443703">2024-12-18 14:20</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1420" title="Permanent link">&para;</a></h4>
+<p>@jsmeix the root cause is that we exlcude dot files when building the
+tar in
+<a href="https://github.com/rear/rear/blob/3d17f43a3c0279344c7cd97125b86971081107cb/Makefile#L90">https://github.com/rear/rear/blob/3d17f43a3c0279344c7cd97125b86971081107cb/Makefile#L90</a></p>
+<p>Therefore we have the ability to use an <strong>archive</strong> as skel, see
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/Debian/default.tar.gz">https://github.com/rear/rear/blob/master/usr/share/rear/skel/Debian/default.tar.gz</a></p>
+<p>But for this specific problem I'd prefer to solve the <code>vim</code> problem via
+shipping an <code>/etc/vimrc</code> in the hope that such a file would make vim
+happy without a <code>/root/.vimrc</code> as dot files are often not noticed by
+users. If possible.</p>
+<p>Or we use code to create the dotfile in the rescue system.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1429"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551464909">2024-12-18 14:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1429" title="Permanent link">&para;</a></h4>
+<p>Ah!<br />
+<code>/etc/vimrc</code> is not a dot-file - I missed that.<br />
+I will try to fix it this way for ReaR 2.8...</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1429"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551465625">2024-12-18 14:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1429" title="Permanent link">&para;</a></h4>
+<p>If I remove <code>--exclude=".??*"</code> from the Makefile, I get this difference
+in the resulting tar :</p>
+<pre><code>--- unpatched.list      2024-12-18 15:26:29.207157564 +0100
++++ patched.list        2024-12-18 15:25:45.518053248 +0100
+@@ -462,6 +462,7 @@
+ rear-2.7/usr/share/rear/lib/output-functions.sh
+ rear-2.7/usr/share/rear/lib/config-functions.sh
+ rear-2.7/usr/share/rear/lib/mkbackup-workflow.sh
++rear-2.7/usr/share/rear/lib/.shellcheckrc
+ rear-2.7/usr/share/rear/lib/udev-workflow.sh
+ rear-2.7/usr/share/rear/lib/mail-functions.sh
+ rear-2.7/usr/share/rear/lib/layoutonly-workflow.sh
+@@ -579,6 +580,7 @@
+ rear-2.7/usr/share/rear/skel/default/mnt/cdrom/
+ rear-2.7/usr/share/rear/skel/default/mnt/local/
+ rear-2.7/usr/share/rear/skel/default/root/
++rear-2.7/usr/share/rear/skel/default/root/.vimrc
+ rear-2.7/usr/share/rear/skel/default/etc/
+ rear-2.7/usr/share/rear/skel/default/etc/lilo.conf
+ rear-2.7/usr/share/rear/skel/default/etc/syslog-ng.conf
+@@ -1422,6 +1424,7 @@
+ rear-2.7/usr/share/rear/restore/NSR/default/400_restore_with_nsr.sh
+ rear-2.7/usr/share/rear/restore/SUSE_LINUX/
+ rear-2.7/usr/share/rear/restore/SUSE_LINUX/910_create_missing_directories.sh
++rear-2.7/usr/share/rear/.shellcheckrc
+ rear-2.7/usr/share/rear/rescue/
+ rear-2.7/usr/share/rear/rescue/NETFS/
+ rear-2.7/usr/share/rear/rescue/NETFS/default/
+</code></pre>
+<p>looks good. @schlomo what do you mean by "Therefore we have the ability
+to use an archive as skel"? How is it related to excludign dot files
+from the dist archive?</p>
+<h4 id="schlomo_commented_at_2024-12-18_1436"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551481029">2024-12-18 14:36</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1436" title="Permanent link">&para;</a></h4>
+<p>@pcahyna
+<a href="https://github.com/rear/rear/blob/3d17f43a3c0279344c7cd97125b86971081107cb/usr/share/rear/rescue/default/010_merge_skeletons.sh#L30-L34">https://github.com/rear/rear/blob/3d17f43a3c0279344c7cd97125b86971081107cb/usr/share/rear/rescue/default/010_merge_skeletons.sh#L30-L34</a></p>
+<p>If the <code>.vimrc</code> dotfile would be in such a skel archive then it wouldn't
+be filtered out in the <code>make dist</code> process. I had added this feature a
+long time ago as a way to add arbitrary stuff via the skel process that
+would cause problems with git. For example, a block or character device
+probably wouldn't work either.</p>
+<p>But, I'd rather use a non-dotfile to solve a problem as this is much
+easier to see and understand than having to look into an archive hidden
+somewhere deep in our source tree. That is why I was asking if
+<code>/etc/vimrc</code> would also solve the problem.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1439"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551488840">2024-12-18 14:39</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1439" title="Permanent link">&para;</a></h4>
+<p>@pcahyna and I'd rather exclude the development relevant files like
+<code>.shellcheckrc</code> from our dist archive.</p>
+<p>In any case we have slightly different behavior of the <code>make dist</code>
+process depending on if it runs from a git checkout or not, as it reacts
+to the presence of <code>.gitignore</code> files to also exclude everything
+mentioned there, which covers for example a <code>var</code> directory that is
+created if you happen to run <code>./usr/sbin/rear</code> from the git checkout
+prior to running <code>make dist</code> (this is the original reason for me to
+include that feature of handling <code>.gitignore</code> properly for <code>tar</code>).</p>
+<p>HTH for context</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1439"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551490473">2024-12-18 14:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1439" title="Permanent link">&para;</a></h4>
+<p>Unfortunately it neither works with /etc/vimrc<br />
+nor with /etc/.vimrc in the ReaR recovery system.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1452"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551522144">2024-12-18 14:52</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1452" title="Permanent link">&para;</a></h4>
+<p>@jsmeix <code>vim --version</code> suggests to use <code>/usr/share/vim/vimrc</code> and maybe
+we should simply add this folder to our default <code>COPY_AS_IS</code> to simply
+include the original system's vim configuration. If vim is not
+installed, then nothing happens. And if it is installed, then it will
+work with the defaults.</p>
+<p><img width="880" alt="image" src="https://github.com/user-attachments/assets/b9237024-2857-4b38-a17e-55555a2e6c16" /></p>
+<p>So it seems like <code>/etc/vim/vimrc</code> is not standard but enabled by Debian
+via a symlink. Maybe adding both paths (<code>/etc/vim</code> and <code>/usr/share/vim</code>)
+to <code>COPY_AS_IS</code> would be a "correct" way to resolve this?</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1453"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551525173">2024-12-18 14:53</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1453" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If the <code>.vimrc</code> dotfile would be in such a skel archive then it
+wouldn't be filtered out in the <code>make dist</code> process.</p>
+</blockquote>
+<p>Not sure if I get it. What if there is a non-dotfile in the archive? It
+would not get filtered either. What makes the <code>.??*</code> pattern special?</p>
+<h4 id="schlomo_commented_at_2024-12-18_1458"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551546713">2024-12-18 14:58</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1458" title="Permanent link">&para;</a></h4>
+<p>the skel archive is a means to transport anything whatsoever into the
+rescue system. this of course also works for non-dotfiles. It is only
+required for special or weird stuff.</p>
+<p>The <code>.??*</code> pattern is not special, it simply ensures to not match on
+dotfiles with less than 2 characters after the dot which is a common way
+to not match on <code>.</code> and <code>..</code>. Maybe a shorter pattern like <code>.*</code> would
+have sufficed, I don't remember if I tried that or not.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1500"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551551821">2024-12-18 15:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1500" title="Permanent link">&para;</a></h4>
+<p>But what's the problem with dotfiles in the first place? Is it related
+to the skel archive or not (if it also works for non-dotfiles)?</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1514"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551586393">2024-12-18 15:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1514" title="Permanent link">&para;</a></h4>
+<p>Unfortunately it neither works with /etc/vim/vimrc<br />
+nor with /etc/vim/.vimrc in the ReaR recovery system.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1519"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551596311">2024-12-18 15:19</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1519" title="Permanent link">&para;</a></h4>
+<p>I think the only "problem" is, that we filter out dotfiles in the
+<code>make dist</code> process.</p>
+<p>BTW, I just noticed in
+<a href="https://github.com/rear/rear/blob/486b76b1a8a47afdf0a032b32989c94c47503f7a/usr/share/rear/build/GNU/Linux/130_create_dotfiles.sh#L32">https://github.com/rear/rear/blob/486b76b1a8a47afdf0a032b32989c94c47503f7a/usr/share/rear/build/GNU/Linux/130_create_dotfiles.sh#L32</a></p>
+<p>we check for <code>vi</code> not <code>vim</code> but talk about including the config for
+<code>vim</code>. Maybe <code>vi</code> (the not-improved VI) has a different config or works
+without?</p>
+<p>I now understand that @jsmeix tried to fix the missing VIM rc file via
+<a href="https://github.com/rear/rear/commit/700727b53855d551c0620c46a839755894b26eb3#diff-86dae0514a9be4af4b9a40cd2670d62f8d815757a620cdebd29038458af0c2d6">https://github.com/rear/rear/commit/700727b53855d551c0620c46a839755894b26eb3#diff-86dae0514a9be4af4b9a40cd2670d62f8d815757a620cdebd29038458af0c2d6</a>
+and that we now realize that it didn't work for package building.</p>
+<p>@jsmeix to quickly resolve this I'd suggest to also create the <code>.vimrc</code>
+(with the dot) in
+<a href="https://github.com/rear/rear/blob/486b76b1a8a47afdf0a032b32989c94c47503f7a/usr/share/rear/build/GNU/Linux/130_create_dotfiles.sh#L32">https://github.com/rear/rear/blob/486b76b1a8a47afdf0a032b32989c94c47503f7a/usr/share/rear/build/GNU/Linux/130_create_dotfiles.sh#L32</a>
+or, to try creating a <code>/usr/share/vim/vimrc</code> file instead. AFAIK
+<code>/etc/vim/vimrc</code> is actually not the path that <code>vim</code> looks for.
+<code>vim --version</code> will show you the actual paths it checks.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1533"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551632256">2024-12-18 15:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1533" title="Permanent link">&para;</a></h4>
+<p>In my ReaR recovery sytem made on SLES 15 SP6:</p>
+<pre><code>RESCUE localhost:~ # vim --version
+-bash: vim: command not found
+
+RESCUE localhost:~ # vi --version
+VIM - Vi IMproved 9.1 (2024 Jan 02)
+...
+   system vimrc file: "/etc/vimrc"
+     user vimrc file: "$HOME/.vimrc"
+ 2nd user vimrc file: "~/.vim/vimrc"
+      user exrc file: "$HOME/.exrc"
+       defaults file: "$VIMRUNTIME/defaults.vim"
+  fall-back for $VIM: "/usr/share/vim"
+</code></pre>
+<p>No, it just lies because /etc/vimrc does not work<br />
+at least not in my ReaR recovery system :-(</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1539"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551645740">2024-12-18 15:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1539" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think the only "problem" is, that we filter out dotfiles in the
+<code>make dist</code> process.</p>
+</blockquote>
+<p>Let's stop filtering them, then?</p>
+<pre><code>diff --git a/Makefile b/Makefile
+index 731c05af7..54f5d4ee1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -87,7 +87,7 @@ RUNASUSER :=
+ endif
+
+ # .gitignore is optional, avoid tar errors if it does not exist, e.g. in a dist archive
+-tarparams = $(shell test -f .gitignore &amp;&amp; echo --exclude-from=.gitignore --exclude=.gitignore) --exclude=".??*" $(DIST_CONTENT)
++tarparams = $(shell test -f .gitignore &amp;&amp; echo --exclude-from=.gitignore --exclude=.gitignore) $(DIST_CONTENT)
+
+ DIST_FILES := $(shell tar -cv -f /dev/null $(tarparams))
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-12-18_1543"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551654292">2024-12-18 15:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1543" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+my personal feeling is that currently we are too near<br />
+the ReaR 2.8 release so that I feel rather uncomfortable<br />
+with changing what "make dist OFFICIAL=1" does<br />
+ONLY<br />
+because of this minor issue here, in particular because<br />
+<a href="https://github.com/rear/rear/issues/3151">https://github.com/rear/rear/issues/3151</a><br />
+is only an annoying message so 'vi' works inside<br />
+the ReaR recovery system - and how often is 'vi'<br />
+used inside ReaR recovery system in practice?</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1543"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551655288">2024-12-18 15:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1543" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Therefore we have the ability to use an <strong>archive</strong> as skel, see
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/Debian/default.tar.gz">https://github.com/rear/rear/blob/master/usr/share/rear/skel/Debian/default.tar.gz</a></p>
+</blockquote>
+<p>By the way (not related to the original problem anymore), having a
+gzipped archive in our source tree is at best an antipattern and at
+worst a way to sneakily inject malware (who knows what is inside? see
+the xz attack), so I hope we will get rid of it.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1547"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551664741">2024-12-18 15:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1547" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I agree that having a gzipped archive in our source tree<br />
+is bad but I don't agree to get rid of that functionality<br />
+where a user could add a gzipped archive as neded in his<br />
+skel tree to get special things into his ReaR recovery system<br />
+as he needs it - think about a complex piece of software<br />
+where COPY_AS_IS, REQUIRED_PROGS, and LIBS could be<br />
+needlessly complicaded for the usre compared to<br />
+"simply pack what is needed into an archive".</p>
+<p>But I never used that functionality myself<br />
+so I cannot tell if it is actually useful in practice.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1550"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551678423">2024-12-18 15:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1550" title="Permanent link">&para;</a></h4>
+<p>I meant, get rid of the archive, not of the functionality.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1623"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551758396">2024-12-18 16:23</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1623" title="Permanent link">&para;</a></h4>
+<p>While I understand and agree with your thoughts about having an archive
+in the source tree I'd like to keep it there to keep testing the skel
+archive feature.</p>
+<p>I'm fine with removing the dotfile exclude from the tar creation process
+because in
+<a href="https://github.com/rear/rear/blob/cc1e9e493a4b975b77148eef749a0040e11622ec/Makefile#L12">https://github.com/rear/rear/blob/cc1e9e493a4b975b77148eef749a0040e11622ec/Makefile#L12</a>
+we have an explicit include of the files relevant for ReaR. That already
+excludes top-level dotfiles and development stuff in order to create a
+"clean" dist archive. For cleaning up we should then also remove all the
+other development-related dotfiles (shellcheckrc, gitignore) from the
+source tree and have those only on the top level.</p>
+<p>For actually solving the vimrc problem, the SLES example maybe confirms
+my suggestion that we should add common vimrc locations to <code>COPY_AS_IS</code>.</p>
+<p>Or we don't deal with it for 2.8 - also totally fine for me as I'm using
+<code>nano</code> for small editing needs 😁</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1630"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551774509">2024-12-18 16:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1630" title="Permanent link">&para;</a></h4>
+<p>Regarding usr/share/rear/skel/Debian/default.tar.gz</p>
+<pre><code># tar -tzvf usr/share/rear/skel/Debian/default.tar.gz
+-rw-r--r-- root/root 1059 2007-10-05 16:06 lib/linux-sound-base/noOSS.modprobe.conf
+</code></pre>
+<p>It doesn't look as if this single file<br />
+could not be a regular file in skel?</p>
+<pre><code># git log -p --follow usr/share/rear/skel/Debian/default.tar.gz
+</code></pre>
+<p>tells that it originated since "Switch to trunk model"<br />
+which means it is there "since the beginning of time"<br />
+i.e. beyond what we can see in retrospect in git</p>
+<h4 id="schlomo_commented_at_2024-12-18_1642"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551800730">2024-12-18 16:42</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1642" title="Permanent link">&para;</a></h4>
+<p>Yes, I just put some BS into that archive to see that the mechanism
+works.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1643"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551804248">2024-12-18 16:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1643" title="Permanent link">&para;</a></h4>
+<p>From my current (Wednesday evening) point of view<br />
+I would prefer to "don't deal with it for 2.8"<br />
+and deal with it properly for ReaR 3.0.</p>
+<p>I assume an appropriate</p>
+<pre><code>COPY_AS_IS+=( /path/to/some/vimrc )
+</code></pre>
+<p>is a sufficient workaround in ReaR 2.8<br />
+for users who want to avoid the annoying message.</p>
+<p>Alternatively @schlomo @pcahyna if you work longer today<br />
+and find a solution that you tested that it works for you<br />
+the please make a pull request (we may still postpone<br />
+a pull request to ReaR 3.0 if we think it is better/safer<br />
+to "don't deal with it for 2.8").</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1650"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551819896">2024-12-18 16:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1650" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+does your<br />
+<a href="https://github.com/rear/rear/issues/3368#issuecomment-2551800730">https://github.com/rear/rear/issues/3368#issuecomment-2551800730</a><br />
+mean the current usr/share/rear/skel/Debian/default.tar.gz<br />
+content lib/linux-sound-base/noOSS.modprobe.conf<br />
+is only a test and that noOSS.modprobe.conf is not<br />
+actually needed in the ReaR recovery system for Debian?</p>
+<h4 id="schlomo_commented_at_2024-12-18_1714"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551869523">2024-12-18 17:14</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1714" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@schlomo does your <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551800730">#3368
+(comment)</a>
+mean the current usr/share/rear/skel/Debian/default.tar.gz content
+lib/linux-sound-base/noOSS.modprobe.conf is only a test and that
+noOSS.modprobe.conf is not actually needed in the ReaR recovery system
+for Debian?</p>
+</blockquote>
+<p>The file contains the following:</p>
+<pre><code>blacklist ac97
+blacklist ac97_codec
+blacklist ac97_plugin_ad1980
+blacklist ad1848
+blacklist ad1889
+blacklist adlib_card
+blacklist aedsp16
+blacklist ali5455
+blacklist btaudio
+blacklist cmpci
+blacklist cs4232
+blacklist cs4281
+blacklist cs461x
+blacklist cs46xx
+blacklist emu10k1
+blacklist es1370
+blacklist es1371
+blacklist esssolo1
+blacklist forte
+blacklist gus
+blacklist i810_audio
+blacklist kahlua
+blacklist mad16
+blacklist maestro
+blacklist maestro3
+blacklist maui
+blacklist mpu401
+blacklist nm256_audio
+blacklist opl3
+blacklist opl3sa
+blacklist opl3sa2
+blacklist pas2
+blacklist pss
+blacklist rme96xx
+blacklist sb
+blacklist sb_lib
+blacklist sgalaxy
+blacklist sonicvibes
+blacklist sound
+blacklist sscape
+blacklist trident
+blacklist trix
+blacklist uart401
+blacklist uart6850
+blacklist via82cxxx_audio
+blacklist v_midi
+blacklist wavefront
+blacklist ymfpci
+blacklist ac97_plugin_wm97xx
+blacklist ad1816
+blacklist audio
+blacklist awe_wave
+blacklist dmasound_core
+blacklist dmasound_pmac
+blacklist harmony
+blacklist sequencer
+blacklist soundcard
+blacklist usb-midi
+</code></pre>
+<p>I would indeed assume that this is long obsolete, at least
+<a href="https://en.wikipedia.org/wiki/Open_Sound_System">https://en.wikipedia.org/wiki/Open_Sound_System</a>
+suggests that this doesn't apply any more.</p>
+<p>I'm also totally fine with just removing this archive and to fix
+problems if somebody complains about a problem here.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1716"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551873753">2024-12-18 17:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1716" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>my personal feeling is that currently we are too near<br />
+the ReaR 2.8 release so that I feel rather uncomfortable<br />
+with changing what "make dist OFFICIAL=1" does<br />
+ONLY<br />
+because of this minor issue here</p>
+</blockquote>
+<p>@jsmeix this is an entirely reasonable approach. OTOH, when changing the
+Makefile, it is easy to check what is being introduced by the change:</p>
+<pre><code>make OFFICIAL=1 dist
+tar tzf dist/rear-2.7.tar.gz &gt; unpatched.list
+# here change the Makefile...
+
+make OFFICIAL=1 dist
+tar tzf dist/rear-2.7.tar.gz &gt; patched.list
+diff -u unpatched.list patched.list
+</code></pre>
+<p>so I will leave it up to you.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1723"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551887190">2024-12-18 17:23</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1723" title="Permanent link">&para;</a></h4>
+<p>Yes, I also prefer to get a release now, TBH. So please what you deem
+right @jsmeix</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1730"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551900242">2024-12-18 17:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1730" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>if you work longer today<br />
+and find a solution that you tested that it works for you<br />
+the please make a pull request (we may still postpone<br />
+a pull request to ReaR 3.0 if we think it is better/safer<br />
+to "don't deal with it for 2.8").</p>
+</blockquote>
+<p>I will try to make a PR out of the proposed Makefile change.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1731"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2551902752">2024-12-18 17:31</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1731" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>While I understand and agree with your thoughts about having an
+archive in the source tree I'd like to keep it there to keep testing
+the skel archive feature.</p>
+</blockquote>
+<p>Testing is useful, but I would very much prefer to move the test to
+<a href="https://github.com/rear/rear-integration-tests/">https://github.com/rear/rear-integration-tests/</a>
+where it is clearly separate from ReaR sources.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_0758"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3368#issuecomment-2553008543">2024-12-19 07:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_0758" title="Permanent link">&para;</a></h4>
+<p>I postpone this issue to ReaR 3.0 because<br />
+I like to focus on the actual ReaR 2.8 release now<br />
+because I have to leave today already at 14:00</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-12-18.3368.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3355 PR open: Storing and reading Self Encrypted Disk (SED) password from TPM - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3355 PR open: Storing and reading Self Encrypted Disk (SED) password from TPM";
+        var mkdocs_page_input_path = "issues/2024-12-04.3355.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3355 PR open: Storing and reading Self Encrypted Disk (SED) password from TPM</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3355_pr_open_storing_and_reading_self_encrypted_disk_sed_password_from_tpm"><a href="https://github.com/rear/rear/pull/3355">#3355 PR</a> <code>open</code>: Storing and reading Self Encrypted Disk (SED) password from TPM<a class="headerlink" href="#3355_pr_open_storing_and_reading_self_encrypted_disk_sed_password_from_tpm" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="prolez_opened_issue_at_2024-12-04_1411"><img src="https://avatars.githubusercontent.com/u/40496304?v=4" width="50"><a href="https://github.com/prolez">prolez</a> opened issue at <a href="https://github.com/rear/rear/pull/3355">2024-12-04 14:11</a>:<a class="headerlink" href="#prolez_opened_issue_at_2024-12-04_1411" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: Enhancement</p>
+</li>
+<li>
+<p>Impact: Low</p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear/issues/3074">https://github.com/rear/rear/issues/3074</a></p>
+</li>
+<li>
+<p>How was this pull request tested? on production environment</p>
+</li>
+<li>
+<p>Description of the changes in this pull request: Add functions in
+    unlock-opal-disks to offer storing password in TPM2</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2024-12-06_1346"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3355#issuecomment-2523291614">2024-12-06 13:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-06_1346" title="Permanent link">&para;</a></h4>
+<p>@prolez<br />
+thank you for your enhancement for ReaR!</p>
+<p>We are currently in the final process of releasing ReaR 2.8,<br />
+cf.
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2516532775">https://github.com/rear/rear/issues/3238#issuecomment-2516532775</a><br />
+so we cannot include this PR in the current ReaR 2.8.<br />
+We will have a look for the subsequent ReaR 3.0.</p>
+<p>I am not a SED user so I cannot try out things on my own.<br />
+I can only comment from what I notice form plain looking<br />
+at the code changes of this pull request in<br />
+<a href="https://github.com/rear/rear/pull/3355/files">https://github.com/rear/rear/pull/3355/files</a></p>
+<p>I notice <code>at_password</code> and when I see something like<br />
+"password" or "encryption" or "key" in the code<br />
+it indicates the code deals with some kind of "secret value"<br />
+and then I am wondering if the code deals sufficiently well<br />
+with secrets.</p>
+<p>See the inital comments in usr/share/rear/conf/default.conf<br />
+currently online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L13">https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L13</a><br />
+how to deal sufficiently well with secrets.</p>
+<p>See also the function LogSecret() in<br />
+usr/share/rear/lib/_input-output-functions.sh<br />
+currently online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/lib/_input-output-functions.sh#L462">https://github.com/rear/rear/blob/master/usr/share/rear/lib/_input-output-functions.sh#L462</a></p>
+<p>See also our "Relax-and-Recover Security Architecture" document at<br />
+<a href="https://relax-and-recover.org/documentation/security-architecture">https://relax-and-recover.org/documentation/security-architecture</a><br />
+which reads (excerpt)</p>
+<pre><code>To facilitate protecting secrets even from
+verbose tracing of the Bash scripts (set -x),
+it is important to wrap statements
+that handle secrets like this:
+
+# set a variable with a secret
+{ VAR='secret_value' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+
+# use the variable with the secret
+{ COMMAND $SECRET_ARGUMENT ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+</code></pre>
+<p>For an example how the latter is used see<br />
+usr/share/rear/rescue/default/500_ssh.sh<br />
+online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/rescue/default/500_ssh.sh">https://github.com/rear/rear/blob/master/usr/share/rear/rescue/default/500_ssh.sh</a></p>
+<p>For an example how the latter is used to get user input<br />
+in a confidential way, see the comment of the UserInput function<br />
+in usr/share/rear/lib/_input-output-functions.sh<br />
+currently online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/lib/_input-output-functions.sh#L1090">https://github.com/rear/rear/blob/master/usr/share/rear/lib/_input-output-functions.sh#L1090</a></p>
+<p>To verify that your code deals sufficiently well with secrets<br />
+run it in ReaR debugscript mode with '-D' e.g. like</p>
+<pre><code># rear -D mkrescue
+</code></pre>
+<p>and then carefully inspect your ReaR log file<br />
+and verify that no secret value appears therein.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-12-04.3355.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

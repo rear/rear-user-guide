@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3365 PR merged: savelayout: error out on mounted multi-disk BTRFS filesystems - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3365 PR merged: savelayout: error out on mounted multi-disk BTRFS filesystems";
+        var mkdocs_page_input_path = "issues/2024-12-16.3365.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3365 PR merged: savelayout: error out on mounted multi-disk BTRFS filesystems</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3365_pr_merged_savelayout_error_out_on_mounted_multi-disk_btrfs_filesystems"><a href="https://github.com/rear/rear/pull/3365">#3365 PR</a> <code>merged</code>: savelayout: error out on mounted multi-disk BTRFS filesystems<a class="headerlink" href="#3365_pr_merged_savelayout_error_out_on_mounted_multi-disk_btrfs_filesystems" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="lzaoral_opened_issue_at_2024-12-16_1457"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3365">2024-12-16 14:57</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2024-12-16_1457" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> / <strong>"Workaround"</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear.github.com/pull/22#issuecomment-2540763985">https://github.com/rear/rear.github.com/pull/22#issuecomment-2540763985</a></p>
+</li>
+<li>
+<p>How was this pull request tested? <code>rear savelayout</code> on a Fedora 41
+    system with different combinations of (un)mounted single disk and
+    multi disk BTRFS filesystems</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Error out on mounted multi-disk BTRFS filesystems because ReaR does not
+support this scenario at the moment.</p>
+<h4 id="jsmeix_commented_at_2024-12-16_1531"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2545940363">2024-12-16 15:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-16_1531" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3365#discussion_r1886997203">https://github.com/rear/rear/pull/3365#discussion_r1886997203</a></p>
+<p>Works for me on SLES 12 SP5:</p>
+<pre><code># rpm -qf /usr/sbin/btrfs
+btrfsprogs-4.5.3-24.27.x86_64
+
+# btrfs filesystem show /
+Label: none  uuid: b3fc4e1d-63bc-4ec7-b131-0c43b8245b68
+        Total devices 1 FS bytes used 4.80GiB
+        devid    1 size 12.99GiB used 7.02GiB path /dev/sda2
+
+# for mp in $( findmnt -a -n -l -t btrfs -o TARGET ) ; \
+  do btrfs filesystem show $mp | grep -q 'Total devices 1' \
+     &amp;&amp; echo OK for $mp \
+     || echo FAILED for $mp ; \
+  done
+OK for /
+OK for /var/lib/pgsql
+OK for /var/lib/mailman
+OK for /var/lib/named
+OK for /tmp
+OK for /opt
+OK for /boot/grub2/i386-pc
+OK for /var/spool
+OK for /var/lib/mariadb
+OK for /.snapshots
+OK for /var/lib/machines
+OK for /var/crash
+OK for /srv
+OK for /var/lib/mysql
+OK for /var/cache
+OK for /home
+OK for /var/lib/libvirt/images
+OK for /var/opt
+OK for /var/tmp
+OK for /var/log
+OK for /boot/grub2/x86_64-efi
+OK for /usr/local
+</code></pre>
+<p>Works for me for SLES 15 SP6:</p>
+<pre><code># rpm -qf /usr/sbin/btrfs
+btrfsprogs-6.5.1-150600.2.4.x86_64
+
+# btrfs filesystem show /
+Label: none  uuid: bad9f5d9-6a37-4902-b5fc-ded16e84f357
+        Total devices 1 FS bytes used 5.36GiB
+        devid    1 size 12.99GiB used 9.07GiB path /dev/vda2
+
+# for mp in $( findmnt -a -n -l -t btrfs -o TARGET ) ; \
+  do btrfs filesystem show $mp | grep -q 'Total devices 1' \
+     &amp;&amp; echo OK for $mp \
+     || echo FAILED for $mp ; \
+  done
+OK for /
+OK for /.snapshots
+OK for /boot/grub2/i386-pc
+OK for /boot/grub2/x86_64-efi
+OK for /home
+OK for /opt
+OK for /root
+OK for /srv
+OK for /tmp
+OK for /usr/local
+OK for /var
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-12-16_1545"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2545976907">2024-12-16 15:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-16_1545" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+perhaps a more failsafe implementation could be<br />
+to first grep for "Total devices" (perhaps with ignore case?)<br />
+and only if that matches grep for<br />
+not "Total devices 1 " (with trailing space)<br />
+for example something like</p>
+<pre><code># Only test when 'btrfs filesystem' shows the number of "Total devices":
+if grep -qi "total devices" ... ; then
+    # Ensure a btrfs filesystem consists of only one device
+    # cf. https://github.com/rear/rear/issues/2028
+    if ! grep -qi "total devices 1 " ... ; then
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-12-16_1609"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2546039387">2024-12-16 16:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-16_1609" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here and<br />
+if time permits and when you have a system with btrfs<br />
+check if this also works for you<br />
+because currently it is intended to be included<br />
+in ReaR 2.8 according to<br />
+<a href="https://github.com/rear/rear.github.com/pull/22#issuecomment-2540763985">https://github.com/rear/rear.github.com/pull/22#issuecomment-2540763985</a></p>
+<p>When issues appear with the change here<br />
+we can easily postpone it to ReaR 3.0 because<br />
+when we do not do the check in this pull request<br />
+it is not worse than it was all the time up to ReaR 2.7</p>
+<h4 id="schlomo_commented_at_2024-12-16_1612"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2546046917">2024-12-16 16:12</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-16_1612" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When issues appear with the change here we can easily postpone it to
+ReaR 3.0 because when we do not do the check in this pull request it
+is not worse than it was all the time up to ReaR 2.7</p>
+</blockquote>
+<p>I'd rather include this check now as we know about the problem and I
+always prefer direct and clear communication to our users over "just
+failing".</p>
+<h4 id="jsmeix_commented_at_2024-12-16_1621"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2546066766">2024-12-16 16:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-16_1621" title="Permanent link">&para;</a></h4>
+<p>I fully agree with<br />
+<a href="https://github.com/rear/rear/pull/3365#issuecomment-2546046917">https://github.com/rear/rear/pull/3365#issuecomment-2546046917</a><br />
+in particular during "rear mkrescue" because<br />
+even if some Error() exit would be false in some cases,<br />
+it can be relatively easily removed in the code by the user and<br />
+we get (hopefully) informed by the user via a GitHub issue,<br />
+in contrast to "somehow failing elsewhere" where "elsewhere"<br />
+is likely during "rear recover" which is much more annoying<br />
+for the user and debugging is much more complicated<br />
+both for us and the user.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_0837"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2550690908">2024-12-18 08:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_0837" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you also have a look here and tell your opinion<br />
+whether or not it should be included in ReaR 2.8<br />
+provided @lzaoral commits something like his<br />
+<a href="https://github.com/rear/rear/pull/3365#discussion_r1887046610">https://github.com/rear/rear/pull/3365#discussion_r1887046610</a><br />
+or if this pull request should be postponed to ReaR 3.0<br />
+because without this pull request it is not worse<br />
+than it had been all the time up to ReaR 2.7<br />
+cf.
+<a href="https://github.com/rear/rear/pull/3365#issuecomment-2546039387">https://github.com/rear/rear/pull/3365#issuecomment-2546039387</a><br />
+and
+<a href="https://github.com/rear/rear/pull/3365#discussion_r1887100637">https://github.com/rear/rear/pull/3365#discussion_r1887100637</a></p>
+<h4 id="jsmeix_commented_at_2024-12-18_1136"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2551090931">2024-12-18 11:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1136" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I intend to merge it in one hour or so<br />
+unless severe objections appear against the currrently implemented</p>
+<pre><code>grep -qE 'Total devices ([2-9]|[1-9][0-9]+) '
+</code></pre>
+<p>method which is tested on Red Hat / Fedora and SLES 12 / 15.</p>
+<h4 id="schlomo_commented_at_2024-12-18_1256"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2551256659">2024-12-18 12:56</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1256" title="Permanent link">&para;</a></h4>
+<p>Tested is always a very hard arguments, so let's go ahead with it. We
+can improve it when the output changes.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1529"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3365#issuecomment-2551620462">2024-12-18 15:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1529" title="Permanent link">&para;</a></h4>
+<p>FYI an addendum regarding<br />
+<a href="https://github.com/rear/rear/pull/3365#discussion_r1887100637">https://github.com/rear/rear/pull/3365#discussion_r1887100637</a><br />
+that reads (excerpt)</p>
+<pre><code>any chance to have something more robust
+that [sic] matching on the english text output of the tool?
+</code></pre>
+<p>The <strong>english</strong> therein made me wonder if ReaR<br />
+actually enforces English text output of what it calls<br />
+and yes, it does because sbin/rear enforces C locale</p>
+<pre><code># Make sure that we use only English:
+export LC_CTYPE=C LC_ALL=C LANG=C
+</code></pre>
+<p>Phew!<br />
+;-)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-12-16.3365.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
