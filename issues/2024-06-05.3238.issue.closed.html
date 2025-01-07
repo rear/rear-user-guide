@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3238 Issue closed: RFC: Preparations towards release of ReaR 2.8 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3238 Issue closed: RFC: Preparations towards release of ReaR 2.8";
+        var mkdocs_page_input_path = "issues/2024-06-05.3238.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3238 Issue closed: RFC: Preparations towards release of ReaR 2.8</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3238_issue_closed_rfc_preparations_towards_release_of_rear_28"><a href="https://github.com/rear/rear/issues/3238">#3238 Issue</a> <code>closed</code>: RFC: Preparations towards release of ReaR 2.8<a class="headerlink" href="#3238_issue_closed_rfc_preparations_towards_release_of_rear_28" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>fixed / solved / done</code>, <code>ReaR Project</code></p>
+<h4 id="gdha_opened_issue_at_2024-06-05_0942"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/issues/3238">2024-06-05 09:42</a>:<a class="headerlink" href="#gdha_opened_issue_at_2024-06-05_0942" title="Permanent link">&para;</a></h4>
+<p>Rear v2.7 was released in July 2022 (more than 2 years ago),
+therefore,<br />
+the time has come to start on the preparations of a new release 2.8.</p>
+<p>The ReaR release process is described at<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a></p>
+<p>We could add a "blocker" label on the issues we think that should/must<br />
+be included in the 2.8 release.</p>
+<p>Other issues that can wait must be relabeled with a "ReaR 3.0" or later
+or "ReaR 999 (future)" label.</p>
+<p>When you tested the pre-2.8 release make a note in our WIKI page:<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8</a></p>
+<h4 id="jsmeix_commented_at_2024-06-05_1042"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2149474792">2024-06-05 10:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-05_1042" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+because we already had some discussions about ReaR 3.0:<br />
+What about releasing what is currently labeled ReaR 2.8<br />
+as ReaR 3.0?</p>
+<h4 id="schlomo_commented_at_2024-06-05_1110"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2149541517">2024-06-05 11:10</a>:<a class="headerlink" href="#schlomo_commented_at_2024-06-05_1110" title="Permanent link">&para;</a></h4>
+<p>I'm all in favour!!!</p>
+<h4 id="jsmeix_commented_at_2024-06-17_0723"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2172487767">2024-06-17 07:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-06-17_0723" title="Permanent link">&para;</a></h4>
+<p>As usual I will make the release notes for ReaR 2.8<br />
+i.e. a new<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+from which a new<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a><br />
+will be made as described at</p>
+<pre><code>Convert the release notes from the ReaR web pages into a simple text file
+</code></pre>
+<p>in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process#preparation">https://github.com/rear/rear/wiki/Release-process#preparation</a></p>
+<p>Making the release notes is currently blocked by<br />
+<a href="https://github.com/rear/rear/issues/3302">https://github.com/rear/rear/issues/3302</a><br />
+"Distribute rear-release-notes.txt under a more permissive license"<br />
+because it depends on its outcome whether or not<br />
+I could make the release notes for ReaR 2.8<br />
+based on the release notes for ReaR 2.7<br />
+or if I need to make the release notes for ReaR 2.8<br />
+anew from scratch under "GPL v3 or later".</p>
+<h4 id="jsmeix_commented_at_2024-11-13_0726"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2472684492">2024-11-13 07:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-13_0726" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+should I change this issue into<br />
+"Preparations towards release of ReaR 2.8"<br />
+or should I create a new separated issue for this?</p>
+<h4 id="schlomo_commented_at_2024-11-13_0905"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2472904387">2024-11-13 09:05</a>:<a class="headerlink" href="#schlomo_commented_at_2024-11-13_0905" title="Permanent link">&para;</a></h4>
+<p>Let's just change it. I always took it for "prep for <em>next</em> release" and
+we now decided to name the next release 2.8</p>
+<h4 id="jsmeix_commented_at_2024-11-18_1601"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2483466088">2024-11-18 16:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-18_1601" title="Permanent link">&para;</a></h4>
+<p>Via<br />
+<a href="https://github.com/rear/rear.github.com/commit/24251c3f092fd2ceca9082def5a052a72326eaad">https://github.com/rear/rear.github.com/commit/24251c3f092fd2ceca9082def5a052a72326eaad</a><br />
+I committed a new release-notes-2-8.md from scratch<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+to avoid in particular licensing issues with<br />
+<a href="https://github.com/rear/rear/issues/3302">https://github.com/rear/rear/issues/3302</a></p>
+<p>I carefully omitted any text of the currently<br />
+still open (i.e. not yet answered) licensing issues<br />
+of <code>https://github.com/rear/rear/issues/3302</code><br />
+<a href="https://github.com/rear/rear/issues/3302#issuecomment-2468171038">https://github.com/rear/rear/issues/3302#issuecomment-2468171038</a><br />
+<a href="https://github.com/rear/rear/issues/3302#issuecomment-2468214053">https://github.com/rear/rear/issues/3302#issuecomment-2468214053</a><br />
+<a href="https://github.com/rear/rear/issues/3302#issuecomment-2468149845">https://github.com/rear/rear/issues/3302#issuecomment-2468149845</a></p>
+<p>The sections</p>
+<pre><code>New features, bigger enhancements, and possibly backward incompatible changes
+</code></pre>
+<p>and</p>
+<pre><code>Details (mostly in chronological order - newest topmost)
+</code></pre>
+<p>will now (i.e. in the next days) be filled up by me step by step<br />
+with the the latest release notes for ReaR 2.8<br />
+(and only for ReaR 2.8).</p>
+<h4 id="jsmeix_commented_at_2024-11-19_1512"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2485989885">2024-11-19 15:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-19_1512" title="Permanent link">&para;</a></h4>
+<p>It went faster than expected to fill up the "Details" section,<br />
+see the current<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a></p>
+<p>The "Details" entries are basically "copy&amp;paste" excerpts<br />
+of what the command</p>
+<pre><code>git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t | less
+</code></pre>
+<p>shows in a local git clone.</p>
+<p>According to what that command shows<br />
+some of those entries became rather long texts.<br />
+I do not want (and I do not have the time) to analyze<br />
+each longer text, if this or that part could be omitted<br />
+or re-written in a more concise form.</p>
+<h4 id="jsmeix_commented_at_2024-11-22_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2493200962">2024-11-22 08:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-22_0843" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look at<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+if this or that needs to be improved or if you spot typos.</p>
+<p>In my personal opinion I don't mind when there are long texts.<br />
+In case of doubt or in case of no time to improve texts<br />
+I prefer more and explanatory information where people<br />
+(users and developers) need more time to read them<br />
+over terse snippets where others (in particular our users)<br />
+may not understand what something actually is about.</p>
+<h4 id="jsmeix_commented_at_2024-11-22_0853"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2493225509">2024-11-22 08:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-22_0853" title="Permanent link">&para;</a></h4>
+<p>The currently remaining open pull requests for ReaR 2.8 are</p>
+<p><a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a> (blocker)<br />
+"Make OS detection from /etc/os-release more robust"</p>
+<p><a href="https://github.com/rear/rear/pull/3345">https://github.com/rear/rear/pull/3345</a> (blocker)<br />
+"Make sourcing DUPLY_PROFILE reasonably secure"</p>
+<p><a href="https://github.com/rear/rear/pull/3344">https://github.com/rear/rear/pull/3344</a> (bug)<br />
+"Minor os-detection improvements"</p>
+<p>@rear/contributors<br />
+please have a look at them.<br />
+All have a review approval so<br />
+provided no objections appear<br />
+I would merge them on Monday afternoon.</p>
+<h4 id="jsmeix_commented_at_2024-11-25_1247"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2497930697">2024-11-25 12:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-25_1247" title="Permanent link">&para;</a></h4>
+<p>With<br />
+<a href="https://github.com/rear/rear/pull/3345">https://github.com/rear/rear/pull/3345</a><br />
+<a href="https://github.com/rear/rear/pull/3171">https://github.com/rear/rear/pull/3171</a><br />
+<a href="https://github.com/rear/rear/pull/3344">https://github.com/rear/rear/pull/3344</a><br />
+merged,<br />
+there are currently no open issues or pull requests<br />
+for ReaR 2.8 - except this one here.</p>
+<p>@rear/contributors<br />
+please test (as time permits) current GitHub master code and<br />
+when it works for you report what you tested successfully in<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8</a><br />
+and when something fails then open an issue.</p>
+<h4 id="jsmeix_commented_at_2024-11-29_1344"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2507851490">2024-11-29 13:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-11-29_1344" title="Permanent link">&para;</a></h4>
+<p>Added latest git commit messages to release-notes-2-8.md<br />
+<a href="https://github.com/rear/rear.github.com/commit/788f0bd54b80ca36c12c69bce28871c7c3d682d7">https://github.com/rear/rear.github.com/commit/788f0bd54b80ca36c12c69bce28871c7c3d682d7</a></p>
+<h4 id="jsmeix_commented_at_2024-12-02_1522"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2511829646">2024-12-02 15:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-02_1522" title="Permanent link">&para;</a></h4>
+<p>Tested SLES 15 SP 6 with default btrfs structure<br />
+(with and without BACKUP_PROG_INCLUDE), see<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-default-btrfs-structure">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-default-btrfs-structure</a></p>
+<h4 id="jsmeix_commented_at_2024-12-03_1354"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2514626519">2024-12-03 13:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-03_1354" title="Permanent link">&para;</a></h4>
+<p>Tested SLES 12 SP 5 with default btrfs structure<br />
+(with and without BACKUP_PROG_INCLUDE), see<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-12-sp-5-with-default-btrfs-structure">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-12-sp-5-with-default-btrfs-structure</a></p>
+<h4 id="gdha_commented_at_2024-12-04_0828"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2516532775">2024-12-04 08:28</a>:<a class="headerlink" href="#gdha_commented_at_2024-12-04_0828" title="Permanent link">&para;</a></h4>
+<p>There are currently no outstanding blockers - we are in the freeze
+period for the upcoming 2 weeks. Only pre-approved changes will be
+merged (as agreed during our meeting calls).<br />
+<strong>The release of ReaR v2.8 is planned before 25 December 2024.</strong></p>
+<h4 id="jsmeix_commented_at_2024-12-06_1245"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2523142330">2024-12-06 12:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-06_1245" title="Permanent link">&para;</a></h4>
+<p>No open issues with milestone "ReaR 2.8" except this one<br />
+and no open pull requests with milestone "ReaR 2.8"<br />
+plus added latest git commit messages to "Details" in<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a></p>
+<p>So our current GitHub master code is now (I think for the first time)<br />
+in a state where we could release that code as ReaR 2.8<br />
+as described in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+which does not mean it will be released right now as is,<br />
+it only means there is no issue or pending pull request<br />
+that needs to be solved before the ReaR 2.8 release.</p>
+<p>I will be on vacation starting on 21. Dec. 2024<br />
+there are two weeks left where I could help<br />
+to release ReaR 2.8 before 25 December 2024.</p>
+<p>@rear/contributors<br />
+I wish you all a relaxed and recovering weekend!</p>
+<h4 id="jsmeix_commented_at_2024-12-10_1135"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2531318719">2024-12-10 11:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-10_1135" title="Permanent link">&para;</a></h4>
+<p>The ReaR 2.8 release notes on our web page<br />
+looked bad because in the "Details" section<br />
+all git commit messages were shown as one single code block<br />
+so it was totally incomprehensible in practice.</p>
+<p>I had to do unexpectedly much trial and error<br />
+until I found out what in the markdown source<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+I need to do to show each git commit message in a<br />
+separated code block:</p>
+<p>Only a separated</p>
+<pre><code>&amp;nbsp;
+</code></pre>
+<p>line between subsequent markdown fenced code blocks<br />
+also makes each separated code block appear<br />
+separated on our web page:<br />
+<a href="https://relax-and-recover.org/documentation/release-notes-2-8">https://relax-and-recover.org/documentation/release-notes-2-8</a></p>
+<p>From the current web page I generated<br />
+rear-release-notes.txt ASCII file<br />
+according to<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a></p>
+<pre><code>export LC_ALL=POSIX
+export LANG=POSIX
+w3m -dump -cols 78 https://relax-and-recover.org/documentation/release-notes-2-8 | iconv -f UTF-8 -t ASCII//TRANSLIT | sed -e 's/^      ? /      - /' &gt; rear-release-notes.txt
+</code></pre>
+<p>which looks good to me so we can still have for ReaR 2.8<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a><br />
+as an ASCII file.</p>
+<h4 id="jsmeix_commented_at_2024-12-10_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2531329996">2024-12-10 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-10_1139" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look at my current rear-release-notes.txt<br />
+for ReaR 2.8 in<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2531502357">https://github.com/rear/rear/issues/3238#issuecomment-2531502357</a><br />
+and if you agree with its content<br />
+I would replace our current one for ReaR 2.7<br />
+with the new one for ReaR 2.8<br />
+which would actually fix<br />
+<a href="https://github.com/rear/rear/issues/3302">https://github.com/rear/rear/issues/3302</a><br />
+in our ReaR sources.</p>
+<p>In the current rear-release-notes.txt<br />
+I manually removed the header</p>
+<pre><code>Relax-and-Recover
+
+  o Home
+  o Features
+  o Documentation
+  o Downloads
+  o Support
+  o Development
+  o Events
+
+Relax-and-Recover Release Notes
+</code></pre>
+<p>and the footer</p>
+<pre><code>If you like Relax-and-Recover please consider sponsorship
+</code></pre>
+<p>I also noticed that there are no URLs for links.<br />
+I found<br />
+<a href="https://stackoverflow.com/questions/41345160/display-link-url-in-markdown">https://stackoverflow.com/questions/41345160/display-link-url-in-markdown</a><br />
+which shows URLs within angle brackets for<br />
+"Automatic Links, where the label is the URL".</p>
+<p>I use now in our source<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+plain text for the link label<br />
+and URLs within angle brackets like</p>
+<pre><code>Relax-and-Recover website: &lt;http://relax-and-recover.org&gt;
+
+GitHub project: &lt;https://github.com/rear&gt;
+
+For older Relax-and-Recover version release notes see the
+Relax-and-Recover website release notes: &lt;http://relax-and-recover.org/documentation&gt;
+</code></pre>
+<p>because only this works for our source on GitHub<br />
+<a href="https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md">https://github.com/rear/rear.github.com/blob/master/documentation/release-notes-2-8.md</a><br />
+and also on our web page at relax-and-recover.org<br />
+<a href="https://relax-and-recover.org/documentation/release-notes-2-8">https://relax-and-recover.org/documentation/release-notes-2-8</a><br />
+and also for the generated ASCII rear-release-notes.txt</p>
+<h4 id="jsmeix_commented_at_2024-12-10_1227"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2531502357">2024-12-10 12:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-10_1227" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/user-attachments/files/18079348/rear-release-notes.txt">rear-release-notes.txt</a></p>
+<h4 id="jsmeix_commented_at_2024-12-11_1519"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2536293370">2024-12-11 15:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-11_1519" title="Permanent link">&para;</a></h4>
+<p>I cleaned up my rear/rear "jsmeix" branches<br />
+<a href="https://github.com/rear/rear/branches">https://github.com/rear/rear/branches</a><br />
+i.e. I removed all old/outdated/obsoleted "jsmeix" branches<br />
+but I kept which belong to my current "draft" pull requests<br />
+which I like to get somehow done (regardles how)<br />
+in ReaR 3.0:<br />
+<a href="https://github.com/rear/rear/pull/3258">https://github.com/rear/rear/pull/3258</a><br />
+"On hold: Implement SourceTrustworthy function"<br />
+<a href="https://github.com/rear/rear/pull/3203">https://github.com/rear/rear/pull/3203</a><br />
+"On hold: New source_variable_from_file()"<br />
+or later:<br />
+<a href="https://github.com/rear/rear/pull/3166">https://github.com/rear/rear/pull/3166</a><br />
+"WIP: Use the new TextPrefix function"</p>
+<h4 id="jsmeix_commented_at_2024-12-11_1621"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2536458695">2024-12-11 16:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-11_1621" title="Permanent link">&para;</a></h4>
+<p>@schlomo @gdha @pcahyna<br />
+I would like that you do a thorough proofread of<br />
+all the 'git' related things in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+and where needed clarify and enhance it<br />
+so that the 'git' related descriptions therein<br />
+become basically foolproof.</p>
+<p>My personal reason for my above request is<br />
+that I am not at all a 'git' expert<br />
+so when I should do the ReaR 2.8 release<br />
+my main fear is that I may accidentally / stupidly<br />
+mess up things in our GitHub rear/rear repository.</p>
+<p>I would appreciate it if there was a foolproof method<br />
+described how to somehow store some kind of "snapshot"<br />
+of our GitHub rear/rear repository so that one could<br />
+revert the repository to a stored snapshot state<br />
+if the repository got messed up.<br />
+I think every git commit is such a "snapshot"<br />
+so is <code>git reset --hard &lt;commit&gt;</code> THE right way to do it?<br />
+But <code>git reset --hard &lt;commit&gt;</code> does it on my local repository<br />
+so how could one do it on our GitHub rear/rear repository?</p>
+<p>Background information:<br />
+In recent years I moved more and more<br />
+away from using 'git' on my local workstation<br />
+towards using the GitHub web frontend.<br />
+This was triggered by the general move away<br />
+from using local tools towards using web-frontends<br />
+for various things (e-mail, chat, whatnot...)<br />
+to do my work in recent years - yes, I know about<br />
+the "Service as a Software Substitute" problem<br />
+<a href="https://www.gnu.org/philosophy/who-does-that-server-really-serve.en.html">https://www.gnu.org/philosophy/who-does-that-server-really-serve.en.html</a></p>
+<p>My personal reason is that I am not much interested in 'git'<br />
+because it is just a tool for source code management<br />
+but I am not really interested in management.<br />
+Instead my actual interest is creating (software)<br />
+so I like to keep management things out of my way ;-)</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1209"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551157999">2024-12-18 12:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1209" title="Permanent link">&para;</a></h4>
+<p>My current plan what I will do for the ReaR 2.8 release:</p>
+<p>I will basically follow what is described<br />
+in the section "Preparation" in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process#preparation">https://github.com/rear/rear/wiki/Release-process#preparation</a><br />
+but I would perfer to do it in a more clean way if possible<br />
+which means in particular that I would like to<br />
+keep separated issues separated (KSIS derived from KISS)<br />
+so I propose the following procedure which tries to keep<br />
+steps that change files our rear/rear GitHub repository<br />
+separated from other steps.</p>
+<p>(A: Preparation steps that change files)</p>
+<p>Today afternoon:</p>
+<p>I will do the step</p>
+<pre><code>Finalize commits/versions
+</code></pre>
+<p>and the two steps</p>
+<pre><code>Test packaging (RPM, DEB, …​)
+
+Create OBS build
+</code></pre>
+<p>I assume only "Finalize commits/versions"<br />
+is meant to change source files in the master branch<br />
+of our rear/rear GitHub repository.</p>
+<p>I assume "Test packaging (RPM, DEB, …​)" and "Create OBS build"<br />
+do not and should not change any source file in any branch<br />
+of our rear/rear GitHub repository.<br />
+I will check that.</p>
+<p>(B: Some time so that latest changes can be checked)</p>
+<p>Have some time so that @rear/contributors<br />
+could have a look at the latest state of<br />
+our rear/rear GitHub repository<br />
+which is meant to be then released "as is".</p>
+<p>(C: The actual release)</p>
+<p>Tomorrow before noon:</p>
+<p>Only the actual release of the source files "as is"<br />
+in the master branch in our rear/rear GitHub repository.</p>
+<p>The actual release is not meant to change any source file<br />
+in any branch of our rear/rear GitHub repository.</p>
+<p>Accordingly - as far as I understand it - the actual release consists<br />
+of the following steps to release 'ReaR 2.8' in this case here:</p>
+<p>(1)<br />
+Make a pristine local git clone<br />
+of our GitHub rear/rear repository<br />
+and change into it:</p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear-release
+
+cd rear-release
+</code></pre>
+<p>(2)<br />
+Add an empty commit (no source file gets changed)<br />
+in the master branch to denote when the release happened:</p>
+<pre><code>git commit -S --allow-empty -m 'ReaR 2.8 release'
+</code></pre>
+<p>(3)<br />
+Tag the current state (HEAD) in the master branch:</p>
+<pre><code>git tag -s -a rear-2.8 -m "Rear release 2.8"
+git tag -s -a 2.8 -m "Rear release 2.8"
+</code></pre>
+<p>(4)<br />
+Push the changes in the local git clone to our GitHub rear/rear
+repository:</p>
+<pre><code>git push --tags
+</code></pre>
+<p>@rear/contributors<br />
+please have a look here and tell me if there is something wrong<br />
+with my plan what to do for the ReaR 2.8 release.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1219"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551177122">2024-12-18 12:19</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1219" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I will push my changes to release notes soon.</p>
+<h4 id="pcahyna_commented_at_2024-12-18_1220"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551180076">2024-12-18 12:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-18_1220" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear.github.com/pull/23">https://github.com/rear/rear.github.com/pull/23</a></p>
+<h4 id="jsmeix_commented_at_2024-12-18_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551280753">2024-12-18 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1308" title="Permanent link">&para;</a></h4>
+<p>My results for "Test packaging (RPM, DEB, …​)"<br />
+on my homeoffice workstation:</p>
+<p>Only RPM:</p>
+<p>In a local clone of our current GitHub master code<br />
+(i.e. without updated version in usr/sbin/rear and<br />
+in packaging/rpm/rear.spec so it is still version 2.7)</p>
+<pre><code># git clone https://github.com/rear/rear.git
+
+# mv rear rear-test-packaging-rpm
+
+# cd rear-test-packaging-rpm
+
+# make rpm OFFICIAL=1 &amp;&amp; echo OK || echo FAILED
+...
+OK
+
+# git ls-files . --ignored --exclude-standard --others
+dist/rear-2.7-1.src.rpm
+dist/rear-2.7-1.x86_64.rpm
+dist/rear-2.7.tar.gz
+
+# git ls-files . --exclude-standard --others
+[no output]
+
+# ls -lhdtr /var/tmp/build-rear-2.7/*
+-rw-r--r-- 1 root root 992K Dec 18 13:52 /var/tmp/build-rear-2.7/rear-2.7.tar.gz
+drwxr-xr-x 3 root root 4.0K Dec 18 13:52 /var/tmp/build-rear-2.7/rear-2.7
+-rw-r--r-- 1 root root 6.6K Dec 18 13:52 /var/tmp/build-rear-2.7/rear.spec
+drwxr-xr-x 8 root root 4.0K Dec 18 13:52 /var/tmp/build-rear-2.7/rpmbuild
+
+# diff -s dist/rear-2.7.tar.gz /var/tmp/build-rear-2.7/rear-2.7.tar.gz
+Files dist/rear-2.7.tar.gz and /var/tmp/build-rear-2.7/rear-2.7.tar.gz are identical
+</code></pre>
+<p>I compared what is in /var/tmp/build-rear-2.7/rear-2.7.tar.gz<br />
+with what is in my GitHub master code clone and<br />
+I found that</p>
+<pre><code>usr/share/rear/skel/default/root/.vimrc
+</code></pre>
+<p>is not in /var/tmp/build-rear-2.7/rear-2.7.tar.gz<br />
+but this file is needed because</p>
+<pre><code># git log -p --follow usr/share/rear/skel/default/root/.vimrc
+
+commit 700727b53855d551c0620c46a839755894b26eb3
+Author: Johannes Meixner &lt;jsmeix@suse.com&gt;
+Date:   Mon Feb 19 13:08:44 2024 +0100
+
+    Fix issue 3151: missing .vimrc and overhauled 130_create_dotfiles.sh (#3154)
+
+    Create an empty
+    usr/share/rear/skel/default/root/.vimrc
+    to fix https://github.com/rear/rear/issues/3151
+...
+
+# rpmlint -vi dist/rear-2.7-1.x86_64.rpm
+If 'rpmlint' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf rpmlint
+</code></pre>
+<p>I give up here because I won't change my<br />
+homeoffice workstation into a RPM build system<br />
+because I don't build RPMs on my workstation<br />
+(I use only the SUSE and openSUSE build services).</p>
+<p>I don't think that building RPMs directly belongs<br />
+to the actual tasks to release a new version of ReaR.</p>
+<p>I think building RPMs and testing that it works<br />
+(which includes testing the built RPMs)<br />
+is a separarted task like any other functionality<br />
+in ReaR that needs to be maintained and tested.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1312"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551289694">2024-12-18 13:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1312" title="Permanent link">&para;</a></h4>
+<p>My results for "Test packaging (RPM, DEB, …​)"<br />
+on my homeoffice workstation:</p>
+<p>Only DEB:</p>
+<p>In a local clone of our current GitHub master code<br />
+(i.e. without updated version in usr/sbin/rear and<br />
+in packaging/rpm/rear.spec so it is still version 2.7)</p>
+<pre><code># git clone https://github.com/rear/rear.git
+
+# mv rear rear-test-packaging-deb
+
+# cd rear-test-packaging-deb
+
+# make deb OFFICIAL=1 &amp;&amp; echo OK || echo FAILED
+...
+bash: dch: command not found
+make: *** [Makefile:292: deb] Error 127
+FAILED
+</code></pre>
+<p>I give up here because I won't change my<br />
+homeoffice workstation into a DEB build system<br />
+because I don't build packages on my workstation<br />
+(I use only the SUSE and openSUSE build services).</p>
+<p>I don't think that building packages directly belongs<br />
+to the actual tasks to release a new version of ReaR.</p>
+<p>I think building packages and testing that it works<br />
+(which includes testing the built packages)<br />
+is a separarted task like any other functionality<br />
+in ReaR that needs to be maintained and tested.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551305334">2024-12-18 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1319" title="Permanent link">&para;</a></h4>
+<p>My results for "Test packaging (RPM, DEB, …​)"<br />
+on my homeoffice workstation:</p>
+<p>Only "make dist OFFICIAL=1":</p>
+<p>In a local clone of our current GitHub master code<br />
+(i.e. without updated version in usr/sbin/rear and<br />
+in packaging/rpm/rear.spec so it is still version 2.7)</p>
+<pre><code># git clone https://github.com/rear/rear.git
+
+# mv rear rear-test-packaging-dist
+
+# cd rear-test-packaging-dist/
+
+# make dist OFFICIAL=1 &amp;&amp; echo OK || echo FAILED
+...
+OK
+
+# git ls-files . --ignored --exclude-standard --others
+dist/rear-2.7.tar.gz
+
+# git ls-files . --exclude-standard --others
+[no output]
+</code></pre>
+<p>Also here (as expected)<br />
+usr/share/rear/skel/default/root/.vimrc<br />
+is not in dist/rear-2.7.tar.gz<br />
+but this file is needed because<br />
+<a href="https://github.com/rear/rear/issues/3151">https://github.com/rear/rear/issues/3151</a><br />
+cf.<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2551280753">https://github.com/rear/rear/issues/3238#issuecomment-2551280753</a></p>
+<h4 id="schlomo_commented_at_2024-12-18_1322"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551312188">2024-12-18 13:22</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1322" title="Permanent link">&para;</a></h4>
+<p>@jsmeix may I suggest that you use <code>tools/run-in-docker</code>, as it uses
+reliably build environments and doesn't depend on your local setup. For
+example I can run this even on my Mac:</p>
+<pre><code>❯ tools/run-in-docker -a amd64 11 -- make package
+Using architecture amd64 instead of default Docker architecture aarch64
+********** debian:11                                **********
+rm -f dist/*.rpm dist/*.deb dist/*.pkg.*
+== Building archive rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 ==
+rm -Rf /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+mkdir -p dist /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+tar -c --exclude-from=.gitignore --exclude=.gitignore --exclude=".??*" COPYING  doc  etc  MAINTAINERS  Makefile  packaging  README.md  tests  tools  usr | tar -C /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 -x
+== Rewriting /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/{packaging/rpm/rear.spec,packaging/debian/rear.dsc,usr/sbin/rear} ==
+sed -i \
+    -e 's#^\(Source0\?\):.*#\1: rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28.tar.gz#' \
+    -e 's#^Version:.*#Version: 2.7#' \
+    -e 's#^%define rpmrelease.*#%define rpmrelease .git.5549.7f9b67ea.schlomoprepareforrelease28#' \
+    -e 's#^%setup.*#%setup -q -n rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28#' \
+    -e 's#^%\(autosetup.*\)#%\1 -n rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28#' \
+    /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/packaging/rpm/rear.spec
+sed -i \
+    -e 's#^Version:.*#Version: 2.7-0git.5549.7f9b67ea.schlomoprepareforrelease28#' \
+    /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/packaging/debian/rear.dsc
+sed -i \
+    -e 's#^readonly VERSION=.*#readonly VERSION=2.7-git.5549.7f9b67ea.schlomoprepareforrelease28#' \
+    -e 's#^readonly RELEASE_DATE=.*#readonly RELEASE_DATE="2024-12-17"#' \
+    /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/usr/sbin/rear
+tar -czf dist/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28.tar.gz -C /var/tmp/build-rear-2.7 rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+== Building DEB package rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 ==
+rm -rf /var/tmp/build-rear-2.7
+mkdir -p /var/tmp/build-rear-2.7
+tar -C /var/tmp/build-rear-2.7 -xzf dist/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28.tar.gz
+cd /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 ; mv packaging/debian/ .
+cd /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 ; dch -v 2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 -b -M /var/tmp/build-rear-2.7 package
+cd /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 ; debuild -us -uc -i -b --lintian-opts --profile debian
+ dpkg-buildpackage -us -uc -ui -i -b
+dpkg-buildpackage: info: source package rear
+dpkg-buildpackage: info: source version 2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by ReaR Team &lt;contact@relax-and-recover.org&gt;
+ dpkg-source -i --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh clean
+   dh_auto_clean
+    make -j4 clean
+make[1]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+rm -Rf dist /var/tmp/build-rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28 etc/os.conf etc/site.conf var build-stamp
+/usr/bin/make -C doc clean
+make[2]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+rm -f unconv.8 *.html *.xml
+make -C user-guide clean
+make[3]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc/user-guide'
+rm -f *.html *.svg *.xml
+make[3]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc/user-guide'
+make[2]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+make[1]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+   dh_clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   dh_auto_build
+    make -j4
+make[1]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+Nothing to build. Use 'make help' for more information.
+make[1]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+   dh_auto_install
+    make -j4 install DESTDIR=/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+== Validating scripts and configuration ==
+find etc/ usr/share/rear/conf/ -name '*.conf' | xargs -n 1 bash -n
+bash -n usr/sbin/rear
+find . -name '*.sh' | xargs -n 1 bash -O extglob -O nullglob -n
+find usr/share/rear -name '*.sh' | grep -v -E '(lib|skel|conf)' | while read FILE ; do \
+    num=$(echo ${FILE##*/} | cut -c1-3); \
+    if [[ "$num" = "000" || "$num" = "999" ]] ; then \
+        echo "ERROR: script $FILE may not start with $num"; \
+        exit 1; \
+    else \
+        if $( grep '[_[:alpha:]]' &lt;&lt;&lt; $num &gt;/dev/null 2&gt;&amp;1 ) ; then \
+            echo "ERROR: script $FILE must start with 3 digits"; \
+            exit 1; \
+        fi; \
+    fi; \
+done
+== Prepare manual ==
+/usr/bin/make -C doc man
+make[2]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+make[2]: Nothing to be done for 'man'.
+make[2]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+== Installing configuration ==
+install -d -m0700 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/
+install -d -m0700 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/cert/
+[[ ! -e /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/local.conf ]] &amp;&amp; \
+    install -Dp -m0600 etc/rear/local.conf /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/local.conf
+[[ ! -e /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/os.conf &amp;&amp; -e etc/rear/os.conf ]] &amp;&amp; \
+    install -Dp -m0600 etc/rear/os.conf /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/os.conf
+make[1]: [Makefile:162: install-config] Error 1 (ignored)
+find /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/etc/rear/ -name '.gitignore' -exec rm -rf {} \; &amp;&gt;/dev/null
+== Installing binary ==
+install -Dp -m0755 usr/sbin/rear /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/sbin/rear
+sed -i -e 's,^CONFIG_DIR=.*,CONFIG_DIR="$REAR_DIR_PREFIX/etc/rear",' \
+    -e 's,^SHARE_DIR=.*,SHARE_DIR="$REAR_DIR_PREFIX/usr/share/rear",' \
+    -e 's,^VAR_DIR=.*,VAR_DIR="$REAR_DIR_PREFIX/var/lib/rear",' \
+    -e 's,^LOG_DIR=.*,LOG_DIR="$REAR_DIR_PREFIX/var/log/rear",' \
+    /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/sbin/rear
+== Installing scripts ==
+rm -Rf /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/rear
+install -d -m0755 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/rear/
+cp -a usr/share/rear/. /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/rear/
+find /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/rear/ -name '.gitignore' -exec rm -rf {} \; &amp;&gt;/dev/null
+== Installing working directory ==
+install -d -m0755 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/var/lib/rear/
+install -d -m0755 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/var/log/rear/
+== Installing documentation ==
+/usr/bin/make -C doc install
+make[2]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+install -Dp -m0644 rear.8 /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/man/man8/rear.8
+make[2]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/doc'
+sed -i -e 's,/etc,/etc,' \
+    -e 's,/usr/sbin,/usr/sbin,' \
+    -e 's,/usr/share,/usr/share,' \
+    -e 's,/usr/share/doc/packages,/usr/share/doc,' \
+    /var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28/debian/rear/usr/share/man/man8/rear.8
+make[1]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+   dh_installdocs
+   dh_installchangelogs
+   dh_installman
+   dh_lintian
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   debian/rules override_dh_fixperms
+make[1]: Entering directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+dh_fixperms --exclude debian/rear/etc/rear
+make[1]: Leaving directory '/var/tmp/build-rear-2.7/rear-2.7-git.5549.7f9b67ea.schlomoprepareforrelease28'
+   dh_missing
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'rear' in '../rear_2.7-git.5549.7f9b67ea.schlomoprepareforrelease28_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary &gt;../rear_2.7-git.5549.7f9b67ea.schlomoprepareforrelease28_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source -i --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian --profile debian rear_2.7-git.5549.7f9b67ea.schlomoprepareforrelease28_amd64.changes ...
+warning: running with root privileges is not recommended!
+W: rear changes: debian-revision-not-well-formed 2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+W: rear buildinfo: debian-revision-not-well-formed 2.7-git.5549.7f9b67ea.schlomoprepareforrelease28
+N: 15 hints overridden (15 warnings); 2 unused overrides
+Finished running lintian.
+mv /var/tmp/build-rear-2.7/rear_*.deb dist/
+********** Copying dist to dist-all/debian-11
+** SCRIPT RUN TIME 95 SECONDS **
+</code></pre>
+<p>Please look at the top of the script for instructions for how to prep
+the Docker images. If you don't give it a target (<code>11</code> matched
+<code>debian:11</code>) then it simply builds them all. This is what happens in our
+automated GitHub Actions workflow for the snapshot builds.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551334213">2024-12-18 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1331" title="Permanent link">&para;</a></h4>
+<p>My point is that such things<br />
+(testing this or that functionality in ReaR)<br />
+do not actually belong to the task<br />
+to release a new ReaR version.</p>
+<p>I never contributed anything to the "make packages"<br />
+functionality in ReaR and I don't know how it works.<br />
+In particular I do not at all need or use<br />
+any "make packages" functionality in ReaR.<br />
+Why is it my task to test functionality in ReaR<br />
+that I have nothing to do with?</p>
+<h4 id="schlomo_commented_at_2024-12-18_1334"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551343154">2024-12-18 13:34</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-18_1334" title="Permanent link">&para;</a></h4>
+<p>Ah, I was just reacting to your <code>make deb</code> doesn't work notice and
+wanted to offer a way how to "make it work" without effort.
+<code>make package</code> figures out dynamically which package type to build and
+then calls that, so on Debian it runs <code>make deb</code> and on RHEL/SUSE it
+runs <code>make rpm</code>.</p>
+<p>In any case, my PR branch builds DEBs just fine.</p>
+<h4 id="jsmeix_commented_at_2024-12-18_1343"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2551361374">2024-12-18 13:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-18_1343" title="Permanent link">&para;</a></h4>
+<p>By the way FYI</p>
+<p>On my homeoffice workstation:</p>
+<pre><code># tools/run-in-docker -a amd64 11 -- make package
+
+tools/run-in-docker: line 145: docker: command not found
+...
+tools/run-in-docker: line 221: docker: command not found
+ERROR: ############### DOCKER RUN FAILED FOR debian:11
+</code></pre>
+<p>For my work my workstation works for me - of course ;-)</p>
+<p>I limit the amount of installed software on my workstation<br />
+intentionally to what I actually need to do my work<br />
+to mimimize the risk of whatever issues.</p>
+<p>Things are different for my test VMs<br />
+that I run on my workstation as needed.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_0924"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553173729">2024-12-19 09:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_0924" title="Permanent link">&para;</a></h4>
+<p>I modified<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+as far as I meanwhile understand it how it should be done.<br />
+In particular:</p>
+<p>I moved the "Test packaging" from "Preparation" to "Testing",<br />
+see above why I think it belongs to general testing<br />
+and not to preparation of the actual release.</p>
+<p>I added a section "The actual release" to separate<br />
+the preparations for the actual release<br />
+from the actual release.</p>
+<p>I added comments what parts I skipped (for now) and why,<br />
+namely<br />
+"Add the list of contributors" (to the release notes)<br />
+and<br />
+"Create OBS build"<br />
+In particular I will do the OBS things after the actual release<br />
+as described in the "Distribution" part.</p>
+<p>I re-added the step<br />
+"Create a new 'stable' branch"<br />
+because I find it useful in practice<br />
+to also have a git branch for each release<br />
+because I assume that not only I but also other users<br />
+are more used to deal with git branches<br />
+(e.g. the usual 'git checkout branch' command)<br />
+than to deal only with git tags.<br />
+I think having also a git branch for each release<br />
+costs nothing but is useful in practice for users.</p>
+<h4 id="pcahyna_commented_at_2024-12-19_1007"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553309002">2024-12-19 10:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-19_1007" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I re-added the step<br />
+"Create a new 'stable' branch"<br />
+because I find it useful in practice<br />
+to also have a git branch for each release<br />
+because I assume that not only I but also other users<br />
+are more used to deal with git branches<br />
+(e.g. the usual 'git checkout branch' command)<br />
+than to deal only with git tags.</p>
+</blockquote>
+<p><code>git checkout &lt;tag&gt;</code> works just as well.</p>
+<blockquote>
+<p>I think having also a git branch for each release<br />
+costs nothing but is useful in practice for users.</p>
+</blockquote>
+<p>It costs confusion to have two objects (branch and tag) with the same
+name.</p>
+<p>If you think it is simpler to have a branch than not to have it, please
+describe whether <code>git checkout rear-2.5</code> checks out the branch named
+<code>rear-2.5</code> or the tag named <code>rear-2.5</code>.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_1030"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553361394">2024-12-19 10:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1030" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I will not do backward incompatible changes now for ReaR 2.8.<br />
+I will release ReaR 2.8 backward compatible with ReaR 2.7.</p>
+<p>We can re-organize our whole GitHub rear/rear repository<br />
+for ReaR 3.0. This would be perfectly fine with me.<br />
+But I will not do or implement such a change.<br />
+Neither now for ReaR 2.8 nor later for ReaR 3.0.<br />
+My reason:<br />
+I am not at all a sufficient git expert to do it.</p>
+<p>Above I asked for a method to restore a GitHub repository<br />
+to a safed "good" state if the repository got messeg up<br />
+<a href="https://github.com/rear/rear/issues/3238#issuecomment-2536458695">https://github.com/rear/rear/issues/3238#issuecomment-2536458695</a><br />
+but I got ZERO help.</p>
+<p>So do not expect that I will do anything regarding git.</p>
+<p>Alternatively please step in now<br />
+and do you the ReaR 2.8 release as you prefer it.<br />
+I would much appreciate it if I had not to do the release.</p>
+<h4 id="schlomo_commented_at_2024-12-19_1056"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553416192">2024-12-19 10:56</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-19_1056" title="Permanent link">&para;</a></h4>
+<p>@pcahyna given the broad range of git skills amongst our <em>users</em> I'd
+prefer to keep things simple and optimize more for the inexperienced git
+user than the expert.</p>
+<p>Personally I'm actually grateful for your insights and consistent push
+for more git proficiency. I just think that we can't expect that level
+of motivation to dive deeply into git from all our users.</p>
+<h4 id="schlomo_commented_at_2024-12-19_1058"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553418258">2024-12-19 10:58</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-19_1058" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I really truly appreciate your effort and willingness to create
+the release very much, so for me I'd always choose for you to continue
+what you do and make a compromise somewhere else.</p>
+<p>Open Source depends on individual's initiative and nothing is more
+precious to me than that.</p>
+<h4 id="pcahyna_commented_at_2024-12-19_1151"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553526547">2024-12-19 11:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-19_1151" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>given the broad range of git skills amongst our users I'd prefer to
+keep things simple and optimize more for the inexperienced git user
+than the expert.</p>
+</blockquote>
+<p>@schlomo that's exactly the point! We should not expect our user to know
+whether Git prefers a tag or a branch when both of the same name exist.
+I don't know the rules in this situation either. Therefore, it is better
+to avoid the situation in the first place.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_1215"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553638115">2024-12-19 12:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1215" title="Permanent link">&para;</a></h4>
+<p>I did "the actual release" right now<br />
+and I also created an additional "rear-2.8" branch<br />
+as described in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a></p>
+<p>When creating that additional "rear-2.8" branch<br />
+GitHub showed this popup text:</p>
+<pre><code>A tag already exists with the provided branch name.
+Many Git commands accept both tag and branch names,
+so creating this branch may cause unexpected behavior.
+Are you sure you want to create this branch?
+</code></pre>
+<p>I confirmed to create the branch nevertheless<br />
+but I have no idea what unexpected behavior<br />
+this branch may cause.<br />
+I guess a branch with same name as a tag may<br />
+cause unexpected behavior when the branch<br />
+contains different sources as what is tagged<br />
+so <code>git checkout &lt;branch_name&gt;</code> would result<br />
+something different than <code>git checkout &lt;tag_name&gt;</code>.<br />
+But in this case here both the 'rear-2.8' branch<br />
+and the 'rear-2.8' tag should (hopefully?)<br />
+result the same.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_1223"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553668279">2024-12-19 12:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1223" title="Permanent link">&para;</a></h4>
+<p>For the log<br />
+what I did for the actual release:</p>
+<pre><code>$ git clone https://github.com/rear/rear.git
+
+$ mv rear rear-release
+
+$ cd rear-release
+
+$ git config --global user.email "jsmeix@suse.com"
+
+$ git config --global user.name "Johannes Meixner"
+
+$ git commit -S0C8EBF3CCDDC9692 --allow-empty -m 'ReaR 2.8 release'
+[master d9f5befd] ReaR 2.8 release
+
+$ git tag -u 0C8EBF3CCDDC9692 -a rear-2.8 -m "Rear release 2.8"
+
+$ git tag -u 0C8EBF3CCDDC9692 -a 2.8 -m "Rear release 2.8"
+
+$ git push --tags
+Username for 'https://github.com': jsmeix
+Password for 'https://jsmeix@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.95 KiB | 1.96 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/rear/rear.git
+ * [new tag]           2.8 -&gt; 2.8
+ * [new tag]           rear-2.8 -&gt; rear-2.8
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+$ git push
+Username for 'https://github.com': jsmeix
+Password for 'https://jsmeix@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/rear/rear.git
+   76e80982..d9f5befd  master -&gt; master
+</code></pre>
+<p>Because 'git push --tags' did not push the empty commit<br />
+with commit message 'ReaR 2.8 release'<br />
+I had to do a subsequent plain 'git push'<br />
+to also get that commit pushed.</p>
+<h4 id="pcahyna_commented_at_2024-12-19_1235"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553717106">2024-12-19 12:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-19_1235" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I did "the actual release" right now</p>
+</blockquote>
+<p>🎉</p>
+<h4 id="jsmeix_commented_at_2024-12-19_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553717160">2024-12-19 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1235" title="Permanent link">&para;</a></h4>
+<p>I updated<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+accordingly plus comments so that we can clean up and<br />
+improve things for ReaR 3.0 - ideally before the release<br />
+and not "by the way" during the actual release process.</p>
+<h4 id="jsmeix_commented_at_2024-12-19_1242"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553744420">2024-12-19 12:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1242" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please check if what I did as "ReaR 2.8" release is<br />
+actually OK.</p>
+<p>What I did as a first check:</p>
+<pre><code>$ git clone https://github.com/rear/rear.git
+$ mv rear rear-2.8-release
+$ cd rear-2.8-release
+</code></pre>
+<p>and at first glance things look OK</p>
+<pre><code>$ git tag -l | grep '2\.8'
+2.8
+rear-2.8
+
+$ git branch -a
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/add-veeam-support
+  remotes/origin/gdha-blockclone
+  remotes/origin/jsmeix-SourceTrustworthy
+  remotes/origin/jsmeix-get_var_from_file
+  remotes/origin/jsmeix-use-TextPrefix
+  remotes/origin/master
+  remotes/origin/rear-2.4
+  remotes/origin/rear-2.5
+  remotes/origin/rear-2.6
+  remotes/origin/rear-2.7
+  remotes/origin/rear-2.8
+  remotes/origin/run-in-docker-on-mac
+  remotes/origin/secure-boot-auto-configure-v2
+
+$ git log | head -n20
+commit d9f5befdda4e0e685e4be09cef6069bc24c39968
+Author: Johannes Meixner &lt;jsmeix@suse.com&gt;
+Date:   Thu Dec 19 12:51:51 2024 +0100
+
+    ReaR 2.8 release
+
+commit 76e8098254c61b244cb32001adc9e1b71bc8d9a8
+Author: Johannes Meixner &lt;jsmeix@suse.com&gt;
+Date:   Thu Dec 19 12:47:25 2024 +0100
+
+    WIP: ReaR 2.8 release preparations (#3370)
+
+    rear.8.adoc : Update version number and release date
+    sbin/rear : set VERSION and RELEASE_DATE
+    rear.spec : set Version
+    Update packaging/debian/changelog
+    Update packaging/debian/rear.dsc
+    Added new doc/rear-release-notes.txt
+    see https://github.com/rear/rear/wiki/Release-process#preparation
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-12-19_1300"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2553836547">2024-12-19 13:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-19_1300" title="Permanent link">&para;</a></h4>
+<p>Tomorrow I will do the "Create OBS build" related work<br />
+but not via "make obs OFFICIAL=1", see my comment in<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+why.</p>
+<p>I will do the OBS things manually tomorrow.</p>
+<h4 id="jsmeix_commented_at_2024-12-20_0747"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556459028">2024-12-20 07:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0747" title="Permanent link">&para;</a></h4>
+<p>OBS has now<br />
+<a href="https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8">https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8</a></p>
+<p>Currently build fails there same as for Archiving:Backup:Rear rear-2.7</p>
+<pre><code># osc results -v Archiving:Backup:Rear rear-2.7 | grep failed
+xUbuntu_24.04        x86_64     rear-2.7    failed
+xUbuntu_22.04        x86_64     rear-2.7    failed
+ScientificLinux_7    x86_64     rear-2.7    failed
+ScientificLinux_6    i586       rear-2.7    failed
+ScientificLinux_6    x86_64     rear-2.7    failed
+RHEL_7               x86_64     rear-2.7    failed
+RHEL_7               ppc64      rear-2.7    failed
+RHEL_6               i586       rear-2.7    failed
+RHEL_6               x86_64     rear-2.7    failed
+Fedora_39            x86_64     rear-2.7    failed
+Debian_12            i586       rear-2.7    failed
+Debian_12            x86_64     rear-2.7    failed
+</code></pre>
+<p>but on Archiving:Backup:Rear rear-2.8 I disabled build<br />
+for no longer supported distributions according to<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a><br />
+when build fails there</p>
+<pre><code># osc results -v Archiving:Backup:Rear rear-2.8 | egrep 'failed|disabled'
+xUbuntu_24.04        x86_64     rear-2.8    failed
+xUbuntu_22.04        x86_64     rear-2.8    failed
+ScientificLinux_7    x86_64     rear-2.8    failed
+ScientificLinux_6    i586       rear-2.8    disabled
+ScientificLinux_6    x86_64     rear-2.8    disabled
+RHEL_7               x86_64     rear-2.8    failed
+RHEL_7               ppc64      rear-2.8    failed
+RHEL_6               i586       rear-2.8    disabled
+RHEL_6               x86_64     rear-2.8    disabled
+Fedora_39            x86_64     rear-2.8    disabled
+Debian_12            i586       rear-2.8    failed
+Debian_12            x86_64     rear-2.8    failed
+</code></pre>
+<p>By the way:<br />
+I think there is a typo in<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a></p>
+<pre><code>ReaR 2.8 is supported on the following Linux operating systems:
+     * Fedora 40, 41 (Silverblue not supported)
+...
+ReaR 2.8 dropped official support for the following Linux operating systems:
+     * Fedora &lt; 39
+</code></pre>
+<p>I think the latter must be</p>
+<pre><code>     * Fedora &lt; 40
+</code></pre>
+<h4 id="jsmeix_commented_at_2024-12-20_0800"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556475442">2024-12-20 08:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0800" title="Permanent link">&para;</a></h4>
+<p>OBS Archiving:Backup:Rear rear-2.8 build failure messages:</p>
+<pre><code># osc rbl Archiving:Backup:Rear rear-2.8 xUbuntu_24.04 x86_64
+...
+dh: error: Compatibility levels before 7 are no longer supported (level 5 requested)
+make: *** [debian/rules:4: clean] Error 25
+</code></pre>
+<p>same for xUbuntu_22.04 and Debian_12</p>
+<p>On RHEL_7 and ScientificLinux_7<br />
+it fails to setup the build system with things like</p>
+<pre><code># osc rbl Archiving:Backup:Rear rear-2.8 RHEL_7 x86_64
+...
+initializing rpm db...
+querying package ids...
+Can't locate Digest/MD5.pm in @INC (@INC contains: /.build /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /.build/Build.pm line 24.
+BEGIN failed--compilation aborted at /.build/Build.pm line 24.
+Compilation failed in require at /.build/getbuildids line 27.
+BEGIN failed--compilation aborted at /.build/getbuildids line 27.
+</code></pre>
+<p>and many more of those messages until</p>
+<pre><code>Failed to write utmp record: Read-only file system
+Powering off.
+reboot: Power down
+</code></pre>
+<p>To view the build log file, go to<br />
+<a href="https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8">https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8</a><br />
+and there in the "Build Results" tab click on a red 'failed' text<br />
+which is a link to the matching build log file</p>
+<h4 id="jsmeix_commented_at_2024-12-20_0803"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556479780">2024-12-20 08:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0803" title="Permanent link">&para;</a></h4>
+<p>I cannot fix those build failures<br />
+because I don't know about Debian packaging<br />
+and I have no idea what the reason could be<br />
+why on RHEL_7 and ScientificLinux_7<br />
+it fails to setup the build system.</p>
+<p>So from my point of view this issue is now done<br />
+as far as I could so I close it hereby.</p>
+<h4 id="schlomo_commented_at_2024-12-20_0806"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556483255">2024-12-20 08:06</a>:<a class="headerlink" href="#schlomo_commented_at_2024-12-20_0806" title="Permanent link">&para;</a></h4>
+<p>Big thanks @jsmeix for doing the release, and happy holidays to you and
+your family!</p>
+<h4 id="jsmeix_commented_at_2024-12-20_0810"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556488597">2024-12-20 08:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0810" title="Permanent link">&para;</a></h4>
+<p>Thank you too for all your various efforts with this release,<br />
+in particular for organizing things that helped much<br />
+to make this release finally happen!</p>
+<p>Also from me happy holidays to you and your family!</p>
+<h4 id="gdha_commented_at_2024-12-20_0828"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556513192">2024-12-20 08:28</a>:<a class="headerlink" href="#gdha_commented_at_2024-12-20_0828" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I fixed the Ubuntu/Debian builds on OBS. Have a nice holiday
+break and thank you for your patience during this release. It was much
+appreciated from us and the User Community will be grateful with this
+new release after 2 years.</p>
+<h4 id="jsmeix_commented_at_2024-12-20_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556536009">2024-12-20 08:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0843" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+also to you a nice holiday break!</p>
+<p>Thank you for your prompt fix at OBS.<br />
+Now even I can see it - in retrospect:<br />
+The reason why Ubuntu/Debian builds failed on OBS<br />
+was that on OBS there was an old/outdated debian.compat<br />
+while here at GitHub it was fixed two years ago via<br />
+<a href="https://github.com/rear/rear/pull/2882">https://github.com/rear/rear/pull/2882</a></p>
+<h4 id="jsmeix_commented_at_2024-12-20_0859"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556560311">2024-12-20 08:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_0859" title="Permanent link">&para;</a></h4>
+<p>I tried to fix the Ubuntu/Debian builds on OBS also for<br />
+rear-2.7 in the same way (i.e. plain '10' in debian.compat)<br />
+which makes it build on Debian_12<br />
+but other Ubuntu/Debian still fail.</p>
+<h4 id="jsmeix_commented_at_2024-12-20_1140"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556835226">2024-12-20 11:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_1140" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+thank you for also fixing Ubuntu/Debian builds on OBS<br />
+for rear-2.7!</p>
+<pre><code># osc log Archiving:Backup:Rear rear-2.7 | head
+------------------------------------------------------------------------
+r6 | gdha | 2024-12-20 09:07:35 | 925fdeabbccdc3431a11c872bd663108 | 2.7
+
+Update the copyright file
+</code></pre>
+<p>by replacing the old/outdated debian.copyright on OBS<br />
+with the current one at GitHub<br />
+<a href="https://github.com/rear/rear/blob/master/packaging/debian/copyright">https://github.com/rear/rear/blob/master/packaging/debian/copyright</a></p>
+<p>Interestingly the current one at GitHub was not changed<br />
+since 7 years</p>
+<pre><code># git log -p --follow packaging/debian/copyright
+commit 74787aa0b2e637bf129ee0f542733aa27accb084
+...
+Date:   Sun Sep 24 06:15:51 2017 -0700
+</code></pre>
+<p>so it looks rather strange why the previous one at OBS<br />
+was looking so strangely corrupted:</p>
+<pre><code># osc cat -r 5 Archiving:Backup:Rear rear-2.7 debian.copyright
+Files: *
+Copyright: 2006 Schlomo Schapiro, Gratien D'Haese and other contributors from https://github.com/rear/rear
+License: GPL-3 /usr/share/common-licenses/GPL-3
+Files: *
+Copyright: 2006 Schlomo Schapiro, Gratien D'Haese and other contributors from https://github.com/rear/rear
+License: GPL-3 /usr/share/common-licenses/GPL-3
+...
+[very many more of those entries - in total 1068 such entries]
+...
+Files: *
+Copyright: 2006 Many authors from https://github.com/rear/rear/graphs/contributors
+License: GPL-3 /usr/share/common-licenses/GPL-3
+Files: *
+Copyright: 2006 Many authors from https://github.com/rear/rear/graphs/contributors
+License: GPL-3 /usr/share/common-licenses/GPL-3
+</code></pre>
+<p>It looks as if something appended tons of those entries to it?</p>
+<h4 id="jsmeix_commented_at_2024-12-20_1155"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556857719">2024-12-20 11:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_1155" title="Permanent link">&para;</a></h4>
+<p>I fixed in Archiving:Backup:Rear rear-2.6<br />
+the messed up debian.compat and debian.copyright<br />
+with the files from Archiving:Backup:Rear rear-2.7<br />
+so that now also rear-2.6 builds for Debian and Ubuntu<br />
+BUT<br />
+because rear-2.6 is re-built for all distributions<br />
+the new build failes now there for</p>
+<pre><code># osc results -v Archiving:Backup:Rear rear-2.6 | grep failed
+ScientificLinux_7    x86_64    rear-2.6    failed
+RHEL_7               x86_64    rear-2.6    failed
+RHEL_7               ppc64     rear-2.6    failed
+RHEL_6               x86_64    rear-2.6    failed
+</code></pre>
+<p>same as now for rear-2.7</p>
+<pre><code># osc results -v Archiving:Backup:Rear rear-2.7 | grep failed
+ScientificLinux_7    x86_64    rear-2.7    failed
+RHEL_7               x86_64    rear-2.7    failed
+RHEL_7               ppc64     rear-2.7    failed
+RHEL_6               x86_64    rear-2.7    failed
+</code></pre>
+<p>and for rear-2.8</p>
+<pre><code># osc results -v Archiving:Backup:Rear rear-2.8 | grep failed
+ScientificLinux_7    x86_64    rear-2.8    failed
+RHEL_7               x86_64    rear-2.8    failed
+RHEL_7               ppc64     rear-2.8    failed
+</code></pre>
+<p>in rear-2.8 RHEL_6 is disabled - otherwise it would also fail.</p>
+<h4 id="jsmeix_commented_at_2024-12-20_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2556864413">2024-12-20 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_1200" title="Permanent link">&para;</a></h4>
+<p>Regardless that it built for Archiving:Backup:Rear rear-2.8<br />
+I also fixed therein the messed up debian.copyright<br />
+with the file from Archiving:Backup:Rear rear-2.7</p>
+<h4 id="jsmeix_commented_at_2024-12-20_1403"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2557076978">2024-12-20 14:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_1403" title="Permanent link">&para;</a></h4>
+<p>For the log:</p>
+<p>Right now I tested on<br />
+SLES 15 SP 6 with RAID1, LUKS, LVM, and default btrfs structure<br />
+the released ReaR 2.8 built as RPM on the openSUSE Build Service<br />
+<a href="https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8">https://build.opensuse.org/package/show/Archiving:Backup:Rear/rear-2.8</a><br />
+for SLE 15 SP3 (the SLE service pack number does not matter for ReaR<br />
+because ReaR is only bash scripts, e.g. SP3 versus SP6)<br />
+on x86_64 from the openSUSE Build Service RPM download location<br />
+<a href="http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_15_SP3/x86_64/rear-2.8-3.x86_64.rpm">http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_15_SP3/x86_64/rear-2.8-3.x86_64.rpm</a></p>
+<p>See<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-raid1-and-luks-encryption-and-lvm-and-default-btrfs-structure">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-raid1-and-luks-encryption-and-lvm-and-default-btrfs-structure</a></p>
+<h4 id="jsmeix_commented_at_2024-12-20_1416"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2557100652">2024-12-20 14:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-12-20_1416" title="Permanent link">&para;</a></h4>
+<p>Now (with ReaR 2.8 RPM tested on rather complicated SLES15)<br />
+it is really time for me to vacation!</p>
+<p>@rear/contributors and all ReaR users who listen here:</p>
+<p>I wish you a relaxed and recovering Christmas time<br />
+and a Happy New Year!</p>
+<h4 id="pcahyna_commented_at_2024-12-20_1825"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2557513684">2024-12-20 18:25</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-20_1825" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thanks for the whole release process and all the fixes you did
+along the way!</p>
+<p>Merry Christmas and happy new year to you and everyone!</p>
+<h4 id="pcahyna_commented_at_2024-12-20_1827"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3238#issuecomment-2557515932">2024-12-20 18:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-12-20_1827" title="Permanent link">&para;</a></h4>
+<p>For the record: I tested a snapshot soon before the release on RHEL 8,
+RHEL 9 and RHEL 10, both BIOS and UEFI (x86_64 architecture), LVM
+layout only.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-05.3238.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
