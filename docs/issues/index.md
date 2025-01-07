@@ -3331,6 +3331,7 @@
 - [\#3236 PR](2024-06-01.3236.pr.open.md) `open`: Bump codacy/codacy-analysis-cli-action from 4.4.0 to 4.4.1
 - [\#3237 PR](2024-06-01.3237.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
 - [\#3237 PR](2024-06-01.3237.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
+- # [\#3238 Issue](2024-06-05.3238.issue.closed.md) `closed`: RFC: Preparations towards release of ReaR 2.8
 - [\#3238 Issue](2024-06-05.3238.issue.open.md) `open`: RFC: Preparations towards new release of ReaR v3.0
 - [\#3239 PR](2024-06-06.3239.pr.merged.md) `merged`: Fix version test in udev start by desupporting systemd &lt; 190
 - [\#3240 PR](2024-06-07.3240.pr.merged.md) `merged`: Improve Bareos integration
@@ -3485,4 +3486,11 @@
 - [\#3369 Issue](2024-12-18.3369.issue.open.md) `open`: Makefile contains "obsproject = Archiving:Backup:Rear:Snapshot" which does no longer exist
 - [\#3370 PR](2024-12-18.3370.pr.merged.md) `merged`: ReaR 2.8 release preparations
 - [\#3371 PR](2024-12-19.3371.pr.open.md) `open`: Do not remove dotfiles from the release archive
+- # [\#3372 Issue](2024-12-19.3372.issue.open.md) `open`: Invalid partition?
+- # [\#3373 PR](2024-12-20.3373.pr.open.md) `open`: Update rear-release-notes.txt
+- # [\#3374 Issue](2024-12-26.3374.issue.closed.md) `closed`: When performing rear recover, Unable to mount the NFS
+- # [\#3375 Issue](2025-01-02.3375.issue.open.md) `open`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
+- # [\#3376 PR](2025-01-02.3376.pr.open.md) `open`: Using Blockclone to save a disk image of a RPi system
+- # [\#3377 Issue](2025-01-03.3377.issue.open.md) `open`: 'USE\_RESOLV\_CONF=n' error with ReaR 2.8 (because USE\_RESOLV\_CONF is an array
+- # [\#3378 Issue](2025-01-04.3378.issue.open.md) `open`: Since ReaR 2.8: ERROR: Mounpoint / points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: <https://github.com/rear/rear/issues/2028>
 - # Issues History of Relax-and-Recover (index.md)
