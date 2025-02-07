@@ -3487,10 +3487,31 @@
 - [\#3370 PR](2024-12-18.3370.pr.merged.md) `merged`: ReaR 2.8 release preparations
 - [\#3371 PR](2024-12-19.3371.pr.open.md) `open`: Do not remove dotfiles from the release archive
 - # [\#3372 Issue](2024-12-19.3372.issue.open.md) `open`: Invalid partition?
+- [\#3373 PR](2024-12-20.3373.pr.merged.md) `merged`: Update rear-release-notes.txt
 - # [\#3373 PR](2024-12-20.3373.pr.open.md) `open`: Update rear-release-notes.txt
 - # [\#3374 Issue](2024-12-26.3374.issue.closed.md) `closed`: When performing rear recover, Unable to mount the NFS
+- [\#3375 Issue](2025-01-02.3375.issue.closed.md) `closed`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
 - # [\#3375 Issue](2025-01-02.3375.issue.open.md) `open`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
 - # [\#3376 PR](2025-01-02.3376.pr.open.md) `open`: Using Blockclone to save a disk image of a RPi system
 - # [\#3377 Issue](2025-01-03.3377.issue.open.md) `open`: 'USE\_RESOLV\_CONF=n' error with ReaR 2.8 (because USE\_RESOLV\_CONF is an array
 - # [\#3378 Issue](2025-01-04.3378.issue.open.md) `open`: Since ReaR 2.8: ERROR: Mounpoint / points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: <https://github.com/rear/rear/issues/2028>
+- [\#3379 PR](2025-01-13.3379.pr.open.md) `open`: New 'source' wrapper functions framework
+- [\#3380 PR](2025-01-13.3380.pr.merged.md) `merged`: Create /var/run symlink dynamically during mkrescue
+- [\#3381 Issue](2025-01-16.3381.issue.open.md) `open`: When performing recovery unable load necessary kernel modules automatically
+- [\#3382 PR](2025-01-22.3382.pr.merged.md) `merged`: Specify path to sbindir during RPM build
+- [\#3383 Issue](2025-01-22.3383.issue.closed.md) `closed`: False alarm in 880\_check\_for\_mount\_by\_id.sh when there is no SCSI disk (e.g. only NVMe disks
+- [\#3384 Issue](2025-01-22.3384.issue.open.md) `open`: OUTPUT=PORTABLE does not work for "rear mkbackup" ("mkrescue" plus "mkbackuponly" works
+- [\#3385 Issue](2025-01-22.3385.issue.open.md) `open`: \[New issue\] does no longer show our ISSUE\_TEMPLATE.md (at least not for me
+- [\#3386 Issue](2025-01-22.3386.issue.closed.md) `closed`: False "ERROR: Stale NFS mount point" because no timeout command in recovery system
+- [\#3387 PR](2025-01-27.3387.pr.merged.md) `merged`: Add 'timeout' to default REQUIRED\_PROGS
+- [\#3388 Issue](2025-01-27.3388.issue.open.md) `open`: Need to create timestamped directory under NFS for backup
+- [\#3389 PR](2025-01-28.3389.pr.merged.md) `merged`: 2.9 release preparations
+- [\#3390 PR](2025-01-29.3390.pr.merged.md) `merged`: Automate ReaR Release Builds via GH Actions
+- [\#3391 PR](2025-01-29.3391.pr.merged.md) `merged`: Overhauled 880\_check\_for\_mount\_by\_id.sh
+- [\#3392 PR](2025-02-01.3392.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.4.0 to 5.5.1
+- [\#3393 PR](2025-02-04.3393.pr.merged.md) `merged`: Remove 040\_inspect\_configuration\_files.sh (obsoleted by 001\_verify\_config\_arrays.sh
+- [\#3394 Issue](2025-02-04.3394.issue.closed.md) `closed`: Failed to source /usr/share/rear/conf/default.conf
+- [\#3395 Issue](2025-02-04.3395.issue.closed.md) `closed`: Failed to source /usr/share/rear/conf/default.conf
+- [\#3396 Issue](2025-02-06.3396.issue.open.md) `open`: Need Align all backup files under timestamp directory.
+- [\#3397 Issue](2025-02-06.3397.issue.open.md) `open`: Could not remove build area
 - # Issues History of Relax-and-Recover (index.md)
