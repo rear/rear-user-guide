@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3391 PR merged: Overhauled 880_check_for_mount_by_id.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3391 PR merged: Overhauled 880_check_for_mount_by_id.sh";
+        var mkdocs_page_input_path = "issues/2025-01-29.3391.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3391 PR merged: Overhauled 880_check_for_mount_by_id.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3391_pr_merged_overhauled_880_check_for_mount_by_idsh"><a href="https://github.com/rear/rear/pull/3391">#3391 PR</a> <code>merged</code>: Overhauled 880_check_for_mount_by_id.sh<a class="headerlink" href="#3391_pr_merged_overhauled_880_check_for_mount_by_idsh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-01-29_1655"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3391">2025-01-29 16:55</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-01-29_1655" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong> / <strong>Cleanup</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3383">https://github.com/rear/rear/issues/3383</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    See below<br />
+<a href="https://github.com/rear/rear/pull/3391#issuecomment-2624128336">https://github.com/rear/rear/pull/3391#issuecomment-2624128336</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>Overhauled finalize/default/880_check_for_mount_by_id.sh</p>
+<h4 id="jsmeix_commented_at_2025-01-30_1042"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3391#issuecomment-2624128336">2025-01-30 10:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-30_1042" title="Permanent link">&para;</a></h4>
+<p>With the current state up to<br />
+<a href="https://github.com/rear/rear/pull/3391/commits/c44018f14322af2c8c7c094673650ded6c91a2db">https://github.com/rear/rear/pull/3391/commits/c44018f14322af2c8c7c094673650ded6c91a2db</a><br />
+it seems to work as intended for me.</p>
+<p>My original system for my test is a<br />
+SLES 15 SP6 KVM/QEMU virtual machine.</p>
+<p>There I manually added a /dev/disk/by-id entry to /etc/fstab<br />
+for the only SCSI disk I have which is the virtual CDROM:</p>
+<pre><code># lsscsi
+[0:0:0:0]    cd/dvd  QEMU     QEMU DVD-ROM     2.5+  /dev/sr0
+
+# find /dev/disk/by-id/ -ls
+355 0 drwxr-xr-x 2 root root 60 Jan 30 08:54 /dev/disk/by-id/
+579 0 lrwxrwxrwx 1 root root  9 Jan 30 08:54 /dev/disk/by-id/ata-QEMU_DVD-ROM_QM00001 -&gt; ../../sr0
+
+# cat /etc/fstab 
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /                       btrfs  defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /var                    btrfs  subvol=/@/var                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /usr/local              btrfs  subvol=/@/usr/local           0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /tmp                    btrfs  subvol=/@/tmp                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /srv                    btrfs  subvol=/@/srv                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /root                   btrfs  subvol=/@/root                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /opt                    btrfs  subvol=/@/opt                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /home                   btrfs  subvol=/@/home                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/x86_64-efi  btrfs  subvol=/@/boot/grub2/x86_64-efi  0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/i386-pc     btrfs  subvol=/@/boot/grub2/i386-pc  0  0
+UUID=1b15280b-7649-43dc-a939-2ff39d41839b  swap                    swap   defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /.snapshots             btrfs  subvol=/@/.snapshots          0  0
+/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00001   /DVD                    iso9660 defaults                     0  0
+
+# cat /proc/partitions
+major minor  #blocks  name
+
+ 254        0   15728640 vda
+ 254        1       8192 vda1
+ 254        2   13622272 vda2
+ 254        3    2097135 vda3
+  11        0   16057344 sr0
+</code></pre>
+<p>The /dev/sr0 is a SLES 15 SP6 installation ISO image.<br />
+With that I did "rear mkbackup".</p>
+<p>My replacement "hardware" is another KVM/QEMU virtual machine<br />
+with same kind of virtual disk, a KVM 'VirtIO' virtual disks<br />
+and same disk size as the one of my original test system:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Automatically adjusting /dev/disk/by-id entries in etc/fstab is not supported:
+  Those IDs could be hardware dependent so check /mnt/local/etc/fstab
+  and verify all is correct or manually adjust /mnt/local/etc/fstab
+  to the actual values of the recreated system in /mnt/local
+  'scsi_id' reports '/dev/sr0' 84MiB: ID_VENDOR='QEMU' ID_MODEL='QEMU_DVD-ROM' ID_SERIAL='1ATA_QEMU_DVD-ROM_QM00001'
+...
+
+RESCUE localhost:~ # cat /mnt/local/etc/fstab
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /                       btrfs  defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /var                    btrfs  subvol=/@/var                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /usr/local              btrfs  subvol=/@/usr/local           0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /tmp                    btrfs  subvol=/@/tmp                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /srv                    btrfs  subvol=/@/srv                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /root                   btrfs  subvol=/@/root                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /opt                    btrfs  subvol=/@/opt                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /home                   btrfs  subvol=/@/home                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/x86_64-efi  btrfs  subvol=/@/boot/grub2/x86_64-efi  0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/i386-pc     btrfs  subvol=/@/boot/grub2/i386-pc  0  0
+UUID=1b15280b-7649-43dc-a939-2ff39d41839b  swap                    swap   defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /.snapshots             btrfs  subvol=/@/.snapshots          0  0
+/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00001   /DVD                    iso9660 defaults                     0  0
+
+RESCUE localhost:~ # cat /proc/partitions
+major minor  #blocks  name
+
+ 254        0   15728640 vda
+ 254        1       8192 vda1
+ 254        2   13622272 vda2
+ 254        3    2097135 vda3
+  11        0      86704 sr0
+</code></pre>
+<p>The /dev/sr0 is the ReaR recovery system ISO image.</p>
+<p>"rear -D recover" log file excerpts</p>
+<pre><code>+ source /usr/share/rear/finalize/default/880_check_for_mount_by_id.sh
+...
+2025-01-30 11:20:00.114442276 Automatically adjusting /dev/disk/by-id entries in etc/fstab is not supported:
+2025-01-30 11:20:00.119070443   Those IDs could be hardware dependent so check /mnt/local/etc/fstab
+2025-01-30 11:20:00.123974680   and verify all is correct or manually adjust /mnt/local/etc/fstab
+2025-01-30 11:20:00.129424122   to the actual values of the recreated system in /mnt/local
+2025-01-30 11:20:00.143412579 scsi_id: none of ID_VENDOR and ID_MODEL and ID_SERIAL is set for '/dev/vda'
+2025-01-30 11:20:00.154774704 scsi_id: none of ID_VENDOR and ID_MODEL and ID_SERIAL is set for '/dev/vda1'
+2025-01-30 11:20:00.166053463 scsi_id: none of ID_VENDOR and ID_MODEL and ID_SERIAL is set for '/dev/vda2'
+2025-01-30 11:20:00.177271568 scsi_id: none of ID_VENDOR and ID_MODEL and ID_SERIAL is set for '/dev/vda3'
+2025-01-30 11:20:00.213332139   'scsi_id' reports '/dev/sr0' 84MiB: ID_VENDOR='QEMU' ID_MODEL='QEMU_DVD-ROM' ID_SERIAL='1ATA_QEMU_DVD-ROM_QM00001'
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-30_1204"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3391#issuecomment-2624321777">2025-01-30 12:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-30_1204" title="Permanent link">&para;</a></h4>
+<p>Next thing is to get rid of that possibly insecure 'eval'<br />
+which evaluates variables that are set to "foreign" values.</p>
+<h4 id="jsmeix_commented_at_2025-01-30_1251"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3391#issuecomment-2624433370">2025-01-30 12:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-30_1251" title="Permanent link">&para;</a></h4>
+<p>With the current state up to<br />
+<a href="https://github.com/rear/rear/pull/3391/commits/587d6c7df5786fcdf19546958776ec1d4471738d">https://github.com/rear/rear/pull/3391/commits/587d6c7df5786fcdf19546958776ec1d4471738d</a><br />
+it still works same as for me as in my test before<br />
+<a href="https://github.com/rear/rear/pull/3391#issuecomment-2624128336">https://github.com/rear/rear/pull/3391#issuecomment-2624128336</a></p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Automatically adjusting /dev/disk/by-id entries in etc/fstab is not supported:
+  Those IDs could be hardware dependent so check /mnt/local/etc/fstab
+  and verify all is correct or manually adjust /mnt/local/etc/fstab
+  to the actual values of the recreated system in /mnt/local
+  'scsi_id' reports '/dev/sr0' 84MiB: ID_VENDOR=QEMU ID_MODEL=QEMU_DVD-ROM ID_SERIAL=1ATA_QEMU_DVD-ROM_QM00001 
+...
+</code></pre>
+<p>Only the formatting of the scsi_id output of ID_VENDOR ID_MODEL
+ID_SERIAL<br />
+looks now a bit simpler as it was before.</p>
+<h4 id="jsmeix_commented_at_2025-02-03_1301"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3391#issuecomment-2630940037">2025-02-03 13:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-03_1301" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless there are objections I would like to merge it<br />
+next Wednesday (Feb. 05) afternoon.</p>
+<h4 id="jsmeix_commented_at_2025-02-03_1604"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3391#issuecomment-2631425890">2025-02-03 16:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-03_1604" title="Permanent link">&para;</a></h4>
+<p>For comparison how it looks on the same test system as in<br />
+<a href="https://github.com/rear/rear/pull/3391#issuecomment-2624128336">https://github.com/rear/rear/pull/3391#issuecomment-2624128336</a><br />
+with pristine ReaR 2.9:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+WARNING ! You are mounting some devices by ID. Please be aware that the IDs
+are hardware dependent and that you might have to adjust your fstab to match
+the new IDs. Currently your system has the following disks with LUN IDs:
+  1ATA_QEMU_DVD-ROM_QM00001  /dev/sr0  84MB
+...
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-29.3391.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

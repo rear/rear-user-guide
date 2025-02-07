@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3390 PR merged: Automate ReaR Release Builds via GH Actions - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3390 PR merged: Automate ReaR Release Builds via GH Actions";
+        var mkdocs_page_input_path = "issues/2025-01-29.3390.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3390 PR merged: Automate ReaR Release Builds via GH Actions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3390_pr_merged_automate_rear_release_builds_via_gh_actions"><a href="https://github.com/rear/rear/pull/3390">#3390 PR</a> <code>merged</code>: Automate ReaR Release Builds via GH Actions<a class="headerlink" href="#3390_pr_merged_automate_rear_release_builds_via_gh_actions" title="Permanent link">&para;</a></h1>
+<h4 id="schlomo_opened_issue_at_2025-01-29_0849"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> opened issue at <a href="https://github.com/rear/rear/pull/3390">2025-01-29 08:49</a>:<a class="headerlink" href="#schlomo_opened_issue_at_2025-01-29_0849" title="Permanent link">&para;</a></h4>
+<p>Here is my suggestion for automation the ReaR release builds.</p>
+<p>Pushing a tag named like <code>release/x.y</code> will build a ReaR release with
+<code>make ... OFFICIAL=1</code> after validating that the version in <code>rear</code>
+matches the release tag version.</p>
+<p>The result is then published to our releases, where we can also manually
+update the release notes if we like so.</p>
+<p>The release notes are auto generated and should - in theory - contain a
+list of PRs. I've seen that in my first attempt but not in the
+subsequent ones, and I'm happy to look at improving that in a future
+iteration. For now it works and in any case we can then go and paste our
+release notes into the GH release after it is created.</p>
+<p><img width="1175" alt="image" src="https://github.com/user-attachments/assets/9616d90d-9e34-4417-9eeb-88a618736c9c" /></p>
+<p>The download URL of the "Official source dist archive" is like this:
+<code>https://github.com/rear/rear/releases/download/release/2.8.105/rear-2.8.105.tar.gz</code>
+which is IMHO a fairly nice URL.</p>
+<p>The download URL of the auto-generated source archives is unfortunately
+<code>https://github.com/rear/rear/archive/refs/tags/release/2.8.105.tar.gz</code>
+which is not so nice. I'm afraid that changing that would require
+including <code>rear-</code> as the prefix to the version in the release tag.</p>
+<p>As we want to encourage people to use the official dist archive instead
+of the auto-generated release tag source archive I would like to suggest
+to simply accept that as it is. I think that people downloading such
+auto-generated source snapshots know what they do and it seems to be
+common practice to not prefix the software name to the tag, e.g. see
+<a href="https://github.com/fish-shell/fish-shell/tags">https://github.com/fish-shell/fish-shell/tags</a>
+for another example with the same behaviour.</p>
+<p>I'll merge this this afternoon if I don't hear from you so that #3389
+can proceed. Please excuse the stupid branch name, it will be gone then.
+I'll also squash all commits for merging to mask my bumping the version
+in the rear script.</p>
+<h4 id="schlomo_commented_at_2025-01-29_0856"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2621033077">2025-01-29 08:56</a>:<a class="headerlink" href="#schlomo_commented_at_2025-01-29_0856" title="Permanent link">&para;</a></h4>
+<p>BTW, I disabled CentOS 7 and SL 7 from the Docker builds, so maybe we
+also should remove them from the "supported" distros in our release
+notes</p>
+<h4 id="schlomo_commented_at_2025-01-29_1425"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2621801965">2025-01-29 14:25</a>:<a class="headerlink" href="#schlomo_commented_at_2025-01-29_1425" title="Permanent link">&para;</a></h4>
+<p>@pcahyna what do you think? Any idea why the two <code>rpm-build</code> jobs are
+failing? Is it a false positive or a real problem?</p>
+<h4 id="hpannenb_commented_at_2025-01-30_0740"><img src="https://avatars.githubusercontent.com/u/13567759?u=b037e492e58a5f63f35277b3606d500cd622c8ed&v=4" width="50"><a href="https://github.com/hpannenb">hpannenb</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2623756454">2025-01-30 07:40</a>:<a class="headerlink" href="#hpannenb_commented_at_2025-01-30_0740" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>BTW, I disabled CentOS 7 and SL 7 from the Docker builds, so maybe we
+also should remove them from the "supported" distros in our release
+notes</p>
+</blockquote>
+<p>@schlomo: RHEL7 is still supported due to extended life cycle support
+(ELS) of Red Hat until June 30, 2028. Additionally SuSE provides
+extended support for Centos 7 until June 30, 2028 <a href="https://www.suse.com/products/multi-linux-support/">(ref.
+here)</a>. Maybe this
+should be the milestones to skip also ReaR's support of those
+"RHEL7"-ish OSs since they are still "alive" in the field?</p>
+<h4 id="schlomo_commented_at_2025-01-30_0810"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2623802229">2025-01-30 08:10</a>:<a class="headerlink" href="#schlomo_commented_at_2025-01-30_0810" title="Permanent link">&para;</a></h4>
+<p>@hpannenb ah, thanks for the details. Since ELS is AFAIK a paid thing
+I'd say that we, as the Open Source project, don't need to deal with
+that as part of our community efforts. In any case both RH and SUSE
+provide commercial ReaR support for the packages that they included. I'd
+hope that nobody gets to the idea to use an old RHEL7 with brand new
+hardware or backup software.</p>
+<p>Personally I'm simply tired of the way how I need to update
+<code>tools/run-in-docker</code> all the time to "fix" the old RHEL7 stuff.</p>
+<h4 id="jsmeix_commented_at_2025-01-30_1431"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2624671675">2025-01-30 14:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-30_1431" title="Permanent link">&para;</a></h4>
+<p>@hpannenb<br />
+the fundamental difference is<br />
+what we at ReaR upstream support on a voluntary base<br />
+versus<br />
+what is supported for RHEL and SLES customers<br />
+by Red Hat and SUSE via customer support contracts.</p>
+<p>What we at ReaR upstream describe in our release notes<br />
+is what we at ReaR upstream support on a voluntary base,<br />
+e.g. for ReaR 2.8 see<br />
+<a href="https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt">https://github.com/rear/rear/blob/master/doc/rear-release-notes.txt</a></p>
+<p>In contrast<br />
+for example what SUSE supports for SUSE customers<br />
+is described in the section<br />
+"SUSE support for Relax-and-Recover" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+Therein see also the section<br />
+"Relax-and-Recover (ReaR) RPM packages for disaster recovery"<br />
+what "rear..." RPM packages are provided by SUSE<br />
+for what SUSE Linux Enterprise version.</p>
+<h4 id="jsmeix_commented_at_2025-01-30_1434"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2624677566">2025-01-30 14:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-30_1434" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+feel free to drop support for older Linux distributions<br />
+when they become problematic as you like.</p>
+<h4 id="hpannenb_commented_at_2025-01-31_0741"><img src="https://avatars.githubusercontent.com/u/13567759?u=b037e492e58a5f63f35277b3606d500cd622c8ed&v=4" width="50"><a href="https://github.com/hpannenb">hpannenb</a> commented at <a href="https://github.com/rear/rear/pull/3390#issuecomment-2626497136">2025-01-31 07:41</a>:<a class="headerlink" href="#hpannenb_commented_at_2025-01-31_0741" title="Permanent link">&para;</a></h4>
+<p>Understood. At a certain time support needs to be dropped and there is
+obviously a difference between commercial versus voluntary support.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-29.3390.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

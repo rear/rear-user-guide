@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3379 PR open: New 'source' wrapper functions framework - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3379 PR open: New \u0027source\u0027 wrapper functions framework";
+        var mkdocs_page_input_path = "issues/2025-01-13.3379.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3379 PR open: New 'source' wrapper functions framework</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3379_pr_open_new_source_wrapper_functions_framework"><a href="https://github.com/rear/rear/pull/3379">#3379 PR</a> <code>open</code>: New 'source' wrapper functions framework<a class="headerlink" href="#3379_pr_open_new_source_wrapper_functions_framework" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>severe improvement</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-01-13_1555"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3379">2025-01-13 15:55</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-01-13_1555" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong><br />
+    May cause failures when ReaR sources third-party scripts<br />
+    which source other scripts via '.'</p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/3259">https://github.com/rear/rear/issues/3259</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p>"rear mkbackup" and "rear recover" worked for me with</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+</code></pre>
+<p>on a SLES15-SP6 default system</p>
+<ol>
+<li>in normal mode<ul>
+<li>when on the original system ReaR is installed as normal RPM
+    package</li>
+<li>when on the original system ReaR is a Git checkout as as root or
+    normal user</li>
+</ul>
+</li>
+<li>
+<p>in PORTABLE mode</p>
+<ul>
+<li>when on the original system ReaR is installed as normal RPM
+    package</li>
+<li>when on the original system ReaR is a Git checkout as normal
+    user</li>
+</ul>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ol>
+<p>In sbin/rear forbind sourcing via '.' and<br />
+in lib/_input-output-functions.sh implement a<br />
+'source' wrapper function that is intended to<br />
+implement trustworthy sourcing later<br />
+to improve security, see in general<br />
+<a href="https://relax-and-recover.org/documentation/security-architecture">https://relax-and-recover.org/documentation/security-architecture</a><br />
+and see<br />
+<a href="https://github.com/rear/rear/issues/3259">https://github.com/rear/rear/issues/3259</a><br />
+therein in particular<br />
+<a href="https://github.com/rear/rear/issues/3259#issuecomment-2385745545">https://github.com/rear/rear/issues/3259#issuecomment-2385745545</a></p>
+<h4 id="jsmeix_commented_at_2025-01-15_1650"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2593437307">2025-01-15 16:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-15_1650" title="Permanent link">&para;</a></h4>
+<p>With latest changes via<br />
+<a href="https://github.com/rear/rear/pull/3379/commits/213cc8756011aca60114154aeffb9deee0e63bb4">https://github.com/rear/rear/pull/3379/commits/213cc8756011aca60114154aeffb9deee0e63bb4</a><br />
+"rear mkrescue" plus "rear mkbackuponly"<br />
+and then "rear recover" still works for me<br />
+on a Git checkout that I did as 'root'.</p>
+<p>For running from a Git checkout also as non-root<br />
+I have already an alternative (commented out) in the code</p>
+<pre><code>function source () {
+    ...
+    # Ensure source file owner is 'root' (unless we are running from checkout where REAR_DIR_PREFIX is set):
+    #test "$REAR_DIR_PREFIX" || is_owner_root "$source_file" || Error "Forbidden to 'source $source_file' because its owner is not 'root'"
+    # Ensure source file owner is 'root' (regardless whether or not we are running from checkout):
+    is_owner_root "$source_file" || Error "Forbidden to 'source $source_file' because its owner is not 'root'"
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-15_1710"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2593491758">2025-01-15 17:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-15_1710" title="Permanent link">&para;</a></h4>
+<p>The CI check</p>
+<pre><code>Build Packages / build (push) Failing
+</code></pre>
+<p>fails because of this<br />
+<a href="https://github.com/rear/rear/actions/runs/12793045489/job/35664918367?pr=3379">https://github.com/rear/rear/actions/runs/12793045489/job/35664918367?pr=3379</a></p>
+<pre><code>Run tools/run-in-docker $(&lt;images) -- rear dump
+********** ubuntu:20.04                             **********
+ERROR: Forbidden to 'source /rear/usr/share/rear/lib/array-functions.sh' because its owner is not 'root'
+</code></pre>
+<p>so I will change to the above commented out method in the code<br />
+because '/rear/usr/share/rear/lib/array-functions.sh' has<br />
+a '/rear' prefix directory so REAR_DIR_PREFIX should be non-empty
+('/rear')</p>
+<h4 id="jsmeix_commented_at_2025-01-17_1233"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2598270427">2025-01-17 12:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-17_1233" title="Permanent link">&para;</a></h4>
+<p>For comparison (with 'set -x' added to sbin/rear):</p>
+<p>ReaR's basic directories when running sbin/rear<br />
+from a normally installed package<br />
+(i.e. when ReaR's files are installed in '/'<br />
+so REAR_DIR_PREFIX is empty):</p>
+<pre><code>localhost:~ # /usr/sbin/rear -D help
++ REAR_DIR_PREFIX=
++++ type -p /usr/sbin/rear
+++ readlink -f /usr/sbin/rear
++ readonly SCRIPT_FILE=/usr/sbin/rear
++ SCRIPT_FILE=/usr/sbin/rear
+++ readlink -f /usr/sbin/rear
++ test /usr/sbin/rear '!=' /usr/sbin/rear
++ readonly REAR_DIR_PREFIX
++ SHARE_DIR=/usr/share/rear
++ CONFIG_DIR=/etc/rear
++ VAR_DIR=/var/lib/rear
++ LOG_DIR=/var/log/rear
++ DISKLAYOUT_FILE=/var/lib/rear/layout/disklayout.conf
++ readonly TARGET_FS_ROOT=/mnt/local
++ TARGET_FS_ROOT=/mnt/local
+...
+</code></pre>
+<p>versus<br />
+ReaR's basic directories when running sbin/rear<br />
+from a Git checkout<br />
+(i.e. when ReaR's files are installed in '/some/path/'<br />
+so REAR_DIR_PREFIX is non-empty '/some/path'):</p>
+<pre><code>localhost:~/rear.github.master-jsmeix-source-wrapper # usr/sbin/rear -D help
++ REAR_DIR_PREFIX=
++++ type -p usr/sbin/rear
+++ readlink -f usr/sbin/rear
++ readonly SCRIPT_FILE=/root/rear.github.master-jsmeix-source-wrapper/usr/sbin/rear
++ SCRIPT_FILE=/root/rear.github.master-jsmeix-source-wrapper/usr/sbin/rear
+++ readlink -f /usr/sbin/rear
++ test /root/rear.github.master-jsmeix-source-wrapper/usr/sbin/rear '!=' /usr/sbin/rear
++ REAR_DIR_PREFIX=/root/rear.github.master-jsmeix-source-wrapper
++ readonly REAR_DIR_PREFIX
++ SHARE_DIR=/root/rear.github.master-jsmeix-source-wrapper/usr/share/rear
++ CONFIG_DIR=/root/rear.github.master-jsmeix-source-wrapper/etc/rear
++ VAR_DIR=/root/rear.github.master-jsmeix-source-wrapper/var/lib/rear
++ LOG_DIR=/root/rear.github.master-jsmeix-source-wrapper/var/log/rear
+++ pwd
++ readonly WORKING_DIR=/root/rear.github.master-jsmeix-source-wrapper
++ WORKING_DIR=/root/rear.github.master-jsmeix-source-wrapper
++ DISKLAYOUT_FILE=/root/rear.github.master-jsmeix-source-wrapper/var/lib/rear/layout/disklayout.conf
++ readonly TARGET_FS_ROOT=/mnt/local
++ TARGET_FS_ROOT=/mnt/local
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-20_0713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2601575741">2025-01-20 07:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-20_0713" title="Permanent link">&para;</a></h4>
+<p>For comparison (with 'set -x' added to sbin/rear):</p>
+<p>ReaR's basic directories<br />
+when running /bin/rear in the ReaR recovery system<br />
+when ReaR on the original system was a Git checkout:</p>
+<pre><code>RESCUE localhost:~ # rear help
++ REAR_DIR_PREFIX=
++++ type -p /bin/rear
+++ readlink -f /bin/rear
++ readonly SCRIPT_FILE=/bin/rear
++ SCRIPT_FILE=/bin/rear
+++ readlink -f /usr/sbin/rear
++ test /bin/rear '!=' /bin/rear
++ readonly REAR_DIR_PREFIX
++ SHARE_DIR=/usr/share/rear
++ CONFIG_DIR=/etc/rear
++ VAR_DIR=/var/lib/rear
++ LOG_DIR=/var/log/rear
+++ pwd
++ readonly WORKING_DIR=/root
++ WORKING_DIR=/root
++ DISKLAYOUT_FILE=/var/lib/rear/layout/disklayout.conf
++ readonly TARGET_FS_ROOT=/mnt/local
++ TARGET_FS_ROOT=/mnt/local
+</code></pre>
+<p>so ReaR's basic directories in the ReaR recovery system<br />
+are always the same as on the original system<br />
+from a normally installed package<br />
+BUT<br />
+some of them are symlinks and others are not:</p>
+<pre><code>/usr/share/rear is a symbolic link to ../../rear/prefix/usr/share/rear
+/etc/rear is a normal directory (no symbolic link to /rear/prefix/etc/rear)
+/var/lib/rear is a symbolic link to ../../rear/prefix/var/lib/rear
+/var/log/rear is a normal directory (no symbolic link to /rear/prefix/var/log/rear)
+</code></pre>
+<p>so the actual files in /usr/share/rear and /var/lib/rear<br />
+are under a prefix directory<br />
+except the actual files in /etc/rear and /var/log/rear<br />
+which are really in /etc/rear and /var/log/rear<br />
+so the empty REAR_DIR_PREFIX matches where the actual files<br />
+in CONFIG_DIR and LOG_DIR are but it does<br />
+neither match where the actual files in SHARE_DIR are<br />
+nor does REAR_DIR_PREFIX match where the actual files in VAR_DIR are.</p>
+<h4 id="jsmeix_commented_at_2025-01-20_0843"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2601767515">2025-01-20 08:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-20_0843" title="Permanent link">&para;</a></h4>
+<p>With the fixed is_trustworthy_path function in<br />
+<a href="https://github.com/rear/rear/pull/3379/commits/02b7bb82c642c699443531109508b787d1e9bb0b">https://github.com/rear/rear/pull/3379/commits/02b7bb82c642c699443531109508b787d1e9bb0b</a><br />
+the 'readlink -e' result is actually used and tested<br />
+so ReaR now fails as expected the ReaR recovery system<br />
+when ReaR on the original system was a Git checkout</p>
+<pre><code>RESCUE localhost:~ # rear -D help
+ERROR: Forbidden to 'source /usr/share/rear/lib/array-functions.sh' because it is not below a trustworthy directory
+</code></pre>
+<p>because</p>
+<pre><code>RESCUE localhost:~ # readlink -e /usr/share/rear/lib/array-functions.sh
+/root/rear.github.master-jsmeix-source-wrapper/usr/share/rear/lib/array-functions.sh
+</code></pre>
+<p>and because of REAR_DIR_PREFIX is empty in the ReaR recovery system<br />
+my ReaR prefix directory
+<code>/root/rear.github.master-jsmeix-source-wrapper</code><br />
+from my Git checkout on my original system<br />
+is not considered as a trustworthy path<br />
+within the ReaR recovery system.</p>
+<p>I will have to find a proper solution for this...</p>
+<h4 id="jsmeix_commented_at_2025-01-20_0940"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2601898857">2025-01-20 09:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-20_0940" title="Permanent link">&para;</a></h4>
+<p>My recent<br />
+<a href="https://github.com/rear/rear/pull/3379/commits/6f4b89db52b7e67a5e34593fd5fad1594048ecf6">https://github.com/rear/rear/pull/3379/commits/6f4b89db52b7e67a5e34593fd5fad1594048ecf6</a><br />
+is a quick fix to get "rear recover" working for me<br />
+when ReaR on the original system was a Git checkout.<br />
+I will have to check more carefully if this is a proper solution.<br />
+I already notice that my current logic in that code looks weird<br />
+...<br />
+The next<br />
+<a href="https://github.com/rear/rear/pull/3379/commits/fedab89f569d8ca1c67be73d36b56866aa57ea1e">https://github.com/rear/rear/pull/3379/commits/fedab89f569d8ca1c67be73d36b56866aa57ea1e</a><br />
+should be much better</p>
+<p>I know that in my current code it is not ideal<br />
+that trustworthy_paths is determined for each call<br />
+of the is_trustworthy_path function but the<br />
+current code is still only a proof of concept<br />
+to find out how far such things work at all.<br />
+For the final solution trustworthy_paths could be<br />
+a global variable TRUSTWORTHY_PATHS probably even<br />
+a user config variable that gets set only once<br />
+e.g. if empty its default could be set in sbin/rear<br />
+and the is_trustworthy_path function only uses it.</p>
+<h4 id="jsmeix_commented_at_2025-01-21_1339"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2604766690">2025-01-21 13:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-21_1339" title="Permanent link">&para;</a></h4>
+<p>I tested my latest state here, i.e. up to<br />
+<a href="https://github.com/rear/rear/pull/3379/commits/3ec991a895977b5a02a69bde772d2bccbde844f8">https://github.com/rear/rear/pull/3379/commits/3ec991a895977b5a02a69bde772d2bccbde844f8</a></p>
+<p>Both "rear mkbackup" and "rear recover" work for me<br />
+when running 'rear' from a normally installed package<br />
+and also<br />
+when running 'sbin/rear' from a Git checkout which I did as root.</p>
+<p>I will also test from a Git checkout which I did as non-root.</p>
+<h4 id="jsmeix_commented_at_2025-01-22_1312"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2607217184">2025-01-22 13:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-22_1312" title="Permanent link">&para;</a></h4>
+<p>I tested how it behaves from a Git checkout which I did as non-root.</p>
+<p>Summary:<br />
+For me all "just worked out of the box".</p>
+<p>Details:</p>
+<p>How I made my Git checkout as normal non-root user 'johannes'<br />
+on a SLES15-SP6 virtual KVM/QEMU machine:</p>
+<pre><code>johannes@localhost:~&gt; git clone https://github.com/rear/rear.git
+
+johannes@localhost:~&gt; mv rear rear.github.master-jsmeix-source-wrapper
+
+johannes@localhost:~&gt; cd rear.github.master-jsmeix-source-wrapper
+
+johannes@localhost:~/rear.github.master-jsmeix-source-wrapper&gt; git checkout -b jsmeix-source-wrapper remotes/origin/jsmeix-source-wrapper
+
+johannes@localhost:~/rear.github.master-jsmeix-source-wrapper&gt; vi etc/rear/local.conf
+
+johannes@localhost:~/rear.github.master-jsmeix-source-wrapper&gt; grep -v '^#' etc/rear/local.conf
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+</code></pre>
+<p>How I did "rear mkrescue" and "rear mkbackuponly" as 'root'<br />
+inside the Git checkout directory:</p>
+<pre><code>johannes@localhost:~/rear.github.master-jsmeix-source-wrapper&gt; su
+Password: ...
+
+localhost:/home/johannes/rear.github.master-jsmeix-source-wrapper # usr/sbin/rear -D mkrescue
+...
+Using log file: /home/johannes/rear.github.master-jsmeix-source-wrapper/var/log/rear/rear-localhost.log
+...
+["just worked"]
+
+localhost:/home/johannes/rear.github.master-jsmeix-source-wrapper # grep 'Sourced files must be' var/log/rear/rear-localhost.30496.log
+2025-01-22 12:40:07.209350458 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+2025-01-22 12:40:07.210857184 Sourced files must be below one of the TRUSTWORTHY_PATHS /home/johannes/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /lib/
+
+localhost:/home/johannes/rear.github.master-jsmeix-source-wrapper # usr/sbin/rear -D mkbackuponly
+...
+Using log file: /home/johannes/rear.github.master-jsmeix-source-wrapper/var/log/rear/rear-localhost.30496.log
+...
+["just worked"]
+
+localhost:/home/johannes/rear.github.master-jsmeix-source-wrapper # grep 'Sourced files must be' var/log/rear/rear-localhost.30496.log
+2025-01-22 12:40:07.209350458 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+2025-01-22 12:40:07.210857184 Sourced files must be below one of the TRUSTWORTHY_PATHS /home/johannes/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /lib/
+</code></pre>
+<p>How I did "rear recover" on another virtual KVM/QEMU machine:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Using log file: /var/log/rear/rear-localhost.log
+...
+["just worked"]
+
+RESCUE localhost:~ # grep 'Sourced files must be' /var/log/rear/rear-localhost.log
+2025-01-22 13:25:48.555124104 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+2025-01-22 13:25:48.557765237 Sourced files must be below one of the TRUSTWORTHY_PATHS /home/johannes/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /var/lib/rear/ /lib/
+
+RESCUE localhost:~ # type -a rear
+rear is /bin/rear
+rear is /sbin/rear
+
+RESCUE localhost:~ # readlink -e /bin/rear
+/bin/rear
+
+RESCUE localhost:~ # readlink -e /sbin/rear
+/bin/rear
+
+RESCUE localhost:~ # ls -l /bin/rear
+-rwxr-xr-x 1 johannes users 46078 Jan 22 12:32 /bin/rear
+
+RESCUE localhost:~ # readlink -e /usr/share/rear/lib/_input-output-functions.sh 
+/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/lib/_input-output-functions.sh
+
+RESCUE localhost:~ # ls -l /home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/lib/_input-output-functions.sh
+-rw-r--r-- 1 johannes users 99574 Jan 22 12:32 /home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/lib/_input-output-functions.sh
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-22_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2607222152">2025-01-22 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-22_1315" title="Permanent link">&para;</a></h4>
+<p>Next step is testing how it behaves in PORTABLE mode...</p>
+<h4 id="jsmeix_commented_at_2025-01-22_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2607258857">2025-01-22 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-22_1331" title="Permanent link">&para;</a></h4>
+<p>For now in its current still "proof of concept" state here<br />
+I intentionally keep TRUSTWORTHY_OWNERS for files to be sourced<br />
+separated from the already existing TRUSTED_FILE_OWNERS for<br />
+trusted owners of files where RequiredSharedObjects calls ldd.</p>
+<p>Later when things work sufficiently well for files to be sourced<br />
+I will think about to simplify it to two generic user config variables<br />
+in a separated second step which is independent of this pull request:<br />
+One for trusted owners and a second one for trusted paths for all
+cases<br />
+where trustworthiness of files needs to be checked.</p>
+<p>Because I do agree with<br />
+<a href="https://en.wikipedia.org/wiki/Trusted_computing_base#Trusted_vs._trustworthy">https://en.wikipedia.org/wiki/Trusted_computing_base#Trusted_vs._trustworthy</a></p>
+<pre><code>... the trusted computing base is "trusted"
+first and foremost in the sense that it has to be trusted,
+and not necessarily that it is trustworthy ...
+</code></pre>
+<p>I perfer the variable name TRUSTED_FILE_OWNERS over
+TRUSTWORTHY_OWNERS<br />
+so the two generic user config variables will likely be named<br />
+TRUSTED_FILE_OWNERS and TRUSTED_FILE_PATHS because<br />
+in particular paths with huge contents like '/usr/' are "trusted"<br />
+first and foremost in the sense that it has to be trusted, and<br />
+not necessarily that it is trustworthy because in daily practice<br />
+it is hard (up to practically impossible for normal admins)<br />
+to continuously ensure that all files below '/usr/'<br />
+are always actually trustworthy.</p>
+<p>Furthermore in particular for ReaR<br />
+TRUSTED_FILE_OWNERS and TRUSTED_FILE_PATHS mean that<br />
+from ReaR's point of view those files have to be trusted<br />
+and not necessarily that they are actually trustworthy,<br />
+i.e. ReaR will not implement verification code<br />
+that proves those files are actually trustworthy.<br />
+This makes ReaR behave same as usual other software, cf.<br />
+<a href="https://github.com/rear/rear/issues/3259#issuecomment-2385745545">https://github.com/rear/rear/issues/3259#issuecomment-2385745545</a><br />
+which reads (excerpt)</p>
+<pre><code>... other software executes potentially untrusted code
+all the time.
+
+The shell executes commands that it finds
+in essentially arbitrary directories.
+
+The Python interpreter loads modules again
+from essentially arbitrary directories.
+
+The dynamic linker (ELF binary interpreter)
+loads shared libraries from essentially
+arbitrary directories and so on.
+
+How are security issues prevented in these systems?
+
+It is not by using any "same-author policy"
+(no software I know about is doing that),
+it is by controlling the set of directories
+that the code can be loaded from.
+
+The shell uses $PATH,
+the Python interpreter sys.path,
+the dynamic linker uses its defaults and the
+directories configured in /etc/ld.so.conf and so on.
+
+If any of these sets contain a world-writable directory,
+the security impact is disastrous and it is a job
+of the distribution and of the system administrator
+to ensure that this is not the case.
+</code></pre>
+<p>In ReaR this is now implemented via TRUSTWORTHY_PATHS.</p>
+<p>Additionally ReaR implements TRUSTWORTHY_OWNERS according to<br />
+<a href="https://relax-and-recover.org/documentation/security-architecture">https://relax-and-recover.org/documentation/security-architecture</a><br />
+which reads (excerpt)</p>
+<pre><code>To mitigate the risk of code injections,
+the following checks are implemented:
+...
+When ReaR is installed properly and not run from source
+or in portable mode, then we validate for example
+that ReaR scripts and configuration files are owned by root
+and are not writable by unprivileged users
+or that the scripts are sourced from the ReaR scripts paths.
+</code></pre>
+<p>What this pull request does not implement<br />
+(and it is not intended to be implemented via this pull request)<br />
+is the</p>
+<pre><code>... files ... are not writable by unprivileged users
+</code></pre>
+<p>part - simply because I have currently no idea how to prove<br />
+that a file cannot be written by any unprivileged user<br />
+via any way (e.g. file permissions alone won't help when<br />
+the user could replace the whole directory by his copy).<br />
+This might be doable for traditional Unix permissions.<br />
+But I have currently no idea how to do it for ACLs<br />
+or whatever other advanced or weird things.<br />
+Also think about files on "weak" file systems that<br />
+do not support standard Unix permission settings.<br />
+Such advanced topics (which go far beyond what<br />
+other software does) should be implemented<br />
+via separated subsequent pull requests.</p>
+<h4 id="jsmeix_commented_at_2025-01-22_1554"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2607619465">2025-01-22 15:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-22_1554" title="Permanent link">&para;</a></h4>
+<p>I did my very first but not yet correct testing of PORTABLE mode:</p>
+<p>I tested on a SLES15-SP6 virtual KVM/QEMU machine<br />
+with the default SLES btrfs structure<br />
+in a Git checkout as normal non-root user 'johannes', cf.<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607217184">https://github.com/rear/rear/pull/3379#issuecomment-2607217184</a></p>
+<p>Because currently "rear mkbackup" does not work<br />
+in PORTABLE mode - at lest not in my use case - I did<br />
+first "rear mkrescue" and then "rear mkbackuponly", cf.<br />
+<a href="https://github.com/rear/rear/issues/3384">https://github.com/rear/rear/issues/3384</a></p>
+<p>To test "rear recover" in PORTABLE mode I booted<br />
+the ReaR recovery system ISO which I had already from<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607217184">https://github.com/rear/rear/pull/3379#issuecomment-2607217184</a><br />
+because I do not have a non-ReaR rescue system and<br />
+with a ReaR rescue system I know I have all needed programs<br />
+so I don't need to bother with that because I only liked<br />
+to test the PORTABLE mode alone.</p>
+<p>In the booted ReaR recovery system ISO I did</p>
+<pre><code>RESCUE localhost:~ # mount -t nfs -o nolock 192.168.178.66:/nfs/localhost.portable /nfs
+</code></pre>
+<p>to mount my NFS share where my localhost-portable.tar.gz is<br />
+and then I did</p>
+<pre><code>RESCUE localhost:~ # tar -xvf /nfs/localhost-portable.tar.gz
+</code></pre>
+<p>to untar the PORTABLE mode ReaR files and<br />
+finally I did</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Using log file: /var/log/rear/rear-localhost.log
+...
+</code></pre>
+<p>which "just worked" for me.</p>
+<p>BUT:<br />
+In its /var/log/rear/rear-localhost.log I see</p>
+<pre><code>2025-01-22 16:20:01.439869675 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+2025-01-22 16:20:01.442538730 Sourced files must be below one of the TRUSTWORTHY_PATHS /home/johannes/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /var/lib/rear/ /lib/
+2025-01-22 16:20:01.445410746 Trustworthy sourcing '/usr/share/rear/lib/array-functions.sh'
+2025-01-22 16:20:01.451235338 Trustworthy sourcing '/usr/share/rear/lib/authtoken-functions.sh'
+...
+2025-01-22 16:20:01.971160935 Trustworthy sourcing '/usr/share/rear/init/default/001_verify_config_arrays.sh'
+...
+++ readlink -e /usr/share/rear/init/default/001_verify_config_arrays.sh
++ actual_path=/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh
++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
++ test /home/johannes/rear.github.master-jsmeix-source-wrapper/
++ [[ /home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh =~ ^/home/johannes/rear.github.master-jsmeix-source-wrapper/ ]]
++ return 0
++ builtin source /usr/share/rear/init/default/001_verify_config_arrays.sh
+...
+</code></pre>
+<p>so it did not use the PORTABLE mode ReaR files<br />
+from localhost-portable.tar.gz which are under</p>
+<pre><code>/root/home/johannes/rear.github.master-jsmeix-source-wrapper/
+</code></pre>
+<p>but the ReaR files from the booted ReaR recovery system ISO under</p>
+<pre><code>/home/johannes/rear.github.master-jsmeix-source-wrapper/
+</code></pre>
+<p>cf.</p>
+<pre><code>RESCUE localhost:~ # find / -xdev | grep '001_verify_config_arrays.sh'
+/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh
+/root/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh
+</code></pre>
+<p>so this very first test of PORTABLE mode was not yet correct.</p>
+<p>Tomorrow I will have a further look<br />
+how things are meant to work in PORTABLE mode and<br />
+how I could test PORTABLE mode with reasonable effort<br />
+(I want to avoid to bother with a "third-party" rescue system).</p>
+<h4 id="jsmeix_commented_at_2025-01-23_1251"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2609733311">2025-01-23 12:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_1251" title="Permanent link">&para;</a></h4>
+<p>Next try to test PORTABLE mode:</p>
+<p>I tested on a SLES15-SP6 virtual KVM/QEMU machine<br />
+with the default SLES btrfs structure<br />
+in a Git checkout as normal non-root user 'johannes', cf.<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607217184">https://github.com/rear/rear/pull/3379#issuecomment-2607217184</a></p>
+<p>I use this local.conf</p>
+<pre><code># OUTPUT=ISO
+OUTPUT=PORTABLE
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+REQUIRED_PROGS+=( 'timeout' )
+</code></pre>
+<p>I did "rear mkrescue" with OUTPUT=ISO<br />
+and I got this files on my NFS server</p>
+<pre><code># ls -lhdtr /nfs/localhost/*
+-rw------- 1 nobody nobody  86M Jan 23 13:14 /nfs/localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  273 Jan 23 13:14 /nfs/localhost/VERSION
+-rw------- 1 nobody nobody  202 Jan 23 13:14 /nfs/localhost/README
+-rw------- 1 nobody nobody 2.3M Jan 23 13:14 /nfs/localhost/rear-localhost.log
+</code></pre>
+<p>Then I did "rear mkrescue" with OUTPUT=PORTABLE<br />
+and I got then this files on my NFS server</p>
+<pre><code># ls -lhdtr /nfs/localhost/*
+-rw------- 1 nobody nobody  86M Jan 23 13:14 /nfs/localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  202 Jan 23 13:14 /nfs/localhost/README
+-rw------- 1 nobody nobody 804K Jan 23 13:27 /nfs/localhost/localhost-portable.tar.gz
+-rw------- 1 nobody nobody  278 Jan 23 13:27 /nfs/localhost/VERSION
+-rw------- 1 nobody nobody 2.4M Jan 23 13:27 /nfs/localhost/rear-localhost.log
+</code></pre>
+<p>Finally I did "rear -D mkbackuponly" (also OUTPUT=PORTABLE)<br />
+and I got finally this files on my NFS server:</p>
+<pre><code># ls -lhdtr /nfs/localhost/*
+-rw------- 1 nobody nobody  86M Jan 23 13:14 /nfs/localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  202 Jan 23 13:14 /nfs/localhost/README
+-rw------- 1 nobody nobody 804K Jan 23 13:27 /nfs/localhost/localhost-portable.tar.gz
+-rw------- 1 nobody nobody  278 Jan 23 13:27 /nfs/localhost/VERSION
+-rw------- 1 nobody nobody 2.4M Jan 23 13:27 /nfs/localhost/rear-localhost.log
+-rw-r--r-- 1 nobody nobody 2.6G Jan 23 13:41 /nfs/localhost/backup.tar.gz
+-rw-r--r-- 1 nobody nobody  10M Jan 23 13:41 /nfs/localhost/backup.log
+</code></pre>
+<p>My plan is to<br />
+boot another virtual KVM/QEMU machine<br />
+with the rear-localhost.iso (from OUTPUT=ISO)<br />
+log in as 'root' there and remove all ReaR files<br />
+(i.e. the ones from rear-localhost.iso)<br />
+in the ReaR recovery system<br />
+then<br />
+download localhost-portable.tar.gz (from OUTPUT=PORTABLE)<br />
+and untar it in an arbitraty sub-directory<br />
+change into that sub-directory and<br />
+finally<br />
+try "rear recover"</p>
+<h4 id="jsmeix_commented_at_2025-01-23_1448"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2610008547">2025-01-23 14:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_1448" title="Permanent link">&para;</a></h4>
+<p>"rear recover" in PORTABLE mode worked well for me<br />
+when on the original system it was<br />
+a Git checkout as normal non-root user 'johannes':</p>
+<p>I booted another virtual KVM/QEMU machine<br />
+with the rear-localhost.iso (from OUTPUT=ISO)<br />
+and logged in as 'root' there.</p>
+<p>I removed all ReaR files<br />
+(i.e. the ones from rear-localhost.iso)<br />
+in the ReaR recovery system<br />
+except '/etc/rear-release' which I keep<br />
+so even I don't need '-p' for "rear recover".</p>
+<p>Then I did</p>
+<pre><code>RESCUE localhost: # mkdir /nfs
+
+RESCUE localhost: # mount -t nfs -o nolock 192.168.178.66:/nfs/localhost /nfs
+
+RESCUE localhost: # mkdir /portable
+RESCUE localhost: # mkdir /portable/rear
+
+RESCUE localhost: # cd /portable/rear
+
+RESCUE localhost:/portable/rear # cp /nfs/localhost-portable.tar.gz .
+
+RESCUE localhost:/portable/rear # tar -xf localhost-portable.tar.gz
+
+RESCUE localhost:/portable/rear # ls -l
+total 804
+drwxr-xr-x 3 root root      0 Jan 23 15:26 etc
+drwxr-xr-x 3 root root      0 Jan 23 15:26 home
+-rw-r--r-- 1 root root 823134 Jan 23 15:26 localhost-portable.tar.gz
+drwxr-xr-x 4 root root      0 Jan 23 15:26 usr
+drwxr-xr-x 3 root root      0 Jan 23 15:26 var
+
+RESCUE localhost:/portable/rear # find usr -ls
+    26315      0 drwxr-xr-x   4 root     root            0 Jan 23 15:26 usr
+    26326      0 drwxr-xr-x   2 root     root            0 Jan 23 15:26 usr/share
+    28118      0 lrwxrwxrwx   1 root     root           75 Jan 23 13:26 usr/share/rear -&gt; ../../home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear
+    26316      0 drwxr-xr-x   2 root     root            0 Jan 23 15:26 usr/sbin
+    26317     48 -rwxr-xr-x   1 johannes users       46078 Jan 22 12:32 usr/sbin/rear
+
+RESCUE localhost:/portable/rear # find etc/ -ls
+    26318      0 drwxr-xr-x   3 root     root            0 Jan 23 15:26 etc/
+    26319      0 drwxr-xr-x   2 root     root            0 Jan 23 13:26 etc/rear
+    26322      4 -rw-r--r--   1 root     root          378 Jan 23 13:26 etc/rear/os.conf
+    26321      8 -rw-r--r--   1 root     root         5090 Jan 23 13:26 etc/rear/local.conf
+    26320      4 -rw-r--r--   1 root     root         1265 Jan 23 13:26 etc/rear/rescue.conf
+
+RESCUE localhost:/portable/rear # find var -ls
+    26328      0 drwxr-xr-x   3 root     root            0 Jan 23 15:26 var
+    26329      0 drwxr-xr-x   2 root     root            0 Jan 23 15:26 var/lib
+    28117      0 lrwxrwxrwx   1 root     root           73 Jan 23 13:26 var/lib/rear -&gt; ../../home/johannes/rear.github.master-jsmeix-source-wrapper/var/lib/rear
+
+RESCUE localhost:/portable/rear # usr/sbin/rear -D recover
+...
+Using log file: /portable/rear/var/log/rear/rear-localhost.log
+...
+
+RESCUE localhost:/portable/rear # less var/log/rear/rear-localhost.log
+...
+2025-01-23 15:29:56.799822840 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+2025-01-23 15:29:56.802493990 Sourced files must be below one of the TRUSTWORTHY_PATHS /portable/rear/ /usr/ /etc/ /lib/
+2025-01-23 15:29:56.805229400 Trustworthy sourcing '/portable/rear/usr/share/rear/lib/array-functions.sh'
+...
++ source /portable/rear/etc/rear/os.conf
++ local source_file=/portable/rear/etc/rear/os.conf
++ Debug 'Trustworthy sourcing '\''/portable/rear/etc/rear/os.conf'\'''
+2025-01-23 15:29:57.128342998 Trustworthy sourcing '/portable/rear/etc/rear/os.conf'
++ test -f /portable/rear/etc/rear/os.conf
++ is_trustworthy_owner /portable/rear/etc/rear/os.conf
++ local file=/portable/rear/etc/rear/os.conf
++ local owner_name=
++ local trustworthy_owner=
++ test -f /portable/rear/etc/rear/os.conf
+++ stat -L -c %U /portable/rear/etc/rear/os.conf
++ owner_name=root
++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
++ test root = root
++ return 0
++ is_trustworthy_path /portable/rear/etc/rear/os.conf
++ local file=/portable/rear/etc/rear/os.conf
++ local actual_path=
++ local trustworthy_path=
++ test -f /portable/rear/etc/rear/os.conf
+++ readlink -e /portable/rear/etc/rear/os.conf
++ actual_path=/portable/rear/etc/rear/os.conf
++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
++ test /portable/rear/
++ [[ /portable/rear/etc/rear/os.conf =~ ^/portable/rear/ ]]
++ return 0
++ builtin source /portable/rear/etc/rear/os.conf
+...
+2025-01-23 15:29:57.270295687 Running 'init' stage
+2025-01-23 15:29:57.273541457 ======================
+2025-01-23 15:29:57.285953301 Including init/default/001_verify_config_arrays.sh
+2025-01-23 15:29:57.288911160 Entering debugscript mode via 'set -x'.
++ source /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ local source_file=/portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ Debug 'Trustworthy sourcing '\''/portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh'\'''
+2025-01-23 15:29:57.297003948 Trustworthy sourcing '/portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh'
++ test -f /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ is_trustworthy_owner /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ local file=/portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ local owner_name=
++ local trustworthy_owner=
++ test -f /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
+++ stat -L -c %U /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ owner_name=johannes
++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
++ test johannes = root
++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
++ test johannes = johannes
++ return 0
++ is_trustworthy_path /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ local file=/portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ local actual_path=
++ local trustworthy_path=
++ test -f /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
+++ readlink -e /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
++ actual_path=/portable/rear/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh
++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
++ test /portable/rear/
++ [[ /portable/rear/home/johannes/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh =~ ^/portable/rear/ ]]
++ return 0
++ builtin source /portable/rear/usr/share/rear/init/default/001_verify_config_arrays.sh
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-23_1450"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2610013359">2025-01-23 14:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_1450" title="Permanent link">&para;</a></h4>
+<p>Next I will test PORTABLE mode<br />
+when on the original system ReaR is<br />
+installed as normal RPM package...</p>
+<h4 id="jsmeix_commented_at_2025-01-27_1355"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2615829267">2025-01-27 13:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-27_1355" title="Permanent link">&para;</a></h4>
+<p>Next test is PORTABLE mode<br />
+when on the original system ReaR 2.8<br />
+is installed as normal RPM package.</p>
+<p>I tested on the same SLES15-SP6 virtual KVM/QEMU machine as above.</p>
+<p>I tested PORTABLE mode in the same way as above in<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2609733311">https://github.com/rear/rear/pull/3379#issuecomment-2609733311</a></p>
+<p>I use the same local.conf</p>
+<pre><code># OUTPUT=ISO
+OUTPUT=PORTABLE
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+REQUIRED_PROGS+=( snapper chattr lsattr )
+COPY_AS_IS+=( /usr/lib/snapper/installation-helper /etc/snapper/config-templates/default )
+POST_RECOVERY_SCRIPT=( 'if snapper --no-dbus -r $TARGET_FS_ROOT get-config | grep -q "^QGROUP.*[0-9]/[0-9]" ; then snapper --no-dbus -r $TARGET_FS_ROOT set-config QGROUP= ; snapper --no-dbus -r $TARGET_FS_ROOT setup-quota &amp;&amp; echo snapper setup-quota done || echo snapper setup-quota failed ; else echo snapper setup-quota not used ; fi' )
+SSH_ROOT_PASSWORD="rear"
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+REQUIRED_PROGS+=( 'timeout' )
+</code></pre>
+<p>The <code>REQUIRED_PROGS+=( 'timeout' )</code> is because of<br />
+<a href="https://github.com/rear/rear/issues/3386">https://github.com/rear/rear/issues/3386</a></p>
+<p>I did "rear mkrescue" with OUTPUT=ISO<br />
+and I got this files on my NFS server</p>
+<pre><code>localhost:/nfs # ls -lhdtr localhost/*
+-rw------- 1 nobody nobody  85M Jan 27 14:23 localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  273 Jan 27 14:23 localhost/VERSION
+-rw------- 1 nobody nobody  202 Jan 27 14:23 localhost/README
+-rw------- 1 nobody nobody 2.1M Jan 27 14:23 localhost/rear-localhost.log
+</code></pre>
+<p>Then I did "rear mkrescue" with OUTPUT=PORTABLE<br />
+and I got then this files on my NFS server</p>
+<pre><code>localhost:/nfs # ls -lhdtr localhost/*
+-rw------- 1 nobody nobody  85M Jan 27 14:23 localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  202 Jan 27 14:23 localhost/README
+-rw------- 1 nobody nobody 1.6M Jan 27 14:34 localhost/localhost-portable.tar.gz
+-rw------- 1 nobody nobody  278 Jan 27 14:34 localhost/VERSION
+-rw------- 1 nobody nobody 2.2M Jan 27 14:34 localhost/rear-localhost.log
+</code></pre>
+<p>Finally I did "rear -D mkbackuponly" (also OUTPUT=PORTABLE)<br />
+and I got finally this files on my NFS server:</p>
+<pre><code>localhost:/nfs # ls -lhdtr localhost/*
+-rw------- 1 nobody nobody  85M Jan 27 14:23 localhost/rear-localhost.iso
+-rw------- 1 nobody nobody  202 Jan 27 14:23 localhost/README
+-rw------- 1 nobody nobody 1.6M Jan 27 14:34 localhost/localhost-portable.tar.gz
+-rw------- 1 nobody nobody  278 Jan 27 14:34 localhost/VERSION
+-rw------- 1 nobody nobody 2.2M Jan 27 14:34 localhost/rear-localhost.log
+-rw-r--r-- 1 nobody nobody 2.6G Jan 27 14:37 localhost/backup.tar.gz
+-rw-r--r-- 1 nobody nobody  10M Jan 27 14:38 localhost/backup.log
+</code></pre>
+<p>I got those log files:</p>
+<pre><code>localhost:~ # ls -lhdtr /var/log/rear/*log*
+-rw------- 1 root root 2.1M Jan 27 14:23 /var/log/rear/rear-localhost.log.old
+-rw------- 1 root root 647K Jan 27 14:38 /var/log/rear/rear-localhost.log
+-rw------- 1 root root 651K Jan 27 14:38 /var/log/rear/rear-localhost.21660.log
+</code></pre>
+<p>with those excerpts about TRUSTWORTHY_OWNERS and TRUSTWORTHY_PATHS:</p>
+<pre><code>localhost:~ # grep 'Sourced files must be' /var/log/rear/rear-localhost.log.old /var/log/rear/rear-localhost.log /var/log/rear/rear-localhost.21660.log
+
+/var/log/rear/rear-localhost.log.old:2025-01-27 14:23:04.879652514 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root
+/var/log/rear/rear-localhost.log.old:2025-01-27 14:23:04.881206121 Sourced files must be below one of the TRUSTWORTHY_PATHS /usr/ /etc/ /var/lib/rear/ /lib/
+
+/var/log/rear/rear-localhost.log:2025-01-27 14:35:06.755948341 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root
+/var/log/rear/rear-localhost.log:2025-01-27 14:35:06.757474918 Sourced files must be below one of the TRUSTWORTHY_PATHS /usr/ /etc/ /var/lib/rear/ /lib/
+
+/var/log/rear/rear-localhost.21660.log:2025-01-27 14:35:06.755948341 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root
+/var/log/rear/rear-localhost.21660.log:2025-01-27 14:35:06.757474918 Sourced files must be below one of the TRUSTWORTHY_PATHS /usr/ /etc/ /var/lib/rear/ /lib/
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-27_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2615900270">2025-01-27 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-27_1424" title="Permanent link">&para;</a></h4>
+<p>"rear recover" in PORTABLE mode<br />
+also worked well for me<br />
+when on the original system ReaR 2.8<br />
+is installed as normal RPM package:</p>
+<p>I booted another virtual KVM/QEMU machine<br />
+with the rear-localhost.iso (from OUTPUT=ISO)<br />
+and logged in as 'root' there.</p>
+<p>I removed all ReaR files<br />
+(i.e. the ones from rear-localhost.iso)<br />
+in the ReaR recovery system<br />
+except '/etc/rear-release' which I keep<br />
+so even I don't need '-p' for "rear recover".</p>
+<pre><code>RESCUE localhost:~ # find / -xdev -type d | grep '/rear'
+/usr/share/rear
+...
+/etc/rear
+/etc/rear/mappings
+/etc/rear/cert
+/var/lib/rear
+/var/tmp/rear.XXX...
+
+RESCUE localhost:~ # rm -rf /usr/share /etc/rear/mappings /etc/rear/cert /var/lib/rear /var/tmp/rear.*
+
+RESCUE localhost:~ # find /etc/rear
+/etc/rear
+/etc/rear/os.conf
+/etc/rear/local.conf
+/etc/rear/rescue.conf
+
+RESCUE localhost:~ # rm /etc/rear/os.conf /etc/rear/local.conf
+
+RESCUE localhost:~ # find / -xdev -type l | grep '/rear'
+/usr/lib/systemd/system/multi-user.target.wants/rear-boot-helper.service
+
+RESCUE localhost:~ # rm /usr/lib/systemd/system/multi-user.target.wants/rear-boot-helper.service
+
+RESCUE localhost:~ # find / -xdev -type f | grep 'rear'
+/usr/lib/systemd/system/rear-boot-helper.service
+/usr/lib/systemd/system/automatic-rear.service
+/tmp/rear-localhost-partial-2025-01-27T14:23:16+01:00.log
+/bin/rear
+/etc/rear-release
+/etc/scripts/run-automatic-rear
+/etc/event.d/automatic-rear
+/etc/rear/rescue.conf
+
+RESCUE localhost:~ # rm /usr/lib/systemd/system/rear-boot-helper.service /usr/lib/systemd/system/automatic-rear.service /tmp/rear-localhost-partial-2025-01-27T14:23:16+01
+:00.log /bin/rear /etc/scripts/run-automatic-rear /etc/event.d/automatic-rear /etc/rear/rescue.conf
+
+RESCUE localhost:~ # find / -xdev | grep 'rear'
+/usr/lib/systemd/system/multi-user.target.wants/automatic-rear.service
+/etc/rear-release
+/etc/rear
+
+RESCUE localhost:~ # rm /usr/lib/systemd/system/multi-user.target.wants/automatic-rear.service
+
+RESCUE localhost:~ # find / -xdev | grep 'rear'
+/etc/rear-release
+/etc/rear
+</code></pre>
+<p>Then I did almost the same as in<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2610008547">https://github.com/rear/rear/pull/3379#issuecomment-2610008547</a></p>
+<pre><code>RESCUE localhost:~ # mkdir /nfs
+
+RESCUE localhost:~ # mount -t nfs -o nolock 192.168.178.66:/nfs/localhost /nfs
+
+RESCUE localhost:~ # mkdir -p /portable/rea
+
+RESCUE localhost:~ # cd /portable/rear
+
+RESCUE localhost:/portable/rear # cp /nfs/localhost-portable.tar.gz .
+
+RESCUE localhost:/portable/rear # tar -xf localhost-portable.tar.gz
+
+RESCUE localhost:/portable/rear # ls -l
+total 1636
+drwxr-xr-x 3 root root       0 Jan 27 14:11 etc
+-rw------- 1 root root 1673964 Jan 27 14:11 localhost-portable.tar.gz
+drwxr-xr-x 4 root root       0 Jan 27 14:11 usr
+drwxr-xr-x 3 root root       0 Jan 27 14:11 var
+
+RESCUE localhost:/portable/rear # find usr -maxdepth 2
+usr
+usr/share
+usr/share/rear
+usr/sbin
+usr/sbin/rear
+
+RESCUE localhost:/portable/rear # find etc
+etc
+etc/rear
+etc/rear/os.conf
+etc/rear/local.conf
+etc/rear/cert
+etc/rear/rescue.conf
+
+RESCUE localhost:/portable/rear # find var            
+var
+var/lib
+var/lib/rear
+var/lib/rear/sysreqs
+var/lib/rear/sysreqs/Minimal_System_Requirements.txt
+var/lib/rear/layout
+var/lib/rear/layout/disklayout.conf
+var/lib/rear/layout/disktodo.conf
+var/lib/rear/layout/diskdeps.conf
+var/lib/rear/layout/lvm
+var/lib/rear/layout/config
+var/lib/rear/layout/config/files.md5sum
+var/lib/rear/layout/config/df.txt
+var/lib/rear/recovery
+var/lib/rear/recovery/if_inet6
+var/lib/rear/recovery/storage_drivers
+var/lib/rear/recovery/initrd_modules
+var/lib/rear/recovery/bootloader
+var/lib/rear/recovery/mountpoint_device
+var/lib/rear/recovery/diskbyid_mappings
+var/lib/rear/recovery/directories_permissions_owner_group
+var/lib/rear/output
+
+RESCUE localhost:/portable/rear # usr/sbin/rear -D recover
+...
+Using log file: /portable/rear/var/log/rear/rear-localhost.log
+...
+
+RESCUE localhost:/portable/rear # grep 'Sourced files must be' var/log/rear/rear-localhost.log
+2025-01-27 14:19:43.737429730 Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root
+2025-01-27 14:19:43.740085529 Sourced files must be below one of the TRUSTWORTHY_PATHS /portable/rear/ /usr/ /etc/ /lib/
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-27_1458"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2615991346">2025-01-27 14:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-27_1458" title="Permanent link">&para;</a></h4>
+<p>I call it now a "prototype"<br />
+because things work well for me for my tests</p>
+<ul>
+<li>in normal mode<ul>
+<li>when on the original system ReaR is installed as normal RPM
+    package</li>
+<li>when on the original system ReaR is a Git checkout as as root or
+    normal user</li>
+</ul>
+</li>
+<li>in PORTABLE mode<ul>
+<li>when on the original system ReaR is installed as normal RPM
+    package</li>
+<li>when on the original system ReaR is a Git checkout as normal
+    user</li>
+</ul>
+</li>
+</ul>
+<p>My intent of this pull request is not a final solution<br />
+but a reasonably OK working "prototype" that can and should<br />
+be merged early in our current ReaR 3.0 development phase<br />
+so that interested users test it so we get early feedback<br />
+how it actually behaves "out there in the wild".</p>
+<p>@schlomo @gdha @pcahyna<br />
+please have a look here (as time permits)<br />
+and provide feedback whether or not<br />
+this current "pototype" state looks OK in general<br />
+from your point of view, see also my above<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607258857">https://github.com/rear/rear/pull/3379#issuecomment-2607258857</a></p>
+<h4 id="jsmeix_commented_at_2025-01-29_0847"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2621012995">2025-01-29 08:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_0847" title="Permanent link">&para;</a></h4>
+<p>We neither need to significantly out-perform all other software<br />
+nor did I implement it nor do I have plans to do so, see<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607258857">https://github.com/rear/rear/pull/3379#issuecomment-2607258857</a></p>
+<p>Let's discuss it further in our next meeting.</p>
+<p>Via writing we are running in circles since almost a year.</p>
+<h4 id="jsmeix_commented_at_2025-01-29_0850"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2621021213">2025-01-29 08:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_0850" title="Permanent link">&para;</a></h4>
+<p>What I need to add is functionality so that the user can<br />
+specify TRUSTED_FILE_OWNERS and TRUSTED_FILE_PATHS<br />
+and then ReaR will use only that ("final power to the user")<br />
+in particular so that the user can specify what he needs<br />
+for special cases (e.g. for whatever third-party software).</p>
+<h4 id="jsmeix_commented_at_2025-02-03_1620"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2631466148">2025-02-03 16:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-03_1620" title="Permanent link">&para;</a></h4>
+<p>I tested my latest changes with an additional script<br />
+in an untrusted directory /home/johannes/johannes.sh</p>
+<pre><code>#!/bin/bash
+this_file_path=$( readlink -e ${BASH_SOURCE[0]} )
+echo $this_file_path is running as $( id )
+</code></pre>
+<p>and this additional entries in etc/rear/local.conf</p>
+<pre><code>TRUSTWORTHY_OWNERS+=( 'johannes' )
+TRUSTWORTHY_PATHS+=( '/home/johannes/' )
+{ source /home/johannes/johannes.sh &amp;&amp; echo "Sourced /home/johannes/johannes.sh" || echo "Failed to source /home/johannes/johannes.sh" ; } 0&lt;&amp;6 1&gt;&amp;7 2&gt;&amp;8
+COPY_AS_IS+=( /home/johannes/johannes.sh )
+</code></pre>
+<p>plus this additional 'source' command at the beginning of<br />
+usr/share/rear/init/default/001_verify_config_arrays.sh</p>
+<pre><code>source /home/johannes/johannes.sh &amp;&amp; DebugPrint "${BASH_SOURCE[0]}: Sourced /home/johannes/johannes.sh" || DebugPrint "${BASH_SOURCE[0]}: Failed to source /home/johannes/johannes.sh"
+</code></pre>
+<p>from a Git checkout that I did as root:</p>
+<pre><code>localhost:~/rear.github.master-jsmeix-source-wrapper # usr/sbin/rear -d -C /home/johannes/johannes.sh mkrescue
+...
+/home/johannes/johannes.sh is running as uid=0(root) gid=0(root) groups=0(root)
+Sourced /home/johannes/johannes.sh
+Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+Sourced files must be below one of the TRUSTWORTHY_PATHS /root/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /lib/ /home/johannes/
+Sourcing additional configuration file '/home/johannes/johannes.sh'
+Running 'init' stage ======================
+/root/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh: Sourced /home/johannes/johannes.sh
+Running workflow mkrescue on the normal/original system
+...
+</code></pre>
+<p>this was with '-d'<br />
+but now with '-D' but without '-C'</p>
+<pre><code>localhost:~/rear.github.master-jsmeix-source-wrapper # usr/sbin/rear -D mkbackuponly
+...
+++ source /home/johannes/johannes.sh
+++ local source_file=/home/johannes/johannes.sh
+++ Debug 'Trustworthy sourcing '\''/home/johannes/johannes.sh'\'''
+++ test -f /home/johannes/johannes.sh
+++ is_trustworthy_owner /home/johannes/johannes.sh
+++ local file=/home/johannes/johannes.sh
+++ local owner_name=
+++ local trustworthy_owner=
+++ test -f /home/johannes/johannes.sh
++++ stat -L -c %U /home/johannes/johannes.sh
+++ owner_name=johannes
+++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
+++ test johannes = root
+++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
+++ test johannes = johannes
+++ return 0
+++ is_trustworthy_path /home/johannes/johannes.sh
+++ local file=/home/johannes/johannes.sh
+++ local actual_path=
+++ local trustworthy_path=
+++ test -f /home/johannes/johannes.sh
++++ readlink -e /home/johannes/johannes.sh
+++ actual_path=/home/johannes/johannes.sh
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /root/rear.github.master-jsmeix-source-wrapper/
+++ [[ /home/johannes/johannes.sh =~ ^/root/rear.github.master-jsmeix-source-wrapper/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /usr/
+++ [[ /home/johannes/johannes.sh =~ ^/usr/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /etc/
+++ [[ /home/johannes/johannes.sh =~ ^/etc/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /lib/
+++ [[ /home/johannes/johannes.sh =~ ^/lib/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /home/johannes/
+++ [[ /home/johannes/johannes.sh =~ ^/home/johannes/ ]]
+++ return 0
+++ builtin source /home/johannes/johannes.sh
+++++ readlink -e /home/johannes/johannes.sh
++++ this_file_path=/home/johannes/johannes.sh
+++++ id
++++ echo /home/johannes/johannes.sh is running as 'uid=0(root)' 'gid=0(root)' 'groups=0(root)'
+/home/johannes/johannes.sh is running as uid=0(root) gid=0(root) groups=0(root)
+++ echo 'Sourced /home/johannes/johannes.sh'
+Sourced /home/johannes/johannes.sh
+Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+Sourced files must be below one of the TRUSTWORTHY_PATHS /root/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /lib/ /home/johannes/
+Running 'init' stage ======================
+/root/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/001_verify_config_arrays.sh: Sourced /home/johannes/johannes.sh
+Running workflow mkbackuponly on the normal/original system
+...
+</code></pre>
+<p>Both "mkrescue" and "mkbackuponly" worked well and as expected for me.</p>
+<p>Recovery:</p>
+<pre><code>RESCUE localhost:~ # rear -D -C /home/johannes/johannes.sh recover
+...
+++ source /home/johannes/johannes.sh
+++ local source_file=/home/johannes/johannes.sh
+++ Debug 'Trustworthy sourcing '\''/home/johannes/johannes.sh'\'''
+++ test -f /home/johannes/johannes.sh
+++ is_trustworthy_owner /home/johannes/johannes.sh
+++ local file=/home/johannes/johannes.sh
+++ local owner_name=
+++ local trustworthy_owner=
+++ test -f /home/johannes/johannes.sh
++++ stat -L -c %U /home/johannes/johannes.sh
+++ owner_name=johannes
+++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
+++ test johannes = root
+++ for trustworthy_owner in "${TRUSTWORTHY_OWNERS[@]}"
+++ test johannes = johannes
+++ return 0
+++ is_trustworthy_path /home/johannes/johannes.sh
+++ local file=/home/johannes/johannes.sh
+++ local actual_path=
+++ local trustworthy_path=
+++ test -f /home/johannes/johannes.sh
++++ readlink -e /home/johannes/johannes.sh
+++ actual_path=/home/johannes/johannes.sh
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /root/rear.github.master-jsmeix-source-wrapper/
+++ [[ /home/johannes/johannes.sh =~ ^/root/rear.github.master-jsmeix-source-wrapper/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /usr/
+++ [[ /home/johannes/johannes.sh =~ ^/usr/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /etc/
+++ [[ /home/johannes/johannes.sh =~ ^/etc/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /var/lib/rear/
+++ [[ /home/johannes/johannes.sh =~ ^/var/lib/rear/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /lib/
+++ [[ /home/johannes/johannes.sh =~ ^/lib/ ]]
+++ for trustworthy_path in "${TRUSTWORTHY_PATHS[@]}"
+++ test /home/johannes/
+++ [[ /home/johannes/johannes.sh =~ ^/home/johannes/ ]]
+++ return 0
+++ builtin source /home/johannes/johannes.sh
+++++ readlink -e /home/johannes/johannes.sh
++++ this_file_path=/home/johannes/johannes.sh
+++++ id
++++ echo /home/johannes/johannes.sh is running as 'uid=0(root)' 'gid=0(root)' 'groups=0(root)'
+/home/johannes/johannes.sh is running as uid=0(root) gid=0(root) groups=0(root)
+++ echo 'Sourced /home/johannes/johannes.sh'
+Sourced /home/johannes/johannes.sh
+Sourced files must be owned by one of the TRUSTWORTHY_OWNERS root johannes
+Sourced files must be below one of the TRUSTWORTHY_PATHS /root/rear.github.master-jsmeix-source-wrapper/ /usr/ /etc/ /var/lib/rear/ /lib/ /home/johannes/
+Sourcing additional configuration file '/home/johannes/johannes.sh'
+Running 'init' stage ======================
+/usr/share/rear/init/default/001_verify_config_arrays.sh: Sourced /home/johannes/johannes.sh
+Running workflow recover within the ReaR rescue/recovery system
+...
+</code></pre>
+<p>Also "recover" worked well and as expected for me.</p>
+<h4 id="jsmeix_commented_at_2025-02-03_1628"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2631487562">2025-02-03 16:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-03_1628" title="Permanent link">&para;</a></h4>
+<p>Tested sourcing via 'source' versus via '.'<br />
+with an enhanced /home/johannes/johannes.sh</p>
+<pre><code>#!/bin/bash
+this_file_path=$( readlink -e ${BASH_SOURCE[0]} )
+echo $this_file_path is running as $( id )
+echo "sourcing /etc/os-release via 'source'"
+source /etc/os-release &amp;&amp; echo Worked || echo Failed
+echo "sourcing /etc/os-release via '.'"
+. /etc/os-release &amp;&amp; echo Worked || echo Failed
+</code></pre>
+<p>results</p>
+<pre><code># usr/sbin/rear -d -C /home/johannes/johannes.sh mkrescue
+...
+/home/johannes/johannes.sh is running as uid=0(root) gid=0(root) groups=0(root)
+sourcing /etc/os-release via 'source'
+/etc/os-release: line 2: VERSION: readonly variable
+Worked
+sourcing /etc/os-release via '.'
+ERROR: BUG in Relax-and-Recover
+Forbidden usage of '.' in
+  . /etc/os-release
+Please report it at https://github.com/rear/rear/issues
+</code></pre>
+<p>Also works as expected.</p>
+<h4 id="jsmeix_commented_at_2025-02-04_0744"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3379#issuecomment-2633123866">2025-02-04 07:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-04_0744" title="Permanent link">&para;</a></h4>
+<p>I would like to add that the user can explicitly specify a<br />
+special value for TRUSTED_FILE_OWNERS and TRUSTED_FILE_PATHS<br />
+that the trustworthy sourcing checks are skipped<br />
+i.e. that all owners and all paths are blindly trusted<br />
+to be able to force ReaR to behave as it currently does<br />
+i.e. blindly/carelessly sourcing anything.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-13.3379.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

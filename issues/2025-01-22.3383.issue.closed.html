@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3383 Issue closed: False alarm in 880_check_for_mount_by_id.sh when there is no SCSI disk (e.g. only NVMe disks) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3383 Issue closed: False alarm in 880_check_for_mount_by_id.sh when there is no SCSI disk (e.g. only NVMe disks)";
+        var mkdocs_page_input_path = "issues/2025-01-22.3383.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3383 Issue closed: False alarm in 880_check_for_mount_by_id.sh when there is no SCSI disk (e.g. only NVMe disks)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3383_issue_closed_false_alarm_in_880_check_for_mount_by_idsh_when_there_is_no_scsi_disk_eg_only_nvme_disks"><a href="https://github.com/rear/rear/issues/3383">#3383 Issue</a> <code>closed</code>: False alarm in 880_check_for_mount_by_id.sh when there is no SCSI disk (e.g. only NVMe disks)<a class="headerlink" href="#3383_issue_closed_false_alarm_in_880_check_for_mount_by_idsh_when_there_is_no_scsi_disk_eg_only_nvme_disks" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="xwhitebeltx_opened_issue_at_2025-01-22_1329"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> opened issue at <a href="https://github.com/rear/rear/issues/3383">2025-01-22 13:29</a>:<a class="headerlink" href="#xwhitebeltx_opened_issue_at_2025-01-22_1329" title="Permanent link">&para;</a></h4>
+<p>Hello =)</p>
+<p>i created a backup with the latest rear, restore works fine but i get
+this message:</p>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/bf604c75-da2f-484e-b233-81691a1aae43" /></p>
+<ol>
+<li>looks like you're asking for info on this system, which info would
+    you like to get?</li>
+<li>should i be worried about this message? what is it indicating? =)</li>
+</ol>
+<!-- -->
+
+<pre><code>rear -V
+</code></pre>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/d3bf02de-e4b1-4106-b0b5-036c87068878" /></p>
+<pre><code>cat /etc/os-release
+</code></pre>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/bcb22654-819b-4fbb-a25a-fb936473029e" /></p>
+<pre><code>uname -r
+</code></pre>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/f245d30d-91cf-41c5-91b9-2cc1d5618599" /></p>
+<pre><code>lsblk
+</code></pre>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/e1b43058-50d2-4b13-b34d-dbfa5bb5b5a8" /></p>
+<pre><code>cat /etc/rear/local.conf
+</code></pre>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/d9638769-11f5-4f33-96fc-77820535bc86" /></p>
+<h4 id="jsmeix_commented_at_2025-01-22_1354"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2607312453">2025-01-22 13:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-22_1354" title="Permanent link">&para;</a></h4>
+<p>Personally I know nothing about that code<br />
+so I cannot help to actually debug this issue.</p>
+<p>In particular I am not a Ubuntu user.<br />
+Currently we at ReaR upstream do not have an active<br />
+maintainer for Ubuntu / Debian.<br />
+So ReaR support for Ubuntu / Debian<br />
+can be only as good as voluntary contributors<br />
+who use those Linux distributions contribute<br />
+which is much appreciated!</p>
+<p>In particular regarding Ubuntu:<br />
+It seems Canonical is not sufficiently interested in ReaR<br />
+in contrast to Red Hat and SUSE who pay developers<br />
+(like me from SUSE and e.g. @pcahyna and @lzaoral from Red Hat)<br />
+to contribute to upstream ReaR because Red Hat and SUSE<br />
+support ReaR in their enterprise Linux distributions.</p>
+<p>Nevertheless some generic info:</p>
+<p>That "Could not list any LUN IDs" warning comes from<br />
+usr/share/rear/finalize/default/880_check_for_mount_by_id.sh</p>
+<p>According to</p>
+<pre><code># git log -p --follow usr/share/rear/finalize/default/880_check_for_mount_by_id.sh
+</code></pre>
+<p>it was added on Nov 18 2009 via<br />
+<a href="https://github.com/rear/rear/commit/45ab5e0e8d29a182ad68fc20fb571518b72a4a6b">https://github.com/rear/rear/commit/45ab5e0e8d29a182ad68fc20fb571518b72a4a6b</a><br />
+so that warning is there since a long time<br />
+so I assume that likely it has nothing to do<br />
+with the changes for the recent ReaR 2.8 release.</p>
+<p>@xwhitebeltx<br />
+did you use ReaR before the current ReaR 2.8 on this system?<br />
+If yes, what older ReaR version(s) did you use?<br />
+In this case I assume you did not get that warning<br />
+with the older ReaR version(s)?</p>
+<h4 id="gdha_commented_at_2025-01-28_0758"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2618157153">2025-01-28 07:58</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-28_0758" title="Permanent link">&para;</a></h4>
+<p>On Ubuntu scsi_id can be found under directory <code>/lib/udev</code>.</p>
+<pre><code># /lib/udev/scsi_id --export --whitelisted -d /dev/sda
+ID_SCSI=1
+ID_VENDOR=ATA
+ID_VENDOR_ENC=ATA\x20\x20\x20\x20\x20
+ID_MODEL=INTEL_SSDMCEAC24
+ID_MODEL_ENC=INTEL\x20SSDMCEAC24
+ID_REVISION=LLKi
+ID_TYPE=disk
+ID_SERIAL=35001517803d82e0f
+ID_SERIAL_SHORT=5001517803d82e0f
+ID_WWN=0x5001517803d82e0f
+ID_WWN_WITH_EXTENSION=0x5001517803d82e0f
+ID_SCSI_SERIAL=CVLI30130039240G
+</code></pre>
+<p>However, <code>usr/sbin/rear:PATH=$PATH:/lib/udev:/usr/lib/udev</code> already has
+this in its PATH.<br />
+Therefore, @xwhitebeltx where is your <code>scsi_id</code> located on your system?</p>
+<h4 id="jsmeix_commented_at_2025-01-28_0823"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2618219758">2025-01-28 08:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-28_0823" title="Permanent link">&para;</a></h4>
+<p>In SUSE (openSUSE Leap 15.6 in my case here)<br />
+scsi_id belongs to udev and is /usr/lib/udev/scsi_id</p>
+<pre><code># type -a scsi_id
+-bash: type: scsi_id: not found
+
+# find / -xdev | grep '/scsi_id'
+/usr/lib/udev/scsi_id
+
+# rpm -qf /usr/lib/udev/scsi_id
+udev-254.21-150600.4.21.1.x86_64
+</code></pre>
+<p>My /usr/lib/udev/scsi_id shows</p>
+<pre><code># /usr/lib/udev/scsi_id -h
+Usage: scsi_id [OPTION...] DEVICE
+
+SCSI device identification.
+
+  -h --help                        Print this message
+     --version                     Print version of the program
+
+  -d --device=                     Device node for SG_IO commands
+  -f --config=                     Location of config file
+  -p --page=0x80|0x83|pre-spc3-83  SCSI page (0x80, 0x83, pre-spc3-83)
+  -s --sg-version=3|4              Use SGv3 or SGv4
+  -b --denylisted                  Treat device as denylisted
+  -g --allowlisted                 Treat device as allowlisted
+  -u --replace-whitespace          Replace all whitespace by underscores
+  -v --verbose                     Verbose logging
+     --truncated-serial            truncated serial for compatibility
+                                   with systems configured with
+                                   by-id links created by udev &lt; 184
+  -x --export                      Print values as environment keys
+</code></pre>
+<p>where - as far as I see - the current scsi_id options<br />
+do not match the rather old code from 2009 in<br />
+finalize/default/880_check_for_mount_by_id.sh<br />
+how scsi_id is called there</p>
+<pre><code># apparently the usage of scsi_id changed over the times, so we try two ways to call it
+eval "$(scsi_id -g -x -n -s /block/"$sysfs" -d /dev/$device 2&gt;/dev/null || scsi_id --export --whitelisted -d /dev/$device)"
+</code></pre>
+<p>On my openSUSE Leap 15.6 workstation I don't have a built-in SCSI
+device<br />
+(my NVMe disk does not belong to SCSI and 'lsscsi' shows nothing)<br />
+but with an external USB disk I get</p>
+<pre><code># lsscsi
+[0:0:0:0]    disk    TOSHIBA  External USB 3.0 5438  /dev/sda
+
+# /usr/lib/udev/scsi_id -g -x -n -d /dev/sda
+/usr/lib/udev/scsi_id: invalid option -- 'n'
+
+# /usr/lib/udev/scsi_id -g -x -d /dev/sda
+ID_SCSI=1
+ID_VENDOR=TOSHIBA
+ID_VENDOR_ENC=TOSHIBA
+ID_MODEL=External_USB_3.0
+ID_MODEL_ENC=External\x20USB\x203.0
+ID_REVISION=5438
+ID_TYPE=disk
+ID_SERIAL=1TOSHIBA
+ID_SERIAL_SHORT=TOSHIBA
+ID_SERIAL_COMPAT=
+ID_SCSI_SERIAL=20170521000273
+
+# /usr/lib/udev/scsi_id --export --whitelisted -d /dev/sda
+ID_SCSI=1
+ID_VENDOR=TOSHIBA
+ID_VENDOR_ENC=TOSHIBA
+ID_MODEL=External_USB_3.0
+ID_MODEL_ENC=External\x20USB\x203.0
+ID_REVISION=5438
+ID_TYPE=disk
+ID_SERIAL=1TOSHIBA
+ID_SERIAL_SHORT=TOSHIBA
+ID_SERIAL_COMPAT=
+ID_SCSI_SERIAL=20170521000273F
+</code></pre>
+<p>So '--whitelisted' still works , I found it mentioned on<br />
+<a href="https://linux.die.net/man/8/scsi_id">https://linux.die.net/man/8/scsi_id</a></p>
+<p>But '-n' does not (or does no longer) work.</p>
+<p>And '-s /block/...' cannot (or does no longer) work<br />
+because I don't have '/block/' but '/sys/block/...'</p>
+<pre><code># ls -l /sys/block/sda
+lrwxrwxrwx 1 root root 0 Jan 28 13:24 /sys/block/sda -&gt; ../devices/pci0000:00/0000:00:08.1/0000:03:00.3/usb2/2-1/2-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-01-28_0837"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2618274843">2025-01-28 08:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-28_0837" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+please provide us your "rear recover" log file.<br />
+Therein in particular the part while<br />
+finalize/default/880_check_for_mount_by_id.sh<br />
+is run is of interest for us.</p>
+<p>In general:<br />
+Caution with possible secrets in a ReaR log file.<br />
+In particular in debugscript mode via the option '-D'<br />
+ReaR logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed.<br />
+So in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.</p>
+<h4 id="jsmeix_commented_at_2025-01-28_1240"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2618893856">2025-01-28 12:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-28_1240" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+when you found the scsi_id executable on your system, cf.<br />
+<a href="https://github.com/rear/rear/issues/3383#issuecomment-2618157153">https://github.com/rear/rear/issues/3383#issuecomment-2618157153</a><br />
+call it with the '-h' (help) option and show us the output.</p>
+<h4 id="jsmeix_commented_at_2025-01-28_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2618970742">2025-01-28 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-28_1315" title="Permanent link">&para;</a></h4>
+<p>Some "archaeology" about 'scsi_id':</p>
+<p>On a SLES 11 SP4 KVM/QEMU virtual machine:</p>
+<pre><code># lsscsi
+[0:0:0:0]    disk    ATA      QEMU HARDDISK    2.5+  /dev/sda 
+[0:0:1:0]    cd/dvd  QEMU     QEMU DVD-ROM     2.5+  /dev/sr0
+
+# find / -xdev | grep '/scsi_id'
+/lib/udev/scsi_id
+/usr/share/man/man8/scsi_id.8.gz
+
+# /lib/udev/scsi_id -h
+Usage: scsi_id OPTIONS &lt;device&gt;
+  --device=                     device node for SG_IO commands
+  --config=                     location of config file
+  --page=0x80|0x83|pre-spc3-83  SCSI page (0x80, 0x83, pre-spc3-83)
+  --sg-version=3|4              use SGv3 or SGv4
+  --blacklisted                 threat device as blacklisted
+  --whitelisted                 threat device as whitelisted
+  --replace-whitespace          replace all whitespaces by underscores
+  --verbose                     verbose logging
+  --version                     print version
+  --export                      print values as environment keys
+  --help                        print this help text
+
+# /lib/udev/scsi_id --export --device=/dev/sda
+[no output]
+
+# /lib/udev/scsi_id --export --whitelisted --device=/dev/sda
+ID_SCSI=1
+ID_SCSI_VPD=0x83
+ID_VENDOR=ATA
+ID_VENDOR_ENC=ATA\x20\x20\x20\x20\x20
+ID_MODEL=QEMU_HARDDISK
+ID_MODEL_ENC=QEMU\x20HARDDISK\x20\x20\x20
+ID_REVISION=2.5+
+ID_TYPE=disk
+ID_SERIAL=1ATA_QEMU_HARDDISK_QM00001
+ID_SERIAL_SHORT=ATA_QEMU_HARDDISK_QM00001
+ID_WWN=0xATA     QEMU HAR
+ID_WWN_VENDOR_EXTENSION=0xDDISK           
+ID_WWN_WITH_EXTENSION=0xATA     QEMU HARDDISK           
+ID_SCSI_SERIAL=QM00001
+
+# /lib/udev/scsi_id --version
+147
+
+# rpm -qf /lib/udev/scsi_id
+udev-147-0.105.4
+
+# ls -l /usr/lib/udev
+ls: cannot access /usr/lib/udev: No such file or directory
+</code></pre>
+<p>On a SLES 12 SP5 KVM/QEMU virtual machine:</p>
+<pre><code># lsscsi
+[0:0:0:0]    disk    ATA      QEMU HARDDISK    2.5+  /dev/sda 
+[0:0:1:0]    cd/dvd  QEMU     QEMU DVD-ROM     2.5+  /dev/sr0
+
+# find / -xdev | grep '/scsi_id'
+/usr/lib/udev/scsi_id
+
+# /usr/lib/udev/scsi_id -h
+Usage: scsi_id [OPTION...] DEVICE
+
+SCSI device identification.
+
+  -h --help                        Print this message
+     --version                     Print version of the program
+
+  -d --device=                     Device node for SG_IO commands
+  -f --config=                     Location of config file
+  -p --page=0x80|0x83|pre-spc3-83  SCSI page (0x80, 0x83, pre-spc3-83)
+  -s --sg-version=3|4              Use SGv3 or SGv4
+  -b --blacklisted                 Treat device as blacklisted
+  -g --whitelisted                 Treat device as whitelisted
+  -u --replace-whitespace          Replace all whitespace by underscores
+  -v --verbose                     Verbose logging
+     --truncated-serial            truncated serial for compatibility
+                                   with systems configured with by-id
+                                   links created by udev &lt; 184
+  -x --export                      Print values as environment keys
+
+# /usr/lib/udev/scsi_id -x -d /dev/sda
+[no output]
+
+# /usr/lib/udev/scsi_id -x -g -d /dev/sda
+ID_SCSI=1
+ID_VENDOR=ATA
+ID_VENDOR_ENC=ATA\x20\x20\x20\x20\x20
+ID_MODEL=QEMU_HARDDISK
+ID_MODEL_ENC=QEMU\x20HARDDISK\x20\x20\x20
+ID_REVISION=2.5+
+ID_TYPE=disk
+ID_SERIAL=1ATA_QEMU_HARDDISK_QM00001
+ID_SERIAL_COMPAT=
+ID_SERIAL_SHORT=ATA_QEMU_HARDDISK_QM00001
+ID_SCSI_SERIAL=QM00001
+
+# /usr/lib/udev/scsi_id --version
+228
+
+# rpm -qf /usr/lib/udev/scsi_id
+udev-228-155.21.x86_64
+
+# ls -l /lib/udev
+lrwxrwxrwx 1 root root 13 Jun  4  2024 /lib/udev -&gt; /usr/lib/udev
+</code></pre>
+<p>On a SLES 15 SP6 KVM/QEMU virtual machine:</p>
+<pre><code># lsscsi
+[0:0:0:0]    cd/dvd  QEMU     QEMU DVD-ROM     2.5+  /dev/sr0
+
+# find / -xdev | grep '/scsi_id'
+/usr/lib/udev/scsi_id
+
+# /usr/lib/udev/scsi_id -h
+Usage: scsi_id [OPTION...] DEVICE
+
+SCSI device identification.
+
+  -h --help                        Print this message
+     --version                     Print version of the program
+
+  -d --device=                     Device node for SG_IO commands
+  -f --config=                     Location of config file
+  -p --page=0x80|0x83|pre-spc3-83  SCSI page (0x80, 0x83, pre-spc3-83)
+  -s --sg-version=3|4              Use SGv3 or SGv4
+  -b --denylisted                  Treat device as denylisted
+  -g --allowlisted                 Treat device as allowlisted
+  -u --replace-whitespace          Replace all whitespace by underscores
+  -v --verbose                     Verbose logging
+     --truncated-serial            truncated serial for compatibility
+                                   with systems configured with by-id
+                                   links created by udev &lt; 184
+  -x --export                      Print values as environment keys
+
+# /usr/lib/udev/scsi_id -x -d /dev/sr0
+[no output]
+
+# /usr/lib/udev/scsi_id -x -g -d /dev/sr0
+ID_SCSI=1
+ID_VENDOR=QEMU
+ID_VENDOR_ENC=QEMU\x20\x20\x20\x20
+ID_MODEL=QEMU_DVD-ROM
+ID_MODEL_ENC=QEMU\x20DVD-ROM\x20\x20\x20\x20
+ID_REVISION=2.5+
+ID_TYPE=cd
+ID_SERIAL=1ATA_QEMU_DVD-ROM_QM00001
+ID_SERIAL_SHORT=ATA_QEMU_DVD-ROM_QM00001
+ID_SERIAL_COMPAT=
+
+# /usr/lib/udev/scsi_id --version
+systemd 254 (254.10+suse.84.ge8d77af424)
++PAM +AUDIT +SELINUX +APPARMOR +IMA -SMACK +SECCOMP ...
+
+# rpm -qf /usr/lib/udev/scsi_id
+udev-254.10-150600.2.3.x86_64
+
+# ls -l /lib/udev
+ls: cannot access '/lib/udev': No such file or directory
+</code></pre>
+<h4 id="xwhitebeltx_commented_at_2025-01-29_1117"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621364338">2025-01-29 11:17</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2025-01-29_1117" title="Permanent link">&para;</a></h4>
+<p>Hello dear people =)<br />
+thank you for your responses, i will try to address them all:</p>
+<p>@jsmeix - i did not try with earlier versions on this system, first time
+was with the latest rear</p>
+<p>@gdha - iscsi_id on my system is on the same path you mentioned
+/lib/udev/scsi_id<br />
+when i execute the same command it has no output since i only have NVMe
+SSDs:<br />
+<img alt="Image" src="https://github.com/user-attachments/assets/61da33d5-4be2-474f-9162-f27c8dd52245" /></p>
+<p>@jsmeix - oddly enough my environment makes it hard to extract the log
+as text, but i can screenshot the relevant part you talked about with
+finalize/default/880_check_for_mount_by_id.sh, not much information
+there:<br />
+<img alt="Image" src="https://github.com/user-attachments/assets/43b2cb1e-a61f-4283-bf0a-3367f71a197a" /></p>
+<p>@jsmeix - output of scsi_id --help:<br />
+<img alt="Image" src="https://github.com/user-attachments/assets/fde9de97-04ff-485a-bc7b-1eda3c6f9485" /></p>
+<p>if i only have NVMe drives then is this warning still relevant? (the
+"could not list any LUN IDs with scsi_id warning)</p>
+<pre><code>i would like to emphasize this is a realtime kernel (is it supported?)
+for example - it disables EFI runtime by default, and rear fails when restoring such environment.
+i had to re-enable the EFI runtime in order for rear to backup &amp; restore properly.
+(command efibootmgr returned "EFI variables are not supported on this system" and was unusable,
+solution was to add "efi=runtime" to the "KERNEL_CMDLINE" variable in /etc/rear/local.conf to enable it)
+you can see it in the local.conf screenshot in my initial post
+
+my point is - maybe it's adding more layers of complexity to the environment
+</code></pre>
+<p>let me know if you require anything else, or if you think it is expected
+behavior,<br />
+thanks =)</p>
+<h4 id="jsmeix_commented_at_2025-01-29_1324"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621646197">2025-01-29 13:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_1324" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+thank you!</p>
+<p>Now I see how things go wrong in ReaR!</p>
+<p>The crucial information was</p>
+<pre><code>iscsi_id on my system is on the same path you mentioned /lib/udev/scsi_id
+when i execute the same command it has no output since i only have NVMe SSDs
+</code></pre>
+<p>I never tested "rear recover" on my openSUSE Leap 15.6 workstation<br />
+where I don't have a built-in SCSI device (I have only a NVMe disk).</p>
+<p>Now I can reproduce it on my SLES 15 SP6 KVM/QEMU virtual test machine<br />
+with the following artificial modification in the ReaR recovery system<br />
+before I run "rear recover"</p>
+<pre><code>--- a/usr/share/rear/finalize/default/880_check_for_mount_by_id.sh
++++ b/usr/share/rear/finalize/default/880_check_for_mount_by_id.sh
+...
+ # Note: we ignore swap here because we treat it specially somewhere else!
+-if [ -e $TARGET_FS_ROOT/etc/fstab ] &amp;&amp; grep -v swap $TARGET_FS_ROOT/etc/fstab | grep -q by-id ; then
++if true ; then
+         LogPrint ""
+...
+                 # apparently the usage of scsi_id changed over the times, so we try two ways to call it
+-                eval "$(scsi_id -g -x -n -s /block/"$sysfs" -d /dev/$device 2&gt;/dev/null || scsi_id --export --whitelisted -d /dev/$device)"
++                eval "$( true )"
+                 if test "$ID_SERIAL" ; then
+...
+</code></pre>
+<p>because on my SLES 15 SP6 KVM/QEMU virtual test machine<br />
+I do not mount things 'by-id' and<br />
+I like to simulate that 'scsi_id' returns nothing.<br />
+With that artificial modification I get</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+WARNING ! You are mounting some devices by ID. Please be aware that the IDs
+are hardware dependent and that you might have to adjust your fstab to match
+the new IDs. Currently your system has the following disks with LUN IDs:
+
+
+
+WARNING ! Could not list any LUN IDs with scsi_id. Please tell us how your
+system calls scsi_id. However, some disks just don't have any LUN ID. We
+would like to know more about such systems and how they look.
+</code></pre>
+<p>Note the empty output for<br />
+"Currently your system has the following disks with LUN IDs:"<br />
+and then the subsequent false alarm about<br />
+"Could not list any LUN IDs with scsi_id"<br />
+regardless that my 'scsi_id' replacement 'true' run successfully.</p>
+<p>FYI<br />
+regarding 'WARNING' in general see<br />
+<a href="https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a><br />
+;-)</p>
+<p>So I will have to overhaul that code<br />
+to make it behave more fail-safe, cf.<br />
+"Try hard to care about possible errors" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<h4 id="jsmeix_commented_at_2025-01-29_1334"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621668755">2025-01-29 13:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_1334" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+as far as I see from my analysis in<br />
+<a href="https://github.com/rear/rear/issues/3383#issuecomment-2621646197">https://github.com/rear/rear/issues/3383#issuecomment-2621646197</a><br />
+I think it is also false alarm on your particular system<br />
+so you could safely ignore it.</p>
+<p>To verify whether or not it is actually false alarm on your system<br />
+run "rear -D recover" i.e. in debugscript mode ('-D')<br />
+and inspect still inside the ReaR recovery system the log file<br />
+/var/log/rear/rear-localhost.log<br />
+therein in particular the part while<br />
+finalize/default/880_check_for_mount_by_id.sh<br />
+is run.</p>
+<p>Furthermore inspect the recreated etc/fstab<br />
+still inside the ReaR recovery system which is there<br />
+/mnt/local/etc/fstab<br />
+whether or not it is OK as you need it and as you expect it<br />
+for your particular system.</p>
+<p>While you are still inside the ReaR recovery system<br />
+after "rear recover" finished, you can correct things<br />
+in the recreated system which is mounted below /mnt/local/<br />
+(you may do "chroot /mnt/local/" into the recreated system)<br />
+before you call "reboot" or "poweroff" in the recovery system<br />
+to boot the recreated system (sometimes "poweroff" and then<br />
+booting the recreated system via 'power on' works better).</p>
+<h4 id="xwhitebeltx_commented_at_2025-01-29_1402"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621739938">2025-01-29 14:02</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2025-01-29_1402" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+thanks for the links =)<br />
+yes i now understand that this is a false alarm in my case,<br />
+after the restore system is booting fine and everything seems ok.</p>
+<h4 id="jsmeix_commented_at_2025-01-29_1409"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621759281">2025-01-29 14:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_1409" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+could you please post here your etc/fstab<br />
+so that I could see how one looks like<br />
+when things are mounted 'by-id'?</p>
+<p>FYI:<br />
+On my SLES 15 SP6 KVM/QEMU virtual test machine<br />
+with the SLES default btrfs subvolumes structure<br />
+things are mounted via UUID:</p>
+<pre><code># cat /etc/fstab 
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /                       btrfs  defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /var                    btrfs  subvol=/@/var                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /usr/local              btrfs  subvol=/@/usr/local           0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /tmp                    btrfs  subvol=/@/tmp                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /srv                    btrfs  subvol=/@/srv                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /root                   btrfs  subvol=/@/root                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /opt                    btrfs  subvol=/@/opt                 0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /home                   btrfs  subvol=/@/home                0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/x86_64-efi  btrfs  subvol=/@/boot/grub2/x86_64-efi  0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /boot/grub2/i386-pc     btrfs  subvol=/@/boot/grub2/i386-pc  0  0
+UUID=1b15280b-7649-43dc-a939-2ff39d41839b  swap                    swap   defaults                      0  0
+UUID=bad9f5d9-6a37-4902-b5fc-ded16e84f357  /.snapshots             btrfs  subvol=/@/.snapshots          0  0
+
+# lsblk -bipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS,UUID
+NAME        TRAN   TYPE FSTYPE         SIZE MOUNTPOINTS            UUID
+/dev/sr0    sata   rom  iso9660 16442720256                        2024-06-13-19-56-33-00
+/dev/vda    virtio disk         16106127360                        
+|-/dev/vda1 virtio part             8388608                        
+|-/dev/vda2 virtio part btrfs   13949206528 /var                   bad9f5d9-6a37-4902-b5fc-ded16e84f357
+|                                           /usr/local             
+|                                           /tmp                   
+|                                           /root                  
+|                                           /srv                   
+|                                           /opt                   
+|                                           /home                  
+|                                           /boot/grub2/x86_64-efi 
+|                                           /boot/grub2/i386-pc    
+|                                           /.snapshots            
+|                                           /                      
+`-/dev/vda3 virtio part swap     2147466752 [SWAP]                 1b15280b-7649-43dc-a939-2ff39d41839b
+dev/vda3 virtio part swap     2147466752 [SWAP]
+</code></pre>
+<h4 id="xwhitebeltx_commented_at_2025-01-29_1427"><img src="https://avatars.githubusercontent.com/u/100077488?v=4" width="50"><a href="https://github.com/xwhitebeltx">xwhitebeltx</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2621807299">2025-01-29 14:27</a>:<a class="headerlink" href="#xwhitebeltx_commented_at_2025-01-29_1427" title="Permanent link">&para;</a></h4>
+<p>of course,<br />
+this is the fstab from my system:</p>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/37aaa8ca-4452-4f82-9df0-b7bda852b13f" /></p>
+<p>this is a clean ubuntu 22.04 installation with realtime kernel and a few
+minor modifications,<br />
+the only thing mounted by id is the default root partition logical group
+(LVM) created by the ubuntu installer</p>
+<p>output from the second command you sent:</p>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/648695f8-724d-4dfa-a966-f15527442931" /></p>
+<h4 id="jsmeix_commented_at_2025-01-29_1656"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2622195081">2025-01-29 16:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-29_1656" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3391">https://github.com/rear/rear/pull/3391</a><br />
+should (hopefully) fix it.<br />
+At least for me it seems to work as intended, see<br />
+<a href="https://github.com/rear/rear/pull/3391#issuecomment-2624128336">https://github.com/rear/rear/pull/3391#issuecomment-2624128336</a></p>
+<p>But I cannot verify (with acceptable efforts)<br />
+how various versions of scsi_id in various<br />
+Linux distribution environments may behave.</p>
+<h4 id="jsmeix_commented_at_2025-02-05_1326"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2636852360">2025-02-05 13:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-05_1326" title="Permanent link">&para;</a></h4>
+<p>With
+<a href="https://github.com/rear/rear/pull/3391">https://github.com/rear/rear/pull/3391</a>
+merged<br />
+this issue should be solved.</p>
+<h4 id="jsmeix_commented_at_2025-02-05_1340"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3383#issuecomment-2636885174">2025-02-05 13:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-05_1340" title="Permanent link">&para;</a></h4>
+<p>@xwhitebeltx<br />
+the new user info text is like this when there are SCSI devices</p>
+<pre><code>Automatically adjusting /dev/disk/by-id entries in etc/fstab is not supported:
+  Those IDs could be hardware dependent so check /mnt/local/etc/fstab
+  and verify all is correct or manually adjust /mnt/local/etc/fstab
+  to the actual values of the recreated system in /mnt/local
+  'scsi_id' reports '/dev/XXX' 123MiB: ID_VENDOR=VVV ID_MODEL=MMM ID_SERIAL=456
+  'scsi_id' reports '/dev/YYY' 234MiB: ID_VENDOR=vvv ID_MODEL=mmm ID_SERIAL=789
+</code></pre>
+<p>cf.
+<a href="https://github.com/rear/rear/pull/3391#issuecomment-2624433370">https://github.com/rear/rear/pull/3391#issuecomment-2624433370</a></p>
+<p>The new user info text is like this when there are no SCSI devices</p>
+<pre><code>Automatically adjusting /dev/disk/by-id entries in etc/fstab is not supported:
+  Those IDs could be hardware dependent so check /mnt/local/etc/fstab
+  and verify all is correct or manually adjust /mnt/local/etc/fstab
+  to the actual values of the recreated system in /mnt/local
+</code></pre>
+<p>In your case what is mounted via /dev/disk/by-id/...<br />
+is not a SCSI device so 'scsi_id' cannot show you<br />
+what SCSI devices exist on the replacement hardware.</p>
+<p>Nevertheless automatically adjusting /dev/disk/by-id<br />
+entries in etc/fstab is also not supported in your case.<br />
+So also in your case with NVMe devices you need to<br />
+check your recreated /mnt/local/etc/fstab and verify<br />
+all is correct or manually adjust your /mnt/local/etc/fstab<br />
+to your actual values of your recreated system in /mnt/local<br />
+cf.
+<a href="https://github.com/rear/rear/issues/3383#issuecomment-2621668755">https://github.com/rear/rear/issues/3383#issuecomment-2621668755</a><br />
+(excerpt)</p>
+<pre><code>While you are still inside the ReaR recovery system
+after "rear recover" finished, you can correct things
+in the recreated system which is mounted below /mnt/local/
+(you may do "chroot /mnt/local/" into the recreated system)
+before you call "reboot" or "poweroff" in the recovery system
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-22.3383.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

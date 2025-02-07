@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3380 PR merged: Create /var/run symlink dynamically during mkrescue - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3380 PR merged: Create /var/run symlink dynamically during mkrescue";
+        var mkdocs_page_input_path = "issues/2025-01-13.3380.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3380 PR merged: Create /var/run symlink dynamically during mkrescue</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3380_pr_merged_create_varrun_symlink_dynamically_during_mkrescue"><a href="https://github.com/rear/rear/pull/3380">#3380 PR</a> <code>merged</code>: Create /var/run symlink dynamically during mkrescue<a class="headerlink" href="#3380_pr_merged_create_varrun_symlink_dynamically_during_mkrescue" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="pcahyna_opened_issue_at_2025-01-13_1838"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3380">2025-01-13 18:38</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2025-01-13_1838" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): Fixes #3375</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+<code>rear -d mkrescue</code> before and after the change and check that rootfs
+    (<code>/var/tmp/rear..../rootfs</code>) has only trivial changes and that
+    <code>/var/tmp/rear..../rootfs/var/</code> contains the <code>run -&gt; ../run</code>
+    symlink.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Introduce a script that can create symlinks and empty directories in
+    the rescue ramdisk if they exist in original system. This way one
+    can avoid having plenty of empty directories under
+    <code>usr/share/rear/skel</code>. For now, use it to create the <code>/var/run</code>
+    symlink. Not having it as an actual symlink in the source tree helps
+    avoiding pitfalls associated with symlinks in the source tree, in
+    particular the packaging problem that RPM is not able to change a
+    directory into a symlink and vice-versa during upgrade (before ReaR
+    2.8 it was a directory, not a symlink):
+    <a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/Directory_Replacement/">https://docs.fedoraproject.org/en-US/packaging-guidelines/Directory_Replacement/</a>
+    and issue #3375.</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2025-01-14_0716"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589189708">2025-01-14 07:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-14_0716" title="Permanent link">&para;</a></h4>
+<p>I created a new milestone "ReaR 2.8.1"<br />
+and assigned this pull request to it<br />
+if we like to release ReaR 2.8.1</p>
+<h4 id="jsmeix_commented_at_2025-01-14_0728"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589205945">2025-01-14 07:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-14_0728" title="Permanent link">&para;</a></h4>
+<p>I just merged<br />
+<a href="https://github.com/rear/rear/pull/3373">https://github.com/rear/rear/pull/3373</a><br />
+as<br />
+<a href="https://github.com/rear/rear/commit/78954fb6d630e5dfe33870ae6cbb5170eb4f39ff">https://github.com/rear/rear/commit/78954fb6d630e5dfe33870ae6cbb5170eb4f39ff</a><br />
+see<br />
+<a href="https://github.com/rear/rear/pull/3370">https://github.com/rear/rear/pull/3370</a></p>
+<h4 id="pcahyna_commented_at_2025-01-14_1057"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589608263">2025-01-14 10:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-14_1057" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix , thanks. I will rebase my branch. The problem with the
+codespell check is that it is triggered even by what it sees as an error
+in the old version, untouched by the commit. So if you ignore the error
+once, because it is a false alarm, you will get it again and again.
+Which is the situation that we wanted to avoid with Differential
+ShellCheck.</p>
+<h4 id="pcahyna_commented_at_2025-01-14_1100"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589616387">2025-01-14 11:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-14_1100" title="Permanent link">&para;</a></h4>
+<p>Note also that the title of the check in
+<a href="https://github.com/rear/rear/pull/3380/checks">https://github.com/rear/rear/pull/3380/checks</a>
+is "🔸 Check for Spelling Errors for Changed Files", but this is
+misleading, as it then complains about an error in an unchanged file.</p>
+<p><a href="https://github.com/rear/rear/actions/runs/12753838460/job/35546345794">https://github.com/rear/rear/actions/runs/12753838460/job/35546345794</a></p>
+<h4 id="pcahyna_commented_at_2025-01-14_1107"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589630440">2025-01-14 11:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-14_1107" title="Permanent link">&para;</a></h4>
+<p>Which is weird, as there is this argument:
+<code>--exclude-file ./exclude_file</code> and ./exclude_file contains
+<code>./doc/rear-release-notes.txt</code> as shown in the output of the previous
+action.</p>
+<h4 id="jsmeix_commented_at_2025-01-14_1118"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589651596">2025-01-14 11:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-14_1118" title="Permanent link">&para;</a></h4>
+<p>In
+<a href="https://github.com/rear/rear/pull/3380/checks">https://github.com/rear/rear/pull/3380/checks</a><br />
+I see</p>
+<pre><code>/usr/bin/docker ... --rm -e "EXCLUDE_FILE"
+</code></pre>
+<p>so it looks as if the exclude file gets removed?<br />
+But I know nothing at all about how that stuff actually works.</p>
+<h4 id="pcahyna_commented_at_2025-01-14_1132"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2589676817">2025-01-14 11:32</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-14_1132" title="Permanent link">&para;</a></h4>
+<p>No,</p>
+<pre><code>       --rm true|false
+          Automatically  remove  the  container  when it exits. The default is
+       false.
+</code></pre>
+<p>The question though is whether the file gets passed into the container,
+and if yes, whether it is at the path where the command expects it (IOW
+whether the working directory of the command is the directory where the
+file resides).</p>
+<h4 id="pcahyna_commented_at_2025-01-14_1539"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2590280483">2025-01-14 15:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-14_1539" title="Permanent link">&para;</a></h4>
+<p>Rebased to solve the codespell fail. The original failed run is
+preserved at
+<a href="https://github.com/rear/rear/actions/runs/12753838460/job/35546345794">https://github.com/rear/rear/actions/runs/12753838460/job/35546345794</a></p>
+<h4 id="schlomo_commented_at_2025-01-14_1643"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2590511651">2025-01-14 16:43</a>:<a class="headerlink" href="#schlomo_commented_at_2025-01-14_1643" title="Permanent link">&para;</a></h4>
+<p>@jsmeix in the maintainer talk we talked about not doing a "patch
+release" 2.8.1 but just a regular next release 2.9. See the notes for
+more context. WDYT?</p>
+<h4 id="jsmeix_commented_at_2025-01-15_0701"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2591789649">2025-01-15 07:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-15_0701" title="Permanent link">&para;</a></h4>
+<p>I edited the milestone "ReaR 2.8.1" title to "ReaR 2.9".<br />
+Personally I don't care much about version numbers<br />
+(except that they must be strictly monotonic increasing).</p>
+<h4 id="gdha_commented_at_2025-01-16_0921"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2594982780">2025-01-16 09:21</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-16_0921" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Rebased to solve the codespell fail. The original failed run is
+preserved at
+<a href="https://github.com/rear/rear/actions/runs/12753838460/job/35546345794">https://github.com/rear/rear/actions/runs/12753838460/job/35546345794</a></p>
+</blockquote>
+<p>Seems to me there is still a bug in codespell itself - see
+<a href="https://github.com/codespell-project/actions-codespell/issues/33#issuecomment-903241775">https://github.com/codespell-project/actions-codespell/issues/33#issuecomment-903241775</a></p>
+<h4 id="gdha_commented_at_2025-01-21_0743"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2603872348">2025-01-21 07:43</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-21_0743" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Do you still have some doubts to merge this PR? How can we
+help?</p>
+<h4 id="pcahyna_commented_at_2025-01-21_1912"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2605538466">2025-01-21 19:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-21_1912" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Alternatively, maybe <code>tar --no-recursion ... | tar ...</code> might be
+another simpler way to copy directories and symlinks alike and even
+also copy over the permissions in one go.</p>
+</blockquote>
+<p>Done.</p>
+<h4 id="pcahyna_commented_at_2025-01-21_1913"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2605540280">2025-01-21 19:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-21_1913" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna Do you still have some doubts to merge this PR? How can we
+help?</p>
+</blockquote>
+<p>No, I only wanted to implement @schlomo 's proposal and took me some
+time to return to it.</p>
+<h4 id="pcahyna_commented_at_2025-01-23_1428"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2609954170">2025-01-23 14:28</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-23_1428" title="Permanent link">&para;</a></h4>
+<p>@schlomo @jsmeix I believe I addressed all your comments and I would
+like to rebase and merge today.</p>
+<h4 id="pcahyna_commented_at_2025-01-24_1311"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2612499471">2025-01-24 13:11</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-24_1311" title="Permanent link">&para;</a></h4>
+<p>I am now going to do a 2.9 release using the steps from #3370 and
+#3238 (minus the creation of a release branch).</p>
+<h4 id="schlomo_commented_at_2025-01-24_1316"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2612508757">2025-01-24 13:16</a>:<a class="headerlink" href="#schlomo_commented_at_2025-01-24_1316" title="Permanent link">&para;</a></h4>
+<p>Thank you very much @pcahyna, much appreciated!</p>
+<h4 id="jsmeix_commented_at_2025-01-24_1323"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2612523621">2025-01-24 13:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-24_1323" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I dare to ask you for a big favour:<br />
+Could you while you are doing it review our<br />
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a><br />
+and (preferably even pedantically) verify<br />
+to what extent those instructions are accurate?</p>
+<p>I modified it a lot during my ReaR 2.8 release<br />
+but I was somewhat under stress at that time<br />
+so my current version is likely not yet OK.</p>
+<h4 id="jsmeix_commented_at_2025-01-24_1325"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2612527449">2025-01-24 13:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-24_1325" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+and try to keep relaxed with release notes creation ;-)</p>
+<h4 id="pcahyna_commented_at_2025-01-27_1650"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2616345500">2025-01-27 16:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-01-27_1650" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna I dare to ask you for a big favour: Could you while you are
+doing it review our
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a>
+and (preferably even pedantically) verify to what extent those
+instructions are accurate?</p>
+<p>I modified it a lot during my ReaR 2.8 release but I was somewhat
+under stress at that time so my current version is likely not yet OK.</p>
+</blockquote>
+<p>@jsmeix sure! So far I will only skip the release branch creation.</p>
+<h4 id="pcahyna_commented_at_2025-02-03_2127"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2632113760">2025-02-03 21:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-02-03_2127" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna I dare to ask you for a big favour: Could you while you are
+doing it review our
+<a href="https://github.com/rear/rear/wiki/Release-process">https://github.com/rear/rear/wiki/Release-process</a>
+and (preferably even pedantically) verify to what extent those
+instructions are accurate?</p>
+<p>I modified it a lot during my ReaR 2.8 release but I was somewhat
+under stress at that time so my current version is likely not yet OK.</p>
+</blockquote>
+<p>@jsmeix Done, see the changes:
+<a href="https://github.com/rear/rear/wiki/Release-process/_compare/cc9f3bc09b1eec5274c8b0456f8342b325a256f4...91271c77b9f91f028c062223b789e264954e18d3">https://github.com/rear/rear/wiki/Release-process/_compare/cc9f3bc09b1eec5274c8b0456f8342b325a256f4...91271c77b9f91f028c062223b789e264954e18d3</a></p>
+<h4 id="jsmeix_commented_at_2025-02-04_0714"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3380#issuecomment-2633062971">2025-02-04 07:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-04_0714" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you!</p>
+<p>I am glad to see that I did not introduce real mistakes<br />
+by my changes during my ReaR 2.8 release.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-13.3380.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

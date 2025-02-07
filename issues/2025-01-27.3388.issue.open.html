@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3388 Issue open: Need to create timestamped directory under NFS for backup - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3388 Issue open: Need to create timestamped directory under NFS for backup";
+        var mkdocs_page_input_path = "issues/2025-01-27.3388.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3388 Issue open: Need to create timestamped directory under NFS for backup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3388_issue_open_need_to_create_timestamped_directory_under_nfs_for_backup"><a href="https://github.com/rear/rear/issues/3388">#3388 Issue</a> <code>open</code>: Need to create timestamped directory under NFS for backup<a class="headerlink" href="#3388_issue_open_need_to_create_timestamped_directory_under_nfs_for_backup" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="surjithsabu_opened_issue_at_2025-01-27_1648"><img src="https://avatars.githubusercontent.com/u/158686880?u=3abc0480799310cbde1b96adb960fcd31028f758&v=4" width="50"><a href="https://github.com/SurjithSabu">SurjithSabu</a> opened issue at <a href="https://github.com/rear/rear/issues/3388">2025-01-27 16:48</a>:<a class="headerlink" href="#surjithsabu_opened_issue_at_2025-01-27_1648" title="Permanent link">&para;</a></h4>
+<p>Hi All,<br />
+How can i create time stamped directories under an NFS mount for rear
+backup?<br />
+Please suggest on this</p>
+<p>Thanks</p>
+<h4 id="surjithsabu_commented_at_2025-01-28_0729"><img src="https://avatars.githubusercontent.com/u/158686880?u=3abc0480799310cbde1b96adb960fcd31028f758&v=4" width="50"><a href="https://github.com/SurjithSabu">SurjithSabu</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2618112597">2025-01-28 07:29</a>:<a class="headerlink" href="#surjithsabu_commented_at_2025-01-28_0729" title="Permanent link">&para;</a></h4>
+<p>Please find the local.conf below.<br />
+i want to know that the configuration are correct or not.Could you
+please suggest on this.<br />
+OUTPUT=ISO<br />
+BACKUP=NETFS<br />
+BACKUP_OPTIONS="nfsvers=4,nolock"<br />
+BACKUP_URL=nfs://<IPaddress>/subdirectory<br />
+BACKUP_PROG_COMPRESS_OPTIONS=( --gzip )<br />
+BACKUP_PROG_COMPRESS_SUFFIX=".gz"<br />
+BACKUP_PROG_EXCLUDE=( '/tmp/<em>' '/data/</em>' )</p>
+<p>command to trigger backup<br />
+TMPDIR="/tmp/backup${NODE}_${TIMESTAMP}"<br />
+ssh administrator@"$NODE" "sudo rear -d -v -c $TMPDIR mkbackup"</p>
+<h4 id="gdha_commented_at_2025-01-28_0745"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2618136433">2025-01-28 07:45</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-28_0745" title="Permanent link">&para;</a></h4>
+<p>@SurjithSabu The <code>-c DIR</code> stands for "alternative config directory
+instead of /etc/rear", which is the directory containing your local.conf
+file. This is not the target directory of your backup images.</p>
+<p>You can achieve this via <code>NETFS_PREFIX=$TIMESTAMP</code> in your
+<code>/etc/rear/local.conf</code> file. As ReaR is a bash script all your variables
+must be bash compliant as well. Keep this in mind. Easy to test:</p>
+<pre><code>bash -n /etc/rear/local.conf
+</code></pre>
+<h4 id="surjithsabu_commented_at_2025-01-29_0613"><img src="https://avatars.githubusercontent.com/u/158686880?u=3abc0480799310cbde1b96adb960fcd31028f758&v=4" width="50"><a href="https://github.com/SurjithSabu">SurjithSabu</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2620801689">2025-01-29 06:13</a>:<a class="headerlink" href="#surjithsabu_commented_at_2025-01-29_0613" title="Permanent link">&para;</a></h4>
+<p>@gdha thanks for your suggestion. i'm able to perform the backup. One
+more thing I've noticed that the output not getting saved as .iso file.
+it saved as backup.tar.gz. could you please guide</p>
+<h4 id="surjithsabu_commented_at_2025-01-29_1447"><img src="https://avatars.githubusercontent.com/u/158686880?u=3abc0480799310cbde1b96adb960fcd31028f758&v=4" width="50"><a href="https://github.com/SurjithSabu">SurjithSabu</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2621860189">2025-01-29 14:47</a>:<a class="headerlink" href="#surjithsabu_commented_at_2025-01-29_1447" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha ,</p>
+<p>Could please help me to align all the files under timestamp directory.
+current output has mentioned below.<br />
+can you suggest on this.</p>
+<p>find /mnt -type f<br />
+/mnt/stg-overcloud-controller-01/.lockfile<br />
+/mnt/stg-overcloud-controller-01/rear-stg-overcloud-controller-01.iso<br />
+/mnt/stg-overcloud-controller-01/VERSION<br />
+/mnt/stg-overcloud-controller-01/README<br />
+/mnt/stg-overcloud-controller-01/rear-stg-overcloud-controller-01.log<br />
+/mnt/overcloud-backups/20250128-091714/.lockfile<br />
+/mnt/overcloud-backups/20250128-091714/backup.tar.gz<br />
+/mnt/overcloud-backups/20250128-102428/backup.tar.gz<br />
+/mnt/overcloud-backups/20250128-102428/backup.log<br />
+/mnt/overcloud-backups/20250128-102428/selinux.autorelabel</p>
+<h1 id="localconf">local.conf<a class="headerlink" href="#localconf" title="Permanent link">&para;</a></h1>
+<p>OUTPUT=ISO<br />
+BACKUP=NETFS<br />
+BACKUP_URL=nfs://IPaddress/openstack_stg_backup<br />
+BACKUP_PROG_COMPRESS_OPTIONS=( --gzip )<br />
+BACKUP_PROG_COMPRESS_SUFFIX=".gz"<br />
+BACKUP_PROG_EXCLUDE=( '/tmp/<em>' '/data/</em>' )<br />
+NETFS_PREFIX=overcloud-backups/20250128-102428</p>
+<p>Thanks</p>
+<h4 id="gdha_commented_at_2025-01-30_0741"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2623758061">2025-01-30 07:41</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-30_0741" title="Permanent link">&para;</a></h4>
+<p>You could add
+<code>OUTPUT_URL=nfs://IPaddress/openstack_stg_backup/$NETFS_PREFIX</code></p>
+<h4 id="surjithsabu_commented_at_2025-02-04_1707"><img src="https://avatars.githubusercontent.com/u/158686880?u=3abc0480799310cbde1b96adb960fcd31028f758&v=4" width="50"><a href="https://github.com/SurjithSabu">SurjithSabu</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2634572990">2025-02-04 17:07</a>:<a class="headerlink" href="#surjithsabu_commented_at_2025-02-04_1707" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha ,</p>
+<p>Same issue persists after adding the suggested.<br />
+i'm using the below command to modify the backup URL</p>
+<h1 id="modify_the_localconf_with_the_backup_url">Modify the local.conf with the backup URL<a class="headerlink" href="#modify_the_localconf_with_the_backup_url" title="Permanent link">&para;</a></h1>
+<p>PREFIX="overcloud-backups/$TIMESTAMP"<br />
+BACKUP_URL="openstack_stg_backup/$PREFIX"<br />
+ssh admin@"$NODE" "echo NETFS_PREFIX=$PREFIX | sudo tee -a
+$TMPDIR/local.conf &amp;&amp; sudo sed -i
+'s|^OUTPUT_URL=.*|OUTPUT_URL=$BACKUP_URL|' $TMPDIR/local.conf" |&amp;
+tee -a "$LOG_FILE"</p>
+<p>find /mnt -type f<br />
+/mnt/stg-overcloud-controller-01/.lockfile<br />
+/mnt/stg-overcloud-controller-01/rear-stg-overcloud-controller-01.iso<br />
+/mnt/stg-overcloud-controller-01/VERSION<br />
+/mnt/stg-overcloud-controller-01/README<br />
+/mnt/stg-overcloud-controller-01/rear-stg-overcloud-controller-01.log<br />
+/mnt/overcloud-backups/20250128-091714/.lockfile<br />
+/mnt/overcloud-backups/20250128-091714/backup.tar.gz<br />
+/mnt/overcloud-backups/20250128-102428/backup.tar.gz<br />
+/mnt/overcloud-backups/20250128-102428/backup.log<br />
+/mnt/overcloud-backups/20250128-102428/selinux.autorelabel<br />
+/mnt/overcloud-backups/20250204-085932/backup.tar.gz<br />
+/mnt/overcloud-backups/20250204-085932/backup.log<br />
+/mnt/overcloud-backups/20250204-085932/selinux.autorelabel<br />
+/mnt/overcloud-backups/20250204-094125/backup.tar.gz<br />
+/mnt/overcloud-backups/20250204-094125/backup.log<br />
+/mnt/overcloud-backups/20250204-094125/selinux.autorelabel</p>
+<p>Thanks</p>
+<h4 id="gdha_commented_at_2025-02-06_1549"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3388#issuecomment-2640207413">2025-02-06 15:49</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-06_1549" title="Permanent link">&para;</a></h4>
+<p>@SurjithSabu I have in my <code>/etc/rear/local.conf</code> the following entries:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+OUTPUT_PREFIX="$(hostname -s)/$(date '+%F')"
+NETFS_PREFIX="$OUTPUT_PREFIX"
+BACKUP_URL=nfs://nas/volume1/RearSpace
+</code></pre>
+<p>and with that is see on the NAS:</p>
+<pre><code># ls -l /volume1/RearSpace/noc/2025-02-06
+total 1682496
+-rw------- 1 admin users 956563456 Feb  6 16:48 backup.tar.gz
+-rw------- 1 admin users       202 Feb  6 16:45 README
+-rw------- 1 admin users 766230528 Feb  6 16:45 rear-noc.iso
+-rw------- 1 admin users     73672 Feb  6 16:45 rear-noc.log
+-rw------- 1 admin users       292 Feb  6 16:45 VERSION
+</code></pre>
+<p>This should solve your problem IMHO.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-27.3388.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

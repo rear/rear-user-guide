@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3386 Issue closed: False "ERROR: Stale NFS mount point" because no timeout command in recovery system - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3386 Issue closed: False \"ERROR: Stale NFS mount point\" because no timeout command in recovery system";
+        var mkdocs_page_input_path = "issues/2025-01-22.3386.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3386 Issue closed: False "ERROR: Stale NFS mount point" because no timeout command in recovery system</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3386_issue_closed_false_error_stale_nfs_mount_point_because_no_timeout_command_in_recovery_system"><a href="https://github.com/rear/rear/issues/3386">#3386 Issue</a> <code>closed</code>: False "ERROR: Stale NFS mount point" because no timeout command in recovery system<a class="headerlink" href="#3386_issue_closed_false_error_stale_nfs_mount_point_because_no_timeout_command_in_recovery_system" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>fixed / solved / done</code>, <code>minor bug</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-01-22_1532"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3386">2025-01-22 15:32</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-01-22_1532" title="Permanent link">&para;</a></h4>
+<p>During my very first testing of "rear recover" in PORTABLE mode because
+of<br />
+<a href="https://github.com/rear/rear/pull/3379#issuecomment-2607222152">https://github.com/rear/rear/pull/3379#issuecomment-2607222152</a><br />
+I noticed that - at least for me - "rear recover" fails with</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+ERROR: Stale NFS mount point /nfs detected - please fix it first!
+Some latest log messages since the last called script 100_check_stale_nfs_mounts.sh:
+  2025-01-22 16:18:30.619467024 Entering debugscript mode via 'set -x'.
+  2025-01-22 16:18:30.630197156 Trustworthy sourcing '/usr/share/rear/init/default/100_check_stale_nfs_mounts.sh'
+  /usr/share/rear/init/default/100_check_stale_nfs_mounts.sh: line 26: timeout: command not found
+</code></pre>
+<p>I had done before</p>
+<pre><code>RESCUE localhost:~ # mount -t nfs -o nolock 192.168.178.66:/nfs/localhost.portable /nfs
+</code></pre>
+<p>to mount my NFS share where my localhost-portable.tar.gz is<br />
+to do then</p>
+<pre><code>RESCUE localhost:~ # tar -xvf /nfs/localhost-portable.tar.gz
+</code></pre>
+<p>cf.<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc</a></p>
+<p>My workaround to avoid the false 'ERROR: Stale NFS mount point'<br />
+because of 'timeout: command not found' was</p>
+<pre><code>RESCUE localhost:~ # ln -s /bin/true /bin/timeout
+</code></pre>
+<p>after that "rear recover" in PORTABLE mode<br />
+seemed to have "just worked" for me.</p>
+<p>So either 'timeout' gets added to REQUIRED_PROGS<br />
+or init/default/100_check_stale_nfs_mounts.sh<br />
+gets enhanced to skip testing for stale NFS mounts<br />
+when there is no 'timeout' command.</p>
+<p>I think it is better to skip testing for stale NFS mounts<br />
+when there is no 'timeout' command because otherwise<br />
+it would also falsely error out when there is<br />
+no 'timeout' command on the original system<br />
+because the 'init' stage is always run.</p>
+<h4 id="gdha_commented_at_2025-01-23_0857"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2609207123">2025-01-23 08:57</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-23_0857" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Wow, nice catch as I thought <code>timeout</code> was already part of one
+of our PROGS variables long time ago. Seems I made a wrong assumption
+when I found lots of timeout usages, but these seems to be variable
+timeout.<br />
+I prefer that 'timeout' gets added to REQUIRED_PROGS.</p>
+<h4 id="jsmeix_commented_at_2025-01-23_0939"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2609327810">2025-01-23 09:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_0939" title="Permanent link">&para;</a></h4>
+<p>Choose what you think is best.</p>
+<p>Adding 'timeout' to REQUIRED_PROGS has the advantage<br />
+that we do not need workarounds in our code.</p>
+<p>But adding 'timeout' to REQUIRED_PROGS alone<br />
+results that rear falsely fails with that error here<br />
+on systems where no 'timeout' command exists<br />
+when some NFS share is mounted</p>
+<pre><code># mv /usr/bin/timeout /usr/bin/timeout.away
+
+# mount -t nfs -o nolock 192.168.178.66:/nfs/localhost.portable /nfs
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+ERROR: Stale NFS mount point /nfs detected - please fix it first!
+Some latest log messages since the last called script 100_check_stale_nfs_mounts.sh:
+  2025-01-23 10:32:12.152329207 Entering debugscript mode via 'set -x'.
+  2025-01-23 10:32:12.157029159 Trustworthy sourcing '/root/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/100_check_stale_nfs_mounts.sh'
+  /root/rear.github.master-jsmeix-source-wrapper/usr/share/rear/init/default/100_check_stale_nfs_mounts.sh: line 26: timeout: command not found
+</code></pre>
+<p>where the error message "Stale NFS mount point /nfs detected"<br />
+is plain wrong because my NFS mount point /nfs is not stale<br />
+so nothing needs to be fixed there.</p>
+<p>In contrast where rear should actually fail:</p>
+<pre><code># umount /nfs
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+ERROR: Cannot find required programs: timeout
+Some latest log messages since the last called script 950_check_missing_programs.sh:
+</code></pre>
+<p>So adding 'timeout' to REQUIRED_PROGS<br />
+additionally requires to run<br />
+init/default/100_check_stale_nfs_mounts.sh<br />
+after<br />
+init/default/950_check_missing_programs.sh<br />
+to let rear fail properly when 'timeout' is missing.</p>
+<h4 id="gdha_commented_at_2025-01-23_0949"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2609349900">2025-01-23 09:49</a>:<a class="headerlink" href="#gdha_commented_at_2025-01-23_0949" title="Permanent link">&para;</a></h4>
+<p>I believe <code>timeout</code> is part of the <code>coreutils</code> package on RH, SLES,
+Debian and Ubuntu. Therefore, I wondering why was it missing on your
+distribution? Did <code>timeout</code> moved to another package within SLES
+somehow?</p>
+<h4 id="jsmeix_commented_at_2025-01-23_1112"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2609532647">2025-01-23 11:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_1112" title="Permanent link">&para;</a></h4>
+<p>I think you overlooked my</p>
+<pre><code># mv /usr/bin/timeout /usr/bin/timeout.away
+</code></pre>
+<p>in my above test. I did that intentionally<br />
+to test how it behaves if no 'timeout' command exists.</p>
+<p>Yes, on my SLES15-SP6 test system 'timeout'<br />
+is part of the coreutils package:</p>
+<pre><code># rpm -qf /usr/bin/timeout
+coreutils-8.32-150400.9.3.1.x86_64
+</code></pre>
+<p>In my above test my main point is not<br />
+whether or not a 'timeout' command exists.<br />
+My point is that 100_check_stale_nfs_mounts.sh shows<br />
+a wrong error message if no 'timeout' command exists<br />
+so adding 'timeout' to REQUIRED_PROGS alone is<br />
+not a proper fix.</p>
+<h4 id="jsmeix_commented_at_2025-01-23_1119"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2609546695">2025-01-23 11:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-23_1119" title="Permanent link">&para;</a></h4>
+<p>I checked on SLES11-SP4 (the oldest system I have available)<br />
+Also there 'timeout' is part of the coreutils package.</p>
+<p>Perhaps it is sufficiently safe to blindly assume<br />
+that a 'timeout' command always exists<br />
+so adding 'timeout' to REQUIRED_PROGS alone<br />
+could be sufficient in practice?</p>
+<h4 id="jsmeix_commented_at_2025-01-27_1603"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2616162701">2025-01-27 16:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-27_1603" title="Permanent link">&para;</a></h4>
+<p>Meanwhile I think it is sufficiently safe<br />
+to blindly assume that a 'timeout' command always exists<br />
+so adding 'timeout' to REQUIRED_PROGS is sufficient in practice:<br />
+<a href="https://github.com/rear/rear/pull/3387">https://github.com/rear/rear/pull/3387</a></p>
+<h4 id="jsmeix_commented_at_2025-01-28_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3386#issuecomment-2618979366">2025-01-28 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-01-28_1319" title="Permanent link">&para;</a></h4>
+<p>This issue should (hopefully) be sufficiently solved now<br />
+via
+<a href="https://github.com/rear/rear/pull/3387">https://github.com/rear/rear/pull/3387</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2024 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-01-22.3386.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
