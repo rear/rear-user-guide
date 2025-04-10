@@ -3355,6 +3355,7 @@
 - [\#3255 Issue](2024-06-18.3255.issue.open.md) `open`: IPv6 address and special character issues in OUTPUT\_URL/BACKUP\_URL
 - [\#3256 Issue](2024-06-18.3256.issue.open.md) `open`: Potential issues with backup path containing glob or whitespace characters
 - [\#3257 Issue](2024-06-19.3257.issue.open.md) `open`: OUTPUT option to only have a grub/efi entry but no ISO?
+- [\#3258 PR](2024-06-19.3258.pr.closed.md) `closed`: On hold: Implement SourceTrustworthy function
 - [\#3258 PR](2024-06-19.3258.pr.open.md) `open`: On hold: Implement SourceTrustworthy function
 - [\#3259 Issue](2024-06-21.3259.issue.open.md) `open`: ReaR must not carelessly 'source' files
 - [\#3260 Issue](2024-06-21.3260.issue.open.md) `open`: Generic method how to safely and reliably read shell-style config files
@@ -3384,6 +3385,7 @@
 - [\#3277 PR](2024-07-12.3277.pr.open.md) `open`: WIP: Autodetect EFI shim
 - [\#3278 PR](2024-07-12.3278.pr.merged.md) `merged`: Autodetect secure boot via mokutil and guess the secure boot shim
 - [\#3278 PR](2024-07-12.3278.pr.open.md) `open`: Autodetect secure boot via mokutil and guess the secure boot shim
+- [\#3280 PR](2024-07-18.3280.pr.closed.md) `closed`: skel/default/etc/rsyslog.conf : others should not have read permissions
 - [\#3280 PR](2024-07-18.3280.pr.open.md) `open`: skel/default/etc/rsyslog.conf : others should not have read permissions
 - [\#3281 PR](2024-07-18.3281.pr.merged.md) `merged`: conf: reintroduce `Linux-s390.conf`
 - [\#3281 PR](2024-07-18.3281.pr.open.md) `open`: conf: reintroduce `Linux-s390.conf`
@@ -3447,6 +3449,7 @@
 - [\#3330 Issue](2024-10-15.3330.issue.closed.md) `closed`: Why ReaR does not make important vars available as env vars for PRE/POST\_BACKUP\_SCRIPT ?
 - [\#3331 PR](2024-10-17.3331.pr.merged.md) `merged`: Use `OS_MASTER_VERSION` for major releases
 - [\#3332 Issue](2024-10-17.3332.issue.closed.md) `closed`: Unable to boot recover image on SuSE Linux ppc
+- [\#3333 Issue](2024-10-21.3333.issue.closed.md) `closed`: Is it possible to build a IMG File of a SDcard from a running Raspberry PI ?
 - [\#3333 Issue](2024-10-21.3333.issue.open.md) `open`: Is it possible to build a IMG File of a SDcard from a running Raspberry PI ?
 - [\#3334 PR](2024-10-22.3334.pr.merged.md) `merged`: Fix get\_disklabel\_type(
 - [\#3335 Issue](2024-10-26.3335.issue.closed.md) `closed`: Is there any example configuration for creating a bootable medium and backup on one device?
@@ -3456,6 +3459,7 @@
 - [\#3340 Issue](2024-11-05.3340.issue.open.md) `open`: Error out on removed deprecated features
 - [\#3341 Issue](2024-11-08.3341.issue.closed.md) `closed`: Change the milestone 3.0 of closed issues to 2.8
 - [\#3342 Issue](2024-11-08.3342.issue.closed.md) `closed`: Clean up the “future” Milestone
+- [\#3343 Issue](2024-11-09.3343.issue.closed.md) `closed`: Fedora Linux 41 (Silverblue
 - [\#3343 Issue](2024-11-09.3343.issue.open.md) `open`: Disable /dev/zram0 in disklayout.conf
 - [\#3344 PR](2024-11-19.3344.pr.merged.md) `merged`: Minor os-detection improvements
 - [\#3345 PR](2024-11-20.3345.pr.merged.md) `merged`: Make sourcing DUPLY\_PROFILE reasonably secure
@@ -3477,6 +3481,7 @@
 - [\#3360 Issue](2024-12-11.3360.issue.open.md) `open`: Officially support Alma Linux, Rocky Linux and Oracle Linux as RHEL clones
 - [\#3361 Issue](2024-12-11.3361.issue.open.md) `open`: Artix Linux: LUKS2 hash is not correctly recognized when the cryptdevice contains a key-slot with pbkdf2
 - [\#3362 Issue](2024-12-11.3362.issue.open.md) `open`: Artix Linux: update defaults or documentation to make EFI-bootable rescue systems on USB devices simpler
+- [\#3363 Issue](2024-12-12.3363.issue.closed.md) `closed`: ReaR does not recognise USB SSD but sees USB flashdrive
 - [\#3363 Issue](2024-12-12.3363.issue.open.md) `open`: ReaR does not recognise USB SSD but sees USB flashdrive
 - [\#3364 PR](2024-12-16.3364.pr.merged.md) `merged`: Fix some typos
 - [\#3365 PR](2024-12-16.3365.pr.merged.md) `merged`: savelayout: error out on mounted multi-disk BTRFS filesystems
@@ -3492,18 +3497,23 @@
 - # [\#3374 Issue](2024-12-26.3374.issue.closed.md) `closed`: When performing rear recover, Unable to mount the NFS
 - [\#3375 Issue](2025-01-02.3375.issue.closed.md) `closed`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
 - # [\#3375 Issue](2025-01-02.3375.issue.open.md) `open`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
+- [\#3376 PR](2025-01-02.3376.pr.merged.md) `merged`: Using Blockclone to save a disk image of a RPi system
 - # [\#3376 PR](2025-01-02.3376.pr.open.md) `open`: Using Blockclone to save a disk image of a RPi system
 - # [\#3377 Issue](2025-01-03.3377.issue.open.md) `open`: 'USE\_RESOLV\_CONF=n' error with ReaR 2.8 (because USE\_RESOLV\_CONF is an array
 - # [\#3378 Issue](2025-01-04.3378.issue.open.md) `open`: Since ReaR 2.8: ERROR: Mounpoint / points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: <https://github.com/rear/rear/issues/2028>
+- [\#3379 PR](2025-01-13.3379.pr.closed.md) `closed`: New 'source' wrapper functions framework
 - [\#3379 PR](2025-01-13.3379.pr.open.md) `open`: New 'source' wrapper functions framework
 - [\#3380 PR](2025-01-13.3380.pr.merged.md) `merged`: Create /var/run symlink dynamically during mkrescue
 - [\#3381 Issue](2025-01-16.3381.issue.open.md) `open`: When performing recovery unable load necessary kernel modules automatically
 - [\#3382 PR](2025-01-22.3382.pr.merged.md) `merged`: Specify path to sbindir during RPM build
 - [\#3383 Issue](2025-01-22.3383.issue.closed.md) `closed`: False alarm in 880\_check\_for\_mount\_by\_id.sh when there is no SCSI disk (e.g. only NVMe disks
+- [\#3384 Issue](2025-01-22.3384.issue.closed.md) `closed`: OUTPUT=PORTABLE does not work for "rear mkbackup" ("mkrescue" plus "mkbackuponly" works
 - [\#3384 Issue](2025-01-22.3384.issue.open.md) `open`: OUTPUT=PORTABLE does not work for "rear mkbackup" ("mkrescue" plus "mkbackuponly" works
+- [\#3385 Issue](2025-01-22.3385.issue.closed.md) `closed`: \[New issue\] does no longer show our ISSUE\_TEMPLATE.md (at least not for me
 - [\#3385 Issue](2025-01-22.3385.issue.open.md) `open`: \[New issue\] does no longer show our ISSUE\_TEMPLATE.md (at least not for me
 - [\#3386 Issue](2025-01-22.3386.issue.closed.md) `closed`: False "ERROR: Stale NFS mount point" because no timeout command in recovery system
 - [\#3387 PR](2025-01-27.3387.pr.merged.md) `merged`: Add 'timeout' to default REQUIRED\_PROGS
+- [\#3388 Issue](2025-01-27.3388.issue.closed.md) `closed`: Need to create timestamped directory under NFS for backup
 - [\#3388 Issue](2025-01-27.3388.issue.open.md) `open`: Need to create timestamped directory under NFS for backup
 - [\#3389 PR](2025-01-28.3389.pr.merged.md) `merged`: 2.9 release preparations
 - [\#3390 PR](2025-01-29.3390.pr.merged.md) `merged`: Automate ReaR Release Builds via GH Actions
@@ -3512,6 +3522,63 @@
 - [\#3393 PR](2025-02-04.3393.pr.merged.md) `merged`: Remove 040\_inspect\_configuration\_files.sh (obsoleted by 001\_verify\_config\_arrays.sh
 - [\#3394 Issue](2025-02-04.3394.issue.closed.md) `closed`: Failed to source /usr/share/rear/conf/default.conf
 - [\#3395 Issue](2025-02-04.3395.issue.closed.md) `closed`: Failed to source /usr/share/rear/conf/default.conf
+- [\#3396 Issue](2025-02-06.3396.issue.closed.md) `closed`: Need Align all backup files under timestamp directory.
 - [\#3396 Issue](2025-02-06.3396.issue.open.md) `open`: Need Align all backup files under timestamp directory.
+- [\#3397 Issue](2025-02-06.3397.issue.closed.md) `closed`: Could not remove build area
 - [\#3397 Issue](2025-02-06.3397.issue.open.md) `open`: Could not remove build area
+- [\#3398 Issue](2025-02-08.3398.issue.open.md) `open`: Creating a Config and when or IF a Disk gets formatted
+- [\#3399 PR](2025-02-12.3399.pr.merged.md) `merged`: Further enhance 880\_check\_for\_mount\_by\_id.sh
+- [\#3400 Issue](2025-02-13.3400.issue.open.md) `open`: Falsely "automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem
+- [\#3401 Issue](2025-02-13.3401.issue.open.md) `open`: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf
+- [\#3402 PR](2025-02-13.3402.pr.merged.md) `merged`: \#3401 discard longhorn devices
+- [\#3403 PR](2025-02-14.3403.pr.merged.md) `merged`: \#3400 to avoid disks mounted without partition getting excluded
+- [\#3404 Issue](2025-02-16.3404.issue.closed.md) `closed`: Monitor "rear mkbackup" result (when run as cron job
+- [\#3405 Issue](2025-02-18.3405.issue.closed.md) `closed`: rear checklayout does not check the NetworkManager configuration files on RHEL 9
+- [\#3406 PR](2025-02-24.3406.pr.merged.md) `merged`: ppc64le: Fix compatibility with PowerNV on RHEL 8+
+- [\#3407 PR](2025-02-25.3407.pr.open.md) `open`: regenerate all initramfs on SLES
+- [\#3408 PR](2025-02-26.3408.pr.merged.md) `merged`: New umount\_mountpoint\_retry\_lazy function
+- [\#3409 Issue](2025-02-27.3409.issue.open.md) `open`: Make deb package build failed on Armbian/Raspbian - how to fix this ? (Discussion \#3327
+- [\#3410 Issue](2025-02-27.3410.issue.open.md) `open`: CrowdStrike Falcon may conflict with ReaR
+- [\#3411 Issue](2025-02-28.3411.issue.closed.md) `closed`: Enhance 300\_map\_disks.sh to also print the disk sizes
+- [\#3412 PR](2025-02-28.3412.pr.merged.md) `merged`: enhance 300\_map\_disks.sh script to also print the disk sizes
+- [\#3413 Issue](2025-02-28.3413.issue.closed.md) `closed`: sshd in the rescue image lacks an ed25519 host key, and after upgrade from EL 8 to EL 9 it will not start anymore
+- [\#3414 Issue](2025-02-28.3414.issue.open.md) `open`: Fix when 'find' results only dangling symlinks to needed libraries
+- [\#3415 PR](2025-02-28.3415.pr.merged.md) `merged`: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image \#3413
+- [\#3416 PR](2025-03-01.3416.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.1 to 5.5.3
+- [\#3417 Issue](2025-03-03.3417.issue.open.md) `open`: Out of memory when restoring
+- [\#3418 PR](2025-03-03.3418.pr.merged.md) `merged`: ci: run Differential ShellCheck only on push to master
+- [\#3419 PR](2025-03-04.3419.pr.merged.md) `merged`: Update CS and Fedora Images + add support for `podman`
+- [\#3420 PR](2025-03-05.3420.pr.merged.md) `merged`: ppc64le: Fix PReP Boot detection on GPT layouts
+- [\#3421 PR](2025-03-07.3421.pr.merged.md) `merged`: Update 450\_check\_network\_files.sh for NetworkManager
+- [\#3422 Issue](2025-03-10.3422.issue.closed.md) `closed`: ReaR add lines in UEFI BIOS
+- [\#3423 Issue](2025-03-11.3423.issue.open.md) `open`: GRUB UEFI Secure Boot entry not working, non-secure boot entry works
+- [\#3424 PR](2025-03-11.3424.pr.merged.md) `merged`: TRUSTED\_OWNERS and TRUSTED\_PATHS to protect against code injection via 'source'
+- [\#3425 Issue](2025-03-12.3425.issue.open.md) `open`: Unable to backup with RAID
+- [\#3426 Issue](2025-03-14.3426.issue.open.md) `open`: SLES15 SP6: update defaults or documentation to make EFI-bootable rescue ISO work/boot
+- [\#3427 Issue](2025-03-14.3427.issue.open.md) `open`: Are our discussions contents somewhere saved?
+- [\#3428 Issue](2025-03-17.3428.issue.open.md) `open`: Prepare a list of obsolete external backup solutions
+- [\#3429 Issue](2025-03-17.3429.issue.open.md) `open`: Merge the two existing umount function into one
+- [\#3430 PR](2025-03-17.3430.pr.open.md) `open`: LUKS2: try to handle multiple key slots
+- [\#3431 PR](2025-03-18.3431.pr.merged.md) `merged`: Change all ReaR scripts that mention the old name \_input-output-functions.sh
+- [\#3432 PR](2025-03-18.3432.pr.merged.md) `merged`: remove zram swap from disklayout.conf
+- [\#3433 Issue](2025-03-19.3433.issue.open.md) `open`: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"
+- [\#3434 PR](2025-03-20.3434.pr.closed.md) `closed`: New TRUSTED\_SOURCING\_VIA\_DOT for trusted sourcing via '.'
+- [\#3435 PR](2025-03-24.3435.pr.merged.md) `merged`: Delete 800\_enforce\_usb\_output.sh (deletes usr/share/rear/build/USB directory
+- [\#3436 PR](2025-03-24.3436.pr.closed.md) `closed`: Fix for simulation mode in sbin/rear
+- [\#3437 PR](2025-03-25.3437.pr.merged.md) `merged`: Allow sourcing via dot in non-ReaR files
+- [\#3438 Issue](2025-03-25.3438.issue.open.md) `open`: Overhaul simulation mode implementation
+- [\#3439 Issue](2025-03-25.3439.issue.open.md) `open`: Sort out when 'source' versus 'Source' should be used in ReaR
+- [\#3440 PR](2025-03-27.3440.pr.open.md) `open`: Add initial support for arm/aarch64 machines with UEFI
+- [\#3441 Issue](2025-03-27.3441.issue.closed.md) `closed`: Create ISO image containing all data and send it via rsync
+- [\#3442 PR](2025-03-27.3442.pr.merged.md) `merged`: Support Debian 12
+- [\#3443 Issue](2025-04-03.3443.issue.open.md) `open`: 001\_verify\_config\_arrays.sh leaks secrets in arrays
+- [\#3444 Issue](2025-04-03.3444.issue.closed.md) `closed`: 'dump' workflow leaks secrets
+- [\#3445 PR](2025-04-03.3445.pr.merged.md) `merged`: Do not show secrets in the dump workflow without --expose-secrets
+- [\#3446 Issue](2025-04-05.3446.issue.open.md) `open`: rescue ISO cannot load kernel
+- [\#3447 PR](2025-04-05.3447.pr.open.md) `open`: Extend the umount\_mountpoint function to try normal, forced and lazy umounts
+- [\#3448 Issue](2025-04-07.3448.issue.open.md) `open`: Ultrium9 SAS tape drive: OUTPUT=OBDR mkbackup fails (tar: /dev/nst0: Device busy
+- [\#3449 PR](2025-04-07.3449.pr.merged.md) `merged`: Avoid that 001\_verify\_config\_arrays.sh leaks secrets
+- [\#3450 PR](2025-04-08.3450.pr.merged.md) `merged`: Set BACKUP\_PROG\_COMPRESS\_OPTIONS as an empty array
+- [\#3451 Issue](2025-04-08.3451.issue.open.md) `open`: SAS Ultrium9 tape drive: dd: error writing '/dev/nst0': Invalid argument
+- [\#3452 PR](2025-04-08.3452.pr.open.md) `open`: run-in-docker: Use /lib64/ld-linux-x86-64.so.2 to detect HW architecture
 - # Issues History of Relax-and-Recover (index.md)
