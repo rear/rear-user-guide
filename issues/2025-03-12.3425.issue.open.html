@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3425 Issue open: Unable to backup with RAID - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3425 Issue open: Unable to backup with RAID";
+        var mkdocs_page_input_path = "issues/2025-03-12.3425.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3425 Issue open: Unable to backup with RAID</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3425_issue_open_unable_to_backup_with_raid"><a href="https://github.com/rear/rear/issues/3425">#3425 Issue</a> <code>open</code>: Unable to backup with RAID<a class="headerlink" href="#3425_issue_open_unable_to_backup_with_raid" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>, <code>minor bug</code></p>
+<h4 id="immick_opened_issue_at_2025-03-12_1945"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> opened issue at <a href="https://github.com/rear/rear/issues/3425">2025-03-12 19:45</a>:<a class="headerlink" href="#immick_opened_issue_at_2025-03-12_1945" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.9-git.5586.e89f78ab.release / 2025-01-31</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<pre><code>2025-03-12 22:34:58.831486403 Relax-and-Recover 2.9-git.5586.e89f78ab.release / 2025-01-31
+2025-03-12 22:34:58.835054220 Running rear mkbackup (PID 3861 date 2025-03-12 22:34:57)
+2025-03-12 22:34:58.838908429 Using log file: /var/log/rear/rear-afmgtu.log
+2025-03-12 22:34:58.857716709 Including conf/Linux-i386.conf
+2025-03-12 22:34:58.874181233 Including conf/GNU/Linux.conf
+2025-03-12 22:34:58.995835400 Including /etc/rear/site.conf
+2025-03-12 22:34:59.006699171 Including /etc/rear/local.conf
+2025-03-12 22:34:59.011674408 ======================
+2025-03-12 22:34:59.015360647 Running 'init' stage
+2025-03-12 22:34:59.019024800 ======================
+2025-03-12 22:34:59.043857152 Including init/default/001_verify_config_arrays.sh
+2025-03-12 22:34:59.475238055 Including init/default/002_check_rear_recover_mode.sh
+2025-03-12 22:34:59.477669302 Running workflow mkbackup on the normal/original system
+2025-03-12 22:34:59.480993211 Including init/default/010_EFISTUB_check.sh
+2025-03-12 22:34:59.484488661 Including init/default/010_set_drlm_env.sh
+2025-03-12 22:34:59.487989602 Including init/default/030_update_recovery_system.sh
+2025-03-12 22:34:59.491454375 Including init/default/100_check_stale_nfs_mounts.sh
+2025-03-12 22:34:59.498571765 Including init/default/950_check_missing_programs.sh
+2025-03-12 22:34:59.504733292 Including init/default/998_dump_variables.sh
+2025-03-12 22:34:59.519243864 Finished running 'init' stage in 0 seconds
+2025-03-12 22:34:59.522579645 Running mkbackup workflow
+2025-03-12 22:34:59.525693854 ======================
+2025-03-12 22:34:59.527457157 Running 'prep' stage
+2025-03-12 22:34:59.529145490 ======================
+2025-03-12 22:34:59.586875522 Including prep/default/005_remove_workflow_conf.sh
+2025-03-12 22:34:59.598081382 Including prep/default/020_translate_url.sh
+2025-03-12 22:34:59.603781636 Including prep/default/030_translate_tape.sh
+2025-03-12 22:34:59.611629898 Including prep/default/035_valid_backup_methods.sh
+2025-03-12 22:34:59.617219610 Including prep/default/036_valid_output_methods.sh
+2025-03-12 22:34:59.622839258 Including prep/default/040_check_backup_and_output_scheme.sh
+2025-03-12 22:34:59.632750676 Including prep/NETFS/default/040_inspect_configuration_files.sh
+2025-03-12 22:34:59.638248972 Including prep/NETFS/default/050_check_NETFS_requirements.sh
+2025-03-12 22:34:59.644780219 Skipping 'ping' test for host '' in BACKUP_URL 'iso:///backup'
+2025-03-12 22:34:59.652481650 Including prep/default/050_check_keep_old_output_copy_var.sh
+2025-03-12 22:34:59.657880881 Including prep/NETFS/default/060_mount_NETFS_path.sh
+2025-03-12 22:34:59.664931730 Including prep/NETFS/default/070_set_backup_archive.sh
+2025-03-12 22:34:59.671461704 Using backup archive '/var/tmp/rear.847PuuWOmYgyCOY/tmp/isofs/backup/backup.tar.gz'
+2025-03-12 22:34:59.676564494 Including prep/NETFS/default/090_check_encrypted_backup.sh
+2025-03-12 22:34:59.681480525 Including prep/NETFS/default/100_check_nfs_version.sh
+2025-03-12 22:34:59.725513902 Including prep/default/100_init_workflow_conf.sh
+2025-03-12 22:34:59.732131708 Including prep/NETFS/default/150_save_rsync_version.sh
+2025-03-12 22:34:59.739864977 Including prep/GNU/Linux/200_include_getty.sh
+2025-03-12 22:34:59.777241684 Including prep/GNU/Linux/200_include_serial_console.sh
+2025-03-12 22:34:59.786292396 Including prep/NETFS/GNU/Linux/200_selinux_in_use.sh
+2025-03-12 22:34:59.797990966 Including prep/NETFS/GNU/Linux/205_inspect_tar_capabilities.sh
+2025-03-12 22:34:59.820466654 Including prep/GNU/Linux/210_include_dhclient.sh
+2025-03-12 22:34:59.936713512 No DHCP client could be auto-detected: DHCP will not be enabled on the rescue system
+2025-03-12 22:34:59.944585783 Including prep/GNU/Linux/220_include_lvm_tools.sh
+2025-03-12 22:34:59.950075290 Device mapper found enabled. Including LVM tools.
+2025-03-12 22:35:00.574372062 Including prep/GNU/Linux/230_include_md_tools.sh
+2025-03-12 22:35:00.580174165 Software RAID detected. Including mdadm tools.
+2025-03-12 22:35:00.587334109 Including prep/GNU/Linux/240_include_multipath_tools.sh
+2025-03-12 22:35:00.594186861 Including prep/GNU/Linux/280_include_systemd.sh
+2025-03-12 22:35:00.612797505 Including systemd (init replacement) tool-set to bootstrap Relax-and-Recover
+2025-03-12 22:35:00.619348820 Including prep/GNU/Linux/280_include_virtualbox.sh
+2025-03-12 22:35:00.631941298 Including prep/GNU/Linux/280_include_vmware_tools.sh
+2025-03-12 22:35:00.643705495 Including prep/GNU/Linux/290_include_drbd.sh
+2025-03-12 22:35:00.654983978 Including prep/GNU/Linux/300_check_backup_and_output_url.sh
+2025-03-12 22:35:00.667990210 Including prep/ISO/default/300_check_iso_dir.sh
+2025-03-12 22:35:00.673773753 Including prep/GNU/Linux/300_include_grub_tools.sh
+2025-03-12 22:35:00.703184363 Including prep/GNU/Linux/310_include_cap_utils.sh
+2025-03-12 22:35:00.710186212 Including prep/ISO/default/320_check_cdrom_size.sh
+2025-03-12 22:35:00.715783771 ISO Directory '/var/lib/rear/output' [/dev/md0] has 3970 MB free space
+2025-03-12 22:35:00.722667568 Including prep/default/320_include_uefi_env.sh
+2025-03-12 22:35:00.744832030 Including prep/ISO/GNU/Linux/320_verify_mkisofs.sh
+2025-03-12 22:35:00.810127290 Including prep/default/321_EFISTUB_check_uefi_env.sh
+2025-03-12 22:35:00.817728806 Including prep/ISO/Linux-i386/330_find_isolinux.sh
+2025-03-12 22:35:01.348359419 Including prep/default/330_include_uefi_tools.sh
+2025-03-12 22:35:01.355725300 Including prep/Linux-i386/330_set_efi_arch.sh
+2025-03-12 22:35:01.362765306 Including prep/ISO/GNU/Linux/340_add_isofs_module.sh
+2025-03-12 22:35:01.380052248 Including prep/default/340_include_password_tools.sh
+2025-03-12 22:35:01.386652045 Including prep/ISO/GNU/Linux/360_EFISTUB_prechecks.sh
+2025-03-12 22:35:01.392894358 Including prep/Linux-i386/370_detect_secure_boot.sh
+2025-03-12 22:35:01.399497128 Including prep/default/380_include_opal_tools.sh
+2025-03-12 22:35:01.405668418 Including prep/default/390_include_python.sh
+2025-03-12 22:35:01.411755199 Including prep/NETFS/default/400_automatic_exclude_recreate.sh
+2025-03-12 22:35:01.420842368 Including prep/GNU/Linux/400_guess_kernel.sh
+2025-03-12 22:35:01.425251309 Using autodetected kernel '/boot/vmlinuz-4.2.5-300.fc23.i686+PAE' as kernel in the recovery system
+2025-03-12 22:35:01.430979195 Including prep/default/400_save_directories.sh
+2025-03-12 22:35:01.434478682 Creating recovery directory (when not existing)
+2025-03-12 22:35:01.544918618 FHS directory /etc/xml does not exist
+2025-03-12 22:35:01.617187700 FHS directory /usr/X11R6 does not exist
+2025-03-12 22:35:01.656439130 Including prep/default/490_store_write_protect_settings.sh
+2025-03-12 22:35:01.662535023 Including prep/GNU/Linux/500_EFISTUB_check_kernel.sh
+2025-03-12 22:35:01.679083866 Including prep/NETFS/default/980_umount_NETFS_dir.sh
+2025-03-12 22:35:01.691158757 Including prep/default/989_check_for_restore_esp.sh
+2025-03-12 22:35:01.697281014 Including prep/default/990_verify_empty_rootfs.sh
+2025-03-12 22:35:01.706399872 Finished running 'prep' stage in 2 seconds
+2025-03-12 22:35:01.709779229 ======================
+2025-03-12 22:35:01.712871898 Running 'layout/save' stage
+2025-03-12 22:35:01.716005711 ======================
+2025-03-12 22:35:01.741568206 Including layout/save/GNU/Linux/100_create_layout_file.sh
+2025-03-12 22:35:01.745197981 Creating disk layout
+2025-03-12 22:35:01.748614963 Creating layout directories (when not existing)
+2025-03-12 22:35:01.757609324 Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+2025-03-12 22:35:01.927650723 Including layout/save/GNU/Linux/150_save_diskbyid_mappings.sh
+2025-03-12 22:35:02.424291105 Saved diskbyid_mappings
+2025-03-12 22:35:02.430097030 Including layout/save/GNU/Linux/190_opaldisk_layout.sh
+2025-03-12 22:35:02.436650394 Including layout/save/GNU/Linux/200_partition_layout.sh
+2025-03-12 22:35:02.455779780 Saving disks and their partitions
+2025-03-12 22:35:05.385162631 Including layout/save/GNU/Linux/210_raid_layout.sh
+2025-03-12 22:35:05.392564013 Saving Software RAID configuration
+2025-03-12 22:35:06.752245580 Some messages from /var/tmp/rear.847PuuWOmYgyCOY/tmp/rear.mkbackup.stdout_stderr since the last called script 210_raid_layout.sh:
+  /usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh: line 298: test: -gt: unary operator expected
+  /usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh: line 298: test: -gt: unary operator expected
+2025-03-12 22:35:06.859386750 ERROR: RAID /dev/md3 level '' is not a single word
+2025-03-12 22:35:06.950913182 Error exit of rear mkbackup (PID 3861) and its descendant processes
+2025-03-12 22:35:06.990065094 rear,3861 /usr/sbin/rear mkbackup
+                                `-rear,7253 /usr/sbin/rear mkbackup
+                                    `-rear,7438 /usr/sbin/rear mkbackup
+                                        `-pstree,7439 -Aplau 3861
+2025-03-12 22:35:08.049543932 Exiting subshell 1 (where the actual error happened)
+2025-03-12 22:35:08.056257306 Exiting rear mkbackup (PID 3861) and its descendant processes ...
+2025-03-12 22:35:08.086511033 rear,3861 /usr/sbin/rear mkbackup
+                                `-rear,7468 /usr/sbin/rear mkbackup
+                                    `-pstree,7469 -Aplau 3861
+2025-03-12 22:35:08.119383483 Running exit tasks
+2025-03-12 22:35:08.126009074 Finished rear mkbackup in 11 seconds
+2025-03-12 22:35:08.130422080 Removing build area /var/tmp/rear.847PuuWOmYgyCOY
+2025-03-12 22:35:08.243409636 End of program 'rear' reached
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux i686</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>NAME=Fedora VERSION="23 (Twenty Three)" ID=fedora VERSION_ID=23
+PRETTY_NAME="Fedora 23 (Twenty Three)"</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>NETFS</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+sda       8:0    0   2.7T  0 disk
+├─sda1    8:1    0    10M  0 part
+├─sda2    8:2    0   200M  0 part
+├─sda3    8:3    0    25G  0 part
+│ └─md0   9:0    0    50G  0 raid5 /
+├─sda4    8:4    0   500M  0 part
+├─sda5    8:5    0    30G  0 part
+│ └─md1   9:1    0    60G  0 raid5 /var/log
+├─sda6    8:6    0    75G  0 part
+│ └─md2   9:2    0 149.9G  0 raid5 /backup
+├─sda7    8:7    0   200G  0 part
+│ └─md3   9:3    0 399.8G  0 raid5 /var/lib/mysql
+├─sda8    8:8    0   900G  0 part
+│ └─md4   9:4    0   1.8T  0 raid5 /home
+└─sda9    8:9    0   1.5T  0 part
+  └─md5   9:5    0   3.1T  0 raid5 /var/samba
+sdb       8:16   0   2.7T  0 disk
+├─sdb1    8:17   0    10M  0 part
+├─sdb2    8:18   0   200M  0 part
+├─sdb3    8:19   0    25G  0 part
+│ └─md0   9:0    0    50G  0 raid5 /
+├─sdb4    8:20   0   500M  0 part
+├─sdb5    8:21   0    30G  0 part
+│ └─md1   9:1    0    60G  0 raid5 /var/log
+├─sdb6    8:22   0    75G  0 part
+│ └─md2   9:2    0 149.9G  0 raid5 /backup
+├─sdb7    8:23   0   200G  0 part
+│ └─md3   9:3    0 399.8G  0 raid5 /var/lib/mysql
+├─sdb8    8:24   0   900G  0 part
+│ └─md4   9:4    0   1.8T  0 raid5 /home
+└─sdb9    8:25   0   1.5T  0 part
+  └─md5   9:5    0   3.1T  0 raid5 /var/samba
+sdc       8:32   0   2.7T  0 disk
+├─sdc1    8:33   0    10M  0 part
+├─sdc2    8:34   0   200M  0 part  /boot
+├─sdc3    8:35   0    25G  0 part
+│ └─md0   9:0    0    50G  0 raid5 /
+├─sdc4    8:36   0   500M  0 part
+├─sdc5    8:37   0    30G  0 part
+│ └─md1   9:1    0    60G  0 raid5 /var/log
+├─sdc6    8:38   0    75G  0 part
+│ └─md2   9:2    0 149.9G  0 raid5 /backup
+├─sdc7    8:39   0   200G  0 part
+│ └─md3   9:3    0 399.8G  0 raid5 /var/lib/mysql
+├─sdc8    8:40   0   900G  0 part
+│ └─md4   9:4    0   1.8T  0 raid5 /home
+└─sdc9    8:41   0   1.5T  0 part
+  └─md5   9:5    0   3.1T  0 raid5 /var/samba
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><code>rear mkbackup</code></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>The current repository of my OS provides an old version:</p>
+<pre><code># dnf info rear
+Last metadata expiration check: 1:09:17 ago on Wed Mar 12 21:45:57 2025.
+Available Packages
+Name        : rear
+Arch        : i686
+Epoch       : 0
+Version     : 1.19
+Release     : 1.fc23
+Size        : 415 k
+Repo        : updates
+</code></pre>
+<p>I'm not sure 1.19 will work correctly so I decided to build my own
+package with ver 2.9 but it has some problems with detecting /dev/md3.
+My RAID has no problem by the way.</p>
+<p>Also I have a question. Why my site.conf file is ignoring:</p>
+<pre><code># cat /etc/rear/site.conf
+OUTPUT=ISO
+OUTPUT_URL=cifs://192.168.33.85/Server.Backup/
+OUTPUT_OPTIONS="username=ksc,password=pass"
+BACKUP=NETFS
+BACKUP_URL=iso:///backup
+BACKUP_OPTIONS="username=ksc,password=pass"
+</code></pre>
+<p>According to the log it creates a local backup archive in
+'/var/tmp/rear.847PuuWOmYgyCOY/tmp/isofs/backup/backup.tar.gz' instead
+of writing to smb-share =/</p>
+<p>Thank you!</p>
+<p>P.S. And I'm sorry, I set wrong label... It should be "support /
+question" I guess =/<br />
+And I know my OS is too old but before upgrading it I'm trying to backup
+everyting via ReaR but got failed :(</p>
+<h4 id="gdha_commented_at_2025-03-13_1536"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2721689307">2025-03-13 15:36</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-13_1536" title="Permanent link">&para;</a></h4>
+<p>@Immick Run 'rear -d savelayout' and attach the log file as it contains
+the debugging output.</p>
+<h4 id="immick_commented_at_2025-03-13_2158"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2722779027">2025-03-13 21:58</a>:<a class="headerlink" href="#immick_commented_at_2025-03-13_2158" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+<a href="https://github.com/user-attachments/files/19237429/rear-afmgtu.log">rear-afmgtu.log</a></p>
+<h4 id="gdha_commented_at_2025-03-14_0750"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2723894117">2025-03-14 07:50</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-14_0750" title="Permanent link">&para;</a></h4>
+<p>@Immick</p>
+<blockquote>
+<p>According to the log it creates a local backup archive in
+'/var/tmp/rear.847PuuWOmYgyCOY/tmp/isofs/backup/backup.tar.gz' instead
+of writing to smb-share =/</p>
+</blockquote>
+<p>In the ReaR log you should see that it does mount the CIFS share.</p>
+<p>Run 'rear -D savelayout' and attach the log file as it contains the
+script debugging out as I would like to see why:<br />
+<code>/usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh: line 298: test: -gt: unary operator expected</code><br />
+fails?<br />
+Perhaps also attach the <code>/var/lib/rear/layout/disklayout.conf</code> file to
+view the result.</p>
+<h4 id="immick_commented_at_2025-03-14_1335"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2724732455">2025-03-14 13:35</a>:<a class="headerlink" href="#immick_commented_at_2025-03-14_1335" title="Permanent link">&para;</a></h4>
+<p>@gdha</p>
+<pre><code># rear -D savelayout
+Relax-and-Recover 2.9-git.5586.e89f78ab.release / 2025-01-31
+Running rear savelayout (PID 15440 date 2025-03-14 16:27:49)
+Command line options: /usr/sbin/rear -D savelayout
+Using log file: /var/log/rear/rear-afmgtu.log
+Using build area: /var/tmp/rear.l7ROxGqzZGx7Ul6
+Setting TMPDIR to ReaR's '/var/tmp/rear.l7ROxGqzZGx7Ul6/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow savelayout on the normal/original system
+Running 'layout/save' stage ======================
+Creating disk layout
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+GRUB found in first bytes on /dev/sdc and GRUB 2 is installed, using GRUB2 as a guessed bootloader for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Exiting rear savelayout (PID 15440) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.l7ROxGqzZGx7Ul6
+</code></pre>
+<p><a href="https://github.com/user-attachments/files/19248191/files.zip">files.zip</a></p>
+<blockquote>
+<p>In the ReaR log you should see that it does mount the CIFS share</p>
+</blockquote>
+<p>I see some CIFS references in log file but don't understand does it
+actually mount or not...</p>
+<h4 id="gdha_commented_at_2025-03-14_1413"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2724825033">2025-03-14 14:13</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-14_1413" title="Permanent link">&para;</a></h4>
+<p>@Immick Hum, seems the error is coming from the line:<br />
+<code>container=$( grep "Container" $mdadm_details | tr -d " " | cut -d ":" -f "2" | cut -d "," -f "1")</code><br />
+further in the script the line
+<code>test $container_size -gt 0 &amp;&amp; raid_layout_entry+=" size=$container_size"</code>
+will give an error:<br />
+<code>210_raid_layout.sh: line 298: test: -gt: unary operator expected</code></p>
+<p>Your mdadm output doesn't contain a <strong>Container</strong> line, but that is a
+minor issue, which doesn't has an impact of the disklayout.conf file
+(this one looks okay to me).</p>
+<p>Be aware that <code>rear savelayout</code> doesn't require CIFS as it writes it
+localy into <code>/var/lib/rear/layout</code> directory.</p>
+<p>If you run <code>rear -v mkbackup</code> it should write the ISO image to the CIFS
+share. Unless it has an issue with the account used for CIFS, but that
+should be visible in the rear logfile.</p>
+<h4 id="immick_commented_at_2025-03-14_1441"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2724914954">2025-03-14 14:41</a>:<a class="headerlink" href="#immick_commented_at_2025-03-14_1441" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+Thank you so much for observing my logs!</p>
+<blockquote>
+<p>If you run <code>rear -v mkbackup</code> it should write the ISO image to the
+CIFS share. Unless it has an issue with the account used for CIFS, but
+that should be visible in the rear logfile</p>
+</blockquote>
+<p>I started <code>rear -v mkbackup</code> and interrupted it as it still makes backup
+on /var/tmp/. And I see no CIFS-references in the rear log file :(<br />
+Could you look into it please?<br />
+<a href="https://github.com/user-attachments/files/19249192/rear-afmgtu.log">rear-afmgtu.log</a><br />
+What am I doing wrong?</p>
+<p>And one more thing I don't understand. Does this backup mean that I
+needed the exact drives structure to restore my backup? I mean, this OS
+is on 3x3TB disks with RAID 5, usable storage is 6 TB. Will I need also
+3x3TB disks to restore or can I have only one disk with 6TB on it?
+Actually I need to migrate that OS to one 6 TB (regardless of original
+RAID) disk for experiments with further OS upgrade. Is it possible with
+ReaR?</p>
+<h4 id="gdha_commented_at_2025-03-17_0717"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2728420202">2025-03-17 07:17</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_0717" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://github.com/gdha">@gdha</a> Thank you so much for observing my
+logs!</p>
+<blockquote>
+<p>If you run <code>rear -v mkbackup</code> it should write the ISO image to the
+CIFS share. Unless it has an issue with the account used for CIFS,
+but that should be visible in the rear logfile</p>
+</blockquote>
+<p>I started <code>rear -v mkbackup</code> and interrupted it as it still makes
+backup on /var/tmp/. And I see no CIFS-references in the rear log file
+:( Could you look into it please?
+<a href="https://github.com/user-attachments/files/19249192/rear-afmgtu.log">rear-afmgtu.log</a>
+What am I doing wrong?</p>
+</blockquote>
+<p>when you see
+<code>2025-03-14 17:27:35.901589753 Using backup archive '/var/tmp/rear.KmGf8ZyKq9ik2h8/tmp/isofs/backup/backup.tar.gz'</code>
+then it means it mounted the CIFS share. Do'nt you see anything
+appearing on the share itself?</p>
+<blockquote>
+<p>And one more thing I don't understand. Does this backup mean that I
+needed the exact drives structure to restore my backup? I mean, this
+OS is on 3x3TB disks with RAID 5, usable storage is 6 TB. Will I need
+also 3x3TB disks to restore or can I have only one disk with 6TB on
+it? Actually I need to migrate that OS to one 6 TB (regardless of
+original RAID) disk for experiments with further OS upgrade. Is it
+possible with ReaR?</p>
+</blockquote>
+<p>Rear is a DR solution to recover on the same or similar HW. Therefore,
+going from a 3x3TB to 1 6TB disk is something that ReaR will <strong>not</strong>
+cover for you. However, what you can do is install on OS on the new
+system and create the exact same mount points and then extract the tar
+file created by ReaR (or only the mount points you need) onto the new
+system.</p>
+<h4 id="immick_commented_at_2025-03-17_1358"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2729619262">2025-03-17 13:58</a>:<a class="headerlink" href="#immick_commented_at_2025-03-17_1358" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>then it means it mounted the CIFS share. Do'nt you see anything
+appearing on the share itself?</p>
+</blockquote>
+<p>Yep, nothing is appearing on the cifs-share. It writes /var/tmp/...
+decresing free space on <code>/</code> mount but I don't have such space on <code>/</code> to
+get that backup =/</p>
+<h4 id="gdha_commented_at_2025-03-17_1418"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2729690925">2025-03-17 14:18</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1418" title="Permanent link">&para;</a></h4>
+<p>@Immick Did you ever try to manual mount the CIFS share on your Linux
+system?</p>
+<h4 id="immick_commented_at_2025-03-17_1518"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2729922829">2025-03-17 15:18</a>:<a class="headerlink" href="#immick_commented_at_2025-03-17_1518" title="Permanent link">&para;</a></h4>
+<p>@gdha Yes, I can succesfully mount this share via:<br />
+<code>mount -t cifs //192.168.33.85/AFMGTU.Server.Backup /mnt/cifs -o username=KSC,password=123456,vers=2.1</code><br />
+And able to write files here.</p>
+<p>So changed my site.conf to:</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=cifs://192.168.33.85/AFMGTU.Server.Backup/
+OUTPUT_OPTIONS="username=ksc,password=123456,vers=2.1"
+BACKUP=NETFS
+BACKUP_URL=iso:///backup
+BACKUP_OPTIONS="username=ksc,password=123456,vers=2.1"
+</code></pre>
+<p>Is my configuration file correct?</p>
+<p>But it still writes to <code>/</code>. And I don't understand why nothing can be
+found in the log file regarding issues with mounting my CIFS share:<br />
+<a href="https://github.com/user-attachments/files/19289831/rear-afmgtu.zip">rear-afmgtu.zip</a></p>
+<pre><code>+ source /usr/share/rear/prep/NETFS/default/060_mount_NETFS_path.sh
+++ [[ -n '' ]]
+++ mount_url iso:///backup /var/tmp/rear.O2O6PgG97EHS6yv/outputfs username=ksc,password=123456,vers=2.1
+++ local url=iso:///backup
+++ local mountpoint=/var/tmp/rear.O2O6PgG97EHS6yv/outputfs
+++ local defaultoptions=rw,noatime
+++ local options=username=ksc,password=123456,vers=2.1
+++ local scheme
++++ url_scheme iso:///backup
++++ local url=iso:///backup
++++ local scheme=iso
++++ echo iso
++++ grep -q :
++++ echo iso
+++ scheme=iso
+++ scheme_supports_filesystem iso
+++ local scheme=iso
+++ test iso
+++ case "$scheme" in
+++ return 0
+++ local mount_cmd
+++ case "$scheme" in
+++ test recover = mkbackup
+++ return 0
++ source_return_code=0
+</code></pre>
+<p>As can I see, no issues here, right?</p>
+<p>Is there a way to debug this mounting somehow manually?</p>
+<h4 id="gdha_commented_at_2025-03-17_1522"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2729936343">2025-03-17 15:22</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1522" title="Permanent link">&para;</a></h4>
+<p>@Immick try commenting these 2 lines:</p>
+<pre><code>OUTPUT_URL=cifs://192.168.33.85/AFMGTU.Server.Backup/
+OUTPUT_OPTIONS="username=ksc,password=123456,vers=2.1"
+</code></pre>
+<p>and see what happens next?</p>
+<p>Or, as iso: means creating local ISO image (including backups). you
+could also change the OUTPUT lines into BACKUP lines and comment the
+BACKUP_URL line.</p>
+<h4 id="immick_commented_at_2025-03-17_1708"><img src="https://avatars.githubusercontent.com/u/12298761?v=4" width="50"><a href="https://github.com/Immick">Immick</a> commented at <a href="https://github.com/rear/rear/issues/3425#issuecomment-2730273814">2025-03-17 17:08</a>:<a class="headerlink" href="#immick_commented_at_2025-03-17_1708" title="Permanent link">&para;</a></h4>
+<p>@gdha</p>
+<blockquote>
+<p>as iso: means creating local ISO image (including backups)</p>
+</blockquote>
+<p>Oh, I'm sorry I didn't realize it sooner...<br />
+So there is no way to create ISO-image with backups directly on
+CIFS-share?</p>
+<pre><code>#OUTPUT=ISO
+#OUTPUT_URL=cifs://192.168.33.85/AFMGTU.Server.Backup/
+#OUTPUT_OPTIONS="username=ksc,password=123456,vers=2.1"
+BACKUP=NETFS
+BACKUP_URL=cifs://192.168.33.85/AFMGTU.Server.Backup/
+BACKUP_OPTIONS="username=ksc,password=123456,vers=2.1"
+
+Creating tar archive '/var/tmp/rear.VcsA98Eyhu79Hbb/outputfs/afmgtu/backup.tar.gz'
+Archived 746 MiB [avg 168 KiB/sec]
+</code></pre>
+<p>Now it writes to the CIFS-share! Will take an year for my 6 TB I guess!
+:)</p>
+<p>Thank you so much!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-12.3425.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3412 PR merged: enhance 300_map_disks.sh script to also print the disk sizes - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3412 PR merged: enhance 300_map_disks.sh script to also print the disk sizes";
+        var mkdocs_page_input_path = "issues/2025-02-28.3412.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3412 PR merged: enhance 300_map_disks.sh script to also print the disk sizes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3412_pr_merged_enhance_300_map_diskssh_script_to_also_print_the_disk_sizes"><a href="https://github.com/rear/rear/pull/3412">#3412 PR</a> <code>merged</code>: enhance 300_map_disks.sh script to also print the disk sizes<a class="headerlink" href="#3412_pr_merged_enhance_300_map_diskssh_script_to_also_print_the_disk_sizes" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="gdha_opened_issue_at_2025-02-28_1043"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/pull/3412">2025-02-28 10:43</a>:<a class="headerlink" href="#gdha_opened_issue_at_2025-02-28_1043" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #3411</p>
+</li>
+<li>
+<p>How was this pull request tested? In a real DR test</p>
+</li>
+<li>
+<p>Description of the changes in this pull request: The sizes of the
+    disks will now also be saved in the ReaR log file which makes it
+    easier to link the original disk with the new mapped one.<br />
+    Furthermore, a new script <code>960_save_disk_and_vgs_mappings.sh</code> was
+    added to assist further in the disk mapping process (even before we
+    execute the recovery itself).</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2025-02-28_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2690580766">2025-02-28 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-28_1254" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you please - as time permits - have a look here?<br />
+I ask you because I think you know much better than me<br />
+about LVM stuff (I am out of that game here).</p>
+<h4 id="pcahyna_commented_at_2025-03-04_1830"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2698547529">2025-03-04 18:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-04_1830" title="Permanent link">&para;</a></h4>
+<p>@jsmeix done, sorry for the delay! Your suspicion looks justified to me.</p>
+<h4 id="jsmeix_commented_at_2025-03-05_0735"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2700098391">2025-03-05 07:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-05_0735" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your review and in particular<br />
+thank you for providing an example case.</p>
+<p>When you did a review, could you then please also<br />
+select one of the choices that one gets in the<br />
+GitHub web frontend under "Review changes" on<br />
+<a href="https://github.com/rear/rear/pull/3412/files">https://github.com/rear/rear/pull/3412/files</a></p>
+<ul>
+<li>Comment: Submit general feedback without explicit approval.</li>
+<li>Approve: Submit feedback and approve merging these changes.</li>
+<li>Request changes: Submit feedback that must be addressed before
+    merging.</li>
+</ul>
+<p>The default is "Comment".</p>
+<h4 id="gdha_commented_at_2025-03-06_1014"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2703402686">2025-03-06 10:14</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-06_1014" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@gdha please drop the
+<code>usr/share/rear/layout/save/default/960_save_disk_and_vgs_mapping.sh</code>
+from commit
+<a href="https://github.com/rear/rear/commit/3cc7ee45f0c640f03ecb90a34314d5ee19fd6d0d">3cc7ee4</a>
+(it should not have been part of the commit in any case, as it is
+unrelated to the commit subject) and drop commits
+<a href="https://github.com/rear/rear/commit/45eed458ae060ee0df463d4f8aa04966632788b5">45eed45</a>
+and
+<a href="https://github.com/rear/rear/commit/59e769400c455d47ea48141e54917ad5282070af">59e7694</a>
+. The rest should be OK.</p>
+<p>@jsmeix Oops, sorry, I thought I already did that, but apparently
+GitHub does not like <strong>Request changes</strong> without providing a comment
+why (although I provided the explanation inline before). Also sorry
+for the delay again, I was ill yesterday.</p>
+</blockquote>
+<p>done with it.</p>
+<h4 id="pcahyna_commented_at_2025-03-06_1030"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2703443466">2025-03-06 10:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-06_1030" title="Permanent link">&para;</a></h4>
+<p>@gdha thanks, looks good. Can you please squash the commits and
+force-push to avoid having the noise from
+.../960_save_disk_and_vgs_mapping.sh in the Git history? If you
+don't want to bother with such details, I can do it myself.</p>
+<p>By the way, the commits are done with an unusual address:
+<code>D'Haese, Gratien [GTSBE - Non JJ] &lt;GDHAESE1@ITS.JNJ...</code> . Is that
+intended? If not, this could be corrected as well when squashing (if
+yes, you can leave it this way of course).</p>
+<h4 id="pcahyna_commented_at_2025-03-06_1110"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2703536417">2025-03-06 11:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-06_1110" title="Permanent link">&para;</a></h4>
+<p>@jsmeix a note regarding</p>
+<blockquote>
+<p>... and when it is already ensured that the ordering<br />
+of the output from both commands is same ...</p>
+</blockquote>
+<p>no amount of ordering would make this approach correct, as disks and PVs
+do not need to have a 1:1 relationship. A disk can have no PVs (having
+just traditional file systems on top of partitions) or multiple PVs
+(having multiple partitions and a PV on each of these). The latter might
+be a bit unusual, but certainly possible.</p>
+<h4 id="pcahyna_commented_at_2025-03-06_1129"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2703580389">2025-03-06 11:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-06_1129" title="Permanent link">&para;</a></h4>
+<p>@gdha in your last changes there is still addition and deletion of
+960_save_disk_and_vgs_mapping.sh</p>
+<h4 id="gdha_commented_at_2025-03-06_1307"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2703803106">2025-03-06 13:07</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-06_1307" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@gdha in your last changes there is still addition and deletion of
+960_save_disk_and_vgs_mapping.sh</p>
+</blockquote>
+<p>I think I cannot prevent this as it was part of the 1st commit too.</p>
+<h4 id="pcahyna_commented_at_2025-03-06_2216"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2705063935">2025-03-06 22:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-06_2216" title="Permanent link">&para;</a></h4>
+<p>@gdha I removed it from the first commit and forece-pushed it. Please
+let me know if that's ok and if so I can merge the PR.</p>
+<h4 id="gdha_commented_at_2025-03-07_0707"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2705691855">2025-03-07 07:07</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-07_0707" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@gdha I removed it from the first commit and forece-pushed it. Please
+let me know if that's ok and if so I can merge the PR.</p>
+</blockquote>
+<p>@pcahyna Great nice job. I'm okay for the PR.</p>
+<h4 id="pcahyna_commented_at_2025-03-07_1108"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3412#issuecomment-2706175359">2025-03-07 11:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-07_1108" title="Permanent link">&para;</a></h4>
+<p>Rebased on top of current master to fix Differential ShellCheck error.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-28.3412.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

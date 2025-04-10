@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3407 PR open: regenerate all initramfs on SLES - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3407 PR open: regenerate all initramfs on SLES";
+        var mkdocs_page_input_path = "issues/2025-02-25.3407.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3407 PR open: regenerate all initramfs on SLES</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3407_pr_open_regenerate_all_initramfs_on_sles"><a href="https://github.com/rear/rear/pull/3407">#3407 PR</a> <code>open</code>: regenerate all initramfs on SLES<a class="headerlink" href="#3407_pr_open_regenerate_all_initramfs_on_sles" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="saschalucas_opened_issue_at_2025-02-25_0547"><img src="https://avatars.githubusercontent.com/u/8359898?v=4" width="50"><a href="https://github.com/saschalucas">saschalucas</a> opened issue at <a href="https://github.com/rear/rear/pull/3407">2025-02-25 05:47</a>:<a class="headerlink" href="#saschalucas_opened_issue_at_2025-02-25_0547" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #3263</p>
+</li>
+<li>
+<p>How was this pull request tested? recover SLES12 and SLES15 with
+    portable mode (systemrescue) and verified, that initramfs was
+    regenerated.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request: In order to fix
+    recovery in portable mode, where the running kernel does not match
+    the version installed in the recovered chroot regenerate all
+    initramfs images. This eliminates the need to parse present kernels
+    from /boot.</p>
+</li>
+</ul>
+<p>fixes #3263</p>
+<h4 id="jsmeix_commented_at_2025-02-25_0916"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3407#issuecomment-2681246980">2025-02-25 09:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-25_0916" title="Permanent link">&para;</a></h4>
+<p>@saschalucas<br />
+thank you for your enhancement to make ReaR also working<br />
+with OUTPUT=PORTABLE when the non-ReaR rescue system<br />
+does not have the same kernel and its matching<br />
+/lib/modules/kernel-version modules directory<br />
+as used on the original system so plain 'dracut'<br />
+uses the kernel version of the currently running<br />
+rescue system kernel and then dracut which runs<br />
+in 'chroot /mnt/local' cannot find a matching<br />
+(/mnt/local)/lib/modules/kernel-version directory.</p>
+<p>I tested how 'dracut --regenerate-all' behaves<br />
+when there are several kernels with several<br />
+/lib/modules/kernel-version modules directories:</p>
+<p>To test it on my SLES15-SP6 test VM<br />
+I copied in /boot/ the vmlinuz* kernel<br />
+and I copied recursively in /lib/modules/<br />
+the kernel-version modules directory<br />
+so I got</p>
+<pre><code># ls -lhdtr /boot/vmlinuz*
+-rw-r--r-- 1 root root 14M Jun 12  2024 /boot/vmlinuz-6.4.0-150600.21-default
+lrwxrwxrwx 1 root root  31 Sep  2 15:32 /boot/vmlinuz -&gt; vmlinuz-6.4.0-150600.21-default
+-rw-r--r-- 1 root root 14M Feb 25 08:23 /boot/vmlinuz-6.4.0-150600.22-default
+-rw-r--r-- 1 root root 14M Feb 25 08:23 /boot/vmlinuz-6.4.0-150600.23-default
+-rw-r--r-- 1 root root 14M Feb 25 08:23 /boot/vmlinuz-6.4.0-150600.24-default
+
+# ls -lhdtr /lib/modules/*
+drwxr-xr-x 1 root root 466 Sep  2 15:34 /lib/modules/6.4.0-150600.21-default
+drwxr-xr-x 1 root root 466 Feb 25 09:12 /lib/modules/6.4.0-150600.22-default
+drwxr-xr-x 1 root root 466 Feb 25 09:12 /lib/modules/6.4.0-150600.23-default
+drwxr-xr-x 1 root root 466 Feb 25 09:13 /lib/modules/6.4.0-150600.24-default
+</code></pre>
+<p>During "rear recover" dracut needed 4 times more time<br />
+to regenerate all 4 initrds.</p>
+<p>With the additional '--parallel' dracut option in<br />
+usr/share/rear/finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh</p>
+<pre><code>if chroot $TARGET_FS_ROOT /bin/bash -c "PATH=/sbin:/usr/sbin:/usr/bin:/bin $dracut_binary --force --regenerate-all --parallel" ; then
+</code></pre>
+<p>on a test VM with quad core CPU<br />
+during "rear recover" dracut needs again (almost) the same time<br />
+to regenerate all 4 initrds as it needs to regenerate one initrd.</p>
+<p>Needed time details:</p>
+<pre><code>For a single kernel without --regenerate-all on a single core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log 
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 08:16:45.491168753 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 08:16:49.770112271 Recreated initrd with /usr/bin/dracut
+
+Needed time: 49.770112271 - 45.491168753 = 4.278943518
+
+
+For a single kernel with --regenerate-all on a single core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:04:44.289959149 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 09:04:48.661493371 Recreated initrd with /usr/bin/dracut
+
+Needed time: 48.661493371 - 44.289959149 = 4.371534222
+
+
+For 4 kernels with --regenerate-all on a single core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:20:35.415214452 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 09:20:51.497077129 Recreated initrd with /usr/bin/dracut
+
+Needed time: 51.497077129 - 35.415214452 = 16.081862677
+
+
+For 4 kernels with --regenerate-all plus --parallel on a single core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:30:26.859244329 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 09:30:42.477938935 Recreated initrd with /usr/bin/dracut
+
+Needed time: 42.477938935 - 26.859244329 = 15.618694606
+
+
+For 4 kernels with --regenerate-all plus --parallel on a dual core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:40:18.627934196 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 09:40:27.015404668 Recreated initrd with /usr/bin/dracut
+
+Needed time: 27.015404668 - 18.627934196 = 8.387470472
+
+
+For 4 kernels with --regenerate-all plus --parallel on a quad core CPU:
+
+RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:47:32.045019481 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 09:47:37.596896288 Recreated initrd with /usr/bin/dracut
+
+Needed time: 37.596896288 - 32.045019481 = 5.551876807
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-02-25_0918"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3407#issuecomment-2681252911">2025-02-25 09:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-25_0918" title="Permanent link">&para;</a></h4>
+<p>@saschalucas<br />
+could you also add the dracut option '--parallel'<br />
+and test how it behaves in your environment?</p>
+<h4 id="jsmeix_commented_at_2025-02-25_0926"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3407#issuecomment-2681284478">2025-02-25 09:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-25_0926" title="Permanent link">&para;</a></h4>
+<p>The drawback of using the dracut option '--parallel' is<br />
+that then the dracut messages of the parallel running<br />
+dracut processes mix up in the dracut output<br />
+so one gets in the "rear -D recover" log file</p>
+<pre><code>++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 09:40:18.627934196 Recreating initrd with /usr/bin/dracut...
+++ chroot /mnt/local /bin/bash -c 'PATH=/sbin:/usr/sbin:/usr/bin:/bin /usr/bin/dracut --force --regenerate-all --parallel'
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+dracut[I]: Module 'systemd-networkd' will not be installed, because command 'networkctl' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command 'networkctl' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command 'networkctl' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd-wait-online' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd-wait-online' could not be found!
+dracut[I]: Module 'systemd-pcrphase' will not be installed, because command '/usr/lib/systemd/systemd-pcrphase' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd-wait-online' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command 'networkctl' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd' could not be found!
+dracut[I]: Module 'systemd-pcrphase' will not be installed, because command '/usr/lib/systemd/systemd-pcrphase' could not be found!
+dracut[I]: Module 'systemd-pcrphase' will not be installed, because command '/usr/lib/systemd/systemd-pcrphase' could not be found!
+dracut[I]: Module 'systemd-networkd' will not be installed, because command '/usr/lib/systemd/systemd-networkd-wait-online' could not be found!
+...
+</code></pre>
+<p>which makes it impossible to see which message<br />
+belongs to which kernel-version initrd recreating.</p>
+<p>I think faster recreating by using the available CPUs<br />
+is more important than working around an issue in dracut<br />
+(at least in the dracut version in SLES15-SP6)<br />
+that dracut does not properly prefix its messages<br />
+when it runs several times in parallel.</p>
+<h4 id="jsmeix_commented_at_2025-02-25_0940"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3407#issuecomment-2681345980">2025-02-25 09:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-25_0940" title="Permanent link">&para;</a></h4>
+<p>A side note FYI:</p>
+<p>According to<br />
+<a href="https://discussion.fedoraproject.org/t/what-exactly-do-a-dracut-regenerate-all-force/78379">https://discussion.fedoraproject.org/t/what-exactly-do-a-dracut-regenerate-all-force/78379</a></p>
+<pre><code>what exactly do a “dracut --regenerate-all --force” ?
+I'm running the command out of curiosity and it seems
+to be looking after every /lib/modules/*
+</code></pre>
+<p>it is the /lib/modules/kernel-version modules directories<br />
+which determine for what kernel versions '--regenerate-all'<br />
+will regenerate initramfs images.</p>
+<p>In particular 'dracut --regenerate-all' regenerates<br />
+initramfs images for all /lib/modules/kernel-version<br />
+modules directories regardless if a matching<br />
+/boot/vmlinuz* kernel exists<br />
+(at least in the dracut version in SLES15-SP6).<br />
+I tested it.<br />
+I removed my /boot/vmlinuz-6.4.0-150600.23-default<br />
+but kept /lib/modules/6.4.0-150600.23-default<br />
+and got after "rear recover" (with dual core CPU)</p>
+<pre><code>RESCUE localhost:~ # egrep ' initrd with /usr/bin/dracut| Executing: /usr/bin/dracut ' /var/log/rear/rear-localhost.log
+++ LogPrint 'Recreating initrd with /usr/bin/dracut...'
+2025-02-25 10:48:52.095169992 Recreating initrd with /usr/bin/dracut...
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.22-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.21-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.23-default --force
+dracut[I]: Executing: /usr/bin/dracut --kver=6.4.0-150600.24-default --force
+++ LogPrint 'Recreated initrd with /usr/bin/dracut'
+2025-02-25 10:49:01.040609638 Recreated initrd with /usr/bin/dracut
+
+RESCUE localhost:~ # ls -l /mnt/local/boot/vmlinuz*
+lrwxrwxrwx 1 root root       31 Sep  2 15:32 /mnt/local/boot/vmlinuz -&gt; vmlinuz-6.4.0-150600.21-default
+-rw-r--r-- 1 root root 14191584 Jun 12  2024 /mnt/local/boot/vmlinuz-6.4.0-150600.21-default
+-rw-r--r-- 1 root root 14191584 Feb 25 08:23 /mnt/local/boot/vmlinuz-6.4.0-150600.22-default
+-rw-r--r-- 1 root root 14191584 Feb 25 08:23 /mnt/local/boot/vmlinuz-6.4.0-150600.24-default
+
+RESCUE localhost:~ # ls -l /mnt/local/boot/initrd*
+lrwxrwxrwx 1 root root       30 Sep  2 15:32 /mnt/local/boot/initrd -&gt; initrd-6.4.0-150600.21-default
+-rw------- 1 root root 22067353 Feb 25 10:49 /mnt/local/boot/initrd-6.4.0-150600.21-default
+-rw------- 1 root root 22067356 Feb 25 10:49 /mnt/local/boot/initrd-6.4.0-150600.22-default
+-rw------- 1 root root 22067356 Feb 25 10:49 /mnt/local/boot/initrd-6.4.0-150600.23-default
+-rw------- 1 root root 22067356 Feb 25 10:49 /mnt/local/boot/initrd-6.4.0-150600.24-default
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-25.3407.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

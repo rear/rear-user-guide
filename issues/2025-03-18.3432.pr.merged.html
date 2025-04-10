@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3432 PR merged: remove zram swap from disklayout.conf - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3432 PR merged: remove zram swap from disklayout.conf";
+        var mkdocs_page_input_path = "issues/2025-03-18.3432.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3432 PR merged: remove zram swap from disklayout.conf</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3432_pr_merged_remove_zram_swap_from_disklayoutconf"><a href="https://github.com/rear/rear/pull/3432">#3432 PR</a> <code>merged</code>: remove zram swap from disklayout.conf<a class="headerlink" href="#3432_pr_merged_remove_zram_swap_from_disklayoutconf" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="gdha_opened_issue_at_2025-03-18_1250"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/pull/3432">2025-03-18 12:50</a>:<a class="headerlink" href="#gdha_opened_issue_at_2025-03-18_1250" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #3343</p>
+</li>
+<li>
+<p>How was this pull request tested? via <code>rear savelayout</code> on a Fedora
+    Silverblue system</p>
+</li>
+<li>
+<p>Description of the changes in this pull request: Avoid having zram
+    swap entry in the disklayout.conf file as it is memory based and not
+    disk based swap.</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2025-03-19_0725"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2735584040">2025-03-19 07:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-19_0725" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+please post here the complete outputs of the commands</p>
+<pre><code># cat /proc/swaps
+
+# swapon --show
+</code></pre>
+<p>on a system that uses /dev/zram* for swap.</p>
+<p>I would like to see what the outpout is<br />
+when /dev/zram* is used for swap.</p>
+<p>I am in particular interested what the swap type is.</p>
+<p>As far as I know the swap type is either 'partition' or 'file'.</p>
+<p>But /dev/zram* is memory based and not disk based<br />
+so it seems it is neither a partition nor a file<br />
+(of course disregarding "everything is a file" in Unix).</p>
+<p>When the swap type is really either 'partition' or 'file'<br />
+then from
+<a href="https://github.com/rear/rear/issues/3343">https://github.com/rear/rear/issues/3343</a>
+follows<br />
+that the swap type for /dev/zram* must be 'partition'<br />
+because if it was 'file' it would have been skipped by</p>
+<pre><code>if [ "$filename" = "Filename" ] || [ "$type" = "file" ] ; then
+    continue
+fi
+</code></pre>
+<p>According to<br />
+<a href="https://wiki.archlinux.org/title/Zram">https://wiki.archlinux.org/title/Zram</a><br />
+it looks as if it could be even correct<br />
+that /dev/zram* swap type is 'partition'<br />
+because zram is a compressed RAM disk<br />
+but the 'lsblk' output in<br />
+<a href="https://github.com/rear/rear/issues/3343#issue-2646259861">https://github.com/rear/rear/issues/3343#issue-2646259861</a><br />
+shows that it is not a partition but a whole 'disk'</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+
+NAME       KNAME      PKNAME TRAN TYPE FSTYPE LABEL SIZE MOUNTPOINT
+/dev/zram0 /dev/zram0             disk              1.9G [SWAP]
+</code></pre>
+<p>Also the above Arch Linux article also tells that</p>
+<pre><code>zram behaves differently than disk swap
+</code></pre>
+<p>but curretly I don't see how exactly it is different<br />
+(of course RAM is faster but no persistent storage).</p>
+<p>So the actual issue could be that a false or at least<br />
+misleading swap type 'partition' is reported which<br />
+is not sufficiently backward compatible with the usual<br />
+swap type 'partition' for a normal disk partition.</p>
+<h4 id="gdha_commented_at_2025-03-20_1002"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2739812255">2025-03-20 10:02</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-20_1002" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<pre><code>root@silverblue:~# cat /proc/swaps
+Filename                Type        Size        Used        Priority
+/dev/zram0                              partition   1982460     68392       100
+
+root@silverblue:~# swapon --show
+NAME       TYPE      SIZE   USED PRIO
+/dev/zram0 partition 1.9G 195.6M  100
+
+root@silverblue:~# lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME      PKNAME   TRAN   TYPE FSTYPE LABEL        SIZE MOUNTPOINT
+/dev/sda    /dev/sda            sata   disk                      15G 
+|-/dev/sda1 /dev/sda1  /dev/sda        part vfat                600M /boot/efi
+|-/dev/sda2 /dev/sda2  /dev/sda        part ext4                  1G /boot
+`-/dev/sda3 /dev/sda3  /dev/sda        part btrfs  fedora_vbox 13.4G /var/home
+/dev/sr0    /dev/sr0            ata    rom                     1024M 
+/dev/zram0  /dev/zram0                 disk                     1.9G [SWAP]
+</code></pre>
+<h4 id="gdha_commented_at_2025-03-25_0830"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2750472107">2025-03-25 08:30</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-25_0830" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors If there are no further objection I would like to
+merge it upcoming Friday 28/Mar/2025?</p>
+<h4 id="pcahyna_commented_at_2025-03-25_1903"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2752258852">2025-03-25 19:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-25_1903" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>So the actual issue could be that a false or at least<br />
+misleading swap type 'partition' is reported which<br />
+is not sufficiently backward compatible with the usual<br />
+swap type 'partition' for a normal disk partition.</p>
+</blockquote>
+<p>swap type <code>partition</code> is used even for whole disks:</p>
+<pre><code># mkswap /dev/vdb
+# swapon /dev/vdb
+# swapon --show
+NAME     TYPE      SIZE USED PRIO
+/dev/vdb partition  10G   0B   -2
+</code></pre>
+<p>so it should be better named <code>block</code> (as it applies to any block device,
+I doubt that the kernel cares whether the device is a partition or a
+disk). zram is a block device:</p>
+<pre><code>$ ls -l /dev/zram0 
+brw-rw---- 1 root disk 253, 0 Mar 25 09:49 /dev/zram0
+</code></pre>
+<p>and thus "like a disk", I don't think that the swap code even
+distinguishes it from real disks and disk partitions (unfortunately,
+because otherwise the handling of this swap area could be more adapted
+to its peculiarities).</p>
+<h4 id="pcahyna_commented_at_2025-03-25_1910"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2752276722">2025-03-25 19:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-25_1910" title="Permanent link">&para;</a></h4>
+<p>@gdha thanks for the fix! A note about the intermediate commit: if you
+were to change how the list of swaps is being read (I see that in the
+final version you don't), one could then use the output of
+<code>swapon --show --noheadings</code>.</p>
+<p>Please squash the commits together to simplify the history.</p>
+<h4 id="pcahyna_commented_at_2025-03-28_1450"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3432#issuecomment-2761595237">2025-03-28 14:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-28_1450" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I don't think that the swap code even distinguishes it from real disks
+and disk partitions (unfortunately, because otherwise the handling of
+this swap area could be more adapted to its peculiarities).</p>
+</blockquote>
+<p>I realized that this statement is pretty vague, so let me elaborate.
+zram swap lets you attach a compressed swap space of a given size, but
+it would be more useful to be able to specify how much maximum RAM
+should one let zram to use, and let the swap space depend on the
+compression ratio that is achieved. Perhaps
+<a href="https://wiki.archlinux.org/title/Zswap">zswap</a> is more suitable for
+this use though.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-18.3432.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

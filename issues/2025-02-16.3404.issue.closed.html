@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3404 Issue closed: Monitor "rear mkbackup" result (when run as cron job) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3404 Issue closed: Monitor \"rear mkbackup\" result (when run as cron job)";
+        var mkdocs_page_input_path = "issues/2025-02-16.3404.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3404 Issue closed: Monitor "rear mkbackup" result (when run as cron job)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3404_issue_closed_monitor_rear_mkbackup_result_when_run_as_cron_job"><a href="https://github.com/rear/rear/issues/3404">#3404 Issue</a> <code>closed</code>: Monitor "rear mkbackup" result (when run as cron job)<a class="headerlink" href="#3404_issue_closed_monitor_rear_mkbackup_result_when_run_as_cron_job" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="lordspectre_opened_issue_at_2025-02-16_0805"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> opened issue at <a href="https://github.com/rear/rear/issues/3404">2025-02-16 08:05</a>:<a class="headerlink" href="#lordspectre_opened_issue_at_2025-02-16_0805" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Hello, is there a way to monitoring the backup result to execute some
+commands (e.g. send mail) if the backup fails?</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>As per short info, my REAR installation runs on RHEL7 via crontab every
+night. What I would like to do is implement a check of backup status,
+and in case something gone wrong execute some commands (e.g. send
+email). Is there any native configuration for that? e.g.<br />
+POST_BACKUP_SCRIPT=/etc/rear/post_backup_success.sh<br />
+POST_FAILURE_SCRIPT=/etc/rear/post_backup_failure.sh</p>
+<p>Or maybe I have to change some scripts?<br />
+Thank you.</p>
+<h4 id="jsmeix_commented_at_2025-02-17_0743"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2662293631">2025-02-17 07:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_0743" title="Permanent link">&para;</a></h4>
+<p>@LordSpectre<br />
+what backup method do you use?<br />
+I.e. what <code>BACKUP=...</code> do you have specified<br />
+in your etc/rear/local.conf?</p>
+<p>Yes, using POST_BACKUP_SCRIPT would be the generic way<br />
+to do that inside ReaR.<br />
+There is no such thing as POST_FAILURE_SCRIPT in ReaR.<br />
+See usr/share/rear/conf/default.conf what config variables<br />
+are supported by ReaR.</p>
+<p>But you may also call whatever you need outside of ReaR<br />
+after "rear mkbackup/mkbackuponly" had finished<br />
+to check and verify the results.</p>
+<h4 id="lordspectre_commented_at_2025-02-17_0758"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2662321064">2025-02-17 07:58</a>:<a class="headerlink" href="#lordspectre_commented_at_2025-02-17_0758" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I'm using NETFS as BACKUP type.<br />
+POST_BACKUP_SCRIPT will be called anyway ONLY when the backup is
+finished. If Rear stops with any error (e.g. no space in /boot to write
+boot files) the POST_BACKUP_SCRIPT will not be executed.</p>
+<p>I notice that for any error in any stage, Rear will write this in its
+log:<br />
+<code>Exit task '(( EXIT_FAIL_MESSAGE )) &amp;&amp; echo 'rear mkbackup failed, check /var/log/rear/rear-xxxxxxxxx.log for details' 1&gt;&amp;8'</code></p>
+<p>So maybe I can just check for "EXIT_FAIL_MESSAGE" and/or "rear
+mkbackup failed" strings after Rear backup task.</p>
+<h4 id="jsmeix_commented_at_2025-02-17_0922"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2662514125">2025-02-17 09:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_0922" title="Permanent link">&para;</a></h4>
+<p>@LordSpectre<br />
+perhaps there is a misunderstanding here?</p>
+<p>Because you wrote initially "monitoring the backup result"<br />
+I was thinking you mean the result of only what belongs<br />
+to making a backup of the system's files?</p>
+<p>Cf. the section<br />
+"Relax-and-Recover versus backup and restore"<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_versus_backup_and_restore">https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_versus_backup_and_restore</a></p>
+<p>But because now you wrote</p>
+<pre><code>If Rear stops with any error
+(e.g. no space in /boot to write boot files)
+the POST_BACKUP_SCRIPT will not be executed.
+</code></pre>
+<p>I am now wondering if you perhaps actually mean<br />
+"monitoring the whole ReaR result"?</p>
+<p>For the latter the exit code of sbin/read should help<br />
+because for "rear mkbackup/mkbackuponly" the exit code<br />
+should be zero only when "rear mkbackup/mkbackuponly"<br />
+finished without error.</p>
+<p>But when "rear mkbackup/mkbackuponly" finished without error<br />
+it does not mean all is 100% OK for what you need because<br />
+there could be issues which are an error for your use case<br />
+but which were not (yet?) considered as an error by ReaR.</p>
+<p>In contrast to "rear mkbackup/mkbackuponly" exit code<br />
+"rear checklayout" is special because it finishes<br />
+with exit code 1 when the disk layout has changed<br />
+or when configuration files have changed<br />
+but this exit code 1 is no error but meant<br />
+as a signal that things have changed.</p>
+<h4 id="lordspectre_commented_at_2025-02-17_1028"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2662683475">2025-02-17 10:28</a>:<a class="headerlink" href="#lordspectre_commented_at_2025-02-17_1028" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I'm sorry, perhaps I wasn't clear enough in my request. What I need is
+to run the backup at night using a script in crontab like this:<br />
+rear mkbackup</p>
+<p>Then, I want to check that everything went well without having to
+manually check the ReaR log under /var/log/rear every day.</p>
+<p>As I mentioned earlier, it seems that for every error where ReaR fails
+to complete the backup, it writes the following error:<br />
+(( EXIT_FAIL_MESSAGE )) &amp;&amp; echo 'rear mkbackup failed'<br />
+Doesn't matter which is the cause, I always notice this</p>
+<p>Perhaps I can add a check to the script in crontab and perform a grep on
+the latest ReaR log. If this error is present, it means something went
+wrong, and I can send an email. Afterward, I could analyze the log to
+figure out what went wrong.<br />
+Any other advice are welcome :)</p>
+<h4 id="gdha_commented_at_2025-02-17_1233"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2662988067">2025-02-17 12:33</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-17_1233" title="Permanent link">&para;</a></h4>
+<p>@LordSpectre You could pimp your cron entry as follow:</p>
+<pre><code>/usr/sbin/rear mkbackup &gt;/dev/null 2&amp;&gt;1
+echo exit code $? &gt;&gt; /var/log/rear/rear-$(hostname -s).log
+</code></pre>
+<p>Then you only have the check the last line in the log file. I do it all
+the time with the help of <code>ansible</code></p>
+<h4 id="jsmeix_commented_at_2025-02-17_1353"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663204576">2025-02-17 13:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1353" title="Permanent link">&para;</a></h4>
+<p>@LordSpectre<br />
+if you like to 'grep' for ReaR messages:<br />
+I would recommend to 'grep' for success to be on the safe side<br />
+instead of trying to 'grep' for whatever error messages<br />
+e.g. think about something may send SIGKILL to ReaR<br />
+so no error message of that abort can be shown by ReaR.</p>
+<p>See at the end of usr/sbin/rear what the log messages are<br />
+which are sent to "syslog" (via 'logger')<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/sbin/rear#L876">https://github.com/rear/rear/blob/rear-2.9/usr/sbin/rear#L876</a><br />
+and see the LogToSyslog function implementation<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L544">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L544</a></p>
+<p>For example on my openSUSE Leap 15.6 workstation:</p>
+<pre><code># usr/sbin/rear -s mkbackup
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkbackup (PID 9409 date 2025-02-17 14:37:44)
+...
+
+# usr/sbin/rear -s mkbackuponly
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkbackuponly (PID 11450 date 2025-02-17 14:44:05)
+...
+
+# usr/sbin/rear -s mkrescue &amp; sleep 1 ; kill -9 $!
+[1] 12752
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkrescue (PID 12752 date 2025-02-17 14:50:15)
+...
+[1]+  Killed                  usr/sbin/rear -s mkrescue
+
+# tail /var/log/messages
+...
+2025-02-17T14:37:48.015782+01:00 localhost rear[10856]: rear mkbackup finished with zero exit code
+2025-02-17T14:44:07.075626+01:00 localhost rear[12328]: rear mkbackuponly finished with zero exit code
+</code></pre>
+<p>i.e. no syslog message about the killed "rear mkrescue".</p>
+<h4 id="jsmeix_commented_at_2025-02-17_1408"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663242237">2025-02-17 14:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1408" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+do you perhaps know the reason why<br />
+we do not send the final LogToSyslog messages<br />
+also to the ReaR logfile?</p>
+<p>E.g. at the end of sbin/rear something like</p>
+<pre><code>    if test $EXIT_CODE -eq 0 ; then
+        LogToSyslog "$PROGRAM $WORKFLOW finished with zero exit code"
+        echo "${MESSAGE_PREFIX}$( date +"%Y-%m-%d %H:%M:%S.%N " )$PROGRAM $WORKFLOW finished with zero exit code" &gt;&gt;"$LOGFILE"
+    else
+</code></pre>
+<p>The <code>${MESSAGE_PREFIX}$( date +"%Y-%m-%d %H:%M:%S.%N " )</code> part is from<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L414">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L414</a></p>
+<h4 id="gdha_commented_at_2025-02-17_1416"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663261744">2025-02-17 14:16</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-17_1416" title="Permanent link">&para;</a></h4>
+<p>@jsmeix you will see in the <code>usr/sbin/rear</code> code at the end:</p>
+<pre><code># There should be no syslog message for the help workflow:
+if test "$WORKFLOW" != "help" ; then
+    if test $EXIT_CODE -eq 0 ; then
+        LogToSyslog "$PROGRAM $WORKFLOW finished with zero exit code"
+    else
+        if test "checklayout" = "$WORKFLOW" -a $EXIT_CODE -eq 1 ; then
+            # The checklayout workflow is special because it sets EXIT_CODE=1
+            # when the disk layout has changed or when configuration files have changed
+            # but that exit code 1 is no error but meant as a signal that things have changed
+            # which require a new ISO image so that users can run "rear checklayout || rear mkrescue"
+            # see https://github.com/rear/rear/issues/564
+            LogToSyslog "$PROGRAM checklayout finished with exit code 1 (layout or config changed)"
+        else
+            LogToSyslog "$PROGRAM $WORKFLOW failed with exit code $EXIT_CODE"
+        fi
+    fi
+fi
+
+exit $EXIT_CODE
+</code></pre>
+<p>Something should be logged in <code>/var/log/messages</code> after each <code>rear</code> run.</p>
+<h4 id="jsmeix_commented_at_2025-02-17_1438"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663317351">2025-02-17 14:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1438" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+yes, I know it, cf. 'git blame usr/sbin/rear' ;-)<br />
+and that's what I wrote in<br />
+<a href="https://github.com/rear/rear/issues/3404#issuecomment-2663204576">https://github.com/rear/rear/issues/3404#issuecomment-2663204576</a></p>
+<p>But I asked about a reason why we do not send those<br />
+final LogToSyslog messages also to the ReaR logfile?</p>
+<p>I.e. why only in syslog (e.g. in /var/log/messages)<br />
+but not also in the ReaR logfile?</p>
+<h4 id="gdha_commented_at_2025-02-17_1450"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663346368">2025-02-17 14:50</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-17_1450" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Sorry, misundertstood the question - my head is not clear today
+;-( To be honest I have no idea why.</p>
+<h4 id="jsmeix_commented_at_2025-02-17_1517"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663418473">2025-02-17 15:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1517" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+thank you!</p>
+<p>So it seems there is no reason why those messages<br />
+could not be also output to the logfile which means<br />
+(as time permits) I will make an enhancement pull request<br />
+to also output our final LogToSyslog messages to the logfile.</p>
+<h4 id="jsmeix_commented_at_2025-02-17_1545"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663484892">2025-02-17 15:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1545" title="Permanent link">&para;</a></h4>
+<p>Hmmm...</p>
+<p>I think I can simplify LogToSyslog things<br />
+to make LogToSyslog always also output to the log file<br />
+because I don't see a reason why LogToSyslog messages<br />
+should not always also be sent to the log file.</p>
+<p>My current reasoning:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep 'LogToSyslog' | grep -v ': *#'
+
+usr/sbin/rear:
+        LogToSyslog "$PROGRAM $WORKFLOW finished with zero exit code"
+            LogToSyslog "$PROGRAM checklayout finished with exit code 1 (layout or config changed)"
+            LogToSyslog "$PROGRAM $WORKFLOW failed with exit code $EXIT_CODE"
+
+usr/share/rear/lib/_input-output-functions.sh:
+function LogToSyslog () {
+    LogToSyslog "ERROR: $*"
+</code></pre>
+<p>So LogToSyslog is only called<br />
+at the end of sbin/rear for our final messages and<br />
+in the Error() function in lib/_input-output-functions.sh as</p>
+<pre><code>Log "ERROR: $*"
+LogToSyslog "ERROR: $*"
+</code></pre>
+<p>where the message is already also output to the log file.</p>
+<p>When I move in sbin/rear the<br />
+"Saving $RUNTIME_LOGFILE as $LOGFILE"<br />
+part after the final LogToSyslog calls<br />
+then I could call Log in LogToSyslog to make<br />
+LogToSyslog always also output to the log file.</p>
+<p>This would avoid needlessly overcomplicated duplicated code like</p>
+<pre><code>LogToSyslog "$PROGRAM $WORKFLOW finished with zero exit code"
+echo "${MESSAGE_PREFIX}$( date +"%Y-%m-%d %H:%M:%S.%N " )$PROGRAM $WORKFLOW finished with zero exit code" &gt;&gt;"$LOGFILE"
+</code></pre>
+<p>as in my<br />
+<a href="https://github.com/rear/rear/issues/3404#issuecomment-2663242237">https://github.com/rear/rear/issues/3404#issuecomment-2663242237</a><br />
+which is needed when the "Saving $RUNTIME_LOGFILE as $LOGFILE"<br />
+part happens before the final LogToSyslog calls.</p>
+<h4 id="lordspectre_commented_at_2025-02-17_1644"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2663624285">2025-02-17 16:44</a>:<a class="headerlink" href="#lordspectre_commented_at_2025-02-17_1644" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://github.com/LordSpectre">@LordSpectre</a> You could pimp your
+cron entry as follow:</p>
+<p>/usr/sbin/rear mkbackup &gt;/dev/null 2&amp;&gt;1<br />
+echo exit code $? &gt;&gt; /var/log/rear/rear-$(hostname -s).log</p>
+<p>Then you only have the check the last line in the log file. I do it
+all the time with the help of <code>ansible</code></p>
+</blockquote>
+<p>Thank you, this is an interesting approach. Here is a test I did:</p>
+<pre><code># echo exit code $?
+exit code 143
+</code></pre>
+<p>Is there any exit code list? I would base my script basing on that code,
+but from what I understand, if files are modified during the backup, the
+exit code will be 1.<br />
+So, which codes should I check?<br />
+0 and 1 = OK<br />
+Others = KO</p>
+<h4 id="gdha_commented_at_2025-02-18_0734"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2664825160">2025-02-18 07:34</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-18_0734" title="Permanent link">&para;</a></h4>
+<p>@LordSpectre Articles
+<a href="https://komodor.com/learn/exit-codes-in-containers-and-kubernetes-the-complete-guide/">https://komodor.com/learn/exit-codes-in-containers-and-kubernetes-the-complete-guide/</a>
+and
+<a href="https://www.cyberciti.biz/faq/linux-bash-exit-status-set-exit-statusin-bash/">https://www.cyberciti.biz/faq/linux-bash-exit-status-set-exit-statusin-bash/</a>
+provide a nice overview of exit codes.<br />
+In your case 143 means SIGTERM exit (128+15).</p>
+<h4 id="lordspectre_commented_at_2025-02-18_0821"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2664911212">2025-02-18 08:21</a>:<a class="headerlink" href="#lordspectre_commented_at_2025-02-18_0821" title="Permanent link">&para;</a></h4>
+<p>@gdha thank you very much. I tried to simulate several errors, e.g. nfs
+only read mount, ctrl-c during backup, full /boot partition on host,
+etc. The exit code is always 143. Plus I notice that with below common
+WARNING, the exit code is still 0.<br />
+That's good, so it means if REAR complete correctly the backup, I always
+get ZERO. So I can just check if the exit code is ZERO, or different
+from ZERO and then send mail.</p>
+<pre><code>WARNING: tar ended with return code 1 and below output:
+  ---snip---
+  tar: /var/spool/postfix/public/qmgr: socket ignored
+  tar: /var/spool/postfix/public/flush: socket ignored
+  tar: /var/spool/postfix/public/showq: socket ignored
+  ----------
+This means that files have been modified during the archiving
+process. As a result the backup may not be completely consistent
+or may not be a perfect copy of the system. Relax-and-Recover
+will continue, however it is highly advisable to verify the
+backup in order to be sure to safely recover this system.
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-02-18_0904"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2665003242">2025-02-18 09:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-18_0904" title="Permanent link">&para;</a></h4>
+<p>That "tar ended with return code 1" issue<br />
+is a good example for what I meant with</p>
+<pre><code>when "rear mkbackup/mkbackuponly" finished without error
+it does not mean all is 100% OK for what you need because
+there could be issues which are an error for your use case
+</code></pre>
+<p>in my above<br />
+<a href="https://github.com/rear/rear/issues/3404#issuecomment-2662514125">https://github.com/rear/rear/issues/3404#issuecomment-2662514125</a></p>
+<p>For example the following 'tar' output</p>
+<pre><code>WARNING: tar ended with return code 1 and below output:
+  ---snip---
+  tar: /etc/fstab: file changed as we read it
+</code></pre>
+<p>could mean that the backup is really not good enough<br />
+to restore the system in a clean and usable state.</p>
+<p>But it depends on the 'tar' version what its message<br />
+"file changed as we read it" actually means, see<br />
+<a href="https://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it">https://stackoverflow.com/questions/20318852/tar-file-changed-as-we-read-it</a><br />
+excerpts</p>
+<pre><code>tar 1.34 or before
+These versions of tar use ... "ctime"
+...
+tar 1.35+
+In these versions, tar uses "mtime"
+</code></pre>
+<p>Disaster recovery is not "easy".<br />
+Disaster recovery is not at all "simple".<br />
+There is no such thing as a disaster recovery solution that "just
+works".<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Inappropriate_expectations">https://en.opensuse.org/SDB:Disaster_Recovery#Inappropriate_expectations</a><br />
+So:<br />
+No disaster recovery without testing and continuous validation.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#No_disaster_recovery_without_testing_and_continuous_validation">https://en.opensuse.org/SDB:Disaster_Recovery#No_disaster_recovery_without_testing_and_continuous_validation</a></p>
+<h4 id="lordspectre_commented_at_2025-02-18_1816"><img src="https://avatars.githubusercontent.com/u/34072256?u=4a7f7e98b29058bf585b534550c4413b68b10fb3&v=4" width="50"><a href="https://github.com/LordSpectre">LordSpectre</a> commented at <a href="https://github.com/rear/rear/issues/3404#issuecomment-2666521171">2025-02-18 18:16</a>:<a class="headerlink" href="#lordspectre_commented_at_2025-02-18_1816" title="Permanent link">&para;</a></h4>
+<p>@jsmeix This is clear, I don't want to check the backup consistency, but
+only the result of the whole operation. But I already know that exit
+code = 0 doesn't mean that I'm safe 100% :)</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-16.3404.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

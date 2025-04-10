@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3415 PR merged: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image #3413 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3415 PR merged: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image #3413";
+        var mkdocs_page_input_path = "issues/2025-02-28.3415.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3415 PR merged: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image #3413</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3415_pr_merged_create_an_ed25519_ssh_host_key_and_usrshareemptysshd_in_the_rescue_image_3413"><a href="https://github.com/rear/rear/pull/3415">#3415 PR</a> <code>merged</code>: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image #3413<a class="headerlink" href="#3415_pr_merged_create_an_ed25519_ssh_host_key_and_usrshareemptysshd_in_the_rescue_image_3413" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>external tool</code></p>
+<h4 id="gdha_opened_issue_at_2025-02-28_1609"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/pull/3415">2025-02-28 16:09</a>:<a class="headerlink" href="#gdha_opened_issue_at_2025-02-28_1609" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong> and <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #3413</p>
+</li>
+<li>
+<p>How was this pull request tested? Manually in recovery mode</p>
+</li>
+<li>
+<p>Description of the changes in this pull request: EL9 requires the
+    ed25519 SSH key and the directory <code>/usr/share/empty.sshd</code> to be
+    present.</p>
+</li>
+</ul>
+<h4 id="schlomo_commented_at_2025-03-02_1029"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2692664805">2025-03-02 10:29</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-02_1029" title="Permanent link">&para;</a></h4>
+<p>BTW, it seems like we use the <code>/etc/inittab</code> file as a trigger for
+actually starting SSH, maybe time to let that go?</p>
+<h4 id="gdha_commented_at_2025-03-03_0953"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2693822671">2025-03-03 09:53</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-03_0953" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>BTW, it seems like we use the <code>/etc/inittab</code> file as a trigger for
+actually starting SSH, maybe time to let that go?</p>
+</blockquote>
+<p>Yes indeed. However, this PR is meant for ReaR v2.6 (RHEL) and would
+like to keep the <code>/etc/inittab</code> dependency removal for another issue</p>
+<h4 id="gdha_commented_at_2025-03-13_0948"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2720627084">2025-03-13 09:48</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-13_0948" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors If no-one has any objections I would like to merge
+this PR tomorrow afternoon (14/Mar/2025)?</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1049"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729046678">2025-03-17 10:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1049" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha , thank you for the PR, but I am not able to reproduce the
+original issue. On EL9, sshd works for me in the rescue system without
+any changes (but, I am not using Putty, is it doing anything special?).
+Do you please have some logs from the failed sshd start-up that might
+help with reproducing the problem? Do you have a custom sshd_config?</p>
+<h4 id="gdha_commented_at_2025-03-17_1058"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729069939">2025-03-17 10:58</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1058" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Hi @gdha , thank you for the PR, but I am not able to reproduce the
+original issue. On EL9, sshd works for me in the rescue system without
+any changes (but, I am not using Putty, is it doing anything
+special?). Do you please have some logs from the failed sshd start-up
+that might help with reproducing the problem? Do you have a custom
+sshd_config?</p>
+</blockquote>
+<p>Unfortunately, no logs as it was during the boot up and ReaR did enable
+the RSA sshd key, but our putty enforce the ed25519 key and that was not
+present, therefore, no login via putty was possible.</p>
+<h4 id="schlomo_commented_at_2025-03-17_1115"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729112128">2025-03-17 11:15</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-17_1115" title="Permanent link">&para;</a></h4>
+<p>So the root cause was an SSH key policy on the SSH <em>client</em> side that
+triggered the problem? And our fix is to also generate modern SSH keys
+and not only old SSH keys?</p>
+<p>I think that this is good for us to support modern and more secure
+standards...</p>
+<p>I was wondering if maybe instead of looking for missing keys under a
+default name we could either check for missing files from the
+configuration or maybe even check the configuration on the source system
+and remember the SSH key files and types to re-created?</p>
+<p>E.g. something like this could be used to remember the key files and
+types:</p>
+<pre><code># sshd -T | grep "hostkey /" | while read _ key ; do method=( $(ssh-keygen -y -f $key) ) ; echo $key $method ; done
+/etc/ssh/ssh_host_rsa_key ssh-rsa
+/etc/ssh/ssh_host_ecdsa_key ecdsa-sha2-nistp256
+/etc/ssh/ssh_host_ed25519_key ssh-ed25519
+</code></pre>
+<p>and then we generate them all and the code would be a bit more future
+proof with regard to key file names and types. As we copy over the
+original <code>sshd_config</code> this might make ReaR more robust as we don't
+depend on hard-coded SSH host key file names.</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1143"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729180027">2025-03-17 11:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1143" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>our putty enforce the ed25519 key and that was not present, therefore,
+no login via putty was possible</p>
+</blockquote>
+<p>Thanks for the explanation. Makes sense, with this information I think I
+will be able to reproduce it easily (I would not describe the problem as
+"On EL9 sshd will not start anymore", though .... )</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1321"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729488014">2025-03-17 13:21</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1321" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I was wondering if maybe instead of looking for missing keys under a
+default name we could either check for missing files from the
+configuration or maybe even check the configuration on the source
+system and remember the SSH key files and types to re-created?</p>
+</blockquote>
+<p>There is a script in the <code>build</code> stage that generates a key if present
+on the original system and not present in the rescue ramdisk, but the
+algorithm is a bit different (it does not check the configuration, it
+checks the existence of the actual files, which could be even better, as
+we want to have the rescue ramdisk close to the original system if
+feasible).</p>
+<p><a href="https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/build/default/500_ssh_setup.sh#L147-L162">https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/build/default/500_ssh_setup.sh#L147-L162</a></p>
+<h4 id="schlomo_commented_at_2025-03-17_1335"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729537827">2025-03-17 13:35</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-17_1335" title="Permanent link">&para;</a></h4>
+<p>@pcahyna I suppose that our current approach is based on hard coded
+assumptions around the actual file names of the host keys:<br />
+<a href="https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/build/default/500_ssh_setup.sh#L140">https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/build/default/500_ssh_setup.sh#L140</a></p>
+<p>I was wondering if it is safe to assume that these file names are indeed
+the same across all distros and SSHD versions?</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1352"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729595503">2025-03-17 13:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1352" title="Permanent link">&para;</a></h4>
+<p>I can reproduce the problem with the missing host key:<br />
+<code>ssh -o 'HostKeyAlgorithms=ssh-ed25519' root@...</code><br />
+prints:<br />
+<code>Unable to negotiate with ...: no matching host key type found. Their offer: rsa-sha2-512,rsa-sha2-256,ssh-rsa</code></p>
+<h4 id="pcahyna_commented_at_2025-03-17_1359"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729621267">2025-03-17 13:59</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1359" title="Permanent link">&para;</a></h4>
+<p>I am not able to reproduce the problem with the missing
+<code>/usr/share/empty.sshd</code> though. In my test, the directory exists in the
+rescue image. It has been created here:<br />
+<a href="https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/rescue/default/500_ssh.sh#L73-L79">https://github.com/rear/rear/blob/bce2750933fae8c8bd328e5378c8ad435d0166d1/usr/share/rear/rescue/default/500_ssh.sh#L73-L79</a><br />
+@gdha is there something unusual on the system if the directory does not
+get created? On EL9, <code>getent passwd sshd</code> should print this:</p>
+<pre><code>sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin
+</code></pre>
+<p>You can check what is in the rescue ramdisk by using <code>rear -d mkrescue</code>
+without rebooting - the build area will be left under <code>/var/tmp</code> for
+examination.</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1435"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729750196">2025-03-17 14:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1435" title="Permanent link">&para;</a></h4>
+<p><code>rear -D mkrescue</code> and the resulting log is even more informative. I see
+this:</p>
+<pre><code>++ local 'sshd_usernames=sshd ssh'
++++ getent passwd sshd ssh
+++ local 'getent_passswd_ssh=sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin'
+++ test 'sshd:x:74:74:Privilege-separated SSH:/usr/share/empty.sshd:/usr/sbin/nologin'
+++ local sshd_user sshd_password sshd_uid sshd_gid sshd_gecos sshd_homedir junk
+++ IFS=:
+++ read sshd_user sshd_password sshd_uid sshd_gid sshd_gecos sshd_homedir junk
+++ CLONE_USERS+=($sshd_user)
+++ mkdir -v -p /var/tmp/rear.olGxluYuADkVTij/rootfs//usr/share/empty.sshd
+mkdir: created directory '/var/tmp/rear.olGxluYuADkVTij/rootfs//usr/share'
+mkdir: created directory '/var/tmp/rear.olGxluYuADkVTij/rootfs//usr/share/empty.sshd'
+++ chmod -v 0700 /var/tmp/rear.olGxluYuADkVTij/rootfs//usr/share/empty.sshd
+mode of '/var/tmp/rear.olGxluYuADkVTij/rootfs//usr/share/empty.sshd' changed from 0755 (rwxr-xr-x) to 0700 (rwx------)
+</code></pre>
+<h4 id="gdha_commented_at_2025-03-17_1444"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729785265">2025-03-17 14:44</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1444" title="Permanent link">&para;</a></h4>
+<p>@pcahyna I see the following:</p>
+<pre><code>++ CLONE_USERS+=($sshd_user)
+++ mkdir -v -p /oem/rear.BLHLE9eXuu48WDU/rootfs//var/empty/sshd
+mkdir: created directory '/oem/rear.BLHLE9eXuu48WDU/rootfs//var/empty/sshd'
+++ chmod -v 0700 /oem/rear.BLHLE9eXuu48WDU/rootfs//var/empty/sshd
+mode of '/oem/rear.BLHLE9eXuu48WDU/rootfs//var/empty/sshd' retained as 0700 (rwx------)
+</code></pre>
+<p>and the output of:</p>
+<pre><code>#-&gt; getent passwd sshd
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+</code></pre>
+<p>However, I'm 100% sure that after the failed ssh login session I had to
+create on the console the directory <code>/usr/share/empty.ssh</code>. I wonder if
+this is something embedded in sshd?</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1500"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729853756">2025-03-17 15:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1500" title="Permanent link">&para;</a></h4>
+<p>Indeed it seems hardcoded:</p>
+<pre><code># strings /usr/sbin/sshd | grep empty
+(...)
+/usr/share/empty.sshd
+</code></pre>
+<p>sshd(8) manual page reads:</p>
+<pre><code>     /usr/share/empty.sshd
+             chroot(2) directory used by sshd during privilege separation in
+             the pre-authentication phase.  The directory should not contain
+             any files and must be owned by root and not group or world-
+             writable.
+</code></pre>
+<p>and it does not mention that the directory is configurable.<br />
+On Debian it reads:</p>
+<pre><code>     /run/sshd
+             chroot(2) directory used by sshd during privilege separation in
+             the pre-authentication phase.  The directory should not contain
+             any files and must be owned by root and not group or world-
+             writable.
+</code></pre>
+<p>So apparently the directory is set during build time (and
+distro-specific), and the build embeds it both in the <code>sshd</code> binary and
+the manual page.</p>
+<p>I am afraid you have an inconsistent system (wrong user entry for
+<code>sshd</code>). Do you know where it has come from?</p>
+<h4 id="gdha_commented_at_2025-03-17_1516"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729915447">2025-03-17 15:16</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1516" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I am afraid you have an inconsistent system (wrong user entry for
+<code>sshd</code>). Do you know where it has come from?</p>
+</blockquote>
+<p>The system was upgraded last year from RHEL 8 to RHEL 9 and for the rest
+it is a pretty standard RHEL system. No special software installed that
+could impact sshd, except perhaps we enforcing the use of ed25519 key.</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1523"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729941099">2025-03-17 15:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1523" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The system was upgraded last year from RHEL 8 to RHEL 9</p>
+</blockquote>
+<p>Indeed on RHEL 8:</p>
+<pre><code># getent passwd sshd
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+</code></pre>
+<p>so what we see here is actually a result of a bad upgrade procedure - I
+need to check whether it is a bug in the upgrade tooling or the upgrade
+was somehow botched.</p>
+<h4 id="gdha_commented_at_2025-03-17_1526"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729950013">2025-03-17 15:26</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1526" title="Permanent link">&para;</a></h4>
+<p>Oh boy - serious impact that would be for the already &gt;1000 systems
+upgraded...</p>
+<h4 id="jsmeix_commented_at_2025-03-17_1528"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729955187">2025-03-17 15:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-17_1528" title="Permanent link">&para;</a></h4>
+<p>For such cases we have<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#dirty-hacks-welcome">https://github.com/rear/rear/wiki/Coding-Style#dirty-hacks-welcome</a></p>
+<h4 id="pcahyna_commented_at_2025-03-17_1538"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2729990525">2025-03-17 15:38</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1538" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>whether it is a bug in the upgrade tooling</p>
+</blockquote>
+<p>This - there is apparently nothing in the sshd package to change the
+user when the directory changes, same problem on Fedora - older version
+used <code>/var/empty/sshd</code>, new versions use <code>/usr/share/empty.sshd</code>, but on
+an upgraded Fedora, the user still has <code>/var/empty/sshd</code> as $HOME.</p>
+<h4 id="gdha_commented_at_2025-03-17_1541"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2730000154">2025-03-17 15:41</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-17_1541" title="Permanent link">&para;</a></h4>
+<p>okay a glitch in the leapp software?</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1542"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2730000733">2025-03-17 15:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1542" title="Permanent link">&para;</a></h4>
+<p><a href="https://src.fedoraproject.org/rpms/openssh/pull-request/14">https://src.fedoraproject.org/rpms/openssh/pull-request/14</a>
+is the source of the change</p>
+<h4 id="pcahyna_commented_at_2025-03-17_1543"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3415#issuecomment-2730004441">2025-03-17 15:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-17_1543" title="Permanent link">&para;</a></h4>
+<p>should rather be in the package scriptlet than in Leapp as Fedora needs
+it as well. Anyway, a conversion step needs to be somewhere. I will
+report it to the openssh package maintainers.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-28.3415.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

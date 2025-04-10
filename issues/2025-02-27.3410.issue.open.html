@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3410 Issue open: CrowdStrike Falcon may conflict with ReaR - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3410 Issue open: CrowdStrike Falcon may conflict with ReaR";
+        var mkdocs_page_input_path = "issues/2025-02-27.3410.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3410 Issue open: CrowdStrike Falcon may conflict with ReaR</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3410_issue_open_crowdstrike_falcon_may_conflict_with_rear"><a href="https://github.com/rear/rear/issues/3410">#3410 Issue</a> <code>open</code>: CrowdStrike Falcon may conflict with ReaR<a class="headerlink" href="#3410_issue_open_crowdstrike_falcon_may_conflict_with_rear" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>external tool</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-02-27_1150"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3410">2025-02-27 11:50</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-02-27_1150" title="Permanent link">&para;</a></h4>
+<p>CrowdStrike Falcon could make "rear recover" fail</p>
+<p>I noticed a SUSE internal issue where a customer reports that<br />
+running CrowdStrike Falcon (used as AV solution) results<br />
+that "rear mkrescue" created a ReaR recovery system ISO<br />
+but with that ISO "rear recover" failed to recreate the system.</p>
+<p>After disabling the AV the ISO is working as intended.</p>
+<p>So running CrowdStrike Falcon somehow conflicts with ReaR.</p>
+<p>I don't know any more details.<br />
+I neither know how "rear recover" failed<br />
+nor how CrowdStrike Falcon conflicts with ReaR.</p>
+<p>I report it only FYI<br />
+that running CrowdStrike Falcon could be a reason<br />
+for whatever failures during "rear recover".</p>
+<h4 id="jsmeix_commented_at_2025-02-28_0831"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3410#issuecomment-2690036889">2025-02-28 08:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-28_0831" title="Permanent link">&para;</a></h4>
+<p>I got a "rear mkbackup" log file from this customer case<br />
+with a short text what had happened:</p>
+<pre><code>Here is a rear log claiming to successfully create the recovery image,
+but the iso is not usable. The logs complains about not being able
+to umount the tmp rear working path due to be still in use.
+Once falcon agent is disabled, this error shows no more
+and the resulting iso is valid.
+</code></pre>
+<p>Excerpts from the "rear mkbackup" log<br />
+(with possibly customer specific values replaced by 'XXX')</p>
+<pre><code>Relax-and-Recover 2.7 / 2022-07-13
+Running rear mkbackup (PID 139816 date 2025-01-26 04:50:01)
+Using log file: /var/log/rear/rear-XXX.log
+Running workflow mkbackup on the normal/original system
+Using backup archive '/var/tmp/rear.cIuQs8c4J3wbOM8/outputfs/XXX/backup.tar.gz'
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+...
+Using sysconfig bootloader 'grub2-efi' for 'rear recover'
+...
+Trying to find what to use as UEFI bootloader...
+Trying to find a 'well known file' to be used as UEFI bootloader...
+Using '/boot/efi/EFI/sles/grubx64.efi' as UEFI bootloader file
+...
+Created initrd.cgz with gzip default compression (521711241 bytes) in 30 seconds
+GRUB2 modules to load: fat lvm part_gpt part_msdos xfs
+Making ISO image
+Wrote ISO image: /var/lib/rear/output/rear-XXX.iso (620M)
+Copying resulting files to nfs location
+...
+Making backup (using backup method NETFS)
+...
+Archived 20354 MiB in 2607 seconds [avg 7995 KiB/sec]
+Exiting rear mkbackup (PID 139816) and its descendant processes ...
+Running exit tasks
+Failed to 'rm -Rf --one-file-system /var/tmp/rear.cIuQs8c4J3wbOM8/tmp'
+Could not remove build area /var/tmp/rear.cIuQs8c4J3wbOM8 (something still exists therein)
+Something is still mounted within the build area
+  /var/tmp/rear.cIuQs8c4J3wbOM8/tmp/isofs/boot/efiboot.img (deleted) on /var/tmp/rear.cIuQs8c4J3wbOM8/tmp/efi_virt type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+You must manually umount it, then you could manually remove the build area
+To manually remove the build area use (with caution): rm -Rf --one-file-system /var/tmp/rear.cIuQs8c4J3wbOM8
+</code></pre>
+<p>Therein the</p>
+<pre><code>Something is still mounted within the build area
+  /var/tmp/rear.cIuQs8c4J3wbOM8/tmp/isofs/boot/efiboot.img (deleted) on /var/tmp/rear.cIuQs8c4J3wbOM8/tmp/efi_virt type vfat ...
+</code></pre>
+<p>is known as<br />
+<a href="https://github.com/rear/rear/issues/2908">https://github.com/rear/rear/issues/2908</a><br />
+for OUTPUT=ISO<br />
+and also for OUTPUT=USB the same kind of issue is known as<br />
+<a href="https://github.com/rear/rear/issues/3397">https://github.com/rear/rear/issues/3397</a><br />
+where both should be fixed by<br />
+<a href="https://github.com/rear/rear/pull/3408">https://github.com/rear/rear/pull/3408</a></p>
+<p>For some background summary what I think about it see<br />
+<a href="https://github.com/rear/rear/issues/3397#issuecomment-2685552225">https://github.com/rear/rear/issues/3397#issuecomment-2685552225</a></p>
+<p>For a more detailed discussion see starting at<br />
+<a href="https://github.com/rear/rear/issues/2908#issuecomment-1378811748">https://github.com/rear/rear/issues/2908#issuecomment-1378811748</a></p>
+<p>As far as I can see currently I think that failed umount<br />
+is not related to a CrowdStrike Falcon conflict with ReaR<br />
+because I fail to see how that failed umount could<br />
+make the ISO unusable.</p>
+<p>What I could imagine how a running CrowdStrike Falcon<br />
+could make the ISO unusable is that perhaps<br />
+CrowdStrike is accessing the files of the ISO<br />
+e.g. for virus scanning or whatever things and perhaps<br />
+CrowdStrike may even somehow modify files of the ISO<br />
+e.g. to protect against (possibly falsely) detected<br />
+viruses in the files of the ISO or things like that.</p>
+<h4 id="jsmeix_commented_at_2025-02-28_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3410#issuecomment-2690634795">2025-02-28 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-28_1319" title="Permanent link">&para;</a></h4>
+<p>From my current point of view the issue seems to be<br />
+a support question how to deal with CrowdStrike Falcon<br />
+when ReaR should be used because I think we should not<br />
+even try to work around or against CrowdStrike Falcon in ReaR.<br />
+In particular not because - as far as I know - CrowdStrike Falcon<br />
+works basically on kernel level (via some special additional<br />
+CrowdStrike Falcon kernel modules - as far as I know)<br />
+so CrowdStrike Falcon's realm shoud be treated sacrosanct<br />
+for user programs (even if running as 'root' as ReaR does).</p>
+<h4 id="jsmeix_commented_at_2025-02-28_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3410#issuecomment-2690775214">2025-02-28 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-28_1424" title="Permanent link">&para;</a></h4>
+<p>Set "Dedicated Priority Support" by me for SUSE as long as<br />
+the SUSE internal issue for a SUSE customer is moving forward.</p>
+<h4 id="schlomo_commented_at_2025-03-02_1033"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3410#issuecomment-2692666173">2025-03-02 10:33</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-02_1033" title="Permanent link">&para;</a></h4>
+<p>Maybe a timing problem? ReaR tries to umount and remove the <code>vfat</code> image
+before the Crowdstrike Falcon agent finishes examining it, so that the
+agent accessing it prevents the <code>umount</code> from going through?</p>
+<p>Didn't we once have a <code>fuser</code> or <code>lsof</code> call there in the error message
+to show what prevents umounting?</p>
+<h4 id="jsmeix_commented_at_2025-03-13_1436"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3410#issuecomment-2721492722">2025-03-13 14:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-13_1436" title="Permanent link">&para;</a></h4>
+<p>We have 'fuser' output in<br />
+output/ISO/Linux-i386/700_create_efibootimg.sh<br />
+since Mar 22, 2023 via<br />
+<a href="https://github.com/rear/rear/commit/b40513187752c0dfc2fb467f097812dbd03a17d2">https://github.com/rear/rear/commit/b40513187752c0dfc2fb467f097812dbd03a17d2</a><br />
+from
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a><br />
+for ReaR 2.8<br />
+that moved into the umount_mountpoint_retry_lazy() function<br />
+via
+<a href="https://github.com/rear/rear/pull/3408">https://github.com/rear/rear/pull/3408</a></p>
+<p>But we do not have 'fuser' output in ReaR 2.7<br />
+<a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh#L47">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh#L47</a><br />
+which is what the SUSE customer uses because<br />
+ReaR 2.7 is currently the latest ReaR version for SLE15<br />
+that is officially provided by SUSE for SLE-HA customers.</p>
+<p>By the way a side note FYI:</p>
+<p>Currently I am working on providing ReaR 2.9<br />
+as new RPM package 'rear29a' for SUSE customers, cf.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover">https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover</a></p>
+<p>In this case the trailing 'a' in the RPM package name<br />
+means again that it will not be the pristine ReaR 2.9 release<br />
+but some (reasonable) later state, cf.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#rear_/_rear116_/_rear1172a_/_rear118a_/_rear23a_/_rear27a">https://en.opensuse.org/SDB:Disaster_Recovery#rear_/_rear116_/_rear1172a_/_rear118a_/_rear23a_/_rear27a</a></p>
+<p>In particular I want to provide my new</p>
+<pre><code>TRUSTED_OWNERS and TRUSTED_PATHS protection
+against code injection via 'source'
+</code></pre>
+<p>to SUSE customers so ReaR behaves more secure for them,<br />
+cf.
+<a href="https://github.com/rear/rear/pull/3424">https://github.com/rear/rear/pull/3424</a></p>
+<p>Currently I don't know for what specific SLE products<br />
+it will be officially provided (and supported) by SUSE,<br />
+these are ongoing management decisions...</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-27.3410.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

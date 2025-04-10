@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3433 Issue open: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb" - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3433 Issue open: Cannot do backup: \"Unsupported partition table \u0027unknown\u0027 on /dev/sdb\"";
+        var mkdocs_page_input_path = "issues/2025-03-19.3433.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3433 Issue open: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3433_issue_open_cannot_do_backup_unsupported_partition_table_unknown_on_devsdb"><a href="https://github.com/rear/rear/issues/3433">#3433 Issue</a> <code>open</code>: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"<a class="headerlink" href="#3433_issue_open_cannot_do_backup_unsupported_partition_table_unknown_on_devsdb" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>old version</code></p>
+<h4 id="u4ea75_opened_issue_at_2025-03-19_1148"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> opened issue at <a href="https://github.com/rear/rear/issues/3433">2025-03-19 11:48</a>:<a class="headerlink" href="#u4ea75_opened_issue_at_2025-03-19_1148" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Cannot exclude disk from backup</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<pre><code>Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 54431 date 2025-03-19 12:21:43)
+Command line options: /home/connadmin/rear/usr/sbin/rear -v -d mkbackup
+Using log file: /home/connadmin/rear/var/log/rear/rear-itflowsrv.log
+Using build area: /var/tmp/rear.Px7CbCMVxXNYgrU
+Setting TMPDIR to ReaR's '/var/tmp/rear.Px7CbCMVxXNYgrU/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Running 'prep' stage ======================
+Using backup archive '/var/tmp/rear.Px7CbCMVxXNYgrU/outputfs/rear/itflowsrv/20250319.1221/backup.tar.gz'
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot is disabled, not using Secure Boot shim:
+SecureBoot disabled
+Platform is in Setup Mode
+Using autodetected kernel '/boot/vmlinuz-6.8.0-55-generic' as kernel in the recovery system
+Cannot write protect USB disk of '/dev/disk/by-label/REAR-000' via ID (no ID found)
+File system label of '/dev/disk/by-label/REAR-000' added to WRITE_PROTECTED_FS_LABEL_PATTERNS
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.Px7CbCMVxXNYgrU/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /home/connadmin/rear/var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-03-19 12:21:45.225827786 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+You may use debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /home/connadmin/rear/var/log/rear/rear-itflowsrv.log for details
+Exiting rear mkbackup (PID 54431) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.Px7CbCMVxXNYgrU
+</code></pre>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>Relax-and-Recover 2.7 / Git</p>
+<p>Ubuntu 24.04.1 LTS</p>
+<ul>
+<li>ReaR configuration files</li>
+</ul>
+<!-- -->
+
+<pre><code>AUTOEXCLUDE_MULTIPATH=y
+AUTOEXCLUDE_DISKS=y
+EXCLUDE_RECREATE+=( "fs:/dev/sdb")
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    Dell PowerEdge R220</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    Should be a BIOS boot with grub</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    two hdd on raid 1</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                  KNAME     PKNAME    TRAN   TYPE FSTYPE      LABEL      SIZE MOUNTPOIN
+/dev/sda                              /dev/sda            sata   disk                      465.8G
+|-/dev/sda1                           /dev/sda1 /dev/sda         part vfat                     1G /boot/efi
+|-/dev/sda2                           /dev/sda2 /dev/sda         part ext4                     2G /boot
+`-/dev/sda3                           /dev/sda3 /dev/sda         part LVM2_member          462.7G
+  `-/dev/mapper/ubuntu--vg-ubuntu--lv /dev/dm-0 /dev/sda3        lvm  ext4                   100G /
+/dev/sdb                              /dev/sdb            sata   disk                      465.8G
+`-/dev/sdb1                           /dev/sdb1 /dev/sdb         part                      465.8G
+/dev/sdc                              /dev/sdc            usb    disk                       28.9G
+|-/dev/sdc1                           /dev/sdc1 /dev/sdc         part                          8M
+|-/dev/sdc2                           /dev/sdc2 /dev/sdc         part vfat        REAR-EFI     1G
+`-/dev/sdc3                           /dev/sdc3 /dev/sdc         part ext3        REAR-000  27.9G
+/dev/sr0                              /dev/sr0            sata   rom                        1024M
+</code></pre>
+<p>I'm unable to do backup, this is the output:</p>
+<pre><code>Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 54431 date 2025-03-19 12:21:43)
+Command line options: /home/connadmin/rear/usr/sbin/rear -v -d mkbackup
+Using log file: /home/connadmin/rear/var/log/rear/rear-itflowsrv.log
+Using build area: /var/tmp/rear.Px7CbCMVxXNYgrU
+Setting TMPDIR to ReaR's '/var/tmp/rear.Px7CbCMVxXNYgrU/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Running 'prep' stage ======================
+Using backup archive '/var/tmp/rear.Px7CbCMVxXNYgrU/outputfs/rear/itflowsrv/20250319.1221/backup.tar.gz'
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot is disabled, not using Secure Boot shim:
+SecureBoot disabled
+Platform is in Setup Mode
+Using autodetected kernel '/boot/vmlinuz-6.8.0-55-generic' as kernel in the recovery system
+Cannot write protect USB disk of '/dev/disk/by-label/REAR-000' via ID (no ID found)
+File system label of '/dev/disk/by-label/REAR-000' added to WRITE_PROTECTED_FS_LABEL_PATTERNS
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.Px7CbCMVxXNYgrU/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /home/connadmin/rear/var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-03-19 12:21:45.225827786 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+You may use debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /home/connadmin/rear/var/log/rear/rear-itflowsrv.log for details
+Exiting rear mkbackup (PID 54431) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.Px7CbCMVxXNYgrU
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-03-19_1321"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2736620479">2025-03-19 13:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-19_1321" title="Permanent link">&para;</a></h4>
+<p>I think I vaguely remember that we recently had<br />
+such kind of issue here at ReaR upstream</p>
+<pre><code>ERROR: Unsupported partition table 'unknown' on ... (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>...<br />
+googling for <code>ERROR: Unsupported partition table 'unknown' on</code><br />
+found it:<br />
+<a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a><br />
+which is also on Ubuntu 24.04.X LTS<br />
+that one is on Ubuntu 20.04.6 LTS and was<br />
+reproduced with Ubuntu-Server 20.04.2 LTS, cf.<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1598782245">https://github.com/rear/rear/issues/2995#issuecomment-1598782245</a></p>
+<h4 id="u4ea75_commented_at_2025-03-19_1333"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2736668666">2025-03-19 13:33</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-03-19_1333" title="Permanent link">&para;</a></h4>
+<p>I read that posts before write my one but cannot understand what to do
+sorry, could u help?</p>
+<h4 id="gdha_commented_at_2025-03-20_0856"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739638078">2025-03-20 08:56</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-20_0856" title="Permanent link">&para;</a></h4>
+<p>@jsmeix could PR
+<a href="https://github.com/rear/rear/pull/3403">https://github.com/rear/rear/pull/3403</a>
+be of any help here?</p>
+<h4 id="jsmeix_commented_at_2025-03-20_0902"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739653044">2025-03-20 09:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-20_0902" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+I don't know.<br />
+I did not find time to investigate the details of those issues.</p>
+<h4 id="jsmeix_commented_at_2025-03-20_0911"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739674503">2025-03-20 09:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-20_0911" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<p>FYI some generic boilerplate info:</p>
+<p>In general I recommend to try out our latest GitHub master code<br />
+because the GitHub master code is the only place where we fix things<br />
+and if there are issues it helps when you use exactly the code<br />
+where we could fix things.</p>
+<p>See the "QUICK START GUIDE" and "INSTALLATION" parts on<br />
+<a href="https://github.com/rear/rear">https://github.com/rear/rear</a></p>
+<p>Additionally / alternatively see the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can try out our current ReaR GitHub master code<br />
+without conflicts with your already installed ReaR version.</p>
+<p>In general we at ReaR upstream do not support older ReaR versions.<br />
+We at ReaR upstream do not plain reject issues with older ReaR
+versions<br />
+(e.g. we may answer easy to solve questions also for older ReaR
+versions)<br />
+but we do not spend much time on issues with older ReaR versions
+because<br />
+we do not (and cannot) fix issues in released ReaR versions.<br />
+Issues in released ReaR versions are not fixed by us (by ReaR
+upstream).<br />
+Issues in released ReaR versions that got fixed in current ReaR
+upstream<br />
+GitHub master code might be fixed (if the fix can be backported with<br />
+reasonable effort) by the Linux distributor wherefrom you got ReaR.</p>
+<p>In particular regarding Ubuntu / Debian:</p>
+<p>I am neither a Ubuntu user nor a Debian user.<br />
+Currently we at ReaR upstream do not have<br />
+an active maintainer for Ubuntu / Debian.<br />
+So ReaR support for Ubuntu / Debian<br />
+can be only as good as voluntary contributors<br />
+who use those Linux distributions contribute<br />
+which is much appreciated!</p>
+<p>In particular regarding Ubuntu:<br />
+It seems Canonical is not sufficiently interested in ReaR<br />
+in contrast to Red Hat and SUSE who pay developers<br />
+(like me from SUSE and e.g. @pcahyna and @lzaoral from Red Hat)<br />
+to contribute to upstream ReaR because Red Hat and SUSE<br />
+support ReaR in their enterprise Linux distributions.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-19.3433.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

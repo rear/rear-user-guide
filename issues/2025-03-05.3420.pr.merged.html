@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3420 PR merged: ppc64le: Fix PReP Boot detection on GPT layouts - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3420 PR merged: ppc64le: Fix PReP Boot detection on GPT layouts";
+        var mkdocs_page_input_path = "issues/2025-03-05.3420.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3420 PR merged: ppc64le: Fix PReP Boot detection on GPT layouts</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3420_pr_merged_ppc64le_fix_prep_boot_detection_on_gpt_layouts"><a href="https://github.com/rear/rear/pull/3420">#3420 PR</a> <code>merged</code>: ppc64le: Fix PReP Boot detection on GPT layouts<a class="headerlink" href="#3420_pr_merged_ppc64le_fix_prep_boot_detection_on_gpt_layouts" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code>,
+<code>special hardware or VM</code></p>
+<h4 id="lzaoral_opened_issue_at_2025-03-05_0858"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> opened issue at <a href="https://github.com/rear/rear/pull/3420">2025-03-05 08:58</a>:<a class="headerlink" href="#lzaoral_opened_issue_at_2025-03-05_0858" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): N/A, found when playing with
+    #3406</p>
+</li>
+<li>
+<p>How was this pull request tested? <code>rear -d savelayout</code> on RHEL 9
+    (MSDOS) and RHEL 10 (GPT)</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In general, <code>file</code> output is not stable and is purely informational.
+This manifested in PReP Boot partitions on GPT formatted block devices
+being classified as missing (apparently, <code>file</code> detects the Protective
+MBR instead):</p>
+<pre><code># file -s /dev/sdb
+/dev/sdb: DOS/MBR boot sector; partition 1 : ID=0xee, active, start-CHS (0x0,0,2), end-CHS (0x3ff,255,63), startsector 1, 10485759 sectors
+# parted -s /dev/sdb print
+Model: AIX VDASD (scsi)
+Disk /dev/sdb: 5369MB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: pmbr_boot
+
+Number  Start   End     Size    File system  Name  Flags
+ 1      1049kB  5243kB  4194kB                     prep
+ 2      5243kB  1079MB  1074MB  xfs                bls_boot
+ 3      1079MB  5368MB  4289MB                     lvm
+</code></pre>
+<p>This fixes the bootloader detection on RHEL 10 PowerVM machines which
+use the GPT layout by default.</p>
+<h4 id="lzaoral_commented_at_2025-03-05_0941"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3420#issuecomment-2700381073">2025-03-05 09:41</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-03-05_0941" title="Permanent link">&para;</a></h4>
+<p>The Packit CI failures are unrelated.</p>
+<h4 id="jsmeix_commented_at_2025-03-06_0908"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3420#issuecomment-2703236576">2025-03-06 09:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-06_0908" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless there are objections<br />
+I would like to merge it tomorrow afternoon</p>
+<h4 id="jsmeix_commented_at_2025-03-06_1038"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3420#issuecomment-2703461387">2025-03-06 10:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-06_1038" title="Permanent link">&para;</a></h4>
+<p>This issue is not an actual bug in ReaR because<br />
+there is the config variable BOOTLOADER<br />
+which is meant for the user to specify (if needed)<br />
+what kind of bootloader is used on his system<br />
+and what we do when BOOTLOADER is not specified<br />
+in layout/save/default/445_guess_bootloader.sh<br />
+can be only a guess what bootloader is used<br />
+because it is impossible to determine in a reliable way<br />
+how a running system was actually booted, see the<br />
+section "Disaster recovery does not just work" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Disaster_recovery_does_not_just_work">https://en.opensuse.org/SDB:Disaster_Recovery#Disaster_recovery_does_not_just_work</a></p>
+<h4 id="jsmeix_commented_at_2025-03-07_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3420#issuecomment-2706315795">2025-03-07 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-07_1221" title="Permanent link">&para;</a></h4>
+<p>FYI an addendum regarding x86_64 with ESP:</p>
+<p>Also on x86_64 with an EFI system partition (ID=0xEF)<br />
+'file $disk' detects the GPT protective MBR (ID=0xEE).</p>
+<p>Regarding those IDs see<br />
+<a href="https://en.wikipedia.org/wiki/Partition_type">https://en.wikipedia.org/wiki/Partition_type</a></p>
+<p>For example on my workstation<br />
+(long 'file' output line shown wrapped here):</p>
+<pre><code># file -s /dev/nvme0n1
+/dev/nvme0n1: DOS/MBR boot sector; partition 1 : ID=0xee,
+ start-CHS (0x0,0,2), end-CHS (0x3ff,254,63), startsector 1,
+ 976773167 sectors, extended partition table (last)
+
+# parted -s /dev/nvme0n1 unit GiB print
+Model: NVMe Device (nvme)
+Disk /dev/nvme0n1: 466GiB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+Number  Start    End      Size     File system  Name   Flags
+ 1      0.00GiB  0.50GiB  0.50GiB  fat16               boot, esp
+...
+</code></pre>
+<p>Also the 'file $partition' output does not look really helpful<br />
+to reliably detect an EFI system partition<br />
+(long 'file' output line shown wrapped here):</p>
+<pre><code># file -s /dev/nvme0n1p1
+/dev/nvme0n1p1: DOS/MBR boot sector, code offset 0x3c+2,
+ OEM-ID "mkfs.fat", sectors/cluster 16, reserved sectors 16,
+ root entries 512, Media descriptor 0xf8, sectors/FAT 256,
+ sectors/track 32, heads 64, hidden sectors 2048,
+ sectors 1046528 (volumes &gt; 32 MB), reserved 0x1,
+ serial number 0x89aa6ad3, unlabeled, FAT (16 bit)
+</code></pre>
+<p>In contrast the 'part ... esp ...' entry in disklayout.conf<br />
+shows correctly the disk '/dev/nvme0n1'<br />
+with the EFI system partition '/dev/nvme0n1p1':</p>
+<pre><code># grep '^part .*esp' var/lib/rear/layout/disklayout.conf 
+part /dev/nvme0n1 535822336 1048576 rear-noname boot,esp /dev/nvme0n1p1
+
+# awk -F ' ' '/^part / {if ($6 ~ /esp/) {print $2}}' var/lib/rear/layout/disklayout.conf
+/dev/nvme0n1
+
+# awk -F ' ' '/^part / {if ($6 ~ /esp/) {print $7}}' var/lib/rear/layout/disklayout.conf
+/dev/nvme0n1p1
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-05.3420.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3437 PR merged: Allow sourcing via dot in non-ReaR files - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3437 PR merged: Allow sourcing via dot in non-ReaR files";
+        var mkdocs_page_input_path = "issues/2025-03-25.3437.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3437 PR merged: Allow sourcing via dot in non-ReaR files</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3437_pr_merged_allow_sourcing_via_dot_in_non-rear_files"><a href="https://github.com/rear/rear/pull/3437">#3437 PR</a> <code>merged</code>: Allow sourcing via dot in non-ReaR files<a class="headerlink" href="#3437_pr_merged_allow_sourcing_via_dot_in_non-rear_files" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-03-25_0930"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3437">2025-03-25 09:30</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-03-25_0930" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+</ul>
+<p>Fix the current regression since<br />
+<a href="https://github.com/rear/rear/pull/3434">https://github.com/rear/rear/pull/3434</a><br />
+that using the POSIX compliant '.' is forbidden.</p>
+<ul>
+<li>Reference to related issue (URL):</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3434#issuecomment-2742598092">https://github.com/rear/rear/pull/3434#issuecomment-2742598092</a><br />
+reads (excerpts):</p>
+<pre><code>Because '.' is the POSIX standard command
+POSIX compliant third party software rightfully uses '.'
+so ReaR must not enforce an environment where '.' is
+forbidden in general.
+...
+The right solution is a '.' wrapper function which enforces
+that '.' is not used in a ReaR script or in a ReaR config file
+but which allows '.' in any non-ReaR files.
+
+What ReaR still can enforce is an environment
+where all what is executed via 'source' or '.'
+is checked to be trustworthy, i.e. for each
+file that is executed via 'source' or '.'
+its owner must be one of the TRUSTED_OWNERS and
+it must be located below one of the TRUSTED_PATHS.
+</code></pre>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>"rear mkrescue" plus "rear mkbackuponly" on a SLES15-SP6 VM<br />
+and then on another VM "rear recover" worked for me<br />
+with OUTPUT=ISO and BACKUP=NETFS</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>Added a '.' wrapper function which enforces<br />
+that '.' is not used in a ReaR script or in a ReaR config file<br />
+(via a new global array REAR_SOURCE_PATHS)<br />
+but which allows '.' in any non-ReaR files.</p>
+<p>That '.' wrapper function calls the 'source' wrapper<br />
+to enforce that for all what is executed via 'source' or '.'<br />
+its owner must be one of the TRUSTED_OWNERS and<br />
+it must be located below one of the TRUSTED_PATHS.</p>
+<p>The new global array REAR_SOURCE_PATHS<br />
+is not documented in default.conf<br />
+because it is at least currently<br />
+not meant as a user config variable.</p>
+<p>Nevertheless to provide final power to the user<br />
+the use can set REAR_SOURCE_PATHS as he likes,<br />
+in particular with empty REAR_SOURCE_PATHS=()<br />
+the '.' wrapper function does no longer enforce<br />
+that '.' is not used in a ReaR script or in a ReaR config file.</p>
+<h4 id="pcahyna_commented_at_2025-03-25_1329"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3437#issuecomment-2751268761">2025-03-25 13:29</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-25_1329" title="Permanent link">&para;</a></h4>
+<p>I have thought of a different approach:<br />
+introduce another helper (let's call it <code>SourceExternal</code>) that would be
+used by ReaR code whenever it sources external code (outside ReaR). This
+helper would remove the <code>.</code> wrapper (and restore it back after sourcing
+completes). This would of course require us to find and replace all uses
+of <code>source</code> for external code, but it would have the advantage of being
+more explicit what the sourcing is for (eventually we would have mostly
+<code>SourceExternal</code> and <code>Source</code> in our code and almost no plain <code>source</code>
+left).</p>
+<h4 id="jsmeix_commented_at_2025-03-25_1428"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3437#issuecomment-2751455857">2025-03-25 14:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-25_1428" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+sigh - I already explained it several times:</p>
+<p>It cannot work to use whatever differently named function<br />
+to generically gain control over usage of 'source' and '.'<br />
+in whatever obscure code places which are in practice<br />
+outside of our control (e.g. lenghty contributions<br />
+to support a new backup method and things like that<br />
+where a proper review is impossible in practice - too easily<br />
+a single dot within some weird code could be overlooked)<br />
+exactly because we cannot reliably find all code places<br />
+where external code could be sourced via 'source' or '.'<br />
+(or 'eval' - but this is another separated topic).</p>
+<p>I already had to try myself to<br />
+"find all code places where external code is sourced"<br />
+both for 'source' and '.' where I experienced myself<br />
+it is an annoying discouraging and disappointing task<br />
+(in particular because one never knows when it is done<br />
+i.e. that one has really found all cases where external<br />
+code is sourced) and this task would have to be done<br />
+again and again ad nauseam to continuously ensure that<br />
+ReaR does not by accident source unwanted stuff,<br />
+cf.
+<a href="https://github.com/rear/rear/issues/3259">https://github.com/rear/rear/issues/3259</a></p>
+<p>By the way:<br />
+We have still those open / unfinished issues<br />
+<a href="https://github.com/rear/rear/issues/3321">https://github.com/rear/rear/issues/3321</a><br />
+<a href="https://github.com/rear/rear/issues/3295">https://github.com/rear/rear/issues/3295</a><br />
+<a href="https://github.com/rear/rear/issues/3292">https://github.com/rear/rear/issues/3292</a><br />
+<a href="https://github.com/rear/rear/issues/3291">https://github.com/rear/rear/issues/3291</a><br />
+from my manual attempts where I tried to find<br />
+all code places where external code might be sourced.</p>
+<h4 id="pcahyna_commented_at_2025-03-25_1826"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3437#issuecomment-2752173000">2025-03-25 18:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-03-25_1826" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thanks for the explanation. I see now that</p>
+<blockquote>
+<p>obscure code places which are <strong>in practice</strong><br />
+outside of our control (e.g. lenghty contributions<br />
+to support a new backup method and things like that<br />
+where a proper review is impossible in practice - too easily<br />
+a single dot within some weird code could be overlooked)</p>
+</blockquote>
+<p>(emphasis mine) is the key problem, i.e. code that is part of our code
+base so in principle it is under our control, but in practice we can not
+commit ourselves to audit it all.</p>
+<p>Another idea, similar but without needing a review of all places where
+<code>source</code> is used - would it make sense to detect inside <code>source</code> whether
+the sourced script is inside ReaR sources and if not, disable the <code>.</code>
+wrapper for the duration of the sourced file (and then reenable it)? The
+detection would be done in a similar way to what your currently have in
+the <code>.</code> wrapper. This would effectively move the complication from the
+<code>.</code> wrapper to the <code>source</code> wrapper.</p>
+<p>This is merely an idea for discussion, I don't know myself which option
+is better. It just seems to me that running external code with one
+wrapper less might be preferable.</p>
+<h4 id="jsmeix_commented_at_2025-03-26_1419"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3437#issuecomment-2754602539">2025-03-26 14:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-26_1419" title="Permanent link">&para;</a></h4>
+<p>To generically gain control over usage of 'source' and '.'<br />
+we need wrappers for both anyway and all the time.</p>
+<p>I think if we implement to disable the '.' wrapper<br />
+under whatever conditions, those conditions could<br />
+have security holes which might be exploited<br />
+so a plain dot '.' could be the bash builtin<br />
+without TRUSTED_OWNERS / TRUSTED_PATHS protection<br />
+(I assume we can detect when 'builtin .' is used).<br />
+In contrast if we keep the '.' wrapper all the time<br />
+we do not need to worry about how to 100% correctly<br />
+disable and re-enable it.</p>
+<p>My current implementation is my first attempt<br />
+to implement the desired functionality so that<br />
+it works sufficiently well for now.<br />
+I cannot predict the future so I cannot know<br />
+what changes will be needed in practice over time.<br />
+Things will of course get adapted and enhanced<br />
+in the future as needed.<br />
+Because all that are internal things in ReaR<br />
+(except names and meaning of user config variables)<br />
+we can change internal things in ReaR as we like.</p>
+<h4 id="jsmeix_commented_at_2025-03-26_1627"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3437#issuecomment-2755022858">2025-03-26 16:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-26_1627" title="Permanent link">&para;</a></h4>
+<p>As there are no hard objections<br />
+I "just merged it" right now because<br />
+this week and perhaps also next week<br />
+(currently I cannot tell how long it takes)<br />
+I cannot work on ReaR because I have to fix<br />
+several security bugs in other software...</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-25.3437.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

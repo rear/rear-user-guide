@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3401 Issue open: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3401 Issue open: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf";
+        var mkdocs_page_input_path = "issues/2025-02-13.3401.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3401 Issue open: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3401_issue_open_longhorn_iscsi_devices_are_network_based_devices_and_should_not_be_listed_to_recreate_in_disklayoutconf"><a href="https://github.com/rear/rear/issues/3401">#3401 Issue</a> <code>open</code>: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf<a class="headerlink" href="#3401_issue_open_longhorn_iscsi_devices_are_network_based_devices_and_should_not_be_listed_to_recreate_in_disklayoutconf" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="gdha_opened_issue_at_2025-02-13_1448"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/issues/3401">2025-02-13 14:48</a>:<a class="headerlink" href="#gdha_opened_issue_at_2025-02-13_1448" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Five years ago this was already fixed once when these longhorn devices
+were used by kubernetes with underlying usage of docker daemon.<br />
+However, kubernetes is not using docker daemon anymore, and as result
+these longhorn are now <strong>not</strong> skipped anymore.</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>RHEL 9.5</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>#-&gt; lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME             KNAME          PKNAME       TRAN   TYPE FSTYPE      LABEL     SIZE MOUNTPOINT
+/dev/sda         /dev/sda                    iscsi  disk ext4                   60G /var/lib/kubelet/pods/2c4faad8-2f2b-45f3-bb83-229059f1ec84/volumes/kubernetes.io~csi/pvc-d2566b87-3cad-4458-9175-72076d342aee/
+/dev/sdb         /dev/sdb                    iscsi  disk                        50G /var/lib/kubelet/pods/64153360-6afb-4f1d-8854-db7ca58d9326/volumes/kubernetes.io~csi/pvc-89ba1477-4a18-4af1-8534-e67fb916c187/
+/dev/sdc         /dev/sdc                    iscsi  disk                         1G /var/log
+/dev/sdd         /dev/sdd                    iscsi  disk                         5G /var/lib/kubelet/pods/d086b3b4-dadb-4da7-8db1-f672f5d3b4b8/volumes/kubernetes.io~csi/pvc-e53f8225-6e04-4d24-b9db-e8fc7dea3f51/
+/dev/nvme1n1     /dev/nvme1n1                nvme   disk xfs                   550G /app/elasticsearch
+/dev/nvme0n1     /dev/nvme0n1                nvme   disk                        30G
+|-/dev/nvme0n1p1 /dev/nvme0n1p1 /dev/nvme0n1 nvme   part                         1M
+`-/dev/nvme0n1p2 /dev/nvme0n1p2 /dev/nvme0n1 nvme   part xfs                    30G /
+/dev/nvme2n1     /dev/nvme2n1                nvme   disk LVM2_member            20G
+`-/dev/mapper/vg_app-lg_app
+                 /dev/dm-0      /dev/nvme2n1        lvm  xfs         lg_app     20G /app
+/dev/nvme4n1     /dev/nvme4n1                nvme   disk xfs                   160G /var/lib/rancher
+/dev/nvme3n1     /dev/nvme3n1                nvme   disk                         4G
+/dev/nvme6n1     /dev/nvme6n1                nvme   disk xfs                   200G /app/data/longhorn
+/dev/nvme5n1     /dev/nvme5n1                nvme   disk xfs                    20G /var/log
+/dev/nvme7n1     /dev/nvme7n1                nvme   disk                        10G
+|-/dev/nvme7n1p1 /dev/nvme7n1p1 /dev/nvme7n1 nvme   part vfat        REAR-EFI    1G
+`-/dev/nvme7n1p2 /dev/nvme7n1p2 /dev/nvme7n1 nvme   part ext3        REAR-000    9G
+
+$ df
+Filesystem                       1K-blocks      Used        Available Use% Mounted on
+devtmpfs                              4096         8             4088   1% /dev
+tmpfs                             32259616        40         32259576   1% /dev/shm
+tmpfs                             12903848     15176         12888672   1% /run
+/dev/nvme0n1p2                    31444972   9453872         21991100  31% /
+/dev/nvme4n1                     167731200  79572696         88158504  48% /var/lib/rancher
+/dev/nvme5n1                      20961280   3059808         17901472  15% /var/log
+/dev/mapper/vg_app-lg_app         20957184    926104         20031080   5% /app
+/dev/nvme6n1                     209612800  32817792        176795008  16% /app/data/longhorn
+/dev/nvme1n1                     576614400 237355828        339258572  42% /app/elasticsearch
+100.64.23.82:/            9007199254739968      2048 9007199254737920   1% /app/data/elasticsearch
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/deac2a17c00f97a12cf471a8a001d8c7211b7ed551ec6fddb084522c06db48ce/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0341ebd7915d07aab7e66f84b802499e62d641e1831762248b88961aab4f5cf5/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3053e6ce75604004d12ae4a232c30adaac302247eaedbf2d6d015ce73fd8529f/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d7e42b9a7d61e51935a7fb3bdbfbb2a1222deeb708099f631d9ae9eb14b8633e/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/724185c9489294d066da5dd0c118aa2894a888f5c3f68a0d4b2f18e2eb088833/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/fa9d79c0c0f5d4da743294934f8ddf62ae6e5964e6d285d27a1a7fcc8a839126/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f863f173ea23ba4062c969c18cd6e41d925f5393c4a476942efaac867b84c654/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/e0b203aff94e5682aeb5539e4cea309855590432c8e546e4466c0f4bce6a9ae0/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0f70dd522d202836ef09da4175d89e15243c1d236c81686e2995919ed7eb9e6e/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c65a6599e56ad0dab6f67089b9a9145b0b1efb169707ea6712a1e6acb8b40aee/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/bf0e8fd5df929beacd453e18a71f937733b0fa87b062dce7bb0d69a4b6a4331d/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3e99e29cfaf15fc0bcaac18a4565d6391109516d5277b94b43c17c9cd28101fa/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2bd67470c84a9b50653d46366afe9f9e8193de190240623ec197f9051837c2af/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3f22375b74009a4b04a5dce14151fe1efee71778bb5f7cca2e46fa5e165d1493/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/1e37438e509cb4075c237485eb7ffa1c00039f1f30c17fd6281da6fb14d7ad89/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/b92ff67766ad41b9bd63cfc12ec9e5010df8fb58ecf26922b8d354d0820baa4e/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/7589343b0f818f67821e2eea35db661fc718ab9b41d9a0c349108f4b3f20b5b8/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/007c98284fd63cb20f4fedcb9a5ae30974cd9f5fb6d23bb0c4cc84b5a4e872d6/shm
+shm                                  65536         4            65532   1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/97da43ea3d2a7b7b8f61902e20eff8257190513ddfa72df9bbf5a3455ead4c1f/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/e518e796132e70a4b1eb55d7ae262647cef59989ac8f1869003f5e1c4a1eb274/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/97623ff52bdbf1902a94e1e7794919bbd04c8344da2f71d980d17c753b4c976e/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cdbfde1df1267b008b308b4edff577b24265546599ebf2ebecd0e5e47b5a504d/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3e5ab382c1de60b7e51e9ca572959ba396c6e62232e65da6eaae778e61c406cb/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/065369d4a894b14bc1ed0abc030eeed85b8b714e516e432bc20d4a1d33784d65/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/69b8b9321af82548b6c0e8712a938301c1292abc4adc5c9e7ffa1d036fad7a5f/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/e20acf59970e3467f280aa5b6e16934722bc42b96d4d764f0fbd2a4f5203f622/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3a0622a5fe18a6157b00960c627e1b2d440f908a0533f28126eedd806b038258/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/04a0183d6597bbe369754c0782c854682a643f77f2ec58be96018704b858591f/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/a37a7c26bd3ee24d1e6cc563239fb3e9637dd32d60b0e5dd6311afb09424c0fa/shm
+100.64.9.172:/jira        9007199254739968  22836224 9007199231903744   1% /app/data/jira/home
+100.64.120.198:/jira      9007199254739968         0 9007199254739968   0% /app/data/jira-config
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5790daa84259d24e8fd1d0c9e96ca6b02936314108a809c41e31ea6e1438306a/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2d6d932987551250714eb405c34a7c6c9c7fa67c9ac8560768ce397bbd7e17d1/shm
+tmpfs                              6451920         0          6451920   0% /run/user/17010
+tmpfs                              6451920         0          6451920   0% /run/user/45771
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/9f7c0a21bac4eb636477c4dcda393a93ca27baebd2e7a9f79648ca39b82052a9/shm
+shm                                  65536         0            65536   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/78db995730993d30d541469893ba9a24f7c10c4665752bc717c2d930e02e705f/shm
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<pre><code>#-&gt; sbin/rear -D savelayout
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear savelayout (PID 1032097 date 2025-02-13 15:23:10)
+Command line options: sbin/rear -D savelayout
+Using log file: /home/gdhaese1/projects/rear/var/log/rear/rear-AWSABLIRLL000K.log
+Using build area: /var/tmp/rear.9rUmpk3qW9R3ff1
+Setting TMPDIR to ReaR's '/var/tmp/rear.9rUmpk3qW9R3ff1/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow savelayout on the normal/original system
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Automatically excluding disk /dev/nvme3n1 (not used by any mounted filesystem)
+Marking component '/dev/nvme3n1' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem)
+Marking component '/dev/nvme4n1' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/var/lib/rancher is a child of component /dev/nvme4n1
+Marking component 'fs:/var/lib/rancher' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme5n1 (not used by any mounted filesystem)
+Marking component '/dev/nvme5n1' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/var/log is a child of component /dev/nvme5n1
+Marking component 'fs:/var/log' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme7n1 (not used by any mounted filesystem)
+Marking component '/dev/nvme7n1' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/nvme7n1p1 is a child of component /dev/nvme7n1
+Marking component '/dev/nvme7n1p1' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/nvme7n1p2 is a child of component /dev/nvme7n1
+Marking component '/dev/nvme7n1p2' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sda (not used by any mounted filesystem)
+Marking component '/dev/sda' as done in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme3n1 (not used by any mounted filesystem)
+Component '/dev/nvme3n1' is marked as 'done /dev/nvme3n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme5n1 (not used by any mounted filesystem)
+Component '/dev/nvme5n1' is marked as 'done /dev/nvme5n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/var/log is a child of component /dev/nvme5n1
+Component 'fs:/var/log' is marked as 'done fs:/var/log' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem)
+Component '/dev/nvme4n1' is marked as 'done /dev/nvme4n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/var/lib/rancher is a child of component /dev/nvme4n1
+Component 'fs:/var/lib/rancher' is marked as 'done fs:/var/lib/rancher' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/nvme3n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/nvme4n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/nvme5n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/nvme7n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/nvme7n1' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/nvme7n1' is disabled in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sda' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Component 'disk /dev/nvme3n1' is disabled in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Component 'disk /dev/nvme5n1' is disabled in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Component 'disk /dev/nvme4n1' is disabled in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /var/lib/rancher' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /var/log' in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+GRUB found in first bytes on /dev/nvme0n1 and GRUB 2 is installed, using GRUB2 as a guessed bootloader for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf)
+Exiting rear savelayout (PID 1032097) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.9rUmpk3qW9R3ff1
+
+#-&gt; grep -v \# ../var/lib/rear/layout/disklayout.conf
+disk /dev/nvme0n1 32212254720 gpt
+part /dev/nvme0n1 1048576 1048576 rear-noname bios_grub /dev/nvme0n1p1
+part /dev/nvme0n1 32210140672 2097152 rear-noname none /dev/nvme0n1p2
+disk /dev/nvme1n1 590558003200 loop
+disk /dev/nvme2n1 21474836480 unknown
+disk /dev/nvme6n1 214748364800 loop
+lvmdev /dev/vg_app /dev/nvme2n1 5jSbmk-ooLT-rpTk-A3nB-cum8-FF1v-fmCRG6 21470642176
+lvmgrp /dev/vg_app 4096 5119 20967424
+lvmvol /dev/vg_app lg_app 21470642176b linear
+fs /dev/longhorn/pvc-89ba1477-4a18-4af1-8534-e67fb916c187 /var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/5f9dffb77504aaa81768b25cdfc050f65d7128106e43a32e3576b6a80068957a/globalmount ext4 uuid=8d878d19-ffe5-46e2-ad10-00c68af1a855 label= blocksize=4096 reserved_blocks=0% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+fs /dev/longhorn/pvc-d2566b87-3cad-4458-9175-72076d342aee /var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/3fa3d3d63dba018d962e3388b8ea4f64eba99189f524247debac6f414f1e4b09/globalmount ext4 uuid=f5f54428-765b-42e3-a20f-cfa5e476de36 label= blocksize=4096 reserved_blocks=0% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+fs /dev/longhorn/pvc-e53f8225-6e04-4d24-b9db-e8fc7dea3f51 /var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/23150dd0f272a1b4923866721c5800414602ece2645428d106e7a8cdfb8ff657/globalmount ext4 uuid=6110a429-e28f-4288-a7b7-285e4958827d label= blocksize=4096 reserved_blocks=0% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+fs /dev/mapper/vg_app-lg_app /app xfs uuid=beb48049-5b75-46c2-8e75-a6f8d3881d0e label=lg_app  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme0n1p2 / xfs uuid=c9aa25ee-e65c-4818-9b2f-fa411d89f585 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme1n1 /app/elasticsearch xfs uuid=6281fd1f-d107-427a-a22c-2f575fb7a58c label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme6n1 /app/data/longhorn xfs uuid=5a2a74b7-9c6f-4af6-bbc6-9e2ecd52a314 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+</code></pre>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>in file <code>usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh</code>:</p>
+<p>Move the section around longhorn out the docker if-section:</p>
+<pre><code>        if echo "$device" | grep -q "^/dev/longhorn/pvc-" ; then
+            Log "Longhorn Engine replica $device, skipping."
+            continue
+        fi
+</code></pre>
+<p>Running <code>rear savelayout</code> then gives for:</p>
+<pre><code>#-&gt; grep ^fs /home/gdhaese1/projects/rear/var/lib/rear/layout/disklayout.conf
+fs /dev/mapper/vg_app-lg_app /app xfs uuid=beb48049-5b75-46c2-8e75-a6f8d3881d0e label=lg_app  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme0n1p2 / xfs uuid=c9aa25ee-e65c-4818-9b2f-fa411d89f585 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme1n1 /app/elasticsearch xfs uuid=6281fd1f-d107-427a-a22c-2f575fb7a58c label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+fs /dev/nvme6n1 /app/data/longhorn xfs uuid=5a2a74b7-9c6f-4af6-bbc6-9e2ecd52a314 label=  options=rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota
+</code></pre>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>The debug log file of the <code>savelayout</code> run:<br />
+<a href="https://github.com/user-attachments/files/18785276/rear-AWSABLIRLL000K.log">rear-AWSABLIRLL000K.log</a></p>
+<h4 id="gdha_commented_at_2025-02-17_1344"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3401#issuecomment-2663182832">2025-02-17 13:44</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-17_1344" title="Permanent link">&para;</a></h4>
+<p>@pcahyna Is this a candidate for the RedHat rear version?<br />
+@jsmeix and, also for Suse?</p>
+<h4 id="jsmeix_commented_at_2025-02-17_1433"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3401#issuecomment-2663304351">2025-02-17 14:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-17_1433" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+if a SUSE SLE HA customer reports such an issue to SUSE,<br />
+he would get help / support / maintenance from SUSE.<br />
+So SUSE customers do not need RPM package updates<br />
+from ReaR upstream and SUSE customers must not<br />
+use RPM packages from others when they want to<br />
+get support from SUSE, see also<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover">https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover</a></p>
+<p>By the way:<br />
+I would strongly recommend that SUSE customers<br />
+should not download and install RPM packages<br />
+(or whatever other installable package formats)<br />
+from ReaR upstream (except a 'git clone' of our<br />
+pristine ReaR upstream Git sources for testing).<br />
+Reason:<br />
+The build environment where our ReaR upstream<br />
+installable package formats are built within<br />
+is at least "obscure" to me.<br />
+So at least I cannot trust that build environment<br />
+which means at least I cannot trust what that<br />
+build environment produces.<br />
+In contrast I trust the package build environment<br />
+of the openSUSE build service to some extent because<br />
+I trust those openSUSE people who maintain it and<br />
+I trust even more our internal SUSE package build<br />
+environment that builds RPM packages for our customers<br />
+because I trust SUSE and its employees even more.</p>
+<p>In practice it is a personal "gut feeling" decision<br />
+what or whom one trusts because in most cases<br />
+one cannot properly verify (or even really prove)<br />
+that something is actually worth to be trusted.</p>
+<p>A side note regarding 'trusted' versus 'trustworthy':</p>
+<pre><code>the trusted computing base is "trusted" first and foremost
+in the sense that it has to be trusted, and not necessarily
+that it is trustworthy
+</code></pre>
+<p><a href="https://en.wikipedia.org/wiki/Trusted_computing_base#Trusted_vs._trustworthy">https://en.wikipedia.org/wiki/Trusted_computing_base#Trusted_vs._trustworthy</a></p>
+<p>All repositories where one downloads software from and<br />
+all what produces that software (humans and tools)<br />
+belong to one's own trusted computing base (TCB).<br />
+So nowadays in practice the TCB is monstrously huge.</p>
+<h4 id="gdha_commented_at_2025-02-21_1406"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3401#issuecomment-2674644600">2025-02-21 14:06</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-21_1406" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Understood and I get it. However, longhorn is now a SuSe product
+and therefore, it would be in your customers benefit to replace script
+usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh with the
+updated one from PR #3402 - just saying.</p>
+<h4 id="gdha_commented_at_2025-02-25_1328"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3401#issuecomment-2681986238">2025-02-25 13:28</a>:<a class="headerlink" href="#gdha_commented_at_2025-02-25_1328" title="Permanent link">&para;</a></h4>
+<p>An output of the log of the rear run with the fixed
+<code>230_filesystem_layout.sh</code> script:</p>
+<pre><code>2025-02-25 14:25:28.952784904 Including layout/save/GNU/Linux/230_filesystem_layout.sh
+2025-02-25 14:25:28.960064474 Begin saving filesystem layout
+2025-02-25 14:25:28.964014223 Saving filesystem layout (using the findmnt command).
+Redirecting to /bin/systemctl status docker.service
+Unit docker.service could not be found.
+2025-02-25 14:25:29.015617361 Processing filesystem 'ext4' on '/dev/longhorn/pvc-34f283bc-f3e2-4ad5-b03c-114a7394ca45' mounted at '/var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/c27b255908244316cda3196cbe84fcc60973fca8c901c6c42a0591991bf52283/globalmount'
+2025-02-25 14:25:29.020753779 Longhorn Engine replica /dev/longhorn/pvc-34f283bc-f3e2-4ad5-b03c-114a7394ca45, skipping.
+2025-02-25 14:25:29.023203929 Processing filesystem 'ext4' on '/dev/longhorn/pvc-6e48f14d-9f3a-4284-a59e-203b1975b22e' mounted at '/var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/c3ea272e9e7fd9bbaa79e99bea0f3a366c1731e21dff20d2ccf10a7d1bd7a312/globalmount'
+2025-02-25 14:25:29.027910095 Longhorn Engine replica /dev/longhorn/pvc-6e48f14d-9f3a-4284-a59e-203b1975b22e, skipping.
+2025-02-25 14:25:29.030137518 Processing filesystem 'ext4' on '/dev/longhorn/pvc-7f925e87-cfe4-481a-bf96-20b0a0afcec7' mounted at '/var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/e8a49ddbaeab3c2600468cd4008e92d3b13116032d22adb6b3c000d9e4b265b9/globalmount'
+2025-02-25 14:25:29.034375517 Longhorn Engine replica /dev/longhorn/pvc-7f925e87-cfe4-481a-bf96-20b0a0afcec7, skipping.
+2025-02-25 14:25:29.036871153 Processing filesystem 'ext4' on '/dev/longhorn/pvc-d3ab876b-402c-40ff-b521-d80851f3e76a' mounted at '/var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/5b7f574380deddfb9940c65cf2f6e2ccd3c5e9423b15300a4cfc3bf98cb6a078/globalmount'
+2025-02-25 14:25:29.041704798 Longhorn Engine replica /dev/longhorn/pvc-d3ab876b-402c-40ff-b521-d80851f3e76a, skipping.
+2025-02-25 14:25:29.044158314 Processing filesystem 'ext4' on '/dev/longhorn/pvc-e0894088-598f-4715-a0c0-4efff3a24bc0' mounted at '/var/lib/kubelet/plugins/kubernetes.io/csi/driver.longhorn.io/2d6b431df0d68c7024975ec3599d27305c4e2ab94c2423b9cffaffcfd1029c8b/globalmount'
+2025-02-25 14:25:29.049082712 Longhorn Engine replica /dev/longhorn/pvc-e0894088-598f-4715-a0c0-4efff3a24bc0, skipping.
+2025-02-25 14:25:29.051619780 Processing filesystem 'ext4' on '/dev/mapper/vg00-lv_audit' mounted at '/var/log/audit'
+</code></pre>
+<h4 id="gdha_commented_at_2025-03-03_1251"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3401#issuecomment-2694300825">2025-03-03 12:51</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-03_1251" title="Permanent link">&para;</a></h4>
+<p>Reported at RedHat:
+<a href="https://access.redhat.com/support/cases/#/case/04073965">https://access.redhat.com/support/cases/#/case/04073965</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-13.3401.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

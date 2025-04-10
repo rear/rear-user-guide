@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3408 PR merged: New umount_mountpoint_retry_lazy function - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3408 PR merged: New umount_mountpoint_retry_lazy function";
+        var mkdocs_page_input_path = "issues/2025-02-26.3408.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3408 PR merged: New umount_mountpoint_retry_lazy function</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3408_pr_merged_new_umount_mountpoint_retry_lazy_function"><a href="https://github.com/rear/rear/pull/3408">#3408 PR</a> <code>merged</code>: New umount_mountpoint_retry_lazy function<a class="headerlink" href="#3408_pr_merged_new_umount_mountpoint_retry_lazy_function" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-02-26_1533"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3408">2025-02-26 15:33</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-02-26_1533" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a><br />
+<a href="https://github.com/rear/rear/issues/2908">https://github.com/rear/rear/issues/2908</a><br />
+<a href="https://github.com/rear/rear/issues/3397">https://github.com/rear/rear/issues/3397</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    see below:
+    <a href="https://github.com/rear/rear/pull/3408#issuecomment-2687620899">https://github.com/rear/rear/pull/3408#issuecomment-2687620899</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In lib/global-functions.sh added a new<br />
+umount_mountpoint_retry_lazy function<br />
+which is basically a copy of the code in<br />
+output/ISO/Linux-i386/700_create_efibootimg.sh<br />
+which had been added there<br />
+via
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a></p>
+<p>Use the umount_mountpoint_retry_lazy function<br />
+in output/ISO/Linux-i386/700_create_efibootimg.sh<br />
+and also<br />
+in output/USB/Linux-i386/100_create_efiboot.sh<br />
+see
+<a href="https://github.com/rear/rear/issues/3397">https://github.com/rear/rear/issues/3397</a></p>
+<h4 id="jsmeix_commented_at_2025-02-27_1103"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2687620899">2025-02-27 11:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-27_1103" title="Permanent link">&para;</a></h4>
+<p>Tested "rear mkrescue" with OUTPUT=ISO<br />
+on a SLES15-SP6 KVM/QEMU VM with UEFI.</p>
+<p>It works well for me because<br />
+for me 'umount' "just works"<br />
+(as it did for me all the time before).</p>
+<p>Then I tested how it behaves when umount fails<br />
+by artificially changing in the function<br />
+umount_mountpoint_retry_lazy()<br />
+in lib/global-functions.sh</p>
+<pre><code>     # First attempt to umount:
+-    umount $v "$mountpoint" &amp;&amp; return 0
++    umount $v "$mountpoint-qq" &amp;&amp; return 0
+...
+     # Retry the same umount as in the first attempt:
+-    umount $v "$mountpoint" &amp;&amp; return 0
++    umount $v "$mountpoint-qq" &amp;&amp; return 0
+</code></pre>
+<p>and then I got</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+...
+Trying 'umount --lazy /var/tmp/rear.jz7oSXFsmXXvo1O/tmp/efi_virt' (normal umount failed)
+Making ISO image
+Wrote ISO image: /root/rear.jsmeix-umount_mountpoint_retry_lazy/var/lib/rear/output/rear-localhost.iso (199M)
+...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.jz7oSXFsmXXvo1O
+</code></pre>
+<p>Then I tested how it behaves when also 'umount lazy' fails<br />
+by additionally changing in the function<br />
+umount_mountpoint_retry_lazy()</p>
+<pre><code>-    umount $v --lazy "$mountpoint" &amp;&amp; return 0
++    umount $v --lazy "$mountpoint-qq" &amp;&amp; return 0
+</code></pre>
+<p>and then I got (as expected)</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+...
+Trying 'umount --lazy /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt' (normal umount failed)
+Could not umount EFI virtual image /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efiboot.img at /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt
+Making ISO image
+Wrote ISO image: /root/rear.jsmeix-umount_mountpoint_retry_lazy/var/lib/rear/output/rear-localhost.iso (199M)
+...
+Running exit tasks
+Caution - there is something mounted within the build area
+  /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/isofs/boot/efiboot.img on /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+You must manually umount that before you may remove the build area
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.uXfdoRQPBm6KVhJ
+
+# rm -Rf --one-file-system /var/tmp/rear.uXfdoRQPBm6KVhJ
+rm: skipping '/var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt', since it's on a different device
+
+# mount | grep efi
+efivarfs on /sys/firmware/efi/efivars type efivarfs (rw,nosuid,nodev,noexec,relatime)
+/dev/vda2 on /boot/grub2/x86_64-efi type btrfs (rw,relatime,discard=async,space_cache=v2,subvolid=264,subvol=/@/boot/grub2/x86_64-efi)
+/dev/vda1 on /boot/efi type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro)
+/var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/isofs/boot/efiboot.img (deleted) on /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+
+# umount -v /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt
+umount: /var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt unmounted
+
+# find /var/tmp/rear.uXfdoRQPBm6KVhJ
+/var/tmp/rear.uXfdoRQPBm6KVhJ
+/var/tmp/rear.uXfdoRQPBm6KVhJ/tmp
+/var/tmp/rear.uXfdoRQPBm6KVhJ/tmp/efi_virt
+
+# rm -Rf --one-file-system /var/tmp/rear.uXfdoRQPBm6KVhJ
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-02-28_1426"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2690778957">2025-02-28 14:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-02-28_1426" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless there are objections I would like to merge it<br />
+next week on Tuesday (March 04) afternoon.</p>
+<h4 id="jsmeix_commented_at_2025-03-03_1431"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2694591158">2025-03-03 14:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-03_1431" title="Permanent link">&para;</a></h4>
+<p>In general:<br />
+Almost always in practice I never find the time<br />
+to do general code cleanup work.<br />
+So yes, unfortunately in practice we have all the time<br />
+this mess of various code places here and there<br />
+that do almost same things.</p>
+<p>The basic problem here is that I alone cannot do<br />
+general code cleanup - more precisely I alone could do it<br />
+but then only im my own way (so as if I was some kind of<br />
+absolute dictator - which I totally refuse to be).<br />
+I.e. the real problem with general code cleanup is<br />
+the very time consuming work to get general consensus<br />
+what the "one right way" is how to do something properly.</p>
+<p>In this particular case:<br />
+@pcahyna implemented his umount_mountpoint_lazy()<br />
+as he specifically needs it for his specific use case<br />
+and I implemented my umount_mountpoint_retry_lazy()<br />
+as I specifically need it for my specific use case.</p>
+<p>So for a general code cleanup of both some superior<br />
+"master developer" would be needed who fully understands<br />
+both specific use cases to create the generalized<br />
+"one right way" function that fulfills both needs.</p>
+<p>I think each of us could do it in theory<br />
+but I think none of use finds the time<br />
+to actually get it done in practice.</p>
+<p>Cf.<br />
+<a href="https://github.com/rear/rear/issues/799#issuecomment-531247109">https://github.com/rear/rear/issues/799#issuecomment-531247109</a></p>
+<pre><code>"time permits" never happens in practice because of various
+kind of annoying issues elsewhere ...
+SO
+in practice never time for long term improvements in ReaR
+only time for some quick fix here some quick fix there
+ad nauseam...
+</code></pre>
+<p>(dated Sep. 13 2019 and nothing really changed since then)</p>
+<h4 id="jsmeix_commented_at_2025-03-04_1206"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2697323887">2025-03-04 12:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-04_1206" title="Permanent link">&para;</a></h4>
+<p>Consolidating our several unmount functions<br />
+is not what this pull request is meant to do.<br />
+What this pull request is meant to do<br />
+is what is described in its initial description.<br />
+In particular this pull request is not meant<br />
+to change existing code.<br />
+This pull request is only meant to have existing code<br />
+(that was used at a single place where it was tested<br />
+so it has proven to work in practice as intended)<br />
+now as a function because this code is used a two places.<br />
+Advanced further things should not be done "by the way"<br />
+intermixed with what this pull request is meant to do.<br />
+Advanced further things should be done via separated<br />
+dedicated pull requests as needed, as time permits,<br />
+and by those who actually contribute further things.</p>
+<h4 id="schlomo_commented_at_2025-03-04_1629"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2698250892">2025-03-04 16:29</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-04_1629" title="Permanent link">&para;</a></h4>
+<p>I understand this. I'm worried that with this approach we just keep
+adding more as every ReaR developer essentially builds their "personal"
+ReaR within our shared codebase and nobody takes the time to clean up...</p>
+<h4 id="jsmeix_commented_at_2025-03-05_0847"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2700249254">2025-03-05 08:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-05_0847" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I understand your concern and I have the same concern<br />
+and I know this concern is true and valid<br />
+from many times I looked at ReaR code.</p>
+<p>But it is not true in general that<br />
+"nobody takes the time to clean up".<br />
+I spent a lot of time to clean up many things in ReaR<br />
+(I feel that cleanup work was most of what I contributed)<br />
+and also others spent a lot of time to clean up things in ReaR.</p>
+<p>See the list of closed pull requests with "cleanup" label:<br />
+<a href="https://github.com/rear/rear/pulls?q=is%3Apr+is%3Aclosed+label%3Acleanup">https://github.com/rear/rear/pulls?q=is%3Apr+is%3Aclosed+label%3Acleanup</a><br />
+This is only what is explicitly labeled as "cleanup".<br />
+Actually there was much more cleanup work done.<br />
+On the other hand only a small part of this cleanup work<br />
+was bigger generic cleanup, in particular code consolidating.</p>
+<p>I told about my personal reasoning why there is<br />
+not much generic cleanup and code consolidating in<br />
+<a href="https://github.com/rear/rear/pull/3408#issuecomment-2694591158">https://github.com/rear/rear/pull/3408#issuecomment-2694591158</a></p>
+<p>I think generic cleanup and code consolidating<br />
+needs a lot of time - but not actual working time,<br />
+instead it needs time with the meaning of patience.</p>
+<p>I think it is a precondition before someone could do<br />
+generic cleanup and code consolidating work properly<br />
+that a broad and sound understanding exists<br />
+so that the one who does the actual work<br />
+can implement it in an insight-driven way.</p>
+<p>In the past I did a few generic cleanups and<br />
+for each of them I had known since a long time<br />
+that "this stuff needs some generic cleanup".<br />
+But it needed even longer time until I gained at least<br />
+somewhat sufficient experience by several real-world cases<br />
+to get at least some broad and sound understanding<br />
+of the issue as a whole until I felt sufficiently confident<br />
+that my generic cleanup work will (hopefully)<br />
+not cause unacceptable regressions for our users.</p>
+<p>In this particular case here:<br />
+I had zero experience with umounting issues before<br />
+<a href="https://github.com/rear/rear/issues/2908">https://github.com/rear/rear/issues/2908</a><br />
+so I implemented<br />
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a><br />
+only at the one code place where this specific issue happened<br />
+to avoid possible regressions for our users at other code places.<br />
+See also<br />
+<a href="https://github.com/rear/rear/pull/2909#issuecomment-1429530985">https://github.com/rear/rear/pull/2909#issuecomment-1429530985</a><br />
+where I had already told that</p>
+<pre><code>It is my goal behind to get in the end a
+sufficiently simple and reliably working
+umounting function in ReaR
+</code></pre>
+<p>But I am not yet there to implement such a function.<br />
+The recent<br />
+<a href="https://github.com/rear/rear/issues/3397">https://github.com/rear/rear/issues/3397</a><br />
+does not actually provide any new experience<br />
+because it is a duplicate of<br />
+<a href="https://github.com/rear/rear/issues/2908">https://github.com/rear/rear/issues/2908</a><br />
+at another code place so this pull request here<br />
+implements what matches for this two specific cases, cf.<br />
+<a href="https://github.com/rear/rear/pull/3408#issuecomment-2697323887">https://github.com/rear/rear/pull/3408#issuecomment-2697323887</a></p>
+<p>So currently I am not at all in a position to implement a<br />
+"sufficiently simple and reliably working umounting function".<br />
+To do that I need much more understanding and experience with<br />
+umounting in general via various different real-world cases.<br />
+This will likely take rather long time and patience.</p>
+<p>This is only my personal point of view.<br />
+When someone else has sufficient knowledge to implement a<br />
+"sufficiently simple and reliably working umounting function"<br />
+I would appreciate a contribution which improves ReaR<br />
+for our users.</p>
+<p>By the way:<br />
+I think we are rather good with generic cleanups in ReaR<br />
+compared to many other software projects.<br />
+In particular as long as the C standary library did not<br />
+clean up and consolidate its various similar functions<br />
+(in particular string related functions) into a few<br />
+that actually are sufficiently simple and reliable,<br />
+we do not need to worry about our cleanup speed in ReaR ;-)</p>
+<h4 id="schlomo_commented_at_2025-03-05_0850"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2700256280">2025-03-05 08:50</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-05_0850" title="Permanent link">&para;</a></h4>
+<p>Nice one, thank you. I can be happy with "ReaR is better than <code>libc</code> as
+a mindset" 🤣</p>
+<p>Thanks a lot for what you are doing, you are indeed the biggest
+contributor as of late @jsmeix and I'm very much aware of it and I'm
+very thankful to you for doing that!</p>
+<h4 id="jsmeix_commented_at_2025-03-05_0852"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3408#issuecomment-2700259137">2025-03-05 08:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-05_0852" title="Permanent link">&para;</a></h4>
+<p>You are welcome!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-02-26.3408.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
