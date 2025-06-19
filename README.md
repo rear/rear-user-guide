@@ -125,6 +125,6 @@ Example:
 
 # Get in touch
 
-Feel free to reach out to us by filing an [issue](//github.com/rear/rear-usr-guide/issues) if you have any questions.
+Feel free to reach out to us by filing an [issue](https://github.com/rear/rear-user-guide/issues) if you have any questions.
 
 We appreciate your support and contributions!
