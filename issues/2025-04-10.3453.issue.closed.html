@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3453 Issue closed: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3453 Issue closed: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape";
+        var mkdocs_page_input_path = "issues/2025-04-10.3453.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3453 Issue closed: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3453_issue_closed_tape_drive_ibm_ts2290_boot_from_usb_flash_restoring_from_tape"><a href="https://github.com/rear/rear/issues/3453">#3453 Issue</a> <code>closed</code>: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape<a class="headerlink" href="#3453_issue_closed_tape_drive_ibm_ts2290_boot_from_usb_flash_restoring_from_tape" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>,
+<code>special hardware or VM</code></p>
+<h4 id="debianguru_opened_issue_at_2025-04-10_1831"><img src="https://avatars.githubusercontent.com/u/63314820?v=4" width="50"><a href="https://github.com/DebianGuru">DebianGuru</a> opened issue at <a href="https://github.com/rear/rear/issues/3453">2025-04-10 18:31</a>:<a class="headerlink" href="#debianguru_opened_issue_at_2025-04-10_1831" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Can I boot from a USB flash, then get the restore from tape?</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
+<p>I think I was able to backup to tape with OBDR,<br />
+but I can't figure out how/if I can boot my server from it.<br />
+Taped Drive is IBM TS2290 and Server is Lenovo SR650V3.<br />
+Can't find out anything from IBM or Lenovo's website.</p>
+<p>Writing iso to CD and burning is a pain<br />
+and the servers don't have an internal optical drive,<br />
+so I thought I'd boot from USB flash,<br />
+then let it restore from the Tape.</p>
+<p>The USB drive boots into command line,<br />
+I log in as root and run the rescue.<br />
+I get</p>
+<pre><code>ERROR: No 'backup.tar.gz' detected in /var/tmp/rear.blahblahblah/outputfs/rear/servername/*
+</code></pre>
+<p>ls verifies there is nothing under /var/tmp.</p>
+<p>Seems like it's looking for the backup data on the local filesystem?</p>
+<p>Here's local.conf contents:</p>
+<pre><code>OUTPUT=USB
+TAPE_DEVICE=/dev/nst0
+BACKUP_URL=tape:///dev/nst0
+BACKUP=NETFS
+</code></pre>
+<p>What am I missing?</p>
+<p>I've used this before with a network SMB share<br />
+and I was impressed, but this has got me so frustrated.<br />
+Been working with rear for 3 days with various issues<br />
+and have yet to make one successful backup/restore.</p>
+<p>Any help is greatly appreciated.</p>
+<h3 id="related_issues">Related issues:<a class="headerlink" href="#related_issues" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/rear/rear/issues/3448">https://github.com/rear/rear/issues/3448</a></p>
+<p><a href="https://github.com/rear/rear/issues/3451">https://github.com/rear/rear/issues/3451</a></p>
+<h4 id="gdha_commented_at_2025-04-11_0702"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3453#issuecomment-2796030558">2025-04-11 07:02</a>:<a class="headerlink" href="#gdha_commented_at_2025-04-11_0702" title="Permanent link">&para;</a></h4>
+<p>@DebianGuru Could you share the output of <code>lsscsi</code> and <code>lsmod</code> so we can
+see the modules involved around the tape drive.<br />
+According the data sheet of IBM TS2290 we cannot figure out if the drive
+is OBDR capable. Perhaps, IBM support can assist you on that point?
+Perhaps you need a special software driver or configuration setup on the
+drive itself?</p>
+<p>Does your system uses UEFI to boot?<br />
+If yes then you first need to format your USB drive as following:<br />
+<code>rear -v -- --efi /dev/sdb</code> (assuming /dev/sdb is your USB drive - it
+will reformat the <strong>whole</strong> USB disk!)<br />
+If not, use:<br />
+<code>rear -v format /dev/sdb</code></p>
+<p>Then edit the <code>/etc/rear/local.conf</code> file and define:</p>
+<pre><code>OUTPUT=USB
+USB_DEVICE=/dev/disk/by-label/REAR-000
+OUTPUT_URL=usb:///dev/disk/by-label/REAR-000
+# is the tape rewinded?
+TAPE_DEVICE=/dev/nst0
+BACKUP_URL=tape:///dev/nst0
+BACKUP=NETFS
+</code></pre>
+<p>Hope this help?</p>
+<h4 id="jsmeix_commented_at_2025-04-11_0712"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3453#issuecomment-2796050911">2025-04-11 07:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-11_0712" title="Permanent link">&para;</a></h4>
+<p>@DebianGuru</p>
+<p>first and foremost:<br />
+Using ReaR with tape drives is not something I ever did.<br />
+I never used a tape device with Linux<br />
+so I cannot really help with tape device issues.</p>
+<p>In general:<br />
+We at ReaR upstream did not get user issues since years<br />
+regarding using ReaR with tape drives and in particular<br />
+no further user contributions in this area.<br />
+The last one we got was via<br />
+<a href="https://github.com/rear/rear/issues/2637">https://github.com/rear/rear/issues/2637</a><br />
+and even that finally faded away in July 2023<br />
+<a href="https://github.com/rear/rear/issues/2637#issuecomment-1620667477">https://github.com/rear/rear/issues/2637#issuecomment-1620667477</a></p>
+<p>So all I can provide is some generic thoughts<br />
+what might help in your specific case:</p>
+<p>I think the first thing to have in mind is that<br />
+in ReaR the "backup of the system files" part<br />
+is a separated and somewhat "external" part<br />
+of what ReaR's actual task is, see<br />
+"Relax-and-Recover versus backup and restore" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_versus_backup_and_restore">https://en.opensuse.org/SDB:Disaster_Recovery#Relax-and-Recover_versus_backup_and_restore</a></p>
+<p>For each backup method which is supported in ReaR there is<br />
+a matching usr/share/rear/restore/METHOD directory.<br />
+That there is no usr/share/rear/restore/TAPE directory<br />
+tells me that there is no generic TAPE backup method<br />
+which is supported in ReaR.<br />
+There is only usr/share/rear/restore/OBDR but this directory<br />
+is basically empty - in particular there is no ReaR script.<br />
+This tells me that the OBDR backup method is rather special<br />
+and not a generic backup method for tape devices.<br />
+Because I never used a tape device with Linux<br />
+I may not see things which are obvious<br />
+for users who actually use a tape device.</p>
+<p>The primary functionality of ReaR is to make a bootable<br />
+ReaR recovery system which contains the ReaR installer<br />
+(i.e. what is run via "rear recover") which can recreate<br />
+the storage setup (called "disk layout" in ReaR)<br />
+same as it was before on the original system.<br />
+Afterwards as last step during "rear recover"<br />
+the "backup of the system files" is restored<br />
+into the recreated storage.</p>
+<p>ReaR provides a very generic and rather crude backup method<br />
+BACKUP=REQUESTRESTORE<br />
+This is ReaR's default/fallback backup method<br />
+when no BACKUP is specified by the user.<br />
+The BACKUP method REQUESTRESTORE is not real backup method<br />
+but simply halts the recovery and requests that somebody<br />
+will restore the data into the recreated storage.</p>
+<p>So when you have your "backup of the system files"<br />
+on a tape drive and use BACKUP=REQUESTRESTORE<br />
+together with OUTPUT=USB<br />
+then "rear mkbackup" is useless because<br />
+BACKUP=REQUESTRESTORE does not make a backup of the files<br />
+so only "rear mkrescue" is needed and that will make<br />
+a ReaR recovery system which is bootable from USB.</p>
+<p>When you boot that ReaR recovery system on replacement<br />
+hardware and inside the running ReaR recovery system<br />
+you call "rear recover" you will get your storage setup<br />
+recreated same as it was before on the original system<br />
+and the recreated (empty) storage will be mounted<br />
+inside the running ReaR recovery system at /mnt/local</p>
+<p>Then "rear recover" halts and requests you to restore<br />
+your "backup of the system files" from your tape drive<br />
+into /mnt/local</p>
+<p>To do that everything what is needed for the backup restore<br />
+(e.g. kernel modules for the tape drive, programs to use the<br />
+tape drive, config files for the tape drive, whatever else)<br />
+must be included in the ReaR recovery system.</p>
+<p>ReaR provides generic ways to get things included<br />
+in the ReaR recovery system.<br />
+Those are (see usr/share/rear/conf/default.conf)</p>
+<pre><code>MODULES
+FIRMWARE_FILES
+REQUIRED_PROGS
+LIBS
+COPY_AS_IS
+</code></pre>
+<p>So with BACKUP=REQUESTRESTORE<br />
+plus appropriate settings as needed for<br />
+MODULES FIRMWARE_FILES REQUIRED_PROGS LIBS COPY_AS_IS<br />
+you can set up ReaR to be able to manually restore<br />
+a backup from a tape drive during "rear recover".</p>
+<p>Of course this requires manual try and error<br />
+step by step legwork until it will work.</p>
+<h4 id="jsmeix_commented_at_2025-04-11_1217"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3453#issuecomment-2796752313">2025-04-11 12:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-11_1217" title="Permanent link">&para;</a></h4>
+<p>@DebianGuru</p>
+<p>in addition and/or alternatively to BACKUP=REQUESTRESTORE<br />
+we also have BACKUP=EXTERNAL see its description in<br />
+usr/share/rear/conf/default.conf</p>
+<p>In contrast to BACKUP=REQUESTRESTORE<br />
+BACKUP=EXTERNAL has ReaR scripts to make a backup via "rear mkbackup"<br />
+usr/share/rear/backup/EXTERNAL/default/500_make_backup_with_external.sh<br />
+and to restore it during "rear recover"<br />
+usr/share/rear/restore/EXTERNAL/default/500_restore_with_external.sh<br />
+so with BACKUP=EXTERNAL and appropriate settings for the<br />
+user config variables</p>
+<pre><code>EXTERNAL_...
+MODULES
+FIRMWARE_FILES
+REQUIRED_PROGS
+LIBS
+COPY_AS_IS
+</code></pre>
+<p>I think it should be possible to set up ReaR so that<br />
+"rear mkbackup" and "rear recover" behave as usual<br />
+with making and restoring a backup on tape drive.</p>
+<p>It is ages ago when I tried last BACKUP=REQUESTRESTORE<br />
+and BACKUP=EXTERNAL so I have no personal experience<br />
+how the current state of both is.</p>
+<p>If special command are needed<br />
+e.g. to somehow prepare the tape drive<br />
+see<br />
+PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT<br />
+(for "rear mkbackup")<br />
+and<br />
+PRE_RECOVERY_COMMANDS / PRE_RECOVERY_SCRIPT and<br />
+POST_RECOVERY_SCRIPT / POST_RECOVERY_COMMANDS<br />
+(for "rear recover")<br />
+in usr/share/rear/conf/default.conf</p>
+<h4 id="jsmeix_commented_at_2025-04-11_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3453#issuecomment-2796793828">2025-04-11 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-11_1235" title="Permanent link">&para;</a></h4>
+<p>@DebianGuru</p>
+<p>FYI regarding your question in your initial description</p>
+<pre><code>Seems like it's looking for the backup data on the local filesystem?
+</code></pre>
+<p>What is at /var/tmp/rear.blahblahblah/outputfs/...<br />
+is normally not a local filesystem because<br />
+with BACKUP=NETFS this is normally a mountpoint directory<br />
+where "usually a network share" from a remote host<br />
+is locally mounted, see the BACKUP=NETFS description in<br />
+usr/share/rear/conf/default.conf</p>
+<pre><code>NETFS is an internal backup method that saves the backup
+into a mounted directory.
+This is usually a network share, but can also be used
+to create a backup to a local disk (by providing your
+own BACKUP_MOUNTCMD and BACKUP_UMOUNTCMD commands
+that mount the local disk.
+</code></pre>
+<p>If you could mount your tape drive so that its contents<br />
+appear as regular files within a mountpoint directory<br />
+then it should be possible to somehow "misuse"<br />
+BACKUP=NETFS with BACKUP_MOUNTCMD and BACKUP_UMOUNTCMD<br />
+for storing and restoring a backup on a tape drive.</p>
+<p>Again:<br />
+I know nothing about tape drives so I have no idea<br />
+whether or not mounting a tape drive makes any sense.</p>
+<p>Mounting a tape drive would require that there is some<br />
+kind of filesystem on the tape drive so that its contents<br />
+could appear as regular files within a mountpoint directory.</p>
+<p>I only try to explain some generic background information<br />
+that might help you to better understand how ReaR behaves<br />
+so you might be able to find a way how you could use ReaR<br />
+to store and restore a backup on your tape drive.</p>
+<h4 id="debianguru_commented_at_2025-04-15_1247"><img src="https://avatars.githubusercontent.com/u/63314820?v=4" width="50"><a href="https://github.com/DebianGuru">DebianGuru</a> commented at <a href="https://github.com/rear/rear/issues/3453#issuecomment-2804938453">2025-04-15 12:47</a>:<a class="headerlink" href="#debianguru_commented_at_2025-04-15_1247" title="Permanent link">&para;</a></h4>
+<p>Solved. I was missing "USB_DEVICE=/dev/disk/by-label/REAR-000" as
+suggested by @gdha . Many thanks to all who provided replies.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-10.3453.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

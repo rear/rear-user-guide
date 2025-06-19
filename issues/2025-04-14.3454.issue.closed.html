@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3454 Issue closed: BACKUP_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3454 Issue closed: BACKUP_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device";
+        var mkdocs_page_input_path = "issues/2025-04-14.3454.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3454 Issue closed: BACKUP_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3454_issue_closed_backup_urlcifs1921114rocky-dd_mount_1921114rocky-dd_is_not_a_block_device"><a href="https://github.com/rear/rear/issues/3454">#3454 Issue</a> <code>closed</code>: BACKUP_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device<a class="headerlink" href="#3454_issue_closed_backup_urlcifs1921114rocky-dd_mount_1921114rocky-dd_is_not_a_block_device" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="hspindel_opened_issue_at_2025-04-14_0148"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> opened issue at <a href="https://github.com/rear/rear/issues/3454">2025-04-14 01:48</a>:<a class="headerlink" href="#hspindel_opened_issue_at_2025-04-14_0148" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Requesting support: ReaR thinks output device is not a block device</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<p>I have been using ReaR for years without issue.</p>
+<p>My local.conf file is:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=cifs://192.1.1.14/rocky-dd
+BACKUP_OPTIONS="cred=/etc/rear/creds,vers=2.1"
+USE_RAMDISK=0
+BACKUP_PROG_EXCLUDE=( "${BACKUP_PROG_EXCLUDE[@]}" '/home/timeshift' )
+</code></pre>
+<p>I recently moved to a new Windows machine.<br />
+Prior when this worked,<br />
+I had <code>BACKUP_URL=cifs://192.1.1.12/rocky-dd</code>.<br />
+The IP of the new machine is 192.1.1.14,<br />
+and I changed BACKUP_URL to match.</p>
+<p>On 192.1.1.14 there is a Windows share configured identically<br />
+to that which was on 192.1.1.12 with the name rocky-dd.<br />
+I am able to use a mount command on my Linux machine<br />
+to view the contents of rocky-dd.<br />
+Now if I run <code>rear -v mkbackup -D</code><br />
+I get the following output:</p>
+<pre><code>[root@server2 dd]# rear -v mkbackup -D
+Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 37996 date 2025-04-13 18:34:04)
+Command line options: /usr/sbin/rear -v mkbackup -D
+Using log file: /var/log/rear/rear-server2.log
+Using build area: /var/tmp/rear.N1ddhbDEc7V1mwr
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Skipped init/default/998_dump_variables.sh for legal liability worries, see https://github.com/rear/rear/issues/2967
+Running 'prep' stage ======================
+ERROR: Mount command 'mount -v -o cred=/etc/rear/creds,vers=2.1 //192.1.1.14/rocky-dd /var/tmp/rear.N1ddhbDEc7V1mwr/outputfs' failed.
+Some latest log messages since the last called script 060_mount_NETFS_path.sh:
+  2025-04-13 18:34:05.473225483 Entering debugscript mode via 'set -x'.
+  mkdir: created directory '/var/tmp/rear.N1ddhbDEc7V1mwr/outputfs'
+  2025-04-13 18:34:05.485261126 Added 'remove_temporary_mountpoint '/var/tmp/rear.N1ddhbDEc7V1mwr/outputfs'' as an exit task
+  2025-04-13 18:34:05.488215542 Mounting with 'mount -v -o cred=/etc/rear/creds,vers=2.1 //192.1.1.14/rocky-dd /var/tmp/rear.N1ddhbDEc7V1mwr/outputfs'
+  mount: /var/tmp/rear.N1ddhbDEc7V1mwr/outputfs: /192.1.1.14/rocky-dd is not a block device.
+Aborting due to an error, check /var/log/rear/rear-server2.log for details
+Exiting rear mkbackup (PID 37996) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.N1ddhbDEc7V1mwr
+Terminated
+</code></pre>
+<p>Have tried rebooting Linux and Windows.<br />
+Enabled SMB1 in Windows.<br />
+I can't figure out why ReaR won't connect properly to the new machine.<br />
+Any help greatly appreciated.</p>
+<h4 id="hspindel_commented_at_2025-04-14_0156"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2800285181">2025-04-14 01:56</a>:<a class="headerlink" href="#hspindel_commented_at_2025-04-14_0156" title="Permanent link">&para;</a></h4>
+<p>Note, if I change BACKUP-URL back to 192.1.1.12, everything works.<br />
+So perhaps this is some weird Windows/Linux interaction, but I can't
+figure out what it is.</p>
+<p>Machine that it works on is Win10.<br />
+Failing machine is Win11.<br />
+Source machine running ReaR is Rocky Linux 9.5.</p>
+<h4 id="jsmeix_commented_at_2025-04-14_0758"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2800791634">2025-04-14 07:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-14_0758" title="Permanent link">&para;</a></h4>
+<p>@hspindel</p>
+<p>I am neither a Windows user nor a cifs user<br />
+so I cannot actually help with cifs specific issues.</p>
+<p>What is your exact mount command on your Linux machine<br />
+to view the contents of rocky-dd on 192.1.1.14 (Windows 11)<br />
+and also on 192.1.1.12 (Windows 10) ?</p>
+<p>I assume the "Linux machine" where you did your manual<br />
+mount command to view the contents of rocky-dd<br />
+is the machine where ReaR runs.<br />
+If not, also verify that your manual mount command<br />
+works on the machine where ReaR runs.</p>
+<h4 id="hspindel_commented_at_2025-04-14_2229"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2803202343">2025-04-14 22:29</a>:<a class="headerlink" href="#hspindel_commented_at_2025-04-14_2229" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>Thank you for the response.</p>
+<p>The exact Linux command I use to mount the Windows share (on the same
+machine where ReaR runs) is:</p>
+<p>mount -t cifs //192.1.1.14/rocky-dd /mnt/rocky-dd -o
+credentials=/home/howard/dd/mount-credentials</p>
+<p>Using that mount command, I can view the contents of the share where I
+want ReaR to store its backup.</p>
+<hr />
+<p>On the Windows machine where I have no problems running ReaR the mount
+command is identical except that 192.1.1.14 is replaced with 192.1.1.12.
+Contents of the credentials file are identical. 192.1.1.14 is the Win11
+machine, 192.1.1.12 is Win10.</p>
+<h4 id="hspindel_commented_at_2025-04-15_0517"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2803834354">2025-04-15 05:17</a>:<a class="headerlink" href="#hspindel_commented_at_2025-04-15_0517" title="Permanent link">&para;</a></h4>
+<p>I just noticed in the debugging output from ReaR that the mount command
+ReaR is using does not include "-t cifs". Could that be the problem? If
+it is, it does not explain why ReaR works okay when the mounted
+filesystem is on Win10, but not on Win11.</p>
+<p>As a test, I also tried running ReaR with the target as the Win10
+computer but with -D on ReaR invocation, and very curiously ReaR never
+reports attempting a mount command in this case (but apparently the
+Win10 filesystem is mounted, since the output from ReaR appears there).</p>
+<h4 id="jsmeix_commented_at_2025-04-15_0731"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2804100559">2025-04-15 07:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-15_0731" title="Permanent link">&para;</a></h4>
+<p>I was also wondering about the missing '-t cifs' mount option.</p>
+<p>The matching code in ReaR 2.7<br />
+(and basically same in ReaR master code but with better quoting)<br />
+is in usr/share/rear/lib/global-functions.sh<br />
+therein in the function 'mount_url()'<br />
+therein the '(cifs)' case</p>
+<pre><code>(cifs)
+    if [ x"$options" = x"$defaultoptions" ];then
+        # defaultoptions contains noatime which is not valid for cifs (issue #752)
+        mount_cmd="mount $v -o rw,guest //$(url_host $url)$(url_path $url) $mountpoint"
+    else
+        mount_cmd="mount $v -o $options //$(url_host $url)$(url_path $url) $mountpoint"
+    fi
+    ;;
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/lib/global-functions.sh#L603">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/lib/global-functions.sh#L603</a><br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/lib/global-functions.sh#L632">https://github.com/rear/rear/blob/master/usr/share/rear/lib/global-functions.sh#L632</a><br />
+where 'mount' is called without '-t cifs' option.</p>
+<p>So as a test if the '-t cifs' option matters in your case<br />
+you may change that code to</p>
+<pre><code>(cifs)
+    if [ x"$options" = x"$defaultoptions" ];then
+        # defaultoptions contains noatime which is not valid for cifs (issue #752)
+        mount_cmd="mount $v -t cifs -o rw,guest //$(url_host $url)$(url_path $url) $mountpoint"
+    else
+        mount_cmd="mount $v -t cifs -o $options //$(url_host $url)$(url_path $url) $mountpoint"
+    fi
+    ;;
+</code></pre>
+<p>i.e. add the '-t cifs' option in both <code>mount_cmd="..."</code> lines<br />
+and then retry "rear -D mkbackup".</p>
+<p>FYI:<br />
+There never had been a '-t cifs' option in that code<br />
+so it had worked all the time without the '-t cifs' option.</p>
+<h4 id="jsmeix_commented_at_2025-04-15_0755"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2804161559">2025-04-15 07:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-15_0755" title="Permanent link">&para;</a></h4>
+<p>FYI<br />
+what I tried (I am not a cifs user):</p>
+<p>On a test VM with SLES15-SP5<br />
+with unmodified ReaR GitHub master code<br />
+I have in etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=cifs://192.168.178.66/rocky-dd
+</code></pre>
+<p>(192.168.178.66 is the IP of the host where the VM runs on<br />
+and on the host a firewall is running)</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'prep' stage ======================
+ERROR: Mount command 'mount -v -o rw,guest //192.168.178.66/rocky-dd /var/tmp/rear.G0GdFvSy9yTNYMy/outputfs' failed.
+Some latest log messages since the last called script 060_mount_NETFS_path.sh:
+  2025-04-15 09:47:36.374506947 Entering debugscript mode via 'set -x'.
+  2025-04-15 09:47:36.378184403 Trusted sourcing '/root/rear.github.master/usr/share/rear/prep/NETFS/default/060_mount_NETFS_path.sh'
+  mkdir: created directory '/var/tmp/rear.G0GdFvSy9yTNYMy/outputfs'
+  2025-04-15 09:47:36.383467771 Added 'remove_temporary_mountpoint '/var/tmp/rear.G0GdFvSy9yTNYMy/outputfs'' as an exit task
+  2025-04-15 09:47:36.384881472 Mounting with 'mount -v -o rw,guest //192.168.178.66/rocky-dd /var/tmp/rear.G0GdFvSy9yTNYMy/outputfs'
+  mount.cifs kernel mount options: ip=192.168.178.66,unc=\\192.168.178.66\rocky-dd,user=,pass=********
+  mount error(113): could not connect to 192.168.178.66Unable to find suitable address.
+...
+</code></pre>
+<p>so I think for my test 'cifs' is autodetected by 'mount'<br />
+because I have 'mount.cifs' in the 'mount' output.<br />
+The error is right because I don't have any<br />
+cifs://192.168.178.66/rocky-dd</p>
+<p>I get the same when I run that mount command<br />
+in the terminal where had called "rear mkrescue"<br />
+('mp' is a mountpoint directory that I created there)</p>
+<pre><code># mount -v -o rw,guest //192.168.178.66/rocky-dd mp
+
+mount.cifs kernel mount options: ip=192.168.178.66,unc=\\192.168.178.66\rocky-dd,user=,pass=********
+mount error(113): could not connect to 192.168.178.66Unable to find suitable address.
+</code></pre>
+<p>and (of course) '-t cifs' does not make a difference for me</p>
+<pre><code># mount -v -t cifs -o rw,guest //192.168.178.66/rocky-dd mp
+
+mount.cifs kernel mount options: ip=192.168.178.66,unc=\\192.168.178.66\rocky-dd,user=,pass=********
+mount error(113): could not connect to 192.168.178.66Unable to find suitable address.
+</code></pre>
+<h4 id="hspindel_commented_at_2025-04-16_0130"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2807949565">2025-04-16 01:30</a>:<a class="headerlink" href="#hspindel_commented_at_2025-04-16_0130" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+I am pleased (and somewhat surprised) that adding '-t cifs' to lines you
+indicated in global-functions.sh resulted in ReaR running fine with a
+Win11 share as the backup target.</p>
+<p>To verify that this didn't cause other problems, I went back and ran the
+modified ReaR with a Win10 backup target. It also worked fine. So I
+think that putting '-t cifs' into the production code is probably okay
+(although I understand that you may wish to do more testing).</p>
+<p>Thank you very much for your help in getting ReaR working again!</p>
+<h4 id="jsmeix_commented_at_2025-04-16_0627"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2808516258">2025-04-16 06:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-16_0627" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3456">https://github.com/rear/rear/pull/3456</a><br />
+intends to solve issues like this one.</p>
+<p>Because I am not a cifs user I cannot test it.</p>
+<h4 id="jsmeix_commented_at_2025-04-16_0727"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2808647578">2025-04-16 07:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-16_0727" title="Permanent link">&para;</a></h4>
+<p>@hspindel<br />
+I know nothing about how 'mount' without '-t' detects the filesystem
+type<br />
+and I know even less ;-) about how 'mount' autodetects via network.</p>
+<p>I guess that Windows 11 behaves a bit different<br />
+compared to Windows 10 regarding autodetection of cifs shares.<br />
+Perhaps Windows 11 does not respond to cifs share autodetection<br />
+(e.g. because of security reasons or whatever else)<br />
+or Windows 11 responds different to cifs share autodetection<br />
+so 'mount' cifs share autodetection fails with Windows 11<br />
+and then 'mount' falls through to one of its meaningless<br />
+fallback error messages for example the "well known"</p>
+<pre><code>mount: ...:
+  wrong fs type, bad option, bad superblock on /dev/sd...,
+  missing codepage or helper program, or other error.
+</code></pre>
+<p>(cf.
+<a href="https://github.com/rear/rear/issues/2908#issuecomment-1380526144">https://github.com/rear/rear/issues/2908#issuecomment-1380526144</a>)<br />
+or something like that.</p>
+<h4 id="hspindel_commented_at_2025-04-16_0753"><img src="https://avatars.githubusercontent.com/u/11689573?v=4" width="50"><a href="https://github.com/hspindel">hspindel</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2808716584">2025-04-16 07:53</a>:<a class="headerlink" href="#hspindel_commented_at_2025-04-16_0753" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I also know nothing about how mount works. I just noticed in the debug
+log that -t wasn't there.</p>
+<p>Your hypothesis about Windows sounds good to me. Thank you again for
+your help in resolving this.</p>
+<p>I saw your request to merge the change into ReaR. Great!</p>
+<h4 id="jsmeix_commented_at_2025-04-16_1158"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2809353866">2025-04-16 11:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-16_1158" title="Permanent link">&para;</a></h4>
+<p>@hspindel</p>
+<p>only out of curiosity:</p>
+<p>Because "man 8 mount" reads</p>
+<pre><code>-t, --types fstype
+...
+For most types all the mount program has to do is issue
+a simple mount(2) system call, and no detailed knowledge
+of the filesystem type is required.
+For a few types however (like nfs, nfs4, cifs, smbfs, ncpfs)
+an ad hoc code is necessary. The nfs, nfs4, cifs, smbfs,
+and ncpfs filesystems have a separate mount program.
+In order to make it possible to treat all types
+in a uniform way, mount will execute the program
+/sbin/mount.type (if that exists) when called with type ...
+</code></pre>
+<p>I wonder what your verbose '-v' mount command output is<br />
+when you call 'mount' on your Rocky Linux 9.5 system<br />
+to mount your cifs share on your Windows 11 machine 192.1.1.14</p>
+<pre><code>mount -v -o credentials=/home/howard/dd/mount-credentials //192.1.1.14/rocky-dd /mnt/rocky-dd
+</code></pre>
+<p>versus</p>
+<pre><code>mount -v -t cifs -o credentials=/home/howard/dd/mount-credentials //192.1.1.14/rocky-dd /mnt/rocky-dd
+</code></pre>
+<p>I guess that in the first case without '-t cifs' there is<br />
+nothing about 'mount.cifs' in your 'mount' command output<br />
+and it fails<br />
+while in contrast in the second case with '-t cifs' there is<br />
+something about 'mount.cifs' in your 'mount' command output<br />
+and it succeeds.</p>
+<p>If my guess is right I assume it means that without '-t cifs'<br />
+'mount' does not automatically call 'mount.cifs' when<br />
+Windows 11 should be accessed.</p>
+<p>You may compare that with how your 'mount' command output looks<br />
+when you access your Windows 10 machine 192.1.1.12</p>
+<pre><code>mount -v -o credentials=/home/howard/dd/mount-credentials //192.1.1.12/rocky-dd /mnt/rocky-dd
+</code></pre>
+<p>versus</p>
+<pre><code>mount -v -t cifs -o credentials=/home/howard/dd/mount-credentials //192.1.1.12/rocky-dd /mnt/rocky-dd
+</code></pre>
+<p>Of course all that does not explain why it behaves different<br />
+for Windows 10 versus Windows 11 - i.e. what the actual<br />
+difference is - which must be something "inside" Windows.</p>
+<h4 id="jsmeix_commented_at_2025-04-17_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3454#issuecomment-2812864753">2025-04-17 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-17_1315" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3456">https://github.com/rear/rear/pull/3456</a> merged<br />
+this issue should be solved.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-14.3454.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

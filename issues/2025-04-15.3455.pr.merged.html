@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3455 PR merged: EXCLUDE_COMPONENTS in 200_partition_layout.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3455 PR merged: EXCLUDE_COMPONENTS in 200_partition_layout.sh";
+        var mkdocs_page_input_path = "issues/2025-04-15.3455.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3455 PR merged: EXCLUDE_COMPONENTS in 200_partition_layout.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3455_pr_merged_exclude_components_in_200_partition_layoutsh"><a href="https://github.com/rear/rear/pull/3455">#3455 PR</a> <code>merged</code>: EXCLUDE_COMPONENTS in 200_partition_layout.sh<a class="headerlink" href="#3455_pr_merged_exclude_components_in_200_partition_layoutsh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-04-15_1447"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3455">2025-04-15 14:47</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-04-15_1447" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Type: <strong>Enhancement</strong></li>
+</ul>
+<p>The intent is to provide a feasible way out for the user<br />
+in particular for exceptional cases when there is<br />
+an unwanted and unneeded disk in his system<br />
+which causes trouble for ReaR - for example as in<br />
+<a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a> and<br />
+<a href="https://github.com/rear/rear/issues/3433">https://github.com/rear/rear/issues/3433</a><br />
+where parted failed because of incorrect partitioning<br />
+which as a consequence makes ReaR fail.</p>
+<ul>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issues (URLs):</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a><br />
+<a href="https://github.com/rear/rear/issues/3433">https://github.com/rear/rear/issues/3433</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>My current changes are described below starting at<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2821188937">https://github.com/rear/rear/pull/3455#issuecomment-2821188937</a></p>
+<p>My initial and meanwhile outdated changes<br />
+caused a regression which I described below in<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2812436548">https://github.com/rear/rear/pull/3455#issuecomment-2812436548</a></p>
+<p>Because of the regression<br />
+I had to completely change the implementation<br />
+from my initial dirty hack makeshift<br />
+towards a (hopefully) proper solution.</p>
+<p>My initial and meanwhile outdated changes were:</p>
+<p>In layout/save/GNU/Linux/200_partition_layout.sh<br />
+added a makeshift to exclude unwanted disks<br />
+from the very beginning via EXCLUDE_COMPONENTS<br />
+to help the user to avoid issues with unneeded disks<br />
+where the subsequent code fails e.g. as in<br />
+<a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a><br />
+where parted did not recognize a partition table<br />
+that is recognized both by the kernel and fdisk<br />
+or as in<br />
+<a href="https://github.com/rear/rear/issues/3433">https://github.com/rear/rear/issues/3433</a><br />
+where also parted failed for an unused disk<br />
+which has somewhat incorrect partitioning.</p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>For the test on a SLES15 VM<br />
+I added second disk sdb with two partitions<br />
+each one with ext4 filesystem that is mounted</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sda    ata  disk           15G 
+|-/dev/sda1      part            8M 
+|-/dev/sda2      part btrfs     13G /var
+|                                   /usr/local
+|                                   /tmp
+|                                   /root
+|                                   /srv
+|                                   /opt
+|                                   /home
+|                                   /boot/grub2/x86_64-efi
+|                                   /boot/grub2/i386-pc
+|                                   /.snapshots
+|                                   /
+`-/dev/sda3      part swap       2G [SWAP]
+/dev/sdb    ata  disk            2G 
+|-/dev/sdb1      part ext4    1020M /mountpoint1
+`-/dev/sdb2      part ext4     512M /mountpoint2
+/dev/sr0    ata  rom  iso9660 14.1G
+</code></pre>
+<p>My current test results are described below starting at<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2821459892">https://github.com/rear/rear/pull/3455#issuecomment-2821459892</a><br />
+and subsequent comments.</p>
+<p>My meanwhile outdated test results from my initial changes were:</p>
+<p>My local.conf contains</p>
+<pre><code>EXCLUDE_COMPONENTS+=( /dev/sdb fs:/mountpoint1 fs:/mountpoint2 )
+</code></pre>
+<p>With that I get</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Skipping /dev/sdb in EXCLUDE_COMPONENTS (does not also exclude mounted filesystems on it)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.VDl9jDl9fKeBaAX/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdb in EXCLUDE_COMPONENTS
+Excluding component fs:/mountpoint1 in EXCLUDE_COMPONENTS
+Marking component 'fs:/mountpoint1' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Excluding component fs:/mountpoint2 in EXCLUDE_COMPONENTS
+Marking component 'fs:/mountpoint2' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint1' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint2' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master/var/lib/rear/layout/disklayout.conf)
+...
+
+# cat var/lib/rear/layout/disktodo.conf
+todo /dev/sda disk
+todo /dev/sda1 part
+todo /dev/sda2 part
+todo /dev/sda3 part
+todo fs:/ fs
+done fs:/mountpoint1 fs
+done fs:/mountpoint2 fs
+todo btrfsmountedsubvol:/ btrfsmountedsubvol
+todo btrfsmountedsubvol:/.snapshots btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/i386-pc btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/x86_64-efi btrfsmountedsubvol
+todo btrfsmountedsubvol:/home btrfsmountedsubvol
+todo btrfsmountedsubvol:/opt btrfsmountedsubvol
+todo btrfsmountedsubvol:/srv btrfsmountedsubvol
+todo btrfsmountedsubvol:/root btrfsmountedsubvol
+todo btrfsmountedsubvol:/tmp btrfsmountedsubvol
+todo btrfsmountedsubvol:/usr/local btrfsmountedsubvol
+todo btrfsmountedsubvol:/var btrfsmountedsubvol
+todo swap:/dev/sda3 swap
+
+# cat var/lib/rear/layout/disklayout.conf
+...
+disk /dev/sda 16106127360 gpt
+...
+part /dev/sda 8388608 1048576 rear-noname bios_grub /dev/sda1
+part /dev/sda 13949206528 9437184 rear-noname legacy_boot /dev/sda2
+part /dev/sda 2147466752 13958643712 rear-noname swap /dev/sda3
+# Skipped /dev/sdb in EXCLUDE_COMPONENTS (does not also exclude mounted filesystems on it)
+...
+fs /dev/sda2 / btrfs uuid=bdec53c2-1ee8-4268-90f9-5ec523774035 label= ...
+#fs /dev/sdb1 /mountpoint1 ext4 uuid=058cb383-20e1-4237-abf5-c53ce27325ae label= ...
+#fs /dev/sdb2 /mountpoint2 ext4 uuid=670b47d9-31b3-4483-9409-43116e16b0ac label= ..
+...
+swap /dev/sda3 uuid=921157bc-e4d6-4869-8796-7e09207e49a9 label=
+</code></pre>
+<p>I also did "rear mkbackuponly"<br />
+and then tested "rear recover"<br />
+on another VM without a second disk sdb<br />
+and - at least for me - it "just worked"<br />
+(i.e. nothing about 'sdb' during "rear recover")<br />
+so sdb is really completely skipped for recovery.</p>
+<h4 id="jsmeix_commented_at_2025-04-17_1024"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2812436548">2025-04-17 10:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-17_1024" title="Permanent link">&para;</a></h4>
+<p>The changes in this pull request result a different behaviour<br />
+compared to how it was before.</p>
+<p>Reason:<br />
+Regardless that before this pull request conf/default.conf reads</p>
+<pre><code># You cannot exclude a device (e.g. /dev/sdg) directly. Instead you have to exclude everything
+# ON that device and then the dependency tracker will automatically exclude the device from the
+# recovery (because there won't be any recovery information for that "unnecessary" device).
+</code></pre>
+<p>one can exclude a device (e.g. /dev/sdg) directly<br />
+and then the dependency tracker will automatically exclude<br />
+also at least partitions and filesystems on that device.</p>
+<p>On my same SLES15 test VM as above<br />
+with current GitHub master code<br />
+I get with <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code> in local.conf<br />
+the following behaviour</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.IeF7CQWDVk4rxWe/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdb in EXCLUDE_COMPONENTS
+Marking component '/dev/sdb' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb1 is a child of component /dev/sdb
+Marking component '/dev/sdb1' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb2 is a child of component /dev/sdb
+Marking component '/dev/sdb2' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint1 is a child of component /dev/sdb
+Marking component 'fs:/mountpoint1' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint2 is a child of component /dev/sdb
+Marking component 'fs:/mountpoint2' as done in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Component '/dev/sdb' is marked as 'done /dev/sdb' in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb1 is a child of component /dev/sdb
+Component '/dev/sdb1' is marked as 'done /dev/sdb1' in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb2 is a child of component /dev/sdb
+Component '/dev/sdb2' is marked as 'done /dev/sdb2' in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint1 is a child of component /dev/sdb
+Component 'fs:/mountpoint1' is marked as 'done fs:/mountpoint1' in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint2 is a child of component /dev/sdb
+Component 'fs:/mountpoint2' is marked as 'done fs:/mountpoint2' in /root/rear.github.master/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdb' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdb' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdb' is disabled in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint1' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint2' in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master/var/lib/rear/layout/disklayout.conf)
+...
+
+# cat var/lib/rear/layout/disktodo.conf
+todo /dev/sda disk
+todo /dev/sda1 part
+todo /dev/sda2 part
+todo /dev/sda3 part
+done /dev/sdb disk
+done /dev/sdb1 part
+done /dev/sdb2 part
+todo fs:/ fs
+done fs:/mountpoint1 fs
+done fs:/mountpoint2 fs
+todo btrfsmountedsubvol:/ btrfsmountedsubvol
+todo btrfsmountedsubvol:/.snapshots btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/i386-pc btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/x86_64-efi btrfsmountedsubvol
+todo btrfsmountedsubvol:/home btrfsmountedsubvol
+todo btrfsmountedsubvol:/opt btrfsmountedsubvol
+todo btrfsmountedsubvol:/srv btrfsmountedsubvol
+todo btrfsmountedsubvol:/root btrfsmountedsubvol
+todo btrfsmountedsubvol:/tmp btrfsmountedsubvol
+todo btrfsmountedsubvol:/usr/local btrfsmountedsubvol
+todo btrfsmountedsubvol:/var btrfsmountedsubvol
+todo swap:/dev/sda3 swap
+
+# grep sdb var/lib/rear/layout/disklayout.conf 
+# /dev/sdb    /dev/sdb           ata  disk                                             2G                                                             
+# |-/dev/sdb1 /dev/sdb1 /dev/sdb      part ext4                                     1020M /mountpoint1           058cb383-20e1-4237-abf5-c53ce27325ae 
+# `-/dev/sdb2 /dev/sdb2 /dev/sdb      part ext4                                      512M /mountpoint2           670b47d9-31b3-4483-9409-43116e16b0ac 
+# Disk /dev/sdb
+#disk /dev/sdb 2147483648 gpt
+# Partitions on /dev/sdb
+#part /dev/sdb 1069547520 4194304 other none /dev/sdb1
+#part /dev/sdb 536870912 1073741824 other none /dev/sdb2
+#fs /dev/sdb1 /mountpoint1 ext4 uuid=058cb383-20e1-4237-abf5-c53ce27325ae label= blocksize=4096 reserved_blocks=5% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+#fs /dev/sdb2 /mountpoint2 ext4 uuid=670b47d9-31b3-4483-9409-43116e16b0ac label= blocksize=4096 reserved_blocks=4% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+</code></pre>
+<p>So with current GitHub master code</p>
+<pre><code>EXCLUDE_COMPONENTS+=( /dev/sdb )
+</code></pre>
+<p>perfectly excludes /dev/sdb plus automatically<br />
+also at least partitions and filesystems on it.</p>
+<p>I guess it won't automatically exclue higher level<br />
+storage objects like LVM or things like that.</p>
+<p>In contrast with the changes in this pull request I get<br />
+(same <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code> in local.conf)</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Skipping /dev/sdb in EXCLUDE_COMPONENTS (does not automatically exclude mounted filesystems on it)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.QNG4GunBgtzxOLm/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdb in EXCLUDE_COMPONENTS
+Disabling excluded components in /root/rear.github.master/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master/var/lib/rear/layout/disklayout.conf)
+...
+
+# cat var/lib/rear/layout/disktodo.conf
+todo /dev/sda disk
+todo /dev/sda1 part
+todo /dev/sda2 part
+todo /dev/sda3 part
+todo fs:/ fs
+todo fs:/mountpoint1 fs
+todo fs:/mountpoint2 fs
+todo btrfsmountedsubvol:/ btrfsmountedsubvol
+todo btrfsmountedsubvol:/.snapshots btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/i386-pc btrfsmountedsubvol
+todo btrfsmountedsubvol:/boot/grub2/x86_64-efi btrfsmountedsubvol
+todo btrfsmountedsubvol:/home btrfsmountedsubvol
+todo btrfsmountedsubvol:/opt btrfsmountedsubvol
+todo btrfsmountedsubvol:/srv btrfsmountedsubvol
+todo btrfsmountedsubvol:/root btrfsmountedsubvol
+todo btrfsmountedsubvol:/tmp btrfsmountedsubvol
+todo btrfsmountedsubvol:/usr/local btrfsmountedsubvol
+todo btrfsmountedsubvol:/var btrfsmountedsubvol
+todo swap:/dev/sda3 swap
+
+# grep sdb var/lib/rear/layout/disklayout.conf 
+# /dev/sdb    /dev/sdb           ata  disk                                             2G                                                             
+# |-/dev/sdb1 /dev/sdb1 /dev/sdb      part ext4                                     1020M /mountpoint1           058cb383-20e1-4237-abf5-c53ce27325ae 
+# `-/dev/sdb2 /dev/sdb2 /dev/sdb      part ext4                                      512M /mountpoint2           670b47d9-31b3-4483-9409-43116e16b0ac 
+# Skipped /dev/sdb in EXCLUDE_COMPONENTS (does not automatically exclude mounted filesystems on it)
+fs /dev/sdb1 /mountpoint1 ext4 uuid=058cb383-20e1-4237-abf5-c53ce27325ae label= blocksize=4096 reserved_blocks=5% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+fs /dev/sdb2 /mountpoint2 ext4 uuid=670b47d9-31b3-4483-9409-43116e16b0ac label= blocksize=4096 reserved_blocks=4% max_mounts=-1 check_interval=0d bytes_per_inode=16384 default_mount_options=user_xattr,acl options=rw,relatime
+</code></pre>
+<p>So with the changes in this pull request<br />
+<code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code><br />
+only excludes /dev/sdb and the partitions on it<br />
+because with the changes in this pull request<br />
+handling /dev/sdb is skipped in 200_partition_layout.sh<br />
+so neither the disk nor its partitions appear in disklayout.conf<br />
+(because extract_partitions() is not called for /dev/sdb)<br />
+but e.g. 230_filesystem_layout.sh runs normally and includes<br />
+the mounted filesystems on /dev/sdb in disklayout.conf<br />
+which also appear as 'todo' in disktodo.conf<br />
+so with the changes in this pull request plain<br />
+<code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code><br />
+does no longer work as before and one must use e.g.<br />
+<code>EXCLUDE_COMPONENTS+=( /dev/sdb fs:/mountpoint1 fs:/mountpoint2 )</code><br />
+to also get the mounted filesystems on /dev/sdb excluded.</p>
+<h4 id="jsmeix_commented_at_2025-04-22_1234"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2821188937">2025-04-22 12:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-22_1234" title="Permanent link">&para;</a></h4>
+<p>My current offhanded (in particular not yet tested) idea<br />
+how to avoid the regression which I described above in<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2812436548">https://github.com/rear/rear/pull/3455#issuecomment-2812436548</a><br />
+is the following:</p>
+<p>With e.g.</p>
+<pre><code>EXCLUDE_COMPONENTS+=( /dev/sdb )
+</code></pre>
+<p>do not skip '/dev/sdb' in 200_partition_layout.sh<br />
+but instead use <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code><br />
+to avoid an Error() exit in 200_partition_layout.sh<br />
+in particular when extract_partitions() is called<br />
+for a disk which is listed in <code>EXCLUDE_COMPONENTS</code>.</p>
+<p>My reasoning behind is:</p>
+<p>When a disk is listed in <code>EXCLUDE_COMPONENTS</code><br />
+it should not matter when 'parted' fails<br />
+to recognize the disk and/or its partitions.</p>
+<p>When 'parted' works to recognize the disk and its partitions<br />
+then all works well with current ReaR via<br />
+<code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code> as in my case in<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2812436548">https://github.com/rear/rear/pull/3455#issuecomment-2812436548</a></p>
+<p>When 'parted' fails to recognize a disk and/or partitions<br />
+(i.e. when the partitioning of the disk is "problematic")<br />
+and the "problematic" disk is listed in <code>EXCLUDE_COMPONENTS</code><br />
+then e.g. <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code> should work<br />
+when there is only the disk without mounted filesystems.<br />
+But when there are mounted filesystems on a "problematic" disk<br />
+the user may have to also specify the mounted filesystems like<br />
+<code>EXCLUDE_COMPONENTS+=( /dev/sdb fs:/mountpoint1 fs:/mountpoint2 )</code><br />
+to get a "problematic" disk and all what there is on it excluded.</p>
+<p>The point is that ReaR should not error out when a<br />
+"problematic" disk is listed in <code>EXCLUDE_COMPONENTS</code><br />
+so that <code>EXCLUDE_COMPONENTS</code> can be used in particular<br />
+to exclude an unneeded "problematic" disk.</p>
+<h4 id="jsmeix_commented_at_2025-04-22_1407"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2821459892">2025-04-22 14:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-22_1407" title="Permanent link">&para;</a></h4>
+<p>With my recent changes <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code><br />
+works again as before:</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS /dev/sdb
+NAME        TRAN TYPE FSTYPE  SIZE MOUNTPOINTS
+/dev/sdb    ata  disk           2G 
+|-/dev/sdb1      part ext4   1020M /mountpoint1
+`-/dev/sdb2      part ext4    512M /mountpoint2
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.YOcC0DIV8HstDBs/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdb in EXCLUDE_COMPONENTS
+Marking component '/dev/sdb' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb1 is a child of component /dev/sdb
+Marking component '/dev/sdb1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb2 is a child of component /dev/sdb
+Marking component '/dev/sdb2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint1 is a child of component /dev/sdb
+Marking component 'fs:/mountpoint1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint2 is a child of component /dev/sdb
+Marking component 'fs:/mountpoint2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Component '/dev/sdb' is marked as 'done /dev/sdb' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb1 is a child of component /dev/sdb
+Component '/dev/sdb1' is marked as 'done /dev/sdb1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb2 is a child of component /dev/sdb
+Component '/dev/sdb2' is marked as 'done /dev/sdb2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint1 is a child of component /dev/sdb
+Component 'fs:/mountpoint1' is marked as 'done fs:/mountpoint1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint2 is a child of component /dev/sdb
+Component 'fs:/mountpoint2' is marked as 'done fs:/mountpoint2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdb' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdb' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdb' is disabled in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf)
+...
+
+# grep ^done var/lib/rear/layout/disktodo.conf
+done /dev/sdb disk
+done /dev/sdb1 part
+done /dev/sdb2 part
+done fs:/mountpoint1 fs
+done fs:/mountpoint2 fs
+
+# grep sdb var/lib/rear/layout/disklayout.conf | cut -b-80
+# /dev/sdb    /dev/sdb           ata  disk                                      
+# |-/dev/sdb1 /dev/sdb1 /dev/sdb      part ext4                                 
+# `-/dev/sdb2 /dev/sdb2 /dev/sdb      part ext4                                 
+# Disk /dev/sdb
+#disk /dev/sdb 2147483648 gpt
+# Partitions on /dev/sdb
+#part /dev/sdb 1069547520 4194304 other none /dev/sdb1
+#part /dev/sdb 536870912 1073741824 other none /dev/sdb2
+#fs /dev/sdb1 /mountpoint1 ext4 uuid=058cb383-20e1-4237-abf5-c53ce27325ae label= ...
+#fs /dev/sdb2 /mountpoint2 ext4 uuid=670b47d9-31b3-4483-9409-43116e16b0ac label= ...
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-04-22_1415"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2821485204">2025-04-22 14:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-22_1415" title="Permanent link">&para;</a></h4>
+<p>What I cannot test is how it behaves with my recent changes<br />
+when there is a "problematic" disk that should be excluded<br />
+i.e. a disk that cannot be recognized properly by 'parted'<br />
+because I don't know how I could setup such a "problematic" disk<br />
+for my KVM/QEMU test VM with Virtual Machine Manager.</p>
+<h4 id="jsmeix_commented_at_2025-04-23_1129"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2823978059">2025-04-23 11:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-23_1129" title="Permanent link">&para;</a></h4>
+<p>With the help of<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1598782245">https://github.com/rear/rear/issues/2995#issuecomment-1598782245</a><br />
+I could setup such a "problematic" disk<br />
+that cannot be recognized properly by 'parted'<br />
+on my KVM/QEMU test VM:</p>
+<p>I downloaded <code>ubuntu-24.04.1-desktop-amd64.iso</code> from<br />
+<a href="https://old-releases.ubuntu.com/releases/20.04.4/">https://old-releases.ubuntu.com/releases/20.04.4/</a></p>
+<p>On my KVM/QEMU test VM I created a disk 'sdc' with 1GiB size.</p>
+<p>I did 'dd' the ubuntu-24.04.1-desktop-amd64.iso onto /dev/sdc</p>
+<pre><code># dd if=ubuntu-20.04-beta-live-server-amd64.iso of=/dev/sdc bs=1MiB status=progress
+880803840 bytes (881 MB, 840 MiB) copied, 1 s, 880 MB/s
+918+0 records in
+918+0 records out
+962592768 bytes (963 MB, 918 MiB) copied, 1.79387 s, 537 MB/s
+</code></pre>
+<p>The disk cannot be properly recognized by 'parted'</p>
+<pre><code># parted -s /dev/sdc unit MiB print
+Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
+Model: ATA QEMU HARDDISK (scsi)
+Disk /dev/sdc: 1024MiB
+Sector size (logical/physical): 512B/512B
+Partition Table: unknown
+Disk Flags:
+</code></pre>
+<p>In particular 'parted' shows <code>Partition Table: unknown</code><br />
+which leads to the message in ReaR</p>
+<pre><code>Unsupported partition table 'unknown' on /dev/sdc (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>But 'fdisk' can recognize it</p>
+<pre><code># fdisk -l /dev/sdc
+Disk /dev/sdc: 1 GiB, 1073741824 bytes, 2097152 sectors
+Disk model: QEMU HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x53c95e79
+Device     Boot Start     End Sectors  Size Id Type
+/dev/sdc1  *        0 1880063 1880064  918M  0 Empty
+/dev/sdc2       20464   28463    8000  3.9M ef EFI (FAT-12/16/32)
+</code></pre>
+<p>Also 'lsblk' can list it</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS /dev/sdc
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sdc    ata  disk iso9660    1G 
+|-/dev/sdc1      part iso9660  918M 
+`-/dev/sdc2      part vfat     3.9M
+</code></pre>
+<p>With <code>EXCLUDE_COMPONENTS+=( /dev/sdc )</code> in local.conf I got</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Unsupported partition table 'unknown' on /dev/sdc (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.QInIUCf5UvAn72D/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdc in EXCLUDE_COMPONENTS
+Marking component '/dev/sdc' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Marking component '/dev/sdc1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Marking component '/dev/sdc2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdc (not used by any mounted filesystem)
+Component '/dev/sdc' is marked as 'done /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Component '/dev/sdc1' is marked as 'done /dev/sdc1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Component '/dev/sdc2' is marked as 'done /dev/sdc2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdc' is disabled in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf)
+...
+
+# grep ^done var/lib/rear/layout/disktodo.conf
+done /dev/sdc disk
+done /dev/sdc1 part
+done /dev/sdc2 part
+
+# grep sdc var/lib/rear/layout/disklayout.conf
+# /dev/sdc    /dev/sdc           ata  disk iso9660 Ubuntu-Server 20.04 LTS amd64       1G                        2020-04-02-13-22-33-00               
+# |-/dev/sdc1 /dev/sdc1 /dev/sdc      part iso9660 Ubuntu-Server 20.04 LTS amd64     918M                        2020-04-02-13-22-33-00               
+# `-/dev/sdc2 /dev/sdc2 /dev/sdc      part vfat    Ubuntu-Server 20.04 LTS amd64     3.9M                        63A9-90E1                            
+# Disk /dev/sdc
+#disk /dev/sdc 1073741824 unknown
+# Partitions on /dev/sdc
+#part /dev/sdc 962592768 0 none  /dev/sdc1
+</code></pre>
+<p>So with plain <code>EXCLUDE_COMPONENTS+=( /dev/sdX )</code><br />
+an unneeded problematic disk which is not properly recognized<br />
+gets excluded plus automatically the partitions on it.</p>
+<p>Then I tried how it behaves when there is a mounted filesystem<br />
+on such a problematic disk which is not properly recognized:</p>
+<pre><code># mkdir /mountpoint_sdc2
+
+# mount /dev/sdc2 /mountpoint_sdc2
+
+# lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS /dev/sdc
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sdc    ata  disk iso9660    1G 
+|-/dev/sdc1      part iso9660  918M 
+`-/dev/sdc2      part vfat     3.9M /mountpoint_sdc2
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Unsupported partition table 'unknown' on /dev/sdc (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.iEnqI2gJQrwiQDg/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdc in EXCLUDE_COMPONENTS
+Marking component '/dev/sdc' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Marking component '/dev/sdc1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Marking component '/dev/sdc2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint_sdc2 is a child of component /dev/sdc
+Marking component 'fs:/mountpoint_sdc2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdc (not used by any mounted filesystem)
+Component '/dev/sdc' is marked as 'done /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Component '/dev/sdc1' is marked as 'done /dev/sdc1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Component '/dev/sdc2' is marked as 'done /dev/sdc2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/mountpoint_sdc2 is a child of component /dev/sdc
+Component 'fs:/mountpoint_sdc2' is marked as 'done fs:/mountpoint_sdc2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdc' is disabled in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mountpoint_sdc2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf)
+...
+
+# grep sdc var/lib/rear/layout/disktodo.conf
+done /dev/sdc disk
+done /dev/sdc1 part
+done /dev/sdc2 part
+done fs:/mountpoint_sdc2 fs
+
+# grep sdc var/lib/rear/layout/disklayout.conf | cut -b-112
+# /dev/sdc    /dev/sdc           ata  disk iso9660 Ubuntu-Server 20.04 LTS amd64       1G                       
+# |-/dev/sdc1 /dev/sdc1 /dev/sdc      part iso9660 Ubuntu-Server 20.04 LTS amd64     918M                       
+# `-/dev/sdc2 /dev/sdc2 /dev/sdc      part vfat    Ubuntu-Server 20.04 LTS amd64     3.9M /mountpoint_sdc2      
+# Disk /dev/sdc
+#disk /dev/sdc 1073741824 unknown
+# Partitions on /dev/sdc
+#part /dev/sdc 962592768 0 none  /dev/sdc1
+#part /dev/sdc 4096000 10477568 none  /dev/sdc2
+#fs /dev/sdc2 /mountpoint_sdc2 vfat uuid=63A9-90E1 label= options=rw,relatime,fmask=0022,dmask=0022,codepage=437
+</code></pre>
+<p>So with plain <code>EXCLUDE_COMPONENTS+=( /dev/sdX )</code><br />
+a problematic disk which is not properly recognized<br />
+gets excluded plus automatically the partitions on it<br />
+and even also automatically its mounted filesystems.</p>
+<p>I assume one has to exclude higher level storage objects<br />
+e.g. MD devices or LVM2 volume groups and things like that<br />
+separately as described in default.conf</p>
+<h4 id="jsmeix_commented_at_2025-04-23_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2824415661">2025-04-23 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-23_1400" title="Permanent link">&para;</a></h4>
+<p>An addendum FYI:</p>
+<p>When a disk has no mounted filesystem<br />
+the whole disk would get normally automatically excluded via</p>
+<pre><code>Automatically excluding disk /dev/sdX (not used by any mounted filesystem)
+</code></pre>
+<p>BUT<br />
+for a problematic disk which is not properly recognized<br />
+this does not work without <code>EXCLUDE_COMPONENTS+=( /dev/sdX )</code><br />
+because without <code>EXCLUDE_COMPONENTS+=( /dev/sdX )</code><br />
+ReaR errors out with</p>
+<pre><code>ERROR: Unsupported partition table 'unknown' on /dev/sdX (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>because for a disk which is not properly recognized<br />
+it is not possible to safely determine whether or not<br />
+this disk is really not used by any mounted filesystem.<br />
+To be on the safe side "rear mkrescue/mkbackup" must error out<br />
+unless the user had explicitly specified that /dev/sdX<br />
+should be excluded from the recovery, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors">https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors</a></p>
+<p>How that looks for me on my test VM<br />
+when I have no mounted filesystem<br />
+on the normal disk /dev/sdb<br />
+and on the problematic disk /dev/sdc<br />
+with <code>EXCLUDE_COMPONENTS+=( /dev/sdc )</code></p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+NAME        TRAN TYPE FSTYPE   SIZE MOUNTPOINTS
+/dev/sda    ata  disk           15G 
+|-/dev/sda1      part            8M 
+|-/dev/sda2      part btrfs     13G /var
+|                                   /usr/local
+|                                   /tmp
+|                                   /root
+|                                   /srv
+|                                   /opt
+|                                   /home
+|                                   /boot/grub2/x86_64-efi
+|                                   /boot/grub2/i386-pc
+|                                   /.snapshots
+|                                   /
+`-/dev/sda3      part swap       2G [SWAP]
+/dev/sdb    ata  disk            2G 
+|-/dev/sdb1      part ext4    1020M 
+`-/dev/sdb2      part ext4     512M 
+/dev/sdc    ata  disk iso9660    1G 
+|-/dev/sdc1      part iso9660  918M 
+`-/dev/sdc2      part vfat     3.9M 
+/dev/sr0    ata  rom  iso9660 14.1G
+
+# usr/sbin/rear -D mkrescue
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Unsupported partition table 'unknown' on /dev/sdc (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+Invalid 'part /dev/sdc' entry (at least one value is missing)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/sda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/sda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.qSQvOwMEG3sSmPn/rootfs/etc/rear/rescue.conf
+Excluding component /dev/sdc in EXCLUDE_COMPONENTS
+Marking component '/dev/sdc' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Marking component '/dev/sdc1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Marking component '/dev/sdc2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Marking component '/dev/sdb' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb1 is a child of component /dev/sdb
+Marking component '/dev/sdb1' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdb2 is a child of component /dev/sdb
+Marking component '/dev/sdb2' as done in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdc (not used by any mounted filesystem)
+Component '/dev/sdc' is marked as 'done /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc1 is a child of component /dev/sdc
+Component '/dev/sdc1' is marked as 'done /dev/sdc1' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/sdc2 is a child of component /dev/sdc
+Component '/dev/sdc2' is marked as 'done /dev/sdc2' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdb' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdb' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdb' is disabled in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdc' in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdc' is disabled in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /root/rear.github.master.jsmeix-disk-EXCLUDE_COMPONENTS/var/lib/rear/layout/disklayout.conf)
+...
+</code></pre>
+<p>The excluding happens primarily<br />
+first via layout/save/default/310_include_exclude.sh<br />
+and then via layout/save/default/320_autoexclude.sh<br />
+and layout/save/default/330_remove_exclusions.sh</p>
+<h4 id="jsmeix_commented_at_2025-04-24_0824"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3455#issuecomment-2826777004">2025-04-24 08:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_0824" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it tomorrow afternoon<br />
+provided there are no severe objections.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-15.3455.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

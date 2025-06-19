@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3463 Issue open: COVE backup method to support Cove Data Protection (Backup Manager) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3463 Issue open: COVE backup method to support Cove Data Protection (Backup Manager)";
+        var mkdocs_page_input_path = "issues/2025-04-28.3463.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3463 Issue open: COVE backup method to support Cove Data Protection (Backup Manager)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3463_issue_open_cove_backup_method_to_support_cove_data_protection_backup_manager"><a href="https://github.com/rear/rear/issues/3463">#3463 Issue</a> <code>open</code>: COVE backup method to support Cove Data Protection (Backup Manager)<a class="headerlink" href="#3463_issue_open_cove_backup_method_to_support_cove_data_protection_backup_manager" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="svlv_opened_issue_at_2025-04-28_1320"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/issues/3463">2025-04-28 13:20</a>:<a class="headerlink" href="#svlv_opened_issue_at_2025-04-28_1320" title="Permanent link">&para;</a></h4>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="is_your_feature_request_related_to_a_problem_please_describe">Is your feature request related to a problem? Please describe.<a class="headerlink" href="#is_your_feature_request_related_to_a_problem_please_describe" title="Permanent link">&para;</a></h3>
+<p>The Cove team would like to propose an integration with the Backup
+Manager. It will allow to use new <code>COVE</code> backup method.</p>
+<h3 id="describe_the_solution_youd_like">Describe the solution you'd like<a class="headerlink" href="#describe_the_solution_youd_like" title="Permanent link">&para;</a></h3>
+<p>The Backup Manager integration with Relax-and-Recover will be
+implemented and tested by the Cove team.</p>
+<h4 id="jsmeix_commented_at_2025-04-29_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3463#issuecomment-2838820904">2025-04-29 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-29_1308" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your contribution to ReaR!</p>
+<p>I had only a first quick look at your<br />
+<a href="https://github.com/rear/rear/pull/3464">https://github.com/rear/rear/pull/3464</a><br />
+and made some quick comments FYI.</p>
+<p>But I could not yet do an actual analysis.<br />
+To do that I need to get some basic understanding<br />
+how the Backup Manager is meant to work.</p>
+<p>Currently I am wondering why during "rear recover"<br />
+the Backup Manager must be downloaded in any case.<br />
+I read that the Backup Manager needs to be<br />
+installed on the partitioned target disks<br />
+and launched from there to restore the backup.<br />
+But I do not yet understand why the Backup Manager<br />
+could not get included in the ReaR recovery system<br />
+during "rear mkrescue" or "rear mkbackup" and then<br />
+during "rear recover" the included Backup Manager<br />
+could get installed onto the target disk.</p>
+<p>I ask because for all other backup methods in ReaR<br />
+the backup restore tool and all what it needs to run<br />
+(libraries, config files, whatever else) get included<br />
+in the ReaR recovery system during "rear mkrescue"<br />
+or "rear mkbackup" so the backup restore tool is available<br />
+"ready to use" from within the ReaR recovery system<br />
+without the need to download the backup restore tool<br />
+from some external location.</p>
+<p>With certain ReaR OUTPUT methods like OUTPUT=USB<br />
+but (to some extent) also with OUTPUT=ISO<br />
+the backup can be included on the same medium<br />
+where the ReaR recovery system system is<br />
+so the user can create one single medium<br />
+(in particular a bootable external disk via OUTPUT=USB)<br />
+that is self-contained for a disaster recovery.<br />
+As far as it currently looks like, it seems this<br />
+is (currently) not possible with BACKUP=COVE.</p>
+<p>To avoid possible misunderstanding:<br />
+It is no problem when some functionality or feature<br />
+is not supported by certain backup methods in ReaR.<br />
+I only like to get some basic understanding<br />
+how the BACKUP=COVE method is meant to work.</p>
+<h4 id="svlv_commented_at_2025-04-30_0954"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3463#issuecomment-2841439427">2025-04-30 09:54</a>:<a class="headerlink" href="#svlv_commented_at_2025-04-30_0954" title="Permanent link">&para;</a></h4>
+<p>Hello @jsmeix. Thank you for your time and comments. I am in progress of
+applying them.</p>
+<p>Let me explain how the Backup Manager integration with Relax-and-Recover
+is intended to work.</p>
+<ol>
+<li>
+<p>Backup Manager installation flow</p>
+<p>We added the ReaR tarball created by <code>make dist</code> into the Backup
+Manager installer (it's RUN package created via
+<a href="https://makeself.io/">makeself</a>). During the Backup Manager
+installation process the ReaR tarball is extracted to
+<code>/opt/MXB/rear</code> directory. <code>/opt/MXB</code> is not a static folder in
+meaning that Cove users may have different installation location but
+this location in predefined by the particular installer.
+Additionally, the Backup Manager installer provides <code>site.conf</code>
+config file. It contains at the moment:</p>
+<pre><code>BACKUP=COVE
+OUTPUT=ISO
+ISO_PREFIX="cove-rear"
+# static URL to CDN to download BM
+COVE_INSTALLER_URL="https://cdn.cloudbackup.management/maxdownloads/mxb-linux-x86_64.run"
+# it depends on the installer
+COVE_INSTALL_DIR="/opt/MXB"
+</code></pre>
+<p>And some workarounds for Ubuntu but I am planning to propose fixes
+for that, so <code>site.conf</code> should contain only this params.</p>
+<p>The idea behind <code>site.conf</code> is to provide some predefined default
+values that are controlled by the Backup Manager. But users still
+can use <code>local.conf</code> to set up things.</p>
+</li>
+<li>
+<p>Backup flow</p>
+<p>Users must have two data sources: Files and folders and System state
+for Linux. System state for Linux is the ISO rescue image created by
+ReaR. The Backup Manager under the hood launches <code>rear mkrescue</code>
+(<code>rear</code> here is <code>/opt/MXB/rear/usr/sbin/rear</code>) and then backs up the
+created ISO image. It is supposed that <code>BACKUP=COVE</code> and
+<code>OUTPUT=ISO</code> because the Backup Manager expects that the ISO will be
+created and not any other type of <code>OUTPUT</code>.</p>
+</li>
+<li>
+<p>Recovery flow</p>
+<p>Users need to restore the backed up ISO image and then boot the
+device from this ISO rescue image.</p>
+<p>As you mentioned, ReaR downloads the installation package from the
+internet and the Backup Manager is installed on the target disks. By
+this we are solving the following problems:</p>
+<ul>
+<li>The Backup Manager included to the ISO image may be outdated and
+    not compatible with new storage nodes.</li>
+<li>The Backup Manager requires certificates and they will be
+    outdated even if they are copied to the ISO image. Moreover, the
+    authorisation during the installation process is chanding at the
+    moment to improve the security.</li>
+<li>Updating the Backup Manager during BMR</li>
+<li>Keep the ISO image as small as possible</li>
+</ul>
+<p>Currently we are working on creating the generic ISO image that will
+be used to get the rescue ISO image created by ReaR which is
+device-specific one. This generic ISO won't contain the Backup
+Manager as well but will download and install it.</p>
+<ul>
+<li>Process flow with genetic ISO</li>
+</ul>
+<p>After the installation, the Backup Manager restores the ISO image
+created by ReaR. Next, <code>initrd</code> for the rescue system is repacked to
+move the Backup Manager files into the rescue system. Next, the
+system is booted from the rescue <code>initrd</code> and kernel via <code>kexec</code>
+call. In this case the Backup Manager will be provided by the
+generic ISO and won't be downloaded from the internet. But we would
+like to support two ways: recovery directly from the rescue ISO
+created by ReaR (in that case users need to restore the rescue ISO,
+also it can be a workaround if the generic ISO is not bootable on
+the target device) and recovery from the generic ISO (it's more
+automated, users can use one single ISO to recover different
+devices). It is also a point why we do not include the Backup
+Manager in the rescue system.</p>
+</li>
+</ol>
+<p>Also, as far as I know, we are not really the first who want to download
+the agent from the internet, e.g.
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/verify/CDM/default/410_use_replica_cdm_cluster_cert.sh#L55-L64">410_use_replica_cdm_cluster_cert.sh</a></p>
+<h4 id="jsmeix_commented_at_2025-04-30_1119"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3463#issuecomment-2841660364">2025-04-30 11:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-30_1119" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your explanations!</p>
+<p>Today I won't find time to read them and<br />
+tomorrow is public holiday in Germany<br />
+and I am on vacation on Friday<br />
+so (hopefully) next week...</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-28.3463.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

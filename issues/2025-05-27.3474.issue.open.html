@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3474 Issue open: Migrate LUKS disk as is, without setting a password phrase at the time of recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3474 Issue open: Migrate LUKS disk as is, without setting a password phrase at the time of recovery";
+        var mkdocs_page_input_path = "issues/2025-05-27.3474.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3474 Issue open: Migrate LUKS disk as is, without setting a password phrase at the time of recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3474_issue_open_migrate_luks_disk_as_is_without_setting_a_password_phrase_at_the_time_of_recovery"><a href="https://github.com/rear/rear/issues/3474">#3474 Issue</a> <code>open</code>: Migrate LUKS disk as is, without setting a password phrase at the time of recovery<a class="headerlink" href="#3474_issue_open_migrate_luks_disk_as_is_without_setting_a_password_phrase_at_the_time_of_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="prontok_opened_issue_at_2025-05-27_0806"><img src="https://avatars.githubusercontent.com/u/90829636?u=2f5fd5281456d86ac08c1625ee7f04db9b5c7081&v=4" width="50"><a href="https://github.com/prontok">prontok</a> opened issue at <a href="https://github.com/rear/rear/issues/3474">2025-05-27 08:06</a>:<a class="headerlink" href="#prontok_opened_issue_at_2025-05-27_0806" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>BACKUP=NETFS</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<p>Hello,<br />
+I use LUKS encryption on my server.<br />
+Maybe it is possible to get a copy of the operating system<br />
+and later restore it as is (with existing slots).<br />
+Is it possible without setting the LUKS password phrase<br />
+at the time of the restoration process?<br />
+I tried different options with values ​​in the<br />
+LUKS_CRYPTSETUP_OPTIONS variable,<br />
+but this did not give results.</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="jsmeix_commented_at_2025-05-27_1407"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3474#issuecomment-2912653292">2025-05-27 14:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-27_1407" title="Permanent link">&para;</a></h4>
+<p>From what I see in the code in<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh#L91">https://github.com/rear/rear/blob/master/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh#L91</a><br />
+it seems there is support for some predefined <code>password</code> value.</p>
+<p>As far as I understand the code that predefined <code>password</code> value<br />
+can be specified in the disklayout.conf file<br />
+in the <code>crypt</code> entries, see<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc#luks-devices">https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc#luks-devices</a></p>
+<pre><code>LUKS Devices
+
+crypt /dev/mapper/&lt;name&gt; ... [password=&lt;password&gt;] ...
+</code></pre>
+<p>Because I hope it is not possible to get a LUKS password<br />
+out of a running system, I assume it is not possible to store<br />
+a LUKS password during "rear mkrescue" in the disklayout.conf file.</p>
+<p>So to provide a predefined LUKS password for "rear recover"<br />
+you would have to manually add it to disklayout.conf<br />
+from inside the running ReaR recovery system<br />
+before you launch "rear recover".</p>
+<p>So this is likely not what you mean with "without setting the<br />
+LUKS password phrase at the time of the restoration process"<br />
+because you would have to manually add it to disklayout.conf<br />
+at the time of the restoration process.</p>
+<p>Therefore I think the only way out could be<br />
+using the BLOCKCLONE backup method<br />
+which does basically 'dd' of a whole block device, see<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc">https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc</a></p>
+<p>The BLOCKCLONE backup method is meanwhile rather old,<br />
+e.g. see in its documentation</p>
+<pre><code>GPT not supported (work in progress)
+No UEFI support (work in progress)
+</code></pre>
+<p>and - as far as I can tell - it is likely not much used<br />
+(otherwise I would expect at least a few user issue reports)<br />
+so certain things may no longer work or may need some<br />
+adaptions and enhancements to make it work again.</p>
+<p>I have no personal experience with the BLOCKCLONE backup method<br />
+so I cannot help much when there are issues in this area.</p>
+<h4 id="prontok_commented_at_2025-05-27_2119"><img src="https://avatars.githubusercontent.com/u/90829636?u=2f5fd5281456d86ac08c1625ee7f04db9b5c7081&v=4" width="50"><a href="https://github.com/prontok">prontok</a> commented at <a href="https://github.com/rear/rear/issues/3474#issuecomment-2914081487">2025-05-27 21:19</a>:<a class="headerlink" href="#prontok_commented_at_2025-05-27_2119" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Thank you for your response. I will try to study the code in the
+script 160_include_luks_code.sh<br />
+Thanks a lot again.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-05-27.3474.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3471 PR merged: Support new EFIBOOTMGR_CREATE_ENTRIES in 670_run_efibootmgr.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3471 PR merged: Support new EFIBOOTMGR_CREATE_ENTRIES in 670_run_efibootmgr.sh";
+        var mkdocs_page_input_path = "issues/2025-05-09.3471.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3471 PR merged: Support new EFIBOOTMGR_CREATE_ENTRIES in 670_run_efibootmgr.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3471_pr_merged_support_new_efibootmgr_create_entries_in_670_run_efibootmgrsh"><a href="https://github.com/rear/rear/pull/3471">#3471 PR</a> <code>merged</code>: Support new EFIBOOTMGR_CREATE_ENTRIES in 670_run_efibootmgr.sh<a class="headerlink" href="#3471_pr_merged_support_new_efibootmgr_create_entries_in_670_run_efibootmgrsh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-05-09_1050"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3471">2025-05-09 10:50</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-05-09_1050" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>High</strong></p>
+</li>
+</ul>
+<p>High impact because it is required during "rear recover"<br />
+to create EFI Boot Manager entries on software RAID systems<br />
+(in particular RAID1 that consists of whole disks as members)<br />
+because in such cases the current code fails to determine<br />
+the right (underlying) disk(s) which contain(s) the ESP<br />
+so the autogenerated 'efibootmgr' call fails.</p>
+<ul>
+<li>Reference to related issue (URL):</li>
+</ul>
+<p><a href="https://github.com/rear/rear/issues/3459">https://github.com/rear/rear/issues/3459</a><br />
+<a href="https://github.com/rear/rear/pull/3466">https://github.com/rear/rear/pull/3466</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>On a SLES15-SP6 VM with RAID1 of whole disks as members,<br />
+details see below.</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In finalize/Linux-i386/670_run_efibootmgr.sh<br />
+added support for a new user config array<br />
+EFIBOOTMGR_CREATE_ENTRIES where the user<br />
+can specify how 'efibootmgr' will be called<br />
+to provide "final power to ther user" for cases<br />
+where the automatism in ReaR does not (yet) work.</p>
+<p>In this pull request up to<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2872440590">https://github.com/rear/rear/pull/3471#issuecomment-2872440590</a><br />
+that new user config array was named EFIBOOTMGR_INSTALL_DEVICES<br />
+but then its name was replaced by EFIBOOTMGR_CREATE_ENTRIES<br />
+which tells what that config variable actually does.</p>
+<h4 id="jsmeix_commented_at_2025-05-09_1110"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2866150088">2025-05-09 11:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_1110" title="Permanent link">&para;</a></h4>
+<p>What I tested:</p>
+<p>Original system<br />
+SLES15-SP6 VM<br />
+with Linux kernel RAID1 of the disks /dev/vda and /dev/vdb</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS /dev/vda /dev/vdb
+NAME             TRAN   TYPE  FSTYPE            LABEL        SIZE MOUNTPOINTS
+/dev/vda         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+/dev/vdb         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+
+# cat etc/rear/local.conf 
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+NETFS_KEEP_OLD_BACKUP_COPY=yes
+{ SSH_ROOT_PASSWORD='rear' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+#EFIBOOTMGR_INSTALL_DEVICES=( '/dev/md127 1 EFI\sles\shim.efi' )
+EFIBOOTMGR_INSTALL_DEVICES=( '/dev/vda 1 EFI\sles\shim.efi' '/dev/vdb 1 EFI\sles\shim.efi' )
+SECURE_BOOT_BOOTLOADER="/boot/efi/EFI/sles/shim.efi"
+</code></pre>
+<p>Both</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/md127 1 EFI\sles\shim.efi' )
+</code></pre>
+<p>and</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/vda 1 EFI\sles\shim.efi' '/dev/vdb 1 EFI\sles\shim.efi' )
+</code></pre>
+<p>worked for me - i.e. the recreated system booted well.</p>
+<p>But currently I don't know how I could simulate<br />
+that one of the two RAID1 member disks fails<br />
+to test that the recreated system still boots then.</p>
+<p>Here "rear -D recover" terminal output for</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/vda 1 EFI\sles\shim.efi' '/dev/vdb 1 EFI\sles\shim.efi' )
+</code></pre>
+<p>(excerpt)</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' using 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' using 'EFI\sles\shim.efi' on disk '/dev/vdb' partition 1
+Installing secure boot loader (shim)...
+</code></pre>
+<p>and the matching excerpt from the "rear -D recover" log file</p>
+<pre><code>+ source /usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh
+...
+++ LogPrint 'Creating EFI Boot Manager entry '\''SUSE_LINUX 15.6'\'' using '\''EFI\sles\shim.efi'\'' on disk '\''/dev/vda'\'' partition 1'
+2025-05-09 12:28:04.987918138 Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' using 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+++ efibootmgr --create --gpt --disk /dev/vda --part 1 --write-signature --label 'SUSE_LINUX 15.6' --loader '\EFI\sles\shim.efi'
+efibootmgr: ** Warning ** : Boot0008 has same label SUSE_LINUX 15.6
+efibootmgr: ** Warning ** : Boot0009 has same label SUSE_LINUX 15.6
+efibootmgr: ** Warning ** : Boot000A has same label SUSE_LINUX 15.6
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0004,0001,0008,000A,0009,0002,0003,0000
+Boot0000* UiApp
+Boot0001* UEFI QEMU DVD-ROM QM00001 
+Boot0002* UEFI Misc Device
+Boot0003* UEFI Misc Device 2
+Boot0008* SUSE_LINUX 15.6
+Boot0009* SUSE_LINUX 15.6
+Boot000A* SUSE_LINUX 15.6
+Boot0004* SUSE_LINUX 15.6
+...
+++ LogPrint 'Creating EFI Boot Manager entry '\''SUSE_LINUX 15.6'\'' using '\''EFI\sles\shim.efi'\'' on disk '\''/dev/vdb'\'' partition 1'
+2025-05-09 12:28:05.119173579 Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' using 'EFI\sles\shim.efi' on disk '/dev/vdb' partition 1
+++ efibootmgr --create --gpt --disk /dev/vdb --part 1 --write-signature --label 'SUSE_LINUX 15.6' --loader '\EFI\sles\shim.efi'
+efibootmgr: ** Warning ** : Boot0004 has same label SUSE_LINUX 15.6
+efibootmgr: ** Warning ** : Boot0008 has same label SUSE_LINUX 15.6
+efibootmgr: ** Warning ** : Boot0009 has same label SUSE_LINUX 15.6
+efibootmgr: ** Warning ** : Boot000A has same label SUSE_LINUX 15.6
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0005,0004,0001,0008,000A,0009,0002,0003,0000
+Boot0000* UiApp
+Boot0001* UEFI QEMU DVD-ROM QM00001 
+Boot0002* UEFI Misc Device
+Boot0003* UEFI Misc Device 2
+Boot0004* SUSE_LINUX 15.6
+Boot0008* SUSE_LINUX 15.6
+Boot0009* SUSE_LINUX 15.6
+Boot000A* SUSE_LINUX 15.6
+Boot0005* SUSE_LINUX 15.6
+</code></pre>
+<p>BUT - as far as I could see - both result<br />
+identical EFI Boot Manager entries.<br />
+After "rear recover" in the rebooted recreated system:</p>
+<pre><code># efibootmgr -v | grep SUSE
+Boot0004* SUSE_LINUX 15.6    HD(1,GPT,ea30d6c7-da01-4d41-8f97-e2c8596b78d9,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0005* SUSE_LINUX 15.6    HD(1,GPT,ea30d6c7-da01-4d41-8f97-e2c8596b78d9,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+
+# lsblk -ipo NAME,PARTUUID
+NAME             PARTUUID
+/dev/sr0         
+/dev/vda         
+`-/dev/md127     
+  |-/dev/md127p1 ea30d6c7-da01-4d41-8f97-e2c8596b78d9
+  |-/dev/md127p2 76746cbe-e7a6-4c86-aedf-0bbeeef71688
+  `-/dev/md127p3 544d4a6c-d264-4f2a-ba33-275925a49376
+/dev/vdb         
+`-/dev/md127     
+  |-/dev/md127p1 ea30d6c7-da01-4d41-8f97-e2c8596b78d9
+  |-/dev/md127p2 76746cbe-e7a6-4c86-aedf-0bbeeef71688
+  `-/dev/md127p3 544d4a6c-d264-4f2a-ba33-275925a49376
+</code></pre>
+<p>And unfortunately the first GiB on both disks<br />
+which contain the primary GPT and the ESP<br />
+are no longer identical</p>
+<pre><code># dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+1039138816 bytes (1.0 GB, 991 MiB) copied, 3 s, 346 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 3.18892 s, 337 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+589299712 bytes (589 MB, 562 MiB) copied, 1 s, 587 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.75187 s, 613 MB/s
+
+ls -l vd*
+-rw-r--r-- 1 root root 1073741824 May  9 12:36 vda.1GiB
+-rw-r--r-- 1 root root 1073741824 May  9 12:36 vdb.1GiB
+
+# diff -s vda.1GiB vdb.1GiB
+Binary files vda.1GiB and vdb.1GiB differ
+</code></pre>
+<p>in contrast to my original system where<br />
+the first GiB on both disks are identical<br />
+as I would expect it on RAID1 member disks, see<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2865414466">https://github.com/rear/rear/pull/3466#issuecomment-2865414466</a></p>
+<p>This happened also for me<br />
+when I do not use the RAID1 member disks (vda and vdb)<br />
+but the Linux kernel RAID1 disk (md127) via</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/md127 1 EFI\sles\shim.efi' )
+</code></pre>
+<p>where I would expect that Linux kernel RAID1 ensures<br />
+that the data is same on both RAID1 member disks.<br />
+But see below<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2866372283">https://github.com/rear/rear/pull/3471#issuecomment-2866372283</a><br />
+that here it was likely caused by former "rear recover" tests<br />
+on that disks without completely wiping them before "rear recover".</p>
+<h4 id="jsmeix_commented_at_2025-05-09_1120"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2866176801">2025-05-09 11:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_1120" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+I would much appreciate it if you could have a look here<br />
+(of course as time permits) and provide feedback<br />
+how it behaves for you in your environment.</p>
+<h4 id="jsmeix_commented_at_2025-05-09_1230"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2866372283">2025-05-09 12:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_1230" title="Permanent link">&para;</a></h4>
+<p>I also tested with</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( /dev/md127 )
+</code></pre>
+<p>which works for me as intended since<br />
+<a href="https://github.com/rear/rear/pull/3471/commits/390b1d022d2c7fc23bef6467275406275731f05c">https://github.com/rear/rear/pull/3471/commits/390b1d022d2c7fc23bef6467275406275731f05c</a></p>
+<p>In the ReaR recovery system<br />
+I wiped in particular the disks completely:</p>
+<pre><code>RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0001,0002,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+
+RESCUE localhost:~ # dd if=/dev/zero of="/dev/vda" bs=4M status=progress
+11706302464 bytes (12 GB, 11 GiB) copied, 13 s, 899 MB/s 
+dd: error writing '/dev/vda': No space left on device
+2817+0 records in
+2816+0 records out
+11811160064 bytes (12 GB, 11 GiB) copied, 13.6466 s, 866 MB/s
+
+RESCUE localhost:~ # dd if=/dev/zero of="/dev/vdb" bs=4M status=progress
+10712252416 bytes (11 GB, 10 GiB) copied, 11 s, 974 MB/s 
+dd: error writing '/dev/vdb': No space left on device
+2561+0 records in
+2560+0 records out
+10737418240 bytes (11 GB, 10 GiB) copied, 11.8796 s, 904 MB/s
+
+RESCUE localhost:~ # lsblk
+NAME
+    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sr0  11:0    1 192.2M  0 rom  
+vda 254:0    0    11G  0 disk 
+vdb 254:16   0    10G  0 disk
+
+RESCUE localhost:~ # rear -D recover
+...
+Creating EFI Boot Manager entries...
+efibootmgr will use default partition number 1 (no partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' using 'EFI\sles\shim.efi' on disk '/dev/md127' partition 1
+Installing secure boot loader (shim)...
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0008,0001,0002,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0008* SUSE_LINUX 15.6       HD(1,GPT,118ec669-8fb0-45bc-ab58-9235f2233c29,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>In the rebooted recreated system I get</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS /dev/vda /dev/vdb
+NAME             TRAN   TYPE  FSTYPE            LABEL              SIZE MOUNTPOINTS
+/dev/vda         virtio disk  linux_raid_member localhost:myRAID1   11G 
+`-/dev/md127            raid1                                       10G 
+  |-/dev/md127p1        part  vfat                                 880M /boot/efi
+  |-/dev/md127p2        part  ext4                                   8G /
+  `-/dev/md127p3        part  swap                                   1G [SWAP]
+/dev/vdb         virtio disk  linux_raid_member localhost:myRAID1   10G 
+`-/dev/md127            raid1                                       10G 
+  |-/dev/md127p1        part  vfat                                 880M /boot/efi
+  |-/dev/md127p2        part  ext4                                   8G /
+  `-/dev/md127p3        part  swap                                   1G [SWAP]
+
+# dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+959447040 bytes (959 MB, 915 MiB) copied, 3 s, 319 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 3.63421 s, 295 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+725614592 bytes (726 MB, 692 MiB) copied, 1 s, 725 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.82606 s, 588 MB/s
+
+# diff -s vda.1GiB vdb.1GiB
+Files vda.1GiB and vdb.1GiB are identical
+</code></pre>
+<p>Hooray!<br />
+The first GiB on both disks<br />
+(which contain in particular the primary GPT and the ESP)<br />
+are identical.</p>
+<p>I assume it was "some leftover disk noise"<br />
+(likely because of former "rear recover" tests on that disks)<br />
+why the first GiB were not identical during my tests in<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2866150088">https://github.com/rear/rear/pull/3471#issuecomment-2866150088</a></p>
+<p>So with completely wiped disks before "rear recover"<br />
+things behave as expected.</p>
+<h4 id="jsmeix_commented_at_2025-05-09_1259"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2866452385">2025-05-09 12:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_1259" title="Permanent link">&para;</a></h4>
+<p>In contrast with</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/vda 1 EFI\sles\shim.efi' '/dev/vdb 1 EFI\sles\shim.efi' )
+</code></pre>
+<p>I get with completely wiped disks before "rear recover"<br />
+in the rebooted recreated system that the first GiB on both disks<br />
+(which contain in particular the primary GPT and the ESP)<br />
+are not identical.</p>
+<p>This seems to indicate that my reasoning in<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2865414466">https://github.com/rear/rear/pull/3466#issuecomment-2865414466</a><br />
+could be actually valid.</p>
+<h4 id="jsmeix_commented_at_2025-05-12_0903"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2871647997">2025-05-12 09:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_0903" title="Permanent link">&para;</a></h4>
+<p>I wonder if the current user config variable name<br />
+EFIBOOTMGR_INSTALL_DEVICES<br />
+(which came from the GRUB2_INSTALL_DEVICES name)<br />
+really describes what it actually does or if perhaps<br />
+EFIBOOTMGR_CREATE_ENTRIES<br />
+tells better what that config variable actually does?</p>
+<h4 id="jsmeix_commented_at_2025-05-12_1250"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2872440590">2025-05-12 12:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_1250" title="Permanent link">&para;</a></h4>
+<p>I will replace EFIBOOTMGR_INSTALL_DEVICES<br />
+by EFIBOOTMGR_CREATE_ENTRIES<br />
+to make its name tell what that config variable actually does<br />
+and to avoid possible confusion about the syntax<br />
+with GRUB2_INSTALL_DEVICES which is a string of words<br />
+in contrast to an array of strings in EFIBOOTMGR_CREATE_ENTRIES<br />
+so different names avoid that users may falsely assume same syntax.</p>
+<h4 id="jsmeix_commented_at_2025-05-12_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2872596850">2025-05-12 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_1331" title="Permanent link">&para;</a></h4>
+<p>I need to test things again after my recent changes where I<br />
+replaced EFIBOOTMGR_INSTALL_DEVICES by EFIBOOTMGR_CREATE_ENTRIES.</p>
+<h4 id="jsmeix_commented_at_2025-05-12_1713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2873346353">2025-05-12 17:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_1713" title="Permanent link">&para;</a></h4>
+<p>Now I have on my original test VM<br />
+with RAID1 of the member disks /dev/vda and /dev/vdb<br />
+that the first GiB on /dev/vda and /dev/vdb differ:</p>
+<pre><code># dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+900726784 bytes (901 MB, 859 MiB) copied, 8 s, 113 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 8.552 s, 126 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+926941184 bytes (927 MB, 884 MiB) copied, 2 s, 463 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 2.35886 s, 455 MB/s
+
+# diff -s vda.1GiB vdb.1GiB
+Binary files vda.1GiB and vdb.1GiB differ
+</code></pre>
+<p>so I conclude that the differences I saw above<br />
+are actually only meaningless "noise of something".</p>
+<h4 id="jsmeix_commented_at_2025-05-12_1741"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2873421129">2025-05-12 17:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_1741" title="Permanent link">&para;</a></h4>
+<p>With latest changes here I get with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/md127 0 automatic EFI boot from md127p1' )
+</code></pre>
+<p>on the terminal in the ReaR recovery system</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entries as specified in EFIBOOTMGR_CREATE_ENTRIES
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from md127p1' for 'EFI\sles\shim.efi' on disk '/dev/md127' partition 1
+...
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0003,0001,0002,0004,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* EFI boot from md127p1 HD(1,GPT,7633a011-92c8-4352-ac9e-bc48fced4f22,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0004* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+
+RESCUE localhost:~ # lsblk -ipo NAME,TYPE,FSTYPE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME             TYPE  FSTYPE            MOUNTPOINTS         PARTUUID
+/dev/vda         disk  linux_raid_member                     
+`-/dev/md127     raid1                                       
+  |-/dev/md127p1 part  vfat              /mnt/local/boot/efi 7633a011-92c8-4352-ac9e-bc48fced4f22
+  |-/dev/md127p2 part  ext4              /mnt/local          0f10e49a-3045-4fb5-86bb-9749d5651c90
+  `-/dev/md127p3 part  swap                                  bb2bbcd3-6df6-4b81-97c4-e334b9f669d9
+/dev/vdb         disk  linux_raid_member                     
+`-/dev/md127     raid1                                       
+  |-/dev/md127p1 part  vfat              /mnt/local/boot/efi 7633a011-92c8-4352-ac9e-bc48fced4f22
+  |-/dev/md127p2 part  ext4              /mnt/local          0f10e49a-3045-4fb5-86bb-9749d5651c90
+  `-/dev/md127p3 part  swap                                  bb2bbcd3-6df6-4b81-97c4-e334b9f669d9
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-05-12_1803"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2873495494">2025-05-12 18:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_1803" title="Permanent link">&para;</a></h4>
+<p>With latest changes here I get with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/vda 0 automatic EFI boot from vda1' '/dev/vdb 0 automatic EFI boot from vdb1' )
+</code></pre>
+<p>on the terminal in the ReaR recovery system</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entries as specified in EFIBOOTMGR_CREATE_ENTRIES
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vda1' for 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vdb1' for 'EFI\sles\shim.efi' on disk '/dev/vdb' partition 1
+...
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0005,0003,0001,0002,0004,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* EFI boot from vda1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0004* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0005* EFI boot from vdb1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+
+RESCUE localhost:~ # lsblk -ipo NAME,TYPE,FSTYPE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME             TYPE  FSTYPE            MOUNTPOINTS         PARTUUID
+/dev/vda         disk  linux_raid_member                     
+`-/dev/md127     raid1                                       
+  |-/dev/md127p1 part  vfat              /mnt/local/boot/efi 6f74fc33-f9db-4c29-91b9-0a3e3fc19c60
+  |-/dev/md127p2 part  ext4              /mnt/local          7c343b00-8140-40dc-b3db-9a71a06fca7c
+  `-/dev/md127p3 part  swap                                  3f1900c4-b7d6-439a-a227-26945e4ff7f8
+/dev/vdb         disk  linux_raid_member                     
+`-/dev/md127     raid1                                       
+  |-/dev/md127p1 part  vfat              /mnt/local/boot/efi 6f74fc33-f9db-4c29-91b9-0a3e3fc19c60
+  |-/dev/md127p2 part  ext4              /mnt/local          7c343b00-8140-40dc-b3db-9a71a06fca7c
+  `-/dev/md127p3 part  swap                                  3f1900c4-b7d6-439a-a227-26945e4ff7f8
+</code></pre>
+<p>The interesing thing is that with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/vda 0 automatic EFI boot from vda1' '/dev/vdb 0 automatic EFI boot from vdb1' )
+</code></pre>
+<p>one gets two UEFI Boot Manager entries as specified (excerpt)</p>
+<pre><code>RESCUE localhost:~ # efibootmgr -v
+...
+Boot0003* EFI boot from vda1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+...
+Boot0005* EFI boot from vdb1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>but it seems both reference the same EFI binary \EFI\sles\shim.efi<br />
+on the same EFI partition on the same disk 'HD(1,GPT,...)' via<br />
+HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)<br />
+instead of what is requested: an EFI binary<br />
+with same VFAT file path \EFI\sles\shim.efi<br />
+but on two different hardware disks<br />
+(the two RAID1 member disks /dev/vda and /dev/vdb).</p>
+<h4 id="jsmeix_commented_at_2025-05-14_0647"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2878879999">2025-05-14 06:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-14_0647" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors</p>
+<p>please have a look as time permits.</p>
+<p>I will do some more tests next week.<br />
+In particular I would like to check possibly different behaviour<br />
+with RAID1 that does not consist of whole disks as members<br />
+i.e. with RAID1 that consists of partitions on disks.</p>
+<p>I am a bit unhappy with my current implementation where</p>
+<pre><code>The third word is the EFI binary file name in the VFAT filesystem on the ESP
+</code></pre>
+<p>which requires that the EFI binary file name is a single word<br />
+but a VFAT filesystem file name can have spaces.<br />
+I had to do it this way because I need a string of words for<br />
+the last parameter: the label of the UEFI Boot Manager entry.<br />
+I think what is needed to implement things properly<br />
+would be an array of arrays but according to<br />
+<a href="https://stackoverflow.com/questions/12317483/array-of-arrays-in-bash">https://stackoverflow.com/questions/12317483/array-of-arrays-in-bash</a><br />
+"Bash has no support for multidimensional arrays"<br />
+so a proper implementation becomes rather complicated<br />
+which would contradict the basic ideas in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a><br />
+and I assume that it also gets rather complicated<br />
+for the user to specify an array of arrays.</p>
+<h4 id="pcahyna_commented_at_2025-05-15_1712"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2884527473">2025-05-15 17:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-15_1712" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The interesing thing is that with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/vda 0 automatic EFI boot from vda1' '/dev/vdb 0 automatic EFI boot from vdb1' )
+</code></pre>
+<p>one gets two UEFI Boot Manager entries as specified (excerpt)</p>
+<pre><code>RESCUE localhost:~ # efibootmgr -v
+...
+Boot0003* EFI boot from vda1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+...
+Boot0005* EFI boot from vdb1    HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>but it seems both reference the same EFI binary \EFI\sles\shim.efi on
+the same EFI partition on the same disk 'HD(1,GPT,...)' via
+HD(1,GPT,6f74fc33-f9db-4c29-91b9-0a3e3fc19c60,0x800,0x1b8000) instead
+of what is requested: an EFI binary with same VFAT file path
+\EFI\sles\shim.efi but on two different hardware disks (the two RAID1
+member disks /dev/vda and /dev/vdb).</p>
+</blockquote>
+<p>@jsmeix exactly! That's how it works. The reason is that the entries do
+not reference disks. They reference partitions instead by their GUIDs
+and vda1 has exactly the same GUID as vdb1, since the two disks have
+identical content including the GPT (which stores the partition GUIDs)
+as it is the RAID device that is partitioned - RAID is used on the whole
+disk. I found the same thing myself. This also means that it makes
+perfect sense to call <code>efibootmgr</code> on the RAID device and not on the
+underlying component disks. Here is a summary of my experiment:</p>
+<pre><code># efibootmgr -C -d /dev/md127 -p 1 -l '\EFI\redhat\shimx64.efi'
+BootCurrent: 0000
+BootOrder: 0001,0002,0003,0000
+Boot0000* Red Hat Enterprise Linux      HD(1,GPT,fb86959a-f97d-4c4a-9ffb-8977a26bc322,0x800,0x12c000)/\EFI\redhat\shimx64.efi
+...
+Boot0004* Linux HD(1,GPT,fb86959a-f97d-4c4a-9ffb-8977a26bc322,0x800,0x12c000)/\EFI\redhat\shimx64.efi
+</code></pre>
+<p>The newly created entry is <code>Boot0004</code> and note it has the same GUID as
+the original entry (<code>Boot0000</code>). It is the GUID of the ESP:</p>
+<pre><code># fdisk -x /dev/md127
+Disk /dev/md127: 1.09 TiB, 1200243539968 bytes, 2344225664 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: DAC13A73-DD98-4D85-A758-FE52CEB62737
+First usable LBA: 34
+Last usable LBA: 2344225630
+Alternative LBA: 2344225663
+Partition entries starting LBA: 2
+Allocated partition entries: 128
+Partition entries ending LBA: 33
+
+Device         Start        End    Sectors Type-UUID                            UUID                                 Name                 Attrs
+/dev/md127p1    2048    1230847    1228800 C12A7328-F81F-11D2-BA4B-00A0C93EC93B FB86959A-F97D-4C4A-9FFB-8977A26BC322 EFI System Partition 
+/dev/md127p2 1230848    3327999    2097152 BC13C2FF-59E6-4262-A352-B275FD6F7172 00D9EBCB-2941-493B-A456-A260A2ECD5F4                      
+/dev/md127p3 3328000 2344224767 2340896768 E6D6D379-F507-44C2-A23C-238F2A3DF928 5F839C2E-CAE6-46D7-8CA8-7EAE24EE9D66
+</code></pre>
+<p>(note the <code>UUID</code> field of the first partition, which is the ESP).</p>
+<p>The RAID was created this way:</p>
+<pre><code>mdadm --create /dev/md/Volume0 --name=Volume0 --metadata=1.0 --level raid1 --raid-disks=2 /dev/sda /dev/sdb
+</code></pre>
+<p>I chose metadata version 1.0, since this puts the metadata at the end of
+the array and thus does not interfere with the GPT and the boot sector
+of the ESP etc. which are at the beginning of the disk (although it
+interferes with the backup ESP, which is at the end).</p>
+<p>I also tested whether calling <code>efibootmgr</code> on the component disks makes
+the RAID out of sync:</p>
+<pre><code>dd bs=4096 if=/dev/sda of=sda-before.img count=1
+dd bs=4096 if=/dev/sdb of=sdb-before.img count=1
+cmp sda-before.img sdb-before.img
+echo $?
+efibootmgr -w -C -d /dev/sda -p 1 -l '\EFI\redhat\shimx64.efi'
+efibootmgr -w -C -d /dev/sdb -p 1 -l '\EFI\redhat\shimx64.efi'
+dd bs=4096 if=/dev/sda of=sda-after.img count=1
+dd bs=4096 if=/dev/sdb of=sdb-after.img count=1
+cmp sda-after.img sdb-before.img
+echo $?
+cmp sda-after.img sdb-after.img
+echo $?
+</code></pre>
+<p>All the files were identical. I also tried the boot sector of the ESP
+(which starts 2048 sectors from the start of the disk):</p>
+<pre><code>dd bs=512 skip=2048 if=/dev/sda of=sda1-after.img count=1
+dd bs=512 skip=2048 if=/dev/sdb of=sdb1-after.img count=1
+cmp sdb1-after.img sda1-after.img
+echo $?
+</code></pre>
+<p>These files are also identical.</p>
+<p>I thus conclude that <code>efibootmgr</code> on the individual components does not
+make the RAID out of sync (but it is still probably better to to call it
+just once on the whole disk array, as the two identical entries are
+superfluous).</p>
+<blockquote>
+<p>Now I have on my original test VM with RAID1 of the member disks
+/dev/vda and /dev/vdb that the first GiB on /dev/vda and /dev/vdb
+differ:</p>
+<pre><code># dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+900726784 bytes (901 MB, 859 MiB) copied, 8 s, 113 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 8.552 s, 126 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+926941184 bytes (927 MB, 884 MiB) copied, 2 s, 463 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 2.35886 s, 455 MB/s
+
+# diff -s vda.1GiB vdb.1GiB
+Binary files vda.1GiB and vdb.1GiB differ
+</code></pre>
+<p>so I conclude that the differences I saw above are actually only
+meaningless "noise of something".</p>
+</blockquote>
+<p>Interesting. What RAID metadata version are you using? Is it possible
+that the RAID metadata are included in the comparison (I would expect
+them to differ between the disks)?</p>
+<h4 id="pcahyna_commented_at_2025-05-15_1713"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2884530947">2025-05-15 17:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-15_1713" title="Permanent link">&para;</a></h4>
+<p>By the way, I also did my experiment on RHEL 8.10, which is a quite old
+distribution, so I don't think any new feature of <code>efibootmgr</code> is needed
+here.</p>
+<h4 id="sduehr_commented_at_2025-05-19_1737"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2891794841">2025-05-19 17:37</a>:<a class="headerlink" href="#sduehr_commented_at_2025-05-19_1737" title="Permanent link">&para;</a></h4>
+<p>Tested this with OpenSUSE Leap 15.6 with software RAID, lsblk output
+looks like this:</p>
+<pre><code>sl15test1:~ # lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS
+NAME           TRAN   TYPE  FSTYPE            LABEL        SIZE MOUNTPOINTS
+/dev/sr0       sata   rom                                 1024M 
+/dev/nvme0n1   nvme   disk  linux_raid_member sl15test1:0   16G 
+`-/dev/md0            raid1                                 16G 
+  |-/dev/md0p1        part  vfat                           512M /boot/efi
+  `-/dev/md0p2        part  ext4                          15.3G /
+/dev/nvme0n2   nvme   disk  linux_raid_member sl15test1:0   16G 
+`-/dev/md0            raid1                                 16G 
+  |-/dev/md0p1        part  vfat                           512M /boot/efi
+  `-/dev/md0p2        part  ext4                          15.3G /
+</code></pre>
+<p>I added the following to <code>/etc/rear/local.conf</code>:</p>
+<p><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' '/dev/nvme0n2 2 EFI\boot\shim.efi shim on nvme0n2' )</code></p>
+<p>Recover worked fine, the <code>efibootmgr -v</code> output looks different, in the
+backed up system:</p>
+<pre><code>BootCurrent: 0004
+BootOrder: 0004,0000,0001,0002,0003
+Boot0000* EFI VMware Virtual NVME Namespace (NSID 1)    PcieRoot(0x8)/Pci(0x3,0x0)/NVMe(0x1,00-00-00-00-00-00-00-00)
+Boot0001* EFI VMware Virtual NVME Namespace (NSID 2)    PcieRoot(0x8)/Pci(0x3,0x0)/NVMe(0x2,00-00-00-00-00-00-00-00)
+Boot0002* EFI VMware Virtual SATA CDROM Drive (0.0) PcieRoot(0x8)/Pci(0x2,0x0)/Sata(0,0,0)
+Boot0003* EFI Network   PcieRoot(0x8)/Pci(0x1,0x0)/MAC(00505680d54e,1)
+Boot0004* opensuse-secureboot   HD(1,GPT,da3a2d89-587f-449a-8411-3cd0521d2572,0x800,0x100000)/File(\EFI\opensuse\shim.efi)
+</code></pre>
+<p>In the recovered system:</p>
+<pre><code>BootCurrent: 0000
+BootOrder: 0006,0005,0004,0000,0001,0002,0003
+Boot0000* EFI VMware Virtual NVME Namespace (NSID 1)    PcieRoot(0x8)/Pci(0x3,0x0)/NVMe(0x1,00-00-00-00-00-00-00-00)
+Boot0001* EFI VMware Virtual NVME Namespace (NSID 2)    PcieRoot(0x8)/Pci(0x3,0x0)/NVMe(0x2,00-00-00-00-00-00-00-00)
+Boot0002* EFI VMware Virtual SATA CDROM Drive (0.0) PcieRoot(0x8)/Pci(0x2,0x0)/Sata(0,0,0)
+Boot0003* EFI Network   PcieRoot(0x8)/Pci(0x1,0x0)/MAC(005056807c32,1)
+Boot0004* shim on nvme0n1   HD(1,GPT,da5c64cd-70bc-4191-9217-92f5508589f7,0x800,0x100000)/File(\EFI\boot\shim.efi)
+Boot0005* shim on nvme0n2   HD(2,GPT,dbd14eb1-5816-442d-a5f6-b19d78916148,0x100800,0x1eb3000)/File(\EFI\boot\shim.efi)
+Boot0006* opensuse-secureboot   HD(1,GPT,da5c64cd-70bc-4191-9217-92f5508589f7,0x800,0x100000)/File(\EFI\opensuse\shim.efi)
+</code></pre>
+<p>But that's probably no problem, or what do you think? Is there anything
+else I can help with testing here?</p>
+<h4 id="jsmeix_commented_at_2025-05-20_0922"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893619339">2025-05-20 09:22</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_0922" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+thank you so much for your testing!</p>
+<p>Did you test whether or not both your new EFI boot entries<br />
+"shim on nvme0n1" and in particular also "shim on nvme0n2"<br />
+can actually boot your recreated system?</p>
+<p>I ask because I think your</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' '/dev/nvme0n2 2 EFI\boot\shim.efi shim on nvme0n2' )
+</code></pre>
+<p>does not match your partitioning output of 'lsblk'</p>
+<pre><code>  |-/dev/md0p1        part  vfat                           512M /boot/efi
+...
+  |-/dev/md0p1        part  vfat                           512M /boot/efi
+</code></pre>
+<p>because that shows the ESP as first partition on both disks<br />
+as expected on a RAID1 of whole disks where the member disks<br />
+should have same partitioning.</p>
+<p>'efibootmgr' did what your EFIBOOTMGR_CREATE_ENTRIES told it to do<br />
+(i.e. you as user got final power) so you got</p>
+<pre><code>Boot0004* shim on nvme0n1 HD(1,GPT,da5c64cd-70bc-4191-9217-92f5508589f7,0x800,0x100000)/File(\EFI\boot\shim.efi)
+Boot0005* shim on nvme0n2 HD(2,GPT,dbd14eb1-5816-442d-a5f6-b19d78916148,0x100800,0x1eb3000)/File(\EFI\boot\shim.efi)
+</code></pre>
+<p>where I think the boot entry "shim on nvme0n2" may fail to boot<br />
+because it tells to load \EFI\boot\shim.efi from the second<br />
+partition with partition UUID dbd14eb1-5816-442d-a5f6-b19d78916148<br />
+but this partition is not the ESP so the UEFI firmware should<br />
+fail to find \EFI\boot\shim.efi there and fail to boot that.</p>
+<p>Bottom line:<br />
+I think partition number '1' for both disks should be right:</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' '/dev/nvme0n2 1 EFI\boot\shim.efi shim on nvme0n2' )
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-05-20_0940"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893671386">2025-05-20 09:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_0940" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your testing and your explanation in<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2884527473">https://github.com/rear/rear/pull/3471#issuecomment-2884527473</a></p>
+<p>Regarding your question "What RAID metadata version are you using?"</p>
+<p>On my original test VM with RAID1 of /dev/vda and /dev/vdb</p>
+<pre><code># mdadm --detail --scan --config=partitions
+ARRAY /dev/md/myRAID1 metadata=1.0 UUID=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+</code></pre>
+<p>The first GiB on /dev/vda and /dev/vdb were same<br />
+when I created my original test VM for some time<br />
+until they differ meanwhile since<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2873346353">https://github.com/rear/rear/pull/3471#issuecomment-2873346353</a></p>
+<p>Details (excerpt from disklayout.conf on my original test VM):</p>
+<pre><code># Software RAID devices (mdadm --detail --scan --config=partitions)
+# ARRAY /dev/md/myRAID1 metadata=1.0 UUID=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+# Software RAID myRAID1 device /dev/md127 (mdadm --misc --detail /dev/md127)
+# /dev/md127:
+#            Version : 1.0
+#      Creation Time : Thu May  8 16:50:58 2025
+#         Raid Level : raid1
+#         Array Size : 10485632 (10.00 GiB 10.74 GB)
+#      Used Dev Size : 10485632 (10.00 GiB 10.74 GB)
+#       Raid Devices : 2
+#      Total Devices : 2
+#        Persistence : Superblock is persistent
+#      Intent Bitmap : Internal
+#        Update Time : Mon May 12 19:44:08 2025
+#              State : active 
+#     Active Devices : 2
+#    Working Devices : 2
+#     Failed Devices : 0
+#      Spare Devices : 0
+# Consistency Policy : bitmap
+#               Name : any:myRAID1
+#               UUID : 68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+#             Events : 52
+#     Number   Major   Minor   RaidDevice State
+#        0     254        0        0      active sync   /dev/vda
+#        1     254       16        1      active sync   /dev/vdb
+# RAID device /dev/md127
+# Format: raidarray /dev/&lt;kernel RAID device&gt; level=&lt;RAID level&gt; raid-devices=&lt;nr of active devices&gt; devices=&lt;component device1,component device2,...&gt; [name=&lt;array name&gt;] [metadata=&lt;metadata style&gt;] [uuid=&lt;UUID&gt;] [layout=&lt;data layout&gt;] [chunk=&lt;chunk size&gt;] [spare-devices=&lt;nr of spare devices&gt;] [size=&lt;container size&gt;]
+raidarray /dev/md127 level=raid1 raid-devices=2 devices=/dev/vda,/dev/vdb name=myRAID1 metadata=1.0 uuid=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+# RAID disk /dev/md127
+# Format: raiddisk &lt;devname&gt; &lt;size(bytes)&gt; &lt;partition label type&gt;
+raiddisk /dev/md127 10737287168 gpt
+# Partitions on /dev/md127
+# Format: part &lt;device&gt; &lt;partition size(bytes)&gt; &lt;partition start(bytes)&gt; &lt;partition type|name&gt; &lt;flags&gt; /dev/&lt;partition&gt;
+part /dev/md127 922746880 1048576 rear-noname boot,esp /dev/md127p1
+part /dev/md127 8589934592 923795456 rear-noname none /dev/md127p2
+part /dev/md127 1078051328 9513730048 rear-noname swap /dev/md127p3
+</code></pre>
+<h4 id="pcahyna_commented_at_2025-05-20_0951"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893707229">2025-05-20 09:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-20_0951" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>Regarding your question "What RAID metadata version are you using?"</p>
+<p>On my original test VM with RAID1 of /dev/vda and /dev/vdb</p>
+<pre><code># mdadm --detail --scan --config=partitions
+ARRAY /dev/md/myRAID1 metadata=1.0 UUID=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+</code></pre>
+</blockquote>
+<p>1.0, so my theory was wrong - the metadata are at the end.</p>
+<blockquote>
+<p>The first GiB on /dev/vda and /dev/vdb were same for some time until
+they differ since <a href="https://github.com/rear/rear/pull/3471#issuecomment-2873346353">#3471
+(comment)</a></p>
+</blockquote>
+<p>According to</p>
+<blockquote>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS /dev/vda /dev/vdb
+NAME             TRAN   TYPE  FSTYPE            LABEL        SIZE MOUNTPOINTS
+/dev/vda         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+/dev/vdb         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+</code></pre>
+</blockquote>
+<p>1GiB is more than just the GPT and the ESP, it includes the start of the
+root filesystem. Which is most likely being constantly rewritten (logs
+and such noise), so it is not unlikely that the two copies may often
+briefly differ (EDIT: or be the same, but change so fast that you have
+changes between the two <code>dd</code> invocations (EDIT EDIT: of course they will
+differ, because you save the dd output to a file, which changes the root
+filesystem: <code>of=vda.1GiB</code>)) .</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1004"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893755229">2025-05-20 10:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1004" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+again thank you so much for your explanation!</p>
+<p>Comparing only up to the start of the root partition<br />
+results same contents on /dev/vda and /dev/vdb:</p>
+<pre><code># parted -s /dev/vda unit MiB print
+...
+Number  Start    End       Size     File system     Name  Flags
+ 1      1.00MiB  881MiB    880MiB   fat32                 boot, esp
+ 2      881MiB   9073MiB   8192MiB  ext4
+ 3      9073MiB  10101MiB  1028MiB  linux-swap(v1)        swap
+
+# parted -s /dev/vda unit B print
+...
+Number  Start        End           Size         File system     Name  Flags
+ 1      1048576B     923795455B    922746880B   fat32                 boot, esp
+ 2      923795456B   9513730047B   8589934592B  ext4
+ 3      9513730048B  10591781375B  1078051328B  linux-swap(v1)        swap
+
+# dd if=/dev/vda of=vda.881MiB bs=1M count=881
+881+0 records in
+881+0 records out
+923795456 bytes (924 MB, 881 MiB) copied, 1.43884 s, 642 MB/s
+
+# dd if=/dev/vdb of=vdb.881MiB bs=1M count=881
+881+0 records in
+881+0 records out
+923795456 bytes (924 MB, 881 MiB) copied, 1.19415 s, 774 MB/s
+
+# diff -s vda.881MiB vdb.881MiB
+Files vda.881MiB and vdb.881MiB are identical
+</code></pre>
+<p>A note regarding</p>
+<pre><code>of course they will differ, because you save the dd output
+to a file, which changes the root filesystem
+</code></pre>
+<p>By chance it did not change the first 143 MiB (1024MiB - 881MiB)<br />
+of my root filesystem during all my comparison tests up to<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2873346353">https://github.com/rear/rear/pull/3471#issuecomment-2873346353</a><br />
+so I had the false impression that my test was OK.</p>
+<h4 id="pcahyna_commented_at_2025-05-20_1020"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893815343">2025-05-20 10:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-20_1020" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>By chance it did not change the first 143 MiB (1024MiB - 881MiB)<br />
+of my root filesystem during all my comparison tests</p>
+</blockquote>
+<p>Or maybe your tests fit by chance in the time window between two
+consecutive flushes of data to the FS and the resulting metadata
+updates. (My statement that the FS is being "constantly rewritten" was
+likely imprecise, I suspect that the data are rather written in periodic
+bursts.)</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1027"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893834708">2025-05-20 10:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1027" title="Permanent link">&para;</a></h4>
+<p>I also think that disk writes happen in periodic bursts<br />
+when the kernel "thinks" it's time to write ('sync')<br />
+its file buffers to actual persistent storage devices.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1034"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2893851616">2025-05-20 10:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1034" title="Permanent link">&para;</a></h4>
+<p>I can reproduce it with</p>
+<pre><code># dd if=/dev/vda of=vda2.1GiB bs=1M seek=881 count=1024 ; \
+  dd if=/dev/vdb of=vdb2.1GiB bs=1M seek=881 count=1024 ; \
+  diff -s vda2.1GiB vdb2.1GiB ; \
+  rm vda2.1GiB vdb2.1GiB
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.38689 s, 774 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.58213 s, 679 MB/s
+Files vda2.1GiB and vdb2.1GiB are identical
+</code></pre>
+<p>versus with 'sync' in between the two 'dd'</p>
+<pre><code># dd if=/dev/vda of=vda2.1GiB bs=1M seek=881 count=1024 ; \
+  sync ; \
+  dd if=/dev/vdb of=vdb2.1GiB bs=1M seek=881 count=1024 ; \
+  diff -s vda2.1GiB vdb2.1GiB ; \
+  rm vda2.1GiB vdb2.1GiB
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.03704 s, 1.0 GB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.30989 s, 820 MB/s
+Binary files vda2.1GiB and vdb2.1GiB differ
+</code></pre>
+<p>comparing the first GiB of my root filesytem<br />
+on my RAID1 member disks /dev/vda and /dev/vdb</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1229"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894227782">2025-05-20 12:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1229" title="Permanent link">&para;</a></h4>
+<p>I created a second test VM with SLES15-SP6<br />
+with two 10GiB disks /dev/vda and /dev/vdb<br />
+where I manually (with the SLES15-SP6 YaST installer GUI)<br />
+created same partitions on the disks</p>
+<pre><code># parted -s /dev/vda unit GiB print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vda: 10.0GiB
+Sector size (logical/physical): 51from /dev/vda2 and /dev/vdb2 for2B/512B
+Partition Table: gpt
+Disk Flags: 
+Number  Start    End      Size     File system     Name  Flags
+ 1      0.00GiB  0.50GiB  0.50GiB  fat16                 boot, esp
+ 2      0.50GiB  8.50GiB  8.00GiB                        raid
+ 3      8.50GiB  9.50GiB  1.00GiB  linux-swap(v1)        raid
+
+# parted -s /dev/vdb unit GiB print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vdb: 10.0GiB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+Number  Start    End      Size     File system     Name  Flags
+ 1      0.00GiB  0.50GiB  0.50GiB  fat16                 boot, esp
+ 2      0.50GiB  8.50GiB  8.00GiB                        raid
+ 3      8.50GiB  9.50GiB  1.00GiB  linux-swap(v1)        raid
+</code></pre>
+<p>and made two RAID1 arrays of them<br />
+one from /dev/vda2 and /dev/vdb2 for the root filesystem<br />
+and another one from /dev/vda2 and /dev/vdb2 for swap.</p>
+<p>Somehow the SLES15-SP6 YaST installer does not let me<br />
+make an RAID1 array of the ESPs /dev/vda1 and /dev/vdb1<br />
+so I have two separatded ESPs mounted at different mount points:</p>
+<pre><code># lsblk -ipo NAME,TYPE,FSTYPE,SIZE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               TYPE  FSTYPE               SIZE MOUNTPOINTS
+                                                              PARTUUID
+/dev/vda           disk                        10G            
+|-/dev/vda1        part  vfat                 511M /boot/efi  9a6838dd-53e2-48eb-a1e8-759998d22127
+|-/dev/vda2        part  linux_raid_member      8G            4b891f9c-6962-44e5-a941-9307f0a98693
+| `-/dev/md126     raid1                        8G            
+|   `-/dev/md126p1 part  ext4                 7.9G /          8bea2ecb-883b-47b3-8027-c0ee2c032805
+`-/dev/vda3        part  linux_raid_member      1G            0a5adc04-5a1c-43ec-963b-47ab2bdc0df2
+  `-/dev/md127     raid1 swap              1023.9M [SWAP]     
+/dev/vdb           disk                        10G            
+|-/dev/vdb1        part  vfat                 511M /boot/efi2 bcebe6b0-483c-45c5-94cf-f30c03e0d947
+|-/dev/vdb2        part  linux_raid_member      8G            9f6b8955-62bb-4d13-97c2-b6a958029da0
+| `-/dev/md126     raid1                        8G            
+|   `-/dev/md126p1 part  ext4                 7.9G /          8bea2ecb-883b-47b3-8027-c0ee2c032805
+`-/dev/vdb3        part  linux_raid_member      1G            daa48a14-331f-4279-8167-c4dc83409316
+  `-/dev/md127     raid1 swap              1023.9M [SWAP]
+</code></pre>
+<p>and the SLES15-SP6 YaST installer created<br />
+only one EFI boot entry labeled 'sles-secureboot'<br />
+in the UEFI firmware for the ESP /dev/vda1</p>
+<pre><code># efibootmgr -v
+BootCurrent: 0004
+Timeout: 3 seconds
+BootOrder: 0004,0002,0003,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* sles-secureboot       HD(1,GPT,9a6838dd-53e2-48eb-a1e8-759998d22127,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>I assume the SLES15-SP6 YaST installer created the EFI boot entry<br />
+for what is mounted at the mount point /boot/efi because only<br />
+there files got installed (nothing gets installed into /boot/efi2)</p>
+<pre><code># find /boot/efi
+/boot/efi
+/boot/efi/EFI
+/boot/efi/EFI/boot
+/boot/efi/EFI/boot/bootx64.efi
+/boot/efi/EFI/boot/fallback.efi
+/boot/efi/EFI/boot/MokManager.efi
+/boot/efi/EFI/sles
+/boot/efi/EFI/sles/MokManager.efi
+/boot/efi/EFI/sles/grub.efi
+/boot/efi/EFI/sles/shim.efi
+/boot/efi/EFI/sles/boot.csv
+/boot/efi/EFI/sles/grubx64.efi
+/boot/efi/EFI/sles/grub.cfg
+
+# find /boot/efi2
+/boot/efi2
+</code></pre>
+<p>I will now test how ReaR behaves with that...</p>
+<h4 id="pcahyna_commented_at_2025-05-20_1256"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894305458">2025-05-20 12:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-20_1256" title="Permanent link">&para;</a></h4>
+<p>@jsmeix why do you need to test that setup? I thought the issue here was
+the case of a RAID covering the whole disk and partitions inside the
+RAID, which is not the case that you are now testing?</p>
+<h4 id="pcahyna_commented_at_2025-05-20_1306"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894341729">2025-05-20 13:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-20_1306" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @sduehr</p>
+<blockquote>
+<p>Bottom line: I think partition number '1' for both disks should be
+right:</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' '/dev/nvme0n2 1 EFI\boot\shim.efi shim on nvme0n2' )
+</code></pre>
+</blockquote>
+<p>I think so as well, but I think even better would be to use this</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/md0 1 EFI\boot\shim.efi shim on md0' )
+</code></pre>
+<p>as per my and Johannes' tests in
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2884527473">https://github.com/rear/rear/pull/3471#issuecomment-2884527473</a> and
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2884571207">https://github.com/rear/rear/pull/3466#issuecomment-2884571207</a> and
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2865414466">https://github.com/rear/rear/pull/3466#issuecomment-2865414466</a> calling
+efibootmgr on the RAID device is the best way to achieve booting from
+it. Can you please try that?</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1310"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894351783">2025-05-20 13:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1310" title="Permanent link">&para;</a></h4>
+<p>I did "rear mkbackup" with this etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+NETFS_KEEP_OLD_BACKUP_COPY=yes
+{ SSH_ROOT_PASSWORD='rear' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+
+# usr/sbin/rear -D mkbackup
+...
+Running 'prep' stage ======================
+...
+Found EFI system partition /dev/vda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+Secure Boot auto-configuration using '/boot/efi/EFI/sles/shim.efi' as UEFI bootloader
+...
+Running 'layout/save' stage ======================
+...
+Using sysconfig bootloader 'grub2-efi' for 'rear recover'
+...
+Running 'rescue' stage ======================
+...
+Using '/boot/efi/EFI/sles/shim.efi' as UEFI Secure Boot bootloader file
+...
+Running 'output' stage ======================
+Using Shim '/boot/efi/EFI/sles/shim.efi' as first stage UEFI bootloader BOOTX64.efi
+Using second stage UEFI bootloader files for Shim: /boot/efi/EFI/sles/grub.efi /boot/efi/EFI/sles/grubx64.efi
+Let GRUB2 load kernel /isolinux/kernel
+Let GRUB2 load initrd /isolinux/initrd.cgz
+Set GRUB2 default root device via 'set root=cd0'
+Let GRUB2 search root device via 'search --no-floppy --set=root --file /boot/efiboot.img'
+...
+</code></pre>
+<p>For "rear recover" I created another test VM from scratch<br />
+with two 10GiB disks /dev/vda and /dev/vdb<br />
+and booted the ISO image from "rear mkbackup" there:</p>
+<pre><code>RESCUE localhost:~ # lsblk -ipo NAME,TYPE,FSTYPE,SIZE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME     TYPE FSTYPE SIZE MOUNTPOINTS                                                                                                                            PARTUUID
+/dev/vda disk         10G                                                                                                                                        
+/dev/vdb disk         10G
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0002,0001,0003,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+
+RESCUE localhost:~ # rear -D recover
+...
+Running 'layout/recreate' stage ======================
+...
+Start system layout restoration.
+Disk '/dev/vda': creating 'gpt' partition table
+Disk '/dev/vda': creating partition number 1 with name ''vda1''
+Disk '/dev/vda': creating partition number 2 with name ''vda2''
+Disk '/dev/vda': creating partition number 3 with name ''vda3''
+Disk '/dev/vdb': creating 'gpt' partition table
+Disk '/dev/vdb': creating partition number 1 with name ''vdb1''
+Disk '/dev/vdb': creating partition number 2 with name ''vdb2''
+Disk '/dev/vdb': creating partition number 3 with name ''vdb3''
+Creating software RAID /dev/md127
+Creating software RAID /dev/md126
+Disk '/dev/md126': creating 'gpt' partition table
+Disk '/dev/md126': creating partition number 1 with name ''md126p1''
+Creating filesystem of type ext4 with mount point / on /dev/md126p1.
+Mounting filesystem /
+Creating filesystem of type vfat with mount point /boot/efi on /dev/vda1.
+Mounting filesystem /boot/efi
+Creating filesystem of type vfat with mount point /boot/efi2 on /dev/vdb1.
+Mounting filesystem /boot/efi2
+Creating swap on /dev/md127
+Disk layout created.
+Running 'restore' stage ======================
+...
+Running 'finalize' stage ======================
+...
+Recreating initrd with /usr/bin/dracut...
+Recreated initrd with /usr/bin/dracut
+Creating EFI Boot Manager entries...
+Creating  EFI Boot Manager entry 'SUSE_LINUX 15.6' for 'EFI\sles\shim.efi' (UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi') 
+Installing secure boot loader (shim)...
+All /dev/disk/by-id entries in etc/fstab exist as block devices in the recreated system
+...
+Finished 'recover'. The target system is mounted at '/mnt/local'.
+...
+
+RESCUE localhost:~ # lsblk -ipo NAME,TYPE,FSTYPE,SIZE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               TYPE  FSTYPE               SIZE MOUNTPOINTS          PARTUUID
+/dev/vda           disk                        10G                      
+|-/dev/vda1        part  vfat                 511M /mnt/local/boot/efi  08a19b2c-4fc2-4dc6-bcb6-d099aac6e019
+|-/dev/vda2        part  linux_raid_member      8G                      883fb985-6193-4355-8f6a-9251c916303d
+| `-/dev/md126     raid1                        8G                      
+|   `-/dev/md126p1 part  ext4                 7.9G /mnt/local           6403b562-aca6-4645-a121-4118b602a427
+`-/dev/vda3        part  linux_raid_member      1G                      721e65cc-a1c0-4317-9d28-2e5cc9ec660f
+  `-/dev/md127     raid1 swap              1023.9M                      
+/dev/vdb           disk                        10G                      
+|-/dev/vdb1        part  vfat                 511M /mnt/local/boot/efi2 f9b20bbe-fb23-46d4-85f3-893a11d56459
+|-/dev/vdb2        part  linux_raid_member      8G                      de3d0a18-eca4-43ad-bc6c-aa870b15b4f0
+| `-/dev/md126     raid1                        8G                      
+|   `-/dev/md126p1 part  ext4                 7.9G /mnt/local           6403b562-aca6-4645-a121-4118b602a427
+`-/dev/vdb3        part  linux_raid_member      1G                      26ee5f9f-86af-4dfd-bd9d-1999b523948f
+  `-/dev/md127     raid1 swap              1023.9M
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0004,0002,0001,0003,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* SUSE_LINUX 15.6       HD(1,GPT,08a19b2c-4fc2-4dc6-bcb6-d099aac6e019,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>The recreated system boots well and therein I get</p>
+<pre><code># lsblk -ipo NAME,TYPE,FSTYPE,SIZE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               TYPE  FSTYPE               SIZE MOUNTPOINTS
+                                                              PARTUUID
+/dev/vda           disk                        10G            
+|-/dev/vda1        part  vfat                 511M /boot/efi  08a19b2c-4fc2-4dc6-bcb6-d099aac6e019
+|-/dev/vda2        part  linux_raid_member      8G            883fb985-6193-4355-8f6a-9251c916303d
+| `-/dev/md127     raid1                        8G            
+|   `-/dev/md127p1 part  ext4                 7.9G /          6403b562-aca6-4645-a121-4118b602a427
+`-/dev/vda3        part  linux_raid_member      1G            721e65cc-a1c0-4317-9d28-2e5cc9ec660f
+  `-/dev/md126     raid1 swap              1023.9M [SWAP]     
+/dev/vdb           disk                        10G            
+|-/dev/vdb1        part  vfat                 511M /boot/efi2 f9b20bbe-fb23-46d4-85f3-893a11d56459
+|-/dev/vdb2        part  linux_raid_member      8G            de3d0a18-eca4-43ad-bc6c-aa870b15b4f0
+| `-/dev/md127     raid1                        8G            
+|   `-/dev/md127p1 part  ext4                 7.9G /          6403b562-aca6-4645-a121-4118b602a427
+`-/dev/vdb3        part  linux_raid_member      1G            26ee5f9f-86af-4dfd-bd9d-1999b523948f
+  `-/dev/md126     raid1 swap              1023.9M [SWAP]
+
+# efibootmgr -v
+BootCurrent: 0004
+Timeout: 3 seconds
+BootOrder: 0004,0002,0003,0000,0001,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* SUSE_LINUX 15.6       HD(1,GPT,08a19b2c-4fc2-4dc6-bcb6-d099aac6e019,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot0005* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-05-20_1314"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894368197">2025-05-20 13:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1314" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your question in<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2894305458">https://github.com/rear/rear/pull/3471#issuecomment-2894305458</a></p>
+<p>I do it here only as an additional test "by the way"<br />
+out of curiosity and because I would like to learn<br />
+how things behave for RAID1 with partitions as members.</p>
+<p><a href="https://github.com/rear/rear/pull/3471#issuecomment-2894351783">https://github.com/rear/rear/pull/3471#issuecomment-2894351783</a><br />
+shows that - at least for me - in this case<br />
+the automated default behaviour of ReaR "just works"<br />
+as far as things could be expected<br />
+i.e. when the second ESP /dev/vdb1 is empty<br />
+no EFI boot entry can be setup for it.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1350"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894493225">2025-05-20 13:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1350" title="Permanent link">&para;</a></h4>
+<p>Out of curiosity I tested how things behave with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/vda 0 automatic EFI boot from vda1' '/dev/vdb 0 automatic EFI boot from vdb1' )
+</code></pre>
+<p>regardless that the second ESP /dev/vdb1 is empty.</p>
+<p>I did "rear recover" on the same test VM<br />
+where I did "rear recover" before in<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2894351783">https://github.com/rear/rear/pull/3471#issuecomment-2894351783</a></p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entries as specified in EFIBOOTMGR_CREATE_ENTRIES
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vda1' for 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vdb1' for 'EFI\sles\shim.efi' on disk '/dev/vdb' partition 1
+Installing secure boot loader (shim)...
+...
+
+RESCUE localhost:~ # lsblk -ipo NAME,FSTYPE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               FSTYPE            MOUNTPOINTS          PARTUUID
+/dev/vda                                                  
+|-/dev/vda1        vfat              /mnt/local/boot/efi  69cc9dfd-2bc5-4699-8be2-053070765a6c
+|-/dev/vda2        linux_raid_member                      b76fb917-1ccd-4ae6-bc2c-f751fb72d99a
+| `-/dev/md126                                            
+|   `-/dev/md126p1 ext4              /mnt/local           fc899b13-8d79-4218-be5e-81d7211f232e
+`-/dev/vda3        linux_raid_member                      27418e68-a8e2-4792-a390-4b37e91bf562
+  `-/dev/md127     swap                                   
+/dev/vdb                                                  
+|-/dev/vdb1        vfat              /mnt/local/boot/efi2 c3b195b5-eb25-4c4f-aa05-644ae87cdc39
+|-/dev/vdb2        linux_raid_member                      368da342-ddc4-4811-9c61-f44f521f4b4a
+| `-/dev/md126                                            
+|   `-/dev/md126p1 ext4              /mnt/local           fc899b13-8d79-4218-be5e-81d7211f232e
+`-/dev/vdb3        linux_raid_member                      f18fcadc-7a2e-46b8-8b36-b71185aa410e
+  `-/dev/md127     swap
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 000A,0009,0004,0002,0001,0003,0000,0005,0006,0007,0008
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* SUSE_LINUX 15.6       HD(1,GPT,08a19b2c-4fc2-4dc6-bcb6-d099aac6e019,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot0005* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0006* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0007* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0008* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot000A* EFI boot from vdb1    HD(1,GPT,c3b195b5-eb25-4c4f-aa05-644ae87cdc39,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>So I have now the obsoleted EFI boot entry</p>
+<pre><code>Boot0004* SUSE_LINUX 15.6       HD(1,GPT,08a19b2c-4fc2-4dc6-bcb6-d099aac6e019,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>because there is no longer any partition with<br />
+UUID 08a19b2c-4fc2-4dc6-bcb6-d099aac6e019 because<br />
+the recent "rear recover" created partitions anew<br />
+so there are now these new ESPs (from the 'lsblk' output)</p>
+<pre><code>|-/dev/vda1        vfat              /mnt/local/boot/efi  69cc9dfd-2bc5-4699-8be2-053070765a6c
+...
+|-/dev/vdb1        vfat              /mnt/local/boot/efi2 c3b195b5-eb25-4c4f-aa05-644ae87cdc39
+</code></pre>
+<p>for which (as requested by EFIBOOTMGR_CREATE_ENTRIES)<br />
+the two new UEFI firmware boot entries were created</p>
+<pre><code>Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot000A* EFI boot from vdb1    HD(1,GPT,c3b195b5-eb25-4c4f-aa05-644ae87cdc39,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>regardless that \EFI\sles\shim.efi only exists<br />
+in the VFAT filesystem on /dev/vda1 because<br />
+the VFAT filesystem on /dev/vdb1 is empty.</p>
+<p>Interestingly when I boot that recreated system<br />
+its TianoCore UEFI firmware boot menu does not show me<br />
+those outdated and/or impossible boot entries labeled<br />
+'SUSE_LINUX 15.6' and 'EFI boot from vdb1' so<br />
+I can only select the boot entry 'EFI boot from vda1'<br />
+which boots the recreated system well.</p>
+<p>In the booted recreated system I get:</p>
+<pre><code># efibootmgr -v
+BootCurrent: 0009
+Timeout: 3 seconds
+BootOrder: 0009,0002,0001,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>so the TianoCore UEFI firmware had automatically deleted<br />
+those outdated and/or impossible boot entries.</p>
+<h4 id="pcahyna_commented_at_2025-05-20_1408"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894575000">2025-05-20 14:08</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-20_1408" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>so the TianoCore UEFI firmware had automatically deleted<br />
+those outdated and/or impossible boot entries.</p>
+</blockquote>
+<p>yes, the virtual firmware does that, but the firmware on physical
+machines generally (in my experience) does not.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1410"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894580804">2025-05-20 14:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1410" title="Permanent link">&para;</a></h4>
+<p>My final test is how things behave<br />
+after I copied all contets of the first ESP<br />
+into the second ESP on the original test VM via</p>
+<pre><code># cp -a /boot/efi/* /boot/efi2
+</code></pre>
+<p>Then I did "rear mkbackup" also with</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/vda 0 automatic EFI boot from vda1' '/dev/vdb 0 automatic EFI boot from vdb1' )
+</code></pre>
+<p>and booted the ReaR recovery system ISO<br />
+on my second test VM, the same one<br />
+where I did "rear recover" before:</p>
+<pre><code>RESCUE localhost:~ # lsblk -ipo NAME,FSTYPE,PARTUUID /dev/vda /dev/vdb
+NAME        FSTYPE            PARTUUID
+/dev/vda                      
+|-/dev/vda1 vfat              69cc9dfd-2bc5-4699-8be2-053070765a6c
+|-/dev/vda2 linux_raid_member b76fb917-1ccd-4ae6-bc2c-f751fb72d99a
+`-/dev/vda3 linux_raid_member 27418e68-a8e2-4792-a390-4b37e91bf562
+/dev/vdb                      
+|-/dev/vdb1 vfat              c3b195b5-eb25-4c4f-aa05-644ae87cdc39
+|-/dev/vdb2 linux_raid_member 368da342-ddc4-4811-9c61-f44f521f4b4a
+`-/dev/vdb3 linux_raid_member f18fcadc-7a2e-46b8-8b36-b71185aa410e
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0009,0002,0001,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+
+RESCUE localhost:~ # rear -D recover
+...
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entries as specified in EFIBOOTMGR_CREATE_ENTRIES
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vda1' for 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+Creating EFI Boot Manager entry 'EFI boot from vdb1' for 'EFI\sles\shim.efi' on disk '/dev/vdb' partition 1
+Installing secure boot loader (shim)...
+...
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 000A,0008,0009,0002,0001,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0008* EFI boot from vda1    HD(1,GPT,5a669987-b943-4076-9cf2-36a5841c4f27,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot000A* EFI boot from vdb1    HD(1,GPT,facd24ae-947a-4e35-8972-f4b07b3cec93,0x800,0xff800)/File(\EFI\sles\shim.efi)
+
+RESCUE localhost:~ # lsblk -ipo NAME,FSTYPE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               FSTYPE            MOUNTPOINTS          PARTUUID
+/dev/vda                                                  
+|-/dev/vda1        vfat              /mnt/local/boot/efi  5a669987-b943-4076-9cf2-36a5841c4f27
+|-/dev/vda2        linux_raid_member                      c100e1e0-d273-4049-b9f4-3623461173f7
+| `-/dev/md126                                            
+|   `-/dev/md126p1 ext4              /mnt/local           9d6bbbd1-15e1-47dd-8ed6-f376f97a0717
+`-/dev/vda3        linux_raid_member                      48e0d2e6-9d8f-467d-a439-49502f6efea4
+  `-/dev/md127     swap                                   
+/dev/vdb                                                  
+|-/dev/vdb1        vfat              /mnt/local/boot/efi2 facd24ae-947a-4e35-8972-f4b07b3cec93
+|-/dev/vdb2        linux_raid_member                      9161376b-9057-4d9f-99c5-8a58f1d7683f
+| `-/dev/md126                                            
+|   `-/dev/md126p1 ext4              /mnt/local           9d6bbbd1-15e1-47dd-8ed6-f376f97a0717
+`-/dev/vdb3        linux_raid_member                      0b46bcc5-27a9-4350-87d2-fecd9ea47b21
+  `-/dev/md127     swap
+</code></pre>
+<p>Again the outdated and/or impossible boot entry</p>
+<pre><code>Boot0009* EFI boot from vda1    HD(1,GPT,69cc9dfd-2bc5-4699-8be2-053070765a6c,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>is still there but after reboot of the recreated system<br />
+the TianoCore UEFI firmware had automatically deleted<br />
+that outdated and/or impossible boot entry:</p>
+<pre><code># lsblk -ipo NAME,FSTYPE,MOUNTPOINTS,PARTUUID /dev/vda /dev/vdb
+NAME               FSTYPE            MOUNTPOINTS
+                                                PARTUUID
+/dev/vda                                        
+|-/dev/vda1        vfat              /boot/efi  5a669987-b943-4076-9cf2-36a5841c4f27
+|-/dev/vda2        linux_raid_member            c100e1e0-d273-4049-b9f4-3623461173f7
+| `-/dev/md127                                  
+|   `-/dev/md127p1 ext4              /          9d6bbbd1-15e1-47dd-8ed6-f376f97a0717
+`-/dev/vda3        linux_raid_member            48e0d2e6-9d8f-467d-a439-49502f6efea4
+  `-/dev/md126     swap              [SWAP]     
+/dev/vdb                                        
+|-/dev/vdb1        vfat              /boot/efi2 facd24ae-947a-4e35-8972-f4b07b3cec93
+|-/dev/vdb2        linux_raid_member            9161376b-9057-4d9f-99c5-8a58f1d7683f
+| `-/dev/md127                                  
+|   `-/dev/md127p1 ext4              /          9d6bbbd1-15e1-47dd-8ed6-f376f97a0717
+`-/dev/vdb3        linux_raid_member            0b46bcc5-27a9-4350-87d2-fecd9ea47b21
+  `-/dev/md126     swap              [SWAP]
+
+# efibootmgr -v
+BootCurrent: 000A
+Timeout: 3 seconds
+BootOrder: 0008,0002,0001,000A,0003,0000,0004,0005,0006,0007
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI PXEv4 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0005* UEFI PXEv6 (MAC:5254009FCA7D) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0006* UEFI HTTPv4 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot0007* UEFI HTTPv6 (MAC:5254009FCA7D)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009fca7d,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+Boot0008* EFI boot from vda1    HD(1,GPT,5a669987-b943-4076-9cf2-36a5841c4f27,0x800,0xff800)/File(\EFI\sles\shim.efi)
+Boot000A* EFI boot from vdb1    HD(1,GPT,facd24ae-947a-4e35-8972-f4b07b3cec93,0x800,0xff800)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>Furthermore I could boot the recreated system<br />
+now both via 'EFI boot from vda1'<br />
+and also via 'EFI boot from vdb1'.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894627885">2025-05-20 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1424" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2894575000">https://github.com/rear/rear/pull/3471#issuecomment-2894575000</a></p>
+<p>Yes, I vaguely remember we had an issue here at ReaR upstream<br />
+where a user reported that EFI boot entries become more and more.<br />
+I think it was this issue<br />
+<a href="https://github.com/rear/rear/issues/3422">https://github.com/rear/rear/issues/3422</a></p>
+<p>I think we cannot do much in ReaR because<br />
+during "rear recover" we must create appropriate<br />
+new EFI boot entries that match the new partition UUIDs<br />
+and we never ever must somehow automatically delete existing<br />
+EFI boot entries because existing user data is sacrosanct<br />
+so it is up to the user to clean up his EFI boot entries<br />
+manually on his own.</p>
+<p>Furthermore there is the general recommendation to properly<br />
+"Prepare replacement hardware for disaster recovery", cf.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Prepare_replacement_hardware_for_disaster_recovery">https://en.opensuse.org/SDB:Disaster_Recovery#Prepare_replacement_hardware_for_disaster_recovery</a><br />
+where the general requirement is that replacement hardware<br />
+should behave same as pristine new hardware<br />
+which means in particular that on replacement hardware<br />
+there should be no outdated/leftover EFI boot entries.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1430"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894650731">2025-05-20 14:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1430" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+because things behave rather well for me<br />
+and also work for @sduehr<br />
+I would like to merge this pull request<br />
+tomorrow afternoon<br />
+provided no serious objections appear.</p>
+<p>Enhancing the current automatism in ReaR in<br />
+finalize/Linux-i386/670_run_efibootmgr.sh<br />
+to also work for RAID with whole disks as members<br />
+is a related but separated issue which should be<br />
+implemented via a separated pull request.</p>
+<h4 id="sduehr_commented_at_2025-05-20_1509"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2894786466">2025-05-20 15:09</a>:<a class="headerlink" href="#sduehr_commented_at_2025-05-20_1509" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@sduehr thank you so much for your testing!</p>
+<p>Did you test whether or not both your new EFI boot entries "shim on
+nvme0n1" and in particular also "shim on nvme0n2" can actually boot
+your recreated system?</p>
+<p>I ask because I think your</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' '/dev/nvme0n2 2 EFI\boot\shim.efi shim on nvme0n2' )
+</code></pre>
+<p>does not match your partitioning output of 'lsblk'</p>
+</blockquote>
+<p>Indeed that was obviously wrong. I just tested if the recreated system
+boots without any interaction, and it did even after remover the first
+disk. But that must have been the "VMware" entries then, that seem to be
+created automatically. Unfortunately I don't have real hardware to test
+this.</p>
+<h4 id="jsmeix_commented_at_2025-06-03_0731"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2933897167">2025-06-03 07:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-03_0731" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3471#discussion_r2100321542">https://github.com/rear/rear/pull/3471#discussion_r2100321542</a></p>
+<pre><code>mappings are being applied to configuration values at more places
+</code></pre>
+<p>I created the new separated issue<br />
+<a href="https://github.com/rear/rear/issues/3477">https://github.com/rear/rear/issues/3477</a></p>
+<h4 id="jsmeix_commented_at_2025-06-11_0937"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2961945789">2025-06-11 09:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-11_0937" title="Permanent link">&para;</a></h4>
+<p>I failed to imagine how 'mapfile' could be used<br />
+so I implemented my above 'echo -e' proposal<br />
+via a new 'octal_decode' function in lib/global-functions.sh</p>
+<p>This means the syntax of the elements in the<br />
+EFIBOOTMGR_CREATE_ENTRIES array changed.<br />
+Now an element is a string of at most 4 words<br />
+and in particular space characters in a word<br />
+must be specified octal-encoded as '\040'.</p>
+<h4 id="jsmeix_commented_at_2025-06-11_0941"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2961960846">2025-06-11 09:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-11_0941" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+with latest changes your before</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim on nvme0n1' ... )
+</code></pre>
+<p>would now have to be specified as</p>
+<pre><code>EFIBOOTMGR_CREATE_ENTRIES=( '/dev/nvme0n1 1 EFI\boot\shim.efi shim\040on\040nvme0n1' ... )
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-06-11_0952"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2962009633">2025-06-11 09:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-11_0952" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+because things behave sufficiently well for me<br />
+and also work sufficiently well for @sduehr<br />
+I will merge this pull request tomorrow afternoon<br />
+provided no serious objections appear.</p>
+<p>Enhancing the current automatism in ReaR in<br />
+finalize/Linux-i386/670_run_efibootmgr.sh<br />
+to also work for RAID with whole disks as members<br />
+is a related but separated issue which should be<br />
+implemented via a separated pull request.</p>
+<p>Fixing and enhancing the current insufficient<br />
+MIGRATION_MODE behaviour so that disk mappings<br />
+would be also applied to user configuration values<br />
+is a separated issue<br />
+<a href="https://github.com/rear/rear/issues/3477">https://github.com/rear/rear/issues/3477</a></p>
+<p>Fixing that some ReaR automatisms overwrite sacrosanct<br />
+user specified config values is a separated issue<br />
+<a href="https://github.com/rear/rear/issues/3473">https://github.com/rear/rear/issues/3473</a></p>
+<h4 id="jsmeix_commented_at_2025-06-12_1423"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3471#issuecomment-2967038599">2025-06-12 14:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-12_1423" title="Permanent link">&para;</a></h4>
+<p>Final test with latest code:</p>
+<p>Original system:</p>
+<pre><code># cat etc/rear/local.conf
+
+OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_OPTIONS="nfsvers=3,nolock"
+BACKUP_URL=nfs://192.168.178.66/nfs
+NETFS_KEEP_OLD_BACKUP_COPY=yes
+{ SSH_ROOT_PASSWORD='rear' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+USE_DHCLIENT="yes"
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+EFIBOOTMGR_CREATE_ENTRIES=( '/dev/md127' '/dev/vda 1 EFI\sles\shim.efi EFI\040boot\040from\040vda1' '/dev/vdb 0 EFI\sl\es\shim.e\fi EFI\040boot\040from\040vdb1' '/dev/md127 0 automatic boot md127' '/dev/md127 1 EFI\sles\shim.efi shim\040on\040md127p1' )
+
+# usr/sbin/rear -D mkbackup
+...
+</code></pre>
+<p>Replacement system:</p>
+<pre><code>RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0001,0002,0004,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0004* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+
+RESCUE localhost:~ # rear -D recover
+...
+Recreated storage layout:
+NAME             KNAME        TRAN   TYPE  FSTYPE            LABEL               SIZE MOUNTPOINTS
+/dev/sr0         /dev/sr0     sata   rom   iso9660           REAR-ISO          192.2M 
+/dev/vda         /dev/vda     virtio disk  linux_raid_member localhost:myRAID1    11G 
+`-/dev/md127     /dev/md127          raid1                                        10G 
+  |-/dev/md127p1 /dev/md127p1        part  vfat                                  880M /mnt/local/boot/efi
+  |-/dev/md127p2 /dev/md127p2        part  ext4                                    8G /mnt/local
+  `-/dev/md127p3 /dev/md127p3        part  swap                                    1G 
+/dev/vdb         /dev/vdb     virtio disk  linux_raid_member localhost:myRAID1    10G 
+`-/dev/md127     /dev/md127          raid1                                        10G 
+  |-/dev/md127p1 /dev/md127p1        part  vfat                                  880M /mnt/local/boot/efi
+  |-/dev/md127p2 /dev/md127p2        part  ext4                                    8G /mnt/local
+  `-/dev/md127p3 /dev/md127p3        part  swap                                    1G 
+...
+Creating EFI Boot Manager entries...
+Creating EFI Boot Manager entries as specified in EFIBOOTMGR_CREATE_ENTRIES
+Creating EFI Boot Manager entry as specified in '/dev/md127'
+efibootmgr will use default partition number 1 (no positive partition number specified)
+efibootmgr will use loader 'EFI\sles\shim.efi' from UEFI_BOOTLOADER='/boot/efi/EFI/sles/shim.efi' (no loader specified)
+efibootmgr will use default label 'SUSE_LINUX 15.6' (no visible label specified)
+Creating EFI Boot Manager entry 'SUSE_LINUX 15.6' for 'EFI\sles\shim.efi' on disk '/dev/md127' partition 1
+Creating EFI Boot Manager entry as specified in '/dev/vda 1 EFI\sles\shim.efi EFI\040boot\040from\040vda1'
+Creating EFI Boot Manager entry 'EFI boot from vda1' for 'EFI\sles\shim.efi' on disk '/dev/vda' partition 1
+Creating EFI Boot Manager entry as specified in '/dev/vdb 0 EFI\sl\es\shim.e\fi EFI\040boot\040from\040vdb1'
+efibootmgr will use default partition number 1 (no positive partition number specified)
+Creating EFI Boot Manager entry 'EFI boot from vdb1' for 'EFI\sl\es\shim.e\fi' on disk '/dev/vdb' partition 1
+Creating EFI Boot Manager entry as specified in '/dev/md127 0 automatic boot md127'
+Cannot create EFI Boot Manager entry: more than 4 words in '/dev/md127 0 automatic boot md127'
+Creating EFI Boot Manager entry as specified in '/dev/md127 1 EFI\sles\shim.efi shim\040on\040md127p1'
+Creating EFI Boot Manager entry 'shim on md127p1' for 'EFI\sles\shim.efi' on disk '/dev/md127' partition 1
+Installing secure boot loader (shim)...
+...
+Finished 'recover'. The target system is mounted at '/mnt/local'.
+...
+
+RESCUE localhost:~ # efibootmgr -v
+BootCurrent: 0001
+Timeout: 3 seconds
+BootOrder: 0007,0006,0005,0003,0001,0002,0004,0000
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* SUSE_LINUX 15.6       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0004* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0005* EFI boot from vda1    HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0006* EFI boot from vdb1    HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sl\es\shim.e\fi)
+Boot0007* shim on md127p1       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>ReaR creates 'EFI boot from vdb1' as specified by the user<br />
+regardless that this canbnot work because \EFI\sl\es\shim.e\fi<br />
+does not exist so with TianoCore UEFI firmware I get on the<br />
+rebooted replacement system:</p>
+<pre><code># efibootmgr -v
+BootCurrent: 0003
+Timeout: 3 seconds
+BootOrder: 0001,0007,0005,0003,0002,0004,0000,0006,0008,0009,000A
+Boot0000* UiApp FvVol(7cb8bdc9-f8eb-4f34-aaea-3ee4af6516a1)/FvFile(462caa21-7614-4503-836e-8ab6f4662331)
+Boot0001* UEFI QEMU DVD-ROM QM00001     PciRoot(0x0)/Pci(0x1f,0x2)/Sata(0,65535,0)N.....YM....R,Y.
+Boot0002* UEFI Misc Device      PciRoot(0x0)/Pci(0x2,0x5)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0003* SUSE_LINUX 15.6       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0004* UEFI Misc Device 2    PciRoot(0x0)/Pci(0x2,0x4)/Pci(0x0,0x0)N.....YM....R,Y.
+Boot0005* EFI boot from vda1    HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0006* UEFI PXEv4 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)N.....YM....R,Y.
+Boot0007* shim on md127p1       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0008* UEFI PXEv6 (MAC:5254009D3D6A) PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)N.....YM....R,Y.
+Boot0009* UEFI HTTPv4 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv4(0.0.0.00.0.0.0,0,0)/Uri()N.....YM....R,Y.
+Boot000A* UEFI HTTPv6 (MAC:5254009D3D6A)        PciRoot(0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/MAC(5254009d3d6a,1)/IPv6([::]:&lt;-&gt;[::]:,0,0)/Uri()N.....YM....R,Y.
+
+# efibootmgr -v | grep sles
+Boot0003* SUSE_LINUX 15.6       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0005* EFI boot from vda1    HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+Boot0007* shim on md127p1       HD(1,GPT,a39e452e-47ba-46fd-b9d0-c22d73785d79,0x800,0x1b8000)/File(\EFI\sles\shim.efi)
+</code></pre>
+<p>i.e. the TianoCore UEFI firmware removed the non-working<br />
+'EFI boot from vdb1' entry.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-05-09.3471.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

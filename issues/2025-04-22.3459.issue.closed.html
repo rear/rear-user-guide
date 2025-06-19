@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3459 Issue closed: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3459 Issue closed: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk)";
+        var mkdocs_page_input_path = "issues/2025-04-22.3459.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3459 Issue closed: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3459_issue_closed_cannot_create_efi_boot_manager_entry_for_esp_devmd0p1_unable_to_find_the_underlying_disk"><a href="https://github.com/rear/rear/issues/3459">#3459 Issue</a> <code>closed</code>: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk)<a class="headerlink" href="#3459_issue_closed_cannot_create_efi_boot_manager_entry_for_esp_devmd0p1_unable_to_find_the_underlying_disk" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="sduehr_opened_issue_at_2025-04-22_1328"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> opened issue at <a href="https://github.com/rear/rear/issues/3459">2025-04-22 13:28</a>:<a class="headerlink" href="#sduehr_opened_issue_at_2025-04-22_1328" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.9 / 2025-01-31</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>On a UEFI secure boot enabled system with sofware RAID-1 of two NVMe
+disks, rear recover fails with</p>
+<pre><code>WARNING:
+For this system               
+SUSE_LINUX/15.6 on Linux-i386 (based on SUSE/15/i386)
+there is no code to install a boot loader on the recovered system
+or the code that we have failed to install the boot loader correctly.
+Please contribute appropriate code to the Relax-and-Recover project,
+see http://relax-and-recover.org/development/
+Take a look at the scripts in /usr/share/rear/finalize - for example
+for PC architectures like x86 and x86_64 see the script 
+/usr/share/rear/finalize/Linux-i386/660_install_grub2.sh
+and for POWER architectures like ppc64le see the script
+/usr/share/rear/finalize/Linux-ppc64le/660_install_grub2.sh
+---------------------------------------------------
+|  IF YOU DO NOT INSTALL A BOOT LOADER MANUALLY,  |
+|  THEN YOUR SYSTEM WILL NOT BE ABLE TO BOOT.     |
+---------------------------------------------------
+You can use 'chroot /mnt/local bash --login'
+to change into the recovered system and 
+manually install a boot loader therein.
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>openSUSE Leap 15.6</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>BAREOS</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME           KNAME        PKNAME       TRAN   TYPE  FSTYPE            LABEL         SIZE MOUNTPOINT
+/dev/sr0       /dev/sr0                  sata   rom   iso9660           REAR-ISO    848.2M 
+/dev/nvme0n1   /dev/nvme0n1              nvme   disk  linux_raid_member sl15test1:0    16G 
+`-/dev/md0     /dev/md0     /dev/nvme0n1        raid1                                  16G 
+  |-/dev/md0p1 /dev/md0p1   /dev/md0            part                                  512M /mnt/local/boot/efi
+  `-/dev/md0p2 /dev/md0p2   /dev/md0            part                                 15.3G /mnt/local
+/dev/nvme0n2   /dev/nvme0n2              nvme   disk  linux_raid_member sl15test1:0    16G 
+`-/dev/md0     /dev/md0     /dev/nvme0n2        raid1                                  16G 
+  |-/dev/md0p1 /dev/md0p1   /dev/md0            part                                  512M /mnt/local/boot/efi
+  `-/dev/md0p2 /dev/md0p2   /dev/md0            part                                 15.3G /mnt/local
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p>rear -D recover</p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/e1017b63-7082-4ab6-9ddf-df6ca94402fe" /></p>
+<p><a href="https://github.com/user-attachments/files/19850189/rear-sl15test1.log">rear-sl15test1.log</a></p>
+<p>The error message seems to come from
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh#L79-L97">https://github.com/rear/rear/blob/master/usr/share/rear/finalize/Linux-i386/670_run_efibootmgr.sh#L79-L97</a></p>
+<h4 id="jsmeix_commented_at_2025-04-22_1445"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2821577824">2025-04-22 14:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-22_1445" title="Permanent link">&para;</a></h4>
+<p>@sduehr</p>
+<p>what does your etc/rear/local.conf contain?<br />
+In your<br />
+<a href="https://github.com/user-attachments/files/19850189/rear-sl15test1.log">https://github.com/user-attachments/files/19850189/rear-sl15test1.log</a><br />
+I find</p>
+<pre><code>+ source /etc/rear/local.conf
+++ BACKUP=BAREOS
+++ BAREOS_CLIENT=sl15test1.ovirt1.bareos.test-fd
+++ BAREOS_FILESET=LinuxAll
+++ BAREOS_RESTORE_JOB=RestoreFiles
++ source_return_code=0
+</code></pre>
+<p>so it seems</p>
+<pre><code>BACKUP=BAREOS
+BAREOS_CLIENT=sl15test1.ovirt1.bareos.test-fd
+BAREOS_FILESET=LinuxAll
+BAREOS_RESTORE_JOB=RestoreFiles
+</code></pre>
+<p>is all what you have in etc/rear/local.conf<br />
+which looks insufficient (e.g. no <code>OUTPUT=...</code>).<br />
+I don't want to reverse-engineer your ReaR configuration<br />
+so please show it to me in human readable form.</p>
+<p>For RAID there is no automatism in ReaR to determine<br />
+on which devices the bootloader should be installed<br />
+so you need to tell ReaR the disk devices<br />
+where the bootloader should be installed<br />
+for BIOS normally via GRUB2_INSTALL_DEVICES<br />
+cf. my RAID tests (all with BIOS) on<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7</a></p>
+<p>For UEFI I don't know off the top of my head<br />
+how ReaR works with RAID ...</p>
+<h4 id="sduehr_commented_at_2025-04-23_1544"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2824742925">2025-04-23 15:44</a>:<a class="headerlink" href="#sduehr_commented_at_2025-04-23_1544" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I already tried to add <code>GRUB2_INSTALL_DEVICES</code> to
+<code>/etc/rear/local.conf</code>, as I noticed that you mentioned it in
+<a href="https://github.com/rear/rear/issues/3357">https://github.com/rear/rear/issues/3357</a>, so it looks like this:</p>
+<pre><code>BACKUP=BAREOS
+BAREOS_CLIENT=sl15test1.ovirt1.bareos.test-fd
+BAREOS_FILESET=LinuxAll
+BAREOS_RESTORE_JOB=RestoreFiles
+GRUB2_INSTALL_DEVICES="/dev/nvme0n1 /dev/nvme0n2"
+</code></pre>
+<p>and <code>OUTPUT=ISO</code> is the default in <code>/usr/share/rear/conf/default.conf</code>
+that's why I didn't add it.</p>
+<p>ReaR does recreate the software RAID successfully, that works fine
+already in ReaR 2.9 even without explicitly setting
+<code>GRUB2_INSTALL_DEVICES</code>, but obviously <code>670_run_efibootmgr.sh</code> doesn't
+use that variable.</p>
+<p>I just tried this experimental quick hack in <code>670_run_efibootmgr.sh</code>:</p>
+<pre><code>...
+boot_efi_parts="/dev/nvme0n1p1 /dev/nvme0n2p1"
+for efipart in $boot_efi_parts ; do
+    # /dev/sda1 or /dev/mapper/vol34_part2 or /dev/mapper/mpath99p4
+    partition_block_device=$( get_device_name $efipart )
+    # 1 or 2 or 4 for the examples above
+    partition_number=$( get_partition_number $partition_block_device )
+    if ! disk=$( get_device_from_partition $partition_block_device $partition_number ) ; then
+        LogPrintError "Cannot create EFI Boot Manager entry for ESP $partition_block_device (unable to find the underlying disk)"
+        # do not error out - we may be able to locate other disks if there are more of them
+        continue
+    fi
+    LogPrint "Creating  EFI Boot Manager entry '$OS_VENDOR $OS_VERSION' for '$bootloader' (UEFI_BOOTLOADER='$UEFI_BOOTLOADER') "
+    Log efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label \"${OS_VENDOR} ${OS_VERSION}\" --loader \"\\${bootloader}\"
+    if efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}" ; then
+        # ok, boot loader has been set-up - continue with other disks (ESP can be on RAID)
+        NOBOOTLOADER=''
+    else
+        LogPrintError "efibootmgr failed to create EFI Boot Manager entry on $disk partition $partition_number (ESP $partition_block_device )"
+    fi
+done
+</code></pre>
+<p>But then I get</p>
+<pre><code>2025-04-23 16:21:30.923649503 ERROR: 
+                              ====================
+                              BUG in /usr/share/rear/lib/layout-functions.sh line 462:
+                              get_device_from_partition called with '/dev/nvme0n1p1' that is no block device
+                              --------------------
+                              Please report it at https://github.com/rear/rear/issues
+                              and include all related parts from /var/log/rear/rear-sl15test1.log
+                              preferably the whole debug information via 'rear -D recover'
+                              ====================
+</code></pre>
+<p>because <code>/dev/nvme0n1p1</code> does not exist, that seems to be normal and
+that's probably good as that's part of the software RAID.</p>
+<pre><code>RESCUE sl15test1:~ # parted /dev/nvme0n1 print
+Warning: Not all of the space available to /dev/nvme0n1 appears to be used, you can fix the GPT to use all of the space (an
+extra 256 blocks) or continue with the current setting? 
+Fix/Ignore? I                                                             
+Model: NVMe Device (nvme)
+Disk /dev/nvme0n1: 17.2GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End     Size    File system  Name   Flags
+ 1      1049kB  538MB   537MB   fat32        md0p1
+ 2      538MB   17.0GB  16.5GB  ext4         md0p2
+
+RESCUE sl15test1:~ # fdisk -l /dev/nvme0n1 
+GPT PMBR size mismatch (33554175 != 33554431) will be corrected by write.
+The backup GPT table is not on the end of the device.
+Disk /dev/nvme0n1: 16 GiB, 17179869184 bytes, 33554432 sectors
+Disk model: VMware Virtual NVMe Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 5138A5AD-0349-46CC-B662-444781FEADE4
+
+Device           Start      End  Sectors  Size Type
+/dev/nvme0n1p1    2048  1050623  1048576  512M Linux filesystem
+/dev/nvme0n1p2 1050624 33241087 32190464 15.3G Linux filesystem
+RESCUE sl15test1:~ # 
+RESCUE sl15test1:~ # ls /dev/nvme0n1p1
+ls: cannot access '/dev/nvme0n1p1': No such file or directory
+RESCUE sl15test1:~ # ls /dev/nvme0n1p2
+ls: cannot access '/dev/nvme0n1p2': No such file or directory
+</code></pre>
+<p>Manually setting the variables and running <code>efibootmgr</code> works like this:</p>
+<pre><code>RESCUE sl15test1:~ # . /etc/rear/os.conf
+RESCUE sl15test1:~ # echo $OS
+GNU/Linux
+RESCUE sl15test1:~ # bootloader='EFI\opensuse\shim.efi'
+RESCUE sl15test1:~ # disk="/dev/nvme0n1"
+RESCUE sl15test1:~ # partition_number=1
+RESCUE sl15test1:~ # echo efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}"
+efibootmgr --create --gpt --disk /dev/nvme0n1 --part 1 --write-signature --label SUSE_LINUX 15.6 --loader \EFI\opensuse\shim.efi
+RESCUE sl15test1:~ # 
+RESCUE sl15test1:~ # efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${
+OS_VERSION}" --loader "\\${bootloader}"
+BootCurrent: 0002
+BootOrder: 0004,0000,0001,0002,0003
+Boot0000* EFI VMware Virtual NVME Namespace (NSID 1)
+Boot0001* EFI VMware Virtual NVME Namespace (NSID 2)
+Boot0002* EFI VMware Virtual SATA CDROM Drive (0.0)
+Boot0003* EFI Network
+Boot0004* SUSE_LINUX 15.6
+RESCUE sl15test1:~ # echo $?
+0
+
+RESCUE sl15test1:~ # disk="/dev/nvme0n2"
+RESCUE sl15test1:~ # efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${
+OS_VERSION}" --loader "\\${bootloader}"
+efibootmgr: ** Warning ** : Boot0004 has same label SUSE_LINUX 15.6
+BootCurrent: 0002
+BootOrder: 0005,0004,0000,0001,0002,0003
+Boot0000* EFI VMware Virtual NVME Namespace (NSID 1)
+Boot0001* EFI VMware Virtual NVME Namespace (NSID 2)
+Boot0002* EFI VMware Virtual SATA CDROM Drive (0.0)
+Boot0003* EFI Network
+Boot0004* SUSE_LINUX 15.6
+Boot0005* SUSE_LINUX 15.6
+RESCUE sl15test1:~ # echo $?
+0
+</code></pre>
+<h4 id="sduehr_commented_at_2025-04-23_2036"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2825448444">2025-04-23 20:36</a>:<a class="headerlink" href="#sduehr_commented_at_2025-04-23_2036" title="Permanent link">&para;</a></h4>
+<p>This it not really nice, couldn't find a better way to make it work:</p>
+<pre><code>--- 670_run_efibootmgr.sh.orig  2025-04-23 21:20:10.992824491 +0200
++++ 670_run_efibootmgr.sh   2025-04-23 21:51:59.862882588 +0200
+@@ -76,6 +76,23 @@
+ # EFI\fedora\shim.efi
+ bootloader=$( echo $UEFI_BOOTLOADER | cut -d"/" -f4- | sed -e 's;/;\\;g' )
+
++if test "$GRUB2_INSTALL_DEVICES" ; then
++    if [[ $boot_efi_parts == "/dev/md0p"* ]]; then
++        partition_number=$( get_partition_number $boot_efi_parts )
++        for disk in $GRUB2_INSTALL_DEVICES; do
++            LogPrint "Creating  EFI Boot Manager entry '$OS_VENDOR $OS_VERSION' for '$bootloader' (UEFI_BOOTLOADER='$UEFI_BOOTLOADER') "
++            Log efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label \"${OS_VENDOR} ${OS_VERSION}\" --loader \"\\${bootloader}\"
++            if efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}" ; then
++                 # ok, boot loader has been set-up - continue with other disks (ESP can be on RAID)
++                 NOBOOTLOADER=''
++            else
++                 LogPrintError "efibootmgr failed to create EFI Boot Manager entry on $disk partition $partition_number (ESP $partition_block_device )"
++            fi
++        done
++        is_true $NOBOOTLOADER &amp;&amp; return 1 || return 0
++    fi
++fi
++
+ for efipart in $boot_efi_parts ; do
+     # /dev/sda1 or /dev/mapper/vol34_part2 or /dev/mapper/mpath99p4
+     partition_block_device=$( get_device_name $efipart )
+</code></pre>
+<p>Is it worth creating a PR from that?</p>
+<h4 id="jsmeix_commented_at_2025-04-24_0847"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2826838552">2025-04-24 08:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_0847" title="Permanent link">&para;</a></h4>
+<p>@sduehr</p>
+<p>thank you so much for your debugging<br />
+and even more for your enhancement to make it work!</p>
+<p>Yes, of course, please submit a pull request.</p>
+<p>It does not matter when it is not yet a perfect solution.<br />
+Compared to when something does not work,<br />
+anything which makes it work is a vital step forward.<br />
+From there on things can be further enhanced as needed.</p>
+<h4 id="jsmeix_commented_at_2025-05-12_0850"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2871556293">2025-05-12 08:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-12_0850" title="Permanent link">&para;</a></h4>
+<p>@sduehr @rear/contributors<br />
+via<br />
+<a href="https://github.com/rear/rear/pull/3471">https://github.com/rear/rear/pull/3471</a><br />
+I implemented what I wrote in<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2857379995">https://github.com/rear/rear/pull/3466#issuecomment-2857379995</a><br />
+and because for me on my particular test system it works OK<br />
+I would much appreciate it if you could test<br />
+<a href="https://github.com/rear/rear/pull/3471">https://github.com/rear/rear/pull/3471</a><br />
+(of course as time permits) and provide feedback<br />
+how it behaves for you in your environment.</p>
+<h4 id="pcahyna_commented_at_2025-05-15_1741"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2884599780">2025-05-15 17:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-15_1741" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>For RAID there is no automatism in ReaR to determine<br />
+on which devices the bootloader should be installed<br />
+so you need to tell ReaR the disk devices<br />
+where the bootloader should be installed</p>
+</blockquote>
+<p>There is an automatism created by yours truly - #2608, but it works
+only when each disk is independently partitioned and then the partitions
+(including the ESP) are combined into separate RAIDs (which is
+apparently the standard RAID install on Fedora-based distros). In this
+case we have a whole-disk RAID, which is apparently not supported by
+ReaR automatisms. I was able to install RHEL this way only via injecting
+some shell commands, at least when automating the installation with
+Kickstart. (I used this:</p>
+<pre><code>ignoredisk --only-use=Volume0|Volume0_0
+%pre --log=/dev/console
+mdadm --create /dev/md/Volume0 --name=Volume0 --metadata=1.0 --level raid1 --raid-disks=2 /dev/sda /dev/sdb
+mdadm --wait /dev/md/Volume0
+%end
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-06-12_1430"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3459#issuecomment-2967063762">2025-06-12 14:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-12_1430" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3471">https://github.com/rear/rear/pull/3471</a> merged<br />
+this issue is fixed so far that the user can now<br />
+manually specify what efibootmgr will create.</p>
+<p>For what is missing for a full automated proper solution see<br />
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2962009633">https://github.com/rear/rear/pull/3471#issuecomment-2962009633</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-22.3459.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

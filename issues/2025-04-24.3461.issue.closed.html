@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3461 Issue closed: LVM: 'use_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3461 Issue closed: LVM: \u0027use_lvmlockd = 1\u0027 in /etc/lvm/lvm.conf makes \"rear recover\" fail";
+        var mkdocs_page_input_path = "issues/2025-04-24.3461.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3461 Issue closed: LVM: 'use_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3461_issue_closed_lvm_use_lvmlockd_1_in_etclvmlvmconf_makes_rear_recover_fail"><a href="https://github.com/rear/rear/issues/3461">#3461 Issue</a> <code>closed</code>: LVM: 'use_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail<a class="headerlink" href="#3461_issue_closed_lvm_use_lvmlockd_1_in_etclvmlvmconf_makes_rear_recover_fail" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-04-24_1159"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3461">2025-04-24 11:59</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-04-24_1159" title="Permanent link">&para;</a></h4>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="is_your_feature_request_related_to_a_problem_please_describe">Is your feature request related to a problem? Please describe.<a class="headerlink" href="#is_your_feature_request_related_to_a_problem_please_describe" title="Permanent link">&para;</a></h3>
+<p>When on the original system the user has set<br />
+'use_lvmlockd = 1' in /etc/lvm/lvm.conf<br />
+(by default it is 'use_lvmlockd = 0')<br />
+the 'use_lvmlockd = 1' is also set in the ReaR recovery system<br />
+because the ReaR recovery system has a copy<br />
+of /etc/lvm/lvm.conf included.</p>
+<p>Because during "rear recover" lvmlockd is not running<br />
+it fails in diskrestore.sh during LVM setup with something like</p>
+<pre><code>+++ lvm pvcreate -ff --yes -v --uuid ... --restorefile ... /dev/vda2
+  WARNING: lvmlockd process is not running.
+  WARNING: Couldn't find device with uuid ...
+  Global lock failed: check that lvmlockd is running.
+++ ((  5 == 0  ))
+</code></pre>
+<p>(excerpt from /var/log/rear/rear-localhost.log in the ReaR recovery
+system)</p>
+<h3 id="describe_the_solution_youd_like">Describe the solution you'd like<a class="headerlink" href="#describe_the_solution_youd_like" title="Permanent link">&para;</a></h3>
+<p>I will check what could be done in the ReaR recovery system<br />
+to avoid this.</p>
+<p>Perhaps the 'pvcreate' option '--nolocking' may help?</p>
+<p>Perhaps changing /etc/lvm/lvm.conf in the ReaR recovery system<br />
+to contain 'use_lvmlockd = 0' is needed?</p>
+<h4 id="gdha_commented_at_2025-04-24_1347"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2827695097">2025-04-24 13:47</a>:<a class="headerlink" href="#gdha_commented_at_2025-04-24_1347" title="Permanent link">&para;</a></h4>
+<p>@jsmeix is the use case a cluster member?<br />
+I think only in these cases the lvmlockd is used.<br />
+I think we can force it to 0 in ReaR rescue mode.</p>
+<h4 id="jsmeix_commented_at_2025-04-24_1428"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2827858582">2025-04-24 14:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_1428" title="Permanent link">&para;</a></h4>
+<p>I don't know if the use case is a cluster member.</p>
+<p>From our SUSE internal customer issue report:</p>
+<pre><code>use_lvmlockd = 1 was set in /etc/lvm/lvm.conf
+when they configured shared storage in their system
+</code></pre>
+<p>I also don't know if shared storage is used.</p>
+<p>In general regarding lvmlockd:</p>
+<p>It seems ReaR does not support lvmlockd because<br />
+'lvmlockd' appears nowhere in ReaR as far as I see.</p>
+<p>I know nothing about cluster setup.<br />
+Is ReaR useful to recreate a cluster member?<br />
+If yes, would lvmlockd be needed during "rear recover"<br />
+when a cluster member should be recreated with ReaR?</p>
+<h4 id="jsmeix_commented_at_2025-04-24_1438"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2827889626">2025-04-24 14:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_1438" title="Permanent link">&para;</a></h4>
+<p>Using the LVM '--nolocking' option helps<br />
+but it would have to be specified<br />
+for various different LVM commands in<br />
+layout/prepare/GNU/Linux/110_include_lvm_code.sh<br />
+to avoid that the LVM commands fail with<br />
+<code>Global lock failed: check that lvmlockd is running.</code></p>
+<p>So I think it is better to enforce 'use_lvmlockd = 0'<br />
+in /etc/lvm/lvm.conf in the ReaR recovery system.</p>
+<p>For now the latter can be done by the user via</p>
+<pre><code>PRE_RECOVERY_SCRIPT=( 'sed -i -e "s/use_lvmlockd = 1/use_lvmlockd = 0/" /etc/lvm/lvm.conf' )
+</code></pre>
+<p>in his etc/rear/local.conf</p>
+<h4 id="gdha_commented_at_2025-04-24_1446"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2827914738">2025-04-24 14:46</a>:<a class="headerlink" href="#gdha_commented_at_2025-04-24_1446" title="Permanent link">&para;</a></h4>
+<p>Cluster members are using shared storage and are using these days
+lvmlockd as only 1 member can mount the shared devices as R/W (others
+could mount it R/O).<br />
+ReaR rescue does not need the lvmlockd in recovery mode. However, if it
+is a cluster member it would probably mean that the cluster is degraded
+and then the administrator must be careful not to overwrite any shared
+disk.<br />
+The question that pops up in my mind is should we not just exit in these
+cases? ReaR cannot know what the administrator wants to do or to destroy
+in such cases! We could give him a hint.</p>
+<h4 id="jsmeix_commented_at_2025-04-24_1502"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2827963309">2025-04-24 15:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_1502" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+thank you for your explanation why enforcing 'use_lvmlockd = 0'<br />
+in the ReaR recovery system could lead to an ultimate disaster<br />
+(i.e. "rear recover" may falsely overwrite a shared disk)<br />
+where actually 'use_lvmlockd = 1' is needed as protection.</p>
+<p>So as far as I currently understand things<br />
+it is good that during "rear recover" LVM commands fail<br />
+when 'use_lvmlockd = 1' is set on the original system.</p>
+<p>When the user knows that during "rear recover"<br />
+'use_lvmlockd = 0' is really the right thing, then he can<br />
+manually set this in his running ReaR recovery system<br />
+before he starts "rear recover".<br />
+Alternatively (on his own risk) he may even automate this<br />
+via something like</p>
+<pre><code>PRE_RECOVERY_SCRIPT=( 'sed -i -e "s/use_lvmlockd = 1/use_lvmlockd = 0/" /etc/lvm/lvm.conf' )
+</code></pre>
+<p>in his ReaR configuration.</p>
+<h4 id="jsmeix_commented_at_2025-04-25_1107"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2830111347">2025-04-25 11:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-25_1107" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/3461#issuecomment-2827914738">https://github.com/rear/rear/issues/3461#issuecomment-2827914738</a></p>
+<pre><code>The question ... is should we not just exit in these cases?
+ReaR cannot know what the administrator wants to do
+or to destroy in such cases!
+We could give him a hint.
+</code></pre>
+<p>During "rear recover" we exit already implicitly<br />
+(via various lvm setup failures in diskrestore.sh)<br />
+when 'use_lvmlockd = 1' is set in the ReaR recovery system.</p>
+<p>On the original system during "rear mkrescue/mkbackup"<br />
+when LVM is used and 'use_lvmlockd = 1' set<br />
+we should show a LogPrintError message<br />
+to inform the user that<br />
+'use_lvmlockd = 1' was found in /etc/lvm/lvm.conf<br />
+but recreating LVM things needs 'use_lvmlockd = 0'</p>
+<h4 id="jsmeix_commented_at_2025-04-25_1249"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2830341471">2025-04-25 12:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-25_1249" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3462">https://github.com/rear/rear/pull/3462</a><br />
+is a quick first attempt to implement<br />
+<a href="https://github.com/rear/rear/issues/3461#issuecomment-2830111347">https://github.com/rear/rear/issues/3461#issuecomment-2830111347</a></p>
+<h4 id="jsmeix_commented_at_2025-04-29_1210"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2838572248">2025-04-29 12:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-29_1210" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3462">https://github.com/rear/rear/pull/3462</a> merged<br />
+this issue should be sufficiently solved<br />
+at least for now, cf.<br />
+<a href="https://github.com/rear/rear/pull/3462#issuecomment-2830351430">https://github.com/rear/rear/pull/3462#issuecomment-2830351430</a></p>
+<h4 id="jsmeix_commented_at_2025-04-29_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3461#issuecomment-2838607357">2025-04-29 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-29_1221" title="Permanent link">&para;</a></h4>
+<p>For what I implemented see<br />
+<a href="https://github.com/rear/rear/commit/8eb9ea8cbc806d025c32cba640eb0d1c3c8f6093">https://github.com/rear/rear/commit/8eb9ea8cbc806d025c32cba640eb0d1c3c8f6093</a></p>
+<pre><code>In layout/save/GNU/Linux/220_lvm_layout.sh and
+in layout/prepare/GNU/Linux/110_include_lvm_code.sh
+check if 'use_lvmlockd = 1' is found in /etc/lvm/lvm.conf
+because recreating LVM things requires 'use_lvmlockd = 0'
+as there is no lvmlockd support in the ReaR recovery system
+so during "rear mkrescue/mkbackup" show LogPrintError to inform the user
+see https://github.com/rear/rear/issues/3461#issuecomment-2830111347
+and during "rear recover" Error out because 'lvm' commands
+in diskrestore.sh fail with 'use_lvmlockd = 1' in /etc/lvm/lvm.conf
+see https://github.com/rear/rear/pull/3462#issuecomment-2838222011
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-24.3461.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3466 PR closed: Fix calling efibootmgr on software RAID - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3466 PR closed: Fix calling efibootmgr on software RAID";
+        var mkdocs_page_input_path = "issues/2025-04-30.3466.pr.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3466 PR closed: Fix calling efibootmgr on software RAID</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3466_pr_closed_fix_calling_efibootmgr_on_software_raid"><a href="https://github.com/rear/rear/pull/3466">#3466 PR</a> <code>closed</code>: Fix calling efibootmgr on software RAID<a class="headerlink" href="#3466_pr_closed_fix_calling_efibootmgr_on_software_raid" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="sduehr_opened_issue_at_2025-04-30_1501"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> opened issue at <a href="https://github.com/rear/rear/pull/3466">2025-04-30 15:01</a>:<a class="headerlink" href="#sduehr_opened_issue_at_2025-04-30_1501" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):
+    <a href="https://github.com/rear/rear/issues/3459">https://github.com/rear/rear/issues/3459</a></p>
+</li>
+<li>
+<p>How was this pull request tested? Manually on OpenSUSE Leap 15.6</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>On a system with software RAID, it is not easily possible to determine
+the underlying disks automatically. The following makes use of
+GRUB2_INSTALL_DEVICES to determine the appropriate devices for calling
+efibootmgr, this requires for example the following configuration:
+GRUB2_INSTALL_DEVICES="/dev/nvme0n1 /dev/nvme0n2"<br />
+See issue #3459 for more details</p>
+<h4 id="jsmeix_commented_at_2025-04-30_1521"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2842358438">2025-04-30 15:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-30_1521" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+thank you for your improvement!</p>
+<p>Tomorrow is public holiday in Germany<br />
+and I am on vacation on Friday<br />
+so (hopefully) next week I can have a look...</p>
+<h4 id="jsmeix_commented_at_2025-05-06_0845"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2853742407">2025-05-06 08:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-06_0845" title="Permanent link">&para;</a></h4>
+<p>Regarding my above<br />
+<a href="https://github.com/rear/rear/pull/3466#discussion_r2073042135">https://github.com/rear/rear/pull/3466#discussion_r2073042135</a><br />
+(excerpt)</p>
+<pre><code>the current code
+
+partition_number=$( get_partition_number $boot_efi_parts )
+
+assigns what seems to be meant
+to be one singular number 'partition_number'
+from a variable which can have more than one value
+'boot_efi_parts' - note the plural 's'.
+So I wonder what 'partition_number' will become
+when 'boot_efi_parts' is several partitions with
+different partition numbers for example like
+
+/dev/md127p1 /dev/md128p2
+</code></pre>
+<p>I did a test on a VM with RAID1 which I already have<br />
+but that test VM has BIOS so I have no ESP to mount<br />
+but I could do the test with the root filesystem<br />
+in a GitHub master code clone after "rear mkrescue"<br />
+(to get the diskdeps.conf and disktodo.conf files)<br />
+and then I did the actual test within the ReaR shell:</p>
+<pre><code># git clone https://github.com/rear/rear.git
+
+# mv rear rear.github.master
+
+# cd rear.github.master
+
+# vi etc/rear/local.conf
+...
+
+# usr/sbin/rear -D mkrescue
+...
+
+# export LAYOUT_DEPS=/root/rear.github.master/var/lib/rear/layout/diskdeps.conf
+
+# export LAYOUT_TODO=/root/rear.github.master/var/lib/rear/layout/disktodo.conf
+
+# usr/sbin/rear shell
+
+REAR ... # boot_efi_parts=$( find_partition "fs:/" 'btrfsmountedsubvol fs' )
+
+REAR ... # echo "'$boot_efi_parts'"
+'/dev/md127p3
+/dev/md127p4'
+
+REAR ... # get_partition_number $boot_efi_parts
+3
+
+REAR ... # ( set -x ; get_partition_number $boot_efi_parts )
++ get_partition_number /dev/md127p3 /dev/md127p4
++ local partition_block_device=/dev/md127p3
+++ grep --color=auto -o -E '[0-9]+$'
+++ echo /dev/md127p3
++ local partition_number=3
++ test 3 -gt 0
++ test 3 -le 128
++ echo 3
+3
+
+REAR ... # ( set -x ; get_partition_number '/dev/md127p3 /dev/md127p4' )
++ get_partition_number '/dev/md127p3 /dev/md127p4'
++ local 'partition_block_device=/dev/md127p3 /dev/md127p4'
+++ grep --color=auto -o -E '[0-9]+$'
+++ echo '/dev/md127p3 /dev/md127p4'
++ local partition_number=4
++ test 4 -gt 0
++ test 4 -le 128
++ echo 4
+4
+
+REAR ... # get_partition_number "$boot_efi_parts"
+bash: test: too many arguments
+ERROR: 
+====================
+BUG in /root/rear.github.master/usr/share/rear/lib/layout-functions.sh line 11:
+Partition number '3
+4' of partition /dev/md127p3
+/dev/md127p4 is not a valid partition number.
+--------------------
+Please report it at https://github.com/rear/rear/issues
+and include all related parts from /root/rear.github.master/var/log/rear/rear-localhost.log
+preferably the whole debug information via 'rear -D shell'
+====================
+Some latest log messages since the last called script 998_dump_variables.sh:
+  2025-05-06 09:54:23.684387854 Finished running 'init' stage in 0 seconds
+  2025-05-06 09:54:23.687733321 Running shell workflow
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+===== Stack trace =====
+Trace 0: /root/rear.github.master/usr/share/rear/lib/layout-functions.sh:11 get_partition_number
+Trace 1: /root/rear.github.master/usr/share/rear/lib/_framework-setup-and-functions.sh:10 BugError
+=== End stack trace ===
+Aborting due to an error, check /root/rear.github.master/var/log/rear/rear-localhost.log for details
+Error exit of rear shell (PID 31960) and its descendant processes
+bash: kill: (1600) - No such process
+bash: kill: (1600) - No such process
+bash: test: too many arguments
+ERROR: 
+====================
+BUG in /root/rear.github.master/usr/share/rear/lib/layout-functions.sh line 35:
+Partition /dev/md127p3
+/dev/md127p4 is numbered '3
+4'. More than 128 partitions are not supported.
+--------------------
+Please report it at https://github.com/rear/rear/issues
+and include all related parts from /root/rear.github.master/var/log/rear/rear-localhost.log
+preferably the whole debug information via 'rear -D shell'
+====================
+Some latest log messages since the last called script 998_dump_variables.sh:
+                                Please report it at https://github.com/rear/rear/issues
+                                and include all related parts from /root/rear.github.master/var/log/rear/rear-localhost.log
+                                preferably the whole debug information via 'rear -D shell'
+                                ====================
+  2025-05-06 10:28:08.962743462 Error exit of rear shell (PID 31960) and its descendant processes
+  2025-05-06 10:28:08.979008571 bash,31960 --rcfile /root/rear.github.master/usr/share/rear/lib/rear-shell.bashrc -i
+                                  `-bash,1595 --rcfile /root/rear.github.master/usr/share/rear/lib/rear-shell.bashrc -i
+                                      `-pstree,1596 -Aplau 31960
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+===== Stack trace =====
+Trace 0: /root/rear.github.master/usr/share/rear/lib/layout-functions.sh:35 get_partition_number
+Trace 1: /root/rear.github.master/usr/share/rear/lib/_framework-setup-and-functions.sh:10 BugError
+=== End stack trace ===
+Aborting due to an error, check /root/rear.github.master/var/log/rear/rear-localhost.log for details
+Error exit of rear shell (PID 31960) and its descendant processes
+bash: kill: (1644) - No such process
+bash: kill: (1644) - No such process
+3 4
+
+REAR ... # exit
+exit
+Exiting rear shell (PID 31960) and its descendant processes ...
+bash: kill: (1679) - No such process
+Running exit tasks
+Exiting rear shell (PID 31138) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>So the current code somehow works by luck<br />
+or errors out by bad luck depending on<br />
+how get_partition_number() is called:</p>
+<p>It works for the intended cases like:<br />
+<code>get_partition_number /dev/md127p3</code> results '3'<br />
+<code>get_partition_number /dev/md127p4</code> results '4'</p>
+<p>It somehow works for some unintended cases like:<br />
+<code>get_partition_number /dev/md127p3 /dev/md127p4</code> results '3'<br />
+<code>get_partition_number '/dev/md127p3 /dev/md127p4'</code> results '4'</p>
+<p>It errors out for other unintended cases like:<br />
+<code>get_partition_number "$( echo -e '/dev/md127p3\n/dev/md127p4' )"</code></p>
+<h4 id="jsmeix_commented_at_2025-05-06_1211"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2854344384">2025-05-06 12:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-06_1211" title="Permanent link">&para;</a></h4>
+<p>@sduehr</p>
+<p>meanwhile I am wondering why the if clause</p>
+<pre><code>if [[ $boot_efi_parts == "/dev/md"*"p"* ]]; then
+  ...
+fi
+</code></pre>
+<p>is needed at all?</p>
+<p>When the disk devices for calling 'efibootmgr'<br />
+are specified by the user in GRUB2_INSTALL_DEVICES<br />
+then those devices should be "just used as specified"<br />
+to provide "final power to the user"<br />
+same as in finalize/Linux-i386/660_install_grub2.sh</p>
+<p>So I wonder why not simplify the code to</p>
+<pre><code># On a system with software RAID, it is not easily possible to determine the
+# underlying disks automatically. The following makes use of GRUB2_INSTALL_DEVICES
+# to determine the appropriate devices for calling efibootmgr, this requires for
+# example to add the following configuration:
+# GRUB2_INSTALL_DEVICES="/dev/nvme0n1 /dev/nvme0n2"
+# See also https://github.com/rear/rear/issues/3459
+if test "$GRUB2_INSTALL_DEVICES" ; then
+    # FIXME: See https://github.com/rear/rear/pull/3466#issuecomment-2853742407
+    partition_number=$( get_partition_number $boot_efi_parts )
+    for disk in $GRUB2_INSTALL_DEVICES; do
+        LogPrint "Creating  EFI Boot Manager entry '$OS_VENDOR $OS_VERSION' for '$bootloader' (UEFI_BOOTLOADER='$UEFI_BOOTLOADER') "
+        Log efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label \"${OS_VENDOR} ${OS_VERSION}\" --loader \"\\${bootloader}\"
+        if efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}" ; then
+             # ok, boot loader has been set-up - continue with other disks (ESP can be on RAID)
+             NOBOOTLOADER=''
+        else
+             LogPrintError "efibootmgr failed to create EFI Boot Manager entry on $disk partition $partition_number (ESP $partition_block_device )"
+        fi
+    done
+    is_true $NOBOOTLOADER &amp;&amp; return 1 || return 0
+fi
+</code></pre>
+<p>Meanwhile I also wonder if we should not better introduce<br />
+a separated user config variable EFIBOOTMGR_INSTALL_DEVICES<br />
+instead of misusing an existing user config variable<br />
+with misleading name because it is meant for GRUB2.<br />
+But this does not need to be done via this pull request.<br />
+Such cleanup can be done in a subsequent pull request<br />
+as long as we are in the ReaR 3.0 development phase.<br />
+As long as nothing is documented in default.conf<br />
+we can experiment what the best way is.</p>
+<h4 id="sduehr_commented_at_2025-05-06_1431"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2854798913">2025-05-06 14:31</a>:<a class="headerlink" href="#sduehr_commented_at_2025-05-06_1431" title="Permanent link">&para;</a></h4>
+<p>Sure, yes, to find a rather quick solution I kind of abused
+GRUB2_INSTALL_DEVICES. So obviously checking for <code>/dev/md*p*</code> is not a
+good idea, my idea was to detect software RAID like this and in that
+case assume that $boot_efi_parts contains only one element.</p>
+<p>Probably the approach you proposed introducing a new config variable
+EFIBOOTMGR_INSTALL_DEVICES makes more sense, I will create a new PR
+with that, then this one can just be dropped.</p>
+<h4 id="jsmeix_commented_at_2025-05-07_0713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2857379995">2025-05-07 07:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-07_0713" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+thank you for your efforts to provide a proper solution!</p>
+<p>With a new config variable EFIBOOTMGR_INSTALL_DEVICES<br />
+we are free to implement things as what works best<br />
+for the 'efibootmgr' case.</p>
+<p>I suggest to try to implement the 'efibootmgr' case<br />
+with EFIBOOTMGR_INSTALL_DEVICES basically same<br />
+as I did with GRUB2_INSTALL_DEVICES in<br />
+finalize/Linux-i386/660_install_grub2.sh<br />
+to provide "final power to the user" which means<br />
+that with EFIBOOTMGR_INSTALL_DEVICES there must not be<br />
+automatisms where results are out of the users's control,<br />
+instead with EFIBOOTMGR_INSTALL_DEVICES the user must<br />
+get full control what 'efibootmgr' will result.</p>
+<p>In current code of this PR 'efibootmgr' is called this way</p>
+<pre><code>efibootmgr --create --gpt --disk $disk --part $partition_number --write-signature --label "${OS_VENDOR} ${OS_VERSION}" --loader "\\${bootloader}"
+</code></pre>
+<p>where only <code>$disk</code> is under the users's control<br />
+via GRUB2_INSTALL_DEVICES.</p>
+<p>But <code>$partition_number</code> is under the control of an<br />
+unreliably working automatism because of</p>
+<pre><code>partition_number=$( get_partition_number $boot_efi_parts )
+</code></pre>
+<p>cf. <a href="https://github.com/rear/rear/pull/3466#issuecomment-2853742407">https://github.com/rear/rear/pull/3466#issuecomment-2853742407</a><br />
+and <code>$boot_efi_parts</code> is also determined by some automatism.</p>
+<p>It seems <code>$bootloader</code> is somewhat under the users's control<br />
+via UEFI_BOOTLOADER but indirectly via</p>
+<pre><code># UEFI_BOOTLOADER=/boot/efi/EFI/opensuse/shim.efi
+
+# bootloader=$( echo $UEFI_BOOTLOADER | cut -d"/" -f4- | sed -e 's;/;\\;g' )
+
+# echo "\\${bootloader}"
+\EFI\opensuse\shim.efi
+</code></pre>
+<p>but that seems to be sufficiently under the users's control.</p>
+<p>So <code>$partition_number</code> need to get under the users's control<br />
+when the user specifies EFIBOOTMGR_INSTALL_DEVICES.</p>
+<p>I assume that <code>$partition_number</code> must be the number of a<br />
+partition on the <code>$disk</code> which is used for 'efibootmgr'<br />
+but for a RAID1 of /dev/nvme0n1 and /dev/nvme0n2<br />
+there are no partition device nodes<br />
+like /dev/nvme0n1p1 and /dev/nvme0n2p1<br />
+cf. <a href="https://github.com/rear/rear/issues/3459#issuecomment-2824742925">https://github.com/rear/rear/issues/3459#issuecomment-2824742925</a></p>
+<p>So specifying partition device nodes like</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( /dev/nvme0n1p1 /dev/nvme0n2p1 )
+</code></pre>
+<p>and extracting <code>$disk</code> and <code>$partition_number</code> from them<br />
+looks somewhat wong.</p>
+<p>Perhaps it is sufficient in practice when usually<br />
+only disk device nodes need to be specified like</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( /dev/nvme0n1 /dev/nvme0n2 )
+</code></pre>
+<p>and then <code>$partition_number</code> defaults to '1'<br />
+(same as "man efibootmgr" tells)<br />
+which should work in very most cases<br />
+because usually the ESP is the first partition.</p>
+<p>And for exceptional cases it is also possible<br />
+to specify partition device nodes like</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( /dev/nvme0n1p2 /dev/nvme0n2p3 )
+</code></pre>
+<p>even if they do not actually exist and then <code>$disk</code> and<br />
+<code>$partition_number</code> get somehow extracted from them<br />
+and 'efibootmgr' gets called two times as</p>
+<pre><code>efibootmgr ... --disk /dev/nvme0n1 --part 2 ...
+</code></pre>
+<p>and</p>
+<pre><code>efibootmgr ... --disk /dev/nvme0n2 --part 3 ...
+</code></pre>
+<p>according to what user had specified which<br />
+provides "final power to the user" which also means<br />
+that ReaR has to obey what the user had specified.</p>
+<p>Regarding<br />
+"<code>$disk</code> and <code>$partition_number</code> get somehow extracted":</p>
+<p>Perhaps it is better to use a specific separator character<br />
+how an optional partition number can be appended<br />
+to a disk device, e.g. with a colon as separator character</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( /dev/nvme0n1:2 /dev/nvme0n2:3 )
+</code></pre>
+<p>to make it unambiguous whether or not<br />
+an optional partition number is appended.</p>
+<p>Alternatively when EFIBOOTMGR_INSTALL_DEVICES is an array<br />
+we can use strings of words as array elements like</p>
+<pre><code>EFIBOOTMGR_INSTALL_DEVICES=( '/dev/nvme0n1 2' '/dev/nvme0n2 3' )
+</code></pre>
+<p>to append an optional partition number.</p>
+<p>In general I would recommend to use arrays for variables<br />
+which can contain more than one value.</p>
+<h4 id="jsmeix_commented_at_2025-05-08_0740"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2862084117">2025-05-08 07:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-08_0740" title="Permanent link">&para;</a></h4>
+<p>@sduehr<br />
+if what I wrote in<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2857379995">https://github.com/rear/rear/pull/3466#issuecomment-2857379995</a><br />
+looks strange to you<br />
+and/or if you don't find time to implement it,<br />
+I could try to implement what I mean with<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2857379995">https://github.com/rear/rear/pull/3466#issuecomment-2857379995</a><br />
+probably next week - as time permits.</p>
+<h4 id="jsmeix_commented_at_2025-05-09_0714"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2865414466">2025-05-09 07:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_0714" title="Permanent link">&para;</a></h4>
+<p>When Linux kernel RAID1 is used I am wondering<br />
+if it is correct at all to install the bootloader<br />
+on each of the RAID1 member disks.</p>
+<p>I am neither a RAID expert nor a bootloader expert<br />
+so my following reasoning could be plain wrong.</p>
+<p>My reasoning as far as I can imagine things is:</p>
+<p>When Linux kernel RAID1 is used for two whole disks,<br />
+then the whole disks are RAID1 members<br />
+and both whole disks get combined into<br />
+a single RAID1 block device<br />
+so both RAID1 member disks become a single RAID1 disk<br />
+and on that RAID1 disk partitions get created.</p>
+<p>'lsblk' shows this like (on my current RAID1 test VM)</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS /dev/vda /dev/vdb
+NAME             TRAN   TYPE  FSTYPE            LABEL        SIZE MOUNTPOINTS
+/dev/vda         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+/dev/vdb         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+</code></pre>
+<p>In particular there are no partition device nodes<br />
+on the RAID1 member disks</p>
+<pre><code># ls -l /dev/vd*
+brw-rw---- 1 root disk 254,  0 May  9 08:32 /dev/vda
+brw-rw---- 1 root disk 254, 16 May  9 08:32 /dev/vdb
+</code></pre>
+<p>which is correct because the partitions<br />
+are on the RAID1 disk /dev/md127</p>
+<pre><code># ls -l /dev/md127*
+brw-rw---- 1 root disk   9, 127 May  9 08:32 /dev/md127
+brw-rw---- 1 root disk 259,   0 May  9 08:32 /dev/md127p1
+brw-rw---- 1 root disk 259,   1 May  9 08:32 /dev/md127p2
+brw-rw---- 1 root disk 259,   2 May  9 08:32 /dev/md127p3
+</code></pre>
+<p>and this is also same in disklayout.conf</p>
+<pre><code># grep -v '^#' var/lib/rear/layout/disklayout.conf | cut -b-140
+disk /dev/vda 10737418240 gpt
+disk /dev/vdb 10737418240 gpt
+raidarray /dev/md127 level=raid1 raid-devices=2 devices=/dev/vda,/dev/vdb name=myRAID1 metadata=1.0 uuid=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+raiddisk /dev/md127 10737287168 gpt
+part /dev/md127 922746880 1048576 rear-noname boot,esp /dev/md127p1
+part /dev/md127 8589934592 923795456 rear-noname none /dev/md127p2
+part /dev/md127 1078051328 9513730048 rear-noname swap /dev/md127p3
+fs /dev/md127p1 /boot/efi vfat uuid=4D3E-73EE label= options=rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mi
+fs /dev/md127p2 / ext4 uuid=2e1395b7-db94-471d-920e-09531ac1b8c9 label= blocksize=4096 reserved_blocks=4% max_mounts=-1 check_interval=0d by
+swap /dev/md127p3 uuid=779b25f1-046a-4caf-90a7-5b457517b038 label=
+</code></pre>
+<p>The Linux kernel RAID1 ensures that<br />
+the data on both RAID1 member disks is same.<br />
+Here I checked only the first GiB which contains<br />
+in particular the primary GPT and the ESP:</p>
+<pre><code># dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+689963008 bytes (690 MB, 658 MiB) copied, 1 s, 676 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.73144 s, 620 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+897581056 bytes (898 MB, 856 MiB) copied, 2 s, 449 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 2.49388 s, 431 MB/s
+
+# ls -l vd*
+-rw-r--r-- 1 root root 1073741824 May  9 08:45 vda.1GiB
+-rw-r--r-- 1 root root 1073741824 May  9 08:45 vdb.1GiB
+
+# diff -s vda.1GiB vdb.1GiB
+Files vda.1GiB and vdb.1GiB are identical
+</code></pre>
+<p>So I think when Linux kernel RAID1 is used<br />
+the correct way how to install the bootloader is<br />
+to "simply" install the bootloader on the RAID1 disk and<br />
+rely on the Linux kernel RAID1 to do its job to ensure<br />
+the bootloader gets same on both RAID1 member disks<br />
+so that the system can be booted same from each one<br />
+of the two RAID1 member disks, in particular also<br />
+when one of the two RAID1 member disks fails.</p>
+<h4 id="jsmeix_commented_at_2025-05-09_1052"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2866102295">2025-05-09 10:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-09_1052" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3471">https://github.com/rear/rear/pull/3471</a><br />
+is my first attempt to implement what I wrote above in<br />
+<a href="https://github.com/rear/rear/pull/3466#issuecomment-2857379995">https://github.com/rear/rear/pull/3466#issuecomment-2857379995</a></p>
+<h4 id="pcahyna_commented_at_2025-05-15_1730"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2884571207">2025-05-15 17:30</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-05-15_1730" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>When Linux kernel RAID1 is used I am wondering if it is correct at all
+to install the bootloader on each of the RAID1 member disks.</p>
+<p>I am neither a RAID expert nor a bootloader expert so my following
+reasoning could be plain wrong.</p>
+<p>My reasoning as far as I can imagine things is:</p>
+<p>When Linux kernel RAID1 is used for two whole disks, then the whole
+disks are RAID1 members and both whole disks get combined into a
+single RAID1 block device so both RAID1 member disks become a single
+RAID1 disk and on that RAID1 disk partitions get created.</p>
+<p>'lsblk' shows this like (on my current RAID1 test VM)</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINTS /dev/vda /dev/vdb
+NAME             TRAN   TYPE  FSTYPE            LABEL        SIZE MOUNTPOINTS
+/dev/vda         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+/dev/vdb         virtio disk  linux_raid_member any:myRAID1   10G 
+`-/dev/md127            raid1                                 10G 
+  |-/dev/md127p1        part  vfat                           880M /boot/efi
+  |-/dev/md127p2        part  ext4                             8G /
+  `-/dev/md127p3        part  swap                             1G [SWAP]
+</code></pre>
+<p>In particular there are no partition device nodes on the RAID1 member
+disks</p>
+<pre><code># ls -l /dev/vd*
+brw-rw---- 1 root disk 254,  0 May  9 08:32 /dev/vda
+brw-rw---- 1 root disk 254, 16 May  9 08:32 /dev/vdb
+</code></pre>
+<p>which is correct because the partitions are on the RAID1 disk
+/dev/md127</p>
+<pre><code># ls -l /dev/md127*
+brw-rw---- 1 root disk   9, 127 May  9 08:32 /dev/md127
+brw-rw---- 1 root disk 259,   0 May  9 08:32 /dev/md127p1
+brw-rw---- 1 root disk 259,   1 May  9 08:32 /dev/md127p2
+brw-rw---- 1 root disk 259,   2 May  9 08:32 /dev/md127p3
+</code></pre>
+<p>and this is also same in disklayout.conf</p>
+<pre><code># grep -v '^#' var/lib/rear/layout/disklayout.conf | cut -b-140
+disk /dev/vda 10737418240 gpt
+disk /dev/vdb 10737418240 gpt
+raidarray /dev/md127 level=raid1 raid-devices=2 devices=/dev/vda,/dev/vdb name=myRAID1 metadata=1.0 uuid=68d5e836:0f5d6359:f8e5bd03:6a69a1a1
+raiddisk /dev/md127 10737287168 gpt
+part /dev/md127 922746880 1048576 rear-noname boot,esp /dev/md127p1
+part /dev/md127 8589934592 923795456 rear-noname none /dev/md127p2
+part /dev/md127 1078051328 9513730048 rear-noname swap /dev/md127p3
+fs /dev/md127p1 /boot/efi vfat uuid=4D3E-73EE label= options=rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mi
+fs /dev/md127p2 / ext4 uuid=2e1395b7-db94-471d-920e-09531ac1b8c9 label= blocksize=4096 reserved_blocks=4% max_mounts=-1 check_interval=0d by
+swap /dev/md127p3 uuid=779b25f1-046a-4caf-90a7-5b457517b038 label=
+</code></pre>
+<p>The Linux kernel RAID1 ensures that the data on both RAID1 member
+disks is same. Here I checked only the first GiB which contains in
+particular the primary GPT and the ESP:</p>
+<pre><code># dd if="/dev/vda" of=vda.1GiB bs=1M count=1024 status=progress
+689963008 bytes (690 MB, 658 MiB) copied, 1 s, 676 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 1.73144 s, 620 MB/s
+
+# dd if="/dev/vdb" of=vdb.1GiB bs=1M count=1024 status=progress
+897581056 bytes (898 MB, 856 MiB) copied, 2 s, 449 MB/s
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 2.49388 s, 431 MB/s
+
+# ls -l vd*
+-rw-r--r-- 1 root root 1073741824 May  9 08:45 vda.1GiB
+-rw-r--r-- 1 root root 1073741824 May  9 08:45 vdb.1GiB
+
+# diff -s vda.1GiB vdb.1GiB
+Files vda.1GiB and vdb.1GiB are identical
+</code></pre>
+<p>So I think when Linux kernel RAID1 is used the correct way how to
+install the bootloader is to "simply" install the bootloader on the
+RAID1 disk and rely on the Linux kernel RAID1 to do its job to ensure
+the bootloader gets same on both RAID1 member disks so that the system
+can be booted same from each one of the two RAID1 member disks, in
+particular also when one of the two RAID1 member disks fails.</p>
+</blockquote>
+<p>That's my conclusion as well, see
+<a href="https://github.com/rear/rear/pull/3471#issuecomment-2884527473">https://github.com/rear/rear/pull/3471#issuecomment-2884527473</a> . Note
+though that <code>efibootmgr</code> does not install anything, it merely tells the
+firmware which partition to boot from. This actually works, as the
+partition is identified by its GUID, not by some hardware identifier,
+and the GUID is stored in the disk data. For other firmware approaches,
+this would not have worked (one that we actually support is
+OpenFirmware, where the disks are identified by their hardware paths,
+and thus one needs to tell the firmware to try booting from both
+component disks, as shown by #1887 (although that was for multipaths,
+the idea is the same)).</p>
+<h4 id="sduehr_commented_at_2025-05-19_1738"><img src="https://avatars.githubusercontent.com/u/3259104?u=70053ff39baf69ee61a090fbf84932917e7cb09a&v=4" width="50"><a href="https://github.com/sduehr">sduehr</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2891797064">2025-05-19 17:38</a>:<a class="headerlink" href="#sduehr_commented_at_2025-05-19_1738" title="Permanent link">&para;</a></h4>
+<p>PR #3471 looks good, thanks. I think we don't need this one any more.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_0857"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3466#issuecomment-2893540014">2025-05-20 08:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_0857" title="Permanent link">&para;</a></h4>
+<p>This one is superseded by<br />
+<a href="https://github.com/rear/rear/pull/3471">https://github.com/rear/rear/pull/3471</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-30.3466.pr.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

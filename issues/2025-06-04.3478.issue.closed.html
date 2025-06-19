@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3478 Issue closed: umount fails because target is in use by realtime antivirus scanner - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3478 Issue closed: umount fails because target is in use by realtime antivirus scanner";
+        var mkdocs_page_input_path = "issues/2025-06-04.3478.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3478 Issue closed: umount fails because target is in use by realtime antivirus scanner</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3478_issue_closed_umount_fails_because_target_is_in_use_by_realtime_antivirus_scanner"><a href="https://github.com/rear/rear/issues/3478">#3478 Issue</a> <code>closed</code>: umount fails because target is in use by realtime antivirus scanner<a class="headerlink" href="#3478_issue_closed_umount_fails_because_target_is_in_use_by_realtime_antivirus_scanner" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code>,
+<code>external tool</code>, <code>not ReaR / invalid</code></p>
+<h4 id="damm620_opened_issue_at_2025-06-04_1010"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> opened issue at <a href="https://github.com/rear/rear/issues/3478">2025-06-04 10:10</a>:<a class="headerlink" href="#damm620_opened_issue_at_2025-06-04_1010" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.7 / Git</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Hi,</p>
+<p>executing this on efi servers resolves in this error:</p>
+<pre><code>sudo TMPDIR=/tmp /usr/sbin/rear mkrescue
+Failed to copy all contents of /lib/modules/5.14.0-570.el9.x86_64 (dangling symlinks could be a reason)
+/usr/lib64/systemd/libsystemd-core-252.so requires additional libraries
+        libsystemd-shared-252.so =&gt; not found
+ReaR recovery system in '/tmp/rear.qkdqeKaa0Ccz6BZ/rootfs' needs additional libraries, check /var/log/rear/rear-exunxlvj19302.log for details
+Failed to 'rm -Rf --one-file-system /tmp/rear.qkdqeKaa0Ccz6BZ/tmp'
+Could not remove build area /tmp/rear.qkdqeKaa0Ccz6BZ (something still exists therein)
+Something is still mounted within the build area
+  /tmp/rear.qkdqeKaa0Ccz6BZ/tmp/isofs/boot/efiboot.img (deleted) on /tmp/rear.qkdqeKaa0Ccz6BZ/tmp/efi_virt type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro)
+You must manually umount it, then you could manually remove the build area
+To manually remove the build area use (with caution): rm -Rf --one-file-system /tmp/rear.qkdqeKaa0Ccz6BZ
+</code></pre>
+<p>I cannot remove it myself:</p>
+<pre><code>rm -Rf --one-file-system /tmp/rear.qkdqeKaa0Ccz6BZ/tmp
+rm: cannot remove '/tmp/rear.qkdqeKaa0Ccz6BZ/tmp': Permission denied
+
+
+sudo rm -Rf --one-file-system /tmp/rear.qkdqeKaa0Ccz6BZ/tmp
+rm: skipping '/tmp/rear.qkdqeKaa0Ccz6BZ/tmp/efi_virt', since it's on a different device
+</code></pre>
+<p>But I umount <code>/tmp/rear.qkdqeKaa0Ccz6BZ/tmp/efi_virt</code>.</p>
+<p>In my opinion these lines in
+<code>/usr/share/rear/lib/_input-output-functions.sh</code> are responsable for
+this:</p>
+<pre><code>function cleanup_build_area_and_end_program () {
+    # Cleanup build area
+    local mounted_in_BUILD_DIR
+    Log "Finished $PROGRAM $WORKFLOW in $(( $( date +%s ) - START_SECONDS )) seconds"
+    # is_true is in lib/global-functions.sh which is not yet sourced in case of early Error() in usr/sbin/rear
+    if has_binary is_true &amp;&amp; is_true "$KEEP_BUILD_DIR" ; then
+        mounted_in_BUILD_DIR="$( mount | grep "$BUILD_DIR" | sed -e 's/^/  /' )"
+        if test "$mounted_in_BUILD_DIR" ; then
+            LogPrintError "Caution - there is something mounted within the build area"
+            LogPrintError "$mounted_in_BUILD_DIR"
+            LogPrintError "You must manually umount that before you may remove the build area"
+        fi
+        # Show this message also inside the recovery system (e.g. at the end of "rear -D recover")
+        # because there may be a reason why manually removing the build area is wanted
+        # (e.g. some additional manual things need be done before rebooting).
+        # In any case one must be careful if one wants to remove the build area because
+        # e.g. the NFS share with the backup.tar.gz may still be erroneously mounted therein.
+        LogPrint "To remove the build area you may use (with caution): rm -Rf --one-file-system $BUILD_DIR"
+    else
+        Log "Removing build area $BUILD_DIR"
+        # Use '--one-file-system' to be safe against also deleting by accident
+        # all mounted things below mountpoints in TMP_DIR or ROOTFS_DIR
+        # (regardless if mountpoints in TMP_DIR or ROOTFS_DIR may happen):
+        rm -Rf --one-file-system $TMP_DIR || LogPrintError "Failed to 'rm -Rf --one-file-system $TMP_DIR'"
+        rm -Rf --one-file-system $ROOTFS_DIR || LogPrintError "Failed to 'rm -Rf --one-file-system $ROOTFS_DIR'"
+        # Before removing BUILD_DIR check that outputfs is gone (i.e. check that nothing is mounted there):
+        if mountpoint -q "$BUILD_DIR/outputfs" ; then
+            # If still mounted wait a bit (perhaps some ongoing umount needs more time) then try lazy umount:
+            sleep 2
+            # umount_mountpoint_lazy is in lib/global-functions.sh
+            # which is not yet sourced in case of early Error() in usr/sbin/rear
+            has_binary umount_mountpoint_lazy &amp;&amp; umount_mountpoint_lazy $BUILD_DIR/outputfs
+        fi
+        # remove_temporary_mountpoint is in lib/global-functions.sh
+        # which is not yet sourced in case of early Error() in usr/sbin/rear
+        if has_binary remove_temporary_mountpoint ; then
+            # It is a bug in ReaR if BUILD_DIR/outputfs was not properly umounted and made empty by the scripts before:
+            remove_temporary_mountpoint "$BUILD_DIR/outputfs" || BugError "Directory $BUILD_DIR/outputfs not empty, cannot remove"
+        fi
+        if ! rmdir $v "$BUILD_DIR" ; then
+            LogPrintError "Could not remove build area $BUILD_DIR (something still exists therein)"
+            mounted_in_BUILD_DIR="$( mount | grep "$BUILD_DIR" | sed -e 's/^/  /' )"
+            if test "$mounted_in_BUILD_DIR" ; then
+                LogPrintError "Something is still mounted within the build area"
+                LogPrintError "$mounted_in_BUILD_DIR"
+                LogPrintError "You must manually umount it, then you could manually remove the build area"
+            fi
+            LogPrintError "To manually remove the build area use (with caution): rm -Rf --one-file-system $BUILD_DIR"
+        fi
+    fi
+    Log "End of program '$PROGRAM' reached"
+}
+</code></pre>
+<p>It seems that the code is trying to remove the mount without trying to
+umount it first?<br />
+Did I miss here something or is this a bug?</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>SUSE Linux Enterprise Server 15 SP6</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>TSM</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="jsmeix_commented_at_2025-06-04_1116"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2939629963">2025-06-04 11:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-04_1116" title="Permanent link">&para;</a></h4>
+<p>Because of</p>
+<pre><code>/tmp/rear.qkdqeKaa0Ccz6BZ/tmp/isofs/boot/efiboot.img (deleted) on /tmp/rear.qkdqeKaa0Ccz6BZ/tmp/efi_virt type vfat
+</code></pre>
+<p>this one is likely a duplicate of<br />
+<a href="https://github.com/rear/rear/issues/2908">https://github.com/rear/rear/issues/2908</a><br />
+which I fixed first by<br />
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a><br />
+only for OUTPUT=ISO<br />
+and meanwhile both for OUTPUT=ISO and OUTPUT=USB by<br />
+<a href="https://github.com/rear/rear/pull/3408">https://github.com/rear/rear/pull/3408</a></p>
+<p>ReaR 2.7 does not contain those fixes.</p>
+<p>The issue is no bug in ReaR because nowadays<br />
+a simple and straightforward sequence of commands like</p>
+<pre><code># mount /dev/something /mountpoint
+# cp /some/file /mountpoint
+# umount /mountpoint
+</code></pre>
+<p>does sometimes no longer work reliably because nowadays<br />
+umount may fail in such cases with "target is busy", cf.<br />
+<a href="https://github.com/rear/rear/issues/2908#issuecomment-1378811748">https://github.com/rear/rear/issues/2908#issuecomment-1378811748</a></p>
+<p>Via<br />
+<a href="https://github.com/rear/rear/pull/2909">https://github.com/rear/rear/pull/2909</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3408">https://github.com/rear/rear/pull/3408</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3447">https://github.com/rear/rear/pull/3447</a><br />
+we at ReaR upstream try to make ReaR somehow deal<br />
+with nowadays more and more unpredictable behaviour<br />
+of low level basic system stuff, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#dirty-hacks-welcome">https://github.com/rear/rear/wiki/Coding-Style#dirty-hacks-welcome</a></p>
+<p>The correct fix would be that basic things like</p>
+<pre><code># mount /dev/something /mountpoint
+# cp /some/file /mountpoint
+# umount /mountpoint
+</code></pre>
+<p>work reliable.</p>
+<p>My blind guess why it nowadays sometimes fails<br />
+is something in the kernel area.<br />
+Perhaps related to the VFAT filesystem because<br />
+as far as I noticed from user reports here at ReaR upstream<br />
+umount only fails when a VFAT filesystem is mounted.</p>
+<h4 id="damm620_commented_at_2025-06-04_1124"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2939651228">2025-06-04 11:24</a>:<a class="headerlink" href="#damm620_commented_at_2025-06-04_1124" title="Permanent link">&para;</a></h4>
+<p>thanks for the references to the fixes!</p>
+<h4 id="jsmeix_commented_at_2025-06-04_1210"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2939795195">2025-06-04 12:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-04_1210" title="Permanent link">&para;</a></h4>
+<p>@damm620<br />
+I think the simplest "fix" in ReaR 2.7<br />
+is when you add in<br />
+output/ISO/Linux-i386/700_create_efibootimg.sh<br />
+something like <code>sleep 3</code> or <code>sleep 1</code><br />
+before the 'umount' line so that it looks like</p>
+<pre><code># Copy files from staging directory into efiboot.img
+cp $v -r $TMP_DIR/mnt/. $TMP_DIR/efi_virt
+sleep 3
+umount $v $TMP_DIR/efiboot.img
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh#L46">https://github.com/rear/rear/blob/rear-2.7/usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh#L46</a></p>
+<p>Cf.<br />
+<a href="https://github.com/rear/rear/issues/3397#issuecomment-2656838638">https://github.com/rear/rear/issues/3397#issuecomment-2656838638</a><br />
+where <code>sleep</code> helped in the OUTPUT=USB case.</p>
+<p>In this issue see also<br />
+<a href="https://github.com/rear/rear/issues/3397#issuecomment-2685552225">https://github.com/rear/rear/issues/3397#issuecomment-2685552225</a></p>
+<p>I wrote "fix" above because obviously <code>sleep</code> cannot<br />
+actually fix the root cause - but when <code>sleep</code> helps<br />
+to avoid the issue sufficiently well in practice,<br />
+then such a band-aid is a "fix" to a certain extent.</p>
+<h4 id="damm620_commented_at_2025-06-04_1311"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2939987416">2025-06-04 13:11</a>:<a class="headerlink" href="#damm620_commented_at_2025-06-04_1311" title="Permanent link">&para;</a></h4>
+<p>Update:<br />
+We found out, that our Realtime Antivirus Scanner interfered here with
+the umount, so that the "target was busy".<br />
+We are now thinking about a umount-loop in
+<code>usr/share/rear/output/ISO/Linux-i386/700_create_efibootimg.sh</code> to try
+umounting it until it is not busy.</p>
+<h4 id="jsmeix_commented_at_2025-06-05_0707"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943009618">2025-06-05 07:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_0707" title="Permanent link">&para;</a></h4>
+<p>@damm620</p>
+<p>thank you for your interesting information!</p>
+<p>Perhaps there is no bug at all and umount, kernel, VFAT filesystem,...<br />
+all work as they should and all the cases where that umount failed<br />
+in ReaR behave correctly.</p>
+<p>It is important for us at ReaR upstream to better understand<br />
+such issues as a whole i.e. including the whole environment.</p>
+<p>For example when there is a Realtime Antivirus Scanner running<br />
+it is its job to do continuous realtime scanning so mounted<br />
+things will get scanned and they have to be scanned because<br />
+the admin of the system explicitly wanted it to be this way.</p>
+<p>So ReaR has no right for example to kill a non-ReaR process<br />
+which got in its way, e.g. some realtime scanning process,<br />
+to make ReaR's umount command succeed by brute force,<br />
+because then ReaR would work against what the admin<br />
+of the system had explicitly set up.<br />
+Cf. my<br />
+<a href="https://github.com/rear/rear/pull/3447#issuecomment-2789658854">https://github.com/rear/rear/pull/3447#issuecomment-2789658854</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3447#discussion_r2077472659">https://github.com/rear/rear/pull/3447#discussion_r2077472659</a></p>
+<p>See also<br />
+<a href="https://github.com/rear/rear/issues/3410">https://github.com/rear/rear/issues/3410</a><br />
+where CrowdStrike Falcon (used as AV solution) caused issues in ReaR<br />
+where I wrote in<br />
+<a href="https://github.com/rear/rear/issues/3410#issuecomment-2690634795">https://github.com/rear/rear/issues/3410#issuecomment-2690634795</a></p>
+<pre><code>we should not even try to work around
+or against CrowdStrike Falcon in ReaR
+</code></pre>
+<p>When the admin of a system has set up things which cause issues in
+ReaR<br />
+then it is first and foremost the admin's task to find a solution<br />
+but it is not ReaR's task to do "whatever it takes" in the admin's
+system<br />
+to enforce that ReaR succeeds.</p>
+<h4 id="jsmeix_commented_at_2025-06-05_0802"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943159378">2025-06-05 08:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_0802" title="Permanent link">&para;</a></h4>
+<p>Regarding a umount-loop to umount it when is no longer busy:</p>
+<p>This would delay ReaR until it is no longer busy,<br />
+unless the umount-loop is implemented as background process<br />
+but then the umount-loop background process would get SIGKILL<br />
+when ReaR finishes so it may not get umounted.</p>
+<p>I think a lazy umount is better because (as far as I understand
+things)<br />
+a lazy umount is pending as long as needed until is no longer busy.</p>
+<h4 id="damm620_commented_at_2025-06-05_0807"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943175720">2025-06-05 08:07</a>:<a class="headerlink" href="#damm620_commented_at_2025-06-05_0807" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Regarding a umount-loop to umount it when is no longer busy:</p>
+<p>This would delay ReaR until it is no longer busy, unless the
+umount-loop is implemented as background process but then the
+umount-loop background process would get SIGKILL when ReaR finishes so
+it may not get umounted.</p>
+<p>I think a lazy umount is better because (as far as I understand
+things) a lazy umount is pending as long as needed until is no longer
+busy.</p>
+</blockquote>
+<p>Well a <code>umount -l</code> would wait endlessly (or a very long time to say the
+least) as the umount loop would try to umount and wait 1 second and this
+10 times. So that will "only" delay 10 seconds max.<br />
+Of cause this is not feasable for upstream, but in our environemnt this
+does make a lot of sence in my opinion.</p>
+<p>Thanks for your help here :)</p>
+<h4 id="jsmeix_commented_at_2025-06-05_1143"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943851801">2025-06-05 11:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_1143" title="Permanent link">&para;</a></h4>
+<p>Ah! Now I do better understand.</p>
+<p>So the "umount-loop ... try umounting it until it is not busy"<br />
+which loops unlimited "until it is not busy" changed into a<br />
+limited amount of retries to umount it.</p>
+<p>But what happens when the last umount retry still fails?</p>
+<p>Is the issue then ignored (i.e. it will not get umounted)?</p>
+<p>Or will then ReaR (because that loop is run by ReaR)<br />
+"get angry" and do "whatever it takes" to get that thingy<br />
+(i.e. what keeps the mount target in use) out of the way<br />
+by more and more forceful strikes against that thingy,<br />
+for example strikes like</p>
+<ul>
+<li>SIGTERM to non-ReaR processes</li>
+<li>SIGKILL to non-ReaR processes</li>
+<li>system reboot ;-)</li>
+<li>whatnot... ?</li>
+</ul>
+<p>When a program runs as 'root'<br />
+those who make that program have basically unlimited power<br />
+what happens on the system of the user who runs their program<br />
+so for those who make such a program this is mandatory:<br />
+"With great power comes great responsibility"<br />
+<a href="https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility">https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility</a></p>
+<p>Ob the other hand:<br />
+A system admin (i.e. a user who can log in as 'root') can do<br />
+whatever he thinks is appropriate in his specific case<br />
+on his particular system.<br />
+Therefore ReaR is intentionally written in the native language<br />
+for system administration as shell (bash) scripts because<br />
+ReaR is meant to be adapted and/or extended by the admin<br />
+as needed to make things work for his specific use case.</p>
+<h4 id="damm620_commented_at_2025-06-05_1208"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943942969">2025-06-05 12:08</a>:<a class="headerlink" href="#damm620_commented_at_2025-06-05_1208" title="Permanent link">&para;</a></h4>
+<p>If the umount loop still cannot umount the mount after 10 trys or so it
+will continue with the "rest of the rear workflow". That will result in
+the error when ReaR ends, but thats okay. Because when umounting it 10
+times does not work, there should be a admin present checking on what
+going on i think.</p>
+<h4 id="jsmeix_commented_at_2025-06-05_1300"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2944200912">2025-06-05 13:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_1300" title="Permanent link">&para;</a></h4>
+<p>Yes, this looks very reasonable<br />
+(at least for your particular use case).</p>
+<p>Perhaps when the umount loop cannot umount<br />
+do a lazy umount call as last thing and then<br />
+continue with the "rest of the rear workflow"<br />
+because this way it could umount "by the way"<br />
+while the "rest of the rear workflow" is running<br />
+so when ReaR ends it could be already umounted<br />
+and the error at ReaR's end could be avoided.</p>
+<p>I.e. when in your particular case<br />
+your Realtime Antivirus Scanner finished<br />
+while the "rest of the rear workflow" is running<br />
+then a pending lazy umount should umount it<br />
+so it could be umounted before ReaR ends.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-06-04.3478.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
