@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3259 Issue closed: ReaR must not carelessly 'source' files - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3259 Issue closed: ReaR must not carelessly \u0027source\u0027 files";
+        var mkdocs_page_input_path = "issues/2024-06-21.3259.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3259 Issue closed: ReaR must not carelessly 'source' files</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3259_issue_closed_rear_must_not_carelessly_source_files"><a href="https://github.com/rear/rear/issues/3259">#3259 Issue</a> <code>closed</code>: ReaR must not carelessly 'source' files<a class="headerlink" href="#3259_issue_closed_rear_must_not_carelessly_source_files" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>fixed / solved / done</code>,
+<code>severe improvement</code></p>
+<h4 id="jsmeix_opened_issue_at_2024-06-21_0515"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3259">2024-06-21 05:15</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2024-06-21_0515" title="Permanent link">&para;</a></h4>
+<p>See<br />
+<a href="https://github.com/rear/rear/pull/3203#issuecomment-2063439858">https://github.com/rear/rear/pull/3203#issuecomment-2063439858</a><br />
+(some cases are clear like 'source default.conf'<br />
+but some cases look rather obscure)</p>
+<p>An attempt to generically mitigate it was not accepted, see<br />
+<a href="https://github.com/rear/rear/pull/3258">https://github.com/rear/rear/pull/3258</a></p>
+<p>See also the related issue<br />
+<a href="https://github.com/rear/rear/issues/3260">https://github.com/rear/rear/issues/3260</a></p>
+<h4 id="jsmeix_commented_at_2024-07-10_1251"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2220432936">2024-07-10 12:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-10_1251" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors</p>
+<p>A (rather artificial) example<br />
+how ReaR would source user-controlled files by accident, cf.<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2219790045">https://github.com/rear/rear/issues/3260#issuecomment-2219790045</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2219801028">https://github.com/rear/rear/issues/3260#issuecomment-2219801028</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3258#issuecomment-2180230626">https://github.com/rear/rear/pull/3258#issuecomment-2180230626</a></p>
+<pre><code>In particular I do not know what could be possible
+for "git clone" things done by whatever user and
+stored under arbitrary directories and then
+"just run" that via 'sudo' or something like that.
+
+On the one hand I think it is not ReaR's task
+to protect 'root' against any foolish things.
+
+But because ReaR is meant to be run as 'root'
+I think we must implement some reasonable protection
+to avoid at least too obviously bad things
+which can be easily avoided.
+</code></pre>
+<p>When I wrote that I had in particular Ubuntu users in mind<br />
+where I fear some may carelessly "sudo COMMAND" all the time.</p>
+<p>Right now I did:</p>
+<pre><code>johannes@localhost:~&gt; git clone https://github.com/rear/rear.git
+Cloning into 'rear'...
+...
+
+johannes@localhost:~&gt; mv rear rear.github.master
+
+johannes@localhost:~&gt; cd rear.github.master
+
+johannes@localhost:~&gt; vi etc/rear/local.conf
+...
+
+johannes@localhost:~/rear.github.master&gt; su
+Password: ...
+
+localhost:/home/johannes/rear.github.master # usr/sbin/rear mkrescue
+</code></pre>
+<p>"rear mkrescue" just worked with user-controlled files<br />
+because all ReaR scripts and etc/rear/local.conf<br />
+belong to "johannes users".</p>
+<p>You could have - if you were interested - tried that<br />
+on your own to reproduce and experience it yourself.</p>
+<p>Of course now you may tell me that this case<br />
+is root's own responsibility and his own fault<br />
+to do 'su' carelessly and run user-controlled stuff<br />
+but (again and again) you miss my point.</p>
+<p>My point is not that this example shows<br />
+how root could fool itself.</p>
+<p>My point is that this example proves that<br />
+there is absolutely noting in ReaR that checks<br />
+at runtime if what ReaR executes is trustworthy.</p>
+<p>Again and again - but unfortunately it seems<br />
+you do not yet pay sufficient attention to what law<br />
+(at least German law as far as I understand what it means)<br />
+mandates from each of us personally - my fundamental<br />
+reson behind all that is what I described in<br />
+<a href="https://github.com/rear/rear/issues/2967#issuecomment-1498627825">https://github.com/rear/rear/issues/2967#issuecomment-1498627825</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2967#issuecomment-1510856524">https://github.com/rear/rear/issues/2967#issuecomment-1510856524</a></p>
+<p>It is left to the reader as an exercise to find more examples<br />
+(perhaps even actual threats that can be exploited right now)<br />
+where ReaR "just executes" files from non-trusted users.</p>
+<h4 id="jsmeix_commented_at_2024-07-10_1309"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2220472178">2024-07-10 13:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-10_1309" title="Permanent link">&para;</a></h4>
+<p>For comparison with my SourceTrustworthy implementation from<br />
+<a href="https://github.com/rear/rear/pull/3258">https://github.com/rear/rear/pull/3258</a></p>
+<pre><code>johannes@localhost:~/rear.github.master&gt; git checkout jsmeix-SourceTrustworthy
+...
+Switched to a new branch 'jsmeix-SourceTrustworthy'
+
+johannes@localhost:~/rear.github.master&gt; su
+Password: ...
+
+localhost:/home/johannes/rear.github.master # usr/sbin/rear mkrescue
+Refused 'SourceTrustworthy /home/johannes/rear.github.master/usr/share/rear/conf/Linux-i386.conf' because file owner 'johannes' is not in TRUSTED_FILE_OWNERS
+ERROR: 
+====================
+BUG in usr/sbin/rear line 749:
+Failed to Source /home/johannes/rear.github.master/usr/share/rear/conf/Linux-i386.conf
+...
+Terminated
+</code></pre>
+<p>Of course verly likely my current SourceTrustworthy<br />
+implementation is not yet a final ultimate solution<br />
+but (hopefully) it could be at least one step forward<br />
+into the right direction compared to endless high-level<br />
+theoretical questions that I can never answer properly<br />
+so that all decays and dies out in nowhere land<br />
+since a few month (I think decay started in April)</p>
+<h4 id="schlomo_commented_at_2024-07-10_1315"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2220483906">2024-07-10 13:15</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-10_1315" title="Permanent link">&para;</a></h4>
+<p>I'd like to clearly take the problem of "security of developer
+environment" out of scope for this topic. I'd assume that developers
+only run <code>sudo ./usr/sbin/rear mkrescue</code> on test systems.</p>
+<p>I'd also like to take all means of deploying ReaR from source out of
+scope, meaning the problem of users using <code>git clone</code> to get ReaR and
+then running it. Or downloading an archive of ReaR from GitHub and
+running <code>sudo ./usr/sbin/rear mkrescue</code>.</p>
+<p>For me the scope is a production system where ReaR was installed via
+package (including the packages we provide on our GitHub releases page).
+And on this production system and a subsequently used recovery system we
+can think about potential attack vectors that ReaR can be part of.</p>
+<h4 id="jsmeix_commented_at_2024-07-10_1316"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2220487889">2024-07-10 13:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-10_1316" title="Permanent link">&para;</a></h4>
+<p>@schlomo !!!</p>
+<p>Please follow our instructions that we tell our users:</p>
+<p><a href="http://relax-and-recover.org/documentation/getting-started">http://relax-and-recover.org/documentation/getting-started</a></p>
+<p>No excuses!</p>
+<h4 id="schlomo_commented_at_2024-07-10_1318"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2220492231">2024-07-10 13:18</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-10_1318" title="Permanent link">&para;</a></h4>
+<p>Yes, this is a quick start and not a production deployment. I'm happy to
+add there that for production deployments people should use packages.
+Quick start is for a first user to quickly see something happening,
+nothing more.</p>
+<h4 id="jsmeix_commented_at_2024-07-15_0827"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2227955337">2024-07-15 08:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-15_0827" title="Permanent link">&para;</a></h4>
+<p>Possibly we have some kind of "all-clear" signal for ReaR:</p>
+<p>I think meanwhile I found sufficient evidence<br />
+which shows that "all other software" behaves<br />
+basically same as ReaR currently does.<br />
+Details will follow later because currently<br />
+things are under investigation via a SUSE internal<br />
+bug report that I filed.</p>
+<p>So (at least for now) I downgrade this issue<br />
+on from "blocker" to "enhancement"<br />
+but still with "critical / security / legal" scope.</p>
+<h4 id="jsmeix_commented_at_2024-07-15_1307"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2228466033">2024-07-15 13:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-15_1307" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+I would change that "quick start" guide<br />
+to do all as 'root' and explicitly describe that<br />
+the local "git clone" must be under root's control<br />
+to avoid to cross a privilege boundary<br />
+from 'root' who runs usr/sbin/rear to a non-root user<br />
+by sourcing ReaR's bash scripts when those scripts<br />
+were downloaded under control of a non-root user.</p>
+<h4 id="jsmeix_commented_at_2024-09-05_1434"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2331854890">2024-09-05 14:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-05_1434" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/3259#issuecomment-2220492231">https://github.com/rear/rear/issues/3259#issuecomment-2220492231</a></p>
+<p>It does not really matter if a security issue exists<br />
+"for a first user to quickly see something happening"<br />
+or in a "production deployment".<br />
+Both "first user" environments and production environments<br />
+should be reasonably secure.</p>
+<p>Those 'sudo ...' commands in our quick start guides<br />
+indicate it is in particular meant for Ubuntu users<br />
+what they could do on their (home) systems.<br />
+I think we should provide in particular those users<br />
+(who are presumably often rather unexperienced)<br />
+some reasonably secure quick start guide.</p>
+<h4 id="jsmeix_commented_at_2024-09-17_1105"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2355354021">2024-09-17 11:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_1105" title="Permanent link">&para;</a></h4>
+<p>All found cases where ReaR sources files<br />
+were checked via<br />
+<a href="https://github.com/rear/rear/issues/3260">https://github.com/rear/rear/issues/3260</a><br />
+and its subsequent issues<br />
+<a href="https://github.com/rear/rear/issues/3285">https://github.com/rear/rear/issues/3285</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3319">https://github.com/rear/rear/issues/3319</a><br />
+so this issue itself is no longer "critical/security/legal"<br />
+according to what I wrote in<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2355205283">https://github.com/rear/rear/issues/3260#issuecomment-2355205283</a><br />
+and I also move the milestone of this issue to 'ReaR v3.1'</p>
+<h4 id="jsmeix_commented_at_2024-09-17_1108"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2355364943">2024-09-17 11:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-09-17_1108" title="Permanent link">&para;</a></h4>
+<p>@didacog<br />
+I dared to also assign you to this issue<br />
+because your contribution would by much appreciated<br />
+in particular regarding "sourcing remote files".</p>
+<h4 id="pcahyna_commented_at_2024-10-01_1305"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2385745545">2024-10-01 13:05</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-01_1305" title="Permanent link">&para;</a></h4>
+<p>I would like to unblock the issue by proposing a viable path forward.</p>
+<p>The issue does not have a high priority for me<br />
+(cf. "downgrade this issue on from "blocker" to "enhancement" "<br />
+<a href="https://github.com/rear/rear/issues/3259#issuecomment-2227955337">https://github.com/rear/rear/issues/3259#issuecomment-2227955337</a> )<br />
+but it would still be good to have an idea how to progress.</p>
+<p>My starting point is the observation
+<code>that "all other software" behaves basically same as ReaR currently does</code>.<br />
+(Another starting point is abandoning the "same-author policy"<br />
+idea from<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2220864142">https://github.com/rear/rear/issues/3260#issuecomment-2220864142</a>,<br />
+as there is has been no follow-up to explain it.)</p>
+<p>So, other software executes potentially untrusted code all the time.</p>
+<p>The shell executes commands that it finds in essentially arbitrary
+directories.</p>
+<p>The Python interpreter loads modules again from essentially arbitrary
+directories.</p>
+<p>The dynamic linker (ELF binary interpreter) loads shared libraries from
+essentially arbitrary directories and so on.</p>
+<p>How are security issues prevented in these systems?</p>
+<p>It is not by using any "same-author policy"<br />
+(no software I know about is doing that),<br />
+it is by controlling the set of directories<br />
+that the code can be loaded from.</p>
+<p>The shell uses <code>$PATH</code>,<br />
+the Python interpreter <code>sys.path</code>,<br />
+the dynamic linker uses its defaults and the directories configured in
+<code>/etc/ld.so.conf</code> and so on.</p>
+<p>If any of these sets contain a world-writable directory,<br />
+the security impact is disastrous and it is a job<br />
+of the distribution and of the system administrator<br />
+to ensure that this is not the case.<br />
+(<code>.</code> got removed from the shell <code>$PATH</code><br />
+to prevent one of such issues.)</p>
+<p>Moreover, if higher security is required,<br />
+there are usually mechanisms to restrict the set of directories<br />
+and prevent altering it.</p>
+<p>For the shell, it is the restricted mode<br />
+(see "The Restricted Shell" in the Bash manual, especially:</p>
+<blockquote>
+<p>the following are disallowed or not performed:<br />
+• Setting or unsetting the values of the ‘SHELL’, <strong>‘PATH’</strong>,<br />
+‘HISTFILE’, ‘ENV’, or ‘BASH_ENV’ variables.<br />
+• Specifying command names containing slashes.<br />
+• Specifying a filename containing a slash as an argument<br />
+to the ‘.’ builtin command.</p>
+</blockquote>
+<p>).</p>
+<p>For the dynamic linker it is the "Secure-execution mode",<br />
+see the <strong>Secure-execution mode</strong> section<br />
+of the <code>ld-linux.so(8)</code> manual page.</p>
+<p>Basically, this is the observation at<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-2219801028">https://github.com/rear/rear/issues/3260#issuecomment-2219801028</a></p>
+<blockquote>
+<p>Currently the only "line of defense" is the file name.<br />
+E.g. /etc/os-release is hopefully safe to be read.</p>
+</blockquote>
+<p>and my point is that this has been actually pretty sufficient<br />
+in other software, so why not do the same in ReaR.</p>
+<p>So, my proposal is:</p>
+<p>Let <code>SourceTrustworthy</code> (or whatever the safe <code>source</code> wrapper<br />
+function would be named) check the name of the file to be sourced<br />
+and have a list of allowed directories to source from.</p>
+<p>Furthermore, I believe that there should be<br />
+multiple <code>source</code> wrappers for different use cases.</p>
+<p>In particular, one for the shell-style config files (#3203)<br />
+that should contain no executable code,<br />
+and another for internal ReaR scripts that are called<br />
+as part of the ReaR's shell scripting framework.</p>
+<p>These are two very different use cases and it makes sense<br />
+to keep them separated (for the former we may use<br />
+a restricted shell, this makes no sense for the latter).</p>
+<p>For the former the set of allowed directories should be<br />
+system directories like <code>/etc</code>, <code>/lib</code> and <code>/usr</code>,<br />
+while for the latter it should contain <code>$SHARE_DIR</code>.</p>
+<p>There may also be a third command to source ReaR's config files,<br />
+as this falls into neither category, with yet another set of<br />
+trusted directories (<code>$CONFIG_DIR</code>).</p>
+<p>Perhaps there could be even a generic <code>source</code> wrapper<br />
+for sourcing scripts that are not part of ReaR,<br />
+but do not fall under the "shell-style config files" category.</p>
+<p>Such details can be added or adjusted according to the needs.</p>
+<h4 id="pcahyna_commented_at_2024-10-01_1307"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2385748787">2024-10-01 13:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2024-10-01_1307" title="Permanent link">&para;</a></h4>
+<p>@didacog can you please specify what is the "sourcing remote files"
+functionality that you need? I am not sure whether it will fall under
+the same umbrella.</p>
+<h4 id="jsmeix_commented_at_2024-10-01_1329"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2385878657">2024-10-01 13:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-10-01_1329" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding "sourcing remote files" see<br />
+<a href="https://github.com/rear/rear/issues/3294">https://github.com/rear/rear/issues/3294</a></p>
+<h4 id="github-actions_commented_at_2025-02-14_0235"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2658130442">2025-02-14 02:35</a>:<a class="headerlink" href="#github-actions_commented_at_2025-02-14_0235" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2025-03-17_1545"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2730011077">2025-03-17 15:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-17_1545" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3424">https://github.com/rear/rear/pull/3424</a> merged<br />
+this issue should be "fixed/solved/done"<br />
+at least to some reasonable initial extent.</p>
+<p>With <a href="https://github.com/rear/rear/pull/3424">https://github.com/rear/rear/pull/3424</a> merged<br />
+there will be regressions when third-party scripts<br />
+use '.' for sourcing because currently sourcing via '.'<br />
+is always forbidden in ReaR.</p>
+<p>I would like to wait a bit and see if sourcing via '.'<br />
+is sometimes actually needed in practice.<br />
+If sourcing via '.' is sometimes needed,<br />
+I will further enhance things to make sourcing via '.'<br />
+again possible for the user by explicitly specifying<br />
+in another config array which specific file paths<br />
+he allows to be sourced via '.' by ReaR.</p>
+<p>I could not wait because this regression is a bug in ReaR<br />
+because 'source' is not POSIX compliant because<br />
+'.' is the POSIX standard command<br />
+so ReaR must not forbid using '.' in any case<br />
+but allow it when really needed<br />
+so I implemented trusted sourcing via '.' in<br />
+<a href="https://github.com/rear/rear/pull/3434">https://github.com/rear/rear/pull/3434</a></p>
+<h4 id="jsmeix_commented_at_2025-03-17_1556"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2730046030">2025-03-17 15:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-17_1556" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3424">https://github.com/rear/rear/pull/3424</a> merged<br />
+my other attempts in my 'jsmeix-SourceTrustworthy'<br />
+and 'jsmeix-source-wrapper' branches should now be obsoleted.<br />
+I will check those branches if they are completely obsolete<br />
+and if yes I will remove them in the next days.</p>
+<h4 id="jsmeix_commented_at_2025-03-18_1005"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3259#issuecomment-2732506912">2025-03-18 10:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-18_1005" title="Permanent link">&para;</a></h4>
+<p>I closed <a href="https://github.com/rear/rear/pull/3379">https://github.com/rear/rear/pull/3379</a><br />
+and <a href="https://github.com/rear/rear/pull/3258">https://github.com/rear/rear/pull/3258</a><br />
+as superseded by <a href="https://github.com/rear/rear/pull/3424">https://github.com/rear/rear/pull/3424</a><br />
+and I deleted the outdated and superseded branches<br />
+'jsmeix-source-wrapper' and 'jsmeix-SourceTrustworthy'.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-21.3259.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

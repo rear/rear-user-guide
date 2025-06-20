@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3447 PR merged: Extend the umount_mountpoint function to try normal, forced and lazy umounts - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3447 PR merged: Extend the umount_mountpoint function to try normal, forced and lazy umounts";
+        var mkdocs_page_input_path = "issues/2025-04-05.3447.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3447 PR merged: Extend the umount_mountpoint function to try normal, forced and lazy umounts</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3447_pr_merged_extend_the_umount_mountpoint_function_to_try_normal_forced_and_lazy_umounts"><a href="https://github.com/rear/rear/pull/3447">#3447 PR</a> <code>merged</code>: Extend the umount_mountpoint function to try normal, forced and lazy umounts<a class="headerlink" href="#3447_pr_merged_extend_the_umount_mountpoint_function_to_try_normal_forced_and_lazy_umounts" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>ready-to-merge?</code></p>
+<h4 id="gdha_opened_issue_at_2025-04-05_0645"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/pull/3447">2025-04-05 06:45</a>:<a class="headerlink" href="#gdha_opened_issue_at_2025-04-05_0645" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): #3429</p>
+</li>
+<li>
+<p>How was this pull request tested? Basic test performed with normal
+    umount so far.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Issue #3429 is about "The new umount_mountpoint_retry_lazy
+    function <a href="https://github.com/rear/rear/pull/3408">https://github.com/rear/rear/pull/3408</a> versus the already
+    existing umount_mountpoint_lazy function - try to make a single
+    generic ReaR umount function for all cases"<br />
+    However, after carefully looking at the code we feel it would be
+    better to merge all kind if umounts in one function and that is
+    within the main function "<strong>umount_mountpoint</strong>".</p>
+</li>
+</ul>
+<p>In this first version of the PR we did not (yet) remove the 'lazy'
+argument with the function umount_mountpoint, nor the two remaining
+<em>lazy</em> functions "umount_mountpoint_lazy " and
+"umount_mountpoint_retry_lazy" to protect the existing calls to these
+functions in ReaR.</p>
+<p>When the ReaR maintainers agree with the new code (or after updates) we
+can start cleaning up the remaining lazy functions.</p>
+<h4 id="jsmeix_commented_at_2025-04-09_0752"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2788684378">2025-04-09 07:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-09_0752" title="Permanent link">&para;</a></h4>
+<p>I did not yet find time for a thorough review<br />
+so I made only comments what I noticed at first glance.</p>
+<h4 id="jsmeix_commented_at_2025-04-09_1312"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2789658854">2025-04-09 13:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-09_1312" title="Permanent link">&para;</a></h4>
+<p>My main worries with "just killing some process"<br />
+comes from what I learned from @pcahyna during his<br />
+<a href="https://github.com/rear/rear/issues/2611">https://github.com/rear/rear/issues/2611</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/2625">https://github.com/rear/rear/pull/2625</a></p>
+<p>Excepts from his initial descriptions<br />
+in <a href="https://github.com/rear/rear/issues/2611">https://github.com/rear/rear/issues/2611</a></p>
+<pre><code>If for any reason unmounting the NFS directory
+mounted at outputfs fails (for example,
+there is a process using this filesystem),
+ReaR proceeds to
+rm -Rf -v /.../outputfs
+as part of the exit tasks.
+This removes the old backup directory.
+It will also destroy the backup directories
+for other machines, if multiple machines are configured
+to use the same NFS directory.
+A similar problem was reported as
+https://github.com/rear/rear/issues/465
+and after being fixed it was reintroduced
+in a misguided "fix"
+(PR https://github.com/rear/rear/pull/782,
+https://github.com/rear/rear/commit/4e9c2a1b05f87762fb06355cf959b24eacc21f62)
+in ReaR 1.18.
+</code></pre>
+<p>and in <a href="https://github.com/rear/rear/pull/2625">https://github.com/rear/rear/pull/2625</a></p>
+<pre><code>Replaced the various
+rm -rf
+of the mountpoint by rmdir
+(this fixes https://github.com/rear/rear/issues/2611)
+and added lazy umount in case normal umount does not succeed.
+If build dir is kept, propose a safe way to remove it to the user
+(rm -Rf --one-file-system instead of just rm -Rf
+where the user would risk to remove everything
+in their mounted filesystem if still mounted.)
+</code></pre>
+<p>In those cases it was "just 'rm -Rf' some directory"<br />
+instead of a careful way how to properly deal with<br />
+when the correctly intended task "rmdir directory" failed.</p>
+<p>In this case here it could be "just kill some process"<br />
+instead of a careful way how to properly deal with<br />
+when the correctly intended task "umount directory" failed.</p>
+<p>In both cases when the correctly intended task failed,<br />
+not the reason behind the failure is carefully handled,<br />
+instead the whole problem is disregarded and ReaR even<br />
+somewhat "brutally" proceeds in case of those failures<br />
+which could lead to disastrous outcomes, e.g. as in<br />
+<a href="https://github.com/rear/rear/issues/2611">https://github.com/rear/rear/issues/2611</a></p>
+<p>The worst outcome when ReaR itself causes a disaster is<br />
+that then ReaR may no longer be perceived by its users<br />
+as a reasonably trustworthy tool for disaster recovery<br />
+after they found out how certain ReaR code behaves.<br />
+No software is free of issues, but one can relatively<br />
+easily see if code tries to behave careful or not.</p>
+<p>In general this would be against<br />
+"Try hard to care about possible errors"<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors">https://github.com/rear/rear/wiki/Coding-Style#try-hard-to-care-about-possible-errors</a></p>
+<h4 id="gdha_commented_at_2025-04-10_1004"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2792228102">2025-04-10 10:04</a>:<a class="headerlink" href="#gdha_commented_at_2025-04-10_1004" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+Personally, I’ve never had an issue with the <code>umount_mountpoint</code>
+function itself.<br />
+That said, I have experienced problems with NFS hangs - especially when
+dealing with cross-WAN NFS mounts.</p>
+<p>In general, WAN-based NFSv4 over TCP tends to be more reliable than
+plain NFSv3. However, WAN NFS is often subject to QoS policies that
+throttle the bitrate to a crawl over time. This typically happens when
+backing up large amounts of data over NFS. If the NFS server doesn’t
+receive input for a while, it may send a RST (reset) signal to the NFS
+client. As a result, the ReaR process on the client - usually via
+<code>tar</code> - keeps waiting for input that never arrives, causing the NFS
+mount to hang.</p>
+<p>This situation is made worse in enterprise environments, where ReaR is
+often run in unattended mode, and where the outcome of the backup isn't
+closely monitored. If backups are scheduled weekly, this can lead to
+subsequent jobs also hanging.</p>
+<p>While you can kill the <code>tar</code>, <code>cpio</code>, and <code>rear</code> processes, there’s
+usually one process that remains unkillable and becomes a zombie.<br />
+A lazy unmount of the temporary ReaR directory does work, but needing to
+do so is a clear sign that ReaR has already failed.</p>
+<p>As for killing the process - it might be a heavy-handed approach, and I
+wouldn't object to removing that logic and simply reporting the issue.
+However, allowing ReaR to continue in that state isn’t much better,
+since its behavior becomes unreliable from that point forward.</p>
+<p>Is this ReaR’s fault? I’d argue no. In my opinion, NFS is simply not a
+great transport mechanism for backups.<br />
+As Didac pointed out in his talk, rsync offers much more robust recovery
+mechanisms compared to NFS.</p>
+<h4 id="jsmeix_commented_at_2025-04-10_1155"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2792495392">2025-04-10 11:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-10_1155" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+thank you so much for your background information,<br />
+in particular what happens "out there in the wild".</p>
+<p>I have nothing against killing a process in principle.<br />
+What worries me is only when such things happen<br />
+unconditioned and/or in a hardcoded / automated way<br />
+where the user has no influence.</p>
+<p>For example when ReaR is running in unattended mode<br />
+this would be a condition to do an automated killing<br />
+of processes which use a mountpoint.</p>
+<p>We also have '--non-interactive' mode where I think<br />
+this mode is also meant for such cases - regardless<br />
+that currently "rear help" tells</p>
+<pre><code> -n --non-interactive   non-interactive mode; aborts when any
+                        user input is required (experimental)
+</code></pre>
+<p>where "user input is required" is not exactly this case<br />
+but I think the meaning is same, i.e. when ReaR comes<br />
+to a point where ReaR would need user input how to proceed<br />
+then in non-interactive mode ReaR would abort according to<br />
+what "rear help" currently tells.</p>
+<p>But in this specific case here I think it could be better<br />
+to not "just abort" but to kill what uses the mountpoint.</p>
+<p>What seems to be missung is that when "rear recover"<br />
+is run in 'unattended_recovery' mode that then<br />
+not also NON_INTERACTIVE=1 is set, i.e.<br />
+'unattended_recovery' mode does not automatically<br />
+also mean 'non-interactive' mode.</p>
+<p>I think 'non-interactive' mode is the more generic mode<br />
+while 'unattended_recovery' mode is a special kind of<br />
+the 'non-interactive' mode so 'unattended_recovery' mode<br />
+should implicate 'non-interactive' mode.</p>
+<h4 id="gdha_commented_at_2025-05-07_0851"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2857722501">2025-05-07 08:51</a>:<a class="headerlink" href="#gdha_commented_at_2025-05-07_0851" title="Permanent link">&para;</a></h4>
+<p>@jsmeix could you have a look at the latest updates and give feedback on
+it - thanks.</p>
+<h4 id="gdha_commented_at_2025-05-20_1348"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2894486123">2025-05-20 13:48</a>:<a class="headerlink" href="#gdha_commented_at_2025-05-20_1348" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors If there are no further modifications required I
+would like to merge this PR by the end of this week.</p>
+<h4 id="jsmeix_commented_at_2025-05-20_1520"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2894838882">2025-05-20 15:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-20_1520" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+please have a look here.</p>
+<p>In particular I would like to know your opinion<br />
+about enforced umount because according to what I read<br />
+"just doing an enforced umount" causes more harm than good, cf.<br />
+<a href="https://github.com/rear/rear/pull/3447#discussion_r2077472659">https://github.com/rear/rear/pull/3447#discussion_r2077472659</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/3469">https://github.com/rear/rear/pull/3469</a></p>
+<p>According to what</p>
+<pre><code># git log -p --follow usr/share/rear/lib/global-functions.sh
+</code></pre>
+<p>shows, the "just doing an enforced umount" in the<br />
+umount_mountpoint() function plus the idea to</p>
+<pre><code>    ### otherwise, try to kill all processes that opened files on the mount.
+    # TODO: actually implement this
+</code></pre>
+<p>originated in<br />
+<a href="https://github.com/rear/rear/commit/7de049a45bf8e8b17b88ed4008de0989de1c981e">https://github.com/rear/rear/commit/7de049a45bf8e8b17b88ed4008de0989de1c981e</a></p>
+<h4 id="gdha_commented_at_2025-05-22_0806"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2900300338">2025-05-22 08:06</a>:<a class="headerlink" href="#gdha_commented_at_2025-05-22_0806" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @pcahyna Let discuss this topic on our next meeting to get an
+agreement on how to proceed.</p>
+<blockquote>
+<pre><code>    ### otherwise, try to kill all processes that opened files on the mount.
+    # TODO: actually implement this
+</code></pre>
+<p>originated in
+<a href="https://github.com/rear/rear/commit/7de049a45bf8e8b17b88ed4008de0989de1c981e">7de049a</a></p>
+</blockquote>
+<p>FYI - latest updates do not kill any processes.</p>
+<h4 id="gdha_commented_at_2025-05-22_0849"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2900413535">2025-05-22 08:49</a>:<a class="headerlink" href="#gdha_commented_at_2025-05-22_0849" title="Permanent link">&para;</a></h4>
+<p>Idea - change function remove_temporary_mountpoint as follows:</p>
+<pre><code>function remove_temporary_mountpoint() {
+    if test -d "$1" ; then
+        # only remove directory when it is NOT mounted
+        mountpoint --quiet --nofollow -- "$1" || rmdir $v "$1"
+    fi
+}
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-05-22_0907"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2900462673">2025-05-22 09:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-05-22_0907" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+I know that it does not SIGKILL processes<br />
+and it never did before.<br />
+It was just a comment which shows<br />
+that the idea to "just SIGKILL processes" is old<br />
+(cf. RFC 1925 item 11).</p>
+<p>What I am mostly missing is the unintrusive behaviour<br />
+from my umount_mountpoint_retry_lazy() function.</p>
+<p>Currently umount_mountpoint() does</p>
+<pre><code>timeout $timeout_secs umount $v "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --force "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --lazy "$mountpoint" &amp;&amp; return 0
+return 1
+</code></pre>
+<p>without any attempt to let things finish on its own<br />
+by sleeping a bit ('timeout' does not sleep)<br />
+as umount_mountpoint_retry_lazy() does</p>
+<pre><code>umount $v "$mountpoint" &amp;&amp; return 0
+sleep 1
+umount $v "$mountpoint" &amp;&amp; return 0
+umount $v --lazy "$mountpoint" &amp;&amp; return 0
+return 1
+</code></pre>
+<p>So umount_mountpoint() should at least partially implement<br />
+the unintrusive behaviour of umount_mountpoint_retry_lazy()<br />
+to be an acceptable replacement for the use case<br />
+why I made umount_mountpoint_retry_lazy() as I did,<br />
+for example like</p>
+<pre><code>timeout $timeout_secs umount $v "$mountpoint" &amp;&amp; return 0
+sleep 1
+timeout $timeout_secs umount $v "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --force "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --lazy "$mountpoint" &amp;&amp; return 0
+return 1
+</code></pre>
+<p>or with <code>sleep $timeout_secs</code> instead of hardcoded 'sleep 1'</p>
+<pre><code>timeout $timeout_secs umount $v "$mountpoint" &amp;&amp; return 0
+sleep $timeout_secs
+timeout $timeout_secs umount $v "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --force "$mountpoint" &amp;&amp; return 0
+timeout $timeout_secs umount $v --lazy "$mountpoint" &amp;&amp; return 0
+return 1
+</code></pre>
+<p>What I like to discuss on our next meeting is<br />
+how far forced umount in umount_mountpoint()</p>
+<pre><code>timeout $timeout_secs umount $v --force "$mountpoint" &amp;&amp; return 0
+</code></pre>
+<p>is actually helpful for the user and his system as a whole<br />
+and in particular helpful for ReaR's task as a whole.<br />
+E.g. think about the cases why I implemented<br />
+umount_mountpoint_retry_lazy() where some task in ReaR<br />
+needed a bit more time to finish so any forced umount<br />
+may make that task in ReaR fail so the forced umount<br />
+could be unhelpful or even destructive for the success<br />
+of ReaR's task as a whole.<br />
+Of course '--force' could help to make 'umount' exit<br />
+with zero exit code but I question if that really<br />
+helps to make things succeed as a whole.</p>
+<p>Same for forced lazy umount in umount_mountpoint_lazy()</p>
+<pre><code>umount $v -f -l "$mountpoint" &gt;&amp;2
+</code></pre>
+<p>(I think the stdout redirection to stderr therein<br />
+should be no longer needed.)</p>
+<p>By the way:</p>
+<p>(1)<br />
+I wonder why timeout_secs is hardcoded and cannot<br />
+be specified by the caller of umount_mountpoint() ?</p>
+<p>(2)<br />
+My optional string in umount_mountpoint_retry_lazy()<br />
+to show the user if needed a more meaningful message<br />
+about what is mounted was also ignored.</p>
+<p>So in the end the current umount_mountpoint()<br />
+completely ignores the use cases why I had to<br />
+implement umount_mountpoint_retry_lazy() as I did.</p>
+<p>So the current umount_mountpoint() is unacceptable<br />
+as a replacement for use cases in ReaR which need an<br />
+unintrusive behaviour of umount_mountpoint_retry_lazy()<br />
+(plus optional more meaningful messages to the user).</p>
+<h4 id="gdha_commented_at_2025-05-28_0524"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2914978656">2025-05-28 05:24</a>:<a class="headerlink" href="#gdha_commented_at_2025-05-28_0524" title="Permanent link">&para;</a></h4>
+<p>@jsmeix Hopefully, the latest changes are the good one?</p>
+<h4 id="jsmeix_commented_at_2025-06-05_0709"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2943015467">2025-06-05 07:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_0709" title="Permanent link">&para;</a></h4>
+<p>Regarding enforced umount or killing non-ReaR processes see<br />
+<a href="https://github.com/rear/rear/issues/3478#issuecomment-2943009618">https://github.com/rear/rear/issues/3478#issuecomment-2943009618</a></p>
+<h4 id="jsmeix_commented_at_2025-06-05_1320"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2944292961">2025-06-05 13:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-05_1320" title="Permanent link">&para;</a></h4>
+<p>You may have a look at<br />
+<a href="https://github.com/rear/rear/issues/3478#issuecomment-2943942969">https://github.com/rear/rear/issues/3478#issuecomment-2943942969</a><br />
+what a user thinks how to appropriately deal with issues<br />
+when ReaR cannot umount something - basically:<br />
+Retry umount several times and then give up<br />
+and leave things to the admin.</p>
+<h4 id="jpbuecken_commented_at_2025-06-13_1210"><img src="https://avatars.githubusercontent.com/u/38046041?v=4" width="50"><a href="https://github.com/jpbuecken">jpbuecken</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2970196923">2025-06-13 12:10</a>:<a class="headerlink" href="#jpbuecken_commented_at_2025-06-13_1210" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>You may have a look at <a href="https://github.com/rear/rear/issues/3478#issuecomment-2943942969">#3478
+(comment)</a>
+what a user thinks how to appropriately deal with issues when ReaR
+cannot umount something - basically: Retry umount several times and
+then give up and leave things to the admin.</p>
+</blockquote>
+<p>Hello, as a rear user and a long term linux admin I would support a
+umount retry loop as well as the best solution.<br />
+A admin can react to a error message and aborted processes.</p>
+<p>A umount -f is a bad idea for exactly the reason you don't know what you
+kill. In this examle an on access virus protection solution.</p>
+<p>Even umount -l is not the best idea. It is dangling in the background.
+You still don't know what caused the busy filesystem. A valid rear
+process? If you copy the efi img file in that state, is it really ok or
+corrupted? And it is almost impossible to get information about the root
+cause, why it was busy. You cannot run fuser or lsof. You fully lost
+control what will happen to the filesystem.<br />
+Just try with a usual filesystem: cd into it. Umount -l it from another
+terminal. Now let try to find out if and why the filesystem is still
+busy without knowing some bash is open there. And try to find out if it
+got cleaned up after you cd out of it.</p>
+<p>Long story short, a analysis of e.g. defect rear efi img will get very
+difficult if not impossible with umount -l or umount -f.</p>
+<h4 id="jpbuecken_commented_at_2025-06-13_1227"><img src="https://avatars.githubusercontent.com/u/38046041?v=4" width="50"><a href="https://github.com/jpbuecken">jpbuecken</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2970237657">2025-06-13 12:27</a>:<a class="headerlink" href="#jpbuecken_commented_at_2025-06-13_1227" title="Permanent link">&para;</a></h4>
+<p>Running fuser -m is a good idea to show what caused the busy
+filesystem.<br />
+I see it was suggested here
+<a href="https://github.com/rear/rear/issues/2908#issuecomment-1380425752">https://github.com/rear/rear/issues/2908#issuecomment-1380425752</a> .
+That approach of @pcahyna would not even need the modern "-M" parameter,
+because it runs only if the umount fails, not everytime, so it is still
+a mountpoint and does not list filesystems like / and other misleading
+information as the comment in the code of this pull request describes.</p>
+<h4 id="jsmeix_commented_at_2025-06-13_1355"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2970493191">2025-06-13 13:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-13_1355" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3447#issuecomment-2970237657">https://github.com/rear/rear/pull/3447#issuecomment-2970237657</a></p>
+<pre><code>That approach of @pcahyna would not even need the
+modern "-M" parameter, because it runs only if the umount fails
+</code></pre>
+<p>Perhaps</p>
+<pre><code>umount $mountpoint || fuser -m -v  $mountpoint
+</code></pre>
+<p>works only "mostly"?<br />
+I don't know if non-zero exit code of 'umount $mountpoint'<br />
+guarantees that something is mounted at $mountpoint.<br />
+If for whatever reason nothing is mounted at $mountpoint<br />
+'fuser -m -v $mountpoint' may output hundreds of lines, see<br />
+<a href="https://github.com/rear/rear/issues/2908#issuecomment-1405070332">https://github.com/rear/rear/issues/2908#issuecomment-1405070332</a></p>
+<h4 id="jpbuecken_commented_at_2025-06-13_1417"><img src="https://avatars.githubusercontent.com/u/38046041?v=4" width="50"><a href="https://github.com/jpbuecken">jpbuecken</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2970554347">2025-06-13 14:17</a>:<a class="headerlink" href="#jpbuecken_commented_at_2025-06-13_1417" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Perhaps</p>
+<pre><code>umount $mountpoint || fuser -m -v  $mountpoint
+</code></pre>
+<p>works only "mostly"? I don't know if non-zero exit code of 'umount
+$mountpoint' guarantees that something is mounted at $mountpoint. If
+for whatever reason nothing is mounted at $mountpoint 'fuser -m -v
+$mountpoint' may output hundreds of lines, see <a href="https://github.com/rear/rear/issues/2908#issuecomment-1405070332">#2908
+(comment)</a></p>
+</blockquote>
+<p>Yeah I see, e.g. umount on a already "umounted" filesystem will give you
+exit code 1.</p>
+<p>Or the mount command could have failed before.</p>
+<p>I see it is needed to add more logic if one want to really omit "-M"...
+So nevermind. To log open processes with fuser as a best afford approach
+is still a good idea.</p>
+<p>EDIT: Something like:</p>
+<pre><code>if ! umount "$mountpoint"; then
+   if is_mounted "$mountpoint" "$timeout_secs"; then
+       # so it is still a mountpoint
+       fuser -m -v  "$mountpoint"
+   else
+      Log "'umount' failed, but not mounted anyway "
+   fi
+fi
+</code></pre>
+<h4 id="gdha_commented_at_2025-06-17_0850"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3447#issuecomment-2979503339">2025-06-17 08:50</a>:<a class="headerlink" href="#gdha_commented_at_2025-06-17_0850" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors If there are no further comments would like to merge
+this PR by upcoming Friday.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-04-05.3447.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
