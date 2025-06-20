@@ -3256,6 +3256,7 @@
 - [\#3175 PR](2024-03-07.3175.pr.open.md) `open`: Automatically include mounted btrfs subvolumes in NETFS backups
 - [\#3176 PR](2024-03-07.3176.pr.merged.md) `merged`: Skip btrfs subvolumes when detecting ESP partitions
 - [\#3177 PR](2024-03-08.3177.pr.merged.md) `merged`: New unique\_unsorted(
+-  [\#3178 Issue](2024-03-12.3178.issue.closed.md) `closed`: rear does not recognize nvme when trying to format it with "rear format"
 - [\#3178 Issue](2024-03-12.3178.issue.open.md) `open`: rear does not recognize nvme when trying to format it with "rear format"
 - [\#3179 PR](2024-03-14.3179.pr.merged.md) `merged`: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration
 - [\#3179 PR](2024-03-14.3179.pr.open.md) `open`: Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration
@@ -3295,6 +3296,7 @@
 - [\#3205 PR](2024-04-09.3205.pr.merged.md) `merged`: Some misc fixes
 - [\#3206 PR](2024-04-09.3206.pr.merged.md) `merged`: Portable recovery
 - [\#3207 Issue](2024-04-10.3207.issue.open.md) `open`: Recreating initrd failure shows misleading message when not in debug mode
+-  [\#3208 Issue](2024-04-19.3208.issue.closed.md) `closed`: BACKUP=CDM missing security certificate for replica Rubrik instance
 - [\#3208 Issue](2024-04-19.3208.issue.open.md) `open`: Recovery from Rubrik Replica does not work
 - [\#3209 Issue](2024-04-23.3209.issue.closed.md) `closed`: To get rid of message "A volume group called vg00 already exists."
 - [\#3210 PR](2024-04-29.3210.pr.open.md) `open`: Avoid `vgcfgrestore` on thin volumes/pools and any other unsupported volume types.
@@ -3314,7 +3316,9 @@
 - [\#3223 PR](2024-05-15.3223.pr.closed.md) `closed`: In 400\_save\_directories.sh mkdir $VAR\_DIR/recovery/ when not existing
 - [\#3224 PR](2024-05-16.3224.pr.merged.md) `merged`: default.conf add '/var/tmp/rear.\*' to BACKUP\_PROG\_EXCLUDE
 - [\#3225 PR](2024-05-16.3225.pr.merged.md) `merged`: In sbin/rear make it clear when ReaR's TMP\_DIR is used
+-  [\#3226 Issue](2024-05-21.3226.issue.closed.md) `closed`: Deprecate mailing list, chat and discussions
 - [\#3226 Issue](2024-05-21.3226.issue.open.md) `open`: Deprecate mailing list, chat and discussions
+-  [\#3227 Issue](2024-05-21.3227.issue.closed.md) `closed`: What comes after SYSLINUX? Support modern PXE booting via iPXE
 - [\#3227 Issue](2024-05-21.3227.issue.open.md) `open`: What comes after SYSLINUX? Support modern PXE booting via iPXE
 - [\#3228 PR](2024-05-21.3228.pr.merged.md) `merged`: Set RECOVERY\_MODE also in PORTABLE mode
 - [\#3229 PR](2024-05-21.3229.pr.merged.md) `merged`: Do not exclude '/var/tmp/rear.\*' in default.conf
@@ -3331,7 +3335,7 @@
 - [\#3236 PR](2024-06-01.3236.pr.open.md) `open`: Bump codacy/codacy-analysis-cli-action from 4.4.0 to 4.4.1
 - [\#3237 PR](2024-06-01.3237.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
 - [\#3237 PR](2024-06-01.3237.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.1.2 to 5.3.0
-- # [\#3238 Issue](2024-06-05.3238.issue.closed.md) `closed`: RFC: Preparations towards release of ReaR 2.8
+-  [\#3238 Issue](2024-06-05.3238.issue.closed.md) `closed`: RFC: Preparations towards release of ReaR 2.8
 - [\#3238 Issue](2024-06-05.3238.issue.open.md) `open`: RFC: Preparations towards new release of ReaR v3.0
 - [\#3239 PR](2024-06-06.3239.pr.merged.md) `merged`: Fix version test in udev start by desupporting systemd &lt; 190
 - [\#3240 PR](2024-06-07.3240.pr.merged.md) `merged`: Improve Bareos integration
@@ -3343,6 +3347,7 @@
 - [\#3245 PR](2024-06-12.3245.pr.merged.md) `merged`: Avoid returning 1 from a script if all is OK
 - [\#3245 PR](2024-06-12.3245.pr.open.md) `open`: Avoid returning 1 from a script if all is OK
 - [\#3246 PR](2024-06-12.3246.pr.merged.md) `merged`: Reenable CentOS Stream 8 CI builds and tests
+-  [\#3247 Issue](2024-06-13.3247.issue.closed.md) `closed`: How to setup ReaR for Fedora-Cloud-Base-Generic.x86\_64-40-VERSION.qcow2
 - [\#3247 Issue](2024-06-13.3247.issue.open.md) `open`: How to setup ReaR for Fedora-Cloud-Base-Generic.x86\_64-40-VERSION.qcow2
 - [\#3248 Issue](2024-06-13.3248.issue.closed.md) `closed`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
 - [\#3248 Issue](2024-06-13.3248.issue.open.md) `open`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
@@ -3357,12 +3362,14 @@
 - [\#3257 Issue](2024-06-19.3257.issue.open.md) `open`: OUTPUT option to only have a grub/efi entry but no ISO?
 - [\#3258 PR](2024-06-19.3258.pr.closed.md) `closed`: On hold: Implement SourceTrustworthy function
 - [\#3258 PR](2024-06-19.3258.pr.open.md) `open`: On hold: Implement SourceTrustworthy function
+-  [\#3259 Issue](2024-06-21.3259.issue.closed.md) `closed`: ReaR must not carelessly 'source' files
 - [\#3259 Issue](2024-06-21.3259.issue.open.md) `open`: ReaR must not carelessly 'source' files
 - [\#3260 Issue](2024-06-21.3260.issue.open.md) `open`: Generic method how to safely and reliably read shell-style config files
 - [\#3261 PR](2024-06-25.3261.pr.merged.md) `merged`: bareos: require Bareos Director &gt;= 21
 - [\#3262 Issue](2024-06-27.3262.issue.closed.md) `closed`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3262 Issue](2024-06-27.3262.issue.open.md) `open`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3263 Issue](2024-07-02.3263.issue.open.md) `open`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
+-  [\#3264 Issue](2024-07-02.3264.issue.closed.md) `closed`: Automatic release notes creation as a WIKI page
 - [\#3264 Issue](2024-07-02.3264.issue.open.md) `open`: Automatic release notes creation as a WIKI page
 - [\#3265 Issue](2024-07-03.3265.issue.closed.md) `closed`: Issue with mkrescue on EFI servers with multipath devices
 - [\#3265 Issue](2024-07-03.3265.issue.open.md) `open`: Issue with mkrescue on EFI servers with multipath devices
@@ -3474,6 +3481,7 @@
 - [\#3353 PR](2024-12-03.3353.pr.merged.md) `merged`: cleanup: Finish the change of "Arch to "Arch\_Linux"
 - [\#3353 PR](2024-12-03.3353.pr.open.md) `open`: cleanup: Finish the change of "Arch to "Arch\_Linux"
 - [\#3354 PR](2024-12-04.3354.pr.merged.md) `merged`: cleanup: move grubby and grub2-editenv to 300\_include\_grub\_tools.sh (\#3349
+-  [\#3355 PR](2024-12-04.3355.pr.merged.md) `merged`: Storing and reading Self Encrypted Disk (SED
 - [\#3355 PR](2024-12-04.3355.pr.open.md) `open`: Storing and reading Self Encrypted Disk (SED
 - [\#3356 PR](2024-12-04.3356.pr.merged.md) `merged`: In 100\_copy\_as\_is.sh error out if symlinking VAR\_DIR SHARE\_DIR fails
 - [\#3357 Issue](2024-12-05.3357.issue.open.md) `open`: finalize/.../660\_install\_grub2.sh automatism fails on RAID1
@@ -3491,21 +3499,21 @@
 - [\#3369 Issue](2024-12-18.3369.issue.open.md) `open`: Makefile contains "obsproject = Archiving:Backup:Rear:Snapshot" which does no longer exist
 - [\#3370 PR](2024-12-18.3370.pr.merged.md) `merged`: ReaR 2.8 release preparations
 - [\#3371 PR](2024-12-19.3371.pr.open.md) `open`: Do not remove dotfiles from the release archive
-- # [\#3372 Issue](2024-12-19.3372.issue.closed.md) `closed`: Invalid partition?
-- # [\#3372 Issue](2024-12-19.3372.issue.open.md) `open`: Invalid partition?
+-  [\#3372 Issue](2024-12-19.3372.issue.closed.md) `closed`: Invalid partition?
+-  [\#3372 Issue](2024-12-19.3372.issue.open.md) `open`: Invalid partition?
 - [\#3373 PR](2024-12-20.3373.pr.merged.md) `merged`: Update rear-release-notes.txt
-- # [\#3373 PR](2024-12-20.3373.pr.open.md) `open`: Update rear-release-notes.txt
-- # [\#3374 Issue](2024-12-26.3374.issue.closed.md) `closed`: When performing rear recover, Unable to mount the NFS
+-  [\#3373 PR](2024-12-20.3373.pr.open.md) `open`: Update rear-release-notes.txt
+-  [\#3374 Issue](2024-12-26.3374.issue.closed.md) `closed`: When performing rear recover, Unable to mount the NFS
 - [\#3375 Issue](2025-01-02.3375.issue.closed.md) `closed`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
-- # [\#3375 Issue](2025-01-02.3375.issue.open.md) `open`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
+-  [\#3375 Issue](2025-01-02.3375.issue.open.md) `open`: unpacking of archive failed on file /usr/share/rear/skel/default/var/run: cpio: File from package already exists as a directory in system
 - [\#3376 PR](2025-01-02.3376.pr.merged.md) `merged`: Using Blockclone to save a disk image of a RPi system
-- # [\#3376 PR](2025-01-02.3376.pr.open.md) `open`: Using Blockclone to save a disk image of a RPi system
-- # [\#3377 Issue](2025-01-03.3377.issue.open.md) `open`: 'USE\_RESOLV\_CONF=n' error with ReaR 2.8 (because USE\_RESOLV\_CONF is an array
-- # [\#3378 Issue](2025-01-04.3378.issue.open.md) `open`: Since ReaR 2.8: ERROR: Mounpoint / points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: <https://github.com/rear/rear/issues/2028>
+-  [\#3376 PR](2025-01-02.3376.pr.open.md) `open`: Using Blockclone to save a disk image of a RPi system
+-  [\#3377 Issue](2025-01-03.3377.issue.open.md) `open`: 'USE\_RESOLV\_CONF=n' error with ReaR 2.8 (because USE\_RESOLV\_CONF is an array
+-  [\#3378 Issue](2025-01-04.3378.issue.open.md) `open`: Since ReaR 2.8: ERROR: Mounpoint / points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: <https://github.com/rear/rear/issues/2028>
 - [\#3379 PR](2025-01-13.3379.pr.closed.md) `closed`: New 'source' wrapper functions framework
 - [\#3379 PR](2025-01-13.3379.pr.open.md) `open`: New 'source' wrapper functions framework
 - [\#3380 PR](2025-01-13.3380.pr.merged.md) `merged`: Create /var/run symlink dynamically during mkrescue
-- # [\#3381 Issue](2025-01-16.3381.issue.closed.md) `closed`: When performing recovery unable load necessary kernel modules automatically
+-  [\#3381 Issue](2025-01-16.3381.issue.closed.md) `closed`: When performing recovery unable load necessary kernel modules automatically
 - [\#3381 Issue](2025-01-16.3381.issue.open.md) `open`: When performing recovery unable load necessary kernel modules automatically
 - [\#3382 PR](2025-01-22.3382.pr.merged.md) `merged`: Specify path to sbindir during RPM build
 - [\#3383 Issue](2025-01-22.3383.issue.closed.md) `closed`: False alarm in 880\_check\_for\_mount\_by\_id.sh when there is no SCSI disk (e.g. only NVMe disks
@@ -3528,7 +3536,7 @@
 - [\#3396 Issue](2025-02-06.3396.issue.open.md) `open`: Need Align all backup files under timestamp directory.
 - [\#3397 Issue](2025-02-06.3397.issue.closed.md) `closed`: Could not remove build area
 - [\#3397 Issue](2025-02-06.3397.issue.open.md) `open`: Could not remove build area
-- # [\#3398 Issue](2025-02-08.3398.issue.closed.md) `closed`: Creating a Config and when or IF a Disk gets formatted
+-  [\#3398 Issue](2025-02-08.3398.issue.closed.md) `closed`: Creating a Config and when or IF a Disk gets formatted
 - [\#3398 Issue](2025-02-08.3398.issue.open.md) `open`: Creating a Config and when or IF a Disk gets formatted
 - [\#3399 PR](2025-02-12.3399.pr.merged.md) `merged`: Further enhance 880\_check\_for\_mount\_by\_id.sh
 - [\#3400 Issue](2025-02-13.3400.issue.open.md) `open`: Falsely "automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem
@@ -3540,9 +3548,9 @@
 - [\#3406 PR](2025-02-24.3406.pr.merged.md) `merged`: ppc64le: Fix compatibility with PowerNV on RHEL 8+
 - [\#3407 PR](2025-02-25.3407.pr.open.md) `open`: regenerate all initramfs on SLES
 - [\#3408 PR](2025-02-26.3408.pr.merged.md) `merged`: New umount\_mountpoint\_retry\_lazy function
-- # [\#3409 Issue](2025-02-27.3409.issue.closed.md) `closed`: Make deb package build failed on Armbian/Raspbian - how to fix this ? (Discussion \#3327
+-  [\#3409 Issue](2025-02-27.3409.issue.closed.md) `closed`: Make deb package build failed on Armbian/Raspbian - how to fix this ? (Discussion \#3327
 - [\#3409 Issue](2025-02-27.3409.issue.open.md) `open`: Make deb package build failed on Armbian/Raspbian - how to fix this ? (Discussion \#3327
-- # [\#3410 Issue](2025-02-27.3410.issue.closed.md) `closed`: CrowdStrike Falcon may conflict with ReaR
+-  [\#3410 Issue](2025-02-27.3410.issue.closed.md) `closed`: CrowdStrike Falcon may conflict with ReaR
 - [\#3410 Issue](2025-02-27.3410.issue.open.md) `open`: CrowdStrike Falcon may conflict with ReaR
 - [\#3411 Issue](2025-02-28.3411.issue.closed.md) `closed`: Enhance 300\_map\_disks.sh to also print the disk sizes
 - [\#3412 PR](2025-02-28.3412.pr.merged.md) `merged`: enhance 300\_map\_disks.sh script to also print the disk sizes
@@ -3558,11 +3566,11 @@
 - [\#3422 Issue](2025-03-10.3422.issue.closed.md) `closed`: ReaR add lines in UEFI BIOS
 - [\#3423 Issue](2025-03-11.3423.issue.open.md) `open`: GRUB UEFI Secure Boot entry not working, non-secure boot entry works
 - [\#3424 PR](2025-03-11.3424.pr.merged.md) `merged`: TRUSTED\_OWNERS and TRUSTED\_PATHS to protect against code injection via 'source'
-- # [\#3425 Issue](2025-03-12.3425.issue.closed.md) `closed`: Unable to backup with RAID
+-  [\#3425 Issue](2025-03-12.3425.issue.closed.md) `closed`: Unable to backup with RAID
 - [\#3425 Issue](2025-03-12.3425.issue.open.md) `open`: Unable to backup with RAID
-- # [\#3426 Issue](2025-03-14.3426.issue.closed.md) `closed`: ISO fails to boot on EFI without notice with 4 GiB RAM (works with 6 GiB
+-  [\#3426 Issue](2025-03-14.3426.issue.closed.md) `closed`: ISO fails to boot on EFI without notice with 4 GiB RAM (works with 6 GiB
 - [\#3426 Issue](2025-03-14.3426.issue.open.md) `open`: SLES15 SP6: update defaults or documentation to make EFI-bootable rescue ISO work/boot
-- # [\#3427 Issue](2025-03-14.3427.issue.closed.md) `closed`: Are our discussions contents somewhere saved?
+-  [\#3427 Issue](2025-03-14.3427.issue.closed.md) `closed`: Are our discussions contents somewhere saved?
 - [\#3427 Issue](2025-03-14.3427.issue.open.md) `open`: Are our discussions contents somewhere saved?
 - [\#3428 Issue](2025-03-17.3428.issue.open.md) `open`: Prepare a list of obsolete external backup solutions
 - [\#3429 Issue](2025-03-17.3429.issue.open.md) `open`: Merge the two existing umount function into one
@@ -3574,9 +3582,9 @@
 - [\#3435 PR](2025-03-24.3435.pr.merged.md) `merged`: Delete 800\_enforce\_usb\_output.sh (deletes usr/share/rear/build/USB directory
 - [\#3436 PR](2025-03-24.3436.pr.closed.md) `closed`: Fix for simulation mode in sbin/rear
 - [\#3437 PR](2025-03-25.3437.pr.merged.md) `merged`: Allow sourcing via dot in non-ReaR files
-- # [\#3438 Issue](2025-03-25.3438.issue.closed.md) `closed`: Overhaul simulation mode implementation
+-  [\#3438 Issue](2025-03-25.3438.issue.closed.md) `closed`: Overhaul simulation mode implementation
 - [\#3438 Issue](2025-03-25.3438.issue.open.md) `open`: Overhaul simulation mode implementation
-- # [\#3439 Issue](2025-03-25.3439.issue.closed.md) `closed`: Sort out when 'source' versus 'Source' should be used in ReaR
+-  [\#3439 Issue](2025-03-25.3439.issue.closed.md) `closed`: Sort out when 'source' versus 'Source' should be used in ReaR
 - [\#3439 Issue](2025-03-25.3439.issue.open.md) `open`: Sort out when 'source' versus 'Source' should be used in ReaR
 - [\#3440 PR](2025-03-27.3440.pr.open.md) `open`: Add initial support for arm/aarch64 machines with UEFI
 - [\#3441 Issue](2025-03-27.3441.issue.closed.md) `closed`: Create ISO image containing all data and send it via rsync
@@ -3584,45 +3592,46 @@
 - [\#3443 Issue](2025-04-03.3443.issue.open.md) `open`: 001\_verify\_config\_arrays.sh leaks secrets in arrays
 - [\#3444 Issue](2025-04-03.3444.issue.closed.md) `closed`: 'dump' workflow leaks secrets
 - [\#3445 PR](2025-04-03.3445.pr.merged.md) `merged`: Do not show secrets in the dump workflow without --expose-secrets
-- # [\#3446 Issue](2025-04-05.3446.issue.closed.md) `closed`: rescue ISO cannot load kernel
+-  [\#3446 Issue](2025-04-05.3446.issue.closed.md) `closed`: rescue ISO cannot load kernel
 - [\#3446 Issue](2025-04-05.3446.issue.open.md) `open`: rescue ISO cannot load kernel
+-  [\#3447 PR](2025-04-05.3447.pr.merged.md) `merged`: Extend the umount\_mountpoint function to try normal, forced and lazy umounts
 - [\#3447 PR](2025-04-05.3447.pr.open.md) `open`: Extend the umount\_mountpoint function to try normal, forced and lazy umounts
-- # [\#3448 Issue](2025-04-07.3448.issue.closed.md) `closed`: Ultrium9 SAS tape drive: OUTPUT=OBDR mkbackup fails (tar: /dev/nst0: Device busy
+-  [\#3448 Issue](2025-04-07.3448.issue.closed.md) `closed`: Ultrium9 SAS tape drive: OUTPUT=OBDR mkbackup fails (tar: /dev/nst0: Device busy
 - [\#3448 Issue](2025-04-07.3448.issue.open.md) `open`: Ultrium9 SAS tape drive: OUTPUT=OBDR mkbackup fails (tar: /dev/nst0: Device busy
 - [\#3449 PR](2025-04-07.3449.pr.merged.md) `merged`: Avoid that 001\_verify\_config\_arrays.sh leaks secrets
 - [\#3450 PR](2025-04-08.3450.pr.merged.md) `merged`: Set BACKUP\_PROG\_COMPRESS\_OPTIONS as an empty array
-- # [\#3451 Issue](2025-04-08.3451.issue.closed.md) `closed`: SAS Ultrium9 tape drive: dd: error writing '/dev/nst0': Invalid argument
+-  [\#3451 Issue](2025-04-08.3451.issue.closed.md) `closed`: SAS Ultrium9 tape drive: dd: error writing '/dev/nst0': Invalid argument
 - [\#3451 Issue](2025-04-08.3451.issue.open.md) `open`: SAS Ultrium9 tape drive: dd: error writing '/dev/nst0': Invalid argument
-- # [\#3452 PR](2025-04-08.3452.pr.merged.md) `merged`: run-in-docker: Use /lib64/ld-linux-x86-64.so.2 to detect HW architecture
+-  [\#3452 PR](2025-04-08.3452.pr.merged.md) `merged`: run-in-docker: Use /lib64/ld-linux-x86-64.so.2 to detect HW architecture
 - [\#3452 PR](2025-04-08.3452.pr.open.md) `open`: run-in-docker: Use /lib64/ld-linux-x86-64.so.2 to detect HW architecture
-- # [\#3453 Issue](2025-04-10.3453.issue.closed.md) `closed`: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape
-- # [\#3454 Issue](2025-04-14.3454.issue.closed.md) `closed`: BACKUP\_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device
-- # [\#3455 PR](2025-04-15.3455.pr.merged.md) `merged`: EXCLUDE\_COMPONENTS in 200\_partition\_layout.sh
-- # [\#3456 PR](2025-04-16.3456.pr.merged.md) `merged`: Add '-t cifs' in mount\_url(
-- # [\#3457 Issue](2025-04-16.3457.issue.open.md) `open`: FYI: "rear mkbackuponly" may create inconsistencies in var/lib/rear/layout/
-- # [\#3458 Issue](2025-04-16.3458.issue.open.md) `open`: Documentation for EXCLUDE\_COMPONENTS
-- # [\#3459 Issue](2025-04-22.3459.issue.closed.md) `closed`: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk
-- # [\#3460 Issue](2025-04-23.3460.issue.closed.md) `closed`: mktemp is called before local.conf is sourced
-- # [\#3461 Issue](2025-04-24.3461.issue.closed.md) `closed`: LVM: 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail
-- # [\#3462 PR](2025-04-25.3462.pr.merged.md) `merged`: Tell if 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf
-- # [\#3463 Issue](2025-04-28.3463.issue.open.md) `open`: COVE backup method to support Cove Data Protection (Backup Manager
-- # [\#3464 PR](2025-04-28.3464.pr.open.md) `open`: Add initial Cove support
-- # [\#3465 PR](2025-04-29.3465.pr.merged.md) `merged`: Set ReaR paths early in system-setup
-- # [\#3466 PR](2025-04-30.3466.pr.closed.md) `closed`: Fix calling efibootmgr on software RAID
-- # [\#3467 Issue](2025-04-30.3467.issue.closed.md) `closed`: COPY\_AS\_IS\_EXELIST 47975 occurrences in the log file
-- # [\#3468 PR](2025-05-05.3468.pr.merged.md) `merged`: More consistent user messages in 310\_network\_devices.sh
-- # [\#3469 PR](2025-05-06.3469.pr.open.md) `open`: Describe enforced umount problem in umount\_mountpoint\_retry\_lazy function
-- # [\#3470 Issue](2025-05-07.3470.issue.open.md) `open`: Cannot make USB recovery stick
-- # [\#3471 PR](2025-05-09.3471.pr.merged.md) `merged`: Support new EFIBOOTMGR\_CREATE\_ENTRIES in 670\_run\_efibootmgr.sh
-- # [\#3472 Issue](2025-05-14.3472.issue.open.md) `open`: Can't get Relax and Recover to boot on OpenStack (OpenMetal
-- # [\#3473 Issue](2025-05-21.3473.issue.open.md) `open`: ReaR automatisms overwrite sacrosanct user specified values
-- # [\#3474 Issue](2025-05-27.3474.issue.open.md) `open`: Migrate LUKS disk as is, without setting a password phrase at the time of recovery
-- # [\#3475 Issue](2025-05-28.3475.issue.open.md) `open`: Add RHEL 10 and clones support
-- # [\#3476 PR](2025-06-01.3476.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.3 to 5.5.4
-- # [\#3477 Issue](2025-06-03.3477.issue.open.md) `open`: Disk mappings should be also applied to user configuration values
-- # [\#3478 Issue](2025-06-04.3478.issue.closed.md) `closed`: umount fails because target is in use by realtime antivirus scanner
-- # [\#3479 Issue](2025-06-11.3479.issue.closed.md) `closed`: BUG in /usr/share/rear/rescue/default/020\_create\_skeleton\_dirs.sh line 31
-- # [\#3480 Issue](2025-06-16.3480.issue.open.md) `open`: Do we actually need `dbus` in the rescue environment?
-- # [\#3481 Issue](2025-06-16.3481.issue.open.md) `open`: Only stale issues marked with label "waiting for info"
-- # [\#3482 PR](2025-06-17.3482.pr.open.md) `open`: Make issues or PRs stale only after specific labels have been set
-- # Issues History of Relax-and-Recover (index.md)
+-  [\#3453 Issue](2025-04-10.3453.issue.closed.md) `closed`: Tape Drive IBM TS2290: Boot from USB flash, restoring from tape
+-  [\#3454 Issue](2025-04-14.3454.issue.closed.md) `closed`: BACKUP\_URL=cifs://192.1.1.14/rocky-dd : mount: ... /192.1.1.14/rocky-dd is not a block device
+-  [\#3455 PR](2025-04-15.3455.pr.merged.md) `merged`: EXCLUDE\_COMPONENTS in 200\_partition\_layout.sh
+-  [\#3456 PR](2025-04-16.3456.pr.merged.md) `merged`: Add '-t cifs' in mount\_url(
+-  [\#3457 Issue](2025-04-16.3457.issue.open.md) `open`: FYI: "rear mkbackuponly" may create inconsistencies in var/lib/rear/layout/
+-  [\#3458 Issue](2025-04-16.3458.issue.open.md) `open`: Documentation for EXCLUDE\_COMPONENTS
+-  [\#3459 Issue](2025-04-22.3459.issue.closed.md) `closed`: Cannot create EFI Boot Manager entry for ESP /dev/md0p1 (unable to find the underlying disk
+-  [\#3460 Issue](2025-04-23.3460.issue.closed.md) `closed`: mktemp is called before local.conf is sourced
+-  [\#3461 Issue](2025-04-24.3461.issue.closed.md) `closed`: LVM: 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail
+-  [\#3462 PR](2025-04-25.3462.pr.merged.md) `merged`: Tell if 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf
+-  [\#3463 Issue](2025-04-28.3463.issue.open.md) `open`: COVE backup method to support Cove Data Protection (Backup Manager
+-  [\#3464 PR](2025-04-28.3464.pr.open.md) `open`: Add initial Cove support
+-  [\#3465 PR](2025-04-29.3465.pr.merged.md) `merged`: Set ReaR paths early in system-setup
+-  [\#3466 PR](2025-04-30.3466.pr.closed.md) `closed`: Fix calling efibootmgr on software RAID
+-  [\#3467 Issue](2025-04-30.3467.issue.closed.md) `closed`: COPY\_AS\_IS\_EXELIST 47975 occurrences in the log file
+-  [\#3468 PR](2025-05-05.3468.pr.merged.md) `merged`: More consistent user messages in 310\_network\_devices.sh
+-  [\#3469 PR](2025-05-06.3469.pr.open.md) `open`: Describe enforced umount problem in umount\_mountpoint\_retry\_lazy function
+-  [\#3470 Issue](2025-05-07.3470.issue.open.md) `open`: Cannot make USB recovery stick
+-  [\#3471 PR](2025-05-09.3471.pr.merged.md) `merged`: Support new EFIBOOTMGR\_CREATE\_ENTRIES in 670\_run\_efibootmgr.sh
+-  [\#3472 Issue](2025-05-14.3472.issue.open.md) `open`: Can't get Relax and Recover to boot on OpenStack (OpenMetal
+-  [\#3473 Issue](2025-05-21.3473.issue.open.md) `open`: ReaR automatisms overwrite sacrosanct user specified values
+-  [\#3474 Issue](2025-05-27.3474.issue.open.md) `open`: Migrate LUKS disk as is, without setting a password phrase at the time of recovery
+-  [\#3475 Issue](2025-05-28.3475.issue.open.md) `open`: Add RHEL 10 and clones support
+-  [\#3476 PR](2025-06-01.3476.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.3 to 5.5.4
+-  [\#3477 Issue](2025-06-03.3477.issue.open.md) `open`: Disk mappings should be also applied to user configuration values
+-  [\#3478 Issue](2025-06-04.3478.issue.closed.md) `closed`: umount fails because target is in use by realtime antivirus scanner
+-  [\#3479 Issue](2025-06-11.3479.issue.closed.md) `closed`: BUG in /usr/share/rear/rescue/default/020\_create\_skeleton\_dirs.sh line 31
+-  [\#3480 Issue](2025-06-16.3480.issue.open.md) `open`: Do we actually need `dbus` in the rescue environment?
+-  [\#3481 Issue](2025-06-16.3481.issue.open.md) `open`: Only stale issues marked with label "waiting for info"
+-  [\#3482 PR](2025-06-17.3482.pr.open.md) `open`: Make issues or PRs stale only after specific labels have been set
+-  Issues History of Relax-and-Recover (index.md)
