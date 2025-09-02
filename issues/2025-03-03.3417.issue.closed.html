@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3417 Issue closed: Out of memory when restoring - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3417 Issue closed: Out of memory when restoring";
+        var mkdocs_page_input_path = "issues/2025-03-03.3417.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3417 Issue closed: Out of memory when restoring</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3417_issue_closed_out_of_memory_when_restoring"><a href="https://github.com/rear/rear/issues/3417">#3417 Issue</a> <code>closed</code>: Out of memory when restoring<a class="headerlink" href="#3417_issue_closed_out_of_memory_when_restoring" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>won't fix / can't fix / obsolete</code></p>
+<h4 id="amosmes_opened_issue_at_2025-03-03_1142"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> opened issue at <a href="https://github.com/rear/rear/issues/3417">2025-03-03 11:42</a>:<a class="headerlink" href="#amosmes_opened_issue_at_2025-03-03_1142" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>When I try to restore the Debian OS via ReaR and the rescue is being
+mounted I get the error: out of memory.</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Debian 12</p>
+<h4 id="gdha_commented_at_2025-03-03_1304"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2694331352">2025-03-03 13:04</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-03_1304" title="Permanent link">&para;</a></h4>
+<p>@AmosMes Could you please update the issue with details about your
+system (platform, architecture, and content of /etc/rear/local.conf)?</p>
+<h4 id="amosmes_commented_at_2025-03-04_0626"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696349694">2025-03-04 06:26</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_0626" title="Permanent link">&para;</a></h4>
+<p>Hi,<br />
+The platform is Debian 12 and architecture is 64bit.</p>
+<p>The local.conf content is:</p>
+<p>OUTPUT=USB<br />
+BACKUP=NETFS<br />
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000<br />
+ONLY_INCLUDE_VG=( "os" )<br />
+USB_UEFI_PART_SIZE="1000"<br />
+KERNEL_CMDLINE="noip unattended"<br />
+USER_INPUT_TIMEOUT=15<br />
+USB_RETAIN_BACKUP_NR=1<br />
+COPY_AS_IS+=( /root/scripts )</p>
+<p>The destination disk is nvme</p>
+<h4 id="amosmes_commented_at_2025-03-04_0628"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696352673">2025-03-04 06:28</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_0628" title="Permanent link">&para;</a></h4>
+<p>By the way it is a Debian 12 with Proxmox installed on it.</p>
+<h4 id="gdha_commented_at_2025-03-04_0734"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696481460">2025-03-04 07:34</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-04_0734" title="Permanent link">&para;</a></h4>
+<p>@AmosMes Thanks for the replies. So, you boot from an USB disk, right?
+Does it boot up?</p>
+<p>Try again to create a bootable USB disk without the <code>KERNEL_CMDLINE</code> in
+the local.conf file. And, then boot from the USB disk. Does it boot up
+properly? Are you have a root prompt? Can you inspect the rescue system
+resources before running <code>rear recover</code>...</p>
+<h4 id="amosmes_commented_at_2025-03-04_0812"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696578736">2025-03-04 08:12</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_0812" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha ,<br />
+I boot from a local NVME installed on the server. It is configured as
+USB .</p>
+<p>I followed your instructions and I do not get a prompt.</p>
+<p>I do get the same error as before, I cannot add a screenshot, it fails
+in this stage:</p>
+<pre><code>Loading kernel /EFI/BOOT/kernel ...
+Loading initial ramdisk /EFI/BOOT/initrd.cgz
+error: out of memory.
+
+Press any key to continue...
+</code></pre>
+<h4 id="gdha_commented_at_2025-03-04_0901"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696710448">2025-03-04 09:01</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-04_0901" title="Permanent link">&para;</a></h4>
+<p>@AmosMes Ok, add <code>FIRMWARE_FILES=( 'no' )</code> to the local.conf and rebuild
+the USB boot disk and then try to boot from it again. The rescue OS will
+be much smaller. See if this helps?</p>
+<h4 id="amosmes_commented_at_2025-03-04_0942"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2696841554">2025-03-04 09:42</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_0942" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha,<br />
+Thanks a lot ... it works.<br />
+Should I expect any issues because of the FIRMWARE_FILES=( 'no' ) line
+?</p>
+<p>Another question please:<br />
+My backup disk is 1 TB in size and I would like to divide it to 2
+partitions 1 is for data and the other is for the ReaR backup.<br />
+Can it be done ?</p>
+<h4 id="gdha_commented_at_2025-03-04_1155"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2697294823">2025-03-04 11:55</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-04_1155" title="Permanent link">&para;</a></h4>
+<p>@AmosMes Great news. As long as the USB rescue recovers the same system
+then no extra firmware is needed.</p>
+<p>Sure, you can divide your disk with 2 partitions. Just make sure that
+you format the 1st partition again according the REAR-000 procedure you
+followed before.</p>
+<h4 id="amosmes_commented_at_2025-03-04_1240"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2697439621">2025-03-04 12:40</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_1240" title="Permanent link">&para;</a></h4>
+<p>Thank you,<br />
+will try to divide.</p>
+<h4 id="jsmeix_commented_at_2025-03-04_1316"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2697547741">2025-03-04 13:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-04_1316" title="Permanent link">&para;</a></h4>
+<p>FYI<br />
+a side note regarding<br />
+<a href="https://github.com/rear/rear/issues/3417#issuecomment-2697294823">https://github.com/rear/rear/issues/3417#issuecomment-2697294823</a></p>
+<pre><code>As long as the USB rescue recovers the same system
+then no extra firmware is needed.
+</code></pre>
+<p>The point here is the exact meaning of the word 'extra'.</p>
+<p>When you need some firmware on your original system<br />
+to make its hardware work, then you need the specific<br />
+firmware files which are used on the original system<br />
+also inside the ReaR recovery system to be able<br />
+to run the ReaR recovery system on the same hardware<br />
+as the original system.</p>
+<p>In particular network hardware and many GPUs<br />
+(also iGPUs which are built-in in the CPU/APU package)<br />
+are known to need firmware to make the hardware work, cf.<br />
+<a href="https://github.com/rear/rear/issues/3194">https://github.com/rear/rear/issues/3194</a></p>
+<p>But you do not need extra firmware files (i.e. additional<br />
+firmware files than what is used on the original system)<br />
+inside the ReaR recovery system to run it on the same<br />
+hardware as the original system.</p>
+<p>In contrast when you intend to run the ReaR recovery system<br />
+on different hardware than the original system (e.g. to<br />
+recreate your system on different replacement hardware)<br />
+then you do a "migration" (onto different hardware)<br />
+because your replacement hardware is not fully compatible,<br />
+cf. "Fully compatible replacement hardware is needed" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>So to be able to do such a "migration" you should include<br />
+all firmware into the ReaR recovery system that could<br />
+be needed on different replacement hardware.<br />
+See the FIRMWARE_FILES config variable description<br />
+in usr/share/rear/conf/default.conf how to do that<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L1820">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L1820</a></p>
+<p>Because the ReaR recovery system runs in main memory<br />
+(using a ramdisk) you need sufficient main memory<br />
+to run even a bigger ReaR recovery system<br />
+which contains lots of firmware files.</p>
+<h4 id="amosmes_commented_at_2025-03-04_1401"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2697720884">2025-03-04 14:01</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-04_1401" title="Permanent link">&para;</a></h4>
+<p>Thanks @jsmeix</p>
+<h4 id="amosmes_commented_at_2025-03-05_0907"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2700297515">2025-03-05 09:07</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-05_0907" title="Permanent link">&para;</a></h4>
+<p>@gdha ,<br />
+A question about 2 partitions.<br />
+I used gdisk and divided the /dev/nvme0n1 to 2 partitions...
+/dev/nvme0n1p1 and /dev/nvme0n1p2.<br />
+When I run the command "rear -v format -- --efi /dev/nvme0n1p1" the
+command is repartitioning the /dev/nvme0n1 and 1 partition is 1GB and
+the other has the entire disk.</p>
+<p>What am I missing in order to divide the disk as I want and have control
+on the partitions?</p>
+<h4 id="gdha_commented_at_2025-03-05_1141"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2700688710">2025-03-05 11:41</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-05_1141" title="Permanent link">&para;</a></h4>
+<p>@AmosMes you may hit a small bug in the rear format code of USB disks
+with an already partitioned disk. As a work-around you have to partition
+the USB disk and format the 1st partition manually with ext3, ext4 file
+system. You can label it with REAR-000 afterwards with e2label. As such
+you have the result you want.</p>
+<h4 id="amosmes_commented_at_2025-03-05_1143"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2700693550">2025-03-05 11:43</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-05_1143" title="Permanent link">&para;</a></h4>
+<p>Thanks,<br />
+and what about the bootable partition?<br />
+The rear format creates the bootable partition.</p>
+<h4 id="gdha_commented_at_2025-03-05_1152"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2700712645">2025-03-05 11:52</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-05_1152" title="Permanent link">&para;</a></h4>
+<p>Indeed that will not work - suppose you better use a USB stick to boot
+from and use the internal disk as archive target as a work-around.</p>
+<h4 id="amosmes_commented_at_2025-03-05_1212"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2700757767">2025-03-05 12:12</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-05_1212" title="Permanent link">&para;</a></h4>
+<p>The problem is that I don't have that as an option.<br />
+Is there anything else to do as a workaround ?</p>
+<h4 id="jsmeix_commented_at_2025-03-05_1356"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2701019651">2025-03-05 13:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-05_1356" title="Permanent link">&para;</a></h4>
+<p>@AmosMes<br />
+regarding your question in<br />
+<a href="https://github.com/rear/rear/issues/3417#issuecomment-2696841554">https://github.com/rear/rear/issues/3417#issuecomment-2696841554</a></p>
+<pre><code>My backup disk is 1 TB in size and I would like to divide it
+to 2 partitions 1 is for data and the other is for the ReaR backup.
+Can it be done ?
+</code></pre>
+<p>See in usr/share/rear/conf/default.conf<br />
+the section about "OUTPUT=USB"<br />
+therein the various USB_... config variables in particular<br />
+USB_DEVICE_FILESYSTEM_PERCENTAGE<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L1158">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L1158</a></p>
+<p>By the way:<br />
+Why do you specify <code>USB_UEFI_PART_SIZE="1000"</code> in your local.conf<br />
+when the default is <code>USB_UEFI_PART_SIZE="1024"</code>?<br />
+I.e. what do you intend to gain with a 24 MiB smaller<br />
+size of the EFI system partition (ESP)?<br />
+I wonder if you ever read usr/share/rear/conf/default.conf?</p>
+<p>Only FYI in general:</p>
+<p>In theory it could be possible to prepare an already used disk<br />
+so that it is usable for ReaR but I think in practice this<br />
+needs unreasonable trial-and-error efforts compared to using<br />
+"rear format" from scratch with a pristine empty disk.</p>
+<p>I recommend to use "rear mkbackup" only with a dedicated<br />
+disk for ReaR. This is what basically all others do so this<br />
+is proven to work reasonably well "out there in the wild".<br />
+If you use a disk where also valuable other data is stored<br />
+(e.g. a disk where already a previous backup is stored)<br />
+something might go terribly wrong when writing a subsequent<br />
+backup there (e.g. via "rear mkbackup") so in the end<br />
+all might be lost on that disk.<br />
+To be reasonably on the safe side I recommend to dedicate<br />
+at least two disks only to ReaR and use them alternating<br />
+so if one gets damaged during "rear mkrescue/mkbackup"<br />
+you still have the other one with the latest backup.</p>
+<p>Cf.<br />
+<a href="https://github.com/rear/rear/issues/3398#issuecomment-2647990654">https://github.com/rear/rear/issues/3398#issuecomment-2647990654</a></p>
+<p>A quick "googling" for "1TB USB disk" shows<br />
+that ony can get one for about 50 Euros<br />
+(up to about 100 Euros for some "better" ones)<br />
+and a 500GiB USB disk for about 25 Euros.<br />
+So I wonder if it is really worth the additional risk<br />
+to use one same big USB disk for ReaR and other data<br />
+than to Keep Separated Issues Separated "KSIS"<br />
+(derived from the KISS principle)<br />
+and spend money for a separated USB disk for ReaR<br />
+(preferably two USB disks for alternating usage).</p>
+<p>This is only my personal opinion how I recommend to do it.<br />
+Of course you should do what fits best your specific needs.</p>
+<h4 id="amosmes_commented_at_2025-03-06_1138"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2703598650">2025-03-06 11:38</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-06_1138" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix,<br />
+Your point about the USB_UEFI_PART_SIZE="1000" is valid and I will
+change that so thank you for that.</p>
+<h4 id="amosmes_commented_at_2025-03-06_1139"><img src="https://avatars.githubusercontent.com/u/92472409?v=4" width="50"><a href="https://github.com/AmosMes">AmosMes</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2703599685">2025-03-06 11:38</a>:<a class="headerlink" href="#amosmes_commented_at_2025-03-06_1139" title="Permanent link">&para;</a></h4>
+<p>@gdha ,<br />
+Do you think you'll be fixing the rear format bug ?</p>
+<h4 id="gdha_commented_at_2025-03-06_1328"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2703856698">2025-03-06 13:28</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-06_1328" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://github.com/gdha">@gdha</a> , Do you think you'll be fixing the
+rear format bug ?</p>
+</blockquote>
+<p>Not easily done as it was designed to work on one external USB disk.
+Internal disks were not directly in scope and that would make everything
+more complex.<br />
+However, you could use a RAMDISK:</p>
+<pre><code>OUTPUT=RAMDISK
+
+# We want our kernel and initramfs saved under /boot/ReaR and have an extention with "-ReaR"
+OUTPUT_PREFIX="ReaR"
+RAMDISK_SUFFIX="ReaR"
+
+# The RAMDISK will be created under /boot/$(hostname -s)/
+OUTPUT_URL=file:///boot
+
+# Use the same IP address(es) of the this system to be activated in the rescue OS
+USE_STATIC_NETWORKING="y"
+
+# To be able to login via ssh
+SSH_ROOT_PASSWORD="relax"
+
+# We do not want a ReaR archive, therefore, use the EXTERNAL setting for BACKUP:
+BACKUP=file:///your-internal-disk-mount-point
+
+# To save space limit what we need (no firmware and only the loaded kernel modules)
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+
+EXCLUDE_MOUNTPOINTS=( /your-internal-disk-mount-point )
+AUTOEXCLUDE_PATH=( /your-internal-disk-mount-point )
+WRITE_PROTECTED_FS_LABEL_PATTERNS=( "REAR-DATA" )  # label your internal disk
+</code></pre>
+<h4 id="github-actions_commented_at_2025-05-06_0254"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-2853135160">2025-05-06 02:54</a>:<a class="headerlink" href="#github-actions_commented_at_2025-05-06_0254" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2025-07-19_0309"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3417#issuecomment-3091452974">2025-07-19 03:09</a>:<a class="headerlink" href="#github-actions_commented_at_2025-07-19_0309" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-03.3417.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

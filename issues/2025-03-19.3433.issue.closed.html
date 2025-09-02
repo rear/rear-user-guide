@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3433 Issue closed: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb" - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3433 Issue closed: Cannot do backup: \"Unsupported partition table \u0027unknown\u0027 on /dev/sdb\"";
+        var mkdocs_page_input_path = "issues/2025-03-19.3433.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3433 Issue closed: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3433_issue_closed_cannot_do_backup_unsupported_partition_table_unknown_on_devsdb"><a href="https://github.com/rear/rear/issues/3433">#3433 Issue</a> <code>closed</code>: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"<a class="headerlink" href="#3433_issue_closed_cannot_do_backup_unsupported_partition_table_unknown_on_devsdb" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="u4ea75_opened_issue_at_2025-03-19_1148"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> opened issue at <a href="https://github.com/rear/rear/issues/3433">2025-03-19 11:48</a>:<a class="headerlink" href="#u4ea75_opened_issue_at_2025-03-19_1148" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Cannot exclude disk from backup</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<pre><code>Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 54431 date 2025-03-19 12:21:43)
+Command line options: /home/connadmin/rear/usr/sbin/rear -v -d mkbackup
+Using log file: /home/connadmin/rear/var/log/rear/rear-itflowsrv.log
+Using build area: /var/tmp/rear.Px7CbCMVxXNYgrU
+Setting TMPDIR to ReaR's '/var/tmp/rear.Px7CbCMVxXNYgrU/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Running 'prep' stage ======================
+Using backup archive '/var/tmp/rear.Px7CbCMVxXNYgrU/outputfs/rear/itflowsrv/20250319.1221/backup.tar.gz'
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot is disabled, not using Secure Boot shim:
+SecureBoot disabled
+Platform is in Setup Mode
+Using autodetected kernel '/boot/vmlinuz-6.8.0-55-generic' as kernel in the recovery system
+Cannot write protect USB disk of '/dev/disk/by-label/REAR-000' via ID (no ID found)
+File system label of '/dev/disk/by-label/REAR-000' added to WRITE_PROTECTED_FS_LABEL_PATTERNS
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.Px7CbCMVxXNYgrU/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /home/connadmin/rear/var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-03-19 12:21:45.225827786 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+You may use debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /home/connadmin/rear/var/log/rear/rear-itflowsrv.log for details
+Exiting rear mkbackup (PID 54431) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.Px7CbCMVxXNYgrU
+</code></pre>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):</li>
+</ul>
+<p>Relax-and-Recover 2.7 / Git</p>
+<p>Ubuntu 24.04.1 LTS</p>
+<ul>
+<li>ReaR configuration files</li>
+</ul>
+<!-- -->
+
+<pre><code>AUTOEXCLUDE_MULTIPATH=y
+AUTOEXCLUDE_DISKS=y
+EXCLUDE_RECREATE+=( "fs:/dev/sdb")
+</code></pre>
+<ul>
+<li>
+<p>Hardware vendor/product (PC or PowerNV BareMetal or ARM) or VM (KVM
+    guest or PowerVM LPAR):<br />
+    Dell PowerEdge R220</p>
+</li>
+<li>
+<p>System architecture (x86 compatible or PPC64/PPC64LE or what exact
+    ARM device):<br />
+    x86_64</p>
+</li>
+<li>
+<p>Firmware (BIOS or UEFI or Open Firmware) and bootloader (GRUB or
+    ELILO or Petitboot):<br />
+    Should be a BIOS boot with grub</p>
+</li>
+<li>
+<p>Storage (local disk or SSD) and/or SAN (FC or iSCSI or FCoE) and/or
+    multipath (DM or NVMe):<br />
+    two hdd on raid 1</p>
+</li>
+<li>
+<p>Storage layout ("lsblk -ipo
+    NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT"):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>NAME                                  KNAME     PKNAME    TRAN   TYPE FSTYPE      LABEL      SIZE MOUNTPOIN
+/dev/sda                              /dev/sda            sata   disk                      465.8G
+|-/dev/sda1                           /dev/sda1 /dev/sda         part vfat                     1G /boot/efi
+|-/dev/sda2                           /dev/sda2 /dev/sda         part ext4                     2G /boot
+`-/dev/sda3                           /dev/sda3 /dev/sda         part LVM2_member          462.7G
+  `-/dev/mapper/ubuntu--vg-ubuntu--lv /dev/dm-0 /dev/sda3        lvm  ext4                   100G /
+/dev/sdb                              /dev/sdb            sata   disk                      465.8G
+`-/dev/sdb1                           /dev/sdb1 /dev/sdb         part                      465.8G
+/dev/sdc                              /dev/sdc            usb    disk                       28.9G
+|-/dev/sdc1                           /dev/sdc1 /dev/sdc         part                          8M
+|-/dev/sdc2                           /dev/sdc2 /dev/sdc         part vfat        REAR-EFI     1G
+`-/dev/sdc3                           /dev/sdc3 /dev/sdc         part ext3        REAR-000  27.9G
+/dev/sr0                              /dev/sr0            sata   rom                        1024M
+</code></pre>
+<p>I'm unable to do backup, this is the output:</p>
+<pre><code>Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 54431 date 2025-03-19 12:21:43)
+Command line options: /home/connadmin/rear/usr/sbin/rear -v -d mkbackup
+Using log file: /home/connadmin/rear/var/log/rear/rear-itflowsrv.log
+Using build area: /var/tmp/rear.Px7CbCMVxXNYgrU
+Setting TMPDIR to ReaR's '/var/tmp/rear.Px7CbCMVxXNYgrU/tmp' (was unset when ReaR was launched)
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Running 'prep' stage ======================
+Using backup archive '/var/tmp/rear.Px7CbCMVxXNYgrU/outputfs/rear/itflowsrv/20250319.1221/backup.tar.gz'
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot is disabled, not using Secure Boot shim:
+SecureBoot disabled
+Platform is in Setup Mode
+Using autodetected kernel '/boot/vmlinuz-6.8.0-55-generic' as kernel in the recovery system
+Cannot write protect USB disk of '/dev/disk/by-label/REAR-000' via ID (no ID found)
+File system label of '/dev/disk/by-label/REAR-000' added to WRITE_PROTECTED_FS_LABEL_PATTERNS
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.Px7CbCMVxXNYgrU/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /home/connadmin/rear/var/lib/rear/layout/disklayout.conf
+ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-03-19 12:21:45.225827786 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+You may use debugscript mode '-D' for full debug messages with 'set -x' output
+Aborting due to an error, check /home/connadmin/rear/var/log/rear/rear-itflowsrv.log for details
+Exiting rear mkbackup (PID 54431) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.Px7CbCMVxXNYgrU
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-03-19_1321"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2736620479">2025-03-19 13:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-19_1321" title="Permanent link">&para;</a></h4>
+<p>I think I vaguely remember that we recently had<br />
+such kind of issue here at ReaR upstream</p>
+<pre><code>ERROR: Unsupported partition table 'unknown' on ... (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>...<br />
+googling for <code>ERROR: Unsupported partition table 'unknown' on</code><br />
+found it:<br />
+<a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a><br />
+which is also on Ubuntu 24.04.X LTS<br />
+that one is on Ubuntu 20.04.6 LTS and was<br />
+reproduced with Ubuntu-Server 20.04.2 LTS, cf.<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1598782245">https://github.com/rear/rear/issues/2995#issuecomment-1598782245</a></p>
+<h4 id="u4ea75_commented_at_2025-03-19_1333"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2736668666">2025-03-19 13:33</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-03-19_1333" title="Permanent link">&para;</a></h4>
+<p>I read that posts before write my one but cannot understand what to do
+sorry, could u help?</p>
+<h4 id="gdha_commented_at_2025-03-20_0856"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739638078">2025-03-20 08:56</a>:<a class="headerlink" href="#gdha_commented_at_2025-03-20_0856" title="Permanent link">&para;</a></h4>
+<p>@jsmeix could PR <a href="https://github.com/rear/rear/pull/3403">https://github.com/rear/rear/pull/3403</a> be of any help
+here?</p>
+<h4 id="jsmeix_commented_at_2025-03-20_0902"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739653044">2025-03-20 09:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-20_0902" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+I don't know.<br />
+I did not find time to investigate the details of those issues.</p>
+<h4 id="jsmeix_commented_at_2025-03-20_0911"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2739674503">2025-03-20 09:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-20_0911" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<p>FYI some generic boilerplate info:</p>
+<p>In general I recommend to try out our latest GitHub master code<br />
+because the GitHub master code is the only place where we fix things<br />
+and if there are issues it helps when you use exactly the code<br />
+where we could fix things.</p>
+<p>See the "QUICK START GUIDE" and "INSTALLATION" parts on<br />
+<a href="https://github.com/rear/rear">https://github.com/rear/rear</a></p>
+<p>Additionally / alternatively see the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can try out our current ReaR GitHub master code<br />
+without conflicts with your already installed ReaR version.</p>
+<p>In general we at ReaR upstream do not support older ReaR versions.<br />
+We at ReaR upstream do not plain reject issues with older ReaR
+versions<br />
+(e.g. we may answer easy to solve questions also for older ReaR
+versions)<br />
+but we do not spend much time on issues with older ReaR versions
+because<br />
+we do not (and cannot) fix issues in released ReaR versions.<br />
+Issues in released ReaR versions are not fixed by us (by ReaR
+upstream).<br />
+Issues in released ReaR versions that got fixed in current ReaR
+upstream<br />
+GitHub master code might be fixed (if the fix can be backported with<br />
+reasonable effort) by the Linux distributor wherefrom you got ReaR.</p>
+<p>In particular regarding Ubuntu / Debian:</p>
+<p>I am neither a Ubuntu user nor a Debian user.<br />
+Currently we at ReaR upstream do not have<br />
+an active maintainer for Ubuntu / Debian.<br />
+So ReaR support for Ubuntu / Debian<br />
+can be only as good as voluntary contributors<br />
+who use those Linux distributions contribute<br />
+which is much appreciated!</p>
+<p>In particular regarding Ubuntu:<br />
+It seems Canonical is not sufficiently interested in ReaR<br />
+in contrast to Red Hat and SUSE who pay developers<br />
+(like me from SUSE and e.g. @pcahyna and @lzaoral from Red Hat)<br />
+to contribute to upstream ReaR because Red Hat and SUSE<br />
+support ReaR in their enterprise Linux distributions.</p>
+<h4 id="u4ea75_commented_at_2025-04-14_1318"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2801689421">2025-04-14 13:18</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-14_1318" title="Permanent link">&para;</a></h4>
+<p>Thank u so much for answer and sorry for be late,<br />
+I will valuate to change OS and update my software, best regards</p>
+<h4 id="u4ea75_commented_at_2025-04-14_1550"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2802158821">2025-04-14 15:50</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-14_1550" title="Permanent link">&para;</a></h4>
+<p>I managed to use latest GitHub master code:</p>
+<p>git clone <a href="https://github.com/rear/rear.git">https://github.com/rear/rear.git</a> rear2<br />
+cd rear2<br />
+mv rear rear2.github.master<br />
+cd rear2.github.master/<br />
+/rear2.github.master/usr/sbin$ rear -d mkbackup</p>
+<p>Still getting same error:</p>
+<p>Overwriting existing disk layout file
+/var/lib/rear/layout/disklayout.conf<br />
+ERROR: Unsupported partition table 'unknown' (must be one of 'msdos'
+'gpt' 'gpt_sync_mbr' 'dasd')<br />
+Some latest log messages since the last called script
+200_partition_layout.sh:<br />
+2025-04-14 15:51:48.439793241 Saving disks and their partitions<br />
+Error: Can't have a partition outside the disk!<br />
+Error: Can't have a partition outside the disk!<br />
+You may use debugscript mode '-D' for full debug messages with 'set -x'
+output<br />
+Error exit of rear mkbackup (PID 3159) and its descendant processes</p>
+<p>I suppose that the Unknow partition table is the second disk of raid 1
+configuration, there’s not a way to exclude that disk from backup
+process?<br />
+Best regards</p>
+<h4 id="jsmeix_commented_at_2025-04-15_0656"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2804018271">2025-04-15 06:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-15_0656" title="Permanent link">&para;</a></h4>
+<pre><code>ERROR: Unsupported partition table 'unknown' (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>is not from our current ReaR upstream GitHub master code.<br />
+In our current ReaR upstream GitHub master code the message is</p>
+<pre><code>Unsupported partition table '$disk_label' on $device (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh#L125">https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh#L125</a></p>
+<p>Above in<br />
+<a href="https://github.com/rear/rear/issues/3433#issuecomment-2736620479">https://github.com/rear/rear/issues/3433#issuecomment-2736620479</a><br />
+I referenced a possibly related issue where according to<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1570082935">https://github.com/rear/rear/issues/2995#issuecomment-1570082935</a><br />
+I think it is currently not possible to exclude that disk.<br />
+A possible root cause was found in<br />
+<a href="https://github.com/rear/rear/issues/2995#issuecomment-1598782245">https://github.com/rear/rear/issues/2995#issuecomment-1598782245</a><br />
+You may verify if the possible root cause there<br />
+is also the root cause on your specific Ubuntu system.</p>
+<p>I am not a Ubuntu user so I cannot actually help with issues<br />
+that happen specifically on Ubuntu.</p>
+<h4 id="u4ea75_commented_at_2025-04-15_0738"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2804117199">2025-04-15 07:38</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-15_0738" title="Permanent link">&para;</a></h4>
+<p>ok first of all I would like to use your ReaR upstream GitHub master
+code cause right now I haven't backup working, is there anywhere a guide
+to remove old version and use yours?<br />
+Thank u so much for your help, very appreciate</p>
+<h4 id="jsmeix_commented_at_2025-04-15_0802"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2804178089">2025-04-15 08:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-15_0802" title="Permanent link">&para;</a></h4>
+<p>@u4ea75<br />
+you do not need to remove an installed ReaR version.<br />
+You only need to follow exactly what I described in<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+in particular</p>
+<pre><code>Note the relative paths "etc/rear/" and "usr/sbin/".
+</code></pre>
+<h4 id="u4ea75_commented_at_2025-04-15_1606"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2806646300">2025-04-15 16:06</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-15_1606" title="Permanent link">&para;</a></h4>
+<p>sorry to bother u I didn't understand very well<br />
+the meanings for "note the relative paths.."</p>
+<p>I've followed instrucion on es.opensuse.org linked page<br />
+but still get same error:</p>
+<pre><code>Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkbackup (PID 53399 date 2025-04-15 17:57:50)
+Command line options: usr/sbin/rear -D mkbackup
+Using log file: /home/connadmin/rear.github.master/var/log/rear/rear-itflowsrv.log
+Using build area: /var/tmp/rear.tiWuq1R6fkIiAKS
+Setting TMPDIR to ReaR's '/var/tmp/rear.tiWuq1R6fkIiAKS/tmp' (was unset when ReaR was launched)
+Sourced files must be owned by one of the TRUSTED_OWNERS: root connadmin
+Sourced files must be below one of the TRUSTED_PATHS: /home/connadmin/rear.github.master/ /usr/ /etc/ /lib/
+Running 'init' stage ======================
+Running workflow mkbackup on the normal/original system
+Running 'prep' stage ======================
+Using backup archive '/var/tmp/rear.tiWuq1R6fkIiAKS/outputfs/rear/itflowsrv/20250415.1757/backup.tar.gz'
+No 'console=...' setting for recovery system kernel (none in /proc/cmdline)
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Secure Boot is disabled, not using Secure Boot shim:
+SecureBoot disabled
+Platform is in Setup Mode
+Using autodetected kernel '/boot/vmlinuz-6.8.0-57-generic' as kernel in the recovery system
+Cannot write protect USB disk of '/dev/disk/by-label/REAR-000' via ID (no ID found)
+File system label of '/dev/disk/by-label/REAR-000' added to WRITE_PROTECTED_FS_LABEL_PATTERNS
+Modified ReaR recovery system area after 'prep' stage (/var/tmp/rear.tiWuq1R6fkIiAKS/rootfs contains regular files)
+Running 'layout/save' stage ======================
+Creating disk layout
+ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-04-15 17:57:53.379741572 Entering debugscript mode via 'set -x'.
+  2025-04-15 17:57:53.385298864 Trusted sourcing '/home/connadmin/rear.github.master/usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh'
+  2025-04-15 17:57:53.398407753 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+Aborting due to an error, check /home/connadmin/rear.github.master/var/log/rear/rear-itflowsrv.log for details
+Exiting rear mkbackup (PID 53399) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.tiWuq1R6fkIiAKS
+Terminated
+</code></pre>
+<p>If I'm missing something where I must start to read instructions for
+configuration?</p>
+<p>This is my local.conf that worked in the past<br />
+before restoring on a raid 1 server</p>
+<pre><code>OUTPUT=USB
+BACKUP=NETFS
+#La riga sotto fa il backup su disco usb chiamato REAR-000
+BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp' '/var/crash' '/dev/sdb')
+#BACKUP_URL="nfs://10.10.10.238/volume1/NetBackup/"
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-04-17_0650"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2811966932">2025-04-17 06:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-17_0650" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<pre><code>Note the relative paths "etc/rear/" and "usr/sbin/".
+</code></pre>
+<p>in "Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+means that what you did</p>
+<pre><code>/rear2.github.master/usr/sbin$ rear -d mkbackup
+</code></pre>
+<p>according to your<br />
+<a href="https://github.com/rear/rear/issues/3433#issuecomment-2802158821">https://github.com/rear/rear/issues/3433#issuecomment-2802158821</a><br />
+is likely not what you should have done which is ensuring<br />
+that you call 'rear' within your '/rear2.github.master'.</p>
+<p>Whether or not</p>
+<pre><code>cd /rear2.github.master/usr/sbin
+rear -d mkbackup
+</code></pre>
+<p>actually calls '/rear2.github.master/usr/sbin/rear'<br />
+or another 'rear' depends on whether or not your current<br />
+working directory '.' is in your PATH environment variable<br />
+and if it is in your PATH environment variable then it also<br />
+depends on whether or not your current working directory<br />
+is in PATH before the usual system '*bin' directories.</p>
+<p>For example how it looks on my openSUSE Leap 15.6 system<br />
+where I have ReaR 2.7 installed in the system from RPM package<br />
+and I have current GitHub master code as described in<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<pre><code># echo $PATH
+/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+
+# type -a rear
+rear is /usr/sbin/rear
+
+# PATH+=':.'
+
+# echo $PATH
+/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:.
+
+# cd rear.github.master/usr/sbin
+
+# type -a rear
+rear is /usr/sbin/rear
+rear is ./rear
+
+# rear -V
+Relax-and-Recover 2.7 / 2022-07-13
+
+# ./rear -V
+Relax-and-Recover 2.9 / 2025-01-31
+</code></pre>
+<p>By the way:<br />
+If at all have '.' at the end of PATH.<br />
+Never have '.' at (or near) the beginning of PATH.<br />
+Having '.' at the beginning of PATH is a security risk because<br />
+then executable files with same name as standard commands<br />
+in whatever current working directory will get executed<br />
+instead of the actual standard commands in system directories<br />
+so be excited about the thrill which file gets executed<br />
+when you call this or that command depending on in which<br />
+working directory you currently are ;-)</p>
+<h4 id="jsmeix_commented_at_2025-04-17_0734"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2812051869">2025-04-17 07:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-17_0734" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<p>your<br />
+<a href="https://github.com/rear/rear/issues/3433#issuecomment-2806646300">https://github.com/rear/rear/issues/3433#issuecomment-2806646300</a></p>
+<pre><code>ERROR: Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+Some latest log messages since the last called script 200_partition_layout.sh:
+  2025-04-15 17:57:53.379741572 Entering debugscript mode via 'set -x'.
+  2025-04-15 17:57:53.385298864 Trusted sourcing '/home/connadmin/rear.github.master/usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh'
+  2025-04-15 17:57:53.398407753 Saving disks and their partitions
+  Error: Can't have a partition outside the disk!
+  Error: Can't have a partition outside the disk!
+</code></pre>
+<p>proves that your issue also happens with current GitHub master code.</p>
+<p>In your initial<br />
+<a href="https://github.com/rear/rear/issues/3433#issue-2931493278">https://github.com/rear/rear/issues/3433#issue-2931493278</a><br />
+there is</p>
+<pre><code>Storage ...:
+two hdd on raid 1
+</code></pre>
+<p>and 'lsblk' (excerpts)</p>
+<pre><code>NAME        KNAME     PKNAME   TRAN TYPE ...   SIZE MOUNTPOINT
+/dev/sda    /dev/sda           sata disk     465.8G
+|-/dev/sda1 ...                                  1G /boot/efi
+|-/dev/sda2 ...                                  2G /boot
+`-/dev/sda3 ...                              462.7G
+...
+/dev/sdb    /dev/sdb           sata disk     465.8G
+`-/dev/sdb1 /dev/sdb1 /dev/sdb      part     465.8G
+</code></pre>
+<p>As far as 'lsblk' tells this is not a RAID1<br />
+of /dev/sda and /dev/sdb because /dev/sdb<br />
+is shown in 'lsblk' as completely unused.<br />
+Currently your system seems to be only on /dev/sda.</p>
+<p>Perhaps you use some special kind of RAID1?<br />
+At least you do not use traditional Linux kernel RAID1.</p>
+<p>For example how a traditional Linux kernel RAID1<br />
+of two disks /dev/sda and /dev/sdb could look like<br />
+see the 'lsblk' output for a "SLES15 SP4 with RAID1 ..." system on<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7#sles15-sp4-with-raid1-migrated-to-replacement-systems-with-smaller-and-bigger-disk-size">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7#sles15-sp4-with-raid1-migrated-to-replacement-systems-with-smaller-and-bigger-disk-size</a></p>
+<pre><code># lsblk -ipo NAME,TYPE,FSTYPE,SIZEAlternativey setup your system anew from scratch
+to
+
+NAME             TYPE  FSTYPE             SIZE
+/dev/sda         disk  linux_raid_member    9G
+`-/dev/md127     raid1                      9G
+  |-/dev/md127p1 part                     102M
+  |-/dev/md127p2 part  swap                 1G
+  `-/dev/md127p3 part  btrfs              7.5G
+/dev/sdb         disk  linux_raid_member   10G
+`-/dev/md127     raid1                      9G
+  |-/dev/md127p1 part                     102M
+  |-/dev/md127p2 part  swap                 1G
+  `-/dev/md127p3 part  btrfs              7.5G
+</code></pre>
+<p>The two disks /dev/sda (9G) and /dev/sdb (10G)<br />
+are combined into a Linux kernel RAID1 /dev/md127 (9G)<br />
+and on that RAID1 "disk" /dev/md127 the partitions<br />
+/dev/md127p1 and /dev/md127p1 and /dev/md127p1 exist<br />
+which are listed by 'lsblk' indetical below<br />
+both RAID1 member disks /dev/sda and /dev/sdb.</p>
+<p>Furthermore the error messages</p>
+<pre><code>Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+...
+Error: Can't have a partition outside the disk!
+</code></pre>
+<p>tell that your /dev/sdb is wrong set up.</p>
+<p>If you like to keep your system as it currently is<br />
+and use ReaR on it so you could recreate it<br />
+in case of a disaster as it currently is,<br />
+then you would need my recent<br />
+<a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a><br />
+(it is not yet merged into GitHub master code)<br />
+so that you could exclude the unused /dev/sdb<br />
+(provided it is really unused in your specific case)<br />
+from the very beginning in ReaR to circumvent<br />
+issues with that problematic disk.</p>
+<h4 id="jsmeix_commented_at_2025-04-17_0819"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2812148919">2025-04-17 08:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-17_0819" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<p>how to use GitHub master code with my recent<br />
+<a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a></p>
+<p>If you already have a 'rear.github.master' directory<br />
+move it away via something like</p>
+<pre><code>mv rear.github.master rear.github.master.old
+</code></pre>
+<p>before you do the following:</p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear.github.master
+
+cd rear.github.master
+
+git checkout -b jsmeix-disk-EXCLUDE_COMPONENTS remotes/origin/jsmeix-disk-EXCLUDE_COMPONENTS
+
+vi etc/rear/local.conf
+
+usr/sbin/rear -D mkbackup
+</code></pre>
+<p>i.e. 'git clone' the current GitHub master code and then<br />
+'git checkout' my current jsmeix-disk-EXCLUDE_COMPONENTS<br />
+branch in the current GitHub master code</p>
+<p>In that branch you have in usr/share/rear/conf/default.conf<br />
+a description how to exclude a problematic diks<br />
+from the very beginning via EXCLUDE_COMPONENTS</p>
+<pre><code># Because EXCLUDE_COMPONENTS excludes any component from the recovery
+# it can be used in exceptional cases to exclude unwanted whole disks from the very beginning,
+# for example to circumvent issues with unneeded problematic disks which cause issues in ReaR
+# as in https://github.com/rear/rear/issues/2995 where parted could not recognize a partition table.
+# To exclude a disk with mounted filesystems their mountpoints must be also specified
+# for example via EXCLUDE_COMPONENTS+=( /dev/sdX fs:/mountpoint1 fs:/mountpoint2 )
+</code></pre>
+<p>Because your /dev/sdb does not have mounted filesystems<br />
+in your case a simple</p>
+<pre><code>EXCLUDE_COMPONENTS+=( /dev/sdb )
+</code></pre>
+<p>should help to exclude your /dev/sdb from the very beginning.</p>
+<h4 id="u4ea75_commented_at_2025-04-18_0740"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2814837659">2025-04-18 07:40</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-18_0740" title="Permanent link">&para;</a></h4>
+<p>U R the best! It worked! I will try a restore on different hardware
+asap, to test, thank so much!</p>
+<h4 id="jsmeix_commented_at_2025-04-23_0735"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2823342182">2025-04-23 07:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-23_0735" title="Permanent link">&para;</a></h4>
+<p>@u4ea75</p>
+<p>I need you to test again if my<br />
+<a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a><br />
+actually works in your case<br />
+because I found a regression<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2812436548">https://github.com/rear/rear/pull/3455#issuecomment-2812436548</a><br />
+so I had to completely change the implementation, see<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2821188937">https://github.com/rear/rear/pull/3455#issuecomment-2821188937</a><br />
+and see<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2821485204">https://github.com/rear/rear/pull/3455#issuecomment-2821485204</a><br />
+why I cannot test your case on my own.</p>
+<p>To test my current<br />
+<a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a><br />
+do the same as I wrote above in<br />
+<a href="https://github.com/rear/rear/issues/3433#issuecomment-2812148919">https://github.com/rear/rear/issues/3433#issuecomment-2812148919</a></p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear.github.master
+
+cd rear.github.master
+
+git checkout -b jsmeix-disk-EXCLUDE_COMPONENTS remotes/origin/jsmeix-disk-EXCLUDE_COMPONENTS
+
+vi etc/rear/local.conf
+
+usr/sbin/rear -D mkbackup
+</code></pre>
+<p>When you run "usr/sbin/rear -D mkbackup"<br />
+you should see the same message as in your initial comment<br />
+<a href="https://github.com/rear/rear/issues/3433#issue-2931493278">https://github.com/rear/rear/issues/3433#issue-2931493278</a></p>
+<pre><code>Unsupported partition table 'unknown' on /dev/sdb (must be one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+</code></pre>
+<p>but now this is only a debug message to have you informed<br />
+and "rear mkbackup" will no longer error out<br />
+when you have <code>EXCLUDE_COMPONENTS+=( /dev/sdb )</code> specified<br />
+instead "rear mkbackup" should finish successfully.</p>
+<p>During "rear -D mkbackup" you should additionally see<br />
+debug messages like</p>
+<pre><code>Excluding component /dev/sdb in EXCLUDE_COMPONENTS
+Marking component '/dev/sdb' as done in ...disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Component '/dev/sdb' is marked as 'done /dev/sdb' in ...disktodo.conf
+Disabling excluded components in ...disklayout.conf
+Disabling component 'disk /dev/sdb' in ...disklayout.conf
+</code></pre>
+<p>which show how '/dev/sdb' gets<br />
+marked as 'done' in var/lib/rear/layout/disktodo.conf<br />
+and commented out in var/lib/rear/layout/disklayout.conf<br />
+cf. how it looked for me during my my test in<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2821459892">https://github.com/rear/rear/pull/3455#issuecomment-2821459892</a></p>
+<p>See also my description how that is meant to work<br />
+in usr/share/rear/conf/default.conf</p>
+<pre><code># Because EXCLUDE_COMPONENTS excludes any component from the recovery
+# it can be used in exceptional cases to exclude unwanted whole disks.
+# For example EXCLUDE_COMPONENTS+=( /dev/sdX ) excludes the disk /dev/sdX
+# and via the dependency tracker usually also partitions and filesystems on it
+# provided the diks behaves normally (i.e. the disk and things on it can be recognized properly).
+# To exclude an unneeded problematic disk when the disk or things on it cannot be recognized properly
+# EXCLUDE_COMPONENTS+=( /dev/sdX ) may work to exclude the disk with its partitions and filesystems.
+# To exclude a problematic disk with higher level storage objects on it
+# its matching components may have to be specified separately for example like
+# EXCLUDE_COMPONENTS+=( /dev/sdX fs:/mountpoint pv:/dev/sdXN ) or similar as needed.
+# Verify that all what belongs to /dev/sdX is marked as 'done' in /var/lib/rear/layout/disktodo.conf
+# and that all what belongs to /dev/sdX is commented out in /var/lib/rear/layout/disklayout.conf
+# to ensure there is no recovery information left as 'todo' or not commented out
+# for a disk which should be excluded from the recovery.
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-04-23_1139"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2824000222">2025-04-23 11:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-23_1139" title="Permanent link">&para;</a></h4>
+<p>According to my test in<br />
+<a href="https://github.com/rear/rear/pull/3455#issuecomment-2823978059">https://github.com/rear/rear/pull/3455#issuecomment-2823978059</a><br />
+everything "just works" for me:</p>
+<p>With plain <code>EXCLUDE_COMPONENTS+=( /dev/sdX )</code><br />
+a problematic disk which is not properly recognized by 'parted'<br />
+gets excluded plus automatically the partitions on it<br />
+and even also automatically its mounted filesystems.</p>
+<h4 id="u4ea75_commented_at_2025-04-24_0837"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2826810467">2025-04-24 08:37</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-04-24_0837" title="Permanent link">&para;</a></h4>
+<p>I've backupped my server with <a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a>
+one week ago and then restored without problems on different hardware,
+next week I will make again a test according to your request, right?</p>
+<h4 id="jsmeix_commented_at_2025-04-24_0903"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2826895348">2025-04-24 09:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-24_0903" title="Permanent link">&para;</a></h4>
+<p>@u4ea75<br />
+I would much appreciate it when you test it next week<br />
+on your hardware because it makes a big difference<br />
+when something was not only tested on my test VM<br />
+but when it actually works "out there in the wild"<br />
+for a ReaR user with real hardware.</p>
+<h4 id="jsmeix_commented_at_2025-04-25_1136"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2830174354">2025-04-25 11:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-25_1136" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a> merged<br />
+it should now work in current ReaR GitHub master code<br />
+to avoid this issue here with something like</p>
+<pre><code>EXCLUDE_COMPONENTS+=( /dev/sdX )
+</code></pre>
+<p>in etc/rear/local.conf - see the enhanced EXCLUDE_COMPONENTS<br />
+description in usr/share/rear/conf/default.conf</p>
+<h4 id="jsmeix_commented_at_2025-04-25_1147"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2830201393">2025-04-25 11:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-04-25_1147" title="Permanent link">&para;</a></h4>
+<p>@u4ea75<br />
+because <a href="https://github.com/rear/rear/pull/3455">https://github.com/rear/rear/pull/3455</a><br />
+is now merged into current ReaR GitHub master code<br />
+my jsmeix-disk-EXCLUDE_COMPONENTS branch does no longer exist<br />
+so when you test it next week on your hardware<br />
+you need to use the current ReaR GitHub master code<br />
+as described in<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear.github.master
+
+cd rear.github.master
+
+vi etc/rear/local.conf
+
+usr/sbin/rear -D mkbackup
+</code></pre>
+<p>(i.e. without 'git checkout ... jsmeix-disk-EXCLUDE_COMPONENTS')</p>
+<h4 id="u4ea75_commented_at_2025-05-06_1221"><img src="https://avatars.githubusercontent.com/u/203995699?v=4" width="50"><a href="https://github.com/u4ea75">u4ea75</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-2854375006">2025-05-06 12:21</a>:<a class="headerlink" href="#u4ea75_commented_at_2025-05-06_1221" title="Permanent link">&para;</a></h4>
+<p>I Johannes, sorry but I have been out of office for a while, I will make
+a test asap, sorry</p>
+<p><strong><em>@</em></strong>.***</p>
+<p>Marco Scurati • Support &amp; Sales</p>
+<p>E. <strong><em>@</em></strong>.<strong><em>*</em>*@</strong><em>.</em>**&gt; |
+<a href="http://www.connactionitalia.com">www.connactionitalia.com</a><a href="http://www.connactionitalia.com/">http://www.connactionitalia.com/</a>
+| [signature_2134779648]
+<a href="https://www.linkedin.com/company/connactionitalia/">https://www.linkedin.com/company/connactionitalia/</a></p>
+<p>connAction Italia srl<br />
+Via Giovanni da Udine 34, 20156 Milano<br />
+T. +39 02 38093451 | F +39 02 38093435 | E. <strong><em>@</em></strong>.<strong><em>*</em>*@</strong><em>.</em>**&gt;<br />
+Cap. Soc. € 10.000 i.v. | Registro Imprese di Milano – REA MI-2577083 |
+P. IVA 11067340965</p>
+<p>Da: Johannes Meixner <strong><em>@</em></strong>.<strong><em>&gt;<br />
+Inviato: venerdì 25 aprile 2025 13:49<br />
+A: rear/rear </em></strong>@<strong><em>.</em></strong>&gt;<br />
+Cc: Marco Scurati <strong><em>@</em></strong>.<strong><em>&gt;; Mention </em></strong>@<strong><em>.</em></strong>&gt;<br />
+Oggetto: Re: [rear/rear] Cannot do backup: "Unsupported partition
+table 'unknown' on /dev/sdb" (Issue #3433)</p>
+<p>Reopened #3433<a href="https://github.com/rear/rear/issues/3433">https://github.com/rear/rear/issues/3433</a>.</p>
+<p>—<br />
+Reply to this email directly, view it on
+GitHub<a href="https://github.com/rear/rear/issues/3433#event-17405218420">https://github.com/rear/rear/issues/3433#event-17405218420</a>, or
+unsubscribe<a href="https://github.com/notifications/unsubscribe-auth/BQULUM63INL57MTRABJMW2L23IOJDAVCNFSM6AAAAABZKTPCGCVHI2DSMVQWIX3LMV45UABCJFZXG5LFIV3GK3TUJZXXI2LGNFRWC5DJN5XDWMJXGQYDKMRRHA2DEMA">https://github.com/notifications/unsubscribe-auth/BQULUM63INL57MTRABJMW2L23IOJDAVCNFSM6AAAAABZKTPCGCVHI2DSMVQWIX3LMV45UABCJFZXG5LFIV3GK3TUJZXXI2LGNFRWC5DJN5XDWMJXGQYDKMRRHA2DEMA</a>.<br />
+You are receiving this because you were mentioned.Message ID:
+<strong><em>@</em></strong>.<strong><em>*</em>*@</strong><em>.</em>**&gt;&gt;</p>
+<h4 id="github-actions_commented_at_2025-07-06_0314"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3433#issuecomment-3040651793">2025-07-06 03:14</a>:<a class="headerlink" href="#github-actions_commented_at_2025-07-06_0314" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-19.3433.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

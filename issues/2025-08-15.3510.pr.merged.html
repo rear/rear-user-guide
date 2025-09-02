@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3510 PR merged: Copy a sshd helper to the rescue ramdisk - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3510 PR merged: Copy a sshd helper to the rescue ramdisk";
+        var mkdocs_page_input_path = "issues/2025-08-15.3510.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3510 PR merged: Copy a sshd helper to the rescue ramdisk</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3510_pr_merged_copy_a_sshd_helper_to_the_rescue_ramdisk"><a href="https://github.com/rear/rear/pull/3510">#3510 PR</a> <code>merged</code>: Copy a sshd helper to the rescue ramdisk<a class="headerlink" href="#3510_pr_merged_copy_a_sshd_helper_to_the_rescue_ramdisk" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>ready-to-merge?</code></p>
+<h4 id="pcahyna_opened_issue_at_2025-08-15_1931"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> opened issue at <a href="https://github.com/rear/rear/pull/3510">2025-08-15 19:31</a>:<a class="headerlink" href="#pcahyna_opened_issue_at_2025-08-15_1931" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Critical</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    ssh to the rescue system on EL10.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Copy the sshd-session sshd helper to the rescue ramdisk. Without the
+    helper, sshd in the rescue ramdisk does not start on EL 10 and
+    aborts with "/usr/libexec/openssh/sshd-session does not exist or is
+    not executable".<br />
+    The idea is very similar to the sftp-server part of the script, but
+    the implementation is deliberately different:</p>
+<ul>
+<li>Instead of grepping a fixed known configuration file, the output
+    of sshd -T is used. sshd -T prints the effective configuration
+    on stdout. This way one does not need to know the path to the
+    ssh configuration file, while avoiding possible issues like the
+    one described in
+    <a href="https://github.com/rear/rear/pull/1538#issuecomment-337883867">https://github.com/rear/rear/pull/1538#issuecomment-337883867</a>
+    and one also gets automatic support for more complicated setups
+    with configuration snippets like on Debian, see its
+    sshd_config(5) manual page:<br />
+    "Note that the Debian openssh-server package sets several
+    options as stan-<br />
+    dard in /etc/ssh/sshd_config which are not the default in
+    sshd(8):  <ul>
+<li>Include /etc/ssh/sshd_config.d/*.conf<br />
+..."<br />
+At the same time, the command takes care of removing comments
+and assigning default values (one would not get them by grepping
+the configuration file).</li>
+</ul>
+</li>
+<li>awk is used instead of grep, allowing to match the precise value
+    of a configuration option and not just the prefix, and to not
+    rely on the shell to parse the output into fields.</li>
+<li>The path to the helper gets added to <code>COPY_AS_IS</code> instead of to
+    <code>PROGS</code>. The problem with <code>PROGS</code> is that it ignores the path
+    (even if the program gets specified by its absolute path) and
+    copies the program to <code>/usr/bin</code> - but sshd need the helper at
+    exactly the same path as on the original system, as it invokes
+    the helper via its full path (not <code>$PATH</code>). This behavior of
+    <code>PROGS</code> is arguably something that should be changed and <code>PROGS</code>
+    should use an absolute path as target if provided. For now, use
+    <code>COPY_AS_IS</code> as a workaround.</li>
+</ul>
+</li>
+</ul>
+<p>(The sftp-server part would of course benefit from the same changes, as
+the arguments above apply to it equally. In particular, the last point
+looks fatal, as the sftp-server gets also copied to /usr/bin instead to
+its correct path, but sshd refers to it by its full path. Indeed, sftp
+to the rescue system does not work, even if ssh does:</p>
+<pre><code>$ sftp root@...
+Warning: Permanently added ... to the list of known hosts.
+Connection closed.
+Connection closed
+</code></pre>
+<p>Similar code has been here since the beginning of the git history
+(2009), so I wonder whether the sftp part has ever worked... )</p>
+<h4 id="gdha_commented_at_2025-08-16_1458"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3510#issuecomment-3193721695">2025-08-16 14:58</a>:<a class="headerlink" href="#gdha_commented_at_2025-08-16_1458" title="Permanent link">&para;</a></h4>
+<p>@pcahyna The code updates look good to me.</p>
+<h4 id="pcahyna_commented_at_2025-08-18_0855"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3510#issuecomment-3195748321">2025-08-18 08:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-18_0855" title="Permanent link">&para;</a></h4>
+<p>I pushed a trivial change to the commit message, no code changes.</p>
+<h4 id="lzaoral_commented_at_2025-08-20_1540"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3510#issuecomment-3206927938">2025-08-20 15:40</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-08-20_1540" title="Permanent link">&para;</a></h4>
+<p>Thanks a lot, @pcahyna! Unfortunately, I've just found out that OpenSSH
+on Fedora Rawhide depends on even another binary:
+<code>/usr/libexec/openssh/sshd-auth</code>. If it's missing, <code>sshd</code> will fail with
+a similar error message:</p>
+<pre><code># /bin/sshd -D
+/usr/libexec/openssh/sshd-auth does not exist or is not executable
+</code></pre>
+<p>Fedora 42 is ok, though.</p>
+<h4 id="pcahyna_commented_at_2025-08-20_1623"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3510#issuecomment-3207085078">2025-08-20 16:23</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-20_1623" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Thanks a lot, @pcahyna! Unfortunately, I've just found out that
+OpenSSH on Fedora Rawhide depends on even another binary:
+<code>/usr/libexec/openssh/sshd-auth</code>. If it's missing, <code>sshd</code> will fail
+with a similar error message:</p>
+<pre><code># /bin/sshd -D
+/usr/libexec/openssh/sshd-auth does not exist or is not executable
+</code></pre>
+<p>Fedora 42 is ok, though.</p>
+</blockquote>
+<p>Thanks for the observation - the corresponding parameter is called
+<code>SshdAuthPath</code>:</p>
+<pre><code># sshd -T | grep sshd-auth
+sshdauthpath /usr/libexec/openssh/sshd-auth
+</code></pre>
+<p>perhaps we should copy all the files referenced by parameters whose
+names end with <code>path</code> :</p>
+<pre><code># sshd -T | grep path
+sshdsessionpath /usr/libexec/openssh/sshd-session
+sshdauthpath /usr/libexec/openssh/sshd-auth
+</code></pre>
+<p>Of course there is no guarantee that such helpers will follow the same
+pattern in the future.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-08-15.3510.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

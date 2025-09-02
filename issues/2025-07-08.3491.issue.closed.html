@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3491 Issue closed: /etc/resolv.conf is empty in the rescue system on Ubuntu 24.04 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3491 Issue closed: /etc/resolv.conf is empty in the rescue system on Ubuntu 24.04";
+        var mkdocs_page_input_path = "issues/2025-07-08.3491.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3491 Issue closed: /etc/resolv.conf is empty in the rescue system on Ubuntu 24.04</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3491_issue_closed_etcresolvconf_is_empty_in_the_rescue_system_on_ubuntu_2404"><a href="https://github.com/rear/rear/issues/3491">#3491 Issue</a> <code>closed</code>: /etc/resolv.conf is empty in the rescue system on Ubuntu 24.04<a class="headerlink" href="#3491_issue_closed_etcresolvconf_is_empty_in_the_rescue_system_on_ubuntu_2404" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2025-07-08_0922"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/issues/3491">2025-07-08 09:22</a>:<a class="headerlink" href="#svlv_opened_issue_at_2025-07-08_0922" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p><code>/etc/resolv.conf</code> is not populated by <code>dhcpcd</code> on Ubuntu 24.04 because
+<code>/etc/dhcpcd.conf</code> is not present in the rescue system.<br />
+<img width="760" height="128" alt="Image" src="https://github.com/user-attachments/assets/13f46c45-dd14-493f-9d3a-5a3a1b90e46f" /></p>
+<p>Logs during rescue system boot:<br />
+<img width="1260" height="542" alt="Image" src="https://github.com/user-attachments/assets/8d2e8186-49c4-438c-8a05-cba98fe009f0" /></p>
+<p>The most obvious fix is to copy <code>/etc/dhcpcd.conf</code> (see
+<a href="https://github.com/nable-backup/rear/pull/3/commits/fdf5e95879686c7bb4c7f1a40940585b19d2abbc">https://github.com/nable-backup/rear/pull/3/commits/fdf5e95879686c7bb4c7f1a40940585b19d2abbc</a>),
+but there is probably a better solution.</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Ubuntu 24.04</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="jsmeix_commented_at_2025-07-08_1056"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3048406835">2025-07-08 10:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-08_1056" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+did you notice USE_RESOLV_CONF in conf/default.conf<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3645">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3645</a><br />
+?</p>
+<p>I am not (yet) a dhcpcd user so currently<br />
+I cannot understand from plain looking at<br />
+<a href="https://github.com/nable-backup/rear/commit/fdf5e95879686c7bb4c7f1a40940585b19d2abbc">https://github.com/nable-backup/rear/commit/fdf5e95879686c7bb4c7f1a40940585b19d2abbc</a><br />
+how this fixes the issue, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why">https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why</a><br />
+(excerpt)</p>
+<pre><code>Even if all is totally obvious for you,
+others who do not know about your particular use case
+or do not have your particular environment
+may understand nothing at all about your code
+</code></pre>
+<p>I would much appreciate it if you could make a GitHub<br />
+pull request with your fix "copying /etc/dhcpcd.conf"<br />
+preferably with a comment in your code that tells how<br />
+copying /etc/dhcpcd.conf results a proper /etc/resolv.conf<br />
+in the recovery system, see USE_RESOLV_CONF in default.conf<br />
+what "a proper /etc/resolv.conf" usually means - perhaps<br />
+a proper /etc/resolv.conf might be different with dhcpcd.</p>
+<p>FYI (1):</p>
+<p>In theory I could familiarize myself with dhcpcd<br />
+but in practice I won't find time for that now<br />
+until I really must do it, cf.<br />
+<a href="https://github.com/rear/rear/issues/3295#issuecomment-2247746235">https://github.com/rear/rear/issues/3295#issuecomment-2247746235</a></p>
+<p>FYI (2):</p>
+<p>My generic boilerplate regarding Ubuntu / Debian<br />
+and Linux distributions which are based on them:</p>
+<p>I am neither a Ubuntu nor Debian nor Linux Mint user.<br />
+Currently we at ReaR upstream do not have an active<br />
+maintainer for Ubuntu / Debian / Linux Mint.<br />
+So ReaR support for Ubuntu / Debian / Linux Mint<br />
+can be only as good as voluntary contributors<br />
+who use those Linux distributions contribute<br />
+which is much appreciated!</p>
+<p>In particular regarding Ubuntu:<br />
+It seems Canonical is not sufficiently interested in ReaR<br />
+in contrast to Red Hat and SUSE who pay developers<br />
+(like me from SUSE and e.g. @pcahyna and @lzaoral from Red Hat)<br />
+to contribute to upstream ReaR because Red Hat and SUSE<br />
+support ReaR in their enterprise Linux distributions.</p>
+<h4 id="jsmeix_commented_at_2025-07-08_1059"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3048417575">2025-07-08 10:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-08_1059" title="Permanent link">&para;</a></h4>
+<p>Because we at ReaR upstream do not have a maintainer for Ubuntu<br />
+this issue is no bug (because in practice Ubuntu is unmaintained<br />
+and a bug is when functionality which is meant to work doesn't)<br />
+so this issue is an enhancement to make it also work for Ubuntu<br />
+(where things are different than on the maintained distributions).</p>
+<h4 id="svlv_commented_at_2025-07-08_1310"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3048909075">2025-07-08 13:10</a>:<a class="headerlink" href="#svlv_commented_at_2025-07-08_1310" title="Permanent link">&para;</a></h4>
+<p>Hello @jsmeix,</p>
+<p><code>USE_RESOLV_CONF</code> can be definitely used as a workaround but it won't
+fix the root cause. From my investigation, the root cause is
+<code>/etc/dhcpcd.conf</code> absence, which is why my first thought was to copy it
+from the source system and see if that resolves the problem.</p>
+<p>Regarding Ubuntu — it's just one of Linux distributions that use
+<code>dhcpcd</code>, it's possible the issue could appear on other systems too,
+depending on how <code>dhcpcd</code> is configured. I'm not a <code>dhcpcd</code> expert, but
+I suspect configurations can vary between systems.</p>
+<p>If you think it's appropriate, I will create a PR to copy
+<code>/etc/dhcpcd.conf</code>.</p>
+<h4 id="jsmeix_commented_at_2025-07-09_0738"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3051523337">2025-07-09 07:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-09_0738" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+yes, please make a PR!</p>
+<h4 id="gdha_commented_at_2025-07-15_1306"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3073525004">2025-07-15 13:06</a>:<a class="headerlink" href="#gdha_commented_at_2025-07-15_1306" title="Permanent link">&para;</a></h4>
+<p>@svlv PR #3493 has been merged. Therefore, please check if all works
+fine.</p>
+<h4 id="jsmeix_commented_at_2025-07-15_1327"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3073604920">2025-07-15 13:27</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-15_1327" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+only FYI:<br />
+You may have a look at<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery#Testing_current_ReaR_upstream_GitHub_master_code">https://en.opensuse.org/SDB:Disaster_Recovery#Testing_current_ReaR_upstream_GitHub_master_code</a><br />
+how you could test our current ReaR upstream GitHub master code<br />
+without conflicts with a normally installed ReaR version.</p>
+<h4 id="svlv_commented_at_2025-07-16_0937"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3077769658">2025-07-16 09:37</a>:<a class="headerlink" href="#svlv_commented_at_2025-07-16_0937" title="Permanent link">&para;</a></h4>
+<p>Thank you, @gdha and @jsmeix. Everything works well.</p>
+<h4 id="jsmeix_commented_at_2025-07-16_1234"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3491#issuecomment-3078378843">2025-07-16 12:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-16_1234" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your contribution to ReaR!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-07-08.3491.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

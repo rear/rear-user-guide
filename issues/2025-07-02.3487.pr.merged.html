@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3487 PR merged: In 150_wipe_disks.sh fix wrong 'device_to_be_wiped_size_byte' test - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3487 PR merged: In 150_wipe_disks.sh fix wrong \u0027device_to_be_wiped_size_byte\u0027 test";
+        var mkdocs_page_input_path = "issues/2025-07-02.3487.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3487 PR merged: In 150_wipe_disks.sh fix wrong 'device_to_be_wiped_size_byte' test</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3487_pr_merged_in_150_wipe_diskssh_fix_wrong_device_to_be_wiped_size_byte_test"><a href="https://github.com/rear/rear/pull/3487">#3487 PR</a> <code>merged</code>: In 150_wipe_disks.sh fix wrong 'device_to_be_wiped_size_byte' test<a class="headerlink" href="#3487_pr_merged_in_150_wipe_diskssh_fix_wrong_device_to_be_wiped_size_byte_test" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-07-02_1151"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3487">2025-07-02 11:51</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-07-02_1151" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/3484#issuecomment-3022670414">https://github.com/rear/rear/pull/3484#issuecomment-3022670414</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    see below<br />
+<a href="https://github.com/rear/rear/pull/3487#issuecomment-3031144320">https://github.com/rear/rear/pull/3487#issuecomment-3031144320</a></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>In layout/recreate/default/150_wipe_disks.sh<br />
+fix wrong device_to_be_wiped_size_byte test, see<br />
+<a href="https://github.com/rear/rear/pull/3484#issuecomment-3022670414">https://github.com/rear/rear/pull/3484#issuecomment-3022670414</a></p>
+<h4 id="jsmeix_commented_at_2025-07-03_0713"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3487#issuecomment-3031144320">2025-07-03 07:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_0713" title="Permanent link">&para;</a></h4>
+<p>Tested it:</p>
+<p>Original system:</p>
+<pre><code># lsblk -ipo NAME,KNAME,PKNAME,TYPE,FSTYPE,SIZE,MOUNTPOINT /dev/vda
+NAME                    KNAME     PKNAME    TYPE  FSTYPE      SIZE MOUNTP
+/dev/vda                /dev/vda            disk               15G 
+|-/dev/vda1             /dev/vda1 /dev/vda  part                8M 
+|-/dev/vda2             /dev/vda2 /dev/vda  part  crypto_LUKS  13G 
+| `-/dev/mapper/cr_root /dev/dm-0 /dev/vda2 crypt ext4         13G /
+`-/dev/vda3             /dev/vda3 /dev/vda  part  crypto_LUKS   2G 
+  `-/dev/mapper/cr_swap /dev/dm-1 /dev/vda3 crypt swap          2G [SWAP]
+</code></pre>
+<p>ReaR recovery system:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Running 'layout/recreate' stage ======================
+Disks to be completely overwritten and recreated by /var/lib/rear/layout/diskrestore.sh:
+  /dev/vda 
+Determining disks to be wiped ...
+UserInput -I WIPE_DISKS_CONFIRMATION needed in /usr/share/rear/layout/recreate/default/120_confirm_wipedisk_disks.sh line 168
+Disks to be wiped: /dev/vda 
+1) Confirm disks to be wiped and continue 'rear recover'
+2) Skip wiping disks and continue 'rear recover'
+3) Use Relax-and-Recover shell and return back to here
+4) Abort 'rear recover'
+(default '1' timeout 30 seconds)
+
+UserInput: No real user input (empty or only spaces) - using default input
+UserInput: Valid choice number result 'Confirm disks to be wiped and continue 'rear recover''
+User confirmed disks to be wiped
+Wiping child devices of /dev/vda in reverse ordering: /dev/vda3 /dev/vda2 /dev/vda1 /dev/vda 
+Wiped first 16777216 bytes of /dev/vda3
+Wiped last 16777216 bytes of /dev/vda3
+Wiped first 16777216 bytes of /dev/vda2
+Wiped last 16777216 bytes of /dev/vda2
+Wiped first 8388608 bytes of /dev/vda1
+Skip wiping at the end of /dev/vda1 (dvice size 8388608 not greater than the bytes that were wiped)
+Wiped first 16777216 bytes of /dev/vda
+Wiped last 16777216 bytes of /dev/vda
+Start system layout restoration.
+...
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-07-03_0715"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3487#issuecomment-3031150650">2025-07-03 07:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_0715" title="Permanent link">&para;</a></h4>
+<p>I think the fix in this pull request<br />
+is "sufficiently obvious" that it works so<br />
+@rear/contributors<br />
+I would like to merge it today afternoon<br />
+unless there are objections.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-07-02.3487.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3504 Issue open: BTRFS_SUBVOLUME_SLES_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3504 Issue open: BTRFS_SUBVOLUME_SLES_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos)";
+        var mkdocs_page_input_path = "issues/2025-08-04.3504.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3504 Issue open: BTRFS_SUBVOLUME_SLES_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3504_issue_open_btrfs_subvolume_sles_setup_rescueconf_hack_not_working_or_disk_layout_file_should_contain_more_infos"><a href="https://github.com/rear/rear/issues/3504">#3504 Issue</a> <code>open</code>: BTRFS_SUBVOLUME_SLES_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos)<a class="headerlink" href="#3504_issue_open_btrfs_subvolume_sles_setup_rescueconf_hack_not_working_or_disk_layout_file_should_contain_more_infos" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code></p>
+<h4 id="schlomo_opened_issue_at_2025-08-04_1536"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> opened issue at <a href="https://github.com/rear/rear/issues/3504">2025-08-04 15:36</a>:<a class="headerlink" href="#schlomo_opened_issue_at_2025-08-04_1536" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>master</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/rear/rear/blob/9b28f14fad26ff00a6f90b13c3e4906d85f3ae3c/usr/share/rear/layout/prepare/default/320_apply_mappings.sh#L37">https://github.com/rear/rear/blob/9b28f14fad26ff00a6f90b13c3e4906d85f3ae3c/usr/share/rear/layout/prepare/default/320_apply_mappings.sh#L37</a></p>
+<p><a href="https://github.com/rear/rear/blob/9b28f14fad26ff00a6f90b13c3e4906d85f3ae3c/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh#L537">https://github.com/rear/rear/blob/9b28f14fad26ff00a6f90b13c3e4906d85f3ae3c/usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh#L537</a></p>
+<p>those two don't match so that this logic probably never works right now</p>
+<h4 id="schlomo_commented_at_2025-08-04_1539"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151279304">2025-08-04 15:39</a>:<a class="headerlink" href="#schlomo_commented_at_2025-08-04_1539" title="Permanent link">&para;</a></h4>
+<p>Other question about this problem: Why can't we transport the special
+SLES info <em>via</em> the disk layout file? Instead of "breaking out" of the
+disk layout file and storing this information somewhere else in the
+rescue system?</p>
+<p>I think there is a great value in ensuring that disk layout is "self
+contained" and "complete" and that that kind of information is not
+spread elsewhere.</p>
+<p>Maybe "disk layout" is somewhat misnamed and should be something like
+"system configuration" and it should contain more infos than just the
+actual disk layout.</p>
+<p>If the disk layout file carries more infos then in migration mode (which
+is now the default) those other infos would be seamlessly migrated as
+well. Examples are boot loader configuration and other stuff which is
+related to disks</p>
+<h4 id="schlomo_commented_at_2025-08-04_1541"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151285586">2025-08-04 15:41</a>:<a class="headerlink" href="#schlomo_commented_at_2025-08-04_1541" title="Permanent link">&para;</a></h4>
+<p>#3473 would probably be resolved by this issue</p>
+<h4 id="jsmeix_commented_at_2025-08-04_1557"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151334684">2025-08-04 15:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-04_1557" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+please keep this issue to what it originally is about<br />
+(which I can fix).</p>
+<p>I cannot "by the way" redesign the whole (grown over long time)<br />
+way how ReaR does all its disk related things.<br />
+Please create separated issues for global issues.</p>
+<p><a href="https://github.com/rear/rear/issues/3473">https://github.com/rear/rear/issues/3473</a><br />
+will not be resolved by this issue here<br />
+which is about fixing a <code>BTRFS_SUBVOLUME_SLES_SETUP+=</code><br />
+versus <code>BTRFS_SUBVOLUME_SLES_SETUP=</code> bug.</p>
+<h4 id="schlomo_commented_at_2025-08-04_1604"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151368766">2025-08-04 16:04</a>:<a class="headerlink" href="#schlomo_commented_at_2025-08-04_1604" title="Permanent link">&para;</a></h4>
+<p>@jsmeix yes, please adjust and fix as you see fit</p>
+<h4 id="jsmeix_commented_at_2025-08-04_1616"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151413311">2025-08-04 16:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-04_1616" title="Permanent link">&para;</a></h4>
+<p>Found the cause of this bug:</p>
+<pre><code>eval $( grep '^BTRFS_SUBVOLUME_SLES_SETUP=' "$rescue_config_file" )
+</code></pre>
+<p>was introduced by me on Jul 19 2019 via<br />
+<a href="https://github.com/rear/rear/commit/b2be35bbb3a3764abb1fc5897ab55df4459fce2a">https://github.com/rear/rear/commit/b2be35bbb3a3764abb1fc5897ab55df4459fce2a</a></p>
+<p>Later on Apr 17 2020</p>
+<pre><code>BTRFS_SUBVOLUME_SLES_SETUP=( ${BTRFS_SUBVOLUME_SLES_SETUP[@]} $btrfs_subvolume_sles_setup_devices )
+</code></pre>
+<p>became improved by me (simpler and more fail-safe syntax) to</p>
+<pre><code>BTRFS_SUBVOLUME_SLES_SETUP+=( $btrfs_subvolume_sles_setup_devices )
+</code></pre>
+<p>via<br />
+<a href="https://github.com/rear/rear/commit/d4f8d30cd06c1f9da8a041aa11979024318cd53b">https://github.com/rear/rear/commit/d4f8d30cd06c1f9da8a041aa11979024318cd53b</a></p>
+<h4 id="pcahyna_commented_at_2025-08-04_1636"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3151467478">2025-08-04 16:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-04_1636" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Found the cause of this bug:</p>
+<pre><code>eval $( grep '^BTRFS_SUBVOLUME_SLES_SETUP=' "$rescue_config_file" )
+</code></pre>
+<p>was introduced by me on Jul 19 2019 via
+<a href="https://github.com/rear/rear/commit/b2be35bbb3a3764abb1fc5897ab55df4459fce2a">b2be35b</a></p>
+<p>Later on Apr 17 2020</p>
+<pre><code>BTRFS_SUBVOLUME_SLES_SETUP=( ${BTRFS_SUBVOLUME_SLES_SETUP[@]} $btrfs_subvolume_sles_setup_devices )
+</code></pre>
+</blockquote>
+<p>IMO, this first version was already wrong, because you should not append
+in rescue.conf if you are going to re-read it. The values will appear in
+the array twice (first the unmapped values and then the mapped values).</p>
+<h4 id="jsmeix_commented_at_2025-08-05_1316"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3155179214">2025-08-05 13:16</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-05_1316" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you!<br />
+I think you are right.<br />
+I will have a closer look how the BTRFS_SUBVOLUME_SLES_SETUP stuff<br />
+is meant to work (I have to reverse-engineer my own code because<br />
+SUSE btrfs stuff is too weird to keep it in my precious brain ;-)</p>
+<h4 id="jsmeix_commented_at_2025-08-05_1407"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3504#issuecomment-3155389796">2025-08-05 14:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-05_1407" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/3504#issuecomment-3151279304">https://github.com/rear/rear/issues/3504#issuecomment-3151279304</a><br />
+see<br />
+<a href="https://github.com/rear/rear/issues/3505">https://github.com/rear/rear/issues/3505</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/3477">https://github.com/rear/rear/issues/3477</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-08-04.3504.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3503 PR open: Fix is_disk_valid in layout-functions.sh - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3503 PR open: Fix is_disk_valid in layout-functions.sh";
+        var mkdocs_page_input_path = "issues/2025-08-04.3503.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3503 PR open: Fix is_disk_valid in layout-functions.sh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3503_pr_open_fix_is_disk_valid_in_layout-functionssh"><a href="https://github.com/rear/rear/pull/3503">#3503 PR</a> <code>open</code>: Fix is_disk_valid in layout-functions.sh<a class="headerlink" href="#3503_pr_open_fix_is_disk_valid_in_layout-functionssh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-08-04_1432"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3503">2025-08-04 14:32</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-08-04_1432" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Bug Fix</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/pull/3047#discussion_r2238624740">https://github.com/rear/rear/pull/3047#discussion_r2238624740</a></p>
+</li>
+<li>
+<p>How was this pull request tested?</p>
+</li>
+</ul>
+<p>Not yet tested, see<br />
+<a href="https://github.com/rear/rear/pull/3047#discussion_r2251699696">https://github.com/rear/rear/pull/3047#discussion_r2251699696</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In lib/layout-functions.sh<br />
+tried to fix function is_disk_valid()<br />
+according to what I described in<br />
+<a href="https://github.com/rear/rear/pull/3047#discussion_r2238624740">https://github.com/rear/rear/pull/3047#discussion_r2238624740</a></p>
+<h4 id="jsmeix_commented_at_2025-08-04_1436"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3151028218">2025-08-04 14:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-04_1436" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+could you please have a look here (as time permits) ?</p>
+<h4 id="jsmeix_commented_at_2025-08-04_1456"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3151132439">2025-08-04 14:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-04_1456" title="Permanent link">&para;</a></h4>
+<p>My test commands on bash command line to simulate how a command like</p>
+<pre><code>blockdev_stdout_stderr="$( blockdev --getsize64 "$disk" 2&gt;&amp;1 )"
+</code></pre>
+<p>behaves in general (in particular with <code>set -x</code>):</p>
+<pre><code># ( set -x ; if stdout_stderr="$( grep 'ext4' /etc/fstab 2&gt;&amp;1 )" ; then echo "grep exit code $? : '$stdout_stderr'" ; else echo "grep exit code $? : '$stdout_stderr'" ; fi )
+++ grep --color=auto ext4 /etc/fstab
++ stdout_stderr='/dev/mapper/cr_root  /          ext4  defaults  0  1'
++ echo 'grep exit code 0 : '\''/dev/mapper/cr_root  /          ext4  defaults  0  1'\'''
+grep exit code 0 : '/dev/mapper/cr_root  /          ext4  defaults  0  1'
+
+# ( set -x ; if stdout_stderr="$( grep 'qqq' /etc/fstab 2&gt;&amp;1 )" ; then echo "grep exit code $? : '$stdout_stderr'" ; else echo "grep exit code $? : '$stdout_stderr'" ; fi )
+++ grep --color=auto qqq /etc/fstab
++ stdout_stderr=
++ echo 'grep exit code 1 : '\'''\'''
+grep exit code 1 : ''
+
+# ( set -x ; if stdout_stderr="$( grep 'ext4' /etc/qqq 2&gt;&amp;1 )" ; then echo "grep exit code $? : '$stdout_stderr'" ; else echo "grep exit code $? : '$stdout_stderr'" ; fi )
+++ grep --color=auto ext4 /etc/qqq
++ stdout_stderr='grep: /etc/qqq: No such file or directory'
++ echo 'grep exit code 2 : '\''grep: /etc/qqq: No such file or directory'\'''
+grep exit code 2 : 'grep: /etc/qqq: No such file or directory'
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-08-06_1328"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3160182683">2025-08-06 13:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-06_1328" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+no worries!<br />
+I am happy that my attempt moved things forward<br />
+towards a proper solution.</p>
+<p>When</p>
+<pre><code>{ size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;&amp;3- ) ; } 3&gt;&amp;1
+</code></pre>
+<p>is really a proper solution, could you then provide<br />
+an explanatory comment in your code which tells WHY<br />
+here RFC1925 6a "add another level of indirection"<br />
+is really the right solution in this particular case<br />
+so that at any time later others still understand your code<br />
+so they can properly fix and enhance your code as needed<br />
+without false optimizations or false simplifications<br />
+because they cannot see or do not understand the<br />
+reasoning behind.</p>
+<h4 id="jsmeix_commented_at_2025-08-06_1357"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3160293907">2025-08-06 13:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-06_1357" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+what does the trailing hyphen in <code>2&gt;&amp;3-</code> do?<br />
+I only know about <code>&gt;&amp;-</code> and <code>&lt;&amp;-</code> to close a file descriptor as in<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L346">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/lib/_input-output-functions.sh#L346</a><br />
+and subsequent lines.<br />
+As far as I see nowhere in ReaR is <code>&amp;...-</code> currently used:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep -ho "&amp;[0-9]." | sort -u
+&amp;1 
+&amp;1'
+&amp;1)
+&amp;1;
+&amp;2 
+&amp;2"
+&amp;2;
+&amp;6 
+&amp;7 
+&amp;8 
+&amp;8"
+&amp;8'
+&amp;8)
+&amp;9
+</code></pre>
+<p>This output also shows that fd 3 is currently nowhere used<br />
+so fd 3 should be safe to use.</p>
+<h4 id="pcahyna_commented_at_2025-08-06_1402"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3160312107">2025-08-06 14:02</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-06_1402" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>the trailing hyphen causes fd 3 to be closed, i.e. fd 3 is moved to fd
+2. See
+<a href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Moving-File-Descriptors">https://www.gnu.org/software/bash/manual/html_node/Redirections.html#Moving-File-Descriptors</a>
+. The hyphen is not strictly necessary, but I wanted to avoid passing an
+unnecessary open descriptor to <code>blockdev</code>.</p>
+<h4 id="pcahyna_commented_at_2025-08-06_1450"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3160502798">2025-08-06 14:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-06_1450" title="Permanent link">&para;</a></h4>
+<p>By the way, I checked that this redirection works already even in Bash
+in RHEL 6 (which we don't support anymore).</p>
+<h4 id="jsmeix_commented_at_2025-08-07_0602"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3162620476">2025-08-07 06:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-07_0602" title="Permanent link">&para;</a></h4>
+<p>Strange - I must have been blind - because somehow<br />
+I did not recognize the "Moving File Descriptors"<br />
+section in "man bash" of my GNU bash version 4.4.23.<br />
+So I was wondering if the trailing hyphen in <code>2&gt;&amp;3-</code><br />
+is perhaps a new bash feature which might be not<br />
+supported in earlier bash 4 versions.</p>
+<h4 id="jsmeix_commented_at_2025-08-07_0629"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3162682472">2025-08-07 06:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-08-07_0629" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+perhaps I misunderstand something but<br />
+I fail to make your proposal working for me:</p>
+<pre><code># ( disk=/dev/sdq ; set -x ; if { size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;&amp;3- ) ; } 3&gt;&amp;1 ; then echo OK size=$size ; else echo failed size=$size ; fi )
+
+++ /sbin/blockdev --getsize64 /dev/sdq
+blockdev: cannot open /dev/sdq: No such file or directory
++ size=
++ echo failed size=
+failed size=
+</code></pre>
+<p>so when <code>blockdev</code> fails its stderr message does not<br />
+appear in the <code>size</code> variable in contrast to my proposal</p>
+<pre><code># ( disk=/dev/sdq ; set -x ; if size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;&amp;1 ) ; then echo OK size=$size ; else echo failed size=$size ; fi )
+
+++ /sbin/blockdev --getsize64 /dev/sdq
++ size='blockdev: cannot open /dev/sdq: No such file or directory'
++ echo failed size=blockdev: cannot open /dev/sdq: No such file or directory
+failed size=blockdev: cannot open /dev/sdq: No such file or directory
+</code></pre>
+<p>Because the resulting if condition in your proposal</p>
+<pre><code>if { size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;&amp;3- ) ; } 3&gt;&amp;1 ; then
+</code></pre>
+<p>looks rather complicated to decipher what it is about<br />
+I am wondering if using a temporary file instead of fd 3<br />
+could make the code easier to read and understand<br />
+for example something like</p>
+<pre><code># ( disk=/dev/sdq ; set -x ; if size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;/tmp/blockdev_stderr ) ; then echo $size ; else cat /tmp/blockdev_stderr ; fi )
+
+++ /sbin/blockdev --getsize64 /dev/sdq
++ size=
++ cat /tmp/blockdev_stderr
+blockdev: cannot open /dev/sdq: No such file or directory
+
+# ( disk=/dev/nvme0n1 ; set -x ; if size=$( /sbin/blockdev --getsize64 "$disk" 2&gt;/tmp/blockdev_stderr ) ; then echo $size ; else cat /tmp/blockdev_stderr ; fi )
+
+++ /sbin/blockdev --getsize64 /dev/nvme0n1
++ size=500107862016
++ echo 500107862016
+500107862016
+</code></pre>
+<p>which seems to "just work" at least for me.</p>
+<p>In ReaR we would use ReaR's <code>TMP_DIR</code> like</p>
+<pre><code>size="$( /sbin/blockdev --getsize64 "$disk" 2&gt;"$TMP_DIR/blockdev_stderr" )"
+</code></pre>
+<h4 id="pcahyna_commented_at_2025-08-07_0910"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3503#issuecomment-3163228412">2025-08-07 09:10</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-08-07_0910" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>when blockdev fails its stderr message does not<br />
+appear in the size variable</p>
+</blockquote>
+<p>That's the point! <code>size</code> holds the stdout of <code>blockdev</code>, not stderr.
+Stderr of <code>blockdev</code> gets redirected to stdout of the whole
+<code>is_disk_valid</code> function, which is intended - look at its usage example.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-08-04.3503.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

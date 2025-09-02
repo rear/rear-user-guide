@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3483 Issue closed: LUKS password not protected with { ... ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3483 Issue closed: LUKS password not protected with { ... ; } 2\u0026gt;\u0026gt;/dev/$SECRET_OUTPUT_DEV";
+        var mkdocs_page_input_path = "issues/2025-06-26.3483.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3483 Issue closed: LUKS password not protected with { ... ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3483_issue_closed_luks_password_not_protected_with_2devsecret_output_dev"><a href="https://github.com/rear/rear/issues/3483">#3483 Issue</a> <code>closed</code>: LUKS password not protected with { ... ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV<a class="headerlink" href="#3483_issue_closed_luks_password_not_protected_with_2devsecret_output_dev" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2025-06-26_1248"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/3483">2025-06-26 12:48</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2025-06-26_1248" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>master</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>See<br />
+<a href="https://github.com/rear/rear/issues/3474#issuecomment-2912653292">https://github.com/rear/rear/issues/3474#issuecomment-2912653292</a><br />
+which reads (excerpt):</p>
+<pre><code>From what I see in the code in
+https://github.com/rear/rear/blob/master/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh#L91
+it seems there is support for some predefined password value.
+
+As far as I understand the code that predefined password value
+can be specified in the disklayout.conf file
+in the crypt entries, see
+https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc#luks-devices
+
+LUKS Devices
+
+crypt /dev/mapper/&lt;name&gt; ... [password=&lt;password&gt;] ...
+</code></pre>
+<p>The current code at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh#L91">https://github.com/rear/rear/blob/master/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh#L91</a><br />
+is (excerpts)</p>
+<pre><code>    for option in $options ; do
+        # $option is of the form keyword=value and
+        # we assume keyword has no '=' character but value could be anything that may have a '=' character
+        # so we split keyword=value at the leftmost '=' character so that
+        # e.g. keyword=foo=bar gets split into key="keyword" and value="foo=bar":
+        key=${option%%=*}
+        value=${option#*=}
+        # The "cryptseup luksFormat" command does not require any of the type, cipher, key-size, hash, uuid option values
+        # because if omitted a cryptseup default value is used so we treat those values as optional.
+        # Using plain test to ensure the value is a single non empty and non blank word
+        # without quoting because test " " would return zero exit code
+        # cf. "Beware of the emptiness" in https://github.com/rear/rear/wiki/Coding-Style
+        case "$key" in
+            (type)
+                test $value &amp;&amp; cryptsetup_options+=" --type $value"
+                ;;
+            (cipher)
+                test $value &amp;&amp; cryptsetup_options+=" --cipher $value"
+                ;;
+            (key_size)
+                test $value &amp;&amp; cryptsetup_options+=" --key-size $value"
+                ;;
+            (hash)
+                test $value &amp;&amp; cryptsetup_options+=" --hash $value"
+                ;;
+            (uuid)
+                test $value &amp;&amp; cryptsetup_options+=" --uuid $value"
+                ;;
+            (keyfile)
+                test $value &amp;&amp; keyfile=$value
+                ;;
+            (password)
+                test $value &amp;&amp; password=$value
+                ;;
+            (*)
+                LogPrintError "Skipping unsupported LUKS cryptsetup option '$key' in 'crypt $target_device $source_device' entry in $LAYOUT_FILE"
+                ;;
+        esac
+    done
+...
+    elif [ -n "$password" ] ; then
+        echo "echo \"$password\" | cryptsetup luksFormat --batch-mode $cryptsetup_options $source_device"
+        echo "echo \"$password\" | cryptsetup luksOpen $source_device $mapping_name"
+...
+    for option in $options ; do
+        # $option is of the form keyword=value and
+        # we assume keyword has no '=' character but value could be anything that may have a '=' character
+        # so we split keyword=value at the leftmost '=' character so that
+        # e.g. keyword=foo=bar gets split into key="keyword" and value="foo=bar":
+        key=${option%%=*}
+        value=${option#*=}
+        case "$key" in
+            (keyfile)
+                test $value &amp;&amp; keyfile=$value
+                ;;
+            (password)
+                test $value &amp;&amp; password=$value
+                ;;
+        esac
+    done
+...
+    elif [ -n "$password" ] ; then
+        echo "echo \"$password\" | cryptsetup luksOpen $source_device $mapping_name"
+</code></pre>
+<p>It should be something like</p>
+<pre><code>    { for option in $options ; do
+        # $option is of the form keyword=value and
+        # we assume keyword has no '=' character but value could be anything that may have a '=' character
+        # so we split keyword=value at the leftmost '=' character so that
+        # e.g. keyword=foo=bar gets split into key="keyword" and value="foo=bar":
+        key=${option%%=*}
+        value=${option#*=}
+        # The "cryptseup luksFormat" command does not require any of the type, cipher, key-size, hash, uuid option values
+        # because if omitted a cryptseup default value is used so we treat those values as optional.
+        # Using plain test to ensure the value is a single non empty and non blank word
+        # without quoting because test " " would return zero exit code
+        # cf. "Beware of the emptiness" in https://github.com/rear/rear/wiki/Coding-Style
+        case "$key" in
+            (type)
+                test $value &amp;&amp; cryptsetup_options+=" --type $value"
+                ;;
+            (cipher)
+                test $value &amp;&amp; cryptsetup_options+=" --cipher $value"
+                ;;
+            (key_size)
+                test $value &amp;&amp; cryptsetup_options+=" --key-size $value"
+                ;;
+            (hash)
+                test $value &amp;&amp; cryptsetup_options+=" --hash $value"
+                ;;
+            (uuid)
+                test $value &amp;&amp; cryptsetup_options+=" --uuid $value"
+                ;;
+            (keyfile)
+                test $value &amp;&amp; keyfile=$value
+                ;;
+            (password)
+                test $value &amp;&amp; password=$value
+                ;;
+            (*)
+                LogPrintError "Skipping unsupported LUKS cryptsetup option '$key' in 'crypt $target_device $source_device' entry in $LAYOUT_FILE"
+                ;;
+        esac
+      done
+    } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+...
+    elif { [ -n "$password" ] ; then
+           echo "echo \"$password\" | cryptsetup luksFormat --batch-mode $cryptsetup_options $source_device"
+           echo "echo \"$password\" | cryptsetup luksOpen $source_device $mapping_name"
+         } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+...
+    { for option in $options ; do
+        # $option is of the form keyword=value and
+        # we assume keyword has no '=' character but value could be anything that may have a '=' character
+        # so we split keyword=value at the leftmost '=' character so that
+        # e.g. keyword=foo=bar gets split into key="keyword" and value="foo=bar":
+        key=${option%%=*}
+        value=${option#*=}
+        case "$key" in
+            (keyfile)
+                test $value &amp;&amp; keyfile=$value
+                ;;
+            (password)
+                test $value &amp;&amp; password=$value
+                ;;
+        esac
+      done
+    } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+...
+    elif { [ -n "$password" ] ; then
+           echo "echo \"$password\" | cryptsetup luksOpen $source_device $mapping_name"
+         } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-06-26_1325"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3008493279">2025-06-26 13:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-06-26_1325" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3430">https://github.com/rear/rear/pull/3430</a><br />
+should be merged first to avoid possible conflicts in<br />
+/usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh</p>
+<h4 id="jsmeix_commented_at_2025-07-01_1058"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3023400410">2025-07-01 10:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-01_1058" title="Permanent link">&para;</a></h4>
+<p>Ugh!<br />
+This issue is bigger than expected.</p>
+<p>I tested "rear -D recover" with this original test VM:</p>
+<pre><code># parted -s /dev/vda unit MiB print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vda: 15360MiB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: pmbr_boot
+Number  Start     End       Size      File system  Name  Flags
+ 1      1.00MiB   9.00MiB   8.00MiB                      bios_grub
+ 2      9.00MiB   13312MiB  13303MiB                     legacy_boot
+ 3      13312MiB  15360MiB  2048MiB                      swap
+
+# lsblk -ipo NAME,KNAME,TYPE,FSTYPE,SIZE,MOUNTPOINTS /dev/vda
+NAME                    KNAME     TYPE  FSTYPE      SIZE MOUNTPOINTS
+/dev/vda                /dev/vda  disk               15G 
+|-/dev/vda1             /dev/vda1 part                8M 
+|-/dev/vda2             /dev/vda2 part  crypto_LUKS  13G 
+| `-/dev/mapper/cr_root /dev/dm-0 crypt ext4         13G /
+`-/dev/vda3             /dev/vda3 part  crypto_LUKS   2G 
+  `-/dev/mapper/cr_swap /dev/dm-1 crypt swap          2G [SWAP]
+</code></pre>
+<p>On a replacement VM with same disk type and size<br />
+I booted the ReaR recovery system and therein<br />
+I manually added 'password=johannes' in disklayout.conf like</p>
+<pre><code>crypt /dev/mapper/cr_root /dev/vda2 type=luks1 ... password=johannes
+crypt /dev/mapper/cr_swap /dev/vda3 type=luks1 ... password=johannes
+</code></pre>
+<p>Additionally I needed in etc/rear/local.conf</p>
+<pre><code>LUKS_CRYPTSETUP_OPTIONS+=" --force-password"
+</code></pre>
+<p>because of the weak LUKS password 'johannes'<br />
+that was used only for this test here.</p>
+<p>Then I did "rear -D recover"<br />
+where the LUKS setup worked without manual interaction:</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Start system layout restoration.
+Disk '/dev/vda': creating 'gpt' partition table
+Disk '/dev/vda': creating partition number 1 with name ''vda1''
+Disk '/dev/vda': creating partition number 2 with name ''vda2''
+Disk '/dev/vda': creating partition number 3 with name ''vda3''
+Creating LUKS volume cr_root on /dev/vda2
+Creating filesystem of type ext4 with mount point / on /dev/mapper/cr_root.
+Mounting filesystem /
+Creating LUKS volume cr_swap on /dev/vda3
+Creating swap on /dev/mapper/cr_swap
+Disk layout created.
+...
+</code></pre>
+<p>BUT:</p>
+<p>The LUKS password 'johannes' appears at more places than expected<br />
+in the "rear -D recover" debugscript mode log file:</p>
+<pre><code>RESCUE localhost:~ # egrep '+ source |johannes' /var/log/rear/rear-localhost.log | grep -B1 johannes
+
++ builtin source /usr/share/rear/layout/prepare/default/510_list_dependencies.sh
++++ echo '/dev/mapper/cr_root /dev/vda2 type=luks1 cipher=aes-xts-plain64 key_size=512 hash=sha256 uuid=b37bfd65-b8cd-42cb-b2a7-b3ae772bc2c5 password=johannes'
++++ echo '/dev/mapper/cr_root /dev/vda2 type=luks1 cipher=aes-xts-plain64 key_size=512 hash=sha256 uuid=b37bfd65-b8cd-42cb-b2a7-b3ae772bc2c5 password=johannes'
++++ echo '/dev/mapper/cr_swap /dev/vda3 type=luks1 cipher=aes-xts-plain64 key_size=512 hash=sha256 uuid=84838219-dfbe-449b-95df-28f3e177de94 password=johannes'
++++ echo '/dev/mapper/cr_swap /dev/vda3 type=luks1 cipher=aes-xts-plain64 key_size=512 hash=sha256 uuid=84838219-dfbe-449b-95df-28f3e177de94 password=johannes'
+
+--
+
++ builtin source /usr/share/rear/layout/prepare/default/540_generate_device_code.sh
+++ value=johannes
+++ test johannes
+++ password=johannes
+++ '[' -n johannes ']'
+++ echo 'echo "johannes" | cryptsetup luksFormat --batch-mode  --type luks1 --cipher aes-xts-plain64 --key-size 512 --hash sha256 --uuid b37bfd65-b8cd-42cb-b2a7-b3ae772bc2c5 --iter-time 2000 --use-random --force-password /dev/vda2'
+++ echo 'echo "johannes" | cryptsetup luksOpen /dev/vda2 cr_root'
+++ value=johannes
+++ test johannes
+++ password=johannes
+++ '[' -n johannes ']'
+++ echo 'echo "johannes" | cryptsetup luksFormat --batch-mode  --type luks1 --cipher aes-xts-plain64 --key-size 512 --hash sha256 --uuid 84838219-dfbe-449b-95df-28f3e177de94 --iter-time 2000 --use-random --force-password /dev/vda3'
+++ echo 'echo "johannes" | cryptsetup luksOpen /dev/vda3 cr_swap'
+
+--
+
+++ builtin source /var/lib/rear/layout/diskrestore.sh
++++ echo johannes
++++ echo johannes
++++ echo johannes
++++ echo johannes
+</code></pre>
+<p>So things need to be also fixed in the<br />
+generate_layout_dependencies() function in<br />
+usr/share/rear/lib/layout-functions.sh<br />
+and in<br />
+usr/share/rear/layout/prepare/GNU/Linux/160_include_luks_code.sh<br />
+where a proper fix in 160_include_luks_code.sh<br />
+will avoid that the password gets logged during<br />
+<code>source /var/lib/rear/layout/diskrestore.sh</code><br />
+because diskrestore.sh does <code>set -x</code> on its own<br />
+and it contains those code parts</p>
+<pre><code># Create /dev/mapper/cr_root (crypt)
+LogPrint "Creating LUKS volume cr_root on /dev/vda2"
+echo "johannes" | cryptsetup luksFormat --batch-mode  --type luks1 --cipher aes-xts-plain64 --key-size 512 --hash sha256 --uuid b37bfd65-b8cd-42cb-b2a7-b3ae772bc2c5 --iter-time 
+2000 --use-random --force-password /dev/vda2
+echo "johannes" | cryptsetup luksOpen /dev/vda2 cr_root
+
+...
+
+# Create /dev/mapper/cr_swap (crypt)
+LogPrint "Creating LUKS volume cr_swap on /dev/vda3"
+echo "johannes" | cryptsetup luksFormat --batch-mode  --type luks1 --cipher aes-xts-plain64 --key-size 512 --hash sha256 --uuid 84838219-dfbe-449b-95df-28f3e177de94 --iter-time 2000 --use-random --force-password /dev/vda3
+echo "johannes" | cryptsetup luksOpen /dev/vda3 cr_swap
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-07-01_1110"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3023461724">2025-07-01 11:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-01_1110" title="Permanent link">&para;</a></h4>
+<p>Even more Ugh!</p>
+<p>In the rebooted recreated system I find the LUKS password 'johannes' in</p>
+<pre><code>/var/log/rear/recover/layout/diskrestore.sh
+/var/log/rear/recover/layout/disklayout.conf
+/var/log/rear/recover/layout/disklayout.conf.20250701120719.recover.796.orig
+/var/log/rear/recover/rear-localhost.log
+</code></pre>
+<p>At least /var/log/rear/recover/ has reasonably secure permissions</p>
+<pre><code># ls -ld /var/log/rear/recover/
+drwx------ 5 root root 4096 Jul  1 12:08 /var/log/rear/recover/
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-07-03_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3032392414">2025-07-03 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_1400" title="Permanent link">&para;</a></h4>
+<p>I keep this issue open to continue with further fixes<br />
+to protect the LUKS password against leaking out<br />
+as far as possible with reasonable effort.</p>
+<h4 id="jsmeix_commented_at_2025-07-03_1415"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3032444609">2025-07-03 14:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_1415" title="Permanent link">&para;</a></h4>
+<p>The next fix is for</p>
+<pre><code>echo "$password" | cryptsetup ...
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/pull/3485#issuecomment-3027807100">https://github.com/rear/rear/pull/3485#issuecomment-3027807100</a><br />
+which reads (excerpt)</p>
+<pre><code>My immediate idea is to use
+-------------------------------------------------------------
+COMMAND ... &lt;&lt;&lt; "$password"
+-------------------------------------------------------------
+
+On simple commandline with COMMAND 'cat' that seems to work:
+-------------------------------------------------------------
+# password="my password"
+
+# ( set -x ; echo "$password" | cat -n )
++ echo 'my password'
++ cat -n
+     1  my password
+
+# ( set -x ; cat -n &lt;&lt;&lt; "$password" )
++ cat -n
+     1  my password
+-------------------------------------------------------------
+In this test cat -n intentionally shows the password value
+to prove that COMMAND got the password value as input.
+The point of this test is to avoid that the COMMAND input
+gets shown in any case with 'set -x'.
+</code></pre>
+<p>This works as expected with adapted code in<br />
+layout/prepare/GNU/Linux/160_include_luks_code.sh</p>
+<pre><code>    elif { test "$password" ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV ; then
+        { echo "{ cryptsetup luksFormat --batch-mode $cryptsetup_options $source_device &lt;&lt;&lt; \"$password\" ; } 2&gt;/dev/null"
+          echo "{ cryptsetup luksOpen $source_device $mapping_name &lt;&lt;&lt; \"$password\" ; } 2&gt;/dev/null"
+        } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+...
+    elif { test "$password" ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV ; then
+        { echo "{ cryptsetup luksOpen $source_device $mapping_name &lt;&lt;&lt; \"$password\" ; } 2&gt;/dev/null"
+        } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+</code></pre>
+<p>which avoids that the cryptsetup password input<br />
+gets shown by 'set -x' in the ReaR log file<br />
+because</p>
+<pre><code>RESCUE localhost:~ # rear -D recover
+...
+Start system layout restoration.
+Disk '/dev/vda': creating 'gpt' partition table
+Disk '/dev/vda': creating partition number 1 with name ''vda1''
+Disk '/dev/vda': creating partition number 2 with name ''vda2''
+Disk '/dev/vda': creating partition number 3 with name ''vda3''
+Creating LUKS volume cr_root on /dev/vda2
+Creating filesystem of type ext4 with mount point / on /dev/mapper/cr_root.
+Mounting filesystem /
+Creating LUKS volume cr_swap on /dev/vda3
+Creating swap on /dev/mapper/cr_swap
+Disk layout created.
+...
+
+RESCUE localhost:~ # grep johannes /var/log/rear/rear-localhost.log
+[no output]
+</code></pre>
+<p>BUT</p>
+<pre><code>RESCUE localhost:~ # grep johannes /root/rear.github.master/var/lib/rear/layout/diskrestore.sh
+
+{ cryptsetup luksFormat ... /dev/vda2 &lt;&lt;&lt; "johannes" ; } 2&gt;/dev/null
+{ cryptsetup luksOpen /dev/vda2 cr_root &lt;&lt;&lt; "johannes" ; } 2&gt;/dev/null
+{ cryptsetup luksFormat ... /dev/vda3 &lt;&lt;&lt; "johannes" ; } 2&gt;/dev/null
+{ cryptsetup luksOpen /dev/vda3 cr_swap &lt;&lt;&lt; "johannes" ; } 2&gt;/dev/null
+</code></pre>
+<p>so the cryptsetup password input is still there<br />
+in the diskrestore.sh script.</p>
+<p>So</p>
+<pre><code>cryptsetup ... &lt;&lt;&lt; "$password"
+</code></pre>
+<p>is a step forward into the right direction<br />
+but likely not yet what is possible with reasonable effort.</p>
+<p>My next idea how to improve things with reasonable effort<br />
+is using a temporary file which contains the password value<br />
+to avoid that a password variable needs to be evaluated like</p>
+<pre><code># echo "my password" &gt;password_file
+
+# ( set -x ; cat -n &lt;password_file )
++ cat -n
+     1  my password
+</code></pre>
+<h4 id="jsmeix_commented_at_2025-07-03_1605"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3032813389">2025-07-03 16:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_1605" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3489">https://github.com/rear/rear/pull/3489</a><br />
+implements<br />
+<a href="https://github.com/rear/rear/issues/3483#issuecomment-3032444609">https://github.com/rear/rear/issues/3483#issuecomment-3032444609</a><br />
+and - by the way - that makes the code<br />
+simpler and more straightforward because those awkward<br />
+<code>{ ... ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV</code> "code wrappers"<br />
+are less often needed - i.e. as soon as the secret vaule<br />
+is stored in a file which is sufficiently securely located<br />
+further things get simpler and more straightforward.</p>
+<h4 id="jsmeix_commented_at_2025-07-03_1621"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3032853792">2025-07-03 16:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-03_1621" title="Permanent link">&para;</a></h4>
+<p>The next thing I will think about is<br />
+to remove the LUKS password value from disklayout.conf<br />
+after it was read from there and stored in a file<br />
+during "rear recover", for example via something like</p>
+<pre><code>sed -e '/^crypt/s/password=.*/password=XXX/'
+</code></pre>
+<p>which replaces <code>password=johannes</code> by <code>password=XXX</code><br />
+so it is still visible that some LUKS password was set<br />
+during "rear recover" but its secret value got removed.</p>
+<h4 id="jsmeix_commented_at_2025-07-07_1440"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3045468796">2025-07-07 14:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-07_1440" title="Permanent link">&para;</a></h4>
+<p>With the changes in<br />
+<a href="https://github.com/rear/rear/pull/3490">https://github.com/rear/rear/pull/3490</a><br />
+all works well for me.</p>
+<h4 id="jsmeix_commented_at_2025-07-11_1319"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3483#issuecomment-3062321440">2025-07-11 13:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-07-11_1319" title="Permanent link">&para;</a></h4>
+<p>With<br />
+<a href="https://github.com/rear/rear/pull/3490">https://github.com/rear/rear/pull/3490</a><br />
+merged this issue should be sufficiently fixed.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-06-26.3483.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
