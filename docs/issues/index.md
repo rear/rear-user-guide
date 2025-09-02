@@ -3353,6 +3353,7 @@
 - [\#3248 Issue](2024-06-13.3248.issue.open.md) `open`: linux rehl 7.9 : pb with rear recover , failed to create LVM volume vg\_system/home' with lvcreate
 - [\#3249 Issue](2024-06-14.3249.issue.open.md) `open`: Excluding LV does not work when using 'vgcfgrestore'
 - [\#3250 PR](2024-06-14.3250.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh fix issue \#3021
+-  [\#3251 Issue](2024-06-17.3251.issue.closed.md) `closed`: Decide on test matrix of distributions/versions
 - [\#3251 Issue](2024-06-17.3251.issue.open.md) `open`: Decide on test matrix of distributions/versions
 - [\#3252 PR](2024-06-17.3252.pr.merged.md) `merged`: Reduce the matrix of CI runs: disable the Fedora rawhide and 40 tests, Koji scratch builds, openSUSE Copr builds
 - [\#3253 Issue](2024-06-18.3253.issue.open.md) `open`: Having any 'sedutil-cli' makes normal "rear mkrescue" fail
@@ -3539,7 +3540,9 @@
 -  [\#3398 Issue](2025-02-08.3398.issue.closed.md) `closed`: Creating a Config and when or IF a Disk gets formatted
 - [\#3398 Issue](2025-02-08.3398.issue.open.md) `open`: Creating a Config and when or IF a Disk gets formatted
 - [\#3399 PR](2025-02-12.3399.pr.merged.md) `merged`: Further enhance 880\_check\_for\_mount\_by\_id.sh
+-  [\#3400 Issue](2025-02-13.3400.issue.closed.md) `closed`: Falsely "automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem
 - [\#3400 Issue](2025-02-13.3400.issue.open.md) `open`: Falsely "automatically excluding disk /dev/nvme4n1 (not used by any mounted filesystem
+-  [\#3401 Issue](2025-02-13.3401.issue.closed.md) `closed`: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf
 - [\#3401 Issue](2025-02-13.3401.issue.open.md) `open`: longhorn iscsi devices are network based devices and should not be listed to recreate in disklayout.conf
 - [\#3402 PR](2025-02-13.3402.pr.merged.md) `merged`: \#3401 discard longhorn devices
 - [\#3403 PR](2025-02-14.3403.pr.merged.md) `merged`: \#3400 to avoid disks mounted without partition getting excluded
@@ -3555,9 +3558,11 @@
 - [\#3411 Issue](2025-02-28.3411.issue.closed.md) `closed`: Enhance 300\_map\_disks.sh to also print the disk sizes
 - [\#3412 PR](2025-02-28.3412.pr.merged.md) `merged`: enhance 300\_map\_disks.sh script to also print the disk sizes
 - [\#3413 Issue](2025-02-28.3413.issue.closed.md) `closed`: sshd in the rescue image lacks an ed25519 host key, and after upgrade from EL 8 to EL 9 it will not start anymore
+-  [\#3414 Issue](2025-02-28.3414.issue.closed.md) `closed`: Fix when 'find' results only dangling symlinks to needed libraries
 - [\#3414 Issue](2025-02-28.3414.issue.open.md) `open`: Fix when 'find' results only dangling symlinks to needed libraries
 - [\#3415 PR](2025-02-28.3415.pr.merged.md) `merged`: Create an ed25519 ssh host key, and /usr/share/empty.sshd in the rescue image \#3413
 - [\#3416 PR](2025-03-01.3416.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.1 to 5.5.3
+-  [\#3417 Issue](2025-03-03.3417.issue.closed.md) `closed`: Out of memory when restoring
 - [\#3417 Issue](2025-03-03.3417.issue.open.md) `open`: Out of memory when restoring
 - [\#3418 PR](2025-03-03.3418.pr.merged.md) `merged`: ci: run Differential ShellCheck only on push to master
 - [\#3419 PR](2025-03-04.3419.pr.merged.md) `merged`: Update CS and Fedora Images + add support for `podman`
@@ -3574,9 +3579,11 @@
 - [\#3427 Issue](2025-03-14.3427.issue.open.md) `open`: Are our discussions contents somewhere saved?
 - [\#3428 Issue](2025-03-17.3428.issue.open.md) `open`: Prepare a list of obsolete external backup solutions
 - [\#3429 Issue](2025-03-17.3429.issue.open.md) `open`: Merge the two existing umount function into one
+-  [\#3430 PR](2025-03-17.3430.pr.merged.md) `merged`: LUKS2: try to handle multiple key slots
 - [\#3430 PR](2025-03-17.3430.pr.open.md) `open`: LUKS2: try to handle multiple key slots
 - [\#3431 PR](2025-03-18.3431.pr.merged.md) `merged`: Change all ReaR scripts that mention the old name \_input-output-functions.sh
 - [\#3432 PR](2025-03-18.3432.pr.merged.md) `merged`: remove zram swap from disklayout.conf
+-  [\#3433 Issue](2025-03-19.3433.issue.closed.md) `closed`: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"
 - [\#3433 Issue](2025-03-19.3433.issue.open.md) `open`: Cannot do backup: "Unsupported partition table 'unknown' on /dev/sdb"
 - [\#3434 PR](2025-03-20.3434.pr.closed.md) `closed`: New TRUSTED\_SOURCING\_VIA\_DOT for trusted sourcing via '.'
 - [\#3435 PR](2025-03-24.3435.pr.merged.md) `merged`: Delete 800\_enforce\_usb\_output.sh (deletes usr/share/rear/build/USB directory
@@ -3586,6 +3593,7 @@
 - [\#3438 Issue](2025-03-25.3438.issue.open.md) `open`: Overhaul simulation mode implementation
 -  [\#3439 Issue](2025-03-25.3439.issue.closed.md) `closed`: Sort out when 'source' versus 'Source' should be used in ReaR
 - [\#3439 Issue](2025-03-25.3439.issue.open.md) `open`: Sort out when 'source' versus 'Source' should be used in ReaR
+-  [\#3440 PR](2025-03-27.3440.pr.merged.md) `merged`: Add initial support for arm/aarch64 machines with UEFI
 - [\#3440 PR](2025-03-27.3440.pr.open.md) `open`: Add initial support for arm/aarch64 machines with UEFI
 - [\#3441 Issue](2025-03-27.3441.issue.closed.md) `closed`: Create ISO image containing all data and send it via rsync
 - [\#3442 PR](2025-03-27.3442.pr.merged.md) `merged`: Support Debian 12
@@ -3614,24 +3622,66 @@
 -  [\#3460 Issue](2025-04-23.3460.issue.closed.md) `closed`: mktemp is called before local.conf is sourced
 -  [\#3461 Issue](2025-04-24.3461.issue.closed.md) `closed`: LVM: 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf makes "rear recover" fail
 -  [\#3462 PR](2025-04-25.3462.pr.merged.md) `merged`: Tell if 'use\_lvmlockd = 1' in /etc/lvm/lvm.conf
+-  [\#3463 Issue](2025-04-28.3463.issue.closed.md) `closed`: COVE backup method to support Cove Data Protection (Backup Manager
 -  [\#3463 Issue](2025-04-28.3463.issue.open.md) `open`: COVE backup method to support Cove Data Protection (Backup Manager
+-  [\#3464 PR](2025-04-28.3464.pr.closed.md) `closed`: Add initial Cove support
 -  [\#3464 PR](2025-04-28.3464.pr.open.md) `open`: Add initial Cove support
 -  [\#3465 PR](2025-04-29.3465.pr.merged.md) `merged`: Set ReaR paths early in system-setup
 -  [\#3466 PR](2025-04-30.3466.pr.closed.md) `closed`: Fix calling efibootmgr on software RAID
 -  [\#3467 Issue](2025-04-30.3467.issue.closed.md) `closed`: COPY\_AS\_IS\_EXELIST 47975 occurrences in the log file
 -  [\#3468 PR](2025-05-05.3468.pr.merged.md) `merged`: More consistent user messages in 310\_network\_devices.sh
+-  [\#3469 PR](2025-05-06.3469.pr.merged.md) `merged`: Describe enforced umount problem in umount\_mountpoint\_retry\_lazy function
 -  [\#3469 PR](2025-05-06.3469.pr.open.md) `open`: Describe enforced umount problem in umount\_mountpoint\_retry\_lazy function
+-  [\#3470 Issue](2025-05-07.3470.issue.closed.md) `closed`: Cannot make USB recovery stick
 -  [\#3470 Issue](2025-05-07.3470.issue.open.md) `open`: Cannot make USB recovery stick
 -  [\#3471 PR](2025-05-09.3471.pr.merged.md) `merged`: Support new EFIBOOTMGR\_CREATE\_ENTRIES in 670\_run\_efibootmgr.sh
+-  [\#3472 Issue](2025-05-14.3472.issue.closed.md) `closed`: Can't get Relax and Recover to boot on OpenStack (OpenMetal
 -  [\#3472 Issue](2025-05-14.3472.issue.open.md) `open`: Can't get Relax and Recover to boot on OpenStack (OpenMetal
 -  [\#3473 Issue](2025-05-21.3473.issue.open.md) `open`: ReaR automatisms overwrite sacrosanct user specified values
+-  [\#3474 Issue](2025-05-27.3474.issue.closed.md) `closed`: Migrate LUKS disk as is, without setting a password phrase at the time of recovery
 -  [\#3474 Issue](2025-05-27.3474.issue.open.md) `open`: Migrate LUKS disk as is, without setting a password phrase at the time of recovery
 -  [\#3475 Issue](2025-05-28.3475.issue.open.md) `open`: Add RHEL 10 and clones support
+-  [\#3476 PR](2025-06-01.3476.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.3 to 5.5.4
 -  [\#3476 PR](2025-06-01.3476.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.3 to 5.5.4
 -  [\#3477 Issue](2025-06-03.3477.issue.open.md) `open`: Disk mappings should be also applied to user configuration values
 -  [\#3478 Issue](2025-06-04.3478.issue.closed.md) `closed`: umount fails because target is in use by realtime antivirus scanner
 -  [\#3479 Issue](2025-06-11.3479.issue.closed.md) `closed`: BUG in /usr/share/rear/rescue/default/020\_create\_skeleton\_dirs.sh line 31
 -  [\#3480 Issue](2025-06-16.3480.issue.open.md) `open`: Do we actually need `dbus` in the rescue environment?
 -  [\#3481 Issue](2025-06-16.3481.issue.open.md) `open`: Only stale issues marked with label "waiting for info"
+-  [\#3482 PR](2025-06-17.3482.pr.merged.md) `merged`: Make issues or PRs stale only after specific labels have been set
 -  [\#3482 PR](2025-06-17.3482.pr.open.md) `open`: Make issues or PRs stale only after specific labels have been set
+-  [\#3483 Issue](2025-06-26.3483.issue.closed.md) `closed`: LUKS password not protected with { ... ; } 2&gt;&gt;/dev/$SECRET\_OUTPUT\_DEV
+-  [\#3484 PR](2025-07-01.3484.pr.merged.md) `merged`: BCF-5527: \[Rear\] Space in the variable device\_to\_be\_wiped\_size\_bytes
+-  [\#3485 PR](2025-07-01.3485.pr.merged.md) `merged`: protect LUKS password from leaking out
+-  [\#3486 Issue](2025-07-02.3486.issue.closed.md) `closed`: TCG Opal password not protected with { ... ; } 2&gt;&gt;/dev/$SECRET\_OUTPUT\_DEV
+-  [\#3487 PR](2025-07-02.3487.pr.merged.md) `merged`: In 150\_wipe\_disks.sh fix wrong 'device\_to\_be\_wiped\_size\_byte' test
+-  [\#3488 Issue](2025-07-02.3488.issue.closed.md) `closed`: Rear on Azure Redhat 9
+-  [\#3489 PR](2025-07-03.3489.pr.merged.md) `merged`: Use temporary LUKS password file in 160\_include\_luks\_code.sh
+-  [\#3490 PR](2025-07-04.3490.pr.merged.md) `merged`: Garble LUKS password in disklayout.conf
+-  [\#3491 Issue](2025-07-08.3491.issue.closed.md) `closed`: /etc/resolv.conf is empty in the rescue system on Ubuntu 24.04
+-  [\#3492 PR](2025-07-08.3492.pr.merged.md) `merged`: s390: remove the deprecated `OUTPUT=IPL` value
+-  [\#3493 PR](2025-07-09.3493.pr.merged.md) `merged`: Copy /etc/dhcpcd.conf to the rescue system
+-  [\#3494 PR](2025-07-09.3494.pr.merged.md) `merged`: BugError when AddExitTask QuietAddExitTask RemoveExitTask are called in subshell
+-  [\#3495 Issue](2025-07-10.3495.issue.open.md) `open`: checklayout should not highlight a disc swap
+-  [\#3496 PR](2025-07-15.3496.pr.merged.md) `merged`: Get explicit user confirmation in opaladmin-workflow.sh
+-  [\#3497 PR](2025-07-24.3497.pr.merged.md) `merged`: In 990\_verify\_rootfs.sh verify symlink target when a found library is only a symlink
+-  [\#3498 PR](2025-07-25.3498.pr.merged.md) `merged`: Support some XFS features
+-  [\#3499 PR](2025-07-28.3499.pr.merged.md) `merged`: Describe RECOVERY\_COMMANDS in 11-multiple-backups.adoc
+-  [\#3500 PR](2025-07-30.3500.pr.merged.md) `merged`: In sbin/rear error out if '-c' is used in recovery system
+-  [\#3501 PR](2025-08-01.3501.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.4.5 to 4.4.7
+-  [\#3502 PR](2025-08-01.3502.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.4 to 5.5.5
+-  [\#3503 PR](2025-08-04.3503.pr.open.md) `open`: Fix is\_disk\_valid in layout-functions.sh
+-  [\#3504 Issue](2025-08-04.3504.issue.open.md) `open`: BTRFS\_SUBVOLUME\_SLES\_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos
+-  [\#3505 Issue](2025-08-05.3505.issue.open.md) `open`: MIGRATION\_MODE inconsistencies: disklayout.conf (et al.
+-  [\#3506 Issue](2025-08-05.3506.issue.closed.md) `closed`: ReaR backup size
+-  [\#3507 Issue](2025-08-07.3507.issue.closed.md) `closed`: Why is ReaR formating/deleting other drives drive/partition than the system/bootdrive?
+-  [\#3508 Issue](2025-08-10.3508.issue.open.md) `open`: Bug in write-protect-functions.sh line 13
+-  [\#3509 Issue](2025-08-11.3509.issue.open.md) `open`: Convert ASCIIDOC man-page and User Guide to Markdown
+-  [\#3510 PR](2025-08-15.3510.pr.merged.md) `merged`: Copy a sshd helper to the rescue ramdisk
+-  [\#3511 PR](2025-08-16.3511.pr.merged.md) `merged`: \#3509 convert man page and user guide to Markdown format
+-  [\#3512 Issue](2025-08-16.3512.issue.open.md) `open`: tools/run-in-docker-build.sh rubygem-ronn not found
+-  [\#3513 Issue](2025-08-21.3513.issue.open.md) `open`: ReaR - rsync recover very slow
+-  [\#3514 PR](2025-08-21.3514.pr.open.md) `open`: Fix parsing of workflow command line arguments
+-  [\#3515 PR](2025-08-25.3515.pr.open.md) `open`: Add support for `dbus-broker`
+-  [\#3516 Issue](2025-08-28.3516.issue.open.md) `open`: \[RFE\] GUI / Configuration Helper Tool for ReaR
 -  Issues History of Relax-and-Recover (index.md)
