@@ -99,6 +99,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#configuring_rear_for_using_rbme">Configuring ReaR for using RBME</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#running_rearrbme">Running ReaR/RBME</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recover_the_system_with_rbme">Recover the system with RBME</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
     </li>
@@ -214,6 +216,7 @@ USE_STATIC_NETWORKING="y"
 SSH_ROOT_PASSWORD="relax"
 
 # To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+# The difference in size of the iso image is 800Mb with and 80Mb without.
 FIRMWARE_FILES=( 'no' )
 MODULES=( 'loaded_modules' )
 
@@ -226,7 +229,21 @@ PROGRESS_WAIT_SECONDS="10"
 ....
 Make a backup via RBME
 </code></pre>
-<p>Be aware, this will take a very long time to finish (more then 1 hour).</p>
+<p>Be aware, this may take a very long time to finish the first time you run RBME (more than 1 hour).</p>
+<p>You could also run during the day <code>rear mkbackuponly</code> to just execute <code>rbme</code> without creating an iso image. This will take only a few seconds now.</p>
+<p>For example, on our backup server we see the following inside the archive directory:</p>
+<pre><code>dr-xr-xr-x. 18 root root      4096 Nov  6 10:35 2025-11-07
+dr-xr-xr-x. 18 root root      4096 Nov  6 10:35 2025-11-13
+dr-xr-xr-x. 16 root root      4096 Nov  6 10:35 2025-11-17
+dr-xr-xr-x. 14 root root       190 Nov  6 10:35 2025-11-18
+-rw-------.  1 root root       202 Nov 18 15:58 README
+-rw-r--r--.  1 qemu qemu  69658624 Nov 18 15:58 rear-alma.iso
+-rw-------.  1 root root    127954 Nov 18 15:58 rear-alma.log
+-rw-r--r--.  1 root root 866234368 Nov 13 15:35 rear-alma-rbme.iso
+-rw-------.  1 root root       267 Nov 18 15:58 VERSION
+</code></pre>
+<h2 id="recover_the_system_with_rbme">Recover the system with RBME<a class="headerlink" href="#recover_the_system_with_rbme" title="Permanent link">&para;</a></h2>
+<p>Boot the iso image and once you have a prompt run the command: <code>rear -v recover</code></p>
 <h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://github.com/schlomo/rbme">GitHub rbme project</a></li>
