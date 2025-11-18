@@ -62,6 +62,7 @@ The following `/etc/rear/local.conf` file was used to make a backup with RBME vi
     SSH_ROOT_PASSWORD="relax"
     
     # To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+    # The difference in size of the iso image is 800Mb with and 80Mb without.
     FIRMWARE_FILES=( 'no' )
     MODULES=( 'loaded_modules' )
     
@@ -76,7 +77,25 @@ Now to make a ReaR image and a full backup of your system with RBME just run:
     ....
     Make a backup via RBME
 
-Be aware, this will take a very long time to finish (more then 1 hour).
+Be aware, this may take a very long time to finish the first time you run RBME (more than 1 hour).
+
+You could also run during the day `rear mkbackuponly` to just execute `rbme` without creating an iso image. This will take only a few seconds now.
+
+For example, on our backup server we see the following inside the archive directory:
+
+    dr-xr-xr-x. 18 root root      4096 Nov  6 10:35 2025-11-07
+    dr-xr-xr-x. 18 root root      4096 Nov  6 10:35 2025-11-13
+    dr-xr-xr-x. 16 root root      4096 Nov  6 10:35 2025-11-17
+    dr-xr-xr-x. 14 root root       190 Nov  6 10:35 2025-11-18
+    -rw-------.  1 root root       202 Nov 18 15:58 README
+    -rw-r--r--.  1 qemu qemu  69658624 Nov 18 15:58 rear-alma.iso
+    -rw-------.  1 root root    127954 Nov 18 15:58 rear-alma.log
+    -rw-r--r--.  1 root root 866234368 Nov 13 15:35 rear-alma-rbme.iso
+    -rw-------.  1 root root       267 Nov 18 15:58 VERSION
+
+## Recover the system with RBME
+
+Boot the iso image and once you have a prompt run the command: `rear -v recover`
 
 ### References
 
