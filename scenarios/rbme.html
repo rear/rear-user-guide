@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>External Backup using RBME - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "External Backup using RBME";
+        var mkdocs_page_input_path = "scenarios/rbme.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">External Backup using RBME</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install_rbme_package">Install RBME package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring_rbme">Configuring RBME</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring_rear_for_using_rbme">Configuring ReaR for using RBME</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running_rearrbme">Running ReaR/RBME</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SCENARIOS</li>
+      <li class="breadcrumb-item active">External Backup using RBME</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="rsync_backup_made_easy_rbme">Rsync Backup Made Easy (RBME)<a class="headerlink" href="#rsync_backup_made_easy_rbme" title="Permanent link">&para;</a></h1>
+<p>RBME was created by <a href="https://schlomo.schapiro.org/">Schlomo Schapiro</a> in 2006 to have a simple backup using rsync per host and per day classified on the backup server.</p>
+<p>ReaR 2.6 until 2.9 can only perform a recovery using RBME! Therefore, making backup with RBME needs to be done outside of ReaR.</p>
+<p>However, we made a quick update to ReaR (v3.0 which is not released yet) to make a RBME backup via a <code>rear -v mkbackup</code> run.</p>
+<h2 id="install_rbme_package">Install RBME package<a class="headerlink" href="#install_rbme_package" title="Permanent link">&para;</a></h2>
+<p>The rbme package is not available anywhere, therefore, you have to generate it yourself by cloning <a href="https://github.com/gdha/rbme">Gratien's rbme clone from Schlomo</a> if you want to create a RMP package.</p>
+<p>The installation of the rpm or deb package has to be done as root via the usual commands. As reminder, <code>rbme</code> relies on <code>procmail</code>, so have this installed if not present.</p>
+<h2 id="configuring_rbme">Configuring RBME<a class="headerlink" href="#configuring_rbme" title="Permanent link">&para;</a></h2>
+<p>RBME comes with a <code>/etc/rbme.conf</code> configuration file. All details are nicely explained in this configuration file.</p>
+<p>However, it is important to set the <code>BACKUP_PATH</code> variable correct!</p>
+<pre><code># Where to create the backups in.
+# Strongly recommended to be a separate filesystem !
+BACKUP_PATH=/backup
+</code></pre>
+<p>Be aware, that RBME backup workflow will generate another configuration file which will overrule the main setting of <code>BACKUP_PATH</code>:</p>
+<pre><code>/etc/rbme.local.conf - path will be changed each time you run `rear mkbackup`
+BACKUP_PATH=/var/tmp/rear.GfkC5WobMbH7DcV/outputfs
+</code></pre>
+<p>If you want to receive a mail report make sure that <code>postfix</code> is installed and configure also in <code>/etc/rbme.conf</code>:</p>
+<pre><code># send result per email, separate multiple addresses by spaces
+MAILTO=root
+</code></pre>
+<p>Before making the first backup with RBME we have to create an exclude list:</p>
+<pre><code># cat /etc/backup-excludes.lst 
+/var/tmp
+/tmp
+/proc
+/run
+/sys
+</code></pre>
+<h2 id="configuring_rear_for_using_rbme">Configuring ReaR for using RBME<a class="headerlink" href="#configuring_rear_for_using_rbme" title="Permanent link">&para;</a></h2>
+<p>The following <code>/etc/rear/local.conf</code> file was used to make a backup with RBME via ReaR:</p>
+<pre><code># cat /etc/rear/local.conf 
+# This file etc/rear/local.conf is intended for the user's
+# manual configuration of Relax-and-Recover (ReaR).
+#
+#### Rsync Backup Made Easy ####
+################################
+# RBME backup: Finished in 8131 seconds (135 min) -for 2.9 Gb data
+BACKUP=RBME
+BACKUP_URL=nfs://192.168.122.1/apps/export/RBME
+
+# Use the same IP address(es) of the this system to be activated in the rescue OS
+USE_STATIC_NETWORKING="y"
+
+# To be able to login via ssh
+SSH_ROOT_PASSWORD="relax"
+
+# To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="10"
+</code></pre>
+<h2 id="running_rearrbme">Running ReaR/RBME<a class="headerlink" href="#running_rearrbme" title="Permanent link">&para;</a></h2>
+<p>Now to make a ReaR image and a full backup of your system with RBME just run:</p>
+<pre><code># rear -v mkbackup
+....
+Make a backup via RBME
+</code></pre>
+<p>Be aware, this will take a very long time to finish (more then 1 hour).</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/schlomo/rbme">GitHub rbme project</a></li>
+</ul>
+              
+            </div>
+          </div>
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/github-pr.html" class="btn btn-neutral float-right" title="Make a pull request with GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="netfs_nas.html" class="btn btn-neutral" title="Internal Backup with tar to NFS server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=scenarios/rbme.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+      <span><a href="netfs_nas.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../development/github-pr.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
