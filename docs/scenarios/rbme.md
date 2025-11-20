@@ -97,6 +97,71 @@ For example, on our backup server we see the following inside the archive direct
 
 Boot the iso image and once you have a prompt run the command: `rear -v recover`
 
+    RESCUE alma:~ # rear -v recover
+    Relax-and-Recover 2.6 / 2020-06-17
+    Running rear recover (PID 575)
+    Using log file: /var/log/rear/rear-alma.log
+    Running workflow recover within the ReaR rescue/recovery system
+    Starting required daemons for NFS: RPC portmapper (portmap or rpcbind) and rpc.statd if available.
+    Started RPC portmapper 'rpcbind'.
+    RPC portmapper 'rpcbind' available.
+    Starting rpc.statd failed.
+    RPC status rpc.statd unavailable (you may have to mount NFS without locking 'nolock').
+    Select a backup to restore.
+    1) 2025-11-19
+    2) 2025-11-20
+    3) Abort
+    #? 2
+    Backup 2025-11-20 chosen.
+    Comparing disks
+    Device vda has expected (same) size 8589934592 bytes (will be used for 'recover')
+    Disk configuration looks identical
+    Proceed with 'recover' (yes) otherwise manual disk layout configuration is enforced
+    (default 'yes' timeout 30 seconds)
+    yes
+    User confirmed to proceed with 'recover'
+    Start system layout restoration.
+    Disk '/dev/vda': creating 'msdos' partition table
+    Disk '/dev/vda': creating partition number 1 with name 'primary'
+    Disk '/dev/vda': creating partition number 2 with name 'primary'
+    Creating LVM PV /dev/vda2
+    Restoring LVM VG 'almalinux'
+    Sleeping 3 seconds to let udev or systemd-udevd create their devices...
+    Creating filesystem of type xfs with mount point / on /dev/mapper/almalinux-root.
+    Mounting filesystem /
+    Creating filesystem of type xfs with mount point /boot on /dev/vda1.
+    Mounting filesystem /boot
+    Creating swap on /dev/mapper/almalinux-swap
+    Disk layout created.
+    Restoring from backup 2025-11-20.
+    Preparing restore operation
+    Restored 461 MiB [avg 42917 KiB/sec]
+    Restored 991 MiB [avg 48329 KiB/sec]
+    Restored 1440 MiB [avg 47580 KiB/sec]
+    Restored 1598 MiB [avg 39912 KiB/sec]
+    Restored 1976 MiB [avg 39682 KiB/sec]
+    OK
+    Restored 1976 MiB in 61 seconds [avg 33176 KiB/sec]
+    Created SELinux /mnt/local/.autorelabel file : after reboot SELinux will relabel all files
+    Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+    Renamed LVM devices file /mnt/local//etc/lvm/devices/system.devices to /mnt/local//etc/lvm/devices/system.devices.rearbak
+    to prevent LVM problems in the recovered system, verify that the file
+    is correct after booting the recovered system and move it back, or
+    regenerate it using vgimportdevices.
+    Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+    Running dracut...
+    Updated initrd with new drivers for kernel 5.14.0-503.11.1.el9_5.x86_64.
+    Running dracut...
+    Updated initrd with new drivers for kernel 5.14.0-570.58.1.el9_6.x86_64.
+    Installing GRUB2 boot loader...
+    Determining where to install GRUB2 (no GRUB2_INSTALL_DEVICES specified)
+    Found possible boot disk /dev/vda - installing GRUB2 there
+    Finished 'recover'. The target system is mounted at '/mnt/local'.
+    Exiting rear recover (PID 575) and its descendant processes ...
+    Running exit tasks
+
+Rebooted the recovered system, and it came up fine. No issues encountered on the system.
+
 ### References
 
 * [GitHub rbme project](https://github.com/schlomo/rbme)
