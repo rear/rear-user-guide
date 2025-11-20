@@ -12,3 +12,5 @@ In this chapter will be go over some simple and more complex examples used with 
 
 * [External Backup using Rsync Backup Made Easy (RBME)](rbme.md)
 
+* [External Backup using restic](restic.md)
+
