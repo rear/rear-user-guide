@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>External Backup using restic - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "External Backup using restic";
+        var mkdocs_page_input_path = "scenarios/restic.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">External Backup using restic</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install_the_restic_software">Install the restic software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare_a_backup_repository">Prepare a backup repository</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#excluding_filesdirectories_from_the_backup_scheme">Excluding files/directories from the backup scheme</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configring_rear">Configring ReaR</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SCENARIOS</li>
+      <li class="breadcrumb-item active">External Backup using restic</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="external_backup_using_restic">External backup using restic<a class="headerlink" href="#external_backup_using_restic" title="Permanent link">&para;</a></h1>
+<p><a href="https://restic.net/">Restic</a> is a modern backup program that can back up your files from Linux, BSD, MacOS, or Windows. Restic is easy, being a single executable that you can run without a complex setup. Restic performs incremental backups, only transferring the parts that actually changed in the files you back up.</p>
+<p>Currently there is no workflow in ReaR that supports restic. You can <a href="https://relax-and-recover.org/support/sponsors">sponsor</a> us to create a <code>BACKUP=RESTIC</code> workflow inside ReaR.</p>
+<p>However, do not despare as the EXTERNAL workflow can be used to make backups and restores through ReaR. It is not official supported by the ReaR maintainers, but it can be done. Be aware that you cannot complain to us if it doesn't work as what we describe below is not a real integration in ReaR, but rather a last tool to perform the backup and/or recover yourself with your own favorite backup tool.</p>
+<h2 id="install_the_restic_software">Install the restic software<a class="headerlink" href="#install_the_restic_software" title="Permanent link">&para;</a></h2>
+<p>On RedHat alike OSes you first of all need to install epel-release:</p>
+<pre><code># dnf install epel-release
+</code></pre>
+<p>Once the epel repository is available is available install the restic application with the command:</p>
+<pre><code># dnf install restic
+</code></pre>
+<p>For other ways to install restic see the <a href="https://restic.readthedocs.io/en/latest/020_installation.html">installation</a> page of the docmentation.</p>
+<h2 id="prepare_a_backup_repository">Prepare a backup repository<a class="headerlink" href="#prepare_a_backup_repository" title="Permanent link">&para;</a></h2>
+<p>The instructions are nicely explained in <a href="https://restic.readthedocs.io/en/latest/030_preparing_a_new_repo.html">preparing a new repo</a> section of the documentation.
+Also, the method you want to use to reach your repo on the backup server must be carefully selected.</p>
+<p>We use the <em>sftp</em> method, therefore, the secure shell access to the backup server has to work without entering passwords.</p>
+<p>Before we can make backups we need to initialize a restic backup repository with the <code>init</code> option and thereby provide a really good password:</p>
+<pre><code># restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup init
+enter password for new repository: restic
+</code></pre>
+<p>Of course, as we are just testing out restic our password really sucks - do NOT use a simple password for production!</p>
+<p>To avoid that we need to enter the password each time we run <code>restic</code> we chose to save the password in a special file:</p>
+<pre><code># cat /etc/restic-password
+restic
+</code></pre>
+<p>And, we changed to permissions of the file <code>/etc/restic-password</code> to mode 0400.</p>
+<h2 id="excluding_filesdirectories_from_the_backup_scheme">Excluding files/directories from the backup scheme<a class="headerlink" href="#excluding_filesdirectories_from_the_backup_scheme" title="Permanent link">&para;</a></h2>
+<p>In order to avoid too much data being backed up, or even avoiding hangs or never ending backups create an exclude file for <code>restic</code>:</p>
+<pre><code># cat /etc/restic_exclude_files 
+/proc
+/sys
+/media
+/mnt
+/run
+/tmp
+/var/tmp
+</code></pre>
+<h2 id="configring_rear">Configring ReaR<a class="headerlink" href="#configring_rear" title="Permanent link">&para;</a></h2>
+<p>Of course we assume that the <code>rear</code> package was already installed, if not, do this first.</p>
+<p>You can create a <code>/etc/rear/local.conf</code> or `/etc/rear/restic.conf file which contains:</p>
+<pre><code>[root@alma rear]# cat restic.conf 
+# This file etc/rear/local.conf is intended for the user's
+# manual configuration of Relax-and-Recover (ReaR).
+
+BACKUP=EXTERNAL
+OUTPUT=ISO
+OUTPUT_URL=nfs://192.168.122.1/apps/export/RBME
+
+COPY_AS_IS+=( '/etc/restic_exclude_files' '/etc/restic-password' '/root/.ssh/' )
+SSH_FILES="yes"
+SSH_UNPROTECTED_PRIVATE_KEYS=true
+
+REQUIRED_PROGS+=( 'restic' )
+EXTERNAL_BACKUP="restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup backup / /boot --one-file-system --exclude-file /etc/restic_exclude_files --password-file /etc/restic-password"
+EXTERNAL_RESTORE="restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup restore latest --target /mnt/local --password-file /etc/restic-password"
+
+# Use the same IP address(es) of the this system to be activated in the rescue OS
+USE_STATIC_NETWORKING="y"
+
+# To be able to login via ssh
+SSH_ROOT_PASSWORD="relax"
+
+# To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="10"
+</code></pre>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://restic.net/">Restic - Backups done right</a></p>
+</li>
+<li>
+<p><a href="https://github.com/restic/restic">Restic GitHub home page</a></p>
+</li>
+<li>
+<p><a href="https://restic.readthedocs.io/en/latest/">Restic Documentation</a></p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/github-pr.html" class="btn btn-neutral float-right" title="Make a pull request with GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="rbme.html" class="btn btn-neutral" title="External Backup using RBME"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=scenarios/restic.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+      <span><a href="rbme.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../development/github-pr.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
