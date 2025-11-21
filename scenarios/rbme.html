@@ -191,14 +191,12 @@ BACKUP_PATH=/var/tmp/rear.GfkC5WobMbH7DcV/outputfs
 <pre><code># send result per email, separate multiple addresses by spaces
 MAILTO=root
 </code></pre>
-<p>Before making the first backup with RBME we have to create an exclude list:</p>
+<p>Before making the first backup with RBME we could create an exclude list to avoid backing up some file systems, e.g.:</p>
 <pre><code># cat /etc/backup-excludes.lst 
-/var/tmp
-/tmp
-/proc
-/run
-/sys
+/apps
+/VMs
 </code></pre>
+<p>It is not required to add system in-memory file systems like <code>/proc</code>, <code>/sys</code>, <code>/tmp</code>, <code>/var/tmp</code> or <code>/run</code></p>
 <h2 id="configuring_rear_for_using_rbme">Configuring ReaR for using RBME<a class="headerlink" href="#configuring_rear_for_using_rbme" title="Permanent link">&para;</a></h2>
 <p>The following <code>/etc/rear/local.conf</code> file was used to make a backup with RBME via ReaR:</p>
 <pre><code># cat /etc/rear/local.conf 
