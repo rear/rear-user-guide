@@ -32,14 +32,14 @@ If you want to receive a mail report make sure that `postfix` is installed and c
     # send result per email, separate multiple addresses by spaces
     MAILTO=root
 
-Before making the first backup with RBME we have to create an exclude list:
+Before making the first backup with RBME we could create an exclude list to avoid backing up some file systems, e.g.:
 
     # cat /etc/backup-excludes.lst 
-    /var/tmp
-    /tmp
-    /proc
-    /run
-    /sys
+    /apps
+    /VMs
+
+It is not required to add system in-memory file systems like `/proc`, `/sys`, `/tmp`, `/var/tmp` or `/run`
+
 
 ## Configuring ReaR for using RBME
 
