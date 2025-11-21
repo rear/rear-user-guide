@@ -87,6 +87,89 @@ You can create a `/etc/rear/local.conf` or `/etc/rear/restic.conf file which con
     PROGRESS_MODE="plain"
     PROGRESS_WAIT_SECONDS="10"
 
+## Running ReaR mkbackup
+
+To create a ReaR rescue image together with a full restic backup just run:
+
+    [root@alma rear]# rear -v -C restic mkbackup
+    Relax-and-Recover 2.6 / 2020-06-17
+    Running rear mkbackup (PID 30777)
+    Using log file: /var/log/rear/rear-alma.log
+    Sourcing additional configuration file '/etc/rear/restic.conf'
+    Running workflow mkbackup on the normal/original system
+    Using autodetected kernel '/boot/vmlinuz-5.14.0-570.58.1.el9_6.x86_64' as kernel in the recovery system
+    Creating disk layout
+    Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+    GRUB found in first bytes on /dev/vda and GRUB 2 is installed, using GRUB2 as a guessed bootloader for 'rear recover'
+    Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct ...
+    Creating recovery system root filesystem skeleton layout
+    Copying logfile /var/log/rear/rear-alma.log into initramfs as '/tmp/rear-alma-partial-2025-11-20T15:11:54+01:00.log'
+    Copying files and directories
+    Copying binaries and libraries
+    Copying only currently loaded kernel modules (MODULES contains 'loaded_modules')
+    Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+    Testing that the recovery system in /var/tmp/rear.RblpXGZBM4GbG6M/rootfs contains a usable system
+    /usr/lib64/systemd/libsystemd-core-252.so requires libraries where 'ldd' shows 'not found'
+    /usr/lib64/systemd/libsystemd-core-252.so requires libsystemd-shared-252.so which was not found by 'ldd' but exists as /var/tmp/rear.RblpXGZBM4GbG6M/rootfs/usr/lib64/systemd/libsystemd-shared-252.so
+    Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+    Created initrd.cgz with gzip default compression (60736875 bytes) in 9 seconds
+    Making ISO image
+    Wrote ISO image: /var/lib/rear/output/rear-alma.iso (75M)
+    Copying resulting files to nfs location
+    Saving /var/log/rear/rear-alma.log as rear-alma.log to nfs location
+    Copying result files '/var/lib/rear/output/rear-alma.iso /var/tmp/rear.RblpXGZBM4GbG6M/tmp/VERSION /var/tmp/rear.RblpXGZBM4GbG6M/tmp/README /var/tmp/rear.RblpXGZBM4GbG6M/tmp/rear-alma.log' to /var/tmp/rear.RblpXGZBM4GbG6M/outputfs/alma at nfs location
+    Running external backup command
+    Finished external backup command
+    Exiting rear mkbackup (PID 30777) and its descendant processes ...
+    Running exit tasks
+
+## Recovering using ReaR and restic
+
+    RESCUE alma:~ # rear -v -C restic recover
+    Relax-and-Recover 2.6 / 2020-06-17
+    Running rear recover (PID 576)
+    Using log file: /var/log/rear/rear-alma.log
+    Sourcing additional configuration file '/etc/rear/restic.conf'
+    Running workflow recover within the ReaR rescue/recovery system
+    Comparing disks
+    Device vda has expected (same) size 8589934592 bytes (will be used for 'recover')
+    Disk configuration looks identical
+    Proceed with 'recover' (yes) otherwise manual disk layout configuration is enforced
+    (default 'yes' timeout 30 seconds)
+    yes
+    User confirmed to proceed with 'recover'
+    Start system layout restoration.
+    Disk '/dev/vda': creating 'msdos' partition table
+    Disk '/dev/vda': creating partition number 1 with name 'primary'
+    Disk '/dev/vda': creating partition number 2 with name 'primary'
+    Creating LVM PV /dev/vda2
+    Restoring LVM VG 'almalinux'
+    Sleeping 3 seconds to let udev or systemd-udevd create their devices...
+    Creating filesystem of type xfs with mount point / on /dev/mapper/almalinux-root.
+    Mounting filesystem /
+    Creating filesystem of type xfs with mount point /boot on /dev/vda1.
+    Mounting filesystem /boot
+    Creating swap on /dev/mapper/almalinux-swap
+    Disk layout created.
+    Running external restore command
+    Finished external restore command
+    Created SELinux /mnt/local/.autorelabel file : after reboot SELinux will relabel all files
+    Recreating directories (with permissions) from /var/lib/rear/recovery/directories_permissions_owner_group
+    Renamed LVM devices file /mnt/local//etc/lvm/devices/system.devices to /mnt/local//etc/lvm/devices/system.devices.rearbak
+    to prevent LVM problems in the recovered system, verify that the file
+    is correct after booting the recovered system and move it back, or
+    regenerate it using vgimportdevices.
+    Migrating disk-by-id mappings in certain restored files in /mnt/local to current disk-by-id mappings ...
+    Running dracut...
+    Updated initrd with new drivers for kernel 5.14.0-503.11.1.el9_5.x86_64.
+    Running dracut...
+    Updated initrd with new drivers for kernel 5.14.0-570.58.1.el9_6.x86_64.
+    Installing GRUB2 boot loader...
+    Determining where to install GRUB2 (no GRUB2_INSTALL_DEVICES specified)
+    Found possible boot disk /dev/vda - installing GRUB2 there
+    Finished 'recover'. The target system is mounted at '/mnt/local'.
+    Exiting rear recover (PID 576) and its descendant processes ...
+    Running exit tasks
 
 ### References
 
