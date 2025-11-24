@@ -2739,6 +2739,7 @@
 - [\#2740 Issue](2022-01-17.2740.issue.closed.md) `closed`: RFC: Copy symlinks as symlinks and add missing symlink targets at the end
 - [\#2741 Issue](2022-01-18.2741.issue.closed.md) `closed`: Unknown EFI bootloader (no grub-install or grub2-install found
 - [\#2742 Issue](2022-01-18.2742.issue.closed.md) `closed`: Backup failed due to Error in testing Recovery system in /tmp/.... (Fedora Rawhide
+-  [\#2743 Issue](2022-01-21.2743.issue.closed.md) `closed`: Clean up not needed things in predefined LIBS entries
 - [\#2743 Issue](2022-01-21.2743.issue.open.md) `open`: Clean up not needed things in predefined LIBS entries
 - [\#2744 PR](2022-01-24.2744.pr.merged.md) `merged`: Skip unneeded /usr/lib\*/syslog-ng/loggen/ from the recovery system
 - [\#2747 PR](2022-01-25.2747.pr.merged.md) `merged`: Removed need for /usr/lib64
@@ -2864,6 +2865,7 @@
 - [\#2868 PR](2022-09-22.2868.pr.merged.md) `merged`: In the UserInput function drain stdin if stdin is a terminal
 - [\#2869 Issue](2022-09-27.2869.issue.closed.md) `closed`: Unable to boot ISO because of initrd size
 - [\#2870 Issue](2022-09-28.2870.issue.closed.md) `closed`: EXTERNAL\_IGNORE\_ERRORS not checked against RSYNC
+-  [\#2871 Issue](2022-09-28.2871.issue.closed.md) `closed`: Customizing RSYNC\_PORT
 - [\#2871 Issue](2022-09-28.2871.issue.open.md) `open`: Customizing RSYNC\_PORT
 - [\#2872 PR](2022-09-29.2872.pr.merged.md) `merged`: Improved comments in default.conf
 - [\#2873 PR](2022-09-29.2873.pr.merged.md) `merged`: Fix initrd regeneration on s390x and Fedora/RHEL
@@ -2937,6 +2939,7 @@
 - [\#2940 Issue](2023-02-20.2940.issue.closed.md) `closed`: Stop supporting SLES10 and SLES11
 - [\#2941 Issue](2023-02-21.2941.issue.closed.md) `closed`: RFC: switch from bash 3 to bash 4 as minimum required bash version
 - [\#2941 Issue](2023-02-21.2941.issue.open.md) `open`: RFC: switch from bash 3 to bash 4 as minimum required bash version
+-  [\#2942 Issue](2023-02-21.2942.issue.closed.md) `closed`: '-c' and '-C' options are ignored with 'automatic/auto\_recover' and 'unattended' modes
 - [\#2942 Issue](2023-02-21.2942.issue.open.md) `open`: '-c' and '-C' options are ignored with 'automatic/auto\_recover' and 'unattended' modes
 - [\#2943 PR](2023-02-21.2943.pr.merged.md) `merged`: s390x (IBM Z
 - [\#2944 Issue](2023-02-22.2944.issue.closed.md) `closed`: Deprecate MBR/BIOS boot in favour of UEFI boot?
@@ -2978,6 +2981,7 @@
 - [\#2976 PR](2023-04-28.2976.pr.merged.md) `merged`: Add .shellcheckrc adapted for ReaR
 - [\#2977 Issue](2023-05-02.2977.issue.closed.md) `closed`: Exclude SAN disk from the rear mkrescue process
 - [\#2977 Issue](2023-05-02.2977.issue.open.md) `open`: Exclude SAN disk from the rear mkrescue process
+-  [\#2978 Issue](2023-05-03.2978.issue.closed.md) `closed`: BACKUP=RSYNC: BACKUP\_PROG\_ARCHIVE does not set backup destination (but sets backup logfile
 - [\#2978 Issue](2023-05-03.2978.issue.open.md) `open`: BACKUP=RSYNC: BACKUP\_PROG\_ARCHIVE does not set backup destination (but sets backup logfile
 - [\#2979 PR](2023-05-04.2979.pr.closed.md) `closed`: superseded: non-interactive mode for ReaR
 - [\#2980 PR](2023-05-05.2980.pr.merged.md) `merged`: SYSLINUX timeout configurable
@@ -3003,6 +3007,7 @@
 - [\#2995 Issue](2023-05-25.2995.issue.closed.md) `closed`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
 - [\#2995 Issue](2023-05-25.2995.issue.open.md) `open`: `rear mkrescue` fails due to unknown partition table on supposedly excluded device
 - [\#2996 PR](2023-05-26.2996.pr.merged.md) `merged`: Add -f (force
+-  [\#2997 Issue](2023-05-26.2997.issue.closed.md) `closed`: Improve docs for manual excludes
 - [\#2997 Issue](2023-05-26.2997.issue.open.md) `open`: Improve docs for manual excludes
 - [\#2998 PR](2023-05-29.2998.pr.merged.md) `merged`: Add fully automated restore to REQUESTRESTORE
 - [\#2999 Issue](2023-05-31.2999.issue.closed.md) `closed`: NETFS shouldn't store /var/tmp
@@ -3669,6 +3674,7 @@
 -  [\#3499 PR](2025-07-28.3499.pr.merged.md) `merged`: Describe RECOVERY\_COMMANDS in 11-multiple-backups.adoc
 -  [\#3500 PR](2025-07-30.3500.pr.merged.md) `merged`: In sbin/rear error out if '-c' is used in recovery system
 -  [\#3501 PR](2025-08-01.3501.pr.merged.md) `merged`: Bump codacy/codacy-analysis-cli-action from 4.4.5 to 4.4.7
+-  [\#3502 PR](2025-08-01.3502.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.4 to 5.5.5
 -  [\#3502 PR](2025-08-01.3502.pr.open.md) `open`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.4 to 5.5.5
 -  [\#3503 PR](2025-08-04.3503.pr.open.md) `open`: Fix is\_disk\_valid in layout-functions.sh
 -  [\#3504 Issue](2025-08-04.3504.issue.open.md) `open`: BTRFS\_SUBVOLUME\_SLES\_SETUP+= rescue.conf hack not working (or: disk layout file should contain more infos
@@ -3681,7 +3687,29 @@
 -  [\#3511 PR](2025-08-16.3511.pr.merged.md) `merged`: \#3509 convert man page and user guide to Markdown format
 -  [\#3512 Issue](2025-08-16.3512.issue.open.md) `open`: tools/run-in-docker-build.sh rubygem-ronn not found
 -  [\#3513 Issue](2025-08-21.3513.issue.open.md) `open`: ReaR - rsync recover very slow
+-  [\#3514 PR](2025-08-21.3514.pr.merged.md) `merged`: Fix parsing of workflow command line arguments
 -  [\#3514 PR](2025-08-21.3514.pr.open.md) `open`: Fix parsing of workflow command line arguments
 -  [\#3515 PR](2025-08-25.3515.pr.open.md) `open`: Add support for `dbus-broker`
 -  [\#3516 Issue](2025-08-28.3516.issue.open.md) `open`: \[RFE\] GUI / Configuration Helper Tool for ReaR
+-  [\#3517 Issue](2025-09-03.3517.issue.open.md) `open`: sftp server support in rescue broken - propose to remove it
+-  [\#3518 PR](2025-09-10.3518.pr.merged.md) `merged`: Fix duplicate automatic recovery start after merge of PR \#3041 and related changes
+-  [\#3519 PR](2025-09-10.3519.pr.merged.md) `merged`: Unbreak the srpm build with recent rpmbuild
+-  [\#3520 PR](2025-09-13.3520.pr.open.md) `open`: Remove support for outdated `syslinux` (&lt;4.04
+-  [\#3521 Issue](2025-09-15.3521.issue.open.md) `open`: "rear -v mkbackup" failed due to raid50 (2 x raid5 (2+1
+-  [\#3522 Issue](2025-09-19.3522.issue.open.md) `open`: Is it actually possible to create the rescue image to a flash drive and backup via rsync
+-  [\#3523 Issue](2025-09-24.3523.issue.open.md) `open`: EXTERNAL\_RESTORE does not run
+-  [\#3524 PR](2025-10-01.3524.pr.merged.md) `merged`: Bump actions/checkout from 4 to 5
+-  [\#3525 PR](2025-10-01.3525.pr.merged.md) `merged`: Bump actions/stale from 9 to 10
+-  [\#3526 Issue](2025-10-04.3526.issue.open.md) `open`: Fix ascidoctor issue on 09-design-concepts.adoc
+-  [\#3527 PR](2025-10-06.3527.pr.open.md) `open`: \[WIP\] Refactor OUTPUT=PXE and merge PXELINUX config into the generic syslinux generator
+-  [\#3528 Issue](2025-10-15.3528.issue.open.md) `open`: debian 13, libsystemd-core-25\*, restore does not work
+-  [\#3529 PR](2025-10-24.3529.pr.merged.md) `merged`: Fix typo in introduction section
+-  [\#3530 PR](2025-10-24.3530.pr.open.md) `open`: Test: Revert "Fix typo in introduction section"
+-  [\#3531 Issue](2025-10-30.3531.issue.closed.md) `closed`: TMPDIR related inquiry
+-  [\#3532 PR](2025-11-01.3532.pr.merged.md) `merged`: Bump github/codeql-action from 3 to 4
+-  [\#3533 PR](2025-11-01.3533.pr.merged.md) `merged`: Bump actions/upload-artifact from 4 to 5
+-  [\#3534 PR](2025-11-12.3534.pr.open.md) `open`: Refactor SELinux support and enable SElinux in permissive mode in the rescue system
+-  [\#3535 Issue](2025-11-13.3535.issue.open.md) `open`: Is editing disklayout.conf and disktodo.cong enough for excluding entire disks?
+-  [\#3536 PR](2025-11-20.3536.pr.open.md) `open`: Rbme backup
+-  [\#3537 Issue](2025-11-24.3537.issue.open.md) `open`: The systemd service file refers to the obsolete BindTo= option
 -  Issues History of Relax-and-Recover (index.md)
