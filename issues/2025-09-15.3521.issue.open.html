@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3521 Issue open: "rear -v mkbackup" failed due to raid50 (2 x raid5 (2+1)) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3521 Issue open: \"rear -v mkbackup\" failed due to raid50 (2 x raid5 (2+1))";
+        var mkdocs_page_input_path = "issues/2025-09-15.3521.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3521 Issue open: "rear -v mkbackup" failed due to raid50 (2 x raid5 (2+1))</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3521_issue_open_rear_-v_mkbackup_failed_due_to_raid50_2_x_raid5_21"><a href="https://github.com/rear/rear/issues/3521">#3521 Issue</a> <code>open</code>: "rear -v mkbackup" failed due to raid50 (2 x raid5 (2+1))<a class="headerlink" href="#3521_issue_open_rear_-v_mkbackup_failed_due_to_raid50_2_x_raid5_21" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>support / question</code></p>
+<h4 id="antonhpe_opened_issue_at_2025-09-15_1302"><img src="https://avatars.githubusercontent.com/u/38611223?v=4" width="50"><a href="https://github.com/AntonHPE">AntonHPE</a> opened issue at <a href="https://github.com/rear/rear/issues/3521">2025-09-15 13:02</a>:<a class="headerlink" href="#antonhpe_opened_issue_at_2025-09-15_1302" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.9 / 2025-01-31</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>There is Fedora Server 42 configured with two raid5 (2+1)<br />
+There are no issues during backup (rear -v mkbackup), destroy original
+disk (dd if=/dev/urandom ...) and restore from rear backup.</p>
+<p>However, if I create raid50 on top of two raid5, i. e. raid0 on top of
+two raid5, I have next issue during rear backup</p>
+<pre><code>[root@localhost ~]# cat /proc/mdstat
+Personalities : [raid0] [raid4] [raid5] [raid6] [raid10]
+md125 : active raid0 md127[1] md126[0]
+      12501673984 blocks super 1.2 512k chunks
+
+md126 : active raid5 nvme5n1[3] nvme4n1[1] nvme3n1[0]
+      6250969088 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
+      bitmap: 0/24 pages [0KB], 65536KB chunk
+
+md127 : active raid5 nvme0n1[3] nvme1n1[1] nvme2n1[0]
+      6250969088 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
+      bitmap: 0/24 pages [0KB], 65536KB chunk
+
+unused devices: &lt;none&gt;
+[root@localhost ~]#
+[root@localhost ~]# rear -v mkbackup
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkbackup (PID 99834 date 2025-09-15 15:58:12)
+Using log file: /var/log/rear/rear-localhost.log
+Running workflow mkbackup on the normal/original system
+Using backup archive '/var/tmp/rear.K1XsW8niaF1J4qu/outputfs/localhost/backup.tar.zst'
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using autodetected kernel '/boot/vmlinuz-6.16.7-200.fc42.x86_64' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Ignoring nvme0c0n1: /dev/nvme0c0n1 is not a block device
+Ignoring nvme1c1n1: /dev/nvme1c1n1 is not a block device
+Ignoring nvme2c2n1: /dev/nvme2c2n1 is not a block device
+Ignoring nvme3c3n1: /dev/nvme3c3n1 is not a block device
+Ignoring nvme4c4n1: /dev/nvme4c4n1 is not a block device
+Ignoring nvme5c5n1: /dev/nvme5c5n1 is not a block device
+Ignoring nvme6c6n1: /dev/nvme6c6n1 is not a block device
+ERROR: No component devices for RAID /dev/md125
+Some latest log messages since the last called script 210_raid_layout.sh:
+  2025-09-15 15:58:13.703530951 Saving Software RAID configuration
+Some messages from /var/tmp/rear.K1XsW8niaF1J4qu/tmp/rear.mkbackup.stdout_stderr since the last called script 210_raid_layout.sh:
+  /usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh: line 298: test: -gt: unary operator expected
+  Error: /dev/md127: unrecognised disk label
+  /usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh: line 298: test: -gt: unary operator expected
+  Error: /dev/md126: unrecognised disk label
+Use debug mode '-d' for some debug messages or debugscript mode '-D' for full debug messages with 'set -x' output
+Error exit of rear mkbackup (PID 99834) and its descendant processes
+Exiting subshell 1 (where the actual error happened)
+Aborting due to an error, check /var/log/rear/rear-localhost.log for details
+Exiting rear mkbackup (PID 99834) and its descendant processes ...
+Running exit tasks
+Terminated
+[root@localhost ~]#
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<pre><code>[root@localhost ~]# cat /etc/os-release
+NAME="Fedora Linux" VERSION="42 (Server Edition)"
+RELEASE_TYPE=stable ID=fedora VERSION_ID=42
+VERSION_CODENAME="" 
+PLATFORM_ID="platform:f42" 
+PRETTY_NAME="Fedora Linux 42 (Server Edition)"
+</code></pre>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>NETFS</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>[root@localhost ~]# lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME                        KNAME          PKNAME         TRAN   TYPE  FSTYPE            LABEL                          SIZE MOUNTPOINT
+/dev/zram0                  /dev/zram0                           disk  swap              zram0                            8G [SWAP]
+/dev/nvme6n1                /dev/nvme6n1                  nvme   disk                                                 447.1G
+|-/dev/nvme6n1p1            /dev/nvme6n1p1 /dev/nvme6n1   nvme   part  vfat                                             600M /boot/efi
+|-/dev/nvme6n1p2            /dev/nvme6n1p2 /dev/nvme6n1   nvme   part  xfs                                                1G /boot
+`-/dev/nvme6n1p3            /dev/nvme6n1p3 /dev/nvme6n1   nvme   part  LVM2_member                                    445.5G
+  `-/dev/mapper/fedora-root /dev/dm-0      /dev/nvme6n1p3        lvm   xfs                                               15G /
+/dev/nvme3n1                /dev/nvme3n1                  nvme   disk  linux_raid_member localhost.localdomain:raid52   2.9T
+`-/dev/md126                /dev/md126     /dev/nvme3n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md126            raid0                                                 11.6T
+/dev/nvme2n1                /dev/nvme2n1                  nvme   disk  linux_raid_member localhost.localdomain:raid51   2.9T
+`-/dev/md127                /dev/md127     /dev/nvme2n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md127            raid0                                                 11.6T
+/dev/nvme1n1                /dev/nvme1n1                  nvme   disk  linux_raid_member localhost.localdomain:raid51   2.9T
+`-/dev/md127                /dev/md127     /dev/nvme1n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md127            raid0                                                 11.6T
+/dev/nvme4n1                /dev/nvme4n1                  nvme   disk  linux_raid_member localhost.localdomain:raid52   2.9T
+`-/dev/md126                /dev/md126     /dev/nvme4n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md126            raid0                                                 11.6T
+/dev/nvme5n1                /dev/nvme5n1                  nvme   disk  linux_raid_member localhost.localdomain:raid52   2.9T
+`-/dev/md126                /dev/md126     /dev/nvme5n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md126            raid0                                                 11.6T
+/dev/nvme0n1                /dev/nvme0n1                  nvme   disk  linux_raid_member localhost.localdomain:raid51   2.9T
+`-/dev/md127                /dev/md127     /dev/nvme0n1          raid5 linux_raid_member localhost.localdomain:raid50   5.8T
+  `-/dev/md125              /dev/md125     /dev/md127            raid0                                                 11.6T
+[root@localhost ~]#
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p>create raid50 or raid60 on top of two raid5 or raid6 and run "rear -v
+mkbackup"</p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="jsmeix_commented_at_2025-09-19_0932"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3521#issuecomment-3311450811">2025-09-19 09:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-09-19_0932" title="Permanent link">&para;</a></h4>
+<p>As far as I remember we never had a use case<br />
+where basic RAID arrays are "stacked"<br />
+to create a higher level RAID array.</p>
+<p>I didn't investigate the details<br />
+but from what I see at first glance<br />
+in the RAID related ReaR scripts<br />
+usr/share/rear/layout/save/GNU/Linux/210_raid_layout.sh<br />
+which is run during "rear mkrescue/mkbackup"<br />
+and its counterpart<br />
+usr/share/rear/layout/prepare/GNU/Linux/120_include_raid_code.sh<br />
+which is run during "rear recover"<br />
+I think that ReaR does not support RAID levels<br />
+which are not directly supported by a single mdadm command<br />
+so I think ReaR does not support "stacked RAID arrays"<br />
+which are created by stacking some basic RAID arrays.</p>
+<p>You may investigate what you get<br />
+after "rear mkrescue/mkbackup" in your<br />
+var/lib/rear/layout/disklayout.conf<br />
+and<br />
+var/lib/rear/layout/diskdeps.conf<br />
+files.</p>
+<p>If what you get in disklayout.conf looks correct<br />
+but the dependencies are not properly listed in diskdeps.conf<br />
+then ReaR's dependency tracker may fail to track the<br />
+dependencies between higher and lower level RAID arrays.</p>
+<p>From my current point of view this issue is not a bug<br />
+but not yet implemented support for special functionality.</p>
+<h4 id="jsmeix_commented_at_2025-09-19_0943"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3521#issuecomment-3311484883">2025-09-19 09:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-09-19_0943" title="Permanent link">&para;</a></h4>
+<p>Or in other words:</p>
+<p>The current error exit of "rear mkrescue/mkbackup"<br />
+basically proves that currently ReaR does not support<br />
+when RAID array component devices are no "normal" disks.</p>
+<h4 id="antonhpe_commented_at_2025-09-20_1830"><img src="https://avatars.githubusercontent.com/u/38611223?v=4" width="50"><a href="https://github.com/AntonHPE">AntonHPE</a> commented at <a href="https://github.com/rear/rear/issues/3521#issuecomment-3315159266">2025-09-20 18:30</a>:<a class="headerlink" href="#antonhpe_commented_at_2025-09-20_1830" title="Permanent link">&para;</a></h4>
+<p>Up to 8 disks recommended for md raid5.<br />
+However even 2 unit servers can be equipped with tens of disks, so
+stacked raid50 or raid60 are very useful.</p>
+<p>Ok, I agree that this is not a bug.</p>
+<p>I'm new to github.<br />
+Could you please move this thread to the "new feature request" branch ?</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-09-15.3521.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

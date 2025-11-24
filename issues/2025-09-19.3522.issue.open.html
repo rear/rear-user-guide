@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3522 Issue open: Is it actually possible to create the rescue image to a flash drive and backup via rsync - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3522 Issue open: Is it actually possible to create the rescue image to a flash drive and backup via rsync";
+        var mkdocs_page_input_path = "issues/2025-09-19.3522.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3522 Issue open: Is it actually possible to create the rescue image to a flash drive and backup via rsync</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3522_issue_open_is_it_actually_possible_to_create_the_rescue_image_to_a_flash_drive_and_backup_via_rsync"><a href="https://github.com/rear/rear/issues/3522">#3522 Issue</a> <code>open</code>: Is it actually possible to create the rescue image to a flash drive and backup via rsync<a class="headerlink" href="#3522_issue_open_is_it_actually_possible_to_create_the_rescue_image_to_a_flash_drive_and_backup_via_rsync" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code></p>
+<h4 id="noambernstein_opened_issue_at_2025-09-19_1635"><img src="https://avatars.githubusercontent.com/u/12764358?v=4" width="50"><a href="https://github.com/noambernstein">noambernstein</a> opened issue at <a href="https://github.com/rear/rear/issues/3522">2025-09-19 16:35</a>:<a class="headerlink" href="#noambernstein_opened_issue_at_2025-09-19_1635" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>How do I set up a rear backup that saves the bootable rescue image to a
+usb flash drive and the backup itself to a remote machine via rsync</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Ubuntu 22 with rear 29 from a recent git clone</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>If I set</p>
+<pre><code>OUTPUT=USB
+OUTPUT_URL=usb:///dev/disk/by-label/REAR-000
+
+BACKUP=RSYNC
+BACKUP_URL=rsync://my_server/path/to/images
+</code></pre>
+<p><code>rear mkrescue -v</code> attempts to rsync something to <code>my_server</code>, despite
+the fact that I intended to make the image creation/saving process (the
+<code>OUTPUT_*</code> variables) be entirely local. If I allow the rsync
+connections, it eventually complains about xattr, which doesn't make
+sense if it's trying to create and store the bootable image locally.</p>
+<p>If I set <code>BACKUP=NETFS</code>, which the man page strongly implies should work
+with <code>BACKUP_URL=rsync://...</code>, I get</p>
+<pre><code>ERROR: Invalid scheme 'rsync' in BACKUP_URL 'rsync://my_server/path/to/backups' valid schemes: nfs cifs usb tape file iso sshfs ftpfs
+</code></pre>
+<p>FWIW, I also tried <code>OUTPUT=ISO</code> and <code>OUTPUT_URL=file://...</code> with
+<code>BACKUP=RSYNC</code>, assuming I could burn to a flash drive later, but it
+again attempted to rsync during <code>mkrescue</code>.</p>
+<p>Is there a way to get this combination (bootable image to flash drive,
+backup content to remote machine over rsync or scp, i.e. not NFS or
+CIFS) to work?</p>
+<h4 id="jsmeix_commented_at_2025-10-28_1454"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3522#issuecomment-3456912568">2025-10-28 14:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-10-28_1454" title="Permanent link">&para;</a></h4>
+<p>@noambernstein</p>
+<p>onyl FYI<br />
+a totally offhanded and untested idea<br />
+what might help out here in a generic way:</p>
+<p>My assumption is that somehow the config variables<br />
+OUTPUT and OUTPUT_URL versus BACKUP and BACKUP_URL<br />
+have some more or less hardcoded interdependencies<br />
+so one cannot freely use arbitrary combinations.</p>
+<p>So my basic idea is to get separated things separated<br />
+i.e. what config variables settings are used for<br />
+"rear mkrescue" versus for "rear mkbackuponly".</p>
+<p>You cannot use "rear mkbackup" when you want the<br />
+ReaR recovery system be made different than what<br />
+is used for the backup.<br />
+I guess this could be the reason behind why you see<br />
+interdependencies between OUTPUT and OUTPUT_URL<br />
+versus BACKUP and BACKUP_URL.<br />
+When you want the ReaR recovery system to be made<br />
+different than what is used for the backup you must use<br />
+"rear mkrescue" with its specific config variables settings<br />
+to make only the ReaR recovery system (without backup)<br />
+versus<br />
+"rear mkbackuponly" with its specific config variables settings<br />
+to make only the backup (without ReaR recovery system).</p>
+<p>To do this have a look at</p>
+<p><a href="https://github.com/rear/rear/blob/release/2.9/doc/user-guide/11-multiple-backups.adoc">https://github.com/rear/rear/blob/release/2.9/doc/user-guide/11-multiple-backups.adoc</a></p>
+<p>In particular in its section<br />
+"Relax-and-Recover Setup for Different Backup Methods"<br />
+note this part:</p>
+<pre><code>Using different backup methods requires to get all the
+binaries and all other needed files of all used backup methods
+into the ReaR recovery/rescue system during "rear ... mkrescue".
+
+Those binaries and other needed files must be manually specified
+via REQUIRED_PROGS and COPY_AS_IS in /etc/rear/local.conf
+(regarding REQUIRED_PROGS and COPY_AS_IS see conf/default.conf).
+</code></pre>
+<p>I have no idea whether or not this may or may not work<br />
+for what you need here - but you may at least try out<br />
+how far this might help for your specific use case.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-09-19.3522.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

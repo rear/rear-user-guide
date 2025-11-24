@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3528 Issue open: debian 13, libsystemd-core-25*, restore does not work - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3528 Issue open: debian 13, libsystemd-core-25*, restore does not work";
+        var mkdocs_page_input_path = "issues/2025-10-15.3528.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3528 Issue open: debian 13, libsystemd-core-25*, restore does not work</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3528_issue_open_debian_13_libsystemd-core-25_restore_does_not_work"><a href="https://github.com/rear/rear/issues/3528">#3528 Issue</a> <code>open</code>: debian 13, libsystemd-core-25*, restore does not work<a class="headerlink" href="#3528_issue_open_debian_13_libsystemd-core-25_restore_does_not_work" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>old version</code></p>
+<h4 id="speefak_opened_issue_at_2025-10-15_1237"><img src="https://avatars.githubusercontent.com/u/63617780?u=9aef7e31d58ad40653c7c71116e53d9904c017e4&v=4" width="50"><a href="https://github.com/speefak">speefak</a> opened issue at <a href="https://github.com/rear/rear/issues/3528">2025-10-15 12:37</a>:<a class="headerlink" href="#speefak_opened_issue_at_2025-10-15_1237" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version_usrsbinrear_-v_relax-and-recover_27_git">ReaR version : /usr/sbin/rear -V Relax-and-Recover 2.7 / Git<a class="headerlink" href="#rear_version_usrsbinrear_-v_relax-and-recover_27_git" title="Permanent link">&para;</a></h3>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Hi,</p>
+<p>I’ve been using ReaR for several years to create “installable” ISO
+images from preconfigured VMs. On Debian 12 everything worked perfectly,
+but on Debian 13 it seems some paths have changed, causing the following
+error during ISO creation:</p>
+<pre><code>Copying all files in /lib*/firmware/
+Testing that the recovery system in /var/tmp/rear.NFEXo6mcvv4JqAn/rootfs contains a usable system
+/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires additional libraries
+    libsystemd-shared-257.so =&gt; not found
+ReaR recovery system in '/var/tmp/rear.NFEXo6mcvv4JqAn/rootfs' needs additional libraries, check /var/log/rear/rear-D13-netinstall-clon-source.log for details
+</code></pre>
+<p>After searching for solutions, I found a partial workaround:</p>
+<pre><code>echo "/usr/lib/x86_64-linux-gnu/systemd" &gt; /etc/ld.so.conf.d/libsystemd-core.conf
+ldconfig
+</code></pre>
+<p>This resolved the missing library, but then another issue appeared:</p>
+<pre><code>Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+</code></pre>
+<p>After researching this, I added the following line to
+<code>/etc/rear/local.conf</code>:</p>
+<pre><code>COPY_AS_IS+=( /usr/share/file /usr/lib/systemd /lib*/firmware )
+</code></pre>
+<p>Now, the ISO builds without errors. However, during <strong>automatic
+restore</strong>, ReaR gets stuck in a loop displaying:</p>
+<pre><code>Started getty@tty1.service - Getty on tty1
+</code></pre>
+<p>After approximately 3 minutes, the screen goes blank and nothing
+happens.</p>
+<p>It seems like the Recovery ISO is incomplete or missing some essential
+paths/files for Debian 13 automatic restore.</p>
+<ul>
+<li>Are there updated best practices for creating ReaR recovery ISOs on
+    Debian 13?</li>
+<li>Is there a recommended way to include all systemd-related libraries
+    and other necessary paths so the restore boots reliably?</li>
+<li>Could this be related to changes in systemd or the getty services on
+    Debian 13?</li>
+</ul>
+<!-- -->
+
+<pre><code>cat /etc/rear/local.conf
+
+        OUTPUT=ISO
+        ISO_DIR=/mnt/speefak@192.168.1.20_ReaR/ReaR_Backups
+        ISO_PREFIX="D13-TESTING"
+        OUTPUT_URL=null
+        BACKUP=NETFS
+        BACKUP_URL="iso:///backup"
+
+              # TESTING OPTIONS
+COPY_AS_IS+=( /usr/share/file /usr/lib/systemd /lib*/firmware )
+PROGS+=( systemd )
+
+        # increase data compression by using pigs instead of gzip
+        BACKUP_PROG_COMPRESS_OPTIONS=( --use-compress-program=pigz )
+        REQUIRED_PROGS+=( pigz )
+
+        # input timeout for autorecover
+        USER_INPUT_TIMEOUT=30
+
+        # resize partitions
+        AUTORESIZE_PARTITIONS=true
+
+        # disable iso filesize limit =&gt; 0 (default 2 GB ISO_FILE_SIZE_LIMIT=2147483648)
+        ISO_FILE_SIZE_LIMIT=0
+</code></pre>
+<p>Terminal output:</p>
+<pre><code>rear -v mkbackup
+Relax-and-Recover 2.7 / Git
+Running rear mkbackup (PID 17078 date 2025-10-15 15:11:03)
+Using log file: /var/log/rear/rear-D13-netinstall-clon-source.log
+Running workflow mkbackup on the normal/original system
+Using backup archive '/var/tmp/rear.qItqomMl3231B0c/tmp/isofs/backup/backup.tar.gz'
+Using autodetected kernel '/boot/vmlinuz-6.12.48+deb13-amd64' as kernel in the recovery system
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Using guessed bootloader 'GRUB' for 'rear recover' (found in first bytes on /dev/sda)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Creating recovery system root filesystem skeleton layout
+To log into the recovery system via ssh set up /root/.ssh/authorized_keys or specify SSH_ROOT_PASSWORD
+Copying logfile /var/log/rear/rear-D13-netinstall-clon-source.log into initramfs as '/tmp/rear-D13-netinstall-clon-source-partial-2025-10-15T15:11:09+02:00.log'
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/6.12.48+deb13-amd64 (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Testing that the recovery system in /var/tmp/rear.qItqomMl3231B0c/rootfs contains a usable system
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (164603054 bytes) in 15 seconds
+Making backup (using backup method NETFS)
+Creating tar archive '/var/tmp/rear.qItqomMl3231B0c/tmp/isofs/backup/backup.tar.gz'
+Archived 851 MiB [avg 34897 KiB/sec] OK
+Archived 851 MiB in 26 seconds [avg 33555 KiB/sec]
+Making ISO image
+Wrote ISO image: /mnt/speefak@192.168.1.20_ReaR/ReaR_Backups/D13-TESTING_OS.iso (1.1G)
+Exiting rear mkbackup (PID 17078) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>Recover alleready stuck when loading getty@tty1</p>
+<p>Thank you for any guidance!</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux ARM64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>debian 13</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="pcahyna_commented_at_2025-10-15_1420"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3406684560">2025-10-15 14:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-10-15_1420" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>/lib/modules/6.12.48+deb13-amd64</p>
+</blockquote>
+<p>How's that possible if your platform is Linux ARM64?</p>
+<p>Regarding "/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so
+requires additional libraries" IIRC this is an informational message
+that does not prevent successful generation of a rescue image, so you
+can ignore it for experiments.</p>
+<p>Have you tried a version later than 2.7 ?</p>
+<h4 id="jsmeix_commented_at_2025-10-15_1429"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3406745726">2025-10-15 14:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-10-15_1429" title="Permanent link">&para;</a></h4>
+<p>@speefak FYI :</p>
+<p>My generic boilerplate regarding Ubuntu / Debian<br />
+and Linux distributions which are based on them:</p>
+<p>I am neither a Ubuntu nor Debian nor Linux Mint user.<br />
+Currently we at ReaR upstream do not have an active<br />
+maintainer for Ubuntu / Debian / Linux Mint.<br />
+So ReaR support for Ubuntu / Debian / Linux Mint<br />
+can be only as good as voluntary contributors<br />
+who use those Linux distributions contribute<br />
+which is much appreciated!</p>
+<p>In particular regarding Ubuntu:<br />
+It seems Canonical is not sufficiently interested in ReaR<br />
+in contrast to Red Hat and SUSE who pay developers<br />
+(like me from SUSE and e.g. @pcahyna and @lzaoral from Red Hat)<br />
+to contribute to upstream ReaR because Red Hat and SUSE<br />
+support ReaR in their enterprise Linux distributions.</p>
+<h4 id="jsmeix_commented_at_2025-10-15_1450"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3406848194">2025-10-15 14:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-10-15_1450" title="Permanent link">&para;</a></h4>
+<p>@speefak</p>
+<p>first and foremost:<br />
+In general it is not a bug when a software<br />
+which worked OK in known environments<br />
+does no longer work in new and unexpected environments.<br />
+It depends whether or not a change in the environment<br />
+is a bug in the environment or a proper new way<br />
+whether or not issues because of such a change<br />
+would need to be fixed in the environment<br />
+or if enhancements are neded in current software<br />
+to adapt existing software to new environments.</p>
+<p>In ReaR 2.9 I improved things a bit to better<br />
+deal with this "systemd private library" issue.<br />
+But - as far as I see - ReaR cannot fix it when<br />
+'ldd' reports that it cannot find a needed library.<br />
+When 'ldd' reports that it cannot find libraries<br />
+for programs within the ReaR recovery system, then<br />
+ReaR forwards that finding to you and then you<br />
+must make a decision if what ReaR reported to you<br />
+is actually an issue in your specific case or not.<br />
+For details see the GitHub issues and pull requests<br />
+regarding this "systemd private library" issue.<br />
+You may use<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L600">https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L600</a><br />
+as a starting point.</p>
+<p>If you found a generically working solution<br />
+how ReaR could automatically and correctly deal<br />
+with this "systemd private library" issue, then<br />
+contribute your enhancement as GitHub pull request<br />
+to us and all other ReaR users.<br />
+Please follow our coding style recommendations in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<h4 id="speefak_commented_at_2025-10-15_1453"><img src="https://avatars.githubusercontent.com/u/63617780?u=9aef7e31d58ad40653c7c71116e53d9904c017e4&v=4" width="50"><a href="https://github.com/speefak">speefak</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3406865033">2025-10-15 14:53</a>:<a class="headerlink" href="#speefak_commented_at_2025-10-15_1453" title="Permanent link">&para;</a></h4>
+<p>No support for Debian and other deb-based distros sounds bad.</p>
+<p>The latest ReaR version in the Debian 13 repositories is <strong>2.7</strong>. After
+several hours of trial and error with version 2.7, I decided to upgrade
+to the latest release. The latest version on GitHub is <strong>2.9</strong>.</p>
+<p>I usually avoid installing software outside the official Debian
+repositories, because in the past, some non-repo software caused issues
+on production systems — which is never good.<br />
+However, I wanted to try ReaR 2.9, so I cloned the Git repository,
+installed the required development tools, and ran <code>make</code>.</p>
+<p>My goal was to build a proper <strong>Debian package (.deb)</strong> to install via
+<code>apt</code> on other systems.<br />
+But using the latest master branch
+(<code>https://github.com/rear/rear/archive/refs/heads/master.zip</code>) caused
+build errors.</p>
+<p>After some searching, I found the official Debian tracker page for
+ReaR:<br />
+👉
+<a href="https://tracker.debian.org/pkg/rear"><a href="https://tracker.debian.org/pkg/rear">https://tracker.debian.org/pkg/rear</a></a></p>
+<p>This page points to a working upstream source:</p>
+<blockquote>
+<p>A new upstream version is available:
+[<a href="https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz">2.9</a>](<a href="https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz">https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz</a>)</p>
+</blockquote>
+<p>With that, I successfully built and installed ReaR 2.9 using these
+steps:</p>
+<pre><code>bash
+apt install devscripts
+mkdir rear_v2.9_source
+cd rear_v2.9_source
+wget https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz
+tar -xvf release-2.9.tar.gz
+cd rear-release-2.9
+make deb
+apt install ./var/tmp/build-rear-2.9-git.0.0.unknown/rear_*.deb dist/rear_2.9-git.0.0.unknown_amd64.deb
+</code></pre>
+<p>Now ReaR 2.9 is working fine on Debian 13, and I can continue testing
+the recovery ISO creation and restore process.</p>
+<p>The latest code from Github is from October 2025 and causes errors while
+build process. The Source code from Debian Package Tracker works (code
+from January 2025). Deb building via make deb works, install the builded
+deb package works and rear works again. Image building and recover works
+fine. The error message when rear create and check its rootfs :</p>
+<pre><code>Copying binaries and libraries
+Copying all kernel modules in /lib/modules/6.12.48+deb13-amd64 (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+Testing that the ReaR recovery system in '/var/tmp/rear.7QVpDBWPkvPSQmj/rootfs' contains a usable system
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libraries where 'ldd' shows 'not found'
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libsystemd-shared-257.so which exists as usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-257.so
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+</code></pre>
+<p>This Error message is still present but restore works, so i think i can
+ignore this message</p>
+<h4 id="jsmeix_commented_at_2025-10-15_1523"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3407007912">2025-10-15 15:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-10-15_1523" title="Permanent link">&para;</a></h4>
+<p>@speefak<br />
+I don't see an actual <code>Error</code> message.</p>
+<p>If there is something where it is known it means an actual error,<br />
+then ReaR will abort with an "ERROR: ..." message.</p>
+<p>The part</p>
+<pre><code>Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+</code></pre>
+<p>is an information where you must decide<br />
+if this means problems for your particular use case<br />
+or if you can safely ignore it.</p>
+<p>Also</p>
+<pre><code>usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libraries where 'ldd' shows 'not found'
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libsystemd-shared-257.so which exists as usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-257.so
+</code></pre>
+<p>is an information where you must decide<br />
+if this means problems for your particular use case<br />
+or if you can safely ignore it.</p>
+<p>The behaviour in ReaR 2.9 is not yet fully correct, see<br />
+<a href="https://github.com/rear/rear/issues/3021#issuecomment-2717780623">https://github.com/rear/rear/issues/3021#issuecomment-2717780623</a><br />
+i.e.<br />
+<a href="https://github.com/rear/rear/issues/3414">https://github.com/rear/rear/issues/3414</a><br />
+where its fix<br />
+<a href="https://github.com/rear/rear/pull/3497">https://github.com/rear/rear/pull/3497</a><br />
+is after the ReaR 2.9 release<br />
+i.e. currently only in our GitHub master code<br />
+so you may have a look at the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+cf. the "QUICK START GUIDE" on<br />
+<a href="https://github.com/rear/rear">https://github.com/rear/rear</a></p>
+<p>By the way FYI:<br />
+<a href="https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html">https://schlomo.schapiro.org/2015/04/warning-is-waste-of-my-time.html</a></p>
+<h4 id="pcahyna_commented_at_2025-10-15_1551"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3407146176">2025-10-15 15:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-10-15_1551" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>No support for Debian and other deb-based distros sounds bad.</p>
+<p>The latest ReaR version in the Debian 13 repositories is <strong>2.7</strong>.
+After several hours of trial and error with version 2.7, I decided to
+upgrade to the latest release. The latest version on GitHub is
+<strong>2.9</strong>.</p>
+</blockquote>
+<p>Yeah, I would not call a bug if older version of ReaR does not work on a
+new version of Debian. We do not maintain the package in Debian.
+According to your report, it would be helpful if the Debian maintainer
+updated the package to 2.9.</p>
+<blockquote>
+<p>I usually avoid installing software outside the official Debian
+repositories, because in the past, some non-repo software caused
+issues on production systems — which is never good. However, I wanted
+to try ReaR 2.9, so I cloned the Git repository, installed the
+required development tools, and ran <code>make</code>.</p>
+<p>My goal was to build a proper <strong>Debian package (.deb)</strong> to install via
+<code>apt</code> on other systems. But using the latest master branch
+(<code>https://github.com/rear/rear/archive/refs/heads/master.zip</code>) caused
+build errors.</p>
+<p>After some searching, I found the official Debian tracker page for
+ReaR: 👉 <a href="https://tracker.debian.org/pkg/rear">https://tracker.debian.org/pkg/rear</a></p>
+<p>This page points to a working upstream source:</p>
+<blockquote>
+<p>A new upstream version is available:
+[<a href="https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz">2.9</a>](<a href="https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz">https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz</a>)</p>
+</blockquote>
+<p>With that, I successfully built and installed ReaR 2.9 using these
+steps:</p>
+<pre><code>bash
+apt install devscripts
+mkdir rear_v2.9_source
+cd rear_v2.9_source
+wget https://github.com/rear/rear/archive/refs/tags/release/2.9.tar.gz
+tar -xvf release-2.9.tar.gz
+cd rear-release-2.9
+make deb
+apt install ./var/tmp/build-rear-2.9-git.0.0.unknown/rear_*.deb dist/rear_2.9-git.0.0.unknown_amd64.deb
+</code></pre>
+<p>Now ReaR 2.9 is working fine on Debian 13, and I can continue testing
+the recovery ISO creation and restore process.</p>
+<p>The latest code from Github is from October 2025 and causes errors
+while build process.</p>
+</blockquote>
+<p>Sounds like an actual problem that could be fairly easy to fix, what
+errors do you get?</p>
+<blockquote>
+<p>The Source code from Debian Package Tracker works (code from January
+2025). Deb building via make deb works, install the builded deb
+package works and rear works again. Image building and recover works
+fine.</p>
+</blockquote>
+<p>Good to hear!</p>
+<blockquote>
+<p>The error message when rear create and check its rootfs :</p>
+<pre><code>Copying binaries and libraries
+Copying all kernel modules in /lib/modules/6.12.48+deb13-amd64 (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+Testing that the ReaR recovery system in '/var/tmp/rear.7QVpDBWPkvPSQmj/rootfs' contains a usable system
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libraries where 'ldd' shows 'not found'
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libsystemd-shared-257.so which exists as usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-257.so
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+</code></pre>
+<p>This Error message is still present but restore works, so i think i
+can ignore this message</p>
+</blockquote>
+<p>Strange, I thought that this was fixed via #3250 which should be
+present in 2.9 .</p>
+<h4 id="speefak_commented_at_2025-10-15_1605"><img src="https://avatars.githubusercontent.com/u/63617780?u=9aef7e31d58ad40653c7c71116e53d9904c017e4&v=4" width="50"><a href="https://github.com/speefak">speefak</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3407224636">2025-10-15 16:05</a>:<a class="headerlink" href="#speefak_commented_at_2025-10-15_1605" title="Permanent link">&para;</a></h4>
+<p>"Strange, I thought that this was fixed via
+<a href="https://github.com/rear/rear/pull/3250">https://github.com/rear/rear/pull/3250</a> which should be present in 2.9
+."<br />
+=&gt; This is the output from january codebase, perhabt in the october
+release it is fixed.</p>
+<p>I`ll create a new debian 13 netinstall VM to test the latest october
+again and send you detail make error infos. now all vms are update to
+rear 2.9 (jan)</p>
+<h4 id="jsmeix_commented_at_2025-10-16_0717"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3409509992">2025-10-16 07:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-10-16_0717" title="Permanent link">&para;</a></h4>
+<p>Info messages (via <code>LogPrint</code> when ReaR runs in verbose mode) like</p>
+<pre><code>usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libraries where 'ldd' shows 'not found'
+usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires libsystemd-shared-257.so which exists as usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-257.so
+</code></pre>
+<p>is the latest state, see<br />
+<a href="https://github.com/rear/rear/pull/3250">https://github.com/rear/rear/pull/3250</a><br />
+see also<br />
+<a href="https://github.com/rear/rear/pull/3308">https://github.com/rear/rear/pull/3308</a><br />
+Both pull requests were merged into ReaR 2.8<br />
+so they are in in ReaR 2.9.</p>
+<p>See<br />
+<a href="https://github.com/rear/rear/pull/3308#issuecomment-2328876718">https://github.com/rear/rear/pull/3308#issuecomment-2328876718</a><br />
+how normally things should look like.</p>
+<p>Only<br />
+<a href="https://github.com/rear/rear/issues/3414">https://github.com/rear/rear/issues/3414</a><br />
+with its fix<br />
+<a href="https://github.com/rear/rear/pull/3497">https://github.com/rear/rear/pull/3497</a><br />
+was merged after the ReaR 2.9 release.</p>
+<h4 id="pcahyna_commented_at_2025-10-31_1926"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3474607326">2025-10-31 19:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2025-10-31_1926" title="Permanent link">&para;</a></h4>
+<p>@speefak so I would say that the messages are due to using the <code>-v</code>
+(verbose) flag and without it you would not see them.</p>
+<p>It seems that there is only one actual problem left: the build errors
+that you got:</p>
+<blockquote>
+<p>The latest code from Github is from October 2025 and causes errors
+while build process.</p>
+</blockquote>
+<p>Can you please provide a copy of these build error messages?</p>
+<h4 id="schoekek_commented_at_2025-11-16_1816"><img src="https://avatars.githubusercontent.com/u/1560809?v=4" width="50"><a href="https://github.com/schoekek">schoekek</a> commented at <a href="https://github.com/rear/rear/issues/3528#issuecomment-3539086413">2025-11-16 18:16</a>:<a class="headerlink" href="#schoekek_commented_at_2025-11-16_1816" title="Permanent link">&para;</a></h4>
+<p>I'm the new rear Debian maintainer. Version 2.9 is already in unstable;
+a backport for stable (deb13) is in preparation and should be released
+in the next few days.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-10-15.3528.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

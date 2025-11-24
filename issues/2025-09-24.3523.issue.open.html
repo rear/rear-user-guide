@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3523 Issue open: EXTERNAL_RESTORE does not run - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3523 Issue open: EXTERNAL_RESTORE does not run";
+        var mkdocs_page_input_path = "issues/2025-09-24.3523.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3523 Issue open: EXTERNAL_RESTORE does not run</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3523_issue_open_external_restore_does_not_run"><a href="https://github.com/rear/rear/issues/3523">#3523 Issue</a> <code>open</code>: EXTERNAL_RESTORE does not run<a class="headerlink" href="#3523_issue_open_external_restore_does_not_run" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>support / question</code></p>
+<h4 id="towfiqi_opened_issue_at_2025-09-24_0801"><img src="https://avatars.githubusercontent.com/u/1926614?u=68357a5729689da41dba9ae17d7880d11f675b58&v=4" width="50"><a href="https://github.com/towfiqi">towfiqi</a> opened issue at <a href="https://github.com/rear/rear/issues/3523">2025-09-24 08:01</a>:<a class="headerlink" href="#towfiqi_opened_issue_at_2025-09-24_0801" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.9 / 2025-02-13</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>I am using external backup and restore commands in my config to create a
+rescue ISO and recover it later. The backup process works fine, and the
+required programs are being copied over. But when I try to recover on a
+test machine with <code>rear recover</code>, and I confirm all the disk layout
+creation prompts with 1, it finally exits with
+<code>Now you must manually restore your backup.</code></p>
+<p>My expectation was that, after the disk layout creation, the command
+specified in the EXTERNAL_RESTORE would run automatically. In fact, a
+few days ago, when I generated an ISO with rear v2.3, with a similar
+config, it automatically restored the files by running the
+EXTERNAL_BACKUP command. However, I now have to run the restore command
+manually.</p>
+<p>This is how my rear config file looks:</p>
+<pre><code>   # Rear configuration
+   OUTPUT=ISO
+   OUTPUT_URL=file:///home/data/rescue
+   OUTPUT_PREFIX=""
+   ISO_PREFIX="rear"
+   BACKUP=EXTERNAL
+
+
+   # Defines the external commands for backup
+   EXTERNAL_BACKUP="prestic backup / /boot -r rclone:PCloud:server-backup/rescue-data  --one-file-system  --exclude '/tmp/*' --exclude '/var/tmp/*' --exclude '/var/cache/*'"
+
+   # copy rclone and restic binaries and rclone config for the prestic and prclone shell scripts
+   COPY_AS_IS+=( '/home/binaries/linux-x64/rclone' )
+   COPY_AS_IS+=( '/home/binaries/linux-x64/restic' )
+   COPY_AS_IS+=( '/home/config/rclone.conf' )
+
+   REQUIRED_PROGS+=( 'prestic' )
+   REQUIRED_PROGS+=( 'prclone' )
+
+   # Defines the external commands for restoration
+   EXTERNAL_RESTORE="prestic -r rclone:PCloud:server-backup/rescue-data restore latest --target /mnt/local"
+</code></pre>
+<p>This is what the recovery log prints out for the restore stage
+(<code>rear recover -d</code>):</p>
+<pre><code>2025-09-24 07:35:57.472581548 Running 'restore' stage
+2025-09-24 07:35:57.476599310 = nming 'restore' stage
+2025-09-24 07:35:57.493553853 Including restore/default/050_remount_async.sh
+2025-09-24 07:35:57.501210538 Including restore/REQUESTRESTORE/default/200_prompt_user_to_start_restore.sh
+2025-09-24 07:35:57.504949041 Now you must manually restore your backup.
+Ensure the backup data gets restored into /mnt/local (instead of '/') because the disks and filesystems of the target system are mounted there.
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Debian 12</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>EXTERNAL</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="gdha_commented_at_2025-09-27_0908"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3341432083">2025-09-27 09:08</a>:<a class="headerlink" href="#gdha_commented_at_2025-09-27_0908" title="Permanent link">&para;</a></h4>
+<p>@towfiqi Interesting topic, however, never used EXTERNAL_BACKUP myself.
+Restic - wouldn't it be better to work on a <code>BACKUP=RESTIC</code> workflow? It
+seems you know what is needed and how to use it from backup to restore.
+Have a look at similar BACKUP mechanism inside rear. See
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/10-integrating-external-backup.md">https://github.com/rear/rear/blob/master/doc/user-guide/10-integrating-external-backup.md</a>
+for a more in-depth explanation.<br />
+IMHO it would be a good thing to have for the ReaR community - thanks.</p>
+<h4 id="towfiqi_commented_at_2025-09-27_1319"><img src="https://avatars.githubusercontent.com/u/1926614?u=68357a5729689da41dba9ae17d7880d11f675b58&v=4" width="50"><a href="https://github.com/towfiqi">towfiqi</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3341705642">2025-09-27 13:19</a>:<a class="headerlink" href="#towfiqi_commented_at_2025-09-27_1319" title="Permanent link">&para;</a></h4>
+<p>@gdha Rear doesn't have a built-in workflow for Restic, so a custom one
+using BACKUP=RESTIC would require writing a Linux and Bash script. Since
+I don't have that expertise, I'm opting for the simpler, pre-existing
+BACKUP=EXTERNAL workflow instead.</p>
+<h4 id="gdha_commented_at_2025-11-13_1636"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3528672411">2025-11-13 16:36</a>:<a class="headerlink" href="#gdha_commented_at_2025-11-13_1636" title="Permanent link">&para;</a></h4>
+<p>@towfiqi Try out once the variable
+<code>RECOVERY_COMMANDS=( "prestic -r rclone:PCloud:server-backup/rescue-data restore latest --target /mnt/local" )</code>
+instead of the
+<code>EXTERNAL_RESTORE="prestic -r rclone:PCloud:server-backup/rescue-data restore latest --target /mnt/local"</code></p>
+<h4 id="towfiqi_commented_at_2025-11-14_1533"><img src="https://avatars.githubusercontent.com/u/1926614?u=68357a5729689da41dba9ae17d7880d11f675b58&v=4" width="50"><a href="https://github.com/towfiqi">towfiqi</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3533317885">2025-11-14 15:33</a>:<a class="headerlink" href="#towfiqi_commented_at_2025-11-14_1533" title="Permanent link">&para;</a></h4>
+<p>Thanks for your reply.</p>
+<p>Just tried that. After ReaR completes the disk layout process, it prints
+out this message:</p>
+<pre><code>Please start the restore process on your backup host.
+Make sure that you restore the data into /mnt/local (by default '/mnt/local') instead of '/' because the hard disks of the recovered system are mounted there.
+Please restore your backup in the provided shell and, when finished, type exit in the shell to continue recovery.
+</code></pre>
+<p>So it's not automatically running the restore command set in the
+<code>RECOVERY_COMMANDS</code></p>
+<h4 id="gdha_commented_at_2025-11-14_1540"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3533354917">2025-11-14 15:40</a>:<a class="headerlink" href="#gdha_commented_at_2025-11-14_1540" title="Permanent link">&para;</a></h4>
+<p>@towfiqi Indeed, you are right!<br />
+<em>The RECOVERY_COMMANDS array specifies the "rear recover" commands<br />
+that are automatically called after the ReaR recovery system has started
+up<br />
+to recreate the system in 'auto_recover'/'automatic' or 'unattended'
+mode.</em><br />
+I should read the manuals myself more ;-(<br />
+To get this going you need to add <code>ADD_KERNEL_ARG="unattended"</code> to the
+local.conf file.</p>
+<h4 id="towfiqi_commented_at_2025-11-15_0254"><img src="https://avatars.githubusercontent.com/u/1926614?u=68357a5729689da41dba9ae17d7880d11f675b58&v=4" width="50"><a href="https://github.com/towfiqi">towfiqi</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3535463963">2025-11-15 02:54</a>:<a class="headerlink" href="#towfiqi_commented_at_2025-11-15_0254" title="Permanent link">&para;</a></h4>
+<p>Just tried that. Same issue. I am using a custom conf file to create the
+rear backup/ISO using the <code>-c</code> flag. Once I boot with the ISO, is there
+a way to check if the changes in the conf file I made took effect? I
+navigate to <code>etc/rear</code> in the ISO booted machine while in the rear
+recovery session, but I don't see any conf file that has all the
+settings for the recovery process. There's only a default.conf and
+rescue.conf file. I am pretty sure it worked, as the programs that I
+defined to copy from the host machine to the ISO in the conf file is
+accessible in the ISO. But I want to make sure that our <code>ADD_KERNAL_ARG</code>
+change indeed took place.</p>
+<p>And is using the <code>-c</code> for the rear backup command have something to do
+with this, as per #2942</p>
+<h4 id="gdha_commented_at_2025-11-15_0857"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3523#issuecomment-3536224851">2025-11-15 08:57</a>:<a class="headerlink" href="#gdha_commented_at_2025-11-15_0857" title="Permanent link">&para;</a></h4>
+<p>@towfiqi I performed a successful recovery with <strong>restic</strong> - the
+<code>/etc/rear/local.conf</code> looks like:</p>
+<pre><code>BACKUP=EXTERNAL
+OUTPUT=ISO
+OUTPUT_URL=nfs://192.168.122.1/apps/export/RBME
+
+COPY_AS_IS+=( '/etc/restic_exclude_files' '/etc/restic-password' '/root/.ssh/id_rsa' )
+SSH_FILES="yes"
+REQUIRED_PROGS+=( 'restic' )
+EXTERNAL_BACKUP="restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup backup / /boot --one-file-system --exclude-file /etc/restic_exclude_files --password-file /etc/restic-password"
+EXTERNAL_RESTORE="restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup restore latest --target /mnt/local --password-file /etc/restic-password"
+</code></pre>
+<p>And, a small excerpt from the log file:</p>
+<pre><code>2025-11-15 09:28:25.270713199 Including restore/EXTERNAL/default/500_restore_with_external.sh
+2025-11-15 09:28:25.273112093 Running external restore command
+2025-11-15 09:28:25.278702320 Running 'restic -r sftp:root@192.168.122.1:/apps/export/RBME/restic-backup restore latest --target /mnt/local --password-file /etc/restic-password'
+subprocess ssh: Authorized uses only. All activity may be monitored and reported.
+restoring &lt;Snapshot bc5104c1 of [/ /boot] at 2025-11-15 09:24:09.583682893 +0100 CET by root@alma&gt; to /mnt/local
+2025-11-15 09:29:52.188733285 Finished external restore command
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-09-24.3523.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

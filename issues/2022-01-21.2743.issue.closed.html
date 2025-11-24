@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#2743 Issue closed: Clean up not needed things in predefined LIBS entries - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#2743 Issue closed: Clean up not needed things in predefined LIBS entries";
+        var mkdocs_page_input_path = "issues/2022-01-21.2743.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#2743 Issue closed: Clean up not needed things in predefined LIBS entries</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2743_issue_closed_clean_up_not_needed_things_in_predefined_libs_entries"><a href="https://github.com/rear/rear/issues/2743">#2743 Issue</a> <code>closed</code>: Clean up not needed things in predefined LIBS entries<a class="headerlink" href="#2743_issue_closed_clean_up_not_needed_things_in_predefined_libs_entries" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>cleanup</code></p>
+<h4 id="jsmeix_opened_issue_at_2022-01-21_0801"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/issues/2743">2022-01-21 08:01</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2022-01-21_0801" title="Permanent link">&para;</a></h4>
+<p>This is a forwarded issue that was initially reported by a SUSE
+customer<br />
+and analyzed by a SUSE colleague - here excerpts of what he wrote:</p>
+<ul>
+<li>
+<p>ReaR version ("/usr/sbin/rear -V"):<br />
+    current GitHub master code</p>
+</li>
+<li>
+<p>Description of the issue (ideally so that others can reproduce it):</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code># rear -v mkrescue
+...
+Copying files and directories
+Copying binaries and libraries
+Copying kernel modules
+Copying all files in /lib*/firmware/
+There are binaries or libraries in the ReaR recovery system that need additional libraries
+/usr/lib64/syslog-ng/loggen/libloggen_socket_plugin.so requires additional libraries
+        libloggen_helper-3.30.so.0 =&gt; not found
+        libloggen_plugin-3.30.so.0 =&gt; not found
+/usr/lib64/syslog-ng/loggen/libloggen_ssl_plugin.so requires additional libraries
+        libloggen_helper-3.30.so.0 =&gt; not found
+        libloggen_plugin-3.30.so.0 =&gt; not found
+ReaR recovery system in '/tmp/rear.1UqzM3iYX37WjeH/rootfs' needs additional libraries, check /var/log/rear/rear-sle15sp3-1.log for details
+</code></pre>
+<ul>
+<li>Workaround, if any:</li>
+</ul>
+<p>Specify in etc/rear/local.conf</p>
+<pre><code>LIBS+=( /usr/lib64/libloggen_plugin-3.30.so.0 /usr/lib64/libloggen_helper-3.30.so.0 )
+</code></pre>
+<ul>
+<li>Analysis and solution proposal:</li>
+</ul>
+<p>usr/share/rear/conf/GNU/Linux.conf holds a line</p>
+<pre><code>/usr/lib*/syslog-ng/*
+</code></pre>
+<p>which makes rear include /usr/lib64/syslog-ng/loggen directory<br />
+containing some libs for the loggen binary which seems to be<br />
+just for testing syslog-ng and doesn't need to be in the rear rescue
+system.</p>
+<p>Changing said line to</p>
+<pre><code>/usr/lib*/syslog-ng/*so
+</code></pre>
+<p>makes it similar to what rsyslog line looks<br />
+and solves the issue for me.</p>
+<p>Cf. the current code at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/GNU/Linux.conf#L182">https://github.com/rear/rear/blob/master/usr/share/rear/conf/GNU/Linux.conf#L182</a></p>
+<h4 id="jsmeix_commented_at_2022-01-21_0817"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">2022-01-21 08:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-01-21_0817" title="Permanent link">&para;</a></h4>
+<p>When looking at the LIBS settings in
+usr/share/rear/conf/GNU/Linux.conf<br />
+I wonder why there are (so many) predefined LIBS elements needed at all.</p>
+<p>Reasoning (as far as I see it):</p>
+<p>In usr/share/rear/build/GNU/Linux/390_copy_binaries_libraries.sh<br />
+the "Copy libraries" code part that is currently at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/build/GNU/Linux/390_copy_binaries_libraries.sh#L79">https://github.com/rear/rear/blob/master/usr/share/rear/build/GNU/Linux/390_copy_binaries_libraries.sh#L79</a><br />
+is</p>
+<pre><code>local all_libs=( "${LIBS[@]}" $( RequiredSharedObjects "${all_binaries[@]}" "${LIBS[@]}" ) )
+</code></pre>
+<p>This copies all libraries in LIBS plus<br />
+all libraries for all binaries (i.e. executable programs)<br />
+and all libraries for all libraries in LIBS<br />
+that are found by the RequiredSharedObjects function.</p>
+<p>It does not find recursively libraries for libraries.<br />
+This is intentional because the idea behind is to keep the recovery
+system small.<br />
+In the end only libraries that are needed by executable programs<br />
+and libraries that are needed by libraries in LIBS<br />
+are automatically added to the recovery system.</p>
+<p>The RequiredSharedObjects function is in<br />
+usr/share/rear/lib/linux-functions.sh<br />
+currently at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/lib/linux-functions.sh#L109">https://github.com/rear/rear/blob/master/usr/share/rear/lib/linux-functions.sh#L109</a></p>
+<p>Because 'ldd' outputs also transitively required libraries<br />
+all required libraries by an executable program and<br />
+all required libraries by a library in LIBS get<br />
+automatically added to the recovery system<br />
+but not more.</p>
+<p>This way in particular all executable programs should work inside the
+recovery system<br />
+provided they are "normally" linked with the libraries that they need.</p>
+<p>If an executable program loads a library via dlopen<br />
+that additional library must be specified in LIBS<br />
+and then all libraries that are "normally" linked with<br />
+that additional library would be also automatically added<br />
+to the recovery system.</p>
+<p>Conclusion (as far as I understand it):</p>
+<p>Only libraries that are loaded by executable programs via dlopen<br />
+should be needed to be explicitly listed in LIBS<br />
+because all other libraries (i.e. "normally" linked libraries)<br />
+should get automatically included in the recovery sytem<br />
+as described above.</p>
+<h4 id="jsmeix_commented_at_2022-01-21_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1018529354">2022-01-21 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-01-21_1400" title="Permanent link">&para;</a></h4>
+<p>Because of my recent<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">https://github.com/rear/rear/issues/2743#issuecomment-1018280042</a><br />
+I asked my SUSE colleague:</p>
+<p>Could you test what happens when you remove the line<br />
+/usr/lib*/syslog-ng/*<br />
+from /usr/share/rear/conf/GNU/Linux.conf</p>
+<p>When that works could you then also test what happens<br />
+when you add the loggen binary in etc/rear/local.conf via<br />
+REQUIRED_PROGS+=( loggen )</p>
+<p>Here excerpts of what he replied:</p>
+<blockquote>
+<p>Could you test what happens when you remove the line<br />
+/usr/lib*/syslog-ng/*<br />
+from /usr/share/rear/conf/GNU/Linux.conf</p>
+</blockquote>
+<p>Works just fine, libsyslog-ng is still copied over, but no loggen
+related libs</p>
+<blockquote>
+<p>When that works could you then also test what happens<br />
+when you add the loggen binary in etc/rear/local.conf via<br />
+REQUIRED_PROGS+=( loggen )</p>
+</blockquote>
+<p>Ok, here we go:</p>
+<pre><code>sle15sp3-1:/tmp # grep -v ^# /etc/rear/local.conf 
+REQUIRED_PROGS+=( loggen )
+
+sle15sp3-1:/tmp # chroot rear.FbeTCDwopdJqWU2/rootfs/
+bash-4.4# loggen
+error [loggen.c:enumerate_plugins:167] unable to open plugin directory /usr/lib64/syslog-ng/loggen (err=No such file or directory)
+</code></pre>
+<p>And what I conclude from his reply is:</p>
+<pre><code>bash-4.4# loggen
+error [loggen.c:enumerate_plugins:167] unable to open plugin directory /usr/lib64/syslog-ng/loggen (err=No such file or directory)
+</code></pre>
+<p>This proves that loggen works inside the recovery system<br />
+because loggen is able to run (no abort during its startup<br />
+because of missing libraries or other things like that)<br />
+and it is loggen itself that reports the error<br />
+so loggen is running and it "correctly" errors out.</p>
+<p>Of course with only <code>REQUIRED_PROGS+=( loggen )</code><br />
+one only get that plain binary in the recovery system<br />
+plus automatically all its "normally" linked libraries.<br />
+But nothing more.</p>
+<p>There is no magic in ReaR that would know<br />
+loggen needs additional files to run successfully.</p>
+<p>To tell ReaR what additional files loggen needs<br />
+one may use something like<br />
+<code>COPY_AS_IS+=( /usr/lib64/syslog-ng/loggen )</code></p>
+<h4 id="pcahyna_commented_at_2022-01-26_1103"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1022092592">2022-01-26 11:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2022-01-26_1103" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If an executable program loads a library via dlopen<br />
+that additional library must be specified in LIBS<br />
+and then all libraries that are "normally" linked with<br />
+that additional library would be also automatically added<br />
+to the recovery system.</p>
+</blockquote>
+<p>Hi @jsmeix , I don't understand the reason for the error then. If all
+libraries that are "normally" linked with that additional library are
+automatically added to the recovery system, why does the check say that
+"/usr/lib64/syslog-ng/loggen/libloggen_socket_plugin.so requires
+additional libraries" ? Since <code>/usr/lib*/syslog-ng/*</code> is specified in
+LIBS, the reasoning above should have applied to it and the required
+libraries for <code>/usr/lib64/syslog-ng/loggen/libloggen_socket_plugin.so</code>
+should have been added automatically.</p>
+<h4 id="jsmeix_commented_at_2022-01-26_1200"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1022133392">2022-01-26 12:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-01-26_1200" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you so much for your cutting glance - it helped a lot!</p>
+<p>I think I know it:<br />
+What the code in<br />
+build/GNU/Linux/390_copy_binaries_libraries.sh<br />
+basically does is like (I use /usr/lib*/qt5/* as example here):</p>
+<pre><code># LIBS+=( /usr/lib*/qt5/* )
+
+# qt5_libs=( "${LIBS[@]}" )
+
+# for e in "${qt5_libs[@]}" ; do echo $e ; done
+/usr/lib64/qt5/bin
+/usr/lib64/qt5/libexec
+/usr/lib64/qt5/plugins
+/usr/lib64/qt5/qml
+
+# echo /usr/lib*/qt5/*
+/usr/lib64/qt5/bin /usr/lib64/qt5/libexec /usr/lib64/qt5/plugins /usr/lib64/qt5/qml
+
+# find /usr/lib64/qt5/ -type f | wc -l
+192
+</code></pre>
+<p>so <code>/usr/lib*/qt5/*</code> does not recursively evaluate to all what is below
+/usr/lib64/qt5<br />
+but only to what is directly in /usr/lib64/qt5</p>
+<p>I think the code in<br />
+build/GNU/Linux/390_copy_binaries_libraries.sh<br />
+needs to be enhanced for the elements in LIBS<br />
+similar as it currently builds the all_binaries array<br />
+from the elements in PROGS and REQUIRED_PROGS<br />
+so that the elements in LIBS get fully evaluated to all files.</p>
+<h4 id="jsmeix_commented_at_2022-01-27_1249"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1023172575">2022-01-27 12:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-01-27_1249" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/2744">https://github.com/rear/rear/pull/2744</a> merged<br />
+the initial specific part of this issue should be fixed.</p>
+<p>What is not fixed are the two generic parts of this issue<br />
+the generic cleanup part as described in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">https://github.com/rear/rear/issues/2743#issuecomment-1018280042</a><br />
+and the generic bug as described in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1022133392">https://github.com/rear/rear/issues/2743#issuecomment-1022133392</a></p>
+<h4 id="jsmeix_commented_at_2022-02-02_0815"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1027685016">2022-02-02 08:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-02-02_0815" title="Permanent link">&para;</a></h4>
+<p>ReaR 2.7 should not be released<br />
+without the generic bug part of this issue fixed<br />
+as described in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1022133392">https://github.com/rear/rear/issues/2743#issuecomment-1022133392</a></p>
+<p>But ReaR 2.7 can be released<br />
+without the generic cleanup part of this issue fixed<br />
+as described in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">https://github.com/rear/rear/issues/2743#issuecomment-1018280042</a></p>
+<h4 id="github-actions_commented_at_2022-04-04_0254"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1087056065">2022-04-04 02:54</a>:<a class="headerlink" href="#github-actions_commented_at_2022-04-04_0254" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2022-05-17_0919"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1128628990">2022-05-17 09:19</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-17_0919" title="Permanent link">&para;</a></h4>
+<p>With current master code and in local.conf</p>
+<pre><code>LIBS+=( /usr/lib*/qt5/* )
+</code></pre>
+<p>I get (excerpts)</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+/bin/xmlpatternsvalidator-qt5 requires additional libraries (fatal error)
+/bin/xmlpatterns-qt5 requires additional libraries (fatal error)
+/bin/sdpscanner requires additional libraries (fatal error)
+/usr/lib64/qt5/libexec/QtWebNetworkProcess requires additional libraries
+/usr/lib64/qt5/libexec/QtWebEngineProcess requires additional libraries
+/usr/lib64/qt5/libexec/QtWebStorageProcess requires additional libraries
+/usr/lib64/qt5/libexec/QtWebPluginProcess requires additional libraries
+/usr/lib64/qt5/libexec/QtWebProcess requires additional libraries
+/usr/lib64/qt5/plugins/styles/adwaita.so requires additional libraries
+/usr/lib64/qt5/plugins/styles/libqgtk2style.so requires additional libraries
+...
+/usr/lib64/qt5/bin/qwebengine_convert_dict requires additional libraries (fatal error)
+...
+/usr/lib64/qt5/qml/Qt/labs/settings/libqmlsettingsplugin.so requires additional libraries
+/usr/lib64/qt5/qml/Qt/labs/location/liblocationlabsplugin.so requires additional libraries
+/usr/lib64/qt5/qml/Qt/labs/wavefrontmesh/libqmlwavefrontmeshplugin.so requires additional libraries
+/usr/lib64/qt5/qml/Qt/labs/qmlmodels/liblabsmodelsplugin.so requires additional libraries
+/usr/lib64/qt5/qml/Qt/labs/folderlistmodel/libqmlfolderlistmodelplugin.so requires additional libraries
+/usr/lib64/qt5/qml/Qt/labs/sharedimage/libsharedimageplugin.so requires additional libraries
+/usr/lib64/qt5/qml/QtNfc/libdeclarative_nfc.so requires additional libraries
+/usr/lib64/qt5/qml/QtWebChannel/libdeclarative_webchannel.so requires additional libraries
+/usr/lib64/qt5/qml/QtLocation/libdeclarative_location.so requires additional libraries
+/usr/lib64/qt5/qml/QtQuick.2/libqtquick2plugin.so requires additional libraries
+/usr/lib64/qt5/qml/QtQml/StateMachine/libqtqmlstatemachine.so requires additional libraries
+/usr/lib64/qt5/qml/QtQml/Models.2/libmodelsplugin.so requires additional libraries
+...
+ReaR recovery system in '/var/tmp/rear.Gv9A0hpm1JnNZ5n/rootfs' needs additional libraries, check /root/rear.github.master/var/log/rear/rear-linux-h9wr.log for details
+Build area kept for investigation in /var/tmp/rear.Gv9A0hpm1JnNZ5n, remove it when not needed
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+ERROR: ReaR recovery system in '/var/tmp/rear.Gv9A0hpm1JnNZ5n/rootfs' not usable (required libraries are missing)
+</code></pre>
+<p>build/default/990_verify_rootfs.sh shows 'requires additional
+libraries'<br />
+in particular for all the 104 <code>*.so</code> files below /usr/lib64/qt5/<br />
+that exist on my openSUSE Leap 15.3 system.</p>
+<p>The programs in the recovery system</p>
+<pre><code>/bin/xmlpatternsvalidator-qt5
+/bin/xmlpatterns-qt5
+/bin/sdpscanner
+</code></pre>
+<p>are there because they are on the original system as</p>
+<pre><code># ls -l /usr/lib64/qt5/bin/xmlpatternsvalidator-qt5 /usr/lib64/qt5/bin/xmlpatterns-qt5 /usr/lib64/qt5/bin/sdpscanner
+
+lrwxrwxrwx ... /usr/lib64/qt5/bin/sdpscanner -&gt; ../../../bin/sdpscanner
+lrwxrwxrwx ... /usr/lib64/qt5/bin/xmlpatterns-qt5 -&gt; ../../../bin/xmlpatterns-qt5
+lrwxrwxrwx ... /usr/lib64/qt5/bin/xmlpatternsvalidator-qt5 -&gt; ../../../bin/xmlpatternsvalidator-qt5
+</code></pre>
+<p>This partially contradicts what I wrote above in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1022133392">https://github.com/rear/rear/issues/2743#issuecomment-1022133392</a><br />
+because when build/default/990_verify_rootfs.sh<br />
+shows 'requires additional libraries'<br />
+for all the 104 <code>*.so</code> files below /usr/lib64/qt5/<br />
+that exist on my openSUSE Leap 15.3 system<br />
+it means all the 104 <code>*.so</code> files below /usr/lib64/qt5/<br />
+were copied into the recovery system<br />
+in build/GNU/Linux/390_copy_binaries_libraries.sh</p>
+<p>What did not happen in 390_copy_binaries_libraries.sh<br />
+was that other libraries that are required<br />
+by the 104 <code>*.so</code> files below /usr/lib64/qt5/<br />
+were also automatically copied into the recovery system.</p>
+<p>As far as I see this is because the RequiredSharedObjects function<br />
+is not run for each one of those 104 <code>*.so</code> files<br />
+but for to what the bash globbing pattern <code>/usr/lib*/qt5/*</code><br />
+evaluates because the log file contains</p>
+<pre><code>+ source /root/rear.github.master/usr/share/rear/build/GNU/Linux/390_copy_binaries_libraries.sh
+...
+++ all_libs=("${LIBS[@]}" $( RequiredSharedObjects "${all_binaries[@]}" "${LIBS[@]}" ))
++++ RequiredSharedObjects /bin/true ... /usr/lib64/qt5/bin /usr/lib64/qt5/libexec /usr/lib64/qt5/plugins /usr/lib64/qt5/qml ...
+</code></pre>
+<h4 id="jsmeix_commented_at_2022-05-17_0946"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1128657211">2022-05-17 09:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-17_0946" title="Permanent link">&para;</a></h4>
+<p>With</p>
+<pre><code>LIBS+=( /usr/lib*/qt5/* )
+PROGS+=( xmlpatternsvalidator-qt5 xmlpatterns-qt5 sdpscanner /usr/lib64/qt5/bin/qwebengine_convert_dict )
+</code></pre>
+<p>it does no longer error out and I get (excerpts)</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+/usr/lib64/qt5/libexec/QtWebNetworkProcess requires additional libraries
+/usr/lib64/qt5/libexec/QtWebEngineProcess requires additional libraries
+...
+/usr/lib64/qt5/qml/QtQml/StateMachine/libqtqmlstatemachine.so requires additional libraries
+/usr/lib64/qt5/qml/QtQml/Models.2/libmodelsplugin.so requires additional libraries
+ReaR recovery system in '/var/tmp/rear.7cERtfkwrRNfN2p/rootfs' needs additional libraries, check /root/rear.github.master/var/log/rear/rear-linux-h9wr.log for details
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+Running 'pack' stage ======================
+</code></pre>
+<h4 id="jsmeix_commented_at_2022-05-17_0949"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1128660068">2022-05-17 09:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-17_0949" title="Permanent link">&para;</a></h4>
+<p>With only</p>
+<pre><code>PROGS+=( xmlpatternsvalidator-qt5 xmlpatterns-qt5 sdpscanner /usr/lib64/qt5/bin/qwebengine_convert_dict )
+</code></pre>
+<p>i.e. no longer <code>LIBS+=( /usr/lib*/qt5/* )</code><br />
+all looks well for "rear -D mkrescue"<br />
+i.e. no longer any "requires additional libraries" message.</p>
+<p>Those programs appear in the recovery system as</p>
+<pre><code>/var/tmp/rear.Gvnjaj2VsXKe8nu/rootfs/bin/xmlpatternsvalidator-qt5
+/var/tmp/rear.Gvnjaj2VsXKe8nu/rootfs/bin/xmlpatterns-qt5
+/var/tmp/rear.Gvnjaj2VsXKe8nu/rootfs/bin/sdpscanner
+/var/tmp/rear.Gvnjaj2VsXKe8nu/rootfs/bin/qwebengine_convert_dict
+</code></pre>
+<p>so all looks well.</p>
+<h4 id="jsmeix_commented_at_2022-05-17_1005"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1128675464">2022-05-17 10:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-17_1005" title="Permanent link">&para;</a></h4>
+<p>As far as I currently see my above tests<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1128628990">https://github.com/rear/rear/issues/2743#issuecomment-1128628990</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1128657211">https://github.com/rear/rear/issues/2743#issuecomment-1128657211</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1128660068">https://github.com/rear/rear/issues/2743#issuecomment-1128660068</a><br />
+prove what I had written above in<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">https://github.com/rear/rear/issues/2743#issuecomment-1018280042</a></p>
+<p>Plus my above conclusion therein in different words<br />
+from another point of view ("including programs" point of view):</p>
+<p>Needed programs should normally ony specified via</p>
+<pre><code>PROGS+=( non_mandatory_program )
+REQUIRED_PROGS+=( mandatory_program )
+</code></pre>
+<p>But normally there is no need to specify LIBS for them<br />
+because needed libraries for "normally" linked programs<br />
+get automatically included.<br />
+Only libraries that are loaded by executable programs<br />
+via things like dlopen needed to be specified in LIBS.</p>
+<h4 id="jsmeix_commented_at_2022-05-17_1228"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1128807544">2022-05-17 12:28</a>:<a class="headerlink" href="#jsmeix_commented_at_2022-05-17_1228" title="Permanent link">&para;</a></h4>
+<p>With only</p>
+<pre><code>LIBS+=( /usr/lib64/qt5/*/*/*.so /usr/lib64/qt5/*/*/*/*.so /usr/lib64/qt5/*/*/*/*/*.so )
+</code></pre>
+<p>all looks well for "rear -D mkrescue"<br />
+i.e. no longer any "requires additional libraries" message.</p>
+<p>All the 104 *.so files below /usr/lib64/qt5/<br />
+were copied into the recovery system<br />
+plus all their required other libraries.</p>
+<p>Via<br />
+<a href="https://github.com/rear/rear/commit/f8f6c1b94a20a0dfa3b81aa0d23a9abcffa5b356">https://github.com/rear/rear/commit/f8f6c1b94a20a0dfa3b81aa0d23a9abcffa5b356</a><br />
+I explained in default.conf how to use LIBS properly.</p>
+<h4 id="github-actions_commented_at_2022-07-17_0327"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1186386434">2022-07-17 03:27</a>:<a class="headerlink" href="#github-actions_commented_at_2022-07-17_0327" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-09-17_0341"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1249990371">2022-09-17 03:41</a>:<a class="headerlink" href="#github-actions_commented_at_2022-09-17_0341" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2022-11-19_0259"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1320767167">2022-11-19 02:59</a>:<a class="headerlink" href="#github-actions_commented_at_2022-11-19_0259" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-01-21_0228"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1399154364">2023-01-21 02:28</a>:<a class="headerlink" href="#github-actions_commented_at_2023-01-21_0228" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-03-25_0219"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1483684017">2023-03-25 02:19</a>:<a class="headerlink" href="#github-actions_commented_at_2023-03-25_0219" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-05-27_0219"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1565164447">2023-05-27 02:19</a>:<a class="headerlink" href="#github-actions_commented_at_2023-05-27_0219" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-07-30_0213"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1656997517">2023-07-30 02:13</a>:<a class="headerlink" href="#github-actions_commented_at_2023-07-30_0213" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-09-30_0201"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1741628514">2023-09-30 02:01</a>:<a class="headerlink" href="#github-actions_commented_at_2023-09-30_0201" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2023-12-04_0209"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1837727620">2023-12-04 02:09</a>:<a class="headerlink" href="#github-actions_commented_at_2023-12-04_0209" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-02-03_0159"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-1925017670">2024-02-03 01:59</a>:<a class="headerlink" href="#github-actions_commented_at_2024-02-03_0159" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-04-10_0203"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2046326828">2024-04-10 02:03</a>:<a class="headerlink" href="#github-actions_commented_at_2024-04-10_0203" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-06-10_0221"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2157062958">2024-06-10 02:21</a>:<a class="headerlink" href="#github-actions_commented_at_2024-06-10_0221" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="jsmeix_commented_at_2024-07-18_1143"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2236292848">2024-07-18 11:43</a>:<a class="headerlink" href="#jsmeix_commented_at_2024-07-18_1143" title="Permanent link">&para;</a></h4>
+<p>Nothing urgent here, so postponed to 'ReaR v3.1' milestone...</p>
+<h4 id="github-actions_commented_at_2024-09-17_0205"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2354361845">2024-09-17 02:05</a>:<a class="headerlink" href="#github-actions_commented_at_2024-09-17_0205" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2024-11-17_0247"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2480900112">2024-11-17 02:47</a>:<a class="headerlink" href="#github-actions_commented_at_2024-11-17_0247" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2025-01-18_0228"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2599479146">2025-01-18 02:28</a>:<a class="headerlink" href="#github-actions_commented_at_2025-01-18_0228" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="github-actions_commented_at_2025-03-22_0241"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/2743#issuecomment-2744913228">2025-03-22 02:41</a>:<a class="headerlink" href="#github-actions_commented_at_2025-03-22_0241" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2022-01-21.2743.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
