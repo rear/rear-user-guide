@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
     <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
     <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
     <meta property="og:locale" content="en_US"/>
@@ -16,20 +16,20 @@
     <meta property="og:image:height" content="50"/>
     
     <title>Internal Backup with rsync to NFS server - Relax-and-Recover (ReaR) User Guide Documentation</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="css/rear.css" rel="stylesheet" />
+        <link href="../css/rear.css" rel="stylesheet" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "Internal Backup with rsync to NFS server";
-        var mkdocs_page_input_path = "netfs_rsync.md";
+        var mkdocs_page_input_path = "scenarios/netfs_rsync.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
+      <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
@@ -53,9 +53,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -63,72 +63,80 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">WELCOME</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="welcome/index.html">Get started!</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">BASICS</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="basics/introduction.html">Introduction</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="basics/history.html">Bit of History</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="basics/getting-started.html">Getting started with ReaR</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="basics/configuration.html">Basic configuration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">SCENARIOS</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="scenarios/index.html">Scenarios Overview</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Scenarios Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  <li class="toctree-l1"><a class="reference internal" href="netfs_nas.html">Internal Backup with tar to NFS server</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="scenarios/netfs_rsync.md">Internal Backup with rsync to NFS server</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Internal Backup with rsync to NFS server</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#running_rear_mkbackup">Running rear mkbackup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the_nfs_server_contains_the_archive_backup">The NFS server contains the archive backup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recovering_with_netfs_method_and_rsync">Recovering with NETFS method and rsync</a>
+    </li>
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="scenarios/rbme.html">External Backup using RBME</a>
+                  <li class="toctree-l1"><a class="reference internal" href="rbme.html">External Backup using RBME</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="scenarios/restic.html">External Backup using restic</a>
+                  <li class="toctree-l1"><a class="reference internal" href="restic.html">External Backup using restic</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="development/github-pr.html">Make a pull request with GitHub</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/index.html">Release Notes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">ISSUES</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="issues/index.html">Issues History</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues History</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">LEGAL</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="legal/contributing/index.html">Contributing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="legal/license/index.html">License</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
                   </li>
               </ul>
       </div>
@@ -138,13 +146,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SCENARIOS</li>
       <li class="breadcrumb-item active">Internal Backup with rsync to NFS server</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -226,7 +235,7 @@ Running exit tasks
 </code></pre>
 <p>Between two full archive runs we could use <code>rear mkbackuponly</code> to archive the files/directories that were added or changed after the previous <code>rear mkbackup</code> run. 
 This only takes a minute or so, but the drawback is that you only have one copy of your system and a point in time recovery is not possible with this method. 
-For example with <a href="rbme.md">Rsync Backup Made Easy (RBME)</a> a recovery in time is possible albeit to a specific date (not to a specifi hour).</p>
+For example with <a href="rbme.html">Rsync Backup Made Easy (RBME)</a> a recovery in time is possible albeit to a specific date (not to a specifi hour).</p>
 <h2 id="the_nfs_server_contains_the_archive_backup">The NFS server contains the archive backup<a class="headerlink" href="#the_nfs_server_contains_the_archive_backup" title="Permanent link">&para;</a></h2>
 <pre><code>[root@rocky alma]# ll
 total 72216
@@ -330,13 +339,22 @@ Running exit tasks
 
 <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rbme.html" class="btn btn-neutral float-right" title="External Backup using RBME">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="netfs_nas.html" class="btn btn-neutral" title="Internal Backup with tar to NFS server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=netfs_rsync.html">feedback</a> on this page.</p>
+    <p>Copyright 2025 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=scenarios/netfs_rsync.html">feedback</a> on this page.</p>
     
   </div>
 </footer>
@@ -356,14 +374,18 @@ Running exit tasks
         </span>
     
     
+      <span><a href="netfs_nas.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="rbme.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = ".";</script>
-    <script src="js/theme_extra.js"></script>
-    <script src="js/theme.js"></script>
-      <script src="search/main.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
