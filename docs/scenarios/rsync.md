@@ -1,4 +1,4 @@
-# Internal Backup using BACKUP=RSYNC method
+# External Backup using BACKUP=RSYNC method
 
 In a previous scenario we discussed "[Internal Backup with rsync to NFS server](netfs_rsync.md)", but now we will use the `BACKUP=RSYNC` way.
 
