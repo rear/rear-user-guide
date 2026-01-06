@@ -2,6 +2,9 @@
 
 In a previous scenario we discussed "[Internal Backup with rsync to NFS server](netfs_rsync.md)", but now we will use the `BACKUP=RSYNC` way.
 
+The main difference between using rsync in workflow *NETFS* and *RSYNC* is that in the *NETFS* workflow we have the choice to use a network share or an internal file system while
+with the *RSYNC* workflow it is always a remote network destination.
+
 Therefore, use a `/etc/rear/local.conf` file that might look like:
 
     [root@alma rear]# cat /etc/rear/local.conf 
