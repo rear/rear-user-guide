@@ -48,7 +48,7 @@ Duplicity is available on (almost) all major Linux distributions and can be simp
 
 Be aware, as duplicity is written in the Python language we also need the python packages to be installed.
 
-One of the key features of duplicity is that it uses under the good GnuPG to encrypt/decrypt the backups, therefore, make sure gpg is alos available on your system.
+One of the key features of duplicity is that it uses under the good GnuPG to encrypt/decrypt the backups, therefore, make sure gpg is also available on your system.
 
 ## Generate GnuPG keys
 
@@ -167,7 +167,7 @@ Also, be aware to avoid that secrets will be logged use the `{ SSH_ROOT_PASSWORD
 
 ## Running rear -v mkbackup
 
-Well, now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of `duplicity`. For eaxmple:
+Well, now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of `duplicity`. For example:
 
     # rear -v mkbackup
     Relax-and-Recover 2.9-git.5719.2cb54575.gdhaduplicity.changed / 2025-12-11
