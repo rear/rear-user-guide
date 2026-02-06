@@ -164,3 +164,41 @@ Note that in this recovery exercise your will be prompted several times for the 
     SSH_UNPROTECTED_PRIVATE_KEYS=true
 
 
+## Rsync using BACKUP_RSYNC_RETENTION_DAYS setting
+
+ReaR v3.0 will have a variable called `BACKUP_RSYNC_RETENTION_DAYS` to keep an amount of days in incremental mode, e.g. when we configure `/etc/rear/local.conf` as:
+
+    BACKUP=RSYNC
+    BACKUP_URL=rsync://gdha@192.168.122.1/home/gdha/REAR
+    BACKUP_RSYNC_RETENTION_DAYS=5
+    BACKUP_RSYNC_OPTIONS+=( --acls --xattrs )
+    
+    COPY_AS_IS+=( '/root/.ssh' )
+    SSH_FILES="yes"
+    SSH_UNPROTECTED_PRIVATE_KEYS=true
+    
+    # Use the same IP address(es) of the this system to be activated in the rescue OS
+    USE_STATIC_NETWORKING="y"
+    
+    # To be able to login via ssh
+    { SSH_ROOT_PASSWORD="relax" ; } 2>>/dev/$SECRET_OUTPUT_DEV
+    
+    # To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+    FIRMWARE_FILES=( )
+    MODULES=( 'loaded_modules' )
+    
+    PROGRESS_MODE="plain"
+    PROGRESS_WAIT_SECONDS="10"
+    
+    BACKUP_PROG_EXCLUDE+=( '/apps/*' )
+
+
+As defined `BACKUP_RSYNC_RETENTION_DAYS=5` it will keep 5 copies (incremental rsync backups) on the remote system, e.g.
+
+    drwxr-xr-x. 18 gdha gdha 4096 Nov  6 10:35 2026-02-02
+    drwxr-xr-x. 18 gdha gdha 4096 Nov  6 10:35 2026-02-03
+    drwxr-xr-x. 18 gdha gdha 4096 Nov  6 10:35 2026-02-04
+    drwxr-xr-x. 18 gdha gdha 4096 Nov  6 10:35 2026-02-05
+    drwxr-xr-x. 18 gdha gdha 4096 Nov  6 10:35 2026-02-06
+
+For the rest it behaves exactly the same as a plain old `BACKUP=RSYNC` backup and/or restore as described already above.
