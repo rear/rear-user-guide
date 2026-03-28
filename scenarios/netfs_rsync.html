@@ -92,6 +92,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Internal Backup with rsync to NFS server</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#key_settings_explained">Key settings explained</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#running_rear_mkbackup">Running rear mkbackup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#the_nfs_server_contains_the_archive_backup">The NFS server contains the archive backup</a>
@@ -192,6 +194,18 @@ MODULES=( 'loaded_modules' )
 PROGRESS_MODE="plain"
 PROGRESS_WAIT_SECONDS="10"
 </code></pre>
+<h2 id="key_settings_explained">Key settings explained<a class="headerlink" href="#key_settings_explained" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>BACKUP=NETFS</code>: Selects the NETFS backup method, which mounts a network share (NFS, CIFS, USB, or other protocol defined by <code>BACKUP_URL</code>) and stores the backup directly on it.</li>
+<li><code>BACKUP_URL</code>: The URL of the backup destination. In this example an NFS share is used (<code>nfs://</code>); the NETFS method also accepts <code>cifs://</code>, <code>smb://</code>, and other URL schemes.</li>
+<li><code>BACKUP_PROG=rsync</code>: Selects <code>rsync</code> as the backup program instead of the default <code>tar</code>. The backup is stored as a mirrored directory tree rather than a compressed archive file, which makes incremental updates with <code>rear mkbackuponly</code> very efficient.</li>
+<li><code>USE_STATIC_NETWORKING="y"</code>: Configures the rescue system to bring up the same static IP address(es) as the original system instead of relying on DHCP.</li>
+<li><code>SSH_ROOT_PASSWORD="relax"</code>: Sets the root password in the rescue image, allowing you to log in via SSH during recovery.</li>
+<li><code>FIRMWARE_FILES=( 'no' )</code>: Skips copying firmware files into the rescue image, reducing its size.</li>
+<li><code>MODULES=( 'loaded_modules' )</code>: Includes only the kernel modules that are currently loaded on the system, keeping the rescue image smaller.</li>
+<li><code>PROGRESS_MODE="plain"</code>: Displays backup progress as plain text output, suitable for non-interactive terminals or log files.</li>
+<li><code>PROGRESS_WAIT_SECONDS="10"</code>: Interval in seconds between progress updates during the backup run.</li>
+</ul>
 <p>To use <code>rsync</code> as backup program we need to add <code>BACKUP_PROG=rsync</code> to our configuration file.</p>
 <p>Remember, when <code>OUTPUT</code> is not explicit mentioned then by default it will be set to <code>ISO</code>.</p>
 <h2 id="running_rear_mkbackup">Running rear mkbackup<a class="headerlink" href="#running_rear_mkbackup" title="Permanent link">&para;</a></h2>
