@@ -174,9 +174,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="external_backup_using_backupduplicity_method">External backup using BACKUP=DUPLICITY method<a class="headerlink" href="#external_backup_using_backupduplicity_method" title="Permanent link">&para;</a></h1>
-<p>Duplicity is a software suite that provides encrypted, digitally signed, versioned, local or remote backup of files requiring little of the remote server.</p>
+<p>Duplicity is a software suite that provides encrypted, digitally signed, versioned, local or remote backup of files with minimal requirements on the remote server.</p>
 <h2 id="installing_duplicity">Installing duplicity<a class="headerlink" href="#installing_duplicity" title="Permanent link">&para;</a></h2>
-<p>Duplicity is available on (almost) all major Linux distributions and can be simply installed via the distribution installer software, e.g. on RHEL-based systems duplicity is part of the EPEL repository and can be installed as:</p>
+<p>Duplicity is available on (almost) all major Linux distributions and can be simply installed via the distribution package manager. For example, on RHEL-based systems, duplicity is part of the EPEL repository and can be installed with:</p>
 <pre><code># yum install -y duplicity
 ======================================================================================================================================================================
  Package                                               Architecture                            Version                                         Repository                                  Size
@@ -217,10 +217,10 @@ Install  25 Packages
 Total download size: 12 M
 Installed size: 108 M
 </code></pre>
-<p>Be aware, as duplicity is written in the Python language we also need the python packages to be installed.</p>
-<p>One of the key features of duplicity is that it uses under the good GnuPG to encrypt/decrypt the backups, therefore, make sure gpg is also available on your system.</p>
+<p>Note that as duplicity is written in Python, several Python packages will be installed as dependencies (as shown above).</p>
+<p>One of the key features of duplicity is that it relies on GnuPG to encrypt and decrypt backups. Therefore, make sure <code>gpg</code> is also available on your system.</p>
 <h2 id="generate_gnupg_keys">Generate GnuPG keys<a class="headerlink" href="#generate_gnupg_keys" title="Permanent link">&para;</a></h2>
-<p>If you want to encrypt/decrypt the duplicity backups using gpg then it is required to create a private/public gpg key. Therefore, do the following (example only):</p>
+<p>To encrypt and decrypt duplicity backups with GPG, you need to create a GPG key pair. Follow the example below:</p>
 <pre><code># gpg --list-keys
 gpg: directory '/root/.gnupg' created
 gpg: keybox '/root/.gnupg/pubring.kbx' created
@@ -279,11 +279,11 @@ pub   rsa3072 2025-11-28 [SC]
 uid                      root@alma &lt;root@localhost&gt;
 sub   rsa3072 2025-11-28 [E]
 </code></pre>
-<p>In the last step of gpg key creation a passphrase needs to be added. It is important not to loose this passphrase! In our example we choose <em>r00t@alma</em> as passphrase.</p>
+<p>In the last step of GPG key creation a passphrase needs to be added. It is important not to <strong>lose</strong> this passphrase! In our example we choose <em>r00t@alma</em> as passphrase.</p>
 <h2 id="configure_rear_to_use_duplicity">Configure ReaR to use duplicity<a class="headerlink" href="#configure_rear_to_use_duplicity" title="Permanent link">&para;</a></h2>
-<p>It is important to know that the /root/.gnupg/ directory will also be copied to the ReaR rescue image!</p>
-<p>Below is the local.conf file we used in our test environment which is a good guideline for our end-users to get started with ReaR/Duplicity.</p>
-<p>Also, be aware to avoid that secrets will be logged use the <code>{ SSH_ROOT_PASSWORD="relax" ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV</code> trick.</p>
+<p>It is important to know that the <code>/root/.gnupg/</code> directory will also be copied to the ReaR rescue image!</p>
+<p>Below is the <code>local.conf</code> file used in our test environment, which serves as a good starting point for getting started with ReaR and duplicity.</p>
+<p>To avoid logging secrets in plain text, use the <code>{ SSH_ROOT_PASSWORD="relax" ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV</code> trick.</p>
 <pre><code># cat /etc/rear/local.conf  
 # This file etc/rear/local.conf is intended for the user's
 # manual configuration of Relax-and-Recover (ReaR).
@@ -328,7 +328,7 @@ PROGRESS_MODE="plain"
 PROGRESS_WAIT_SECONDS="10"
 </code></pre>
 <h2 id="running_rear_-v_mkbackup">Running rear -v mkbackup<a class="headerlink" href="#running_rear_-v_mkbackup" title="Permanent link">&para;</a></h2>
-<p>Well, now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of <code>duplicity</code>. For example:</p>
+<p>Now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of <code>duplicity</code>. For example:</p>
 <pre><code># rear -v mkbackup
 Relax-and-Recover 2.9-git.5719.2cb54575.gdhaduplicity.changed / 2025-12-11
 Running rear mkbackup (PID 1695 date 2026-01-05 17:56:18)
@@ -390,6 +390,10 @@ Errors 0
 Exiting rear mkbackup (PID 1695) and its descendant processes ...
 Running exit tasks
 </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>Failed to copy '/usr/lib/cruft'</code> message during the build is a harmless warning. The <code>cruft</code> package is not required in the rescue image and its absence does not affect the backup or recovery process.</p>
+</div>
 <h2 id="recover_your_system_with_rear_and_duplicity">Recover your system with ReaR (and duplicity)<a class="headerlink" href="#recover_your_system_with_rear_and_duplicity" title="Permanent link">&para;</a></h2>
 <pre><code># rear -v recover
 Relax-and-Recover 2.9-git.5719.2cb54575.gdhaduplicity.changed / 2025-12-11
@@ -461,9 +465,17 @@ Exiting rear recover (PID 579) and its descendant processes ...
 Running exit tasks
 </code></pre>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<p><a href="https://duplicity.us/">1 duplicity main site</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Duplicity_(software)">2 duplicity wikipedia page</a></p>
-<p><a href="https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html#GPG-Configuration-Options">3 GnuPG options</a></p>
+<ul>
+<li>
+<p><a href="https://duplicity.us/">duplicity main site</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Duplicity_(software)">duplicity Wikipedia page</a></p>
+</li>
+<li>
+<p><a href="https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html#GPG-Configuration-Options">GnuPG Configuration Options</a></p>
+</li>
+</ul>
               
             </div>
           </div>
