@@ -1,10 +1,10 @@
 # External backup using BACKUP=DUPLICITY method
 
-Duplicity is a software suite that provides encrypted, digitally signed, versioned, local or remote backup of files requiring little of the remote server.
+Duplicity is a software suite that provides encrypted, digitally signed, versioned, local or remote backup of files with minimal requirements on the remote server.
 
 ## Installing duplicity
 
-Duplicity is available on (almost) all major Linux distributions and can be simply installed via the distribution installer software, e.g. on RHEL-based systems duplicity is part of the EPEL repository and can be installed as:
+Duplicity is available on (almost) all major Linux distributions and can be simply installed via the distribution package manager. For example, on RHEL-based systems, duplicity is part of the EPEL repository and can be installed with:
 
     # yum install -y duplicity
     ======================================================================================================================================================================
@@ -46,13 +46,13 @@ Duplicity is available on (almost) all major Linux distributions and can be simp
     Total download size: 12 M
     Installed size: 108 M
 
-Be aware, as duplicity is written in the Python language we also need the python packages to be installed.
+Note that as duplicity is written in Python, several Python packages will be installed as dependencies (as shown above).
 
-One of the key features of duplicity is that it uses under the good GnuPG to encrypt/decrypt the backups, therefore, make sure gpg is also available on your system.
+One of the key features of duplicity is that it relies on GnuPG to encrypt and decrypt backups. Therefore, make sure `gpg` is also available on your system.
 
 ## Generate GnuPG keys
 
-If you want to encrypt/decrypt the duplicity backups using gpg then it is required to create a private/public gpg key. Therefore, do the following (example only):
+To encrypt and decrypt duplicity backups with GPG, you need to create a GPG key pair. Follow the example below:
 
     # gpg --list-keys
     gpg: directory '/root/.gnupg' created
@@ -112,15 +112,15 @@ If you want to encrypt/decrypt the duplicity backups using gpg then it is requir
     uid                      root@alma <root@localhost>
     sub   rsa3072 2025-11-28 [E]
 
-In the last step of gpg key creation a passphrase needs to be added. It is important not to loose this passphrase! In our example we choose *r00t@alma* as passphrase.
+In the last step of GPG key creation a passphrase needs to be added. It is important not to **lose** this passphrase! In our example we choose *r00t@alma* as passphrase.
 
 ## Configure ReaR to use duplicity
 
-It is important to know that the /root/.gnupg/ directory will also be copied to the ReaR rescue image!
+It is important to know that the `/root/.gnupg/` directory will also be copied to the ReaR rescue image!
 
-Below is the local.conf file we used in our test environment which is a good guideline for our end-users to get started with ReaR/Duplicity.
+Below is the `local.conf` file used in our test environment, which serves as a good starting point for getting started with ReaR and duplicity.
 
-Also, be aware to avoid that secrets will be logged use the `{ SSH_ROOT_PASSWORD="relax" ; } 2>>/dev/$SECRET_OUTPUT_DEV` trick.
+To avoid logging secrets in plain text, use the `{ SSH_ROOT_PASSWORD="relax" ; } 2>>/dev/$SECRET_OUTPUT_DEV` trick.
 
     # cat /etc/rear/local.conf  
     # This file etc/rear/local.conf is intended for the user's
@@ -167,7 +167,7 @@ Also, be aware to avoid that secrets will be logged use the `{ SSH_ROOT_PASSWORD
 
 ## Running rear -v mkbackup
 
-Well, now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of `duplicity`. For example:
+Now it is time to create a ReaR rescue image with a full (or incremental) backup with the help of `duplicity`. For example:
 
     # rear -v mkbackup
     Relax-and-Recover 2.9-git.5719.2cb54575.gdhaduplicity.changed / 2025-12-11
@@ -229,6 +229,9 @@ Well, now it is time to create a ReaR rescue image with a full (or incremental) 
     -------------------------------------------------
     Exiting rear mkbackup (PID 1695) and its descendant processes ...
     Running exit tasks
+
+!!! note
+    The `Failed to copy '/usr/lib/cruft'` message during the build is a harmless warning. The `cruft` package is not required in the rescue image and its absence does not affect the backup or recovery process.
 
 ## Recover your system with ReaR (and duplicity)
 
@@ -304,8 +307,8 @@ Well, now it is time to create a ReaR rescue image with a full (or incremental) 
 
 ## References
 
-[1 duplicity main site](https://duplicity.us/)
+* [duplicity main site](https://duplicity.us/)
 
-[2 duplicity wikipedia page](https://en.wikipedia.org/wiki/Duplicity_(software))
+* [duplicity Wikipedia page](https://en.wikipedia.org/wiki/Duplicity_(software))
 
-[3 GnuPG options](https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html#GPG-Configuration-Options)
+* [GnuPG Configuration Options](https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration-Options.html#GPG-Configuration-Options)
