@@ -106,10 +106,10 @@ Create or edit `/etc/rear/local.conf` with the following content. This example u
     BORGBACKUP_PRUNE_SHOW_LIST="no"
     # export BORG_KEYS_DIR=/root/.borg-keys
 
-    COPY_AS_IS_BORG+=( $BORGBACKUP_PASSPHRASE_FILE $BORGBACKUP_EXCLUDE_FILE $BORG_KEYS_DIR /root/.config/borg borg locale /usr/bin/crypto )
+    COPY_AS_IS_BORG+=( $BORGBACKUP_PASSPHRASE_FILE $BORGBACKUP_EXCLUDE_FILE $BORG_KEYS_DIR /root/.config/borg borg locale )
 
     [[ -f "$BORGBACKUP_PASSPHRASE_FILE" ]] && \
-       { export BORG_PASSPHRASE="$( cat $BORGBACKUP_PASSPHRASE_FILE | crypto aes-dec )" ; } 2>/dev/$SECRET_OUTPUT_DEV
+       { export BORG_PASSPHRASE="$( cat $BORGBACKUP_PASSPHRASE_FILE )" ; } 2>/dev/$SECRET_OUTPUT_DEV
 
     # Tell borg to use a special SSH key with ssh:
     export BORG_RSH='ssh -i /root/.ssh/id_sa-borg'
