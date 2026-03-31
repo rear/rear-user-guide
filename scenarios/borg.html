@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>External Backup using BorgBackup - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "External Backup using BorgBackup";
+        var mkdocs_page_input_path = "scenarios/borg.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">External Backup using BorgBackup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installing_borgbackup">Installing BorgBackup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting_up_a_borgbackup_repository">Setting up a BorgBackup repository</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#passphrase_file">Passphrase file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh_key_for_the_backup_user">SSH key for the backup user</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exclude_file">Exclude file</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring_rear">Configuring ReaR</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#key_configuration_variables">Key configuration variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#notes_on_output_url_and_lftp">Notes on OUTPUT_URL and lftp</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running_rear_mkbackup">Running ReaR mkbackup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recovering_using_rear_and_borgbackup">Recovering using ReaR and BorgBackup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SCENARIOS</li>
+      <li class="breadcrumb-item active">External Backup using BorgBackup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="external_backup_using_backupborg_method">External backup using BACKUP=BORG method<a class="headerlink" href="#external_backup_using_backupborg_method" title="Permanent link">&para;</a></h1>
+<p><a href="https://www.borgbackup.org/">BorgBackup</a> (short: Borg) is a deduplicating backup program. Optionally, it supports compression and authenticated encryption.</p>
+<p>Borg is designed for efficient and secure backups. Its main goal is to provide an efficient and secure way to backup data. The data deduplication technique used makes Borg suitable for daily backups since only changes are stored, which results in a minimal disk space usage. The built-in encryption allows you to backup data to targets that are not fully trusted.</p>
+<p>ReaR has native support for BorgBackup via <code>BACKUP=BORG</code>.</p>
+<h2 id="installing_borgbackup">Installing BorgBackup<a class="headerlink" href="#installing_borgbackup" title="Permanent link">&para;</a></h2>
+<p>On Debian/Ubuntu systems, BorgBackup can be installed with:</p>
+<pre><code># apt install borgbackup
+</code></pre>
+<p>On RedHat-based systems, BorgBackup is available in the EPEL repository:</p>
+<pre><code># dnf install borgbackup
+</code></pre>
+<p>For other installation methods (standalone binary, pip, etc.), see the <a href="https://borgbackup.readthedocs.io/en/stable/installation.html">BorgBackup installation documentation</a>.</p>
+<p>If BorgBackup is installed in a non-standard location (e.g. <code>/usr/local/bin/borg</code>), specify the path using:</p>
+<pre><code>PROGS_BORG=( /usr/local/bin/borg )
+</code></pre>
+<h2 id="setting_up_a_borgbackup_repository">Setting up a BorgBackup repository<a class="headerlink" href="#setting_up_a_borgbackup_repository" title="Permanent link">&para;</a></h2>
+<p>Before using ReaR with Borg, you need to initialize a Borg repository on the backup server. The following example initializes an encrypted repository using the <code>repokey</code> encryption mode:</p>
+<pre><code># borg init --encryption=repokey user@backupserver:/datapool/backups/borgbackup/systems/myhostname
+</code></pre>
+<p>With <code>repokey</code>, the repository key is stored in the remote repository itself. Make sure to export and save the key in a safe location:</p>
+<pre><code># borg key export user@backupserver:/datapool/backups/borgbackup/systems/myhostname /root/.borg-keys/myhostname.key
+</code></pre>
+<p>With <code>keyfile</code> encryption, the key is stored locally (e.g. in <code>/root/.borg-keys/</code>). Set <code>BORG_KEYS_DIR</code> to tell Borg where to find the key.</p>
+<h3 id="passphrase_file">Passphrase file<a class="headerlink" href="#passphrase_file" title="Permanent link">&para;</a></h3>
+<p>Store the repository passphrase in a file readable only by root:</p>
+<pre><code># echo 'your-secure-passphrase' &gt; /root/.borg-passphrase
+# chmod 400 /root/.borg-passphrase
+</code></pre>
+<h3 id="ssh_key_for_the_backup_user">SSH key for the backup user<a class="headerlink" href="#ssh_key_for_the_backup_user" title="Permanent link">&para;</a></h3>
+<p>ReaR connects to the Borg server over SSH. Create a dedicated SSH key pair for the backup user and configure passwordless access on the backup server:</p>
+<pre><code># ssh-keygen -t ed25519 -f /root/.ssh/id_sa-borg -N ''
+</code></pre>
+<p>Add the public key (<code>/root/.ssh/id_sa-borg.pub</code>) to the <code>~/.ssh/authorized_keys</code> of the backup user on the backup server, and verify that the connection works:</p>
+<pre><code># ssh -i /root/.ssh/id_sa-borg sa-borg@backupserver 'borg list /datapool/backups/borgbackup/systems/myhostname'
+</code></pre>
+<h3 id="exclude_file">Exclude file<a class="headerlink" href="#exclude_file" title="Permanent link">&para;</a></h3>
+<p>To avoid backing up unnecessary directories, create a Borg exclude file:</p>
+<pre><code># cat /root/.borg-exclude
+/proc
+/sys
+/dev
+/run
+/tmp
+/var/tmp
+/mnt
+/media
+</code></pre>
+<h2 id="configuring_rear">Configuring ReaR<a class="headerlink" href="#configuring_rear" title="Permanent link">&para;</a></h2>
+<p>Create or edit <code>/etc/rear/local.conf</code> with the following content. This example uses SFTP to transfer the rescue ISO to the backup server with the same credentials used for Borg:</p>
+<pre><code># This file etc/rear/local.conf is intended for the user's
+# manual configuration of Relax-and-Recover (ReaR).
+# BorgBackup
+BACKUP=BORG
+PROGS_BORG=( /usr/local/bin/borg )
+# borg needs some extra LIBS not automatically found:
+LIBS+=( /usr/lib/x86_64-linux-gnu/lib*.so* /lib64/lib*.so* )
+BORGBACKUP_USERNAME="sa-borg"
+BORGBACKUP_HOST="192.168.1.1"
+BORGBACKUP_REPO="/datapool/backups/borgbackup/systems/${HOSTNAME}"
+BORGBACKUP_PORT=22
+BORGBACKUP_TIMESTAMP="$(date +%Y-%m-%dT%H:%M:%S)"
+BORGBACKUP_PASSPHRASE_FILE=/root/.borg-passphrase
+
+# When we use borg outside ReaR we might have a borg exclude file which we should include in ReaR
+BORGBACKUP_EXCLUDE_FILE='/root/.borg-exclude'
+BORGBACKUP_COMPRESSION="lz4"
+
+# If BORGBACKUP_ENC_TYPE="keyfile" then we need BORG_KEYS_DIR=/root/.borg-keys
+# repokey will store its key in the remote borg repo (do not forget to export the key for safety)
+BORGBACKUP_ENC_TYPE="repokey"
+
+BORGBACKUP_ARCHIVE_PREFIX="$HOSTNAME"
+BORGBACKUP_CREATE_SHOW_STATS=true
+BORGBACKUP_CREATE_SHOW_PROGRESS=true
+BORGBACKUP_IGNORE_WARNING=true
+BORGBACKUP_PRUNE_KEEP_LAST=
+BORGBACKUP_PRUNE_KEEP_MINUTELY=
+BORGBACKUP_PRUNE_KEEP_HOURLY=5
+BORGBACKUP_PRUNE_KEEP_DAILY=7
+BORGBACKUP_PRUNE_KEEP_WEEKLY=4
+BORGBACKUP_PRUNE_KEEP_MONTHLY=6
+BORGBACKUP_PRUNE_KEEP_YEARLY=1
+BORGBACKUP_PRUNE_SHOW_RC="no"
+BORGBACKUP_PRUNE_SHOW_LIST="no"
+# export BORG_KEYS_DIR=/root/.borg-keys
+
+COPY_AS_IS_BORG+=( $BORGBACKUP_PASSPHRASE_FILE $BORGBACKUP_EXCLUDE_FILE $BORG_KEYS_DIR /root/.config/borg borg locale )
+
+[[ -f "$BORGBACKUP_PASSPHRASE_FILE" ]] &amp;&amp; \
+   { export BORG_PASSPHRASE="$( cat $BORGBACKUP_PASSPHRASE_FILE )" ; } 2&gt;/dev/$SECRET_OUTPUT_DEV
+
+# Tell borg to use a special SSH key with ssh:
+export BORG_RSH='ssh -i /root/.ssh/id_sa-borg'
+
+# Where is borg located on the backupserver:
+export BORG_REMOTE_PATH='/usr/local/bin/borg'
+
+# For "Warning: The repository at location ... was previously located at ...":
+export BORG_RELOCATED_REPO_ACCESS_IS_OK=yes
+
+# The ReaR rescue image type and location to store
+OUTPUT=ISO
+
+# We need to add a dummy password to avoid lftp asks for a password even when we are using
+# sftp with SSH keys (see issue https://github.com/rear/rear/issues/2824)
+OUTPUT_URL="sftp://${BORGBACKUP_USERNAME}:dummypassword@${BORGBACKUP_HOST}${BORGBACKUP_REPO}"
+
+# When you connect to sa-borg (non-root) user from root, then ~/.lftprc should contain:
+# set sftp:connect-program "ssh -a -x -i /root/.ssh/id_sa-borg"
+COPY_AS_IS+=( /root/.lftprc )
+
+# We need to root SSH keys to access the remote server via password-less ssh
+COPY_AS_IS+=( '/root/.ssh' )
+SSH_FILES="yes"
+SSH_UNPROTECTED_PRIVATE_KEYS=true
+
+# Use the same IP address(es) of the this system to be activated in the rescue OS
+USE_STATIC_NETWORKING="y"
+
+# To be able to login via ssh
+{ SSH_ROOT_PASSWORD="relax" ; } 2&gt;/dev/$SECRET_OUTPUT_DEV
+
+# To save space limit what we need within rescue image (no firmware and only the loaded kernel modules)
+FIRMWARE_FILES=( )
+MODULES=( 'loaded_modules' )
+
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="10"
+
+BACKUP_PROG_EXCLUDE+=( '/apps/*' '/datapool/*' )
+</code></pre>
+<h3 id="key_configuration_variables">Key configuration variables<a class="headerlink" href="#key_configuration_variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BORGBACKUP_USERNAME</code></td>
+<td>Username on the Borg backup server</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_HOST</code></td>
+<td>Hostname or IP address of the Borg backup server</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_REPO</code></td>
+<td>Path to the Borg repository on the backup server</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PORT</code></td>
+<td>SSH port to use when connecting to the backup server (default: 22)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PASSPHRASE_FILE</code></td>
+<td>Path to a file containing the repository passphrase</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_EXCLUDE_FILE</code></td>
+<td>Path to a file listing paths to exclude from the Borg backup</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_COMPRESSION</code></td>
+<td>Compression algorithm to use (e.g. <code>lz4</code>, <code>zstd</code>, <code>none</code>)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_ENC_TYPE</code></td>
+<td>Encryption mode: <code>repokey</code>, <code>keyfile</code>, or <code>none</code></td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_ARCHIVE_PREFIX</code></td>
+<td>Prefix for Borg archive names (defaults to hostname)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_TIMESTAMP</code></td>
+<td>Timestamp appended to the archive name</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_CREATE_SHOW_STATS</code></td>
+<td>Show backup statistics after creation (<code>true</code>/<code>false</code>)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_CREATE_SHOW_PROGRESS</code></td>
+<td>Show progress during backup creation (<code>true</code>/<code>false</code>)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_IGNORE_WARNING</code></td>
+<td>Suppress non-fatal Borg warnings (<code>true</code>/<code>false</code>)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_KEEP_HOURLY</code></td>
+<td>Number of hourly archives to keep during pruning</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_KEEP_DAILY</code></td>
+<td>Number of daily archives to keep during pruning</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_KEEP_WEEKLY</code></td>
+<td>Number of weekly archives to keep during pruning</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_KEEP_MONTHLY</code></td>
+<td>Number of monthly archives to keep during pruning</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_KEEP_YEARLY</code></td>
+<td>Number of yearly archives to keep during pruning</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_SHOW_RC</code></td>
+<td>Show return code of prune operation (<code>"yes"</code>/<code>"no"</code>)</td>
+</tr>
+<tr>
+<td><code>BORGBACKUP_PRUNE_SHOW_LIST</code></td>
+<td>Show list of pruned archives (<code>"yes"</code>/<code>"no"</code>)</td>
+</tr>
+<tr>
+<td><code>COPY_AS_IS_BORG</code></td>
+<td>Extra files/directories to copy into the rescue image for Borg</td>
+</tr>
+<tr>
+<td><code>BORG_RSH</code></td>
+<td>SSH command used by Borg (useful for specifying a custom SSH key)</td>
+</tr>
+<tr>
+<td><code>BORG_REMOTE_PATH</code></td>
+<td>Path to the <code>borg</code> binary on the backup server</td>
+</tr>
+<tr>
+<td><code>BORG_RELOCATED_REPO_ACCESS_IS_OK</code></td>
+<td>Suppress warnings when a repository has been moved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes_on_output_url_and_lftp">Notes on OUTPUT_URL and lftp<a class="headerlink" href="#notes_on_output_url_and_lftp" title="Permanent link">&para;</a></h3>
+<p>When using SFTP to transfer the rescue ISO, ReaR uses <code>lftp</code> under the hood. Even when using SSH keys for authentication, <code>lftp</code> may prompt for a password. To work around this (see <a href="https://github.com/rear/rear/issues/2824">issue #2824</a>), add a dummy password to the <code>OUTPUT_URL</code>:</p>
+<pre><code>OUTPUT_URL="sftp://${BORGBACKUP_USERNAME}:dummypassword@${BORGBACKUP_HOST}${BORGBACKUP_REPO}"
+</code></pre>
+<p>Additionally, configure lftp to use the correct SSH key by creating <code>/root/.lftprc</code>:</p>
+<pre><code>set sftp:connect-program "ssh -a -x -i /root/.ssh/id_sa-borg"
+</code></pre>
+<p>And include the file in the rescue image:</p>
+<pre><code>COPY_AS_IS+=( /root/.lftprc )
+</code></pre>
+<h2 id="running_rear_mkbackup">Running ReaR mkbackup<a class="headerlink" href="#running_rear_mkbackup" title="Permanent link">&para;</a></h2>
+<p>To create the rescue image and run the Borg backup:</p>
+<pre><code># rear -v mkbackup
+</code></pre>
+<h2 id="recovering_using_rear_and_borgbackup">Recovering using ReaR and BorgBackup<a class="headerlink" href="#recovering_using_rear_and_borgbackup" title="Permanent link">&para;</a></h2>
+<p>Boot the system from the ReaR rescue ISO. Once in the rescue environment, run:</p>
+<pre><code># rear -v recover
+</code></pre>
+<p>ReaR will restore the disk layout and then use Borg to restore the files from the latest archive in the repository.</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://www.borgbackup.org/">BorgBackup home page</a></p>
+</li>
+<li>
+<p><a href="https://borgbackup.readthedocs.io/en/stable/">BorgBackup documentation</a></p>
+</li>
+<li>
+<p><a href="https://github.com/borgbackup/borg">BorgBackup GitHub repository</a></p>
+</li>
+<li>
+<p><a href="https://github.com/rear/rear/issues/2824">ReaR issue #2824 - lftp dummy password workaround</a></p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development/github-pr.html" class="btn btn-neutral float-right" title="Make a pull request with GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="duplicity.html" class="btn btn-neutral" title="External Backup using duplicity"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=scenarios/borg.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+      <span><a href="duplicity.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../development/github-pr.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
