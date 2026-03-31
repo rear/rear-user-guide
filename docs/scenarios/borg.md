@@ -77,7 +77,7 @@ Create or edit `/etc/rear/local.conf` with the following content. This example u
     # borg needs some extra LIBS not automatically found:
     LIBS+=( /usr/lib/x86_64-linux-gnu/lib*.so* /lib64/lib*.so* )
     BORGBACKUP_USERNAME="sa-borg"
-    BORGBACKUP_HOST="213.227.136.130"
+    BORGBACKUP_HOST="192.168.1.1"
     BORGBACKUP_REPO="/datapool/backups/borgbackup/systems/${HOSTNAME}"
     BORGBACKUP_PORT=22
     BORGBACKUP_TIMESTAMP="$(date +%Y-%m-%dT%H:%M:%S)"
