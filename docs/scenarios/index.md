@@ -17,3 +17,5 @@ In this chapter will be go over some simple and more complex examples used with 
 * [External Backup using restic](restic.md)
 
 * [External Backup using duplicity](duplicity.md)
+
+* [External Backup using BorgBackup](borg.md)
