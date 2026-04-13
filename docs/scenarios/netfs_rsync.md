@@ -25,6 +25,18 @@ to a NFS server. A simple `/etc/rear/local.conf` configuration file could like l
     PROGRESS_MODE="plain"
     PROGRESS_WAIT_SECONDS="10"
 
+## Key settings explained
+
+- `BACKUP=NETFS`: Selects the NETFS backup method, which mounts a network share (NFS, CIFS, USB, or other protocol defined by `BACKUP_URL`) and stores the backup directly on it.
+- `BACKUP_URL`: The URL of the backup destination. In this example an NFS share is used (`nfs://`); the NETFS method also accepts `cifs://`, `smb://`, and other URL schemes.
+- `BACKUP_PROG=rsync`: Selects `rsync` as the backup program instead of the default `tar`. The backup is stored as a mirrored directory tree rather than a compressed archive file, which makes incremental updates with `rear mkbackuponly` very efficient.
+- `USE_STATIC_NETWORKING="y"`: Configures the rescue system to bring up the same static IP address(es) as the original system instead of relying on DHCP.
+- `SSH_ROOT_PASSWORD="relax"`: Sets the root password in the rescue image, allowing you to log in via SSH during recovery.
+- `FIRMWARE_FILES=( 'no' )`: Skips copying firmware files into the rescue image, reducing its size.
+- `MODULES=( 'loaded_modules' )`: Includes only the kernel modules that are currently loaded on the system, keeping the rescue image smaller.
+- `PROGRESS_MODE="plain"`: Displays backup progress as plain text output, suitable for non-interactive terminals or log files.
+- `PROGRESS_WAIT_SECONDS="10"`: Interval in seconds between progress updates during the backup run.
+
 To use `rsync` as backup program we need to add `BACKUP_PROG=rsync` to our configuration file.
 
 Remember, when `OUTPUT` is not explicit mentioned then by default it will be set to `ISO`.
