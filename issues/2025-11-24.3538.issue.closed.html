@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3538 Issue closed: rear recover on SLES15 SP5: BUILD_DIR/outputfs not empty or umounted - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3538 Issue closed: rear recover on SLES15 SP5: BUILD_DIR/outputfs not empty or umounted";
+        var mkdocs_page_input_path = "issues/2025-11-24.3538.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3538 Issue closed: rear recover on SLES15 SP5: BUILD_DIR/outputfs not empty or umounted</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3538_issue_closed_rear_recover_on_sles15_sp5_build_diroutputfs_not_empty_or_umounted"><a href="https://github.com/rear/rear/issues/3538">#3538 Issue</a> <code>closed</code>: rear recover on SLES15 SP5: BUILD_DIR/outputfs not empty or umounted<a class="headerlink" href="#3538_issue_closed_rear_recover_on_sles15_sp5_build_diroutputfs_not_empty_or_umounted" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>fixed / solved / done</code></p>
+<h4 id="guzguz68_opened_issue_at_2025-11-24_1919"><img src="https://avatars.githubusercontent.com/u/245938922?v=4" width="50"><a href="https://github.com/guzguz68">guzguz68</a> opened issue at <a href="https://github.com/rear/rear/issues/3538">2025-11-24 19:19</a>:<a class="headerlink" href="#guzguz68_opened_issue_at_2025-11-24_1919" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.7 / 2022-07-13</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p><img width="825" height="698" alt="Image" src="https://github.com/user-attachments/assets/5abcbd38-5793-4533-932d-d1cd007c3545" /></p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>SLES 15 SP 5</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><img width="817" height="148" alt="Image" src="https://github.com/user-attachments/assets/27288b06-a36d-4ce1-85ae-c9088b344cf3" /></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p>rear recover</p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/user-attachments/files/23730400/rear-TSM.log">rear-TSM.log</a></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><img width="825" height="698" alt="Image" src="https://github.com/user-attachments/assets/3d5db609-e30d-4292-bda8-22938fb8a84d" /></p>
+<h4 id="jsmeix_commented_at_2025-11-25_0909"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3538#issuecomment-3574575476">2025-11-25 09:09</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-11-25_0909" title="Permanent link">&para;</a></h4>
+<p>@guzguz68<br />
+we need full ReaR debug info to be able to see<br />
+what went wrong in your particular case.</p>
+<p>So you need to run "rear recover" in debugscript mode<br />
+for full ReaR debug info i.e. "rear -D recover"<br />
+as the messages told you to do.</p>
+<p>Then provide us your "rear -D recover" log file.</p>
+<p>Caution with possible secrets in a ReaR log file.<br />
+In particular in debugscript mode via '-D'<br />
+ReaR logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed.<br />
+So in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.<br />
+So before you attach your debug log file or other files here<br />
+(GitHub is a public accessible place), inspect your files<br />
+and verify that they do not accidentally cointain secrets.</p>
+<p>FYI:</p>
+<p>(1)<br />
+First my generic "boilerplate"<br />
+regarding third-party backup tools:</p>
+<p>Usually we at ReaR upstream do not have or use<br />
+third-party backup tools so usually we cannot<br />
+reproduce issues with third-party backup tools<br />
+(in particular not if a third-party backup tool<br />
+is proprietary software).</p>
+<p>In case of issues with third-party backup tools<br />
+we at ReaR upstream can usually do nothing<br />
+but totally depend on contributions and help<br />
+from those specific users who use and know<br />
+about each specific third-party backup tool.</p>
+<p>(2)<br />
+In general regarding SUSE support for ReaR<br />
+see</p>
+<p><a href="https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover">https://en.opensuse.org/SDB:Disaster_Recovery#SUSE_support_for_Relax-and-Recover</a></p>
+<p>Normally SUSE provides ReaR only via the<br />
+SUSE Linux Enterprise High Availability Extension (SLE-HA)<br />
+which is the only SUSE product/extension<br />
+where SUSE officially supports ReaR.<br />
+What matters in the end is what your particular<br />
+SUSE support contract states.<br />
+When you have a SUSE support contract<br />
+it cannot be wrong to open a ticket at SUSE.<br />
+In the worst case you get notified that ReaR is not<br />
+supported with your current support contract.</p>
+<h4 id="jsmeix_commented_at_2025-11-25_0914"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3538#issuecomment-3574595564">2025-11-25 09:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-11-25_0914" title="Permanent link">&para;</a></h4>
+<p>@guzguz68<br />
+I think I misinterpreted "TSM" in your screenshots<br />
+that you use BACKUP=TSM because your<br />
+<a href="https://github.com/user-attachments/files/23730400/rear-TSM.log">https://github.com/user-attachments/files/23730400/rear-TSM.log</a><br />
+shows</p>
+<pre><code>2025-11-24 19:28:11.039776827 Including restore/NETFS/default/400_restore_backup.sh
+2025-11-24 19:28:11.047359492 Restoring from '/mnt/REAR/TSM/backup.tar.gz' ...
+</code></pre>
+<p>so actually you use the default BACKUP=NETFS with 'tar'<br />
+and then my above generic "boilerplate" regarding<br />
+third-party backup tools does not apply here.</p>
+<h4 id="guzguz68_commented_at_2025-11-25_0935"><img src="https://avatars.githubusercontent.com/u/245938922?v=4" width="50"><a href="https://github.com/guzguz68">guzguz68</a> commented at <a href="https://github.com/rear/rear/issues/3538#issuecomment-3574677309">2025-11-25 09:35</a>:<a class="headerlink" href="#guzguz68_commented_at_2025-11-25_0935" title="Permanent link">&para;</a></h4>
+<p>Hello jsmeix,</p>
+<p>At the end restored system boot whitout any issue.<br />
+Source system used for source cloning (test) operation is a TSM server
+but as you noticed the backup tool used was tar :-) .<br />
+Test has been completed on a virtual environment (Virtula Box) to
+evaluate the feasability on physical (production) TSM Server system.<br />
+I'll check the subscription state with SUSE (SLES 15).<br />
+Thank you for all provided info. Closing the issue.</p>
+<h4 id="jsmeix_commented_at_2025-11-25_1029"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3538#issuecomment-3574927664">2025-11-25 10:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-11-25_1029" title="Permanent link">&para;</a></h4>
+<p>@guzguz68</p>
+<p>we had some of those kind of issues in the past.</p>
+<p>Yes, normally you can ignore the issue<br />
+and simply reboot your recreated system<br />
+because the actual recovery worked without error<br />
+when the message <code>Finished 'recover'</code> is shown.</p>
+<p>What only failed is the cleanup work at the end<br />
+e.g. umount things in BUILD_DIR/outputfs and so on.<br />
+With "rear -D recover" the reason why that failed<br />
+should be visible in the ReaR debug log file.</p>
+<p>Perhaps the specific reason why it fails in your case<br />
+is already fixed in our latest ReaR 2.9 release<br />
+or in our current ReaR upstream GitHub master code<br />
+so you may try out if a newer ReaR works better.<br />
+See the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can have several ReaR versions in parallel<br />
+each one in its own separated directory<br />
+without conflicts between each other<br />
+and without conflicts with a normally installed<br />
+ReaR version via RPM package.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-11-24.3538.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3573 Issue closed: rsyslog.service fails to start - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3573 Issue closed: rsyslog.service fails to start";
+        var mkdocs_page_input_path = "issues/2026-02-26.3573.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3573 Issue closed: rsyslog.service fails to start</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3573_issue_closed_rsyslogservice_fails_to_start"><a href="https://github.com/rear/rear/issues/3573">#3573 Issue</a> <code>closed</code>: rsyslog.service fails to start<a class="headerlink" href="#3573_issue_closed_rsyslogservice_fails_to_start" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="gdha_opened_issue_at_2026-02-26_1228"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> opened issue at <a href="https://github.com/rear/rear/issues/3573">2026-02-26 12:28</a>:<a class="headerlink" href="#gdha_opened_issue_at_2026-02-26_1228" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>v2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Seems that since quite a while the rsyslogd cannot start anymore on more
+recent Ubuntu (maybe also Debian) distros.</p>
+<pre><code>RESCUE ubuntu24:/var/lib/rear/layout # systemctl status rsyslog
+× rsyslog.service - Relax-and-Recover run-syslog script
+     Loaded: loaded (/usr/lib/systemd/system/rsyslog.service; static)
+     Active: failed (Result: exit-code) since Thu 2026-02-26 10:17:44 UTC; 1h 59min ago
+   Duration: 5ms
+TriggeredBy: × syslog.socket
+    Process: 907 ExecStart=/etc/scripts/run-syslog (code=exited, status=1/FAILURE)
+   Main PID: 907 (code=exited, status=1/FAILURE)
+        CPU: 5ms
+
+RESCUE ubuntu24:~ # bash -x /etc/scripts/run-syslog
++ type -p rsyslogd
++ exec rsyslogd -n -i /var/run/rsyslogd.pid -f /etc/rsyslog.conf
+rsyslog internal message (3,-2066): could not load module 'lmnet', errors: trying to load module /usr/lib/x86_64-linux-gnu/rsyslog/lmnet.so: /usr/lib/x86_64-linux-gnu/rsyslog/lmnet.so: cannot open shared object file: No such file or directory [v8.2312.0 try https://www.rsyslog.com/e/2066 ]
+Error during class init for object 'conf' - failing...
+rsyslogd initialization failed - global classes could not be initialized.
+Did you do a "make install"?
+Suggested action: run rsyslogd with -d -n options to see what exactly fails.
+rsyslogd: run failed with error -2066 (see rsyslog.h or try https://www.rsyslog.com/e/2066 to learn what that number means)
+</code></pre>
+<ul>
+<li>Seems on Ubuntu 24 the path is /lib/x86_64-linux-gnu/rsyslog/ (we
+    should add this to the <code>LIBS</code> array I guess):</li>
+</ul>
+<!-- -->
+
+<pre><code>$ ls /lib/x86_64-linux-gnu/rsyslog/
+fmhash.so     imklog.so  impstats.so  imudp.so     lmnetstrms.so  lmtcpclt.so  lmzstdw.so     mmfields.so      mmrm1stspace.so  omjournal.so  omuxsock.so            pmcisconames.so
+imfile.so     imkmsg.so  imptcp.so    imuxsock.so  lmnsd_ptcp.so  lmtcpsrv.so  mmanon.so      mmjsonparse.so   mmsequence.so    ommail.so     pmaixforwardedfrom.so  pmlastmsg.so
+imjournal.so  immark.so  imtcp.so     lmnet.so     lmregexp.so    lmzlibw.so   mmexternal.so  mmpstrucdata.so  mmutf8fix.so     omprog.so     pmciscoios.so          pmsnare.so
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Ubuntu 24</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>BORG</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>$ lsblk -ipo NAME,KNAME,PKNAME,TRAN,TYPE,FSTYPE,LABEL,SIZE,MOUNTPOINT
+NAME        KNAME     PKNAME   TRAN   TYPE FSTYPE     LABEL      SIZE MOUNT
+/dev/sr0    /dev/sr0           sata   rom  iso9660    REAR-ISO 770.4M 
+/dev/vda    /dev/vda           virtio disk                        10G 
+|-/dev/vda1 /dev/vda1 /dev/vda virtio part                         1M 
+|-/dev/vda2 /dev/vda2 /dev/vda virtio part ext4                    1G /tmp
+|-/dev/vda3 /dev/vda3 /dev/vda virtio part ext4                    1G /boot
+`-/dev/vda4 /dev/vda4 /dev/vda virtio part ext4                    8G /
+/dev/vdb    /dev/vdb           virtio disk                         2G 
+|-/dev/vdb1 /dev/vdb1 /dev/vdb virtio part zfs_member datapool     2G 
+`-/dev/vdb9 /dev/vdb9 /dev/vdb virtio part                         8M 
+/dev/vdc    /dev/vdc           virtio disk                         2G 
+|-/dev/vdc1 /dev/vdc1 /dev/vdc virtio part zfs_member datapool     2G 
+`-/dev/vdc9 /dev/vdc9 /dev/vdc virtio part                         8M 
+/dev/vdd    /dev/vdd           virtio disk                         2G 
+|-/dev/vdd1 /dev/vdd1 /dev/vdd virtio part zfs_member datapool     2G 
+`-/dev/vdd9 /dev/vdd9 /dev/vdd virtio part                         8M 
+/dev/vde    /dev/vde           virtio disk                         2G 
+|-/dev/vde1 /dev/vde1 /dev/vde virtio part zfs_member datapool     2G 
+`-/dev/vde9 /dev/vde9 /dev/vde virtio part                         8M 
+/dev/vdf    /dev/vdf           virtio disk                         2G 
+|-/dev/vdf1 /dev/vdf1 /dev/vdf virtio part zfs_member datapool     2G 
+`-/dev/vdf9 /dev/vdf9 /dev/vdf virtio part                         8M 
+/dev/vdg    /dev/vdg           virtio disk                         2G 
+|-/dev/vdg1 /dev/vdg1 /dev/vdg virtio part zfs_member datapool     2G 
+`-/dev/vdg9 /dev/vdg9 /dev/vdg virtio part                         8M
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p>Just boot into RESCUE mode</p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>Add /lib/x86_64-linux-gnu/rsyslog/ to the LIBS array</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="pcahyna_commented_at_2026-02-26_1240"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-3966372688">2026-02-26 12:40</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-26_1240" title="Permanent link">&para;</a></h4>
+<p>I haven't seen this on EL9 nor EL10. I wonder whether it is a "more
+recent distros" issue or something special to your setup?</p>
+<h4 id="gdha_commented_at_2026-02-26_1425"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-3966972615">2026-02-26 14:25</a>:<a class="headerlink" href="#gdha_commented_at_2026-02-26_1425" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>I haven't seen this on EL9 nor EL10. I wonder whether it is a "more
+recent distros" issue or something special to your setup?</p>
+</blockquote>
+<pre><code>LIBS+=(/lib*/libnss_dns* /lib*/libnss_files* /lib/*/libnss_dns* /lib/*/libnss_files* /lib*/libgcc_s* /lib*/libresolv* /usr/lib*/rsyslog/*so
+</code></pre>
+<p>The library modules seem to be loaded, but the rsyslog service was dead.
+I did recheck just now and it was running this time:</p>
+<pre><code>RESCUE alma:~ # systemctl status rsyslog
+● rsyslog.service - Relax-and-Recover run-syslog script
+     Loaded: loaded (/usr/lib/systemd/system/rsyslog.service; static)
+     Active: active (running) since Thu 2026-02-26 15:23:18 CET; 1min 2s ago
+TriggeredBy: ● syslog.socket
+   Main PID: 575 (rsyslogd)
+      Tasks: 4 (limit: 19661)
+     Memory: 1.6M
+        CPU: 18ms
+     CGroup: /system.slice/rsyslog.service
+             └─575 rsyslogd -n -i /var/run/rsyslogd.pid -f /etc/rsyslog.conf
+</code></pre>
+<p>Strange - it fooled me this morning</p>
+<h4 id="gdha_commented_at_2026-02-27_1049"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-3972176281">2026-02-27 10:49</a>:<a class="headerlink" href="#gdha_commented_at_2026-02-27_1049" title="Permanent link">&para;</a></h4>
+<p>I've added:</p>
+<pre><code># On Ubuntu the rsyslog modules are located at /usr/lib/x86_64-linux-gnu/rsyslog/ (issue #3573)
+LIBS+=( /usr/lib/x86_64-linux-gnu/rsyslog/*.so )
+</code></pre>
+<p>to configuration file <code>/usr/share/rear/conf/Ubuntu.conf</code><br />
+and now we have:</p>
+<pre><code>RESCUE ubuntu24:~ # systemctl status rsyslog
+● rsyslog.service - Relax-and-Recover run-syslog script
+     Loaded: loaded (/usr/lib/systemd/system/rsyslog.service; static)
+     Active: active (running) since Fri 2026-02-27 10:41:17 UTC; 1s ago
+TriggeredBy: ● syslog.socket
+   Main PID: 908 (rsyslogd)
+      Tasks: 3 (limit: 3783)
+     Memory: 912.0K (peak: 1.1M)
+        CPU: 8ms
+     CGroup: /system.slice/rsyslog.service
+             └─908 rsyslogd -n -i /var/run/rsyslogd.pid -f /etc/rsyslog.conf
+</code></pre>
+<p>@rear/contributors Question: is <code>Ubuntu.conf</code> the proper file, or should
+we better use <code>Debian.conf</code> or even <code>GNU/Linux.conf</code> instead?</p>
+<h4 id="gdha_commented_at_2026-03-06_0820"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4010275683">2026-03-06 08:20</a>:<a class="headerlink" href="#gdha_commented_at_2026-03-06_0820" title="Permanent link">&para;</a></h4>
+<p>As this issue is isolated to Debian-alike OSes we will use <code>Debian.conf</code>
+to add the missing LIBS.</p>
+<h4 id="jsmeix_commented_at_2026-03-06_0921"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4010570904">2026-03-06 09:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-06_0921" title="Permanent link">&para;</a></h4>
+<p>Only FYI a general note regarding<br />
+whether or not a distribution specific file<br />
+or a general file (e.g. Linux.conf) should be used:</p>
+<p>See the question<br />
+<a href="https://github.com/rear/rear/pull/3575#issuecomment-3973688452">https://github.com/rear/rear/pull/3575#issuecomment-3973688452</a><br />
+and my reasoning<br />
+<a href="https://github.com/rear/rear/pull/3575#issuecomment-3982901817">https://github.com/rear/rear/pull/3575#issuecomment-3982901817</a></p>
+<p>In particular regarding LIBS:</p>
+<p>I tested how <code>rear mkrescue</code> behaves with</p>
+<pre><code>LIBS+=( /usr/lib/x86_64-linux-gnu/rsyslog/*.so )
+</code></pre>
+<p>on my openSUSE Leap 15.6 system where no such file exists:<br />
+It gets silently ignored.<br />
+I assume this is because of <code>shopt -s nullglob ...</code> in sbin/rear<br />
+because in contrast with</p>
+<pre><code>LIBS+=( /usr/lib/QQQ.so )
+</code></pre>
+<p>I get during <code>rear mkrescue</code></p>
+<pre><code>Failed to copy '/usr/lib/QQQ.so'
+</code></pre>
+<p>So it should be reasonably fail-safe to have</p>
+<pre><code>LIBS+=( /usr/lib/x86_64-linux-gnu/rsyslog/*.so )
+</code></pre>
+<p>in Linux.conf (this does not mean that I recommend<br />
+to have it there - it only means it should be OK there).</p>
+<p>If distribution specific stuff is in a general file<br />
+a comment should explain the reason behind, cf.<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why">https://github.com/rear/rear/wiki/Coding-Style#code-must-be-easy-to-understand-answer-the-why</a><br />
+e.g. see<br />
+<a href="https://github.com/rear/rear/pull/3575/changes">https://github.com/rear/rear/pull/3575/changes</a></p>
+<h4 id="jsmeix_commented_at_2026-03-06_0939"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4010663992">2026-03-06 09:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-06_0939" title="Permanent link">&para;</a></h4>
+<p>Another side note regarding<br />
+"what is a bug":</p>
+<p>I think it is no bug in ReaR when ReaR fails<br />
+on new systems where things are different, cf.<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+(excerpt)</p>
+<pre><code>For any kind of innovation that belongs to the basic system
+(e.g. kernel, storage, bootloader, init)
+the new kind (e.g. ...) will be there first
+and afterwards ReaR can adapt step by step to support it.
+</code></pre>
+<p>see also<br />
+<a href="https://github.com/rear/rear/issues/3566#issuecomment-3972039991">https://github.com/rear/rear/issues/3566#issuecomment-3972039991</a></p>
+<p>In<br />
+<a href="https://github.com/rear/rear/labels">https://github.com/rear/rear/labels</a><br />
+I described a "bug" as</p>
+<pre><code>The code does not do what it is meant to do
+</code></pre>
+<p>From "what it is meant to do" follows<br />
+that existing code cannot be meant<br />
+"to work on new systems where things are different"<br />
+because noone can predict how things become different<br />
+so existing code that fails when things are different<br />
+cannot be a bug in the existing code.</p>
+<p>I personally consider it as important to distinguish<br />
+between<br />
+a "bug" where the reason is our fault<br />
+so others can (to some reasonable extent)<br />
+expect from us that we fix our fault<br />
+and<br />
+an "enhancement" where the reason is not our fault<br />
+so others can not "simply expect" from us<br />
+that we "just enhance" things for their needs.</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1043"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4010971480">2026-03-06 10:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1043" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I generally agree with what you wrote, but let's take a step
+back and examine why the problem occurs in the first place. Leaving
+aside the (admittedly valid) question whether rsyslog is still needed at
+all (perhaps journald would be enough?), the problem is that rsyslog
+libraries are missing. But why they are missing? In
+<code>usr/share/rear/conf/GNU/Linux.conf</code> we have this:</p>
+<pre><code>LIBS+=(
+(...)
+/usr/lib*/rsyslog/*so
+/lib*/rsyslog/*so
+</code></pre>
+<p>so obviously some thought has been given to include the necessary
+libraries, but they are not at the place where we expect them (either
+<code>/usr/lib*/rsyslog</code> or <code>/lib*/rsyslog</code>), since we need
+<code>LIBS+=( /usr/lib/x86_64-linux-gnu/rsyslog/*.so )</code> - the prefix is a bit
+different. Adding it to ReaR as a fix is obviously not entirely correct,
+because we support other architectures beyond <code>x86_64</code>, right? Let's
+have a look at this entire section of <code>Linux.conf</code>:</p>
+<pre><code># the lib* serves to cover both 32bit and 64bit libraries!
+#
+LIBS+=(
+
+### needed for username lookups
+/lib*/libnss_dns*
+/lib*/libnss_files*
+### support multiarch
+/lib/*/libnss_dns*
+/lib/*/libnss_files*
+
+/lib*/libgcc_s*
+/lib*/libresolv*
+/usr/lib*/rsyslog/*so
+/lib*/rsyslog/*so
+# Only copy *.so files in /usr/lib*/syslog-ng/ and skip /usr/lib*/syslog-ng/logg
+en/
+# because the loggen program is not included in the recovery system
+# see https://github.com/rear/rear/issues/2743
+/usr/lib*/syslog-ng/*so
+
+### needed for curl HTTPS
+/lib*/libnsspem.so*
+/usr/lib*/libnsspem.so*
+/lib*/libfreebl*.so*
+/usr/lib*/libfreebl*.so*
+/lib*/libnss3.so*
+/usr/lib*/libnss3.so*
+/lib*/libnssutil3.so*
+/usr/lib*/libnssutil3.so*
+/lib*/libsoftokn3.so*
+/usr/lib*/libsoftokn3.so*
+/lib*/libsqlite3.so*
+/usr/lib*/libsqlite3.so*
+/lib*/libfreeblpriv3.so*
+/usr/lib*/libfreeblpriv3.so*
+/lib*/libssl.so*
+/usr/lib*/libssl.so*
+/lib*/libnssdbm3.so*
+/usr/lib*/libnssdbm3.so*
+)
+</code></pre>
+<p>So, there is a general pattern of expecting <em>something</em> under either
+<code>/lib*</code> or <code>/usr/lib*</code> and Debian clearly breaks this assumption. Adding
+a new path for rsyslog modules helps only with one particular case and
+we will continue to see the problem again and again for different types
+of libraries/modules.</p>
+<p>I believe that in order to solve all this properly we need to know what
+are the valid library prefixes on a given distro and prepend them to all
+library entries consistently. I am not yet sure how to do this. Perhaps
+the paths could be given in <code>LIBS</code> without the prefix entirely and the
+code that handles <code>LIBS</code> could prepend the relevant prefix(es) itself?
+That would also eliminate the already existing duplication. Note that
+<code>PROGS</code> also does not need absolute paths.</p>
+<p>Not sure though how to get the prefixes in the first place though, the
+list is maintained in <code>/etc/ld.so.conf</code>, but the format is not well
+documented. <code>/sbin/ldconfig -v -X -N</code> prints the information, but it is
+more intended to be human-readable rather than machine-readable.</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1107"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011090497">2026-03-06 11:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1107" title="Permanent link">&para;</a></h4>
+<p>Actually, the part</p>
+<pre><code>### support multiarch
+/lib/*/(...)
+</code></pre>
+<p>was clearly written with the situation like we have on Debian in mind,
+and thus lookups work there. But the same concept was not applied to
+other entries of the <code>LIBS</code> array. What we need is to make it consistent
+somehow.</p>
+<h4 id="jsmeix_commented_at_2026-03-06_1130"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011193257">2026-03-06 11:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-06_1130" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I fully agree with your observation that with current LIBS<br />
+we will see this kind of problem again and again<br />
+and that we must improve and clean up our current mess of<br />
+"ad hoc adding this and that missing bits and pieces"<br />
+and develop a generic consistently working solution.</p>
+<p>But this is a bigger long term task which should<br />
+not be done via this issue but as a separated one,<br />
+cf. <a href="https://github.com/rear/rear/issues/2743">https://github.com/rear/rear/issues/2743</a><br />
+therein see in particular<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1018280042">https://github.com/rear/rear/issues/2743#issuecomment-1018280042</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/2743#issuecomment-1128675464">https://github.com/rear/rear/issues/2743#issuecomment-1128675464</a><br />
+But from that issue I am not too optimistic if and<br />
+until when such a generic cleanup might have been doable.</p>
+<p>My comment was only meant for this issue with our<br />
+current method of "ad hoc adding missing pieces".</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1244"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011545443">2026-03-06 12:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1244" title="Permanent link">&para;</a></h4>
+<p>@jsmeix thank you for the reference, will have a look.</p>
+<p>If the goal is to simply fix the issue at hand, I would say that the
+proposed fix is still too dirty. I think that a simple and a reasonably
+clean solution is to apply the pattern above consistently everywhere,
+i.e. add copies of existing entries with the <code>/lib/*/</code> and <code>/usr/lib/*/</code>
+prefixes.<br />
+It may seem dangerous to expand all the directories <code>/lib</code> and
+<code>/usr/lib</code> this way, but that's what the current <code>/lib/*/</code>... entries
+have been doing for ages without issues.</p>
+<p>I would certainly not use <code>Debian.conf</code> for this, let's keep it in one
+place, just how it is done now.</p>
+<h4 id="jsmeix_commented_at_2026-03-06_1249"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011572353">2026-03-06 12:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-06_1249" title="Permanent link">&para;</a></h4>
+<p>For the log regarding <code>rsyslogd</code>:</p>
+<p>On my openSUSE Leap 15.6 system I get</p>
+<pre><code># ldd /usr/sbin/rsyslogd
+        linux-vdso.so.1 (0x00007ffe71f58000)
+        libz.so.1 =&gt; /usr/lib64/libz.so.1 (0x00007f88b192e000)
+        libm.so.6 =&gt; /lib64/libm.so.6 (0x00007f88b1844000)
+        libestr.so.0 =&gt; /usr/lib64/libestr.so.0 (0x00007f88b1600000)
+        libfastjson.so.4 =&gt; /usr/lib64/libfastjson.so.4 (0x00007f88b1836000)
+        libsystemd.so.0 =&gt; /usr/lib64/libsystemd.so.0 (0x00007f88b14ff000)
+        libuuid.so.1 =&gt; /usr/lib64/libuuid.so.1 (0x00007f88b182e000)
+        libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f88b1200000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f88b1a17000)
+        libcap.so.2 =&gt; /usr/lib64/libcap.so.2 (0x00007f88b1823000)
+        libgcrypt.so.20 =&gt; /usr/lib64/libgcrypt.so.20 (0x00007f88b10bc000)
+        liblz4.so.1 =&gt; /usr/lib64/liblz4.so.1 (0x00007f88b14db000)
+        liblzma.so.5 =&gt; /usr/lib64/liblzma.so.5 (0x00007f88b1494000)
+        libzstd.so.1 =&gt; /usr/lib64/libzstd.so.1 (0x00007f88b0ffd000)
+        libjitterentropy.so.3 =&gt; /usr/lib64/libjitterentropy.so.3 (0x00007f88b1819000)
+        libgpg-error.so.0 =&gt; /usr/lib64/libgpg-error.so.0 (0x00007f88b146e000)
+        libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007f88b1814000)
+</code></pre>
+<p>so /usr/sbin/rsyslogd is not "normally linked"<br />
+to any of its own rsyslog specific libraries which are<br />
+in openSUSE Leap 15.6 located in /usr/lib64/rsyslog/</p>
+<p>The message in the initial description<br />
+<a href="https://github.com/rear/rear/issues/3573#issue-3995250428">https://github.com/rear/rear/issues/3573#issue-3995250428</a><br />
+(long line shown wrapped)</p>
+<pre><code>rsyslogd: run failed with error -2066 (see rsyslog.h or try https://www.rsyslog.com/e/2066 to learn what that number means)
+</code></pre>
+<p>points to<br />
+<a href="https://www.rsyslog.com/?s=error+2066">https://www.rsyslog.com/?s=error+2066</a><br />
+which reads (excerpts)</p>
+<pre><code>rsyslog error 2066
+...
+Module could not be loaded – problem in dlopen().
+
+A problem occurred during dlopen()ing
+a loadable module (e.g. an input or output plugin).
+
+Most common causes for this are
+that the module ... does not exist ...
+</code></pre>
+<p>So the rsyslog specific libraries (i.e. rsyslog loadable modules)<br />
+must be specified via LIBS.</p>
+<p>So simply adding yet another path to rsyslog loadable modules<br />
+in Linux.conf should fix it for now.</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1252"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011585104">2026-03-06 12:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1252" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>So the rsyslog specific libraries (i.e. rsyslog loadable modules) must
+be specified via LIBS.</p>
+<p>So simply adding yet another path to rsyslog loadable modules in
+Linux.conf should fix it for now.</p>
+</blockquote>
+<p>Sure. But please do not add there a path that has <code>x86_64</code> in it.</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1346"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011847419">2026-03-06 13:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1346" title="Permanent link">&para;</a></h4>
+<p>See
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/prep/GNU/Linux/240_include_multipath_tools.sh">https://github.com/rear/rear/blob/master/usr/share/rear/prep/GNU/Linux/240_include_multipath_tools.sh</a>
+<a href="https://github.com/rear/rear/blob/9360982209b62c7c0696e5b7f81462b04c71dc8f/usr/share/rear/prep/GNU/Linux/240_include_multipath_tools.sh#L11">https://github.com/rear/rear/blob/9360982209b62c7c0696e5b7f81462b04c71dc8f/usr/share/rear/prep/GNU/Linux/240_include_multipath_tools.sh#L11</a></p>
+<p>(and a duplicate in
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/280_multipath_layout.sh">https://github.com/rear/rear/blob/master/usr/share/rear/layout/save/GNU/Linux/280_multipath_layout.sh</a>
+) for an example of an ugly-but-generic way to handle library paths :-)</p>
+<h4 id="jsmeix_commented_at_2026-03-06_1353"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4011877983">2026-03-06 13:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-06_1353" title="Permanent link">&para;</a></h4>
+<p>I did a quick<br />
+<a href="https://github.com/rear/rear/pull/3579">https://github.com/rear/rear/pull/3579</a><br />
+for now so you could have a look.</p>
+<p>I wish you all a relaxed and recovering weekend!</p>
+<h4 id="jsmeix_commented_at_2026-03-17_1358"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3573#issuecomment-4075176272">2026-03-17 13:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-17_1358" title="Permanent link">&para;</a></h4>
+<p>With<br />
+<a href="https://github.com/rear/rear/pull/3579">https://github.com/rear/rear/pull/3579</a><br />
+merged this issue should be fixed.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-02-26.3573.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

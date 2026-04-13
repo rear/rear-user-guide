@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3578 Issue open: Default boot entry is not preserved because grubenv is removed during recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3578 Issue open: Default boot entry is not preserved because grubenv is removed during recovery";
+        var mkdocs_page_input_path = "issues/2026-03-05.3578.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3578 Issue open: Default boot entry is not preserved because grubenv is removed during recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3578_issue_open_default_boot_entry_is_not_preserved_because_grubenv_is_removed_during_recovery"><a href="https://github.com/rear/rear/issues/3578">#3578 Issue</a> <code>open</code>: Default boot entry is not preserved because grubenv is removed during recovery<a class="headerlink" href="#3578_issue_open_default_boot_entry_is_not_preserved_because_grubenv_is_removed_during_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code></p>
+<h4 id="svlv_opened_issue_at_2026-03-05_1544"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/issues/3578">2026-03-05 15:44</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-03-05_1544" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Hi!</p>
+<p>I've experienced an issue with missing the saved boot entry after
+recovery on Rocky 9, which was upgraded from version 9.6 to 9.7 . The
+original system uses the latest installed kernel, but after recovery it
+uses the the first boot entry from <code>/boot/loader/entries/*</code> in
+alphabetical order.</p>
+<p><strong>Before recovery</strong></p>
+<ol>
+<li>Current kernel version</li>
+</ol>
+<!-- -->
+
+<pre><code>$ uname -r
+5.14.0-611.34.1.el9_7.x86_64
+</code></pre>
+<ol>
+<li>Default boot entry - it is the latest kernel version on this system</li>
+</ol>
+<!-- -->
+
+<pre><code>$ sudo grubby --info=DEFAULT
+index=2
+kernel="/boot/vmlinuz-5.14.0-611.34.1.el9_7.x86_64"
+args="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 no_timer_check net.ifnames=0 crashkernel=1G-2G:192M,2G-64G:256M,64G-:512M"
+root="UUID=8fac9486-4a35-45c8-9712-9c66ddc261eb"
+initrd="/boot/initramfs-5.14.0-611.34.1.el9_7.x86_64.img"
+title="Rocky Linux (5.14.0-611.34.1.el9_7.x86_64) 9.7 (Blue Onyx)"
+id="5cf83cd1296b4ba88f9fc7e574b990f8-5.14.0-611.34.1.el9_7.x86_64"
+</code></pre>
+<ol>
+<li><code>saved_entry</code> in <code>/boot/grub2/grubenv</code> contains the latest kernel
+    version. It is how it is saved and used by GRUB.</li>
+</ol>
+<!-- -->
+
+<pre><code>$ sudo cat /boot/grub2/grubenv
+# GRUB Environment Block
+# WARNING: Do not edit this file by tools other than grub-editenv!!!
+boot_success=1
+boot_indeterminate=0
+saved_entry=5cf83cd1296b4ba88f9fc7e574b990f8-5.14.0-611.34.1.el9_7.x86_64
+</code></pre>
+<p><strong>After recovery</strong></p>
+<ol>
+<li>Current kernel version has been changed</li>
+</ol>
+<!-- -->
+
+<pre><code>$ uname -r
+5.14.0-570.17.1.el9_6.x86_64
+</code></pre>
+<ol>
+<li>The default boot entry has been changed. Now, it is just the first
+    boot entry</li>
+</ol>
+<!-- -->
+
+<pre><code>$ sudo grubby --info=DEFAULT
+index=0
+kernel="/boot/vmlinuz-5.14.0-570.17.1.el9_6.x86_64"
+args="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 no_timer_check net.ifnames=0 crashkernel=1G-2G:192M,2G-64G:256M,64G-:512M"
+root="UUID=8fac9486-4a35-45c8-9712-9c66ddc261eb"
+initrd="/boot/initramfs-5.14.0-570.17.1.el9_6.x86_64.img"
+title="Rocky Linux (5.14.0-570.17.1.el9_6.x86_64) 9.6 (Blue Onyx)"
+id="26599199cb4a4d3db754be754593c5b0-5.14.0-570.17.1.el9_6.x86_64"
+</code></pre>
+<ol>
+<li>The root cause - <code>saved_entry</code> is no longer set in
+    <code>/boot/grub2/grubenv</code></li>
+</ol>
+<!-- -->
+
+<pre><code>$ sudo cat /boot/grub2/grubenv
+# GRUB Environment Block
+# WARNING: Do not edit this file by tools other than grub-editenv!!!
+boot_indeterminate=2
+boot_success=1
+</code></pre>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Rocky Linux 9.7</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>Set <code>BACKUP_RESTORE_MOVE_AWAY_FILES=( )</code> in <code>local.conf</code></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>Likely all systems using <code>saved_entry</code> in <code>grubenv</code> are affected.<br />
+However, systems that use <code>grubenv</code> from <code>/boot/efi/EFI/*/grubenv</code> are
+safe.</p>
+<h4 id="svlv_commented_at_2026-03-05_1558"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4006090869">2026-03-05 15:58</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-05_1558" title="Permanent link">&para;</a></h4>
+<p>In <a href="https://github.com/rear/rear/issues/1828">https://github.com/rear/rear/issues/1828</a>, @jsmeix explained the
+reason why <code>/boot/grub2/grubenv</code> must be removed.<br />
+I suggest do not removing <code>/boot/grub2/grubenv</code> by default, but unset
+all variables except for <code>default</code> and <code>saved_entry</code>.</p>
+<p>E.g. <code>grub2-editenv /boot/grub2/grubenv unset env_block</code> - can be used
+to unset variable and <code>grub2-editenv list</code> to list all variables.</p>
+<p>I've been preparing the patch for that. But what do you think about
+that, is it worth creating a PR?</p>
+<h4 id="pcahyna_commented_at_2026-03-05_1827"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4006882272">2026-03-05 18:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-05_1827" title="Permanent link">&para;</a></h4>
+<p>@svlv thanks for looking into this. I also need a look at this, because
+we had more similar bug reports. The challenge has been, IIRC, how to
+regenerate GRUB configuration properly on different versions (at least
+RHEL versions). Will have a deeper look tomorrow.</p>
+<h4 id="svlv_commented_at_2026-03-06_0717"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4010030365">2026-03-06 07:17</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-06_0717" title="Permanent link">&para;</a></h4>
+<p>Why <code>grub-mkconfig</code> isn't run on EFI systems?</p>
+<p>What I see, now <code>grub-mkconfig</code> is not run on EFI systems in
+usr/share/rear/finalize/Linux-i386/660_install_grub2.sh because the
+script finishes before that. There is no need to run <code>grub-install</code> on
+EFI systems, but <code>grub-mkconfig</code> should be probably run there or not?</p>
+<h4 id="pcahyna_commented_at_2026-03-06_1926"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4013636518">2026-03-06 19:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-06_1926" title="Permanent link">&para;</a></h4>
+<p>@svlv my understanding is that indeed <code>grub-mkconfig</code> is entirely
+independent of <code>grub-install</code> and therefore the decision of whether to
+run does not depend on the firmware type at all. This is related to the
+reason why I did not like GRUB2-BLS as a bootloader type: it expresses
+the style of GRUB configuration, not installation (unlike other
+bootloader types).</p>
+<h4 id="svlv_commented_at_2026-03-09_0931"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4022382253">2026-03-09 09:31</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-09_0931" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I've tried to reproduce the error: <code>invalid environment block</code> when
+<code>grubenv</code> is preserved on SLES 15, but everything was OK. No issue after
+recovery. The issue with <code>grubenv</code> is mentioned here -
+<a href="https://github.com/rear/rear/issues/1828#issuecomment-399031356">https://github.com/rear/rear/issues/1828#issuecomment-399031356</a>.</p>
+<p>Is there an additional condition to reproduce it or it is not relevant
+any more?</p>
+<p>My configuration:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=nfs://192.168.0.3/backup
+BACKUP_RESTORE_MOVE_AWAY_FILES=( )
+</code></pre>
+<p>Arch - x86_64, distro - SLES 15, Firmware - BIOS, VM is running in
+VMware</p>
+<h4 id="pcahyna_commented_at_2026-03-09_1109"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4022975327">2026-03-09 11:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-09_1109" title="Permanent link">&para;</a></h4>
+<p>@svlv sorry for the delay. I checked my notes and I would also like to
+avoid removing <code>grubenv</code>, its removal causes other issues beyond what
+you saw. Will provide further details.</p>
+<h4 id="jsmeix_commented_at_2026-03-09_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023448031">2026-03-09 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1235" title="Permanent link">&para;</a></h4>
+<p>I think my reasoning in<br />
+<a href="https://github.com/rear/rear/issues/1828#issuecomment-399050741">https://github.com/rear/rear/issues/1828#issuecomment-399050741</a><br />
+is valid - if not please explain and correct me.<br />
+Therefore I don't like to keep a file which is meaningless<br />
+on a system which is (re)-created anew from scratch.</p>
+<p>I think the right way is to configure the default boot entry<br />
+anew from scratch, e.g. by using <code>grub-set-default</code> as<br />
+<a href="https://www.gnu.org/software/grub/manual/grub/html_node/saved_005fentry.html">https://www.gnu.org/software/grub/manual/grub/html_node/saved_005fentry.html</a><br />
+tells.</p>
+<p>So it is a valid issue that<br />
+"Default boot entry is not preserved"<br />
+but I think the reason why<br />
+"because grubenv is removed during recovery"<br />
+is not right because I think grubenv is not the right way<br />
+how to recreate the default boot entry.</p>
+<p>Think about a system which had two boot entries<br />
+"THIS" and "THAT" and "THAT" was the default boot entry<br />
+but during "rear recover" only "THIS" gets recreated<br />
+(for whatever reason).<br />
+Then <code>saved_entry=THAT</code> in grubenv is wrong<br />
+which could lead to whatever inexplicable or misleading<br />
+error messages when booting the recreated system,<br />
+e.g. of same kind as what I experienced<br />
+with <code>error: invalid environment block.</code> in<br />
+<a href="https://github.com/rear/rear/issues/1828">https://github.com/rear/rear/issues/1828</a><br />
+starting at<br />
+<a href="https://github.com/rear/rear/issues/1828#issuecomment-398717889">https://github.com/rear/rear/issues/1828#issuecomment-398717889</a></p>
+<p>I think ReaR should be properly enhanced to<br />
+remember the default boot entry of the original system and<br />
+try to reinstall that on the recreated system if possible.</p>
+<h4 id="jsmeix_commented_at_2026-03-09_1249"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023526215">2026-03-09 12:49</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1249" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+when a user knows that keeping grubenv in the recreated system<br />
+is OK in his specific case, then something like</p>
+<pre><code>BACKUP_RESTORE_MOVE_AWAY_FILES=( )
+</code></pre>
+<p>is the currently intended method.</p>
+<p>I think this issue is no bug because<br />
+the code does what it is meant to do and<br />
+that is properly documented in default.conf</p>
+<h4 id="svlv_commented_at_2026-03-09_1254"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023551510">2026-03-09 12:54</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-09_1254" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I've tried to reproduce what you experienced on a fresh SLES 15
+but without success.</p>
+<blockquote>
+<p>Think about a system which had two boot entries<br />
+"THIS" and "THAT" and "THAT" was the default boot entry<br />
+but during "rear recover" only "THIS" gets recreated<br />
+(for whatever reason).</p>
+</blockquote>
+<p>I’ve experienced the reverse use case: after removing <code>grubenv</code>, the
+entry that became the default was wrong. It did not have the required
+initrd file.</p>
+<h4 id="jsmeix_commented_at_2026-03-09_1310"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023674654">2026-03-09 13:10</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1310" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+do I understand it correctly what you experienced is:<br />
+GRUB was reinstalled with an entry which did not boot<br />
+(because its initrd file was missing)?</p>
+<p>This looks like a bug related to how ReaR reinstalls GRUB.<br />
+The actual root cause could be how ReaR recreates initrds<br />
+or whether or not all needed initrds were restored from<br />
+the backup or whatever - perhaps even a bug in GRUB?</p>
+<h4 id="svlv_commented_at_2026-03-09_1314"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023708525">2026-03-09 13:14</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-09_1314" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>when a user knows that keeping grubenv in the recreated system<br />
+is OK in his specific case, then something like</p>
+</blockquote>
+<p>Basically, I am trying to understand when it is not OK: only in your
+particular environment or it is something common . Unlikely you
+experienced the issue with <code>saved_entry</code>. The problem could be with
+<code>env_block=512+1</code>.</p>
+<p>You decided to remove <code>grubenv</code> because you experienced the issue.
+Perhaps without the issue, you hadn't touched it at all. Meaning, the
+problem could be misinterpret.</p>
+<h4 id="jsmeix_commented_at_2026-03-09_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023816952">2026-03-09 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1331" title="Permanent link">&para;</a></h4>
+<p>I set BACKUP_RESTORE_MOVE_AWAY_FILES in default.conf<br />
+because of my reasoning that by default grubenv should<br />
+be considered as outdated in the recreated system.</p>
+<p>If my reasoning is wrong please explain why.<br />
+My main point of my reasoning is that</p>
+<pre><code>on a by "rear recover" recreated system
+there is no such thing as a meaningful previous boot
+</code></pre>
+<p>so grubenv is meaningless on the recreated system.<br />
+In more precise wording:</p>
+<pre><code>on a by "rear recover" recreated system
+there is no such thing as a meaningful previous boot
+of that exact system
+</code></pre>
+<p>"The system" was booted before as the original system,<br />
+but ReaR does not make an identical copy of the system<br />
+(as 'dd' of the system's disk partitions could do it)<br />
+so ReaR's recreated system was never booted before.</p>
+<h4 id="svlv_commented_at_2026-03-09_1355"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4023967902">2026-03-09 13:55</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-09_1355" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>do I understand it correctly what you experienced is:<br />
+GRUB was reinstalled with an entry which did not boot<br />
+(because its initrd file was missing)?</p>
+</blockquote>
+<p>Yes, a dangling boot entry became the default one. Of course ReaR can
+inspect entries from <code>/boot/loader/entries</code> and remove dangling ones.
+But I think it is another issue. Howerver without it I probably even
+didn't notice it.</p>
+<blockquote>
+<p>I set BACKUP_RESTORE_MOVE_AWAY_FILES in default.conf<br />
+because of my reasoning that by default grubenv should<br />
+be considered as outdated in the recreated system.</p>
+</blockquote>
+<p>I understand your point of view. I even partially agree with it because
+<code>grubenv</code>, e.g., may contain <code>boot_indeterminate</code>, <code>boot_success</code>,
+<code>boot_once</code> , etc and these variables must be reset during recovery.</p>
+<p>However, my correct understanding that there was the error
+<code>invalid environment block</code>, and this error was fixed by removing the
+<code>grubenv</code> file. No other known reasons, am I right?</p>
+<blockquote>
+<p>If my reasoning is wrong please explain why.</p>
+</blockquote>
+<p>GRUB relies on <code>grubenv</code>. <code>grubenv</code> may contain essential information,
+such as <code>saved_entry</code>, <code>default</code> or <code>kernelopts</code>. It can be considered
+as part of <code>grub.cfg</code>. I guess it shouldn't be simply removed.</p>
+<h4 id="jsmeix_commented_at_2026-03-09_1417"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4024116709">2026-03-09 14:17</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1417" title="Permanent link">&para;</a></h4>
+<p>I experienced that <code>error: invalid environment block.</code><br />
+and this lead me to my understanding at that time<br />
+that grubenv as a whole should be considered<br />
+as outdated in the recreated system<br />
+in particular because its documentation reads</p>
+<pre><code>The GRUB environment block
+
+It is often useful to be able
+to remember a small amount of information
+from one boot to the next.
+</code></pre>
+<p>which I understand as THE reason why grubenv exists.<br />
+So from my point of view grubenv has no reason to exist<br />
+when there was no previous boot.</p>
+<p>That <code>error: invalid environment block.</code> is not the reason<br />
+why I set BACKUP_RESTORE_MOVE_AWAY_FILES in default.conf.<br />
+That <code>error: invalid environment block.</code> only triggered me<br />
+to investigate and find out what grubenv is meant to do.<br />
+What I found out what grubenv is meant to do is the reason<br />
+why I set BACKUP_RESTORE_MOVE_AWAY_FILES in default.conf.</p>
+<p>Now @svlv tells that<br />
+(excerpts)</p>
+<pre><code>GRUB relies on grubenv ... it can be considered
+as part of grub.cfg ... it shouldn't be removed
+</code></pre>
+<p>For me this is new information and it totally changes things.<br />
+When GRUB needs grubenv to work properly then grubenv<br />
+must of course not be removed.</p>
+<p>But perhaps a possibly outdated grubenv from the<br />
+original system is also not a proper solution?<br />
+So a proper solution could be to also recreate<br />
+grubenv which matches the recreated system?</p>
+<p>In general:<br />
+I am not at all a sufficient bootloader expert<br />
+to make educated statements what<br />
+an actually right solution is.</p>
+<h4 id="svlv_commented_at_2026-03-09_1439"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4024264099">2026-03-09 14:39</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-09_1439" title="Permanent link">&para;</a></h4>
+<p>By the way, based on the <a href="https://www.gnu.org/software/grub/manual/grub/html_node/Environment-block.html">Environment
+block</a>
+documentation on Btrfs it works differently:</p>
+<blockquote>
+<p>On Btrfs filesystems, a reserved area in the filesystem header may be
+used to store the environment block. This static block avoids the
+problems of updating a normal file on a copy-on-write filesystem,
+where writing raw block is not stable and requires metadata update.
+The reserved area provides a fixed location that GRUB can update
+directly, allowing commands such as grub-reboot and
+‘GRUB_SAVEDEFAULT’ to function correctly on Btrfs volumes.</p>
+</blockquote>
+<h4 id="jsmeix_commented_at_2026-03-09_1448"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4024320144">2026-03-09 14:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-09_1448" title="Permanent link">&para;</a></h4>
+<p>In general on Btrfs all is always different :-(<br />
+cf. in <a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+the section<br />
+"All filesystems are equal, but some are more equal than others"<br />
+Sigh!</p>
+<h4 id="pcahyna_commented_at_2026-03-09_1835"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4025912872">2026-03-09 18:35</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-09_1835" title="Permanent link">&para;</a></h4>
+<p>I generally agree with</p>
+<blockquote>
+<p>GRUB relies on grubenv. grubenv may contain essential information,
+such as saved_entry, default or <strong>kernelopts</strong> (<em>emphasis mine</em>). It
+can be considered as part of grub.cfg. I guess it shouldn't be simply
+removed.</p>
+</blockquote>
+<p>RHEL 8 has a peculiar behavior when one sets the kernel command line
+options using <code>grubby</code>: <code>grubby</code> sets the options in <code>grubenv</code>. This is
+done so that <code>grubby</code> (or any other tool that needs to alter the kernel
+command line) can avoid modifying the BLS files and they can be
+considered static and part of the kernel packages. See:</p>
+<pre><code># grub2-editenv list
+saved_entry=43718aa8f32748d1bb4f80afb9a1b0ad-4.18.0-553.107.1.el8_10.x86_64
+kernelopts=root=UUID=384a38ac-d639-47a4-9224-ec792d528fb7 ro crashkernel=auto net.ifnames=0 rhgb console=tty0 console=ttyS0,115200n8
+boot_success=0
+
+# fips-mode-setup --enable
+(busy doing various stuff to enable FIPS, among them changing kernel command line ...)
+FIPS mode will be enabled.
+Please reboot the system for the setting to take effect.
+
+# grub2-editenv list
+saved_entry=43718aa8f32748d1bb4f80afb9a1b0ad-4.18.0-553.107.1.el8_10.x86_64
+kernelopts=root=UUID=384a38ac-d639-47a4-9224-ec792d528fb7 ro crashkernel=auto net.ifnames=0 rhgb console=tty0 console=ttyS0,115200n8 fips=1
+boot_success=0
+</code></pre>
+<p>^-- see the appended <code>fips=1</code> to <code>kernelopts</code> above.</p>
+<p>In RHEL 9+ this does not happen anymore, AFAIK, as this apparently neat
+hack was considered too fragile in practice. Still, RHEL 8 is an
+important case to consider and also there are other important info
+(default boot entry is one of them, as we see from this issue).</p>
+<p>@jsmeix</p>
+<blockquote>
+<p>My main point of my reasoning is that</p>
+<pre><code>on a by "rear recover" recreated system
+there is no such thing as a meaningful previous boot
+</code></pre>
+<p>so grubenv is meaningless on the recreated system. In more precise
+wording:</p>
+<pre><code>on a by "rear recover" recreated system
+there is no such thing as a meaningful previous boot
+of that exact system
+</code></pre>
+<p>"The system" was booted before as the original system, but ReaR does
+not make an identical copy of the system (as 'dd' of the system's disk
+partitions could do it) so ReaR's recreated system was never booted
+before.</p>
+</blockquote>
+<p>I would say that ReaR strives to make a copy of the system identical
+enough to make this meaningful - one should expect stuff that depends on
+previous boots to use the previous boot before making the backup.
+(Whether that's feasible is of course another question.)</p>
+<blockquote>
+<p>Think about a system which had two boot entries "THIS" and "THAT" and
+"THAT" was the default boot entry but during "rear recover" only
+"THIS" gets recreated (for whatever reason). Then <code>saved_entry=THAT</code>
+in grubenv is wrong which could lead to whatever inexplicable or
+misleading error messages when booting the recreated system, e.g. of
+same kind as what I experienced in
+<a href="https://github.com/rear/rear/issues/1828">#1828</a> starting at <a href="https://github.com/rear/rear/issues/1828#issuecomment-398717889">#1828
+(comment)</a></p>
+</blockquote>
+<p>I would say that if "THAT" boot entry does not get recreated, it is a
+pretty big issue in ReaR and would need to be fixed in any case. Imagine
+"THAT" boot entry being the only working one - how would the recreated
+system boot? No amount of changes to grubenv would make the system
+bootable.</p>
+<blockquote>
+<p>when a user knows that keeping grubenv in the recreated system is OK
+in his specific case, then something like</p>
+<pre><code>BACKUP_RESTORE_MOVE_AWAY_FILES=( )
+</code></pre>
+<p>is the currently intended method.</p>
+</blockquote>
+<p>I would say that we are in an opposite situation: we (maintainers) know
+that removing grubenv is problematic in some cases, so I would keep it
+by default and when a user knows that removing grubenv in the recreated
+system is needed, they can set
+<code>BACKUP_RESTORE_MOVE_AWAY_FILES+=( /boot/grub2/grubenv )</code>. Appending to
+the variable is cleaner, setting it to an empty list should be
+discouraged; who knows what other important stuff you could be missing?</p>
+<p>Back to the situation on RHEL 8 and why it is problematic.
+<code>grub2-mkconfig</code> generates this as part of the new config:</p>
+<pre><code># This section was generated by a script. Do not modify the generated file - all changes
+# will be lost the next time file is regenerated. Instead edit the BootLoaderSpec files.
+#
+# The blscfg command parses the BootLoaderSpec files stored in /boot/loader/entries and
+# populates the boot menu. Please refer to the Boot Loader Specification documentation
+# for the files format: https://www.freedesktop.org/wiki/Specifications/BootLoaderSpec/.
+
+# The kernelopts variable should be defined in the grubenv file. But to ensure that menu
+# entries populated from BootLoaderSpec files that use this variable work correctly even
+# without a grubenv file, define a fallback kernelopts variable if this has not been set.
+#
+# The kernelopts variable in the grubenv file can be modified using the grubby tool or by
+# executing the grub2-mkconfig tool. For the latter, the values of the GRUB_CMDLINE_LINUX
+# and GRUB_CMDLINE_LINUX_DEFAULT options from /etc/default/grub file are used to set both
+# the kernelopts variable in the grubenv file and the fallback kernelopts variable.
+if [ -z "${kernelopts}" ]; then
+  set kernelopts="root=UUID=384a38ac-d639-47a4-9224-ec792d528fb7 ro crashkernel=auto net.ifnames=0 rhgb console=tty0 console=ttyS0,115200n8 fips=1 "
+fi
+
+insmod blscfg
+blscfg
+### END /etc/grub.d/10_linux ###
+</code></pre>
+<p>So it adds a fallback <code>kernelopts</code> value to the GRUB configuration file,
+which mitigates the problem a bit - if one regenerates the configuration
+file, the value can be used from there. (The value was also set in
+<code>/etc/default/grub</code>:</p>
+<pre><code>GRUB_CMDLINE_LINUX="crashkernel=auto net.ifnames=0 rhgb console=tty0 console=ttyS0,115200n8 fips=1"
+</code></pre>
+<p>and <code>/etc/kernel/cmdline</code>:</p>
+<pre><code>root=UUID=384a38ac-d639-47a4-9224-ec792d528fb7 ro crashkernel=auto net.ifnames=0 rhgb console=tty0 console=ttyS0,115200n8 fips=1
+</code></pre>
+<p>).</p>
+<p>Still, removing <code>grubenv</code> is problematic (in addition to the reasons
+identified above). On UEFI RHEL 8, <code>/boot/grub2/grubenv</code> is a symlink to
+<code>../efi/EFI/redhat/grubenv</code>. After removing it, it gets recreated, but
+as a regular file, not a symlink. This causes discrepancy between the
+two files - newly modified boot parameters are not applied as a result.</p>
+<p>By the way, @svlv :</p>
+<blockquote>
+<p>may contain boot_indeterminate, boot_success, boot_once , etc and
+these variables must be reset during recovery.</p>
+</blockquote>
+<p>Do they really need to be reset? I suppose that if a system undergoes a
+hard reboot (crash, power failure), the values are the same as after
+recovery. Yet, the system must be able to boot after a hard reboot.</p>
+<p>Anyway, @svlv , thank you a lot for having looked into the problem!</p>
+<h4 id="pcahyna_commented_at_2026-03-09_1842"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4025954149">2026-03-09 18:42</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-09_1842" title="Permanent link">&para;</a></h4>
+<p>@svlv</p>
+<blockquote>
+<p>I've tried to reproduce what you experienced on a fresh SLES 15 but
+without success.</p>
+</blockquote>
+<p>By the way: my understanding is that the issue actually was:</p>
+<blockquote>
+<p>during boot there is still that grub error message<br />
+which I managed now to catch before it is too fast flashing away<br />
+by pausing the virtual machine in the right moment</p>
+</blockquote>
+<p>Have you used a serial console when trying to reproduce that in order to
+capture all output? Perhaps the message flashes too fast?</p>
+<p>@jsmeix are you able to reproduce the issue again with
+<code>BACKUP_RESTORE_MOVE_AWAY_FILES=( )</code> ?</p>
+<h4 id="svlv_commented_at_2026-03-10_0652"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4029113651">2026-03-10 06:52</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-10_0652" title="Permanent link">&para;</a></h4>
+<p>Thank you @jsmeix and @pcahyna</p>
+<p>Finally I've reproduced the issue with <code>env_block</code> on Btrfs in GRUB
+shell. (Yes, I didn't capture serial console - it was my mistake)</p>
+<pre><code>grub&gt; load_env
+grub&gt; echo ${env_block}
+512+1
+grub&gt; set env_block="(${root})${env_block}"
+grub&gt; load_env -f "${env_block}"
+error: invalid environment block.
+</code></pre>
+<p>I've looked through the code. Likely it is because <code>env_block</code> doesn't
+contain <code>GRUB_ENVBLK_SIGNATURE</code>.<br />
+I guess we can't simply leave <code>grubenv</code> as is without re-creating env
+block and re-setting variables.<br />
+<code>env_block</code> itself is a read-only variable, meaning it cannot be changed
+via <code>grub-editenv</code>.</p>
+<p>Also, I've found the
+<a href="https://build.opensuse.org/projects/openSUSE:Leap:15.6:Update/packages/grub2.37794/files/grub2-grubenv-in-btrfs-header.patch?expand=0">patch</a>
+that was introducing <code>env_block</code>.<br />
+I'll keep researching in my spare time.</p>
+<h4 id="svlv_commented_at_2026-03-10_0703"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4029169296">2026-03-10 07:03</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-10_0703" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I guess we can't simply leave grubenv as is without re-creating env
+block and re-setting variables.</p>
+</blockquote>
+<p>I am not sure about this statement. It is rather first thoughts after
+looking at <code>env_block</code>.<br />
+Also, if I am not mistaken, <code>env_block</code> is used only on Btrfs.</p>
+<h4 id="jsmeix_commented_at_2026-03-10_0900"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4029740208">2026-03-10 09:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-10_0900" title="Permanent link">&para;</a></h4>
+<p>As far as I see it looks now as if<br />
+each bootloader stuff is a whole mess<br />
+which changes arbitrarily over time<br />
+in each one of the Linux distributions.</p>
+<p>SUSE does its specific hacks,<br />
+Red Hat does its specific hacks,<br />
+and so on...</p>
+<p>I think ReaR should try to not get involved into<br />
+continuously changing specific details of various<br />
+Linux distribution specific bootloader hacks<br />
+because we at ReaR upstream will never ever be able<br />
+to properly support continuously changing details.</p>
+<p>Perhaps there is a more generic way out of that mess?</p>
+<p>I guess that each Linux distribution has a more or less<br />
+generic and stable method how each Linux distribution<br />
+does its bootloader setup and bootloader installation<br />
+(in particular during their initial system installation),<br />
+cf. the initial comments in<br />
+finalize/Linux-i386/660_install_grub2.sh</p>
+<p>Perhaps it could be a generic way out of that mess<br />
+when ReaR only runs each Linux distribution's method<br />
+during "rear recover" from within the recreated system<br />
+(as usual via <code>chroot /mnt/local ...</code>)?</p>
+<p>So instead of one<br />
+finalize/Linux-i386/660_install_grub2.sh<br />
+we may use separated distribution specific scripts like<br />
+usr/share/rear/finalize/SUSE_LINUX/660_install_grub2.sh<br />
+and<br />
+usr/share/rear/finalize/Fedora/660_install_grub2.sh<br />
+where each one runs the distribution specific method?</p>
+<h4 id="jsmeix_commented_at_2026-03-10_1320"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4031339803">2026-03-10 13:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-10_1320" title="Permanent link">&para;</a></h4>
+<p>@pcahyna regarding your<br />
+<a href="https://github.com/rear/rear/issues/3578#issuecomment-4025912872">https://github.com/rear/rear/issues/3578#issuecomment-4025912872</a><br />
+(excerpts)</p>
+<pre><code>I would say that if "THAT" boot entry does not get recreated,
+it is a pretty big issue in ReaR
+</code></pre>
+<p>not necessarily - in particular in MIGRATION_MODE the user<br />
+can modify the restored GRUB config files as he needs,<br />
+e.g. he may no longer want the "THAT" boot entry, cf.<br />
+finalize/default/520_confirm_finalize.sh<br />
+but likely users may not (yet) know that nowadays grubenv<br />
+is also a GRUB config file which may have to be kept<br />
+or may have to be removed depending on Linux distribution<br />
+specific details of their hacked bootloader setup.<br />
+I only like to tell that things could become complicated.<br />
+I don't know how to properly deal with it automatically in ReaR.</p>
+<pre><code>removing grubenv is problematic in some cases, so I would
+keep it by default and when a user knows that removing grubenv
+in the recreated system is needed, they can set
+BACKUP_RESTORE_MOVE_AWAY_FILES+=( /boot/grub2/grubenv )
+</code></pre>
+<p>I agree - in particular because according to<br />
+<a href="https://github.com/rear/rear/issues/1828#issuecomment-398717889">https://github.com/rear/rear/issues/1828#issuecomment-398717889</a><br />
+when grubenv is kept a SUSE system boots<br />
+regardless of the GRUB error message</p>
+<pre><code>error: invalid environment block.
+</code></pre>
+<p>but according to this issue here a Rocky 9 system<br />
+fails to boot when grubenv is removed so this issue here<br />
+is more severe than only a GRUB error message annoyance.</p>
+<h4 id="jsmeix_commented_at_2026-03-10_1400"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4031603132">2026-03-10 14:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-10_1400" title="Permanent link">&para;</a></h4>
+<p>I did<br />
+<a href="https://github.com/rear/rear/pull/3581">https://github.com/rear/rear/pull/3581</a><br />
+as a quick proposal how to no longer move grubenv away.</p>
+<p>As in<br />
+<a href="https://github.com/rear/rear/pull/3579#discussion_r2895897280">https://github.com/rear/rear/pull/3579#discussion_r2895897280</a><br />
+my main thing here is also to have comments which explain<br />
+why things are as they are so things could be properly<br />
+cleaned up later as needed - in particular if @svlv<br />
+and/or @pcahyna like to implement it differently.</p>
+<h4 id="pcahyna_commented_at_2026-03-10_1552"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4032535010">2026-03-10 15:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-10_1552" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>As far as I see it looks now as if each bootloader stuff is a whole
+mess which changes arbitrarily over time in each one of the Linux
+distributions.</p>
+<p>SUSE does its specific hacks, Red Hat does its specific hacks, and so
+on...</p>
+<p>I think ReaR should try to not get involved into continuously changing
+specific details of various Linux distribution specific bootloader
+hacks because we at ReaR upstream will never ever be able to properly
+support continuously changing details.</p>
+</blockquote>
+<p>I don't see this issue as supporting this view. It is actually the
+contrary: it has led me to see some convergence in this area. I was
+stuck with that RHEL 8 issue because RHEL 8 does its own hack with
+grubenv and I did not know how to unify it with the code for other
+distributions. Now we see that there are more reasons to preserve
+grubenv than just the RHEL 8-specific behavior, which provides an
+opportunity to solve multiple issues in a generic way.</p>
+<p>Regarding the SUSE-specific grubenv behavior: as it is often the case,
+it helped to return to the issue after some rest and searching some
+docs. Here's what I found :
+<a href="https://en.opensuse.org/GRUB#GRUB2_on_btrfs_/boot">https://en.opensuse.org/GRUB#GRUB2_on_btrfs_/boot</a> . The key
+observation is that <code>env_block=512+1</code> introduces an indirection to a
+reserved area outside of the filesystem data, which we don't preserve
+and therefore merely keeping the file is broken. (It is also in the
+documentation quoted earlier: "On Btrfs filesystems, a reserved area in
+the filesystem header may be used to store the environment block.")
+Keeping the file and removing the file lead to the same end result in
+this case, which is that the environment block is lost, in the former
+case GRUB just complains about it. I believe that the proper fix would
+be to actually preserve the environment block in this case (probably as
+a part of disk layout) and restore it during recovery, but that's a
+bigger project of course.</p>
+<p>The behavior is not really SUSE-specific though, it is btrfs-specific.
+The patch that introduced it was recently applied also to Grub 2 in
+Fedora and will be in Fedora 44:
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2372973">https://bugzilla.redhat.com/show_bug.cgi?id=2372973</a> . Fedora uses
+btrfs by default (although not on /boot, at least not yet). Thus we see
+more convergence and this again points to the opportunity and in fact
+the need of handling the situation in a common way instead of
+distribution-specific hacks.</p>
+<h4 id="svlv_commented_at_2026-03-10_1612"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4032687395">2026-03-10 16:12</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-10_1612" title="Permanent link">&para;</a></h4>
+<p>Things with <code>env_block</code> are quite simple.<br />
+There is <code>grubenv</code> file which GRUB loads by <code>load_env</code>. Next, if
+<code>grubenv</code> contains <code>env_block</code>, this block loads as well.</p>
+<pre><code>set btrfs_relative_path="y"
+export btrfs_relative_path
+if [ -f ${config_directory}/grubenv ]; then
+  load_env -f ${config_directory}/grubenv
+elif [ -s $prefix/grubenv ]; then
+  load_env
+fi
+
+if [ "${env_block}" ] ; then
+  set env_block="(${root})${env_block}"
+  export env_block
+  load_env -f "${env_block}"
+fi
+</code></pre>
+<p>Next, during the boot process the env block is used to store some
+variables, e.g.,</p>
+<pre><code>function savedefault {
+  if [ -z "${boot_once}" ]; then
+    saved_entry="${chosen}"
+    if [ "${env_block}" ] ; then
+      save_env -f "${env_block}" saved_entry
+    else
+      save_env saved_entry
+    fi
+
+  fi
+}
+</code></pre>
+<p>During recovery the env block must be properly initialised if it is
+used. But now I don't how to do it.<br />
+Probably <code>dd</code> can be used or <code>grub-editenv create</code> should be able to do
+it.</p>
+<p>I started analysing <code>grub-editenv create</code> but didn't find out how to
+init block_env.<br />
+How can I do it on running system? How <code>env_block</code> appears in <code>grubenv</code>
+if it can't be changed by <code>grub-editenv set</code> ? - It is what I am trying
+to figure out.</p>
+<p>It is the function which creates block env -
+<a href="https://github.com/rhboot/grub2/blob/fd2a33b6f90f0ac052d4209752848c4c06236538/util/editenv.c#L39">https://github.com/rhboot/grub2/blob/fd2a33b6f90f0ac052d4209752848c4c06236538/util/editenv.c#L39</a></p>
+<h4 id="pcahyna_commented_at_2026-03-10_1622"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4032751366">2026-03-10 16:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-10_1622" title="Permanent link">&para;</a></h4>
+<p>@svlv here's how to recreate the environment block:
+<a href="https://en.opensuse.org/GRUB#Recovering_from_broken_grubenv">https://en.opensuse.org/GRUB#Recovering_from_broken_grubenv</a></p>
+<h4 id="svlv_commented_at_2026-03-10_1624"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4032766079">2026-03-10 16:24</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-10_1624" title="Permanent link">&para;</a></h4>
+<p>Yes, thanks, I checked the link you sent.<br />
+I’ll try it out tomorrow.</p>
+<p>‘grub2-editenv - unset dummy’ is nice :)</p>
+<h4 id="svlv_commented_at_2026-03-11_0734"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4037105638">2026-03-11 07:34</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_0734" title="Permanent link">&para;</a></h4>
+<p>No issue to initialise <code>block_env</code> during recovery, in my case GRUB
+found the root device correctly. Before I used
+<code>grub2-editenv /boot/grub2/grubenv set</code> but it didn't work because it is
+essential to use <code>grub2-editenv - set</code>.</p>
+<p>I've checked the patch one more time and found <a href="https://github.com/vathpela/grub2-fedora/blob/3dce38eb196f47bdf86ab028de74be40e13f19fd/util/grub-editenv.c#L684">the reason
+</a>-
+`fs_envblk` is probed only when filename is `-`.</p>
+<pre><code>if (strcmp (filename, "-") == 0)
+  filename = DEFAULT_ENVBLK_PATH;
+...
+if (strcmp (filename, DEFAULT_ENVBLK_PATH) == 0)
+  probe_fs_envblk (fs_envblk_spec);
+</code></pre>
+<p>I used the following script to reset all variables. There is no issue in
+my case:</p>
+<pre><code>#!/bin/bash
+
+grub2-editenv - list &gt; myenv
+
+rm /boot/grub2/grubenv
+grub2-editenv - unset dummy
+
+while IFS= read -r key_value; do
+        key="${key_value%=*}"
+        # env_block is read only
+        if [ "$key" = "env_block" ] ; then
+                continue
+        fi
+        grub2-editenv - set "$key_value"
+done &lt; myenv
+
+# insure that my_var has been set
+grub2-editenv - set my_var=my_value
+
+rm myenv
+</code></pre>
+<p>After recovery:</p>
+<pre><code>sles15:~ # grub2-editenv - list
+env_block=512+1
+saved_entry=SLES 15
+my_var=my_value
+</code></pre>
+<p>Probably, it needs to create a separate script in ReaR to do something
+similar.</p>
+<p>Updated:<br />
+<code>grub2-editenv - unset dummy</code> is essential. I checked in GRUB shell and
+got the error. Sorry. I am always in hurry and make mistakes.</p>
+<h4 id="svlv_commented_at_2026-03-11_0903"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4037600275">2026-03-11 09:03</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_0903" title="Permanent link">&para;</a></h4>
+<p>Regarding <code>grub2-editenv - unset dummy</code>.<br />
+In Fedora's patch <code>set</code>command will also trigger
+<code>create_env_on_block ();</code> but in SUSE's patch it won't trigger.<br />
+I was looking though the Fedora code and came to the conclusion that
+<code>set</code> command should trigger it as well.</p>
+<p>At least I do see it in
+<a href="https://build.opensuse.org/projects/openSUSE:Leap:15.6:Update/packages/grub2.37794/files/grub2-grubenv-in-btrfs-header.patch?expand=0">https://build.opensuse.org/projects/openSUSE:Leap:15.6:Update/packages/grub2.37794/files/grub2-grubenv-in-btrfs-header.patch?expand=0</a>
+SUSE.</p>
+<p>Very likely patches are different. Fedora uses the patch reviewed by the
+upstream.</p>
+<h4 id="jsmeix_commented_at_2026-03-11_0929"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4037759601">2026-03-11 09:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_0929" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/issues/3578#issuecomment-4032535010">https://github.com/rear/rear/issues/3578#issuecomment-4032535010</a><br />
+(excerpts)</p>
+<pre><code>env_block=512+1 introduces an indirection to a reserved area
+outside of the filesystem data, which we don't preserve
+...
+"On Btrfs filesystems, a reserved area in the filesystem header
+may be used to store the environment block."
+...
+I believe that the proper fix would be
+to actually preserve the environment block in this case
+(probably as a part of disk layout)
+and restore it during recovery
+</code></pre>
+<p>This is exactly what must not be done because</p>
+<pre><code>we at ReaR upstream will never ever be able
+to properly support continuously changing details
+</code></pre>
+<p>where "continuously changing details"<br />
+also means things like "implementaion details".</p>
+<p>I liked to explain that with my<br />
+<a href="https://github.com/rear/rear/issues/3578#issuecomment-4029740208">https://github.com/rear/rear/issues/3578#issuecomment-4029740208</a><br />
+but - as so often - unfortunately - I failed to get the<br />
+current specific implementaion details exactly right<br />
+so my basic reasoning became misunderstood.</p>
+<p>Another try to make my basic reasoning clear:</p>
+<p>ReaR recreates a system anew from scratch.<br />
+In particular ReaR recreates the so called "disk layout"<br />
+(basically partitioning and filesystems) anew from scratch.<br />
+ReaR does not preserve filesystem low-level binary (meta) data<br />
+from the original system and somehow tries to "insert"<br />
+or "merge" that into the recreated new filesystems.<br />
+All gets recreated by calling those tools which are<br />
+meant to create partitions, filesystems, and so on.<br />
+E.g. in case of SUSE's special btrfs structure,<br />
+ReaR calls SUSE's special helper tool to let it create<br />
+SUSE's special btrfs structure anew from scratch.</p>
+<p>Accordingly also the GRUB environment block must be<br />
+recreated anew from scratch by calling those tools<br />
+which are meant to create a GRUB environment block.<br />
+Such tools must exist because otherwise it would not<br />
+have been possible to do the initial system installation<br />
+of the original system with a proper GRUB environment block.</p>
+<p>What ReaR could do to recreate a GRUB environment block<br />
+which matches (a logical match - not a binary data match)<br />
+what the GRUB environment block was on the original system<br />
+is that ReaR stores values of interest (e.g. 'saved_entry')<br />
+from the GRUB environment block on the original system and<br />
+recreates the GRUB environment block with that values set<br />
+logically same as they have been on the original system<br />
+where "logically same" means that a value may have to be<br />
+adjusted to match what there is on the recreated system<br />
+(e.g. some ID may have changed or whatever).</p>
+<h4 id="jsmeix_commented_at_2026-03-11_0945"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4037863650">2026-03-11 09:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_0945" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+not that it actually helps here but in my opinion<br />
+"every Linux distribution specific patch is a bug".</p>
+<p>What system admins want is that things work as designed<br />
+and documented by the matching upstream projects<br />
+without the need for special attention.<br />
+This means things should work without unexpected behaviour<br />
+in particular without Linux distribution specific stuff<br />
+and without behavioural changes all of a sudden.<br />
+Cf.<br />
+<a href="https://en.opensuse.org/index.php?title=Concepts_printing&amp;oldid=183171#System_admin_expectations">https://en.opensuse.org/index.php?title=Concepts_printing&amp;oldid=183171#System_admin_expectations</a></p>
+<p>Clarification to avoid misunderstanding:<br />
+The exact wording "Linux distribution specific patch" is crucial.<br />
+I am only talking about when Linux distributions deviate from<br />
+upstream by their own specific modifications of a software.<br />
+Examples of patches which are perfectly OK:</p>
+<ul>
+<li>Backported upstream fixes to older software versions<br />
+    which are provided by certain Linux distributions.<br />
+    Such patches are specific for an older software version<br />
+    but they are neither a deviation from upstream<br />
+    nor specific to a particular Linux distribution.</li>
+<li>Fixes and enhancements for current software versions<br />
+    by particular Linux distributions which are meant to get<br />
+    integrated into a future upstream release of that software.<br />
+    Such patches are not meant as deviation from upstream and<br />
+    likely also other Linux distributions could benefit from it.</li>
+</ul>
+<h4 id="pcahyna_commented_at_2026-03-11_1156"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4038718069">2026-03-11 11:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1156" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://github.com/pcahyna">@pcahyna</a> regarding your <a href="https://github.com/rear/rear/issues/3578#issuecomment-4032535010">#3578
+(comment)</a>
+(excerpts)</p>
+<pre><code>env_block=512+1 introduces an indirection to a reserved area
+outside of the filesystem data, which we don't preserve
+...
+"On Btrfs filesystems, a reserved area in the filesystem header
+may be used to store the environment block."
+...
+I believe that the proper fix would be
+to actually preserve the environment block in this case
+(probably as a part of disk layout)
+and restore it during recovery
+</code></pre>
+<p>This is exactly what must not be done because</p>
+<pre><code>we at ReaR upstream will never ever be able
+to properly support continuously changing details
+</code></pre>
+<p>where "continuously changing details" also means things like
+"implementaion details".</p>
+<p>I liked to explain that with my <a href="https://github.com/rear/rear/issues/3578#issuecomment-4029740208">#3578
+(comment)</a>
+but - as so often - unfortunately - I failed to get the current
+specific implementaion details exactly right so my basic reasoning
+became misunderstood.</p>
+<p>Another try to make my basic reasoning clear:</p>
+<p>ReaR recreates a system anew from scratch. In particular ReaR
+recreates the so called "disk layout" (basically partitioning and
+filesystems) anew from scratch. ReaR does not preserve filesystem
+low-level binary (meta) data from the original system and somehow
+tries to "insert" or "merge" that into the recreated new filesystems.
+All gets recreated by calling those tools which are meant to create
+partitions, filesystems, and so on. E.g. in case of SUSE's special
+btrfs structure, ReaR calls SUSE's special helper tool to let it
+create SUSE's special btrfs structure anew from scratch.</p>
+<p>Accordingly also the GRUB environment block must be recreated anew
+from scratch by calling those tools which are meant to create a GRUB
+environment block. Such tools must exist because otherwise it would
+not have been possible to do the initial system installation of the
+original system with a proper GRUB environment block.</p>
+<p>What ReaR could do to recreate a GRUB environment block which matches
+(a logical match - not a binary data match) what the GRUB environment
+block was on the original system is that ReaR stores values of
+interest (e.g. 'saved_entry') from the GRUB environment block on the
+original system and recreates the GRUB environment block with that
+values set logically same as they have been on the original system
+where "logically same" means that a value may have to be adjusted to
+match what there is on the recreated system (e.g. some ID may have
+changed or whatever).</p>
+</blockquote>
+<p>@jsmeix , sorry, I now see that I was not clear either and my idea was
+also misunderstood. What I meant by</p>
+<blockquote>
+<p>I believe that the proper fix would be<br />
+to actually preserve the environment block in this case<br />
+(probably as a part of disk layout)<br />
+and restore it during recovery</p>
+</blockquote>
+<p>was not to save and restore the actual disk sectors where GRUB stores
+the environment block on Btrfs, but to save and restore the content of
+the environment block, using <code>grub2-editenv</code> or another appropriate
+tool.</p>
+<h4 id="pcahyna_commented_at_2026-03-11_1218"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4038835116">2026-03-11 12:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1218" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Regarding <code>grub2-editenv - unset dummy</code>. In Fedora's patch
+<code>set</code>command will also trigger <code>create_env_on_block ();</code> but in SUSE's
+patch it won't trigger. I was looking though the Fedora code and came
+to the conclusion that <code>set</code> command should trigger it as well.</p>
+<p>At least I do see it in
+<a href="https://build.opensuse.org/projects/openSUSE:Leap:15.6:Update/packages/grub2.37794/files/grub2-grubenv-in-btrfs-header.patch?expand=0">https://build.opensuse.org/projects/openSUSE:Leap:15.6:Update/packages/grub2.37794/files/grub2-grubenv-in-btrfs-header.patch?expand=0</a>
+SUSE.</p>
+<p>Very likely patches are different. Fedora uses the patch reviewed by
+the upstream.</p>
+</blockquote>
+<p>I suppose it does no harm to do <code>grub2-editenv - unset dummy</code> in both
+cases to be on the safe side?</p>
+<h4 id="jsmeix_commented_at_2026-03-11_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4038918100">2026-03-11 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_1235" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your prompt clarification what you actually meant.<br />
+Phew!<br />
+This helps me a lot to sleep relaxed (pun intended) tonight :-)</p>
+<h4 id="svlv_commented_at_2026-03-11_1302"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039064803">2026-03-11 13:02</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_1302" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I suppose it does no harm to do grub2-editenv - unset dummy in both
+cases to be on the safe side?</p>
+</blockquote>
+<p>Yes, it should be fine on both systems.<br />
+Perhaps, it needs to be tested on the latest Fedora version with Btrfs
+on <code>/boot</code> to make sure that everything is OK.</p>
+<h4 id="jsmeix_commented_at_2026-03-11_1353"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039379549">2026-03-11 13:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_1353" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/issues/3578#issuecomment-4037600275">https://github.com/rear/rear/issues/3578#issuecomment-4037600275</a><br />
+why the SUSE patch is different compared to the Fedora patch:</p>
+<p>GRUB2 in openSUSE Leap 15.x comes from SLES 15.<br />
+GRUB2 is provided in SLES 15 as those versions:</p>
+<pre><code># for p in SUSE:SLE-15-SP7:Update SUSE:SLE-15-SP6:Update \
+           SUSE:SLE-15-SP5:Update SUSE:SLE-15-SP4:Update \
+           SUSE:SLE-15-SP3:Update SUSE:SLE-15-SP2:Update \
+           SUSE:SLE-15-SP1:Update SUSE:SLE-15:Update ; \
+  do echo $p ; osc list $p grub2 | grep 'grub.*tar\.xz' ; echo ; done
+
+SUSE:SLE-15-SP7:Update
+grub-2.12.tar.xz
+
+SUSE:SLE-15-SP6:Update
+grub-2.12.tar.xz
+
+SUSE:SLE-15-SP5:Update
+grub-2.06.tar.xz
+
+SUSE:SLE-15-SP4:Update
+grub-2.06.tar.xz
+
+SUSE:SLE-15-SP3:Update
+grub-2.04.tar.xz
+
+SUSE:SLE-15-SP2:Update
+grub-2.04.tar.xz
+
+SUSE:SLE-15-SP1:Update
+grub-2.02.tar.xz
+
+SUSE:SLE-15:Update
+grub-2.02.tar.xz
+</code></pre>
+<p>All of them have a <code>grub2-grubenv-in-btrfs-header.patch</code><br />
+which gets adapted from GRUB2 version to version.</p>
+<p>In contrast in openSUSE:Factory there is GRUB2 version 2.14</p>
+<pre><code># osc list openSUSE:Factory grub2 | grep 'grub.*tar\.xz'
+grub-2.14.tar.xz
+</code></pre>
+<p>There is no longer a <code>grub2-grubenv-in-btrfs-header.patch</code><br />
+because</p>
+<pre><code># osc cat openSUSE:Factory grub2 grub2.changes | less
+
+...
+Fri Jan 16 08:52:19 UTC 2026 - Michael Chang &lt;mchang@suse.com&gt;
+
+- Update to 2.14
+- New in 2.14
+  ...
+  * GRUB environment block inside the Btrfs header support.
+...
+- Patch removed
+  ...
+  * grub2-grubenv-in-btrfs-header.patch
+</code></pre>
+<p>So GRUB2 versions before 2.14 need some kind of<br />
+'grub2-grubenv-in-btrfs-header.patch' to support<br />
+a "GRUB environment block inside the Btrfs header"<br />
+or in less implementation detail specific wording<br />
+to support a GRUB environment block also on Btrfs<br />
+(it is an implementation detail how a GRUB environment<br />
+block is actually stored in case of Btrfs), see also<br />
+<a href="https://lists.gnu.org/archive/html/grub-devel/2025-07/msg00129.html">https://lists.gnu.org/archive/html/grub-devel/2025-07/msg00129.html</a></p>
+<p>I assume SUSE uses its specific long tested that it works<br />
+for what SUSE needs 'grub2-grubenv-in-btrfs-header.patch'<br />
+in SUSE's GRUB2 versions before 2.14.</p>
+<h4 id="svlv_commented_at_2026-03-11_1412"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039500371">2026-03-11 14:12</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_1412" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>SLES 16 uses <code>GRUB2 2.12</code>. So it means the change must be tested on SLES
+15-16 to validate that everything is OK on GRUB2 with
+<code>grub2-grubenv-in-btrfs-header.patch</code>, and must be tested on, e.g.,
+openSUSE Tumbleweed with GRUB 2.14 after <code>block_env</code> was upstreamed and
+<code>grub2-grubenv-in-btrfs-header.patch</code> was removed. Am I right?</p>
+<h4 id="pcahyna_commented_at_2026-03-11_1427"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039608899">2026-03-11 14:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1427" title="Permanent link">&para;</a></h4>
+<blockquote>
+<blockquote>
+<p>I suppose it does no harm to do grub2-editenv - unset dummy in both
+cases to be on the safe side?</p>
+</blockquote>
+<p>Yes, it should be fine on both systems. Perhaps, it needs to be tested
+on the latest Fedora version with Btrfs on <code>/boot</code> to make sure that
+everything is OK.</p>
+</blockquote>
+<p>yes, I have been working on a Fedora test.</p>
+<h4 id="jsmeix_commented_at_2026-03-11_1429"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039624887">2026-03-11 14:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_1429" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @svlv<br />
+many thanks for digging out details and reasoning behind<br />
+why that grub2-grubenv-in-btrfs-header.patch is there.<br />
+I think now even I got some understanding of that stuff.</p>
+<p>Somewhat offtopic:</p>
+<p>What I still do not understand is<br />
+why on BIOS in case of Btrfs<br />
+not a 'bios_grub' partition could be used<br />
+with a filesystem that GRUB can read and write<br />
+so a GRUB environment block could be stored there<br />
+AND<br />
+if also on UEFI in case of Btrfs a GRUB environment block<br />
+is stored within the realm of the Btrfs filesystem<br />
+and not in the ESP?</p>
+<p>My guess was that in both cases the reason could be that<br />
+what there is on a 'bios_grub' partition or on an ESP<br />
+cannot be snapshotted by Btrfs so certain GRUB stuff<br />
+could get out of sync with what there is on a<br />
+Btrfs subvolume that gets mounted at <code>/</code>?<br />
+But I think my guess does not make sense because<br />
+I assume that also the Btrfs header is not snapshotted<br />
+because only what is within a Btrfs subvolume is snapshotted.<br />
+So currently all that does not make sense to me.</p>
+<p>Sorry in advance if such questions are stupid.<br />
+I became rather ignorant of bootloader details.<br />
+My personal reason is that I cannot understand<br />
+why since beginning of time bootloader stuff<br />
+is still so complicated nowadays because in the end<br />
+all the fuss is only about an "initial program load"<br />
+(cf. 'IPL' on IBM Z).<br />
+I remember LILO well: At that time I had helped<br />
+many <code>S.u.S.E.</code>[sic] users with booting issues<br />
+because I understood LILO's peculiarities which came<br />
+from BIOS limitations. At least from my point of view<br />
+LILO was rather simple and straightforward compared<br />
+to GRUB where I basically got lost step by step over time.</p>
+<h4 id="jsmeix_commented_at_2026-03-11_1445"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4039732906">2026-03-11 14:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-11_1445" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+regarding your<br />
+<a href="https://github.com/rear/rear/issues/3578#issuecomment-4039500371">https://github.com/rear/rear/issues/3578#issuecomment-4039500371</a></p>
+<p>For ReaR 3.0 only SLES 16 does really matter.</p>
+<p>It would be fine when ReaR 3.0 still works on SLES 15<br />
+but if not it is no problem because ReaR 2.9 works on SLES 15,<br />
+cf. the section "Version upgrades with Relax-and-Recover" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+(excerpt)</p>
+<pre><code>When you have a working disaster recovery procedure,
+do not upgrade ReaR ...
+</code></pre>
+<p>In general openSUSE Tumbleweed is only nice to have<br />
+because ReaR cannot support openSUSE Tumbleweed, see<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L151">https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L151</a><br />
+(excerpt)</p>
+<pre><code>In theory ReaR 2.9 should work on openSUSE Tumbleweed
+but in practice arbitrary failures could happen at any time
+because the Tumbleweed distribution is a pure rolling release
+version of openSUSE containing the latest stable versions
+of all software (cf. https://en.opensuse.org/Portal:Tumbleweed)
+so arbitrary changes of any software are possible at any time
+that could arbitrarily break how ReaR works.
+</code></pre>
+<h4 id="pcahyna_commented_at_2026-03-11_1556"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4040253205">2026-03-11 15:56</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1556" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>What I still do not understand is why on BIOS in case of Btrfs not a
+'bios_grub' partition could be used with a filesystem that GRUB can
+read and write so a GRUB environment block could be stored there AND
+if also on UEFI in case of Btrfs a GRUB environment block is stored
+within the realm of the Btrfs filesystem and not in the ESP?</p>
+<p>My guess was that in both cases the reason could be that what there is
+on a 'bios_grub' partition or on an ESP cannot be snapshotted by
+Btrfs so certain GRUB stuff could get out of sync with what there is
+on a Btrfs subvolume that gets mounted at <code>/</code>? But I think my guess
+does not make sense because I assume that also the Btrfs header is not
+snapshotted because only what is within a Btrfs subvolume is
+snapshotted. So currently all that does not make sense to me.</p>
+</blockquote>
+<p>@jsmeix</p>
+<p>Fedora bug <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2372973">https://bugzilla.redhat.com/show_bug.cgi?id=2372973</a>
+description starts with: "Currently, if you set up /boot as a btrfs
+subvolume (...)". Indeed, this is not the default, by default /boot is
+on XFS, so this configuration is not (yet) standard. It does not mention
+why one wants to do that, neither why SLES/openSUSE choose so (you can
+ask your colleagues), but I can imagine that it is due to the
+(understandable) need of snapshotting the content of /boot. I suppose as
+well that the header is not snapshotted, so those who need this can live
+with the environment block not being snapshotted (after all you found
+that when it gets corrupted, the system still boots), but they still
+want to have the rest of /boot snapshotted (which does not include just
+the bootloader, but more importantly the kernel(s) and initrd(s)).</p>
+<h4 id="pcahyna_commented_at_2026-03-11_1603"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4040305394">2026-03-11 16:03</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1603" title="Permanent link">&para;</a></h4>
+<p>@svlv I was able to get Fedora working with /boot on Btrfs.</p>
+<pre><code># lsblk -o +fstype
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS FSTYPE
+zram0  251:0    0  7.4G  0 disk [SWAP]      swap
+vda    253:0    0   54G  0 disk             
+├─vda1 253:1    0  5.4G  0 part [SWAP]      swap
+└─vda2 253:2    0 48.6G  0 part /           btrfs
+
+# grub2-editenv list
+env_block=512+1
+saved_entry=c46f5f76227c4cd1a73cdf05de426446-7.0.0-0.rc2.21.fc45.x86_64
+blsdir=/root/boot/loader/entries
+boot_success=0
+
+# cat /boot/grub2/grubenv 
+# GRUB Environment Block
+# WARNING: Do not edit this file by tools other than grub-editenv!!!
+env_block=512+1
+saved_entry=c46f5f76227c4cd1a73cdf05de426446-7.0.0-0.rc2.21.fc45.x86_64
+blsdir=/root/boot/loader/entries
+###################(...)
+</code></pre>
+<p>Interestingly, the variables are set in the file, but I suppose this
+could change if GRUB actually touches some of the variables.</p>
+<p>Do you want me to test something?</p>
+<h4 id="svlv_commented_at_2026-03-11_1632"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4040494288">2026-03-11 16:32</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_1632" title="Permanent link">&para;</a></h4>
+<p>Vars are set both to the file and to the fs block.<br />
+If you use ‘-‘ as filename.<br />
+If you want to set var the fs block only, you can run ‘save_env -f
+${env_block} my_var’ in grub shell</p>
+<p>I’d shared the example before.</p>
+<h4 id="svlv_commented_at_2026-03-11_1639"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4040546287">2026-03-11 16:39</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-11_1639" title="Permanent link">&para;</a></h4>
+<p>About testing, I think the most important thing is to call load_env -f
+${env_block} in grub shell.</p>
+<h4 id="pcahyna_commented_at_2026-03-11_1709"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4040750667">2026-03-11 17:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-11_1709" title="Permanent link">&para;</a></h4>
+<p>Indeed, I did <code>foo=bar</code> and <code>save_env foo</code> in GRUB shell complains about
+not being able to save to a sparse file, <code>save_env -f ${env_block} foo</code>
+works and after boot <code>grub2-editenv list</code> shows <code>foo=bar</code>, which is not
+present in the grubenv file.</p>
+<h4 id="jsmeix_commented_at_2026-03-31_1452"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3578#issuecomment-4163253281">2026-03-31 14:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-31_1452" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3581">https://github.com/rear/rear/pull/3581</a> merged<br />
+this issue should be avioded but this is not yet a solution.<br />
+For a solution see<br />
+<a href="https://github.com/rear/rear/pull/3591">https://github.com/rear/rear/pull/3591</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-03-05.3578.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

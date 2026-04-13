@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3550 Issue closed: UEFI Boot: Kernel panic with previous "No file system could mount root, tried:" - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3550 Issue closed: UEFI Boot: Kernel panic with previous \"No file system could mount root, tried:\"";
+        var mkdocs_page_input_path = "issues/2026-01-09.3550.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3550 Issue closed: UEFI Boot: Kernel panic with previous "No file system could mount root, tried:"</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3550_issue_closed_uefi_boot_kernel_panic_with_previous_no_file_system_could_mount_root_tried"><a href="https://github.com/rear/rear/issues/3550">#3550 Issue</a> <code>closed</code>: UEFI Boot: Kernel panic with previous "No file system could mount root, tried:"<a class="headerlink" href="#3550_issue_closed_uefi_boot_kernel_panic_with_previous_no_file_system_could_mount_root_tried" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code></p>
+<h4 id="hpannenb_opened_issue_at_2026-01-09_1241"><img src="https://avatars.githubusercontent.com/u/13567759?u=b037e492e58a5f63f35277b3606d500cd622c8ed&v=4" width="50"><a href="https://github.com/hpannenb">hpannenb</a> opened issue at <a href="https://github.com/rear/rear/issues/3550">2026-01-09 12:41</a>:<a class="headerlink" href="#hpannenb_opened_issue_at_2026-01-09_1241" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.8 / 2024-12-19</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Booting the rescue image ISO as virtual media on a Dell R640 with iDRAC9
+will lead to a kernel panic.<br />
+<img width="633" height="381" alt="Image" src="https://github.com/user-attachments/assets/1e99a5ec-7d38-4d0a-a6e0-98c99dc778fe" /><br />
+<img width="697" height="188" alt="Image" src="https://github.com/user-attachments/assets/19798ae7-112b-4f55-a690-41ba13a228a7" /><br />
+<img width="903" height="302" alt="Image" src="https://github.com/user-attachments/assets/2c6f6ccb-c175-4972-8e36-18868fa2d8f0" /></p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Red Hat Enterprise Linux 8.10 (Ootpa)</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>AVA</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>NAME                                                     KNAME      PKNAME     TRAN TYPE FSTYPE      LABEL  SIZE MOUNTPOINT
+/dev/sda                                                 /dev/sda                   disk                    2.2T 
+|-/dev/sda1                                              /dev/sda1  /dev/sda        part vfat               200M /boot/efi
+|-/dev/sda2                                              /dev/sda2  /dev/sda        part ext2               800M /boot
+|-/dev/sda3                                              /dev/sda3  /dev/sda        part LVM2_member        2.2T 
+| |-/dev/mapper/lvm01-root.vol                           /dev/dm-0  /dev/sda3       lvm  xfs                  6G /
+| |-/dev/mapper/lvm01-swap.vol                           /dev/dm-1  /dev/sda3       lvm  swap                16G [SWAP]
+| |-/dev/mapper/lvm01-usr.vol                            /dev/dm-2  /dev/sda3       lvm  xfs                6.9G /usr
+| |-/dev/mapper/lvm01-reserved--snapshot                 /dev/dm-4  /dev/sda3       lvm  ext4               3.9G 
+| |-/dev/mapper/lvm01-tmp.vol                            /dev/dm-5  /dev/sda3       lvm  xfs                  2G /tmp
+| |-/dev/mapper/lvm01-opt.vol                            /dev/dm-6  /dev/sda3       lvm  xfs                  4G /opt
+| |-/dev/mapper/lvm01-varlogaudit.vol                    /dev/dm-7  /dev/sda3       lvm  xfs               1000M /var/log/audit
+| |-/dev/mapper/lvm01-varlog.vol                         /dev/dm-8  /dev/sda3       lvm  xfs               1000M /var/log
+| |-/dev/mapper/lvm01-vartmp.vol                         /dev/dm-9  /dev/sda3       lvm  xfs                  3G /var/tmp
+| |-/dev/mapper/lvm01-var.vol                            /dev/dm-10 /dev/sda3       lvm  xfs                 40G /var
+| |-/dev/mapper/lvm01-home.vol                           /dev/dm-11 /dev/sda3       lvm  xfs                  5G /home
+| |-/dev/mapper/lvm01-vmts2smssv202--lc2--root           /dev/dm-12 /dev/sda3       lvm                      60G 
+| |-/dev/mapper/lvm01-vmts2smssv202--fc3--root-real      /dev/dm-13 /dev/sda3       lvm                      60G 
+| | |-/dev/mapper/lvm01-vmts2smssv202--fc3--root         /dev/dm-15 /dev/dm-13      lvm                      60G 
+| | `-/dev/mapper/lvm01-vmts2smssv202--fc3--root_snap    /dev/dm-20 /dev/dm-13      lvm                      60G 
+| |-/dev/mapper/lvm01-vmts2smssv202--fc3--root_snap-cow  /dev/dm-18 /dev/sda3       lvm                      60G 
+| | `-/dev/mapper/lvm01-vmts2smssv202--fc3--root_snap    /dev/dm-20 /dev/dm-18      lvm                      60G 
+| |-/dev/mapper/lvm01-vmts2smssv202--fc4--root           /dev/dm-24 /dev/sda3       lvm                      60G 
+| |-/dev/mapper/lvm01-backup.vol                         /dev/dm-25 /dev/sda3       lvm  xfs                 30G /backup
+| |-/dev/mapper/lvm01-vmts2smssv202--ay2--root           /dev/dm-26 /dev/sda3       lvm                      60G 
+| `-/dev/mapper/lvm01-vmts2smssv202--ay4--root           /dev/dm-27 /dev/sda3       lvm                      60G 
+`-/dev/sda4                                              /dev/sda4  /dev/sda        part                    512B 
+/dev/sdb                                                 /dev/sdb                   disk                    4.4T 
+`-/dev/sdb1                                              /dev/sdb1  /dev/sdb        part LVM2_member        4.4T 
+  |-/dev/mapper/lvm02-vmts2smssv202--lc2_disk01          /dev/dm-3  /dev/sdb1       lvm                      86G 
+  |-/dev/mapper/lvm02-vmts2smssv202--fc3_disk01-real     /dev/dm-14 /dev/sdb1       lvm                      88G 
+  | |-/dev/mapper/lvm02-vmts2smssv202--fc3_disk01        /dev/dm-16 /dev/dm-14      lvm                      88G 
+  | `-/dev/mapper/lvm02-vmts2smssv202--fc3_disk01_snap   /dev/dm-19 /dev/dm-14      lvm                      88G 
+  |-/dev/mapper/lvm02-vmts2smssv202--fc3_disk01_snap-cow /dev/dm-17 /dev/sdb1       lvm                      88G 
+  | `-/dev/mapper/lvm02-vmts2smssv202--fc3_disk01_snap   /dev/dm-19 /dev/dm-17      lvm                      88G 
+  |-/dev/mapper/lvm02-vmts2smssv202--fc4_disk01          /dev/dm-21 /dev/sdb1       lvm                      88G 
+  |-/dev/mapper/lvm02-ts2smssv202_ay2_disk1              /dev/dm-22 /dev/sdb1       lvm                     1.4T 
+  `-/dev/mapper/lvm02-ts2smssv202_ay4_disk1              /dev/dm-23 /dev/sdb1       lvm                     1.4T
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create a rescue image ISO</li>
+<li>Boot ISO via iDRAC and Virtual Media =&gt; kernel panic.<br />
+    (- Boot ISO e.g. in a Virtual Box VM with EFI =&gt; No issue.)</li>
+</ul>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>Not known.</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>The <code>site.conf</code>in use is</p>
+<pre><code>## Avamar agent installation for your system
+#
+# export TMPDIR="/var/ReaR"       # Required to be mounted EXEC (!!!)
+
+AVAMAR_ROOTDIR=/usr/local/avamar
+AVAMAR_VARDIR=/var/avamar
+AVAMAR_ETCDIR=/etc/avamar
+
+# rear staff
+ISO_DIR=/var/ReaR
+OUTPUT=ISO
+BACKUP=AVA00
+
+# Static IP (no DHCP!)
+USE_DHCLIENT=
+USE_STATIC_NETWORK=yes
+USE_RESOLV_CONF=( 'no' )
+
+# Include the loaded kernel modules only
+MODULES=( 'all_modules' )
+
+# Set ROOT Password (optional)
+SSH_ROOT_PASSWORD='root'
+
+# Clone all current users
+CLONE_ALL_USERS_GROUPS=no
+
+# On the host do *NOT* exclude disks for the guests
+AUTOEXCLUDE_DISKS=no
+
+# UEFI required - Ref.to. https://access.redhat.com/solutions/7054402
+UEFI_BOOTLOADER=/boot/efi/EFI/redhat/grubx64.efi
+SECURE_BOOT_BOOTLOADER=/boot/efi/EFI/redhat/shimx64.efi
+
+###
+# Avamar specific extensions
+COPY_AS_IS_AVA00=( "$AVAMAR_ROOTDIR" "$AVAMAR_VARDIR" "$AVAMAR_ETCDIR" )
+COPY_AS_IS_EXCLUDE_AVA00=( "$AVAMAR_VARDIR/*.log" "$AVAMAR_VARDIR/*.dat" "$AVAMAR_VARDIR/clientlogs/*" ) 
+PROGS_AVA00=( avtar avregister avagent.bin avscc avupdate detect_firewall avtar.bin )
+# End Avamar specific extensions
+</code></pre>
+<p>The AVA00 is a slightly different AVA workflow with us.</p>
+<h4 id="pcahyna_commented_at_2026-01-09_1249"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3550#issuecomment-3728779300">2026-01-09 12:49</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-01-09_1249" title="Permanent link">&para;</a></h4>
+<p>I am afraid the problem is outside ReaR, see #3186 for ideas and
+possible workarounds.</p>
+<h4 id="hpannenb_commented_at_2026-01-09_1305"><img src="https://avatars.githubusercontent.com/u/13567759?u=b037e492e58a5f63f35277b3606d500cd622c8ed&v=4" width="50"><a href="https://github.com/hpannenb">hpannenb</a> commented at <a href="https://github.com/rear/rear/issues/3550#issuecomment-3728840234">2026-01-09 13:05</a>:<a class="headerlink" href="#hpannenb_commented_at_2026-01-09_1305" title="Permanent link">&para;</a></h4>
+<p>Happy New Year @pcahyna Thanks for the fast response. I need to take a
+look at it.</p>
+<h4 id="hpannenb_commented_at_2026-01-09_1430"><img src="https://avatars.githubusercontent.com/u/13567759?u=b037e492e58a5f63f35277b3606d500cd622c8ed&v=4" width="50"><a href="https://github.com/hpannenb">hpannenb</a> commented at <a href="https://github.com/rear/rear/issues/3550#issuecomment-3729146616">2026-01-09 14:30</a>:<a class="headerlink" href="#hpannenb_commented_at_2026-01-09_1430" title="Permanent link">&para;</a></h4>
+<p>Looking at the references given I applied a minor config change in our
+<code>site.conf</code> which makes the boot working for us:</p>
+<pre><code>MODULES=( 'loaded_modules' )
+...
+REAR_INITRD_COMPRESSION="lzma"
+</code></pre>
+<p>Edit: It is also working with just the compression change in our case. I
+will close the issue. Thanks.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-01-09.3550.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

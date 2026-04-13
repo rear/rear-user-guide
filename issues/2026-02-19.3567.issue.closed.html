@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3567 Issue closed: openSUSE Tumbleweed no ssh and recovery fails: RPC portmapper 'rpcbind' unavailable - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3567 Issue closed: openSUSE Tumbleweed no ssh and recovery fails: RPC portmapper \u0027rpcbind\u0027 unavailable";
+        var mkdocs_page_input_path = "issues/2026-02-19.3567.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3567 Issue closed: openSUSE Tumbleweed no ssh and recovery fails: RPC portmapper 'rpcbind' unavailable</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3567_issue_closed_opensuse_tumbleweed_no_ssh_and_recovery_fails_rpc_portmapper_rpcbind_unavailable"><a href="https://github.com/rear/rear/issues/3567">#3567 Issue</a> <code>closed</code>: openSUSE Tumbleweed no ssh and recovery fails: RPC portmapper 'rpcbind' unavailable<a class="headerlink" href="#3567_issue_closed_opensuse_tumbleweed_no_ssh_and_recovery_fails_rpc_portmapper_rpcbind_unavailable" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-02-19_1020"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/issues/3567">2026-02-19 10:20</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-02-19_1020" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Hi,</p>
+<p>I've tested backup/restore on openSUSE Tumbleweed 20260209 and
+encountered several issues:</p>
+<ol>
+<li><code>/etc/ssh/sshd_config</code> was moved to <code>/usr/etc/ssh/sshd_config</code>.
+    However, it not a big issue, I simply copied it to
+    <code>/etc/ssh/sshd_config</code>. Just something good to know.</li>
+<li><code>sshd</code> in the rescue system didn't work due to the following
+    error:<br />
+<code>/usr/libexec/openssh/sshd-auth does not exist or is not executable</code></li>
+<li>I was using <code>BACKUP=NETFS</code> and received the error:
+    <code>RPC portmapper 'rpcbind' unavailable</code>. When I ran <code>rpcinfo -p</code>, the
+    output was <code>No remote programs registered.</code> Since I've read that
+    this is in general it is fine for nfsv4 because it is not required
+    <code>rpcbind</code>, I commented out the error and was able to finish the
+    recovery successfully.</li>
+</ol>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>openSUSE Tumbleweed 20260209</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>NETFS</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="jsmeix_commented_at_2026-02-19_1258"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3927139435">2026-02-19 12:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-19_1258" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you so much for testing ReaR<br />
+even on openSUSE Tumbleweed!<br />
+It is very much appreciated.</p>
+<p>Some time ago I tested ReaR for the new SUSE SLES 16.<br />
+I found different issues at various places.<br />
+Several things need to be adapted and enhanced<br />
+in ReaR to make it work on SLES 16.</p>
+<p>Only as a side note FYI:<br />
+openSUSE Tumbleweed is not officially supported by ReaR.<br />
+For the reason see in the section<br />
+"Supported and Unsupported Operating Systems"<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L151">https://github.com/rear/rear/blob/rear-2.9/doc/rear-release-notes.txt#L151</a></p>
+<pre><code>In theory ReaR 2.9 should work on openSUSE Tumbleweed
+but in practice arbitrary failures could happen at any time
+because the Tumbleweed distribution is a pure rolling release
+version of openSUSE containing the latest stable versions
+of all software (cf. https://en.opensuse.org/Portal:Tumbleweed)
+so arbitrary changes of any software are possible at any time
+that could arbitrarily break how ReaR works.
+</code></pre>
+<h4 id="svlv_commented_at_2026-02-19_1333"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3927345875">2026-02-19 13:33</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-19_1333" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>I understand that, due to the rolling-release model of openSUSE
+Tumbleweed, it is difficult to support it officially.<br />
+I have been using it for some of my personal and work-related
+researches, and I would like to share some findings and possible fixes.</p>
+<p>Perhaps this will be useful and save someone some time. If not, and my
+findings are incorrect or not relevant, that is also fine — please just
+let me know what I did wrong so I do not repeat the mistake in the
+future.</p>
+<p>I am going to take a look at SUSE Linux Enterprise Server 16; maybe
+these issues are not present there :)</p>
+<h4 id="jsmeix_commented_at_2026-02-19_1405"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3927516760">2026-02-19 14:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-19_1405" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+your work is useful and it does save someone some time.<br />
+This "someone" is in particular me and therefore<br />
+I am so thankful for your testing and for your fixes in<br />
+<a href="https://github.com/rear/rear/pull/3569">https://github.com/rear/rear/pull/3569</a></p>
+<p>A far as I remember what I found during my test on SLES 16<br />
+the issues there are same or very similar to those here.<br />
+The reason behind is that at a certain point in time<br />
+the SLES 16 RPM package sources were basically copied<br />
+from what there was in openSUSE Tumbleweed at that time<br />
+(except exceptions for special RPM packages).</p>
+<h4 id="jsmeix_commented_at_2026-02-19_1432"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3927666514">2026-02-19 14:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-19_1432" title="Permanent link">&para;</a></h4>
+<p>To answer possible questions in advance<br />
+why current ReaR 2.9 has issues on SLES 16:</p>
+<p>See<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+in the section<br />
+"Version upgrades with Relax-and-Recover"<br />
+(excerpt)</p>
+<pre><code>For any kind of innovation that belongs to the basic system
+(e.g. kernel, storage, bootloader, init)
+the new kind (e.g. ...) will be there first
+and afterwards ReaR can adapt step by step to support it.
+</code></pre>
+<p>Because SLES 16 is a new major release of SLES<br />
+there are intentionally backward incompatible changes<br />
+(in practice it is not possible with reasonable effort<br />
+to support old stuff for unlimited time - in particular not<br />
+when there is no longer upstream support for old stuff)<br />
+and some of those backward incompatible changes break ReaR.</p>
+<p>Furthermore in practice it is not possible<br />
+(I am alone at SUSE for ReaR and I have also other working areas)<br />
+to have ReaR already adapted and enhanced for SLES 16<br />
+at the time when the initial SLES 16 release is done<br />
+(because it is a too much moving target until its initial release).</p>
+<p>In practice this is no severe problem because it is known<br />
+that SUSE customers won't use an initial SLES major release<br />
+directly "as is" on their production systems.<br />
+In practice they use an initial SLES major release<br />
+to try out and test things on their test systems<br />
+to find out how far the new major release of SLES<br />
+will work in their specific production environments.</p>
+<p>In practice what I planned to have working for SLES 16<br />
+will be the upcoming next ReaR release (i.e. ReaR 3.0).</p>
+<h4 id="svlv_commented_at_2026-02-19_1451"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3927778217">2026-02-19 14:51</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-19_1451" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+Thank you for the explanation!<br />
+Yes, It’s clear that some work has to be done first, and that it takes
+time, before it will be adapted to new software/hardware</p>
+<h4 id="svlv_commented_at_2026-02-20_0839"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3932434726">2026-02-20 08:39</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-20_0839" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>Today morning I had a chance to test a bit the recovery on SLES 16.<br />
+I reproduced all of the issues above. I only forgot to mention that <code>vi</code>
+didn't work in the rescue system as well.</p>
+<p>I was wondering what is wrong with <code>rpcbind</code>, so I looked though its
+source code and likely found the root cause.</p>
+<p>On SLES 16, <code>/usr/etc/nsswitch.conf</code> contains the following line:<br />
+<code>services:       files usrfiles</code><br />
+It allows to look for both <code>/etc/services</code> and <code>/usr/etc/services</code>
+files - please see
+<a href="https://github.com/openSUSE/libnss_usrfiles/blob/master/README.md">libnss_usrfiles</a>
+for more details.</p>
+<p>On SLES 16, <code>/etc/services</code> contains the following line:<br />
+<code>#This file was moved to /usr/etc/services. This file will be removed soon.</code></p>
+<p>So only <code>/usr/etc/services</code> includes real services and is used.<br />
+Please look for <code>__nss_configure_lookup("services", "files")</code> or just
+<code>__nss_configure_lookup</code> in the <code>rpcbind.c</code> for more details.</p>
+<p>I guess it is necessary to specialise
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/skel/default/etc/nsswitch.conf#L8">nsswitch.conf</a>
+for SUSE by adding <code>usrfiles</code> at least for <code>services</code>.</p>
+<p>I'll update my patch when I have time (maybe even today).</p>
+<p>Just wanted to let you know and wrote down this observation.</p>
+<h4 id="svlv_commented_at_2026-02-20_1121"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3933265707">2026-02-20 11:21</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-20_1121" title="Permanent link">&para;</a></h4>
+<p><code>strace vi</code> revealed the issue with <code>vi</code>:</p>
+<pre><code>...
+openat(AT_FDCWD, "/root/.config/libalternatives.conf", O_RDONLY|O_NOFOLLOW|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/libalternatives.conf", O_RDONLY|O_NOFOLLOW|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/libalternatives", O_RDONLY|O_DIRECTORY) = -1 ENOENT (No such file or directory)
+exit_group(-1)                          = ?
++++ exited with 255 +++
+</code></pre>
+<p>To fix it, I added the following lines into <code>local.conf</code> (please note
+that I used fresh SLES 16 setup):</p>
+<pre><code>COPY_AS_IS+=( /usr/share/libalternatives/vi )
+PROGS+=( vim-nox11 )
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-02-27_1331"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3567#issuecomment-3972982552">2026-02-27 13:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-27_1331" title="Permanent link">&para;</a></h4>
+<p>The vi part is not in <a href="https://github.com/rear/rear/pull/3569">https://github.com/rear/rear/pull/3569</a><br />
+so I made <a href="https://github.com/rear/rear/pull/3575">https://github.com/rear/rear/pull/3575</a></p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-02-19.3567.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3562 PR merged: Partuuid recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3562 PR merged: Partuuid recovery";
+        var mkdocs_page_input_path = "issues/2026-02-05.3562.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3562 PR merged: Partuuid recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3562_pr_merged_partuuid_recovery"><a href="https://github.com/rear/rear/pull/3562">#3562 PR</a> <code>merged</code>: Partuuid recovery<a class="headerlink" href="#3562_pr_merged_partuuid_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-02-05_1303"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/pull/3562">2026-02-05 13:03</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-02-05_1303" title="Permanent link">&para;</a></h4>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    The patch was tested over several months on multiple distributions
+    and versions (RHEL, CentOS, Debian, Ubuntu) running on either
+    EFI/GPT or BIOS/MBR, or BIOS+EFI/GPT.<br />
+    For GPT partition tables, <code>PARTUUID</code>s are successfully backed up and
+    restored. For MBR partition tables, the patch makes no changes. I
+    haven't encountered any issue with this patch (at least none that
+    were visible to me).</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Fixes <a href="https://github.com/rear/rear/issues/3561">https://github.com/rear/rear/issues/3561</a>.<br />
+    During backup, the <code>PARTUUID</code> values are added to
+    <code>layout/disklayout.conf</code>. During recovery, these values are used to
+    restore <code>PARTUUID</code>s by running
+    <code>sgdisk --partition-guid=&lt;partguid&gt; &lt;dev&gt;</code>.<br />
+    If <code>sgdisk</code> is not available or no valid <code>PARTUUID</code> value is
+    present, this step is skipped because it is treated as optional.<br />
+<code>PARTUUID</code> is added at the end of partition parameters because, in
+    our setup, ReaR scripts are separated from the layout information.
+    This is done for backward compatibility with previous ReaR scripts
+    versions (I hope it is acceptable).</p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2026-02-05_1507"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3854276836">2026-02-05 15:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-05_1507" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here and review it (as time permits).</p>
+<h4 id="jsmeix_commented_at_2026-02-09_1106"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3871063145">2026-02-09 11:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-09_1106" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+all looks good now to me from plain looking at the code<br />
+so I would like to merge it on Thursday afternoon.<br />
+Please have a look here and review it (as time permits).</p>
+<h4 id="jsmeix_commented_at_2026-02-09_1201"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3871309699">2026-02-09 12:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-09_1201" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+I would like to add some remarks and questions<br />
+about optional "cosmetic" naming issues<br />
+which are mostly my personal preference<br />
+so nothing is wrong with your current code.</p>
+<p>It me it looks as if "partuuid"<br />
+written as <code>partuuid</code> or <code>PARTUUID</code><br />
+is the proper name for what that is about<br />
+so I think this proper name should be used<br />
+consistently everywhere when that thingy is meant.</p>
+<p>So I am wondering if the current functions<br />
+<code>get_partition_guid()</code> and <code>set_partition_guid()</code><br />
+shouldn't be better named<br />
+<code>get_partuuid()</code> and <code>set_partuuid()</code><br />
+?</p>
+<p>Within those functions the locally used variable names<br />
+look meaningless and confusing to me.<br />
+I am wondering what a <code>device</code> versus a <code>disk</code><br />
+actually is within the context of that functions.<br />
+I am also wondering what a <code>guid</code> is in contrast<br />
+to a <code>partuuid</code> - are they different or the same thing?</p>
+<p>Cf. the section "Code must be easy to read" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<p>According to how I understand those functions<br />
+from plain looking at the code I think<br />
+those functions are meant to do this:</p>
+<pre><code>get_partuuid() {
+    local partition_device=$1
+    local partuuid=""
+    if has_binary blkid; then
+        partuuid="$( blkid -s PARTUUID -o value "$partition_device" )"
+    # Fallback for cases when blkid is not available
+    elif [ -d /dev/disk/by-partuuid ]; then
+        local partition_symlink
+        for partition_symlink in /dev/disk/by-partuuid/*; do
+            if [ -h "$partition_symlink" ] &amp;&amp; [ "$( readlink -f "$partition_symlink" )" = "$partition_device" ]; then
+                partuuid="${partition_symlink#/dev/disk/by-partuuid/}"
+                break
+            fi
+        done
+    fi
+    echo "$partuuid"
+}
+
+set_partuuid() {
+    local disk=$1
+    local partnum=$2
+    local partuuid=$3
+    if has_binary sgdisk; then
+        sgdisk --partition-guid="$partnum":"$partuuid" "$disk"
+    fi
+}
+</code></pre>
+<p>I removed a <code>2&gt;/dev/null</code> because I assume<br />
+it is not needed, cf. the section<br />
+"What to do with stdin, stdout, and stderr" in<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style">https://github.com/rear/rear/wiki/Coding-Style</a></p>
+<p>I wonder if <code>[ -h "$partition_symlink" ]</code> is really reeded?<br />
+Couldn't<br />
+<code>[ "$( readlink -f "$partition_symlink" )" = "$partition_device" ]</code><br />
+alone be good enough?</p>
+<p>I wonder why <code>readlink -f</code> and not <code>readlink -e</code> ?<br />
+On my workstation it also works with <code>readlink -e</code><br />
+so I wonder why not "all components must exist"<br />
+but only "all but the last component must exist"<br />
+cf. "man readlink".</p>
+<p>Or do I misunderstand what those functions are meant to do?</p>
+<p>By the way:<br />
+I know we have many such meaningless and confusing<br />
+variable names all over the place in existing ReaR code.<br />
+For example right now I had a look at<br />
+layout/prepare/GNU/Linux/100_include_partition_code.sh<br />
+and got immediately totally confused what <code>device</code><br />
+versus <code>disk</code> means therein :-(<br />
+That (old) code is so confusing to me because of its bad<br />
+variable names that I won't dare to touch it to clean it up.</p>
+<h4 id="svlv_commented_at_2026-02-09_1316"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3871650773">2026-02-09 13:16</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-09_1316" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>Regarding partition GUID vs. <code>PARTUUID</code> naming, I totally agree that it
+would be better to choose a single term.</p>
+<p>While reading articles and comments on this topic, I noticed that the
+term <em>partition GUID</em> is quite commonly used ,<br />
+even GPT stands for GUID Partition Table, not UUID Partition Table.
+That's why, in my initial draft, I named the functions
+<code>get_partition_guid</code> and <code>set_partition_guid</code>. Later, during testing and
+further investigation, I mostly used <code>PARTUUID</code> variant in tools like
+<code>blkid</code> and <code>lsblk</code>, this led me to the conclusion that <code>PARTUUID</code>s
+would be more clear for users, since it is used in the <code>util-linux</code>
+package and the <code>/dev/disk/by-partuuid/</code> directory.</p>
+<p>Did I consider unifying the naming and choosing just one term? Yes.
+However, I decided to leave it as is, since I wasn't sure that anyone
+would care about it. Personally, I'm more or less fine with non-unified
+naming, because renaming always takes some extra time.</p>
+<blockquote>
+<p>I wonder if [ -h "$partition_symlink" ] is really reeded?</p>
+</blockquote>
+<p>It can be removed, I mainly used it as a reminder that enries
+<code>/dev/disk/by-partuuid/</code> are supposed to be symlinks.</p>
+<blockquote>
+<p>I wonder why readlink -f and not readlink -e ?</p>
+</blockquote>
+<p>Because I don't use the resolved link afterward to do something with it,
+e.g., to refer a device. I only use the path itself. But agree,
+<code>readlink -e</code> is safer and it's probably the better choice here.</p>
+<blockquote>
+<p>Or do I misunderstand what those functions are meant to do?</p>
+</blockquote>
+<p>You got it correctly.</p>
+<p>I'll fix your comments when I have time.</p>
+<h4 id="jsmeix_commented_at_2026-02-09_1431"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3872069631">2026-02-09 14:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-09_1431" title="Permanent link">&para;</a></h4>
+<p>Only out of curiosity:</p>
+<p>Now I got interested in "GUID" versus "UUID":</p>
+<p>The "ultimate answer to everything" ;-) tells<br />
+<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">https://en.wikipedia.org/wiki/Universally_unique_identifier</a></p>
+<pre><code>A universally unique identifier (UUID) is a 128-bit number
+used to identify information in computer systems.
+The term globally unique identifier (GUID) is also used,
+typically in software created by Microsoft
+[https://www.rfc-editor.org/rfc/rfc4122]
+</code></pre>
+<p>I further asked Google AI</p>
+<pre><code>why is it called "GUID Partition Table"
+and not "UUID Partition Table" ?
+</code></pre>
+<p>and got this reply (excerpts):</p>
+<pre><code>The Origins: Microsoft and Intel
+The term GUID (Globally Unique Identifier) was popularized
+by Microsoft and is heavily baked into the Windows ecosystem
+and the Component Object Model (COM).
+When Intel was developing the EFI (Extensible Firmware
+Interface) specification in the late 990s - which eventually
+became UEFI - they worked closely with Microsoft.
+...
+Technically, a GUID is a specific implementation of the
+broader UUID (Universally Unique Identifier) standard.
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-02-10_1312"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3877521238">2026-02-10 13:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-10_1312" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you.<br />
+Much appreciated!</p>
+<h4 id="pcahyna_commented_at_2026-02-11_1751"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3885989382">2026-02-11 17:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-11_1751" title="Permanent link">&para;</a></h4>
+<p>Thank you, more faithful restoration of layout is always better.</p>
+<p>I am afraid though that you need to change more than
+<code>usr/share/rear/layout/prepare/GNU/Linux/100_include_partition_code.sh</code>.
+Quick search reveals that the format of the partition entries in
+disklayout is also used in at least:
+<code>usr/share/rear/layout/prepare/default/420_autoresize_last_partitions.sh</code>
+<code>usr/share/rear/layout/prepare/default/430_autoresize_all_partitions.sh</code>
+<code>usr/share/rear/layout/prepare/default/319_rename_xfs_configs.sh</code> (these
+three look important),
+<code>usr/share/rear/layout/save/default/950_verify_disklayout_file.sh</code>
+<code>usr/share/rear/lib/layout-functions.sh</code> (probably less important).</p>
+<h4 id="svlv_commented_at_2026-02-12_0743"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3889164267">2026-02-12 07:43</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-12_0743" title="Permanent link">&para;</a></h4>
+<p>Thanks @pcahyna. It is a good point. I'll fix it when I have time</p>
+<h4 id="svlv_commented_at_2026-02-12_1313"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3890889741">2026-02-12 13:13</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-12_1313" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I am afraid though that you need to change more than
+usr/share/rear/layout/prepare/GNU/Linux/100_include_partition_code.sh.
+Quick search reveals that the format of the partition entries in
+disklayout is also used in at least:
+usr/share/rear/layout/prepare/default/420_autoresize_last_partitions.sh
+usr/share/rear/layout/prepare/default/430_autoresize_all_partitions.sh
+usr/share/rear/layout/prepare/default/319_rename_xfs_configs.sh
+(these three look important),
+usr/share/rear/layout/save/default/950_verify_disklayout_file.sh
+usr/share/rear/lib/layout-functions.sh (probably less important).</p>
+</blockquote>
+<p>Corrected:</p>
+<ul>
+<li><code>usr/share/rear/layout/prepare/default/420_autoresize_last_partitions.sh</code></li>
+<li><code>usr/share/rear/layout/prepare/default/430_autoresize_all_partitions.sh</code></li>
+<li><code>usr/share/rear/layout/prepare/default/319_rename_xfs_configs.sh</code></li>
+<li><code>usr/share/rear/lib/layout-functions.sh</code></li>
+</ul>
+<p>In <code>usr/share/rear/layout/save/default/950_verify_disklayout_file.sh</code>,
+<code>PARTUUID</code>s were left in <code>junk</code>.</p>
+<p>The changes were tested by restoring to a bigger disk with the default
+<code>AUTORESIZE_PARTITIONS</code> and when <code>AUTORESIZE_PARTITIONS=true</code> to test
+changes in <code>430_autoresize_all_partitions.sh</code></p>
+<h4 id="svlv_commented_at_2026-02-14_0830"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3901408712">2026-02-14 08:30</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-14_0830" title="Permanent link">&para;</a></h4>
+<p>I've reviewed <code>420_autoresize_last_partitions.sh</code> one more time and
+noticed that for <code>raid0</code> one important update it still required.</p>
+<h4 id="svlv_commented_at_2026-02-16_0826"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3907083862">2026-02-16 08:26</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-16_0826" title="Permanent link">&para;</a></h4>
+<p>Fixed finding <code>part</code> entries for RAID0 and RAID1 to auto-resize them.</p>
+<p>Tested manually on Debian 13 with RAID0. The system uses two 10GB disks
+and is migrated into two 12GB disks.</p>
+<p>Before the migration:</p>
+<pre><code>lsblk -o NAME,FSTYPE,UUID,PARTUUID,SIZE,MOUNTPOINTS
+NAME    FSTYPE            UUID                                 PARTUUID                              SIZE MOUNTPOINTS
+sr0                                                                                                 1024M 
+vda                                                                                                   10G 
+├─vda1  vfat              AED2-8E94                            25896747-0b2f-4ab1-8f08-bcd96c8a852e  953M /boot/efi
+└─vda2  linux_raid_member 1321c636-e080-979c-49dd-5cc43b2f4861 58810dc1-f22d-48b5-bead-62b4d9e2ab1b  9.1G 
+   └─md0 ext4             f7e1c368-cf94-4955-88d8-10f20c54cabb                                        19G /
+vdb                                                                                                   10G 
+└─vdb1  linux_raid_member 1321c636-e080-979c-49dd-5cc43b2f4861 6e1d9c2b-1a31-443d-a492-0108abe98012   10G 
+   └─md0 ext4             f7e1c368-cf94-4955-88d8-10f20c54cabb                                        19G /
+</code></pre>
+<p>After the migration:</p>
+<pre><code>lsblk -o NAME,FSTYPE,UUID,PARTUUID,SIZE,MOUNTPOINTS
+NAME    FSTYPE            UUID                                 PARTUUID                               SIZE MOUNTPOINTS
+sr0     iso9660           2026-02-14-17-46-44-00                                                    271.7M 
+vda                                                                                                    12G 
+├─vda1  vfat              AED2-8E94                            25896747-0b2f-4ab1-8f08-bcd96c8a852e   953M /boot/efi
+└─vda2  linux_raid_member 1321c636-e080-979c-49dd-5cc43b2f4861 58810dc1-f22d-48b5-bead-62b4d9e2ab1b  11.1G 
+  └─md0 ext4              f7e1c368-cf94-4955-88d8-10f20c54cabb                                         23G /
+vdb                                                                                                    12G 
+└─vdb1  linux_raid_member 1321c636-e080-979c-49dd-5cc43b2f4861 6e1d9c2b-1a31-443d-a492-0108abe98012    12G 
+  └─md0 ext4              f7e1c368-cf94-4955-88d8-10f20c54cabb
+</code></pre>
+<h4 id="svlv_commented_at_2026-02-17_0711"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3912746143">2026-02-17 07:11</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-17_0711" title="Permanent link">&para;</a></h4>
+<p>I've additionally tested autoresize for RAID1 - no issues with parsing
+<code>part</code> entries.<br />
+Please let me know if anything else is required from my side.</p>
+<h4 id="jsmeix_commented_at_2026-02-24_1425"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3952329546">2026-02-24 14:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-24_1425" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors</p>
+<p>there is a false alarm of Codacy Static Code Analysis<br />
+<a href="https://github.com/rear/rear/pull/3562/checks?check_run_id=63720542563">https://github.com/rear/rear/pull/3562/checks?check_run_id=63720542563</a></p>
+<p>How can I mark this specific alarm as false<br />
+so that it will not appear again at this code place?</p>
+<p>See<br />
+<a href="https://github.com/rear/rear/pull/3562/changes">https://github.com/rear/rear/pull/3562/changes</a><br />
+what it is about:<br />
+In usr/share/rear/lib/layout-functions.sh<br />
+this is added</p>
+<pre><code># The regex defines the expected PARTUUID format.
+# Pseudo-UUIDs (not RFC 4122–compliant) are intentionally allowed, as they can
+# be manually assigned as PARTUUID using sgdisk. sgdisk primarily validates
+# the length.
+PARTUUID_REGEX="(no-partuuid|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
+</code></pre>
+<p>Of course PARTUUID_REGEX is not used in<br />
+usr/share/rear/lib/layout-functions.sh<br />
+It is only set here as a global variable<br />
+which is used in other scripts.</p>
+<h4 id="jsmeix_commented_at_2026-02-24_1429"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3952371089">2026-02-24 14:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-24_1429" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it next Monday (02. March) afternoon<br />
+unless there are objections.<br />
+Please have a look and review it (as time permits).</p>
+<h4 id="gdha_commented_at_2026-02-24_1432"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3952401025">2026-02-24 14:32</a>:<a class="headerlink" href="#gdha_commented_at_2026-02-24_1432" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@rear/contributors</p>
+<p>there is a false alarm of Codacy Static Code Analysis
+<a href="https://github.com/rear/rear/pull/3562/checks?check_run_id=63720542563">https://github.com/rear/rear/pull/3562/checks?check_run_id=63720542563</a></p>
+<p>How can I mark this specific alarm as false so that it will not appear
+again at this code place?</p>
+<p>See <a href="https://github.com/rear/rear/pull/3562/changes">https://github.com/rear/rear/pull/3562/changes</a> what it is about:
+In usr/share/rear/lib/layout-functions.sh this is added</p>
+<pre><code># The regex defines the expected PARTUUID format.
+# Pseudo-UUIDs (not RFC 4122–compliant) are intentionally allowed, as they can
+# be manually assigned as PARTUUID using sgdisk. sgdisk primarily validates
+# the length.
+PARTUUID_REGEX="(no-partuuid|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
+</code></pre>
+<p>Of course PARTUUID_REGEX is not used in
+usr/share/rear/lib/layout-functions.sh It is only set here as a global
+variable which is used in other scripts.</p>
+</blockquote>
+<p>@jsmeix marked this issue as "false positive" in Codacy
+<a href="https://app.codacy.com/gh/rear/rear/pull-requests/3562/issues#issue-f8e82ff46f7010d94e11fc4206ec4e2c">https://app.codacy.com/gh/rear/rear/pull-requests/3562/issues#issue-f8e82ff46f7010d94e11fc4206ec4e2c</a></p>
+<h4 id="svlv_commented_at_2026-02-24_1434"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3952429874">2026-02-24 14:34</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-24_1434" title="Permanent link">&para;</a></h4>
+<p>@jsmeix and @gdha</p>
+<p>I can also add <code># shellcheck disable=SC2034</code> above the variable if it is
+desirable.</p>
+<h4 id="jsmeix_commented_at_2026-02-24_1548"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3953054375">2026-02-24 15:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-24_1548" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+seems I am somewhat blind but I fail to see how I could<br />
+mark an issue as "false positive" in Codacy<br />
+or can only you do that?</p>
+<h4 id="pcahyna_commented_at_2026-02-24_1555"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3953097920">2026-02-24 15:55</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-24_1555" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@jsmeix and @gdha</p>
+<p>I can also add <code># shellcheck disable=SC2034</code> above the variable if it
+is desirable.</p>
+</blockquote>
+<p>Thanks for the proposal, but I don't think we should litter the code
+with such comments. Instead we should configure the tools to not report
+false positives (and am I right that warnings are reported only once and
+on subsequent PRs that do not touch this code line they don't appear
+again?)</p>
+<h4 id="svlv_commented_at_2026-02-27_1247"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3972786962">2026-02-27 12:47</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-27_1247" title="Permanent link">&para;</a></h4>
+<p>I've re-tested a fallback for getting <code>PARTUUID</code>s for cases when <code>blkid</code>
+is not available.</p>
+<p>I know that <code>blkid</code> is put to the <code>REQUIRED_PROGS</code> array in
+<code>default.conf</code>, however, particularly for getting <code>PARTUUID</code> there is a
+fallback. To test the fallback I remaned <code>blkid</code> and removed it from the
+<code>REQUIRED_PROGS</code> array.</p>
+<p>Just in case if <code>blkid</code> will be removed from <code>REQUIRED_PROGS</code> in the
+future</p>
+<h4 id="jsmeix_commented_at_2026-03-02_1238"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3984153691">2026-03-02 12:38</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-02_1238" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+is it OK for you to be merged?<br />
+If yes, please approve it.</p>
+<h4 id="pcahyna_commented_at_2026-03-02_1518"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985026902">2026-03-02 15:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-02_1518" title="Permanent link">&para;</a></h4>
+<p>Hi @svlv , the changes are fine, I would just like to do reshuffle the
+diffs a bit, see
+<a href="https://github.com/rear/rear/pull/3562/changes#r2794621337">https://github.com/rear/rear/pull/3562/changes#r2794621337</a> and also
+some commits could be squashed together (you are introducing a new file,
+then you remove it).</p>
+<p>If you don't mind I will do that myself, I often look at the git history
+and prefer to have it clean.</p>
+<h4 id="svlv_commented_at_2026-03-02_1522"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985052727">2026-03-02 15:22</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-02_1522" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>Yes, sure, please do it. Thank you</p>
+<h4 id="pcahyna_commented_at_2026-03-02_1525"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985068752">2026-03-02 15:25</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-02_1525" title="Permanent link">&para;</a></h4>
+<p>@svlv by the way, I am just curious, is there a reason why to care about
+blkid not being available? It is part of util-linux, so a pretty basic
+utility, and we call it unconditionally at other places already,
+although a failure there is possibly not fatal.</p>
+<p>Of course defensive programming is not bad at all, I just would like to
+know if you have a special reason for this.</p>
+<h4 id="pcahyna_commented_at_2026-03-02_1536"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985131914">2026-03-02 15:36</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-02_1536" title="Permanent link">&para;</a></h4>
+<p>@svlv by the way, thank you for the thorough updates of all the places
+where the layout file is being used. What did you use to find them? I
+simply searched the code for the string <code>^part</code> (not pattern, the
+literal string), assuming that any processing of the layout file that
+needs partition entries will use <code>grep ^part</code> or <code>awk /^part/</code>.
+Hopefully that's enough...</p>
+<h4 id="svlv_commented_at_2026-03-02_1545"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985187749">2026-03-02 15:45</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-02_1545" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>I was curious how to get <code>PARTUUID</code> without <code>blkid</code>, relying on
+<code>/dev/disk/by-partuuid</code> only.</p>
+<p>Yes, I'm aware that <code>blkid</code> is part of GNU <code>util-linux</code>, but when you
+are building <code>util-linux</code> package from source you may decide not to
+build <code>blkid</code>.</p>
+<p>After testing it on some systems (RHEL 7, 8, 9, 10) I decided to leave
+this fallback because I though it might be useful for other individuals
+who want to minimise <code>REQUIRED_PROGS</code> array as much as possible.</p>
+<h4 id="svlv_commented_at_2026-03-02_1554"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985237092">2026-03-02 15:54</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-02_1554" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>What did you use to find them?</p>
+</blockquote>
+<p>I used <code>rg "\^part"</code> and looked through the code where <code>LAYOUT_FILE</code> is
+used.</p>
+<h4 id="pcahyna_commented_at_2026-03-02_1612"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3985338087">2026-03-02 16:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-02_1612" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<p>Yes, sure, please do it. Thank you</p>
+</blockquote>
+<p>Hmm it seems I am not allowed to commit to your branch. Perhaps it is
+because it is not in a personal fork, or you have not granted the
+permissions?
+<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork</a></p>
+<p>I pushed it to my fork:
+<a href="https://github.com/pcahyna/rear/tree/partuuid-recovery">https://github.com/pcahyna/rear/tree/partuuid-recovery</a> , please reset
+your branch to it and force-push.</p>
+<h4 id="svlv_commented_at_2026-03-03_0909"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3989658160">2026-03-03 09:09</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-03_0909" title="Permanent link">&para;</a></h4>
+<p>By the way, all of these commits could be squashed. Re-writing git
+history made sense only if you wanted to keep them.</p>
+<h4 id="pcahyna_commented_at_2026-03-03_1046"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3990176936">2026-03-03 10:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-03_1046" title="Permanent link">&para;</a></h4>
+<p>@svlv of course I want to preserve the commits :-)</p>
+<h4 id="pcahyna_commented_at_2026-03-03_1052"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3562#issuecomment-3990209156">2026-03-03 10:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-03_1052" title="Permanent link">&para;</a></h4>
+<p>Merging, thanks a lot for all the work!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-02-05.3562.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

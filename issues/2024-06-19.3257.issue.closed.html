@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3257 Issue closed: OUTPUT option to only have a grub/efi entry but no ISO? - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3257 Issue closed: OUTPUT option to only have a grub/efi entry but no ISO?";
+        var mkdocs_page_input_path = "issues/2024-06-19.3257.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3257 Issue closed: OUTPUT option to only have a grub/efi entry but no ISO?</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3257_issue_closed_output_option_to_only_have_a_grubefi_entry_but_no_iso"><a href="https://github.com/rear/rear/issues/3257">#3257 Issue</a> <code>closed</code>: OUTPUT option to only have a grub/efi entry but no ISO?<a class="headerlink" href="#3257_issue_closed_output_option_to_only_have_a_grubefi_entry_but_no_iso" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>support / question</code>, <code>ready-to-close?</code></p>
+<h4 id="damm620_opened_issue_at_2024-06-19_0747"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> opened issue at <a href="https://github.com/rear/rear/issues/3257">2024-06-19 07:47</a>:<a class="headerlink" href="#damm620_opened_issue_at_2024-06-19_0747" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ReaR version ("/usr/sbin/rear -V"):<br />
+    2.7</li>
+</ul>
+<p>Currently the have the following parameter configured:</p>
+<pre><code>OUTPUT=ISO
+BACKUP=TSM
+</code></pre>
+<p>This creates the iso as well as the grub/efi entry.<br />
+So fine, so good.</p>
+<p>On certain systems we want to disable the iso creation.<br />
+How can we achieve this?</p>
+<h4 id="gdha_commented_at_2024-07-01_1414"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2200268397">2024-07-01 14:14</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-01_1414" title="Permanent link">&para;</a></h4>
+<p>@damm620 not sure what you are trying to achieve? Perhaps,
+<code>OUTPUT_URL=null</code> could help?</p>
+<h4 id="damm620_commented_at_2024-07-01_1430"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2200324119">2024-07-01 14:30</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-01_1430" title="Permanent link">&para;</a></h4>
+<p>I will try this in the coming days, thank you :)</p>
+<p>We do not want to have a EFI entry in places where we cannot access it
+(e.g. VM in Azure cloud)</p>
+<h4 id="damm620_commented_at_2024-07-09_0853"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2217005717">2024-07-09 08:53</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-09_0853" title="Permanent link">&para;</a></h4>
+<p>nope, with <code>OUTPUT_URL=null</code> the ISO will still be created:</p>
+<details><summary>Click to expand</summary>
+
+
+    [root@SERVERNAME ~]# cat /etc/rear/site.conf
+    OUTPUT=ISO               # Creates an ISO file - other e.g. RAMDISK
+    BACKUP=TSM               # Backup/Restore method - other e.g. rsync
+    COPY_AS_IS_TSM=( "/etc/adsm/ /opt/tivoli/tsm/client /usr/local/ibm/gsk8* /SZIR/data/inclexcl2 /SZIR/data/dsm.sys /SZIR/data/dsm.opt" )  # Files which should be in the ISO
+    # Skip language files to reduce the ISO size
+    COPY_AS_IS_EXCLUDE_TSM=( "/opt/tivoli/tsm/client/ba/bin/ZH_CN/*" "/opt/tivoli/tsm/client/ba/bin/ZH_TW/*" "/opt/tivoli/tsm/client/ba/bin/IT_IT/*" "/opt/tivoli/tsm/client/ba/bin/CS_CZ/*" "/opt/tivoli/tsm/client/ba/bin/ES_ES*" "/opt/tivoli/tsm/client/ba/bin/FR_FR/*" "/opt/tivoli/tsm/client/ba/bin/HU_HU/*" "/opt/tivoli/tsm/client/ba/bin/KO_KR/*" "/opt/tivoli/tsm/client/ba/bin/PL_PL/*" "/opt/tivoli/tsm/client/ba/bin/PT_BR/*" "/opt/tivoli/tsm/client/ba/bin/JA_JP/*" "/opt/tivoli/tsm/client/ba/bin/RU_RU/*" "/opt/tivoli/tsm/client/ba/bin/plugins/*" "/opt/tivoli/tsm/client/api/bin64/CS_CZ*" "/opt/tivoli/tsm/client/api/bin64/DE_DE/*" "/opt/tivoli/tsm/client/api/bin64/dsmenc" "/opt/tivoli/tsm/client/api/bin64/dsm.opt.smp" "/opt/tivoli/tsm/client/api/bin64/dsm.sys.smp" "/opt/tivoli/tsm/client/api/bin64/dsmtca" "/opt/tivoli/tsm/client/api/bin64/EN_US" "/opt/tivoli/tsm/client/api/bin64/ES_ES" "/opt/tivoli/tsm/client/api/bin64/FR_FR" "/opt/tivoli/tsm/client/api/bin64/HU_HU" "/opt/tivoli/tsm/client/api/bin64/IT_IT" "/opt/tivoli/tsm/client/api/bin64/JA_JP" "/opt/tivoli/tsm/client/api/bin64/KO_KR" "/opt/tivoli/tsm/client/api/bin64/PL_PL" "/opt/tivoli/tsm/client/api/bin64/PT_BR" "/opt/tivoli/tsm/client/api/bin64/RU_RU" "/opt/tivoli/tsm/client/api/bin64/sample" "/opt/tivoli/tsm/client/api/bin64/ZH_CN" "/opt/tivoli/tsm/client/api/bin64/ZH_TW" )
+    ONLY_INCLUDE_VG=("vg00") # Only the OS will be restored. Customer volumegroups/FS vg01/IMAPL/evg01 aren't restored
+    CHECK_CONFIG_FILES=( '/etc/adsm/' '/etc/drbd/' '/etc/drbd.conf' '/etc/lvm/lvm.conf' '/etc/multipath.conf' '/etc/rear/' '/etc/udev/udev.conf' '/opt/tivoli/tsm/client/ba/bin/dsmc' )
+    PROGS_TSM=(dsmc)
+    PROGS=( ${PROGS[@]} "vconfig vi vim" )
+    NON_FATAL_BINARIES_WITH_MISSING_LIBRARY=("/opt/tivoli/tsm/client/*|/usr/local/ibm/gsk8_64/bin/")
+    GRUB_RESCUE=y
+    AUTOEXCLUDE_MULTIPATH=y  # Default Wert=y - multipath devices are not created/saved. Which is usually not necessary
+                             # If these must be restored nevertheless e.g. "rm -rf /". The restore must be performed manually afterwards
+    TSM_RESULT_SAVE=n        # Don't save ISO in TSM
+    KEEP_BUILD_DIR=n         # Remove build directory (dir in /tmp) in any case to prevent full filesystem
+    USER_INPUT_TIMEOUT=900   # Increase timeout for user input from 5 to 15 minutes
+    USE_DHCLIENT="n"
+    REAR_INITRD_COMPRESSION="lzma"
+    OUTPUT_URL=null
+
+    [root@SERVERNAME ~]# ll /var/lib/rear/output/*.iso /boot/rear*
+    ls: cannot access '/var/lib/rear/output/*.iso': No such file or directory
+    ls: cannot access '/boot/rear*': No such file or directory
+
+    [root@SERVERNAME ~]# TEMPDIR=/tmp rear -D mkrescue; echo $?
+    Relax-and-Recover 2.7 / Git
+    Running rear mkrescue (PID 778797 date 2024-07-09 10:40:48)
+    Command line options: /usr/sbin/rear -D mkrescue
+    Using log file: /var/log/rear/rear-SERVERNAME.log
+    Using build area: /var/tmp/rear.n3dB0Y5BFrG1DSc
+    Running 'init' stage ======================
+    Running workflow mkrescue on the normal/original system
+    Running 'prep' stage ======================
+    Using '/bin/xorrisofs' to create ISO filesystem images
+    Using autodetected kernel '/boot/vmlinuz-5.14.0-472.el9.x86_64' as kernel in the recovery system
+    Running 'layout/save' stage ======================
+    Creating disk layout
+    Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+    Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+    Using guessed bootloader 'GRUB' for 'rear recover' (found in first bytes on /dev/sda)
+    Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+    Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+    Running 'rescue' stage ======================
+    Creating recovery system root filesystem skeleton layout
+    Adding biosdevname=0 to KERNEL_CMDLINE
+    Adding net.ifnames=0 to KERNEL_CMDLINE
+    Skipping 'docker0': not bound to any physical interface.
+    Handling network interface 'eth0'
+    eth0 is a physical device
+    Handled network interface 'eth0'
+    Handling network interface 'eth1'
+    eth1 is a physical device
+    Handled network interface 'eth1'
+    Included current keyboard mapping (via 'dumpkeys -f')
+    Included default US keyboard mapping /lib/kbd/keymaps/legacy/i386/qwerty/defkeymap.map.gz
+    Included other keyboard mappings in /lib/kbd/keymaps
+    Copying logfile /var/log/rear/rear-SERVERNAME.log into initramfs as '/tmp/rear-SERVERNAME-partial-2024-07-09T10:40:57+02:00.log'
+    Running 'build' stage ======================
+    Copying files and directories
+    Copying binaries and libraries
+    Copying all kernel modules in /lib/modules/5.14.0-472.el9.x86_64 (MODULES contains 'all_modules')
+    Failed to copy all contents of /lib/modules/5.14.0-472.el9.x86_64 (dangling symlinks could be a reason)
+    Copying all files in /lib*/firmware/
+    Skip copying broken symlink '/etc/mtab' target '/proc/792876/mounts' on /proc/ /sys/ /dev/ or /run/
+    Testing that the recovery system in /var/tmp/rear.n3dB0Y5BFrG1DSc/rootfs contains a usable system
+    Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+    /usr/lib64/systemd/libsystemd-core-252.so requires additional libraries
+            libsystemd-shared-252.so => not found
+    ReaR recovery system in '/var/tmp/rear.n3dB0Y5BFrG1DSc/rootfs' needs additional libraries, check /var/log/rear/rear-SERVERNAME.log for details
+    Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+    Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+    Running 'pack' stage ======================
+    Creating recovery/rescue system initramfs/initrd initrd.xz with xz lzma compression
+    Created initrd.xz with xz lzma compression (601833497 bytes) in 431 seconds
+    Running 'output' stage ======================
+    Searching whole /usr for SYSLINUX modules directory (you may specify SYSLINUX_MODULES_DIR)
+    Making ISO image
+    Wrote ISO image: /var/lib/rear/output/rear-SERVERNAME.iso (591M)
+    Setting up GRUB_RESCUE: Adding Relax-and-Recover rescue system to the local GRUB 2 configuration
+    Modifying local GRUB 2 configuration
+    Finished GRUB_RESCUE setup: Added 'Relax-and-Recover' GRUB 2 menu entry
+    Exiting rear mkrescue (PID 778797) and its descendant processes ...
+    Running exit tasks
+    0
+
+    [root@SERVERNAME ~]# ll /var/lib/rear/output/*.iso /boot/rear*
+    -rw-r--r-- 1 root root 601833497 Jul  9 10:48 /boot/rear-initrd.xz
+    -rwxr-xr-x 2 root root  14395432 Jun 27 22:23 /boot/rear-kernel
+    -rw------- 1 root root 618760192 Jul  9 10:48 /var/lib/rear/output/rear-SERVERNAME.iso
+
+</details>
+
+<p>Does have anyone have any other idea?</p>
+<h4 id="gdha_commented_at_2024-07-09_0918"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2217126605">2024-07-09 09:18</a>:<a class="headerlink" href="#gdha_commented_at_2024-07-09_0918" title="Permanent link">&para;</a></h4>
+<p>@damm620 The <code>OUTPUT_URL=null</code> will not upload the ISO to TSM I believe.
+However, when you do not want an ISO how will you ever recover? I guess
+you want the ISO to be saved on TSM, right? And, not have a local copy
+of the ISO?<br />
+Then remove the <code>OUTPUT_URL=null</code> line and add for example:</p>
+<pre><code>POST_BACKUP_SCRIPT=("rm -f  /var/lib/rear/output/rear-$HOSTNAME.iso")
+</code></pre>
+<p>but then you will need to run <code>rear -v mkbackup</code></p>
+<h4 id="schlomo_commented_at_2024-07-11_1611"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2223340324">2024-07-11 16:11</a>:<a class="headerlink" href="#schlomo_commented_at_2024-07-11_1611" title="Permanent link">&para;</a></h4>
+<p>@damm620 without creating an ISO, how do you plan to boot the system
+into the rescue system? <code>OUTPUT</code> should then reflect what you want to
+use for rescue booting.</p>
+<p>Did you maybe also set <code>GRUB_RESCUE=y</code> without mentioning in the issue
+description?</p>
+<p>Have you tried setting <code>OUTPUT=TSM</code>? I'd imagine that it disables
+creating an output whatsoever, as a side effect</p>
+<p>Have you tried setting <code>OUTPUT=RAMDISK</code>?</p>
+<blockquote>
+<p>With OUTPUT=RAMDISK the ReaR rescue/recovery system initramfs/initrd
+is created but nothing additional is done to make it bootable.</p>
+</blockquote>
+<p>I'd guess that this is what you meant.</p>
+<h4 id="damm620_commented_at_2024-07-16_0713"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2230186360">2024-07-16 07:13</a>:<a class="headerlink" href="#damm620_commented_at_2024-07-16_0713" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@damm620 without creating an ISO, how do you plan to boot the system
+into the rescue system? <code>OUTPUT</code> should then reflect what you want to
+use for rescue booting.</p>
+<p>Did you maybe also set <code>GRUB_RESCUE=y</code> without mentioning in the issue
+description?</p>
+<p>Have you tried setting <code>OUTPUT=TSM</code>? I'd imagine that it disables
+creating an output whatsoever, as a side effect</p>
+<p>Have you tried setting <code>OUTPUT=RAMDISK</code>?</p>
+<blockquote>
+<p>With OUTPUT=RAMDISK the ReaR rescue/recovery system initramfs/initrd
+is created but nothing additional is done to make it bootable.</p>
+</blockquote>
+<p>I'd guess that this is what you meant.</p>
+</blockquote>
+<p>Yes <code>GRUB_RESCUE=y</code> is configured.<br />
+I want to have a bootable grub/EFI entry but no ISO file (because on
+certain platforms we cannot boot from it).</p>
+<p>So, a mixture of</p>
+<pre><code>GRUB_RESCUE=y
+OUTPUT=RAMDISK
+BACKUP=TSM
+</code></pre>
+<p>should do the trick? Having a bootable bootentry, but no ISO?</p>
+<h4 id="gdha_commented_at_2024-09-05_0840"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2330945238">2024-09-05 08:40</a>:<a class="headerlink" href="#gdha_commented_at_2024-09-05_0840" title="Permanent link">&para;</a></h4>
+<p>@damm620 Have you tried below settings?</p>
+<blockquote>
+<p>GRUB_RESCUE=y<br />
+OUTPUT=RAMDISK<br />
+BACKUP=TSM</p>
+</blockquote>
+<p>Could you give us an update please?</p>
+<h4 id="damm620_commented_at_2024-09-09_0609"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2337206534">2024-09-09 06:09</a>:<a class="headerlink" href="#damm620_commented_at_2024-09-09_0609" title="Permanent link">&para;</a></h4>
+<p>Hi @gdha,</p>
+<p>sorry, I was busy the last weeks. Thanks for the reminder.<br />
+It looks like that config do the trick:</p>
+<p>config:</p>
+<pre><code>[root@SERVERNAME ~]# grep -i -e grub -e outp -e backup /etc/rear/site.conf |grep -v ^#
+GRUB_RESCUE=y
+OUTPUT=RAMDISK
+BACKUP=TSM
+</code></pre>
+<p>state before:</p>
+<pre><code>[root@SERVERNAME ~]# ll /var/lib/rear/output/rear-SERVERNAME.iso; grep rear /boot/grub2/grub*
+ls: cannot access '/var/lib/rear/output/rear-SERVERNAME.iso': No such file or directory
+/boot/grub2/grub.cfg:### BEGIN /etc/grub.d/45_rear ###
+/boot/grub2/grub.cfg:          echo 'Loading kernel /boot/rear-kernel ...'
+/boot/grub2/grub.cfg:          linux /rear-kernel root=/dev/ram0 vga=normal rw  selinux=0 biosdevname=0 net.ifnames=0
+/boot/grub2/grub.cfg:          echo 'Loading initrd /boot/rear-initrd.cgz (may take a while) ...'
+/boot/grub2/grub.cfg:          initrd /rear-initrd.cgz
+/boot/grub2/grub.cfg:### END /etc/grub.d/45_rear ###
+
+[root@SERVERNAME ~]# echo " " &gt; /etc/grub.d/45_rear
+[root@SERVERNAME ~]# ll /var/lib/rear/output/rear-SERVERNAME.iso; cat /etc/grub.d/45_rear
+ls: cannot access '/var/lib/rear/output/rear-SERVERNAME.iso': No such file or directory
+</code></pre>
+<p>mkrescue:</p>
+<pre><code>[root@SERVERNAME ~]# TMPDIR=/tmp /usr/sbin/rear -d mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 2320 date 2024-09-09 08:02:10)
+Command line options: /usr/sbin/rear -d mkrescue
+Using log file: /var/log/rear/rear-SERVERNAME.log
+Using build area: /tmp/rear.tiVl6sAuhzQaDdu
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+Running 'prep' stage ======================
+Using autodetected kernel '/boot/vmlinuz-5.14.0-503.el9.x86_64' as kernel in the recovery system
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Excluding component /dev/mapper/vg00-snap_dummy_lv_vg00 in EXCLUDE_COMPONENTS
+Excluding component /dev/mapper/evg00-snap_dummy_lv_evg00 in EXCLUDE_COMPONENTS
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+Using guessed bootloader 'GRUB' for 'rear recover' (found in first bytes on /dev/sda)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Adding biosdevname=0 to KERNEL_CMDLINE
+Adding net.ifnames=0 to KERNEL_CMDLINE
+Handling network interface 'eth0'
+eth0 is a physical device
+Handled network interface 'eth0'
+Handling network interface 'eth1'
+eth1 is a physical device
+Handled network interface 'eth1'
+Skipping 'lo': not bound to any physical interface.
+Included current keyboard mapping (via 'dumpkeys -f')
+Included default US keyboard mapping /lib/kbd/keymaps/legacy/i386/qwerty/defkeymap.map.gz
+Included other keyboard mappings in /lib/kbd/keymaps
+Copying logfile /var/log/rear/rear-SERVERNAME.log into initramfs as '/tmp/rear-SERVERNAME-partial-2024-09-09T08:02:16+02:00.log'
+Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/5.14.0-503.el9.x86_64 (MODULES contains 'all_modules')
+Failed to copy all contents of /lib/modules/5.14.0-503.el9.x86_64 (dangling symlinks could be a reason)
+Copying files from /lib*/firmware/ that match *amd/* *intel* *tigon* *bnx2* *ql2* *cxgb* *renesas_usb*
+Skip copying broken symlink '/etc/mtab' target '/proc/14890/mounts' on /proc/ /sys/ /dev/ or /run/
+Testing that the recovery system in /tmp/rear.tiVl6sAuhzQaDdu/rootfs contains a usable system
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+/usr/lib64/systemd/libsystemd-core-252.so requires additional libraries
+        libsystemd-shared-252.so =&gt; not found
+ReaR recovery system in '/tmp/rear.tiVl6sAuhzQaDdu/rootfs' needs additional libraries, check /var/log/rear/rear-SERVERNAME.log for details
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (293791753 bytes) in 29 seconds
+Running 'output' stage ======================
+Adding /tmp/rear.tiVl6sAuhzQaDdu/tmp/kernel-SERVERNAME and /tmp/rear.tiVl6sAuhzQaDdu/tmp/initramfs-SERVERNAME.img to RESULT_FILES
+Setting up GRUB_RESCUE: Adding Relax-and-Recover rescue system to the local GRUB 2 configuration
+Finished GRUB_RESCUE setup: Added 'Relax-and-Recover' GRUB 2 menu entry
+Exiting rear mkrescue (PID 2320) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>state after:</p>
+<pre><code>[root@SERVERNAME ~]# ll /var/lib/rear/output/rear-SERVERNAME.iso; cat /etc/grub.d/45_rear
+ls: cannot access '/var/lib/rear/output/rear-SERVERNAME.iso': No such file or directory
+#!/bin/bash
+cat &lt;&lt; EOF
+menuentry 'Relax-and-Recover' --class os {
+          search --no-floppy --fs-uuid --set=root 24c1f91a-a1ca-4f42-8d02-313f12fadc0e
+          echo 'Loading kernel /boot/rear-kernel ...'
+          linux /rear-kernel root=/dev/ram0 vga=normal rw  selinux=0 biosdevname=0 net.ifnames=0
+          echo 'Loading initrd /boot/rear-initrd.cgz (may take a while) ...'
+          initrd /rear-initrd.cgz
+}
+EOF
+</code></pre>
+<p>Did I overlook anything or does this config creates <strong>NO ISO</strong>, but it
+creates a bootable initrd?</p>
+<h4 id="gdha_commented_at_2024-09-09_0651"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2337270304">2024-09-09 06:51</a>:<a class="headerlink" href="#gdha_commented_at_2024-09-09_0651" title="Permanent link">&para;</a></h4>
+<p>@damm620 Indeed "Added 'Relax-and-Recover' GRUB 2 menu entry" worked as
+expected. No ISO made as well. You can now perform a test on your system
+to boot up with the new ReaR Grub entry. Just do a boot up test and see
+if the ReaR recovery image looks sane to you. Do not perform a recovery
+test on your system. If you want to test it out just use a system which
+can be missed ;-)</p>
+<h4 id="damm620_commented_at_2024-09-09_0747"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2337373727">2024-09-09 07:47</a>:<a class="headerlink" href="#damm620_commented_at_2024-09-09_0747" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@damm620 Indeed "Added 'Relax-and-Recover' GRUB 2 menu entry" worked
+as expected. No ISO made as well. You can now perform a test on your
+system to boot up with the new ReaR Grub entry. Just do a boot up test
+and see if the ReaR recovery image looks sane to you. Do not perform a
+recovery test on your system. If you want to test it out just use a
+system which can be missed ;-)</p>
+</blockquote>
+<p>I already did boot via grub into the rear env. And it worked ;)</p>
+<h4 id="damm620_commented_at_2024-09-11_0631"><img src="https://avatars.githubusercontent.com/u/170947477?v=4" width="50"><a href="https://github.com/damm620">damm620</a> commented at <a href="https://github.com/rear/rear/issues/3257#issuecomment-2342753259">2024-09-11 06:31</a>:<a class="headerlink" href="#damm620_commented_at_2024-09-11_0631" title="Permanent link">&para;</a></h4>
+<p>I also like to add that this config also worked for UEFI servers:</p>
+<p>config:</p>
+<pre><code>[root@SERVERNAME ~]# grep -i -e grub -e outp -e backup /etc/rear/site.conf |grep -v ^#
+GRUB_RESCUE=y
+OUTPUT=RAMDISK
+BACKUP=TSM
+</code></pre>
+<p>state before:</p>
+<pre><code>[root@SERVERNAME ~]# ll /var/lib/rear/output/rear-SERVERNAME.iso; efibootmgr
+ls: cannot access '/var/lib/rear/output/rear-SERVERNAME.iso': No such file or directory
+BootCurrent: 0001
+Timeout: 0 seconds
+BootOrder: 0001,0002,0000,0003
+Boot0000* UiApp
+Boot0001* UEFI PXEv4 (MAC:020017145C0D)
+Boot0002* UEFI PXEv4 (MAC:020017145C0D) 2
+Boot0003* EFI Internal Shell
+</code></pre>
+<p>mkrescue:</p>
+<pre><code>[root@SERVERNAME ~]# TMPDIR=/tmp /usr/sbin/rear -d mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 695882 date 2024-09-11 08:28:56)
+Command line options: /usr/sbin/rear -d mkrescue
+Using log file: /var/log/rear/rear-SERVERNAME.log
+Using build area: /tmp/rear.Sve65ggTDIzb3ve
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+Running 'prep' stage ======================
+Found EFI system partition /dev/sda1 on /boot/efi type vfat
+Using UEFI Boot Loader for Linux (USING_UEFI_BOOTLOADER=1)
+Using autodetected kernel '/boot/vmlinuz-5.14.0-427.33.1.el9_4.x86_64' as kernel in the recovery system
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+Using guessed bootloader 'EFI' for 'rear recover' (found in first bytes on /dev/sda)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Adding net.ifnames=0 to KERNEL_CMDLINE
+Adding biosdevname=0 to KERNEL_CMDLINE
+Handling network interface 'eth0'
+eth0 is a physical device
+Handled network interface 'eth0'
+Skipping 'lo': not bound to any physical interface.
+Included current keyboard mapping (via 'dumpkeys -f')
+Included default US keyboard mapping /lib/kbd/keymaps/legacy/i386/qwerty/defkeymap.map.gz
+Included other keyboard mappings in /lib/kbd/keymaps
+Trying to find what to use as UEFI bootloader...
+Trying to find a 'well known file' to be used as UEFI bootloader...
+Using '/boot/efi/EFI/redhat/grubx64.efi' as UEFI bootloader file
+Copying logfile /var/log/rear/rear-SERVERNAME.log into initramfs as '/tmp/rear-SERVERNAME-partial-2024-09-11T08:29:01+02:00.log'
+Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/5.14.0-427.33.1.el9_4.x86_64 (MODULES contains 'all_modules')
+Failed to copy all contents of /lib/modules/5.14.0-427.33.1.el9_4.x86_64 (dangling symlinks could be a reason)
+Copying files from /lib*/firmware/ that match *amd/* *intel* *tigon* *bnx2* *ql2* *cxgb* *renesas_usb*
+Skip copying broken symlink '/etc/mtab' target '/proc/708072/mounts' on /proc/ /sys/ /dev/ or /run/
+Testing that the recovery system in /tmp/rear.Sve65ggTDIzb3ve/rootfs contains a usable system
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+/usr/lib64/systemd/libsystemd-core-252.so requires additional libraries
+        libsystemd-shared-252.so =&gt; not found
+ReaR recovery system in '/tmp/rear.Sve65ggTDIzb3ve/rootfs' needs additional libraries, check /var/log/rear/rear-SERVERNAME.log for details
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (312698486 bytes) in 27 seconds
+Running 'output' stage ======================
+Adding /tmp/rear.Sve65ggTDIzb3ve/tmp/kernel-SERVERNAME and /tmp/rear.Sve65ggTDIzb3ve/tmp/initramfs-SERVERNAME.img to RESULT_FILES
+Setting up GRUB_RESCUE: Adding Relax-and-Recover rescue system to the local UEFI boot manager
+Anyone who can select UEFI boot entries can boot it and replace the current system via 'rear recover'
+GRUB2 modules to load: fat part_gpt part_msdos xfs
+Finished GRUB_RESCUE setup: Added 'Relax-and-Recover' UEFI boot manager entry
+Exiting rear mkrescue (PID 695882) and its descendant processes ...
+Running exit tasks
+</code></pre>
+<p>state after:</p>
+<pre><code>[root@SERVERNAME ~]# ll /var/lib/rear/output/rear-SERVERNAME.iso; efibootmgr
+ls: cannot access '/var/lib/rear/output/rear-SERVERNAME.iso': No such file or directory
+BootCurrent: 0001
+Timeout: 0 seconds
+BootOrder: 0001,0002,0000,0003,0004
+Boot0000* UiApp
+Boot0001* UEFI PXEv4 (MAC:020017145C0D)
+Boot0002* UEFI PXEv4 (MAC:020017145C0D) 2
+Boot0003* EFI Internal Shell
+Boot0004* Relax-and-Recover
+</code></pre>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2024-06-19.3257.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

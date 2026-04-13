@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3565 PR merged: Add GRUB2-BLS support - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3565 PR merged: Add GRUB2-BLS support";
+        var mkdocs_page_input_path = "issues/2026-02-13.3565.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3565 PR merged: Add GRUB2-BLS support</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3565_pr_merged_add_grub2-bls_support"><a href="https://github.com/rear/rear/pull/3565">#3565 PR</a> <code>merged</code>: Add GRUB2-BLS support<a class="headerlink" href="#3565_pr_merged_add_grub2-bls_support" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-02-13_1650"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/pull/3565">2026-02-13 16:50</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-02-13_1650" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): Fixes
+    <a href="https://github.com/rear/rear/issues/3564">https://github.com/rear/rear/issues/3564</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Manually recovered openSUSE Tumbleweed</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:</p>
+</li>
+</ul>
+<p>The recovery process for GRUB2-BLS doesn't require<br />
+updating <code>grub.cfg</code>, since it is generated on the fly<br />
+based on entries defined in <code>/boot/efi/loader/entries</code>.</p>
+<p>On openSUSE Tumbleweed, these entries<br />
+use the kernel and initrd from the<br />
+<code>/boot/efi/opensuse-tumbleweed/6.18.9-1-default/</code><br />
+directory.</p>
+<p>The only way I've found to regenerate the initrd is<br />
+to run <code>sdbootutil mkinitrd</code>.</p>
+<p>It regenerates initrd using <code>dracut</code> under the hood,<br />
+places it to the corresponding location<br />
+(<code>/boot/efi/opensuse-tumbleweed/6.18.9-1-default/</code> in my case)<br />
+and updates a bootloader entry.</p>
+<h4 id="svlv_commented_at_2026-02-17_1153"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3914298480">2026-02-17 11:53</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-17_1153" title="Permanent link">&para;</a></h4>
+<p>I've additionally tested <code>GRUB2-BLS</code> support on RHEL 10.<br />
+Without the patch the bootloader on RHEL 10 is detected as <code>GRUB2-EFI</code>.</p>
+<h4 id="pcahyna_commented_at_2026-02-20_1258"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3934284974">2026-02-20 12:58</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-20_1258" title="Permanent link">&para;</a></h4>
+<p>Sorry for being late - I will have a look.</p>
+<h4 id="jsmeix_commented_at_2026-02-23_1407"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3944984559">2026-02-23 14:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-23_1407" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+please document (if needed with further explanations)<br />
+the new 'GRUB2-BLS' in usr/share/rear/conf/default.conf at</p>
+<pre><code># BOOTLOADER
+...
+# What is currently listed in layout/save/default/450_check_bootloader_files.sh
+# is: GRUB2-EFI EFI GRUB2 GRUB ELILO LILO PPC ARM ARM-ALLWINNER ZIPL
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3776">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3776</a></p>
+<h4 id="pcahyna_commented_at_2026-02-23_1418"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3945037642">2026-02-23 14:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-23_1418" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@svlv please document (if needed with further explanations) the new
+'GRUB2-BLS' in usr/share/rear/conf/default.conf at</p>
+<pre><code># BOOTLOADER
+...
+# What is currently listed in layout/save/default/450_check_bootloader_files.sh
+# is: GRUB2-EFI EFI GRUB2 GRUB ELILO LILO PPC ARM ARM-ALLWINNER ZIPL
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3776">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3776</a></p>
+</blockquote>
+<p>I will discuss it in more detail later - but before documenting it,
+please think about why is the new <code>GRUB2-BLS</code> value needed at all and
+what is it intended to represent - from the PR it is not clear at all to
+me.</p>
+<h4 id="svlv_commented_at_2026-02-23_1433"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3945118012">2026-02-23 14:33</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-23_1433" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>Because in <code>/etc/sysconfig/bootloader</code> at least Fedora, openSUSE
+Tumbleweed, Rocky 9 put <code>grub2-bls</code> as their bootloader type (instead of
+<code>grub2-efi</code>)</p>
+<p>At least for openSUSE Tumbleweed the recovery process is not the same as
+for <code>GRUB2-EFI</code> that is why I introduced <code>GRUB2-BLS</code> type (basically, it
+is not enough to run <code>dracut</code>, initrd also must be copied to the
+expected location)</p>
+<p>However, currently, for RHEL 8,9,10 <code>GRUB2-EFI</code> can be changed to
+<code>GRUB2-BLS</code> and vise verse without any issues.<br />
+But strictly speaking if distro developers started distinguishing
+<code>GRUB2-EFI</code> and <code>GRUB2-BLS</code>, software that relies on
+<code>/etc/sysconfig/bootloader</code> should do it as well.</p>
+<p>Does it explain my proposal?</p>
+<h4 id="svlv_commented_at_2026-02-24_1218"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3951363771">2026-02-24 12:18</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-24_1218" title="Permanent link">&para;</a></h4>
+<p>I've mentioned <code>GRUB2-BLS</code> in <code>default.conf</code> and added a brief
+explanation.</p>
+<p>Also, I want to explain in more detail the patch.</p>
+<p>With this patch <code>BOOTLOADER</code> is set to <code>GRUB2-BLS</code> in two cases:</p>
+<ol>
+<li><code>/etc/sysconfig/bootloader</code> contains <code>LOADER_TYPE="grub2-bls"</code>.<br />
+    Currently it happens on Fedora 43, openSUSE Tumbleweed and Rocky
+    Linux 9.</li>
+<li><code>grub.cfg</code> contains <code>blscfg</code><br />
+    Currently it happens on RHEL 8, 9 and 10.</li>
+</ol>
+<p>Please note, that without this patch in RHEL 8, 9 and 10, <code>BOOTLOADER</code>
+is set to <code>GRUB2-EFI</code>, although these systems use <code>GRUB2-BLS</code> in reality
+(<code>/etc/sysconfig/bootloader</code> is missing on these systems).</p>
+<p><code>GRUB2-BLS</code> is introduced here because on openSUSE Tumbleweed during
+recovery <code>sdbootutil</code> is used when <code>BOOTLOADER=GRUB2-BLS</code>. On other
+systems I tested, <code>GRUB2-EFI</code> can be used instead of <code>GRUB2-BLS</code> without
+visible issues at the moment.</p>
+<p>In <code>/etc/sysconfig/bootloader</code> there is the following information
+regarding possible <code>LOADER_TYPE</code> values:</p>
+<pre><code>## Path:        System/Bootloader
+## Description: Bootloader configuration
+## Type:        list(grub,grub2,grub2-efi,grub2-bls,systemd-boot,none)
+## Default:     grub2
+#
+# Type of bootloader in use.
+# For making the change effect run bootloader configuration tool
+# and configure newly selected bootloader
+#
+#
+LOADER_TYPE="grub2-bls"
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-02-24_1440"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3952479930">2026-02-24 14:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-24_1440" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+because of your<br />
+<a href="https://github.com/rear/rear/pull/3565#issuecomment-3945037642">https://github.com/rear/rear/pull/3565#issuecomment-3945037642</a><br />
+I dared to assign this pull request to you<br />
+so you can decide when it is OK to be merged.</p>
+<h4 id="pcahyna_commented_at_2026-02-24_1709"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3953523497">2026-02-24 17:09</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-24_1709" title="Permanent link">&para;</a></h4>
+<p>@svlv</p>
+<p>I think that the original version did not mention
+<code>/etc/sysconfig/bootloader</code> at all, so the <code>GRUB2-BLS</code> value seemed to
+appear "out of thin air". Now I see where it comes from, thanks for the
+explanation.</p>
+<p>I however doubt that this value should be put into our
+<code>$bootloader_file</code>. What is it meant to represent? The file
+<code>$bootloader_file</code> determines what bootloader should we reinstall at the
+end of recovery, and <code>GRUB2-BLS</code> is not really a different bootloader,
+but merely a different way to configure a bootloader. In general
+transferring values detected at <code>mkrescue</code> time into the recovered
+system via a file like <code>$bootloader_file</code> or <code>/etc/rear/rescue.conf</code> can
+be problematic and it is better to make the appropriate decisions
+dynamically during recovery according to what is actually on the
+system.<br />
+You may ask why to save <code>$bootloader_file</code> at all then - the answer is
+that many bootloaders are installed into the boot sector which is
+outside the filesystem itself, so by the time recovery runs this
+information from the original system would be otherwise irretrievably
+lost and the only way to obtain the information is by <code>mkrescue</code> time
+and save it - the information is essentially part of the storage layout
+(you may see that some bootloaders get detected by analyzing the boot
+sector, which may seem crude but is the only way to determine what's
+really there).</p>
+<p>The problem with the <code>GRUB2-BLS</code> value is that we need to know where/how
+to install the bootloader, but the value tells us how to configure it,
+and these are two very different steps. Think about it: how do we
+distinguish GRUB2 on BIOS with BLS and GRUB2 on EFI with BLS? Are both
+represented by the <code>GRUB2-BLS</code> value? But how do we know whether to run
+<code>grub2-install</code> on the disks (we do with BIOS) or not (we don't with
+EFI)? Clearly we need the <code>GRUB2</code> value here and <code>GRUB2-BLS</code> only adds
+confusion.</p>
+<p>You wrote that "in /etc/sysconfig/bootloader at least Fedora ...put
+grub2-bls" but I don't see that in a fresh Fedora install. How have you
+determined that? I am curious which package owns that file
+(<code>rpm -qf /etc/sysconfig/bootloader</code>). I suspect that if you see this,
+the file actually gets installed via some image generating tool like
+Kiwi ( <a href="https://github.com/OSInside/kiwi/pull/227">https://github.com/OSInside/kiwi/pull/227</a> ) and I see that it
+was added by a person of SUSE fame, so I suspect it is a SUSE-specific
+file that this particular tool injects into other OSes' images without
+being a standard there.</p>
+<p>tl;dr I don't think the possible values of /etc/sysconfig/bootloader
+should determine the allowed content of <code>$bootloader_file</code> as they serve
+a different purpose.</p>
+<p>I understand your point that "if distro developers started
+distinguishing GRUB2-EFI and GRUB2-BLS, software that relies on
+/etc/sysconfig/bootloader should do it as well." It is a valid point and
+I appreciate your effort at fixing this. But I think that the
+implementation should look rather different. Namely, we should check
+that the value we obtained from <code>/etc/sysconfig/bootloader</code> is among the
+values that we actually support in <code>$bootloader_file</code> (because otherwise
+next time a new value gets added, it will break again) and either error
+out or ignore unknown values, while <code>GRUB2-BLS</code> should be mapped to
+something else or the GRUB autodetection should be attempted (see the
+next statements in the file).</p>
+<p>Note that relying on the <code>/etc/sysconfig/bootloader</code> file is in general
+quite problematic, so perhaps we should rely on it a bit less than we do
+now. How do you restore a hybrid bootloader using that? Imagine an image
+that can boot with both BIOS and UEFI, but the file can contain just a
+single value - which one? If <code>GRUB2-EFI</code>, then the BIOS bootloader will
+not be restored and when using BIOS booting the system will be
+unbootable. See the comment about hybrid bootloader
+<a href="https://github.com/nable-backup/rear/blob/aaa7033aa362b5ce30b0718232ec4d40762f363b/usr/share/rear/layout/save/default/445_guess_bootloader.sh#L134">https://github.com/nable-backup/rear/blob/aaa7033aa362b5ce30b0718232ec4d40762f363b/usr/share/rear/layout/save/default/445_guess_bootloader.sh#L134</a>
+. (This problem is not new, I noticed the presence of nonstandard
+<code>/etc/sysconfig/bootloader</code> file in some Fedora images and resulting
+breakage of hybrid bootloader restore already several years ago when
+working on the hybrid bootloader save/restore capability, but I do not
+remember the details.)</p>
+<h4 id="svlv_commented_at_2026-02-25_0943"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3958024411">2026-02-25 09:43</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-25_0943" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>Good point. Let me summarise</p>
+<ol>
+<li>Adding <code>GRUB2-BLS</code> is not desirable as it is not a new bootloader
+    but the patched GRUB2 upstream version. Also, adding GRUB2-BLS will
+    add confusion.</li>
+<li><code>GRUB2-BLS</code> detection can be done for openSUSE Tumbleweed at
+    recovery time.</li>
+<li>Unknown bootloaders from <code>/etc/sysconfig/bootloader</code> should be
+    ignored.</li>
+<li><code>CHECK_CONFIG_FILES</code> should always include boot entries (to keep the
+    logic simple and since it is allowed to add missing files there).</li>
+</ol>
+<p>Please let me know if I've missed something.</p>
+<blockquote>
+<p>You wrote that "in /etc/sysconfig/bootloader at least Fedora ...put
+grub2-bls" but I don't see that in a fresh Fedora install. How have
+you determined that? I am curious which package owns that file (rpm
+-qf /etc/sysconfig/bootloader). I suspect that if you see this, the
+file actually gets installed via some image generating tool like Kiwi
+( <a href="https://github.com/OSInside/kiwi/pull/227">https://github.com/OSInside/kiwi/pull/227</a> ) and I see that it was
+added by a person of SUSE fame, so I suspect it is a SUSE-specific
+file that this particular tool injects into other OSes' images without
+being a standard there.</p>
+</blockquote>
+<p>I've downloaded ISO for Fedora 43 and installed it in VMware. By the
+way, not only me - <a href="https://github.com/rear/rear/issues/3564">https://github.com/rear/rear/issues/3564</a><br />
+The link I've used is
+<a href="https://download.fedoraproject.org/pub/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso">Fedora-Workstation-Live-43-1.6.x86_64.iso</a></p>
+<h4 id="pcahyna_commented_at_2026-02-25_1727"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3960804667">2026-02-25 17:27</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-25_1727" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<p>Good point. Let me summarise</p>
+<pre><code>1. Adding `GRUB2-BLS` is not desirable as it is not a new bootloader but the patched GRUB2 upstream version. Also, adding GRUB2-BLS will add confusion.
+</code></pre>
+</blockquote>
+<p>I think it does not matter whether it is patched or not, what matters it
+that it is a way to configure GRUB, not a special bootloader in itself
+nor a specific location for it (GRUB2 and GRUB2-EFI are also the same
+bootloader, but with a very different location on disk resulting in
+different install methods and therefore they need to be treated
+separately as if they were different bootloaders).</p>
+<blockquote>
+<pre><code>2. `GRUB2-BLS` detection can be done for openSUSE Tumbleweed at recovery time.
+</code></pre>
+</blockquote>
+<p>Yes, I believe it is cleaner.</p>
+<blockquote>
+<pre><code>3. Unknown bootloaders from `/etc/sysconfig/bootloader` should be ignored.
+</code></pre>
+</blockquote>
+<p>Now I am not sure about this point. For GRUB2-BLS, it would be the right
+thing to do (GRUB detection can then proceed normally). But in general
+an unknown value in <code>/etc/sysconfig/bootloader</code> indicates that we are in
+an unknown situation and we miss code to handle it. To some extent the
+<code>BugError "Unknown bootloader ($used_bootloader) - ask for sponsoring to get this fixed"</code>
+line in <code>layout/save/default/450_check_bootloader_files.sh</code> handles it,
+but I think that erroring out earlier is safer. If there is an unknown
+bootloader, but GRUB2 is installed, we would detect GRUB2 and proceed as
+if the bootloader used is GRUB2, even though we should use that unknown
+bootloader instead.</p>
+<p>(You don't need to add this check yourself, it is already outside the
+scope of this PR.)</p>
+<blockquote>
+<pre><code>4. `CHECK_CONFIG_FILES` should always include boot entries (to keep the logic simple and since it is allowed to add missing files there).
+</code></pre>
+</blockquote>
+<p>Yes, at least for bootloaders that are known to support BLS (probably
+adding it everywhere is the easiest choice).</p>
+<blockquote>
+<p>Please let me know if I've missed something.</p>
+</blockquote>
+<p>No, I think that's it.</p>
+<blockquote>
+<blockquote>
+<p>You wrote that "in /etc/sysconfig/bootloader at least Fedora ...put
+grub2-bls" but I don't see that in a fresh Fedora install. How have
+you determined that? I am curious which package owns that file (rpm
+-qf /etc/sysconfig/bootloader). I suspect that if you see this, the
+file actually gets installed via some image generating tool like
+Kiwi (
+<a href="https://github.com/OSInside/kiwi/pull/227">OSInside/kiwi#227</a> ) and
+I see that it was added by a person of SUSE fame, so I suspect it is
+a SUSE-specific file that this particular tool injects into other
+OSes' images without being a standard there.</p>
+</blockquote>
+<p>I've downloaded ISO for Fedora 43 and installed it in VMware. By the
+way, not only me - #3564 The link I've used is
+<a href="https://download.fedoraproject.org/pub/fedora/linux/releases/43/Workstation/x86_64/iso/Fedora-Workstation-Live-43-1.6.x86_64.iso">Fedora-Workstation-Live-43-1.6.x86_64.iso</a></p>
+</blockquote>
+<p>Interesting. I installed Fedora (the Server and Everything variants) 41,
+43 and Rawhide via Anaconda (the usual installer), I checked also the
+cloud images, and I never saw this file. Have you checked which package
+owns it? Anyway, clearly it is not a standard part of all install, but
+it can be present, so we must cope both with it existing and not
+existing.</p>
+<h4 id="svlv_commented_at_2026-02-25_1737"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3960866688">2026-02-25 17:37</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-25_1737" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>I've already started applying your comments. I'll push changes after
+re-testing tomorrow.</p>
+<blockquote>
+<p>Have you checked which package owns it?</p>
+</blockquote>
+<p>Not yet</p>
+<h4 id="pcahyna_commented_at_2026-02-25_1745"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3960929158">2026-02-25 17:45</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-25_1745" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna</p>
+<p>I've already started applying your comments. I'll push changes after
+re-testing tomorrow.</p>
+</blockquote>
+<p>Thanks! I can add the check for unknown bootloaders myself if you have
+not done it yet.</p>
+<blockquote>
+<blockquote>
+<p>Have you checked which package owns it?</p>
+</blockquote>
+<p>Not yet</p>
+</blockquote>
+<p>No problem, it is not very important for the actual work, I am just
+curious how this file originates.</p>
+<h4 id="svlv_commented_at_2026-02-25_1749"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3960961406">2026-02-25 17:49</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-25_1749" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<blockquote>
+<p>Thanks! I can add the check for unknown bootloaders myself if you have
+not done it yet.</p>
+</blockquote>
+<p>Don't worry. Everything has been already done. I just want to look at my
+changes with fresh head tomorrow</p>
+<h4 id="svlv_commented_at_2026-02-26_0754"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3964783251">2026-02-26 07:54</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-26_0754" title="Permanent link">&para;</a></h4>
+<p>I've re-worked the patch to avoid adding <code>GRUB2-BLS</code> as a new value for
+the <code>BOOTLOADER</code> variable and detect <code>GRUB2-BLS</code> usage at recovery time
+for openSUSE Tumbleweed.</p>
+<p>I've manually re-tested on RHEL 10 and openSUSE.</p>
+<h4 id="svlv_commented_at_2026-02-26_0859"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3965122094">2026-02-26 08:59</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-26_0859" title="Permanent link">&para;</a></h4>
+<p>@pcahyna</p>
+<p>Regarding <code>/etc/sysconfig/bootloader</code> on Fedora 43:</p>
+<pre><code>root@fedora:~# uname -a
+Linux fedora 6.17.1-300.fc43.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Oct  6 15:37:21 UTC 2025 x86_64 GNU/Linux
+root@fedora:~# rpm -qf /etc/sysconfig/bootloader
+file /etc/sysconfig/bootloader is not owned by any package
+root@fedora:~# cat /etc/sysconfig/bootloader
+DEFAULT_APPEND="quiet rhgb "
+FAILSAFE_APPEND="quiet rhgb  ide=nodma apm=off noresume edd=off nomodeset 3 "
+LOADER_LOCATION=none
+LOADER_TYPE=grub2-bls
+SECURE_BOOT=yes
+</code></pre>
+<blockquote>
+<p>but I think that erroring out earlier is safer</p>
+</blockquote>
+<p>I would use existing single place to verify the <code>BOOTLOADER</code> value. No
+need to add checks at different places.</p>
+<p>On SUSE possible values for BOOTLOADER_TYPE are<br />
+<code>## Type:        list(grub,grub2,grub2-efi,grub2-bls,systemd-boot,none)</code><br />
+<a href="https://github.com/yast/yast-bootloader/blob/7f60cead2eb2c3e116533c519a932482cf06fd8d/src/lib/bootloader/sysconfig.rb#L64">sysconfig.rb#L64</a><br />
+In the patch, I allowed only <code>grub,grub2,grub2-efi</code> to be used.</p>
+<h4 id="jsmeix_commented_at_2026-02-26_1351"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3966777467">2026-02-26 13:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-26_1351" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+regarding your recent<br />
+<a href="https://github.com/rear/rear/pull/3565/changes/67c45568354200ba945266af741004fb70a03729">https://github.com/rear/rear/pull/3565/changes/67c45568354200ba945266af741004fb70a03729</a><br />
+"Improve the check to determine whether the system is in normal or
+rescue mode"</p>
+<p>I don't know but perhaps testing for RECOVERY_MODE<br />
+might be what could be actually needed here<br />
+when GRUB-BLS support is also intended<br />
+for Portable Recovery Mode where "rear -p recover"<br />
+is run within a foreign rescue system, see<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.md">https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.md</a></p>
+<p>Therefore we have in usr/sbin/rear</p>
+<pre><code>if test -e "/etc/rear-release" || test "$PORTABLE" ; then
+    RECOVERY_MODE=1
+fi
+</code></pre>
+<p><a href="https://github.com/rear/rear/blob/master/usr/sbin/rear#L326">https://github.com/rear/rear/blob/master/usr/sbin/rear#L326</a></p>
+<p>I filed<br />
+<a href="https://github.com/rear/rear/issues/3234">https://github.com/rear/rear/issues/3234</a><br />
+"Replace direct usage of /etc/rear-release with RECOVERY_MODE"<br />
+but found no time to implement it<br />
+so in current ReaR code we still use /etc/rear-release<br />
+at various places instead of testing for RECOVERY_MODE<br />
+which could be bugs in several cases for the same reason<br />
+as I explained above.</p>
+<p>But using /etc/rear-release in<br />
+usr/share/rear/init/default/002_check_rear_recover_mode.sh<br />
+looks correct because there we skip things for PORTABLE<br />
+so we only want to do those checks when we are inside<br />
+the ReaR rescue/recovery system.</p>
+<p>Phew - how confusing complicated all that has become :-(<br />
+I want my good old 8-bit single-user single-task single-core<br />
+do-one-thing-at-a-time-and-do-it-well home computer back ;-)</p>
+<h4 id="svlv_commented_at_2026-02-26_1405"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3966847550">2026-02-26 14:05</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-26_1405" title="Permanent link">&para;</a></h4>
+<p>Thanks @jsmeix<br />
+I've corrected it</p>
+<h4 id="svlv_commented_at_2026-03-03_1737"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3992571565">2026-03-03 17:37</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-03_1737" title="Permanent link">&para;</a></h4>
+<p>@pcahyna did you have a chance to review the latest changes?</p>
+<h4 id="pcahyna_commented_at_2026-03-04_1047"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-3996728549">2026-03-04 10:47</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-04_1047" title="Permanent link">&para;</a></h4>
+<p>@svlv not yet, sorry. I will have a look now.</p>
+<h4 id="svlv_commented_at_2026-03-05_1232"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4004738450">2026-03-05 12:32</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-05_1232" title="Permanent link">&para;</a></h4>
+<p>I've changed the logic to ignore <code>none</code>, <code>grub2-bls</code> and <code>grub2-efi</code>
+from <code>/etc/sysconfig/bootloader</code></p>
+<h4 id="pcahyna_commented_at_2026-03-05_1824"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4006864676">2026-03-05 18:24</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-05_1824" title="Permanent link">&para;</a></h4>
+<p>@svlv thanks a lot, I will leave some time for others to also have a
+look at the final state and them merge it. I will also have a look
+tomorrow whether it makes sense to squash the commits together (I
+suppose so).</p>
+<h4 id="pcahyna_commented_at_2026-03-09_1718"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4025433947">2026-03-09 17:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-09_1718" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors I would like to merge the PR tomorrow (Tuesday),
+unless you have further comments.</p>
+<p>@svlv I looked at the commits and I think you should squash them all
+together with an appropriate commit message, because the intermediate
+steps are not worth preserving. Only one note about the changes to
+<code>CHECK_CONFIG_FILES</code>: This seems to have appeared "out of thin air" when
+looking at the final state. Could you please add a comment explaining it
+and a reference to <code>layout/save/default/450_check_bootloader_files.sh</code>
+where bootloader files get normally added to <code>CHECK_CONFIG_FILES</code> ?
+Suggested comment:</p>
+<pre><code># Bootloader files get usually added in layout/save/default/450_check_bootloader_files.sh ,
+# but BLS files are common to all bootloaders that support the BLS, so we add them here instead.
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-03-10_0808"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4029463240">2026-03-10 08:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-10_0808" title="Permanent link">&para;</a></h4>
+<p>It should never ever be the the task of<br />
+a voluntary ReaR contributor like @svlv<br />
+to do additional generic code cleanup work<br />
+by the way in his enhancement pull request.<br />
+So this enhancement pull request sould be kept<br />
+limited to only what it is meant to implement.<br />
+Generic code cleanup work could be done via<br />
+separated dedicated cleanup pull requests.</p>
+<h4 id="schlomo_commented_at_2026-03-10_0812"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4029480509">2026-03-10 08:12</a>:<a class="headerlink" href="#schlomo_commented_at_2026-03-10_0812" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>It should never ever be the the task of a voluntary ReaR contributor
+like @svlv to do additional generic code cleanup work by the way in
+his enhancement pull request. So this enhancement pull request sould
+be kept limited to only what it is meant to implement. Generic code
+cleanup work could be done via separated dedicated cleanup pull
+requests.</p>
+</blockquote>
+<p>100% which is why I approved the PR</p>
+<h4 id="svlv_commented_at_2026-03-10_0940"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4029994325">2026-03-10 09:40</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-10_0940" title="Permanent link">&para;</a></h4>
+<p>I've squashed commits and added requested comments for
+<code>CHECK_CONFIG_FILES</code>.<br />
+Regarding refactoring, please let me know whether it is necessary or not
+in this PR. I can do it, but probably later.</p>
+<h4 id="jsmeix_commented_at_2026-03-10_1254"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4031179855">2026-03-10 12:54</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-10_1254" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you so much for all your time and patience<br />
+to fix those rather complicated bootloader issues!</p>
+<p>Regarding refactoring or cleanup<br />
+see my above<br />
+<a href="https://github.com/rear/rear/pull/3565#issuecomment-4029463240">https://github.com/rear/rear/pull/3565#issuecomment-4029463240</a><br />
+with the confirmation from @schlomo<br />
+<a href="https://github.com/rear/rear/pull/3565#issuecomment-4029480509">https://github.com/rear/rear/pull/3565#issuecomment-4029480509</a><br />
+and what @pcahyna wrote in<br />
+<a href="https://github.com/rear/rear/pull/3565#discussion_r2907349693">https://github.com/rear/rear/pull/3565#discussion_r2907349693</a><br />
+(quoting because comments to commits sometimes get lost in GitHub)</p>
+<pre><code>I don't think that the PR should be required
+to clean up and unify preexisting stuff
+</code></pre>
+<h4 id="pcahyna_commented_at_2026-03-10_1704"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3565#issuecomment-4033040746">2026-03-10 17:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-10_1704" title="Permanent link">&para;</a></h4>
+<p>@svlv thank you a lot for this improvement!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-02-13.3565.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

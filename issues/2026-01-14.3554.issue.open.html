@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3554 Issue open: TSM: support for a different dsmc optfile via 'dsmc ... -optfile=$TSM_DSMC_OPTFILE' - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3554 Issue open: TSM: support for a different dsmc optfile via \u0027dsmc ... -optfile=$TSM_DSMC_OPTFILE\u0027";
+        var mkdocs_page_input_path = "issues/2026-01-14.3554.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3554 Issue open: TSM: support for a different dsmc optfile via 'dsmc ... -optfile=$TSM_DSMC_OPTFILE'</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3554_issue_open_tsm_support_for_a_different_dsmc_optfile_via_dsmc_-optfiletsm_dsmc_optfile"><a href="https://github.com/rear/rear/issues/3554">#3554 Issue</a> <code>open</code>: TSM: support for a different dsmc optfile via 'dsmc ... -optfile=$TSM_DSMC_OPTFILE'<a class="headerlink" href="#3554_issue_open_tsm_support_for_a_different_dsmc_optfile_via_dsmc_-optfiletsm_dsmc_optfile" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>waiting for info</code>, <code>external tool</code></p>
+<h4 id="dcabro_opened_issue_at_2026-01-14_1308"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> opened issue at <a href="https://github.com/rear/rear/issues/3554">2026-01-14 13:08</a>:<a class="headerlink" href="#dcabro_opened_issue_at_2026-01-14_1308" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Non-default opt file or different stanza in dsm.sys - how?</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux PPC64LE</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>I don't see any options in TSM stuff that shows how a different .opt
+file can be used with dsmc when destination is TSM? My main dsm.opt and
+first stanza in dsm.sys is reserved for application based backup
+(primary backup with TSM). I'm trying to add a second backup that will
+backup OS to TSM but can't seem to find the right directive to call this
+second opt file or different stanza in dsm.sys</p>
+<p>Thanks!</p>
+<h4 id="jsmeix_commented_at_2026-01-14_1342"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3749623127">2026-01-14 13:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-14_1342" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>FYI<br />
+first and foremost my "boilerplate"<br />
+regarding third-party backup tools:</p>
+<pre><code>In general regarding issues with third-party backup tools:
+
+Usually we at ReaR upstream do not have or use
+third-party backup tools (in particular not if
+a third-party backup tool is proprietary software)
+so usually we cannot reproduce issues with
+third-party backup tools.
+
+In case of issues with third-party backup tools and ReaR
+we at ReaR upstream can usually do nothing but totally
+depend on contributions and help from those specific users
+who use and know about each specific third-party backup tool.
+</code></pre>
+<p>In general regarding support for third-party backup tools:</p>
+<p>See the section<br />
+"Relax-and-Recover versus backup and restore" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>Therein in particular (excerpt):</p>
+<pre><code>Usually only basic support for the various backup tools
+is implemented in ReaR (e.g. plain making a backup during
+"rear mkbackup" and plain restore during "rear recover").
+It is very different to what extent support for each
+individual backup tool is implemented in ReaR because
+support for each individual backup tool is implemented
+separated from each other.
+Therefore for some particular backup tools the current
+support in ReaR could be even only "very basic"
+...
+In particular for most third party backup tools there is
+only support for plain backup restore during "rear recover"
+but no support at all to make a backup during "rear mkbackup"
+so "rear mkbackup" is useless and only "rear mkrescue" is useful
+for most third party backup tools ("rear mkbackup" creates
+the ReaR recovery system and makes a backup while
+"rear mkrescue" only creates the ReaR recovery system)
+</code></pre>
+<p>In particular regarding backup with TSM:</p>
+<p>Normally the backup with TSM should not be done with ReaR<br />
+i.e. normally the backup with TSM should not be done via<br />
+"rear mkbackup".<br />
+Normally the backup with TSM should be done outside<br />
+of ReaR directly with TSM and with ReaR only a<br />
+ReaR recovery system is made with "rear mkrescue"<br />
+where the TSM the restore tool and all what it needs to run<br />
+is included to be able to restore a TSM backup during<br />
+"rear recover".</p>
+<p>Nevertheless since ReaR version 2.4 there is basic support<br />
+in ReaR to make a backup with TSM via "rear mkbackup", cf.<br />
+<a href="https://github.com/rear/rear/pull/1348">https://github.com/rear/rear/pull/1348</a><br />
+where<br />
+<a href="https://github.com/rear/rear/pull/1348/files">https://github.com/rear/rear/pull/1348/files</a><br />
+shows that "backup with TSM" functionality<br />
+is implemented in those two files:<br />
+backup/TSM/default/400_create_include_exclude_files.sh<br />
+(a link to
+backup/NETFS/default/400_create_include_exclude_files.sh)<br />
+and the actual code in<br />
+backup/TSM/default/500_make_TSM_backup.sh</p>
+<p>This does not provide the same functionality<br />
+as when you call TSM directly to make a backup.</p>
+<h4 id="jsmeix_commented_at_2026-01-14_1447"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3749910766">2026-01-14 14:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-14_1447" title="Permanent link">&para;</a></h4>
+<p>I did a critical copy&amp;paste typo correction above:<br />
+What was wrong before</p>
+<pre><code>Normally the backup with TSM should not be done outside
+of ReaR directly with TSM
+</code></pre>
+<p>is now corrected:</p>
+<pre><code>Normally the backup with TSM should be done outside
+of ReaR directly with TSM
+</code></pre>
+<h4 id="dcabro_commented_at_2026-01-14_1454"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3749940970">2026-01-14 14:54</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-14_1454" title="Permanent link">&para;</a></h4>
+<p>Thank you @jsmeix - it was an easy fix once you pointed me to the code
+that calls dsmc/TSM. Just one additional variable in
+500_make_TSM_backup.sh that calls my configuration file and voilà!</p>
+<p>Thanks again!</p>
+<h4 id="jsmeix_commented_at_2026-01-14_1506"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3749999172">2026-01-14 15:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-14_1506" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>after I (as a ReaR upstream member)<br />
+provided you info so you could enhance ReaR<br />
+to make it work for your specific use case,<br />
+would you mind to provide us<br />
+(i.e. the ReaR upstream people who "totally depend on<br />
+contributions and help from those specific users who use<br />
+and know about each specific third-party backup tool")<br />
+your specific enhancement<br />
+so that we could perhaps add that<br />
+as a generic enhancement to ReaR<br />
+so that all TSM users might benefit<br />
+from your enhancement?</p>
+<h4 id="dcabro_commented_at_2026-01-14_1511"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3750023858">2026-01-14 15:11</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-14_1511" title="Permanent link">&para;</a></h4>
+<p>I would, of course, but it does not seem to be working as I thought. I
+can see that initial (TSM verification?) part works fine and it uses
+different config, but the actual backup where it calls "dsmc
+incremental" does not.</p>
+<p>I have understood that 500_make_TSM_backup.sh is the code that sends
+data to TSM? Is there any other script?</p>
+<h4 id="dcabro_commented_at_2026-01-14_1527"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3750093699">2026-01-14 15:27</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-14_1527" title="Permanent link">&para;</a></h4>
+<p>Found it. I'll send the update in a while.</p>
+<h4 id="jsmeix_commented_at_2026-01-14_1534"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3750126329">2026-01-14 15:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-14_1534" title="Permanent link">&para;</a></h4>
+<p>What I did to see which TSM specific scripts are called is:</p>
+<p>I set <code>BACKUP=TSM</code> in my etc/rear/local.conf<br />
+(regardless that I don't have any TSM software)<br />
+and then I called</p>
+<pre><code># usr/sbin/rear -s mkbackup | grep TSM
+
+Source prep/TSM/default/400_prep_tsm.sh
+Source layout/save/TSM/default/400_check_tsm_configuration.sh
+Source output/TSM/default/950_dsmc_save_result_files.sh
+Source output/TSM/default/960_dsmc_verify_isofile.sh
+Source backup/TSM/default/400_create_include_exclude_files.sh
+Source backup/TSM/default/500_make_TSM_backup.sh
+</code></pre>
+<p>The <code>-s</code> option triggers "simulation mode"<br />
+which shows what scripts are run without executing them<br />
+(so without executing them it does not fail for me<br />
+because I don't have any TSM software).</p>
+<p>Those listed scripts are the "initial suspects"<br />
+regarding TSM specific code in ReaR.</p>
+<p>For more detailed analysis regarding TSM specific code in ReaR<br />
+you may check where TSM specific variables are used,<br />
+for example something like</p>
+<pre><code># find usr/share/rear/ -type f | xargs grep 'TSM_DSMC_RESTORE_OPTIONS'
+</code></pre>
+<p>or where <code>dsmc</code> appears like</p>
+<pre><code># find usr/share/rear/ -type f | xargs grep 'dsmc'
+</code></pre>
+<p>and so on as needed.</p>
+<h4 id="dcabro_commented_at_2026-01-14_1607"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3750308243">2026-01-14 16:07</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-14_1607" title="Permanent link">&para;</a></h4>
+<p>To be able to complete rear mkrescue I ended up making changes in:</p>
+<pre><code>backup/TSM/default/500_make_TSM_backup.sh
+output/TSM/default/950_dsmc_save_result_files.sh
+</code></pre>
+<p>mkbackup might and will probably need additional files changed.</p>
+<p>Basically, anywhere where we have:</p>
+<pre><code>dsmc incremental
+</code></pre>
+<p>should be changed to:</p>
+<pre><code>dsmc incremental -optfile=$optfile
+</code></pre>
+<p>At the same time, at the top, we need to define where that config file
+is:</p>
+<pre><code># local adjustment for second stanza - custom optfile
+optfile=/opt/tivoli/tsm/client/ba/bin/my.opt
+</code></pre>
+<p>That different config file is quite common with TSM (they call it
+Storage Protect today) so I kind of hoped it would be available as
+standard configuration option in rear, that's why I asked in the first
+place (since there are some more advanced options like include/exclude
+etc.)</p>
+<p>Should you need any more testing with TSM or any further improvements
+are added and need to be tested, I'd be glad to help!</p>
+<p>Thank you again!</p>
+<h4 id="jsmeix_commented_at_2026-01-14_1624"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3750390395">2026-01-14 16:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-14_1624" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>thank you for your information what needs to be changed.</p>
+<p>I will try to implement that as a generic enhancement<br />
+(as soon as possible but as far as time permits)<br />
+and then you could test if my implementation works for you.</p>
+<p>I will inform you when I have something to be tested<br />
+together with information how you could test it.</p>
+<h4 id="jsmeix_commented_at_2026-01-15_1221"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3754466457">2026-01-15 12:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-15_1221" title="Permanent link">&para;</a></h4>
+<p>@dcabro<br />
+via<br />
+<a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+I implemented something as far as I understood<br />
+<a href="https://github.com/rear/rear/issues/3554#issuecomment-3750308243">https://github.com/rear/rear/issues/3554#issuecomment-3750308243</a><br />
+in my jsmeix-TSM_dsmc_optfile branch here at Github<br />
+<a href="https://github.com/rear/rear/tree/jsmeix-TSM_dsmc_optfile">https://github.com/rear/rear/tree/jsmeix-TSM_dsmc_optfile</a></p>
+<p>See<br />
+<a href="https://github.com/rear/rear/pull/3555/files">https://github.com/rear/rear/pull/3555/files</a><br />
+what I implemented</p>
+<p>To test it basically follow the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>In contrast to what is described therein<br />
+you need additionally to 'git checkout'<br />
+my jsmeix-TSM_dsmc_optfile branch as follows:</p>
+<pre><code>git clone https://github.com/rear/rear.git
+
+mv rear rear.github.master
+
+cd rear.github.master
+
+git checkout -b jsmeix-TSM_dsmc_optfile remotes/origin/jsmeix-TSM_dsmc_optfile
+
+vi etc/rear/local.conf
+
+usr/sbin/rear -D mkrescue
+
+usr/sbin/rear -D mkbackup
+</code></pre>
+<p>In the 'vi etc/rear/local.conf' step you need to set<br />
+the new config variable TSM_DSMC_OPTFILE as you need it.<br />
+Specify the full path of your dsmc optfile like</p>
+<pre><code>TSM_DSMC_OPTFILE="/opt/tivoli/tsm/client/ba/bin/my.opt"
+</code></pre>
+<h4 id="dcabro_commented_at_2026-01-15_1247"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3754597107">2026-01-15 12:47</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-15_1247" title="Permanent link">&para;</a></h4>
+<p>both mkrescue and mkbackup are working fine, it's using what's defined
+in TSM_DSMC_OPTFILE</p>
+<h4 id="jsmeix_commented_at_2026-01-16_1053"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3759443902">2026-01-16 10:53</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-16_1053" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>thank you for testing that "rear mkrescue" and<br />
+"rear mkbackup" are working with TSM_DSMC_OPTFILE.</p>
+<p>Now the more difficult part begins which is testing<br />
+that also "rear recover" works with TSM_DSMC_OPTFILE.</p>
+<p>To test "rear recover" you need a well separated<br />
+test system ideally on separated test hardware<br />
+with separated disks where it does not matter when<br />
+"rear recover" tests totally fail (e.g. by randomly<br />
+overwriting arbitrary accessible disks), see also<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>As far as I currently see what could fail<br />
+for "rear recover" with TSM_DSMC_OPTFILE is:</p>
+<p>Perhaps in restore/TSM/default/400_restore_with_tsm.sh<br />
+'dsmc' must be also called with '-optfile=$TSM_DSMC_OPTFILE'?</p>
+<p>I don't know how 'dsmc restore' in that script behaves.</p>
+<p>When it needs '-optfile=$TSM_DSMC_OPTFILE' then the file<br />
+which is specified by TSM_DSMC_OPTFILE must exist<br />
+within the running ReaR recovery system.</p>
+<p>For example with</p>
+<pre><code>TSM_DSMC_OPTFILE="/opt/tivoli/tsm/client/ba/bin/my.opt"
+</code></pre>
+<p>the file /opt/tivoli/tsm/client/ba/bin/my.opt should exist<br />
+within the running ReaR recovery system because<br />
+in conf/default.conf there is</p>
+<pre><code>COPY_AS_IS_TSM=( ... 
+                 /opt/tivoli/tsm/client
+                 ... )
+</code></pre>
+<p>so in particular all below /opt/tivoli/tsm/client<br />
+gets included in the ReaR recovery system, cf.<br />
+the COPY_AS_IS description in conf/default.conf</p>
+<p>But for example with</p>
+<pre><code>TSM_DSMC_OPTFILE="/special/path/to/somewhere/my.opt"
+</code></pre>
+<p>the file /special/path/to/somewhere/my.opt will usually<br />
+not get included in the ReaR recovery system and then<br />
+'dsmc -optfile=$TSM_DSMC_OPTFILE' cannot work therein.<br />
+This can be manually fixed via</p>
+<pre><code>COPY_AS_IS+=( /special/path/to/somewhere/my.opt )
+</code></pre>
+<p>but an automatism in ReaR for this case would be better.</p>
+<h4 id="jsmeix_commented_at_2026-01-16_1059"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3759481025">2026-01-16 10:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-16_1059" title="Permanent link">&para;</a></h4>
+<p>Also during "rear recover" 'dsmc' is called in<br />
+verify/TSM/default/389_check_TSM_connection.sh</p>
+<pre><code>dsmc query session
+</code></pre>
+<p>and in<br />
+verify/TSM/default/400_verify_tsm.s</p>
+<pre><code>dsmc query filespace ...
+</code></pre>
+<p>where those 'dsmc' commands may also have to be<br />
+called with '-optfile=$TSM_DSMC_OPTFILE'?</p>
+<h4 id="dcabro_commented_at_2026-01-16_1447"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3760354316">2026-01-16 14:47</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-16_1447" title="Permanent link">&para;</a></h4>
+<p>If one wants to use $TSM_DSMC_OPTFILE then it should be applied to all
+iterations of dsmc, irrelevant of the command being invoked
+(incremental, restore, query etc.).</p>
+<p>Default and usual location is /opt/tivoli/tsm/client/ba/bin but it can
+be anywhere on the filesystem.</p>
+<p>Since my initial tests were done on a VMware VM - I can easily clone it
+and test the restore options, just let me know when to git clone.</p>
+<p>Thanks!</p>
+<h4 id="jsmeix_commented_at_2026-01-19_0856"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3767175132">2026-01-19 08:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-19_0856" title="Permanent link">&para;</a></h4>
+<p>@dcabro<br />
+thank you for the important information that $TSM_DSMC_OPTFILE<br />
+should be applied to all calls of 'dsmc'!</p>
+<p>I will soon enhance my current<br />
+<a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+so that $TSM_DSMC_OPTFILE gets applied to all calls of 'dsmc'.</p>
+<p>I will inform you when I have done it and then you could<br />
+re-test "rear mkrescue/mkbackup" plus "rear recover".</p>
+<h4 id="jsmeix_commented_at_2026-01-19_1508"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3768790179">2026-01-19 15:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-19_1508" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>I think I found all 'dsmc' command calls so now<br />
+in my <a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+all 'dsmc' commands should get called as<br />
+<code>dsmc ... -optfile="$TSM_DSMC_OPTFILE" ...</code><br />
+when TSM_DSMC_OPTFILE is specified.</p>
+<p>Thank you in advance for testing it.<br />
+It is much appreciated!</p>
+<h4 id="jsmeix_commented_at_2026-01-19_1515"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3768818017">2026-01-19 15:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-19_1515" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>FYI regarding safely testing "rear recover":</p>
+<p>When you booted the ReaR recovery system on test hardware<br />
+(where "hardware" could be also a virtual machine)<br />
+and be logged in as 'root' there, you can (and should)<br />
+inspect the disks on that test machine if the disks<br />
+actually are those which you expect before you launch<br />
+"rear recover" because that will overwrite disks.</p>
+<h4 id="jsmeix_commented_at_2026-01-20_0737"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3771455140">2026-01-20 07:37</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-20_0737" title="Permanent link">&para;</a></h4>
+<p>I further enhanced my<br />
+<a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+according to my above<br />
+<a href="https://github.com/rear/rear/issues/3554#issuecomment-3759443902">https://github.com/rear/rear/issues/3554#issuecomment-3759443902</a></p>
+<pre><code>... for example with
+
+TSM_DSMC_OPTFILE="/special/path/to/somewhere/my.opt"
+
+the file /special/path/to/somewhere/my.opt will usually
+not get included in the ReaR recovery system and then
+'dsmc -optfile=$TSM_DSMC_OPTFILE' cannot work therein.
+This can be manually fixed via
+
+COPY_AS_IS+=( /special/path/to/somewhere/my.opt )
+
+but an automatism in ReaR for this case would be better.
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-01-20_1430"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3773171311">2026-01-20 14:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-20_1430" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>you could test if "rear recover" works (as time permits).</p>
+<p>Now it should also work with something like</p>
+<pre><code>TSM_DSMC_OPTFILE="/non/default/path/to/my.opt"
+</code></pre>
+<h4 id="dcabro_commented_at_2026-01-22_1521"><img src="https://avatars.githubusercontent.com/u/3135899?u=fe28a5f3d1d1a53ed8a0324dd4726ea483c9028d&v=4" width="50"><a href="https://github.com/dcabro">dcabro</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3784980760">2026-01-22 15:21</a>:<a class="headerlink" href="#dcabro_commented_at_2026-01-22_1521" title="Permanent link">&para;</a></h4>
+<p>mkrescue seems to get stuck at:</p>
+<pre><code>Wrote ISO image: /root/downloads/rear/rear/var/lib/rear/output/rear-cabrovm.iso (1.1G)
+**Saving result files with TSM** &lt; here
+</code></pre>
+<p>But not sure why. I also can't see any proper connection to TSM. Instead
+I see something strange, there's an IDLE Wait connection from "Unknown"
+Client name, which is extremely odd - I have never seen this behavior
+before. If a node cannot be authenticated against TSM, then there should
+be no connection visible. But I've never seen it show "Unknown".</p>
+<p>My etc/rear/local.conf only contains two config lines:<br />
+BACKUP=TSM<br />
+TSM_DSMC_OPTFILE="/opt/tivoli/tsm/client/ba/bin/tsm8.opt"</p>
+<p>and my dsmc works fine if I call that optfile directly, e.g.:</p>
+<pre><code> dsmc q sched -optfile=/opt/tivoli/tsm/client/ba/bin/tsm8.opt
+IBM Spectrum Protect
+Command Line Backup-Archive Client Interface
+  Client Version 8, Release 1, Level 15.0
+  Client date/time: 01/22/26   16:19:05
+(c) Copyright by IBM Corporation and other(s) 1990, 2022. All Rights Reserved.
+
+**Node Name: CABROVM**
+Session established with server TSM8: AIX
+  Server Version 8, Release 1, Level 21.000
+  Server date/time: 01/22/26   16:19:08  Last access: 01/22/26   16:15:51
+
+There are no schedules associated with this node.
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-01-23_1004"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3789460613">2026-01-23 10:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-23_1004" title="Permanent link">&para;</a></h4>
+<p>@dcabro</p>
+<p>please provide a "rear -D mkrescue" debug log file.<br />
+Otherwise I have no chance to imagine what goes on.</p>
+<p>Caution with possible secrets in a ReaR log file.<br />
+In particular in debugscript mode via '-D'<br />
+ReaR logs executed commands via the bash command 'set -x'<br />
+that print commands and their arguments as they are executed.<br />
+So in particular when arguments contain secret values<br />
+(e.g. something like a password or whatever else)<br />
+such secret values may appear in the log file.<br />
+So before you attach your debug log file or other files here<br />
+(GitHub is a public accessible place), inspect your files<br />
+and verify that they do not accidentally cointain secrets.</p>
+<p>FYI:</p>
+<p>The "Saving result files with TSM" message comes from<br />
+usr/share/rear/output/TSM/default/950_dsmc_save_result_files.sh<br />
+which I changed in my<br />
+<a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+as shown in<br />
+<a href="https://github.com/rear/rear/pull/3555/files">https://github.com/rear/rear/pull/3555/files</a></p>
+<p>I guess it hangs up in one of those 'dsmc' calls in</p>
+<pre><code>if [[ -z "$TSM_ARCHIVE_MGMT_CLASS" ]]; then
+    if test "$TSM_DSMC_OPTFILE" ; then
+        LC_ALL=${LANG_RECOVER} dsmc incremental -optfile="$TSM_DSMC_OPTFILE" "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+    else
+        LC_ALL=${LANG_RECOVER} dsmc incremental "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+    fi
+else
+    if test "$TSM_DSMC_OPTFILE" ; then
+        LC_ALL=${LANG_RECOVER} dsmc archive -optfile="$TSM_DSMC_OPTFILE" -archmc="$TSM_ARCHIVE_MGMT_CLASS" "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+    else
+        LC_ALL=${LANG_RECOVER} dsmc archive -archmc="$TSM_ARCHIVE_MGMT_CLASS" "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+    fi
+fi
+</code></pre>
+<p>one of the two 'dsmc' calls when TSM_DSMC_OPTFILE is set<br />
+so either</p>
+<pre><code>LC_ALL=${LANG_RECOVER} dsmc incremental -optfile="$TSM_DSMC_OPTFILE" "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+</code></pre>
+<p>or</p>
+<pre><code>LC_ALL=${LANG_RECOVER} dsmc archive -optfile="$TSM_DSMC_OPTFILE" -archmc="$TSM_ARCHIVE_MGMT_CLASS" "${TSM_RESULT_FILES[@]}" &gt;/dev/null
+</code></pre>
+<p>You may replace the <code>&gt;/dev/null</code> with <code>0&lt;&amp;6 1&gt;&amp;7 2&gt;&amp;8</code><br />
+so that you get 'dsmc' stdin/stdout/stderr on your terminal<br />
+which may help to see what goes on while that 'dsmc' command<br />
+is executed.</p>
+<p>In particular with 'dsmc' stdin/stdout/stderr on your terminal<br />
+you run that 'dsmc' command interactively - same as if you<br />
+manually launch that 'dsmc' command on your terminal.</p>
+<p>Perhaps with your TSM_DSMC_OPTFILE that 'dsmc' command may<br />
+prompt you for input like an explicit user confirmation<br />
+response ('yes' or 'y') under this or that special<br />
+circumstances or whatever?</p>
+<p>See<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#what-to-do-with-stdin-stdout-and-stderr">https://github.com/rear/rear/wiki/Coding-Style#what-to-do-with-stdin-stdout-and-stderr</a></p>
+<h4 id="jsmeix_commented_at_2026-02-09_1412"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3554#issuecomment-3871963107">2026-02-09 14:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-09_1412" title="Permanent link">&para;</a></h4>
+<p>@dcabro<br />
+FYI:<br />
+I converted<br />
+<a href="https://github.com/rear/rear/pull/3555">https://github.com/rear/rear/pull/3555</a><br />
+to a so called "draft", cf.<br />
+<a href="https://github.blog/news-insights/product-news/introducing-draft-pull-requests/">https://github.blog/news-insights/product-news/introducing-draft-pull-requests/</a><br />
+because currently it does not move forward.<br />
+I can convert it back to a normal pull request<br />
+at any time when things move forward again.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-01-14.3554.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3561 Issue closed: Add PARTUUID recovery - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3561 Issue closed: Add PARTUUID recovery";
+        var mkdocs_page_input_path = "issues/2026-02-05.3561.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3561 Issue closed: Add PARTUUID recovery</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3561_issue_closed_add_partuuid_recovery"><a href="https://github.com/rear/rear/issues/3561">#3561 Issue</a> <code>closed</code>: Add PARTUUID recovery<a class="headerlink" href="#3561_issue_closed_add_partuuid_recovery" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-02-05_1257"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/issues/3561">2026-02-05 12:57</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-02-05_1257" title="Permanent link">&para;</a></h4>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="is_your_feature_request_related_to_a_problem_please_describe">Is your feature request related to a problem? Please describe.<a class="headerlink" href="#is_your_feature_request_related_to_a_problem_please_describe" title="Permanent link">&para;</a></h3>
+<p>Currently, during Bare-Metal Recovery partition GUIDs (for GPT partition
+tables) are not preserved.<br />
+For example, if the partition GUIDs before recovery are as follows:</p>
+<pre><code>lsblk -o NAME,PARTUUID
+NAME    PARTUUID
+sda
+├─sda1  7a5a3aff-efaf-4ead-97e8-73ce273e5901
+├─sda14 fd1d84ec-20c4-4771-ab52-e1006cf4b840
+├─sda15 1eecae2b-bc04-44f7-9f93-022d511dea63
+└─sda16 2e03485c-de6f-4c80-9730-14ad86d1abd9
+</code></pre>
+<p>then, after a successful recovery, the partition GUIDs have different
+values:</p>
+<pre><code>NAME    PARTUUID
+sda
+├─sda1  0b5618f0-155e-4f46-91e4-8bec27a82442
+├─sda14 9b1dcbe6-ecc2-4be?-9f70-7b4cb745ccf1
+├─sda15 a0f5b?42-9150-4804-8d0d-96d31c1a16fe
+└─sda16 8b4cf737-7bce-4868-8432-72e1138610dc
+</code></pre>
+<p>On setups where partition GUIDs are not used, this is harmless. However,
+on systems where <code>PARTUUID</code>s are used in <code>/etc/fstab</code> or <code>grub.cfg</code>, it
+may result in a non-bootable machine after restoration.</p>
+<p>In the case of <code>grub.cfg</code>, the <code>PARTUUID</code> values can also be hard-coded,
+e.g., in one of the config files under <code>/etc/default/grub.d/</code>, so even
+running <code>grub-mkconfig</code> doesn't update <code>PARTUUID</code> during recovery.</p>
+<h3 id="describe_the_solution_youd_like">Describe the solution you'd like<a class="headerlink" href="#describe_the_solution_youd_like" title="Permanent link">&para;</a></h3>
+<p>I propose backing up and restoring <code>PARTUUID</code> values for GPT partition
+tables in the same way that filesystem UUIDs are already handled.</p>
+<h3 id="describe_alternatives_youve_considered">Describe alternatives you've considered<a class="headerlink" href="#describe_alternatives_youve_considered" title="Permanent link">&para;</a></h3>
+<p>I considered updating config files that use hard-coded <code>PARTUUID</code> values
+during recovery process, however, these values technically can appear in
+unpredictable locations. A general solution - recovery <code>PARTUUID</code>s -
+would likely be more valuable and robust than fixing symptoms.</p>
+<h3 id="additional_context">Additional context<a class="headerlink" href="#additional_context" title="Permanent link">&para;</a></h3>
+<p>It is not a new issue, it was previously discussed in
+<a href="https://github.com/rear/rear/issues/2548">https://github.com/rear/rear/issues/2548</a></p>
+<h4 id="svlv_commented_at_2026-02-05_1305"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3561#issuecomment-3853524837">2026-02-05 13:05</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-05_1305" title="Permanent link">&para;</a></h4>
+<p>Proposed patch: <a href="https://github.com/rear/rear/pull/3562">https://github.com/rear/rear/pull/3562</a></p>
+<h4 id="jsmeix_commented_at_2026-02-05_1505"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3561#issuecomment-3854257208">2026-02-05 15:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-05_1505" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your enhancement of ReaR!</p>
+<p>Could you please post here some examples how exactly<br />
+PARTUUID values are used in /etc/fstab or grub.cfg ?</p>
+<p>I ask because I am wondering if ReaR could automatically<br />
+determine if PARTUUID values must be recreated, see<br />
+<a href="https://github.com/rear/rear/pull/3562#discussion_r2769615310">https://github.com/rear/rear/pull/3562#discussion_r2769615310</a></p>
+<h4 id="svlv_commented_at_2026-02-05_1601"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3561#issuecomment-3854580418">2026-02-05 16:01</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-05_1601" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+Thank you for the feedback.</p>
+<p>Sure, I'll post examples for both <code>/etc/fstab</code> and <code>grub.cfg</code>
+tomorrow.<br />
+Yes, it's a good point. I'll probably be able to propose automatic
+detection for these cases as well</p>
+<h4 id="svlv_commented_at_2026-02-06_1414"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/issues/3561#issuecomment-3860711782">2026-02-06 14:14</a>:<a class="headerlink" href="#svlv_commented_at_2026-02-06_1414" title="Permanent link">&para;</a></h4>
+<p>The example from <code>grub.cfg</code>:</p>
+<pre><code>menuentry 'My entry' {
+    linux   /vmlinuz-6.14.0 root=PARTUUID=cb545c90-d37e-4d44-a35e-26175e27da3e ro console=tty1 console=ttyS0
+    initrd  /initrd.img-6.14.0
+}
+</code></pre>
+<p>The example for <code>/etc/fstab</code>:<br />
+<code>PARTUUID=ae81658e-e32a-4dea-b274-e706812b0e5a /boot                   xfs     defaults        0 0</code></p>
+<h4 id="jsmeix_commented_at_2026-02-06_1440"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3561#issuecomment-3860838522">2026-02-06 14:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-02-06_1440" title="Permanent link">&para;</a></h4>
+<p>@svlv</p>
+<p>your examples show that simple <code>grep "PARTUUID="</code><br />
+should be sufficient to automatically determine<br />
+if it seems PARTUUID values must be recreated.</p>
+<p>I think when this test has a false positive result<br />
+i.e. it indicates PARTUUID values must be recreated<br />
+but actually different PARTUUID values won't matter<br />
+then <code>REQUIRED_PROGS+=( sgdisk )</code> normally won't hurt<br />
+except on systems where no 'sgdisk' is installed<br />
+and that test has a false positive result.</p>
+<p>But it won't hurt as much when "rear mkrescue/mkackup"<br />
+exits with an error about missing REQUIRED_PROGS<br />
+as if "rear recover" fails - or more precisely<br />
+when "rear recover" falsely succeeds but then<br />
+booting of the recreated system fails.</p>
+<p>So I think your implementation is perfectly fine<br />
+i.e. I think it works sufficiently well in practice<br />
+with reasonable implementation efforts.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-02-05.3561.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

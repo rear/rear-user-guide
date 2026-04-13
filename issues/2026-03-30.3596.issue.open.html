@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3596 Issue open: Unable to create rescue/backup on XFS excluding BTRFS RAID mountpoint - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3596 Issue open: Unable to create rescue/backup on XFS excluding BTRFS RAID mountpoint";
+        var mkdocs_page_input_path = "issues/2026-03-30.3596.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3596 Issue open: Unable to create rescue/backup on XFS excluding BTRFS RAID mountpoint</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3596_issue_open_unable_to_create_rescuebackup_on_xfs_excluding_btrfs_raid_mountpoint"><a href="https://github.com/rear/rear/issues/3596">#3596 Issue</a> <code>open</code>: Unable to create rescue/backup on XFS excluding BTRFS RAID mountpoint<a class="headerlink" href="#3596_issue_open_unable_to_create_rescuebackup_on_xfs_excluding_btrfs_raid_mountpoint" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>support / question</code></p>
+<h4 id="jacollins121_opened_issue_at_2026-03-30_2004"><img src="https://avatars.githubusercontent.com/u/42988569?u=ac5acdcabc55531a909487663681ebda044fa8b6&v=4" width="50"><a href="https://github.com/jacollins121">jacollins121</a> opened issue at <a href="https://github.com/rear/rear/issues/3596">2026-03-30 20:04</a>:<a class="headerlink" href="#jacollins121_opened_issue_at_2026-03-30_2004" title="Permanent link">&para;</a></h4>
+<h3 id="requesting_support_or_just_a_question">Requesting support or just a question<a class="headerlink" href="#requesting_support_or_just_a_question" title="Permanent link">&para;</a></h3>
+<p>Unable to create rescue/backup even while excluding BTRFS mount</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<pre><code>2026-03-30 16:00:17.587249859 ERROR: Mounpoint /data points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: https://github.com/rear/rear/issues/2028
+2026-03-30 16:00:17.614796288 Exiting rear mkrescue (PID 3879967) and its descendant processes ...
+2026-03-30 16:00:17.676961457 rear,3879967 /usr/sbin/rear -v mkrescue
+                                `-rear,3881596 /usr/sbin/rear -v mkrescue
+                                    `-pstree,3881597 -Aplau 3879967
+2026-03-30 16:00:17.696813868 Running exit tasks
+2026-03-30 16:00:17.700289565 Finished rear mkrescue in 3 seconds
+2026-03-30 16:00:17.702684880 Removing build area /var/tmp/rear.6aRqZhUPtY8ttrX
+2026-03-30 16:00:17.708078381 End of program 'rear' reached
+</code></pre>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>I am attempting to create a rear iso backup of my OS drive on my
+server<br />
+that has an XFS OS drive and a BTRFS RAID1 mounted at /data.<br />
+I wish to exclude /data from the recovery image.</p>
+<p>Error seems to persist despite excluding the mountpoint that has the
+BTRFS RAID devices.</p>
+<p>local.conf</p>
+<pre><code>OUTPUT=ISO
+OUTPUT_URL=file:///data/backups/server/
+BACKUP_PROG_EXCLUDE=( ${BACKUP_PROG_EXCLUDE[@]} '/data/*' )
+</code></pre>
+<h4 id="pcahyna_commented_at_2026-03-31_0807"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4160718225">2026-03-31 08:07</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-31_0807" title="Permanent link">&para;</a></h4>
+<p>Try excluding it from layout. Excluding it from backup does not affect
+filesystem handing in any way. See
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md">https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md</a></p>
+<h4 id="jsmeix_commented_at_2026-03-31_0825"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4160824322">2026-03-31 08:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-31_0825" title="Permanent link">&para;</a></h4>
+<p>@jacollins121<br />
+I did not test anything here so for now<br />
+only some general info which may help:</p>
+<p>BACKUP_PROG_EXCLUDE only excludes things from<br />
+the backup.tar.gz of the files which is made<br />
+for BACKUP=NETFS usually by 'tar' - cf. the section<br />
+"Relax-and-Recover versus backup and restore" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>But you need to exclude things from the so called "disk layout"<br />
+(disks, partitions, filesystems, logical volumes, mountpoints)<br />
+which ReaR remembers and recreates - cf. the section<br />
+"How disaster recovery with ReaR basically works" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a></p>
+<p>In usr/share/rear/conf/default.conf see the part about<br />
+"How to exclude something ----- EXCLUDES -------"<br />
+e.g. for ReaR 2.9 online starting at<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3415">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L3415</a></p>
+<p>I think (but I did not test it for your BTRFS RAID case) that</p>
+<pre><code>EXCLUDE_MOUNTPOINTS+=( /data )
+</code></pre>
+<p>may "just work" for what you need.</p>
+<p>Specifying to exclude the <code>/data</code> mount point alone<br />
+may not be sufficient to get automatically its underlying<br />
+BTRFS RAID things exculded by ReaR's dependency tracker.<br />
+To also exclude underlying BTRFS RAID things you may have<br />
+to explicitly specify which "disk layout components" must be<br />
+excluded, see the EXCLUDE_COMPONENTS description in<br />
+usr/share/rear/conf/default.conf - see also the current<br />
+EXCLUDE_COMPONENTS description in our GitHub master code<br />
+currently online at<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L3564">https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L3564</a><br />
+cf.
+<a href="https://github.com/rear/rear/commit/626701843a32070080856c960b9e4202102b81d1">https://github.com/rear/rear/commit/626701843a32070080856c960b9e4202102b81d1</a></p>
+<h4 id="jacollins121_commented_at_2026-03-31_1307"><img src="https://avatars.githubusercontent.com/u/42988569?u=ac5acdcabc55531a909487663681ebda044fa8b6&v=4" width="50"><a href="https://github.com/jacollins121">jacollins121</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4162521438">2026-03-31 13:07</a>:<a class="headerlink" href="#jacollins121_commented_at_2026-03-31_1307" title="Permanent link">&para;</a></h4>
+<p>adding <code>EXCLUDE_MOUNTPOINTS+=( /data )</code> in
+/usr/share/rear/conf/default.conf did not work or change the error.</p>
+<h4 id="jacollins121_commented_at_2026-03-31_1555"><img src="https://avatars.githubusercontent.com/u/42988569?u=ac5acdcabc55531a909487663681ebda044fa8b6&v=4" width="50"><a href="https://github.com/jacollins121">jacollins121</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4163678056">2026-03-31 15:55</a>:<a class="headerlink" href="#jacollins121_commented_at_2026-03-31_1555" title="Permanent link">&para;</a></h4>
+<p>I was able to get a backup created by stopping all active processes
+using /data and unmounting it, but I would like to see if I can do this
+without taking containers and processes offline.</p>
+<h4 id="gdha_commented_at_2026-04-01_0546"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4167627765">2026-04-01 05:46</a>:<a class="headerlink" href="#gdha_commented_at_2026-04-01_0546" title="Permanent link">&para;</a></h4>
+<p>@jacollins121 Try to use <code>EXCLUDE_COMPONENTS+=( fs:/data )</code></p>
+<h4 id="pcahyna_commented_at_2026-04-01_1006"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4168976123">2026-04-01 10:06</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-04-01_1006" title="Permanent link">&para;</a></h4>
+<p>@gdha I would expect <code>EXCLUDE_MOUNTPOINTS+=( /data )</code> and
+<code>EXCLUDE_COMPONENTS+=( fs:/data )</code> to be equivalent, no?</p>
+<h4 id="jacollins121_commented_at_2026-04-02_1542"><img src="https://avatars.githubusercontent.com/u/42988569?u=ac5acdcabc55531a909487663681ebda044fa8b6&v=4" width="50"><a href="https://github.com/jacollins121">jacollins121</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4178774369">2026-04-02 15:42</a>:<a class="headerlink" href="#jacollins121_commented_at_2026-04-02_1542" title="Permanent link">&para;</a></h4>
+<p>Same error setting both: <code>EXCLUDE_COMPONENTS+=( fs:/data )</code> and
+<code>EXCLUDE_COMPONENTS=( fs:/data )</code> in /usr/share/rear/conf/default.conf</p>
+<h4 id="jsmeix_commented_at_2026-04-07_1424"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4199691510">2026-04-07 14:24</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-07_1424" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+from a quick glance at the ReaR scripts I think<br />
+<code>EXCLUDE_MOUNTPOINTS+=( /data )</code> and
+<code>EXCLUDE_COMPONENTS+=( fs:/data )</code><br />
+are not equivalent:</p>
+<pre><code># find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l 'EXCLUDE_MOUNTPOINTS'
+
+usr/share/rear/conf/default.conf
+usr/share/rear/restore/NBU/default/300_create_nbu_restore_fs_list.sh
+usr/share/rear/layout/save/default/320_autoexclude.sh
+usr/share/rear/layout/save/default/310_include_exclude.sh
+usr/share/rear/backup/NETFS/default/400_create_include_exclude_files.sh
+
+# find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l 'EXCLUDE_COMPONENTS'
+usr/share/rear/conf/default.conf
+usr/share/rear/layout/save/default/310_include_exclude.sh
+usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh
+</code></pre>
+<p>in particular because default.conf tells (excerpts)</p>
+<pre><code># Exclude filesystems by specifying their mountpoints.
+# Will be automatically added to the $BACKUP_PROG_EXCLUDE array during backup
+# to prevent the excluded filesystems' data to be backed up.
+# Examples: /tmp
+#           /media/bigdisk
+EXCLUDE_MOUNTPOINTS=()
+...
+# You must also exclude the corresponding mountpoints in EXCLUDE_MOUNTPOINTS (see above)
+# otherwise "rear recover" would try to recreate the filesystems onto non-existing LVs.
+EXCLUDE_VG=()
+</code></pre>
+<p>and <code>EXCLUDE_COMPONENTS</code> does not mention <code>EXCLUDE_MOUNTPOINTS</code><br />
+so I assume <code>EXCLUDE_COMPONENTS</code> does not automatically exclude<br />
+things from the backup when a ReaR internal backup method is used.<br />
+Cf.<br />
+<a href="https://github.com/rear/rear/issues/2772#issuecomment-1069119836">https://github.com/rear/rear/issues/2772#issuecomment-1069119836</a><br />
+and several other same kind of issues...</p>
+<h4 id="pcahyna_commented_at_2026-04-07_1438"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4199790112">2026-04-07 14:38</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-04-07_1438" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I assume <code>EXCLUDE_COMPONENTS</code> does not automatically exclude<br />
+things from the backup when a ReaR internal backup method is used.</p>
+</blockquote>
+<p>I think it does, because the excluded filesystems do not get backed up
+at all in the first place. Have a look at
+<code>usr/share/rear/layout/save/default/340_generate_mountpoint_device.sh</code>
+(the file <code>$VAR_DIR/recovery/mountpoint_device</code> is then used by
+<code>usr/share/rear/backup/NETFS/default/400_create_include_exclude_files.sh</code>).</p>
+<p>Otherwise I agree, <code>EXCLUDE_MOUNTPOINTS+=( /data )</code> and
+<code>EXCLUDE_COMPONENTS+=( fs:/data )</code> are apparently not equivalent. I now
+recall seeing the comment in
+<code>usr/share/rear/layout/save/default/310_include_exclude.sh</code> and
+wondering what is the point of <code>EXCLUDE_MOUNTPOINTS</code> then. That's why I
+did not mention <code>EXCLUDE_MOUNTPOINTS</code> when improving section 6 of the
+guide.</p>
+<h4 id="pcahyna_commented_at_2026-04-07_1444"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4199837564">2026-04-07 14:44</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-04-07_1444" title="Permanent link">&para;</a></h4>
+<p>Regarding the original problem, I believe that the inability of
+<code>EXCLUDE_COMPONENTS</code> and similar to work around the problem is due to
+the fact that ReaR first generates a complete layout and then excludes
+stuff from it, therefore it hits the error condition and exits before it
+even starts excluding components.</p>
+<h4 id="jsmeix_commented_at_2026-04-07_1504"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4200001376">2026-04-07 15:04</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-07_1504" title="Permanent link">&para;</a></h4>
+<p>I think this Error() exit happens currently unconditioned<br />
+cf. <a href="https://github.com/rear/rear/pull/3365#issuecomment-2546066766">https://github.com/rear/rear/pull/3365#issuecomment-2546066766</a><br />
+so none of the <code>EXCLUDE_...</code> settings can help against it<br />
+as far as I understand the code in<br />
+usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh<br />
+(excerpts)</p>
+<pre><code>...
+supported_filesystems="ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs"
+...
+read_filesystems_command="mount -t $supported_filesystems | cut -d ' ' -f 1,3,5,6"
+
+...
+
+# Begin of group command that appends its stdout to DISKLAYOUT_FILE:
+{
+    echo "# Filesystems (only $supported_filesystems are supported)."
+    echo "# Format: fs &lt;device&gt; &lt;mountpoint&gt; &lt;fstype&gt; [uuid=&lt;uuid&gt;] [label=&lt;label&gt;] [&lt;attributes&gt;]"
+    # Read the output of the read_filesystems_command:
+    while read device mountpoint fstype options junk ; do
+        Log "Processing filesystem '$fstype' on '$device' mounted at '$mountpoint'"
+
+        ...
+
+        # Output filesystem specific layout values:
+        case "$fstype" in
+
+            ...
+
+            (btrfs)
+                # FIXME: Support for multi-disk BTRFS should be implemented sooner or later
+                # because it is the default layout for multi-disk Fedora Workstation installations.
+                # See: https://github.com/rear/rear/issues/2028
+                if grep -qE 'Total devices ([2-9]|[1-9][0-9]+) ' &lt;(btrfs filesystem show "$mountpoint"); then
+                    Error "Mounpoint $mountpoint points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: https://github.com/rear/rear/issues/2028"
+                fi
+
+            ...
+
+        esac
+
+        ...
+
+    done &lt; &lt;( eval $read_filesystems_command )
+
+...
+
+} 1&gt;&gt;$DISKLAYOUT_FILE
+# End of group command that appends its stdout to DISKLAYOUT_FILE
+</code></pre>
+<p>@jacollins121</p>
+<p>as a test you may change in that code the current line</p>
+<pre><code>Error "Mounpoint $mountpoint points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: https://github.com/rear/rear/issues/2028"
+</code></pre>
+<p>to</p>
+<pre><code>LogPrintError "Mounpoint $mountpoint points to a BTRFS filesystem spanning multiple disk devices which is not yet supported. See: https://github.com/rear/rear/issues/2028"
+</code></pre>
+<p>i.e. only replace <code>Error</code> by <code>LogPrintError</code><br />
+which makes this no longer a fatal error exit<br />
+but only an error message so "rear mkrescue" will proceed<br />
+regardless that BTRFS spanning multiple block devices<br />
+is not supported.</p>
+<p>Then you could specify appropriate <code>EXCLUDE_...</code> settings<br />
+to exclude this BTRFS from ReaR's disk layout.</p>
+<p>To verify that this BTRFS and all what belongs to it<br />
+is sufficiently excluded from ReaR's disk layout<br />
+see default.conf about <code>EXCLUDE_COMPONENTS</code><br />
+in our current GitHub master code<br />
+(excerpt)<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L3591">https://github.com/rear/rear/blob/master/usr/share/rear/conf/default.conf#L3591</a></p>
+<pre><code># To exclude a problematic disk with higher level storage objects on it
+# its matching components may have to be specified separately for example like
+# EXCLUDE_COMPONENTS+=( /dev/sdX fs:/mountpoint pv:/dev/sdXN ) or similar as needed.
+# Verify that all what belongs to /dev/sdX is marked as 'done' in /var/lib/rear/layout/disktodo.conf
+# and that all what belongs to /dev/sdX is commented out in /var/lib/rear/layout/disklayout.conf
+# to ensure there is no recovery information left as 'todo' or not commented out
+# for a disk which should be excluded from the recovery.
+</code></pre>
+<p>which means in your specific case</p>
+<pre><code>Verify that all what belongs to /data is marked as 'done'
+in /var/lib/rear/layout/disktodo.conf
+and that all what belongs to /data is commented out
+in /var/lib/rear/layout/disklayout.conf
+to ensure there is no recovery information left as 'todo' or
+not commented out for what should be excluded from the recovery.
+</code></pre>
+<p>Because you wrote</p>
+<pre><code>my server ... has an XFS OS drive and a BTRFS RAID1 mounted at /data
+</code></pre>
+<p>I assume the XFS OS drive and the BTRFS RAID1 are<br />
+well separatded disks so to exclude the BTRFS RAID1<br />
+you can exclude the whole disk(s) which belong to it<br />
+and keep only the well separated XFS OS disk<br />
+which should work rather simple and straightforward<br />
+compared to if the XFS OS stuff and the BTRFS RAID1<br />
+would be mixed up on one same disk device.</p>
+<h4 id="jsmeix_commented_at_2026-04-07_1514"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4200077482">2026-04-07 15:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-07_1514" title="Permanent link">&para;</a></h4>
+<p>@jacollins121</p>
+<p>In general I recommend to try out our latest GitHub master code<br />
+because the GitHub master code is the only place where we fix things<br />
+and if there are issues it helps when you use exactly the code<br />
+where we could fix things.</p>
+<p>See the "QUICK START GUIDE" and "INSTALLATION" parts on<br />
+<a href="https://github.com/rear/rear">https://github.com/rear/rear</a></p>
+<p>Additionally / alternatively see the section<br />
+"Testing current ReaR upstream GitHub master code" in<br />
+<a href="https://en.opensuse.org/SDB:Disaster_Recovery">https://en.opensuse.org/SDB:Disaster_Recovery</a><br />
+how you can try out our current ReaR GitHub master code<br />
+without conflicts with your already installed ReaR version.</p>
+<h4 id="jsmeix_commented_at_2026-04-07_1546"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4200326606">2026-04-07 15:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-07_1546" title="Permanent link">&para;</a></h4>
+<p>yes,<br />
+<a href="https://github.com/rear/rear/issues/3596#issuecomment-4199837564">https://github.com/rear/rear/issues/3596#issuecomment-4199837564</a><br />
+describes the root cause of this issue here<br />
+from a higher level point of view.</p>
+<h4 id="jacollins121_commented_at_2026-04-09_1249"><img src="https://avatars.githubusercontent.com/u/42988569?u=ac5acdcabc55531a909487663681ebda044fa8b6&v=4" width="50"><a href="https://github.com/jacollins121">jacollins121</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4214337812">2026-04-09 12:49</a>:<a class="headerlink" href="#jacollins121_commented_at_2026-04-09_1249" title="Permanent link">&para;</a></h4>
+<p>@jsmeix the workaround changing Error to LogPrintError did work in
+allowing it to create the backup successfully.</p>
+<h4 id="jsmeix_commented_at_2026-04-09_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3596#issuecomment-4214459205">2026-04-09 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-09_1308" title="Permanent link">&para;</a></h4>
+<p>@jacollins121<br />
+thank you for your info that the workaround actually helped you!</p>
+<p>Could you please post here your current etc/rear/local.conf<br />
+so that we could see what <code>EXCLUDE_...</code> settings you needed<br />
+in practice to get your BTRFS RAID1 things excluded?</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-03-30.3596.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

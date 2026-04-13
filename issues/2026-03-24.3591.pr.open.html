@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3591 PR open: Save and reset GRUB environment block when env_block is used - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3591 PR open: Save and reset GRUB environment block when env_block is used";
+        var mkdocs_page_input_path = "issues/2026-03-24.3591.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3591 PR open: Save and reset GRUB environment block when env_block is used</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3591_pr_open_save_and_reset_grub_environment_block_when_env_block_is_used"><a href="https://github.com/rear/rear/pull/3591">#3591 PR</a> <code>open</code>: Save and reset GRUB environment block when env_block is used<a class="headerlink" href="#3591_pr_open_save_and_reset_grub_environment_block_when_env_block_is_used" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="svlv_opened_issue_at_2026-03-24_1535"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/pull/3591">2026-03-24 15:35</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-03-24_1535" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL): Fixes
+    <a href="https://github.com/rear/rear/issues/3578">https://github.com/rear/rear/issues/3578</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Manually recovered VM running openSUSE Leap 16</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Save grubenv when it is stored in an external raw filesystem
+    block.<br />
+    Currently, it is used on Btrfs. The external raw block is
+    configured<br />
+    using the <code>env_block</code> variable. The filesystem <code>envblock</code> may be
+    accessible<br />
+    at backup time only, which makes it essential to save it.</p>
+<p>When the <code>env_block</code> variable is not set, the envblock is stored
+at<br />
+<code>/boot/grub/grubenv</code> or <code>/boot/grub2/grubenv</code>, where it is backed
+up<br />
+and restored as a regular file, so and saving it separately is not<br />
+required.</p>
+<p>The PR includes changes from
+<a href="https://github.com/rear/rear/pull/3581">https://github.com/rear/rear/pull/3581</a></p>
+</li>
+</ul>
+<h4 id="jsmeix_commented_at_2026-03-24_1755"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4120287435">2026-03-24 17:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-24_1755" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your continual valuable contributions to ReaR.<br />
+It is much appreciated!</p>
+<h4 id="jsmeix_commented_at_2026-03-31_1339"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4162726119">2026-03-31 13:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-31_1339" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+would it be OK for you when I re-activate my<br />
+<a href="https://github.com/rear/rear/pull/3581">https://github.com/rear/rear/pull/3581</a><br />
+and merge it<br />
+and then you rebase your pull request here<br />
+on top of my merged <a href="https://github.com/rear/rear/pull/3581">https://github.com/rear/rear/pull/3581</a><br />
+as @pcahyna suggested in his<br />
+<a href="https://github.com/rear/rear/pull/3581#issuecomment-4120010673">https://github.com/rear/rear/pull/3581#issuecomment-4120010673</a><br />
+?</p>
+<h4 id="svlv_commented_at_2026-03-31_1406"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4162923190">2026-03-31 14:06</a>:<a class="headerlink" href="#svlv_commented_at_2026-03-31_1406" title="Permanent link">&para;</a></h4>
+<p>@jsmeix<br />
+It is totally fine for me. I’ll rebase the PR after your PR is merged.</p>
+<h4 id="codacy-production_commented_at_2026-03-31_1454"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4163267100">2026-03-31 14:54</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-03-31_1454" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3591/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>TIP</code> This summary will be updated as you push new changes. <a href="https://tally.so/r/jaBlA1?org=rear&amp;repo=rear&amp;pr=3591">Give
+us feedback</a></sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="pcahyna_commented_at_2026-03-31_1543"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4163600134">2026-03-31 15:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-31_1543" title="Permanent link">&para;</a></h4>
+<p>@svlv I have only minor comments - thank you a lot for this
+contribution!</p>
+<h4 id="jsmeix_commented_at_2026-04-09_0814"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4212658134">2026-04-09 08:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-09_0814" title="Permanent link">&para;</a></h4>
+<p>I am wondering if the run_in_target_fs_root function<br />
+could result problems with root cause RFC 1925 item 6a</p>
+<pre><code>It is always possible to add another level of indirection.
+</code></pre>
+<p>In particular I am wondering if the function indirection<br />
+may lead to "quoting hell" problems or "eval hell" problems?</p>
+<p>What I have in mind are possible variable evaluation issues<br />
+together with possible command substitution issues<br />
+for example something as in</p>
+<pre><code># TARGET_FS_ROOT=/var/tmp/rear.TRp118UDWCMMcvK/rootfs
+
+# REAR_RELEASE=/etc/rear-release
+
+# ( set -x ; chroot $TARGET_FS_ROOT /bin/bash --login -c "cat \$( ls $REAR_RELEASE )" )
++ chroot /var/tmp/rear.TRp118UDWCMMcvK/rootfs /bin/bash --login -c 'cat $( ls /etc/rear-release )'
+
+Relax-and-Recover release 2.9
+
+# ( set -x ; run_in_target_fs_root "cat \$( ls $REAR_RELEASE )" )
++ run_in_target_fs_root 'cat $( ls /etc/rear-release )'
++ local 'cmd=cat $( ls /etc/rear-release )'
++ chroot /var/tmp/rear.TRp118UDWCMMcvK/rootfs /bin/bash -c 'PATH=/sbin:/usr/sbin:/usr/bin:/bin cat $( ls /etc/rear-release )'
+
+Relax-and-Recover release 2.9
+</code></pre>
+<p>It seems to "just work" at least in my example here<br />
+even with the additional run_in_target_fs_root() indirection.</p>
+<p>It be on the safe side I would much appreciate it<br />
+if you @rear/contributors - in particular @pcahyna<br />
+could have a closer look whether or not<br />
+the run_in_target_fs_root() function indirection<br />
+may cause troubles with more complicated chroot commands.</p>
+<p>What I have in mind are failures (bugs) because of<br />
+indirections when our ...IfError functions are used<br />
+which do not happen when bash is used directly,<br />
+see lib/_framework-setup-and-functions.sh<br />
+<a href="https://github.com/rear/rear/blob/master/usr/share/rear/lib/_framework-setup-and-functions.sh#L891">https://github.com/rear/rear/blob/master/usr/share/rear/lib/_framework-setup-and-functions.sh#L891</a></p>
+<h4 id="pcahyna_commented_at_2026-04-09_1700"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4216030378">2026-04-09 17:00</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-04-09_1700" title="Permanent link">&para;</a></h4>
+<p>@jsmeix @svlv sorry for my delay in review. One must be really careful
+about quoting and eval issues in bash indeed, thanks for pointing that
+out. Nevertheless, with extra care and proper design of the interface it
+can usually be implemented in a way that behaves correctly. I will have
+a look.</p>
+<h4 id="pcahyna_commented_at_2026-04-10_1739"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3591#issuecomment-4225618995">2026-04-10 17:39</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-04-10_1739" title="Permanent link">&para;</a></h4>
+<p>@jsmeix so I had a look and I believe that the code is correct. There is
+no "quoting hell" that would not arise in the <code>bash -c "..."</code> case
+already. I.e. I believe that <code>bash -c "&lt;something&gt;"</code> and
+<code>cmd="&lt;something&gt;"; bash -c "$cmd"</code> are equivalent. If <code>&lt;something&gt;</code>
+contains quotes, they are left untouched by <code>bash -c "$cmd"</code>, because
+the rule for quote removal is:<br />
+"After these expansions are performed, quote characters present in the
+original word are removed unless they have been quoted themselves"<br />
+or stated alternatively as<br />
+"After the preceding expansions, all unquoted occurrences of the
+characters <code>'\'</code>, <code>'''</code>, and <code>'"'</code> that did not result from one of the
+above expansions are removed."</p>
+<p>Of course, quotes in <something> need to be protected (quoted
+themselves, via backslashes), in a command like <code>bash -c "&lt;something&gt;"</code>
+and <code>cmd="&lt;something&gt;"</code>, but these two cases are equivalent in this
+respect, as you have found with <code>$</code>. The extra levels of indirection via
+variable expansion does not matter here. The <code>$</code> case is safe, because
+variable expansion does not occur recursively on the expansion result.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-03-24.3591.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

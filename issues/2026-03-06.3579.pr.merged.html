@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3579 PR merged: Include rsyslog loadable modules in LIBS - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3579 PR merged: Include rsyslog loadable modules in LIBS";
+        var mkdocs_page_input_path = "issues/2026-03-06.3579.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3579 PR merged: Include rsyslog loadable modules in LIBS</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3579_pr_merged_include_rsyslog_loadable_modules_in_libs"><a href="https://github.com/rear/rear/pull/3579">#3579 PR</a> <code>merged</code>: Include rsyslog loadable modules in LIBS<a class="headerlink" href="#3579_pr_merged_include_rsyslog_loadable_modules_in_libs" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2026-03-06_1313"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3579">2026-03-06 13:13</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2026-03-06_1313" title="Permanent link">&para;</a></h4>
+<p>In Linux.conf add /usr/lib/<em>/rsyslog/</em>.so<br />
+because at least in Debian rsyslog<br />
+loadable modules are located in<br />
+/usr/lib/x86_64-linux-gnu/rsyslog/*.so<br />
+see <a href="https://github.com/rear/rear/issues/3573">https://github.com/rear/rear/issues/3573</a></p>
+<h4 id="jsmeix_commented_at_2026-03-16_1115"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4066919660">2026-03-16 11:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-16_1115" title="Permanent link">&para;</a></h4>
+<p>I think<br />
+<a href="https://github.com/rear/rear/pull/3584">https://github.com/rear/rear/pull/3584</a><br />
+cause the currently failing checks, see<br />
+<a href="https://github.com/rear/rear/pull/3584#issuecomment-4066912408">https://github.com/rear/rear/pull/3584#issuecomment-4066912408</a></p>
+<h4 id="jsmeix_commented_at_2026-03-16_1326"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4067657563">2026-03-16 13:26</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-16_1326" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it tomorrow afternoon<br />
+unless there are objections.</p>
+<h4 id="jsmeix_commented_at_2026-03-17_1425"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4075381087">2026-03-17 14:25</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-17_1425" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I wonder if in current conf/GNU/Linux.conf<br />
+the following part matches the intent of<br />
+"support Debian multiarch library paths consistently"</p>
+<pre><code>### support multiarch (Debian libraries are located in a subdirectory like x86_64-linux-gnu
+### under {/lib,/usr/lib})
+/lib/*/libnss_dns*
+/lib/*/libnss_files*
+/lib/*/libnss_usrfiles*
+</code></pre>
+<p>At least I think the code does not match its comment.<br />
+To match the comment I think it should be like</p>
+<pre><code># On Debian and related systems
+# libraries are located in directories like
+# /lib/x86_64-linux-gnu or /usr/lib/x86_64-linux-gnu
+# cf. https://github.com/rear/rear/issues/3573
+/lib/*/libnss_dns*
+/usr/lib/*/libnss_dns*
+/lib/*/libnss_files*
+/usr/lib/*/libnss_files*
+/lib/*/libnss_usrfiles*
+/usr/lib/*/libnss_usrfiles*
+</code></pre>
+<p>I think "support multiarch" is plain wrong wording<br />
+because architectures are e.g. i386 versus ppc64le.<br />
+If at all I think "support different distributions"<br />
+could be right wording for what the code actually does.</p>
+<p>FWIW:<br />
+The "support multiarch" comment originates there:<br />
+<a href="https://github.com/rear/rear/commit/e96dc5437c26541b318f5edab09cf39b93beacab">https://github.com/rear/rear/commit/e96dc5437c26541b318f5edab09cf39b93beacab</a><br />
+As normal at that time it does not tell the reason behind.<br />
+Probably at that time the reason was obvious for everyone.<br />
+But nowadays more than ten years later...<br />
+Perhaps it had been actually different architectures<br />
+like <code>/lib/</code> versus <code>/lib64/</code> versus <code>/lib32/</code> or things like that?<br />
+Cf.<br />
+<a href="https://unix.stackexchange.com/questions/74646/difference-between-lib-lib32-lib64-libx32-and-libexec">https://unix.stackexchange.com/questions/74646/difference-between-lib-lib32-lib64-libx32-and-libexec</a></p>
+<h4 id="pcahyna_commented_at_2026-03-17_1452"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4075579249">2026-03-17 14:52</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-17_1452" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I think "support multiarch" is plain wrong wording<br />
+because architectures are e.g. i386 versus ppc64le.<br />
+If at all I think "support different distributions"<br />
+could be right wording for what the code actually does.</p>
+</blockquote>
+<p>No, the intent of the <code>/lib/*/...</code> lines is indeed to support
+<em>multiarch</em> on a particular distribution (Debian). (Sure, the need of
+having multiple different lines for a single library is that there are
+multiple distributions and they are different, but that was not the
+point of this comment.) Architectures are also e.g. i386 versus x86_64
+and that's why one has subdirectories like <code>x86_64-linux-gnu</code> to
+distinguish libraries for different architectures on the same machine.
+See the Debian documentation about multiarch paths :
+<a href="https://wiki.debian.org/Multiarch/Implementation#Change_file_paths">https://wiki.debian.org/Multiarch/Implementation#Change_file_paths</a></p>
+<blockquote>
+<p>Perhaps it had been actually different architectures<br />
+like /lib/ versus /lib64/ versus /lib32/ or things like that?</p>
+</blockquote>
+<p>Indeed. Some distributions use directory names like <code>/lib/</code> vs.
+<code>/lib64/</code> to achieve the same effect in a different way. (I recall all
+three : <code>/lib/</code> versus <code>/lib64/</code> versus <code>/lib32/</code> on IRIX because there
+were 3 MIPS ABIs :-) )</p>
+<p>So, the comment was too brief and even after my addition it is probably
+too brief, but it has always been correct, AFAICT.</p>
+<h4 id="jsmeix_commented_at_2026-03-17_1614"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4076194790">2026-03-17 16:14</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-17_1614" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your clarification!</p>
+<p>But then the current comment is still not right<br />
+at its specific place because in</p>
+<pre><code>### support multiarch (Debian libraries are located in a subdirectory like x86_64-linux-gnu
+### under {/lib,/usr/lib})
+/lib/*/libnss_dns*
+/lib/*/libnss_files*
+/lib/*/libnss_usrfiles*
+</code></pre>
+<p>there is nothing in <code>/usr/lib</code> here.<br />
+That case comes later at</p>
+<pre><code># see note about multiarch and Debian above and
+# https://github.com/rear/rear/issues/3573#issuecomment-3972176281
+/usr/lib/*/rsyslog/*.so
+</code></pre>
+<p>So the comments are technically right but not really clear.<br />
+I will do a subsequent pull request to make it more clear...</p>
+<h4 id="jsmeix_commented_at_2026-03-17_1655"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4076482069">2026-03-17 16:55</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-17_1655" title="Permanent link">&para;</a></h4>
+<p>@pcahyna @rear/contributors<br />
+please have a look (as time permits):<br />
+<a href="https://github.com/rear/rear/pull/3586">https://github.com/rear/rear/pull/3586</a><br />
+FYI: Tomorrow I am not in the office.</p>
+<h4 id="pcahyna_commented_at_2026-03-17_1822"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3579#issuecomment-4077068969">2026-03-17 18:22</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-17_1822" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@pcahyna thank you for your clarification!</p>
+<p>But then the current comment is still not right at its specific place
+because in</p>
+<pre><code>### support multiarch (Debian libraries are located in a subdirectory like x86_64-linux-gnu
+### under {/lib,/usr/lib})
+/lib/*/libnss_dns*
+/lib/*/libnss_files*
+/lib/*/libnss_usrfiles*
+</code></pre>
+<p>there is nothing in <code>/usr/lib</code> here.</p>
+</blockquote>
+<p>Debian libraries are located under {/lib,/usr/lib} in general, but
+presumably these particular libraries have been known to always exist
+under /lib and not under /usr/lib, even on systems that don't have
+merged /usr (which makes sense, as those are basic system libraries).</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-03-06.3579.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
