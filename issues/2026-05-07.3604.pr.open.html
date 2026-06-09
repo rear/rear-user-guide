@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3604 PR open: BORG: Add opt-in node-specific restore filter and hard-fail mechanism - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3604 PR open: BORG: Add opt-in node-specific restore filter and hard-fail mechanism";
+        var mkdocs_page_input_path = "issues/2026-05-07.3604.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3604 PR open: BORG: Add opt-in node-specific restore filter and hard-fail mechanism</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3604_pr_open_borg_add_opt-in_node-specific_restore_filter_and_hard-fail_mechanism"><a href="https://github.com/rear/rear/pull/3604">#3604 PR</a> <code>open</code>: BORG: Add opt-in node-specific restore filter and hard-fail mechanism<a class="headerlink" href="#3604_pr_open_borg_add_opt-in_node-specific_restore_filter_and_hard-fail_mechanism" title="Permanent link">&para;</a></h1>
+<h4 id="davi2td_opened_issue_at_2026-05-07_1207"><img src="https://avatars.githubusercontent.com/u/3429727?v=4" width="50"><a href="https://github.com/davi2td">davi2td</a> opened issue at <a href="https://github.com/rear/rear/pull/3604">2026-05-07 12:07</a>:<a class="headerlink" href="#davi2td_opened_issue_at_2026-05-07_1207" title="Permanent link">&para;</a></h4>
+<p>If ENABLE_BORG_NODE_FILTER is set to "yes", ReaR will:</p>
+<ul>
+<li>Filter available BORG restores to only the latest backup for the
+    current node (archive with the highest suffix, by
+    BORGBACKUP_ARCHIVE_PREFIX).</li>
+<li>Abort restore (with clear error) if no such archive exists,
+    preventing accidental restoration of data from the wrong node in
+    shared repositories, even with AUTO_CONFIRM enabled.</li>
+</ul>
+<p>Fully backward compatible—feature is disabled unless user explicitly
+opts in.</p>
+<hr />
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Type:</strong> New Feature / Enhancement</li>
+<li><strong>Impact:</strong> High (for anyone using ReaR+BORG with shared
+    repositories)</li>
+<li><strong>Reference to related issue (URL):</strong> N/A (no existing issue, but
+    addresses a longstanding risk)</li>
+</ul>
+<p><strong>How was this pull request tested?</strong></p>
+<ul>
+<li>Manually tested in shared BORG repo environments with multiple
+    nodes.</li>
+<li>Verified safe-guard abort when no matching backup is present.</li>
+<li>Confirmed restore works as before when not enabled.</li>
+</ul>
+<p><strong>Description of the changes in this pull request:</strong><br />
+This PR introduces an opt-in safety mechanism for ReaR+BORG in
+multi-node (shared repo) environments:</p>
+<ul>
+<li>If ENABLE_BORG_NODE_FILTER="yes" (set in local.conf):<ul>
+<li>ReaR only offers and autoselects the latest backup for the
+    current node (by archive name/number) during restore.</li>
+<li>If NO matching archive is found for the node, the restore
+    process aborts immediately with a clear error, preventing any
+    possible restoration of another node's data.</li>
+<li>This enables safe, fully-automated AUTO_CONFIRM="yes" restores
+    across all hosts in a shared BORG repository with zero
+    cross-contamination risk.</li>
+</ul>
+</li>
+<li>By default, this feature is OFF—users must explicitly enable it.</li>
+<li>No change to existing flows unless variable is set.</li>
+</ul>
+<p><strong>How to enable:</strong><br />
+Add to your <code>/etc/rear/local.conf</code>:</p>
+<pre><code>ENABLE_BORG_NODE_FILTER="yes"
+export ENABLE_BORG_NODE_FILTER
+
+#### &lt;img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"&gt;[codacy-production](https://github.com/apps/codacy-production) commented at [2026-05-07 12:08](https://github.com/rear/rear/pull/3604#issuecomment-4396956064):
+
+## Up to standards :white_check_mark:
+&lt;details&gt;&lt;summary&gt;&lt;strong&gt;🟢 Issues&lt;/strong&gt;  &lt;code&gt;0 issues&lt;/code&gt;&lt;/summary&gt;
+
+&gt; &lt;br/&gt;
+&gt;
+&gt; 
+&gt;
+&gt; **Results:**
+&gt; `0` new issues
+&gt;
+&gt;
+&gt;
+&gt; [View in Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3604/issues)
+&gt; &lt;br/&gt;
+&lt;/details&gt;
+
+
+
+
+
+
+
+&lt;sub&gt;`NEW` Get contextual insights on your PRs based on Codacy's metrics, along with PR and Jira context, without leaving GitHub. [Enable AI reviewer](https://app.codacy.com/organizations/gh/rear/integrations/provider)&lt;/sub&gt;
+&lt;sub&gt;`TIP` This summary will be updated as you push new changes.&lt;/sub&gt;
+
+&lt;!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 --&gt;
+
+#### &lt;img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&amp;v=4" width="50"&gt;[gdha](https://github.com/gdha) commented at [2026-05-20 14:07](https://github.com/rear/rear/pull/3604#issuecomment-4499221075):
+
+@davi2td Could you please explain what your reason was to introduce this variable? In short the use case. Doesn't have each node its own borg repository?
+
+#### &lt;img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&amp;v=4" width="50"&gt;[gdha](https://github.com/gdha) commented at [2026-05-30 07:40](https://github.com/rear/rear/pull/3604#issuecomment-4582126959):
+
+### According AI:
+
+In the context of BorgBackup (Borg), a deduplicating archiver, a repository is a filesystem directory where backup data is stored. 
+While Borg is fundamentally designed to assign a unique repository to each machine, a _shared Borg repository_ allows multiple clients or multiple local directories to back up into the same master repository.
+
+_**How it Works &amp; Its Benefits**_
+
+**Cross-Machine Deduplication:** 
+When multiple servers back up to a single shared repository, Borg scans and compresses matching file chunks across all clients. This saves massive amounts of disk space if multiple machines store similar operating systems or duplicated files.
+
+**Simplified Management**: 
+Administrators only need to maintain, prune, and monitor a single storage location rather than managing dozens of separate repositories.
+
+_**The Drawbacks &amp; Risks**_
+
+**Security &amp; Encryption:** 
+Borg assumes that all clients accessing a shared repository ultimately trust each other. Every client that backs up to the repository must use the exact same encryption key/passphrase. This means no client has true privacy from the others, and a compromised client means all backups are vulnerable.
+
+**Locking Conflicts**: 
+Borg places an exclusive lock on the repository while backups are running. If two clients attempt to back up at the exact same time, one will be blocked or fail.
+
+**Performance Hit:** 
+Borg requires a local cache on the client machine to keep track of stored file chunks. When multiple clients share a repository, this cache frequently becomes out-of-sync, forcing time-consuming cache rebuilds.
+
+**Recommendations**
+While technically possible, shared Borg repositories are generally not recommended due to security and concurrency constraints. For large environments with many clients, the standard best practice is to use one dedicated repository per client or dataset.
+
+
+-------------------------------------------------------------------------------
+
+
+
+[Export of Github issue for [rear/rear](https://github.com/rear/rear).]
+</code></pre>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-05-07.3604.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
