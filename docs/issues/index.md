@@ -3746,6 +3746,7 @@
 -  [\#3555 PR](./2026-01-15.3555.pr.open.md) `open`: TSM: support for a different dsmc optfile via TSM\_DSMC\_OPTFILE
 -  [\#3556 PR](./2026-01-19.3556.pr.closed.md) `closed`: BCF-6278: Investigate corrupted FF restores during BMR
 -  [\#3557 PR](./2026-01-29.3557.pr.merged.md) `merged`: Introduce retention days with RSYNC backup
+-  [\#3558 Issue](./2026-01-30.3558.issue.closed.md) `closed`: I want to achieve to keep4 backups and rescue images using the rear configuration
 -  [\#3558 Issue](./2026-01-30.3558.issue.open.md) `open`: I want to achieve to keep4 backups and rescue images using the rear configuration
 -  [\#3559 PR](./2026-02-01.3559.pr.merged.md) `merged`: Bump actions/checkout from 5.0.1 to 6.0.2
 -  [\#3560 Issue](./2026-02-03.3560.issue.closed.md) `closed`: bprestore can return a value higher than 1 and be successful
@@ -3788,5 +3789,15 @@
 -  [\#3597 PR](./2026-04-01.3597.pr.open.md) `open`: grub2: remove broken/redundant "Secure Boot entry" with `linuxefi`/`initrdefi` commands
 -  [\#3598 Issue](./2026-04-02.3598.issue.closed.md) `closed`: 'get\_serial\_device\_speed(
 -  [\#3599 PR](./2026-04-12.3599.pr.closed.md) `closed`: Remove deprecated linuxefi/initrdefi GRUB Secure Boot menu entry
+-  [\#3600 Issue](./2026-04-12.3600.issue.closed.md) `closed`: Download page in website is outdated
 -  [\#3600 Issue](./2026-04-12.3600.issue.open.md) `open`: Download page in website is outdated
+-  [\#3601 Issue](./2026-04-23.3601.issue.open.md) `open`: 250\_add\_extra\_excludes\_for\_rsync.sh (Rsync
+-  [\#3602 PR](./2026-04-27.3602.pr.open.md) `open`: \#3601 comment line BACKUP\_PROG\_EXCLUDE in script RSYNC/default/250\_ad…
+-  [\#3603 PR](./2026-05-01.3603.pr.merged.md) `merged`: Bump actions/upload-artifact from 7.0.0 to 7.0.1
+-  [\#3604 PR](./2026-05-07.3604.pr.open.md) `open`: BORG: Add opt-in node-specific restore filter and hard-fail mechanism
+-  [\#3605 Issue](./2026-05-08.3605.issue.closed.md) `closed`: Incremental backup - find changes between F and I files
+-  [\#3606 Issue](./2026-05-11.3606.issue.open.md) `open`: ERROR: EFI\_STUB: /usr/lib/systemd/boot/efi/systemd-bootx64.efi is not valid EFI executable
+-  [\#3607 PR](./2026-05-11.3607.pr.open.md) `open`: Update 260\_EFISTUB\_populate.sh
+-  [\#3608 PR](./2026-05-20.3608.pr.open.md) `open`: Fix lftp command to pass options prior to opening the URL
+-  [\#3609 Issue](./2026-05-21.3609.issue.open.md) `open`: Code scanning errors from Codacy
 -  Issues History of Relax-and-Recover (./index.md)
