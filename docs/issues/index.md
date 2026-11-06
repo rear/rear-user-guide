@@ -3183,6 +3183,7 @@
 - [\#3127 Issue](./2024-01-15.3127.issue.open.md) `open`: Drop GRUB Legacy support and remove its code in ReaR
 - [\#3128 PR](./2024-01-15.3128.pr.closed.md) `closed`: ErrorIfDeprecated when GRUB Legacy is used
 - [\#3128 PR](./2024-01-15.3128.pr.open.md) `open`: BugError when GRUB Legacy is used
+-  [\#3129 Issue](./2024-01-16.3129.issue.closed.md) `closed`: Avoid "just" "simple" "easy"
 - [\#3129 Issue](./2024-01-16.3129.issue.open.md) `open`: Remove "just" "simple" "easy"
 - [\#3130 Issue](./2024-01-16.3130.issue.open.md) `open`: Are all our GitHub Actions safe?
 - [\#3131 PR](./2024-01-17.3131.pr.merged.md) `merged`: Improve the description of AUTOEXCLUDE\_PATH
@@ -3376,6 +3377,7 @@
 - [\#3261 PR](./2024-06-25.3261.pr.merged.md) `merged`: bareos: require Bareos Director &gt;= 21
 - [\#3262 Issue](./2024-06-27.3262.issue.closed.md) `closed`: Rear Recovery is it supported on Linux Node OpenSVC ?
 - [\#3262 Issue](./2024-06-27.3262.issue.open.md) `open`: Rear Recovery is it supported on Linux Node OpenSVC ?
+-  [\#3263 Issue](./2024-07-02.3263.issue.closed.md) `closed`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
 - [\#3263 Issue](./2024-07-02.3263.issue.open.md) `open`: OUTPUT=PORTABLE on SLES15/SP5 in `rear recover` dracut fails to build initramfs
 -  [\#3264 Issue](./2024-07-02.3264.issue.closed.md) `closed`: Automatic release notes creation as a WIKI page
 - [\#3264 Issue](./2024-07-02.3264.issue.open.md) `open`: Automatic release notes creation as a WIKI page
@@ -3408,6 +3410,7 @@
 - [\#3282 Issue](./2024-07-18.3282.issue.open.md) `open`: Remove cronjob of RPM package on RHEL
 - [\#3283 Issue](./2024-07-18.3283.issue.closed.md) `closed`: Improve output on missing libraries for systemd core lib
 - [\#3283 Issue](./2024-07-18.3283.issue.open.md) `open`: Improve output on missing libraries for systemd core lib
+-  [\#3284 Issue](./2024-07-19.3284.issue.closed.md) `closed`: Disklayout.conf missing partition (with oracleasm
 - [\#3284 Issue](./2024-07-19.3284.issue.open.md) `open`: Disklayout.conf missing partition
 - [\#3285 Issue](./2024-07-19.3285.issue.closed.md) `closed`: Checking where ReaR does source third party files and try to mitigate those cases
 - [\#3286 Issue](./2024-07-19.3286.issue.closed.md) `closed`: deleting tmp files?
@@ -3459,6 +3462,7 @@
 - [\#3324 Issue](./2024-09-30.3324.issue.closed.md) `closed`: Creating BMR ISO for Rubrik Recovery
 - [\#3324 Issue](./2024-09-30.3324.issue.open.md) `open`: Creating BMR ISO for Rubrik Recovery
 - [\#3326 Issue](./2024-10-04.3326.issue.closed.md) `closed`: Oracle Linux Server with Red Hat Compatible Kernel (Fedora Linux distribution
+-  [\#3328 Issue](./2024-10-07.3328.issue.closed.md) `closed`: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270\_create\_grub2\_efi\_bootloader.sh returns more than one directory
 - [\#3328 Issue](./2024-10-07.3328.issue.open.md) `open`: rear crashes with "ERROR: Could not create Grub modules directory" when find in 270\_create\_grub2\_efi\_bootloader.sh returns more than one directory
 - [\#3329 PR](./2024-10-10.3329.pr.merged.md) `merged`: Fix partition naming on RHEL when migrating devices
 - [\#3330 Issue](./2024-10-15.3330.issue.closed.md) `closed`: Why ReaR does not make important vars available as env vars for PRE/POST\_BACKUP\_SCRIPT ?
@@ -3558,6 +3562,7 @@
 - [\#3404 Issue](./2025-02-16.3404.issue.closed.md) `closed`: Monitor "rear mkbackup" result (when run as cron job
 - [\#3405 Issue](./2025-02-18.3405.issue.closed.md) `closed`: rear checklayout does not check the NetworkManager configuration files on RHEL 9
 - [\#3406 PR](./2025-02-24.3406.pr.merged.md) `merged`: ppc64le: Fix compatibility with PowerNV on RHEL 8+
+-  [\#3407 PR](./2025-02-25.3407.pr.merged.md) `merged`: regenerate all initramfs on SLES
 - [\#3407 PR](./2025-02-25.3407.pr.open.md) `open`: regenerate all initramfs on SLES
 - [\#3408 PR](./2025-02-26.3408.pr.merged.md) `merged`: New umount\_mountpoint\_retry\_lazy function
 -  [\#3409 Issue](./2025-02-27.3409.issue.closed.md) `closed`: Make deb package build failed on Armbian/Raspbian - how to fix this ? (Discussion \#3327
@@ -3578,6 +3583,7 @@
 - [\#3420 PR](./2025-03-05.3420.pr.merged.md) `merged`: ppc64le: Fix PReP Boot detection on GPT layouts
 - [\#3421 PR](./2025-03-07.3421.pr.merged.md) `merged`: Update 450\_check\_network\_files.sh for NetworkManager
 - [\#3422 Issue](./2025-03-10.3422.issue.closed.md) `closed`: ReaR add lines in UEFI BIOS
+-  [\#3423 Issue](./2025-03-11.3423.issue.closed.md) `closed`: GRUB UEFI Secure Boot entry not working, non-secure boot entry works
 - [\#3423 Issue](./2025-03-11.3423.issue.open.md) `open`: GRUB UEFI Secure Boot entry not working, non-secure boot entry works
 - [\#3424 PR](./2025-03-11.3424.pr.merged.md) `merged`: TRUSTED\_OWNERS and TRUSTED\_PATHS to protect against code injection via 'source'
 -  [\#3425 Issue](./2025-03-12.3425.issue.closed.md) `closed`: Unable to backup with RAID
@@ -3688,6 +3694,7 @@
 -  [\#3505 Issue](./2025-08-05.3505.issue.open.md) `open`: MIGRATION\_MODE inconsistencies: disklayout.conf (et al.
 -  [\#3506 Issue](./2025-08-05.3506.issue.closed.md) `closed`: ReaR backup size
 -  [\#3507 Issue](./2025-08-07.3507.issue.closed.md) `closed`: Why is ReaR formating/deleting other drives drive/partition than the system/bootdrive?
+-  [\#3508 Issue](./2025-08-10.3508.issue.closed.md) `closed`: Bug in write-protect-functions.sh line 13
 -  [\#3508 Issue](./2025-08-10.3508.issue.open.md) `open`: Bug in write-protect-functions.sh line 13
 -  [\#3509 Issue](./2025-08-11.3509.issue.closed.md) `closed`: Convert ASCIIDOC man-page and User Guide to Markdown
 -  [\#3509 Issue](./2025-08-11.3509.issue.open.md) `open`: Convert ASCIIDOC man-page and User Guide to Markdown
@@ -3711,10 +3718,13 @@
 -  [\#3523 Issue](./2025-09-24.3523.issue.open.md) `open`: EXTERNAL\_RESTORE does not run
 -  [\#3524 PR](./2025-10-01.3524.pr.merged.md) `merged`: Bump actions/checkout from 4 to 5
 -  [\#3525 PR](./2025-10-01.3525.pr.merged.md) `merged`: Bump actions/stale from 9 to 10
+-  [\#3526 Issue](./2025-10-04.3526.issue.closed.md) `closed`: Fix ascidoctor issue on 09-design-concepts.adoc
 -  [\#3526 Issue](./2025-10-04.3526.issue.open.md) `open`: Fix ascidoctor issue on 09-design-concepts.adoc
 -  [\#3527 PR](./2025-10-06.3527.pr.open.md) `open`: \[WIP\] Refactor OUTPUT=PXE and merge PXELINUX config into the generic syslinux generator
+-  [\#3528 Issue](./2025-10-15.3528.issue.closed.md) `closed`: debian 13, libsystemd-core-25\*, restore does not work
 -  [\#3528 Issue](./2025-10-15.3528.issue.open.md) `open`: debian 13, libsystemd-core-25\*, restore does not work
 -  [\#3529 PR](./2025-10-24.3529.pr.merged.md) `merged`: Fix typo in introduction section
+-  [\#3530 PR](./2025-10-24.3530.pr.closed.md) `closed`: Test: Revert "Fix typo in introduction section"
 -  [\#3530 PR](./2025-10-24.3530.pr.open.md) `open`: Test: Revert "Fix typo in introduction section"
 -  [\#3531 Issue](./2025-10-30.3531.issue.closed.md) `closed`: TMPDIR related inquiry
 -  [\#3532 PR](./2025-11-01.3532.pr.merged.md) `merged`: Bump github/codeql-action from 3 to 4
@@ -3731,16 +3741,20 @@
 -  [\#3541 Issue](./2025-12-01.3541.issue.closed.md) `closed`: Recover with duplicity broken in ReaR 2.6 and higher
 -  [\#3541 Issue](./2025-12-01.3541.issue.open.md) `open`: Recover with duplicity broken in ReaR 2.6 and higher
 -  [\#3542 Issue](./2025-12-03.3542.issue.closed.md) `closed`: Unable to Recover via USB + External HDD | error: no server is specified
+-  [\#3543 Issue](./2025-12-04.3543.issue.closed.md) `closed`: local.conf configuration for system with no local storage. Using iSCSI.
 -  [\#3543 Issue](./2025-12-04.3543.issue.open.md) `open`: local.conf configuration for system with no local storage. Using iSCSI.
 -  [\#3544 Issue](./2025-12-09.3544.issue.open.md) `open`: "rear recover" disk values consistency check (prerequirement to fix MIGRATION\_MODE issues
+-  [\#3545 Issue](./2025-12-11.3545.issue.closed.md) `closed`: "rear recover" btrfs filesytem upgrade issue with 'space\_cache' mount option
 -  [\#3545 Issue](./2025-12-11.3545.issue.open.md) `open`: "rear recover" btrfs filesytem upgrade issue with 'space\_cache' mount option
 -  [\#3546 PR](./2025-12-11.3546.pr.merged.md) `merged`: make duplicity work well again + sanity checks added
 -  [\#3547 PR](./2026-01-01.3547.pr.merged.md) `merged`: Bump actions/upload-artifact from 5.0.0 to 6.0.0
 -  [\#3548 PR](./2026-01-01.3548.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.5 to 5.5.6
 -  [\#3549 PR](./2026-01-01.3549.pr.merged.md) `merged`: Bump actions/checkout from 5 to 6
 -  [\#3550 Issue](./2026-01-09.3550.issue.closed.md) `closed`: UEFI Boot: Kernel panic with previous "No file system could mount root, tried:"
+-  [\#3551 Issue](./2026-01-09.3551.issue.closed.md) `closed`: Automatically include firmware files for the kernel modules in the recovery system
 -  [\#3551 Issue](./2026-01-09.3551.issue.open.md) `open`: Automatically include firmware files for the kernel modules in the recovery system
 -  [\#3552 Issue](./2026-01-12.3552.issue.open.md) `open`: add support loongarch64
+-  [\#3553 PR](./2026-01-12.3553.pr.merged.md) `merged`: Automatically include firmware files for the kernel modules in the recovery system
 -  [\#3553 PR](./2026-01-12.3553.pr.open.md) `open`: Automatically include firmware files for the kernel modules in the recovery system
 -  [\#3554 Issue](./2026-01-14.3554.issue.open.md) `open`: TSM: support for a different dsmc optfile via 'dsmc ... -optfile=$TSM\_DSMC\_OPTFILE'
 -  [\#3555 PR](./2026-01-15.3555.pr.open.md) `open`: TSM: support for a different dsmc optfile via TSM\_DSMC\_OPTFILE
@@ -3752,6 +3766,7 @@
 -  [\#3560 Issue](./2026-02-03.3560.issue.closed.md) `closed`: bprestore can return a value higher than 1 and be successful
 -  [\#3561 Issue](./2026-02-05.3561.issue.closed.md) `closed`: Add PARTUUID recovery
 -  [\#3562 PR](./2026-02-05.3562.pr.merged.md) `merged`: Partuuid recovery
+-  [\#3563 Issue](./2026-02-11.3563.issue.closed.md) `closed`: how to pass custom config parameter with rear command
 -  [\#3563 Issue](./2026-02-11.3563.issue.open.md) `open`: how to pass custom config parameter with rear command
 -  [\#3564 Issue](./2026-02-13.3564.issue.closed.md) `closed`: Add grub2 Boot Loader Specification (BLS
 -  [\#3565 PR](./2026-02-13.3565.pr.merged.md) `merged`: Add GRUB2-BLS support
@@ -3782,22 +3797,84 @@
 -  [\#3590 Issue](./2026-03-24.3590.issue.open.md) `open`: Migrating Digitalocean droplet to Hetzner VPS: hangs on booting rescue media via kexec
 -  [\#3591 PR](./2026-03-24.3591.pr.open.md) `open`: Save and reset GRUB environment block when env\_block is used
 -  [\#3592 PR](./2026-03-26.3592.pr.merged.md) `merged`: ISO: mark ISO filesystem labels as write protected
+-  [\#3593 PR](./2026-03-27.3593.pr.merged.md) `merged`: Various `systemd` and `getty` related improvements
 -  [\#3593 PR](./2026-03-27.3593.pr.open.md) `open`: Various `systemd` and `getty` related improvements
 -  [\#3594 PR](./2026-03-28.3594.pr.merged.md) `merged`: docs: add iSCSI devices section to user guide
 -  [\#3595 Issue](./2026-03-29.3595.issue.open.md) `open`: no keyboard response at rescue-system login-prompt on MacBookPro
 -  [\#3596 Issue](./2026-03-30.3596.issue.open.md) `open`: Unable to create rescue/backup on XFS excluding BTRFS RAID mountpoint
+-  [\#3597 PR](./2026-04-01.3597.pr.merged.md) `merged`: grub2: remove broken/redundant "Secure Boot entry" with `linuxefi`/`initrdefi` commands
 -  [\#3597 PR](./2026-04-01.3597.pr.open.md) `open`: grub2: remove broken/redundant "Secure Boot entry" with `linuxefi`/`initrdefi` commands
 -  [\#3598 Issue](./2026-04-02.3598.issue.closed.md) `closed`: 'get\_serial\_device\_speed(
 -  [\#3599 PR](./2026-04-12.3599.pr.closed.md) `closed`: Remove deprecated linuxefi/initrdefi GRUB Secure Boot menu entry
 -  [\#3600 Issue](./2026-04-12.3600.issue.closed.md) `closed`: Download page in website is outdated
 -  [\#3600 Issue](./2026-04-12.3600.issue.open.md) `open`: Download page in website is outdated
+-  [\#3601 Issue](./2026-04-23.3601.issue.closed.md) `closed`: 250\_add\_extra\_excludes\_for\_rsync.sh (Rsync
 -  [\#3601 Issue](./2026-04-23.3601.issue.open.md) `open`: 250\_add\_extra\_excludes\_for\_rsync.sh (Rsync
+-  [\#3602 PR](./2026-04-27.3602.pr.merged.md) `merged`: \#3601 comment line BACKUP\_PROG\_EXCLUDE in script RSYNC/default/250\_ad…
 -  [\#3602 PR](./2026-04-27.3602.pr.open.md) `open`: \#3601 comment line BACKUP\_PROG\_EXCLUDE in script RSYNC/default/250\_ad…
 -  [\#3603 PR](./2026-05-01.3603.pr.merged.md) `merged`: Bump actions/upload-artifact from 7.0.0 to 7.0.1
+-  [\#3604 PR](./2026-05-07.3604.pr.merged.md) `merged`: BORG: Add opt-in node-specific restore filter and hard-fail mechanism
 -  [\#3604 PR](./2026-05-07.3604.pr.open.md) `open`: BORG: Add opt-in node-specific restore filter and hard-fail mechanism
 -  [\#3605 Issue](./2026-05-08.3605.issue.closed.md) `closed`: Incremental backup - find changes between F and I files
+-  [\#3606 Issue](./2026-05-11.3606.issue.closed.md) `closed`: ERROR: EFI\_STUB: /usr/lib/systemd/boot/efi/systemd-bootx64.efi is not valid EFI executable
 -  [\#3606 Issue](./2026-05-11.3606.issue.open.md) `open`: ERROR: EFI\_STUB: /usr/lib/systemd/boot/efi/systemd-bootx64.efi is not valid EFI executable
+-  [\#3607 PR](./2026-05-11.3607.pr.merged.md) `merged`: Update 260\_EFISTUB\_populate.sh
 -  [\#3607 PR](./2026-05-11.3607.pr.open.md) `open`: Update 260\_EFISTUB\_populate.sh
+-  [\#3608 PR](./2026-05-20.3608.pr.merged.md) `merged`: Fix lftp command to pass options prior to opening the URL
 -  [\#3608 PR](./2026-05-20.3608.pr.open.md) `open`: Fix lftp command to pass options prior to opening the URL
 -  [\#3609 Issue](./2026-05-21.3609.issue.open.md) `open`: Code scanning errors from Codacy
+-  [\#3610 Issue](./2026-06-10.3610.issue.open.md) `open`: UEFI/BIOS Boot-Problem
+-  [\#3611 PR](./2026-06-18.3611.pr.merged.md) `merged`: Some fixes for SEP Sesam related backup mode
+-  [\#3612 PR](./2026-06-19.3612.pr.merged.md) `merged`: Update 950\_copy\_result\_files.sh
+-  [\#3613 PR](./2026-07-01.3613.pr.merged.md) `merged`: Bump actions/checkout from 6.0.2 to 7.0.0
+-  [\#3614 PR](./2026-07-03.3614.pr.merged.md) `merged`: Add REAR\_INITRD\_OVERLAY to split initramfs into core + SquashFS overlay
+-  [\#3615 PR](./2026-07-09.3615.pr.merged.md) `merged`: Error out when KERNEL\_VERSION is not set
+-  [\#3616 Issue](./2026-07-13.3616.issue.closed.md) `closed`: With tar exit code 2 we do not save the backup.log file
+-  [\#3617 PR](./2026-07-14.3617.pr.merged.md) `merged`: Update 500\_make\_backup.sh (issue 3616
+-  [\#3618 PR](./2026-07-20.3618.pr.closed.md) `closed`: Avoid "just" "simple" "easy" (issue \#3129
+-  [\#3619 Issue](./2026-07-21.3619.issue.open.md) `open`: RHEL 8.10 on HPE Gen11 server (ReaR 2.6
+-  [\#3620 PR](./2026-07-28.3620.pr.merged.md) `merged`: Avoid "just" "simple" "easy" (issue \#3129
+-  [\#3621 PR](./2026-07-30.3621.pr.merged.md) `merged`: Add is\_writable\_only\_by\_owner function (improve trusted sourcing
+-  [\#3622 PR](./2026-07-31.3622.pr.open.md) `open`: Support ISO\_DEFAULT and ISO\_RECOVER\_MODE for GRUB2/UEFI
+-  [\#3623 PR](./2026-07-31.3623.pr.merged.md) `merged`: Enhance Btrfs filesystem support Part 1
+-  [\#3624 PR](./2026-08-01.3624.pr.merged.md) `merged`: Bump github/codeql-action from 4 to 4.37.3
+-  [\#3625 PR](./2026-08-01.3625.pr.merged.md) `merged`: Bump actions/stale from 10 to 11
+-  [\#3626 PR](./2026-08-01.3626.pr.merged.md) `merged`: Bump actions/checkout from 7.0.0 to 7.0.1
+-  [\#3627 PR](./2026-08-06.3627.pr.merged.md) `merged`: Set TRUSTED\_FILES 'readonly' after sourcing config files
+-  [\#3628 PR](./2026-08-10.3628.pr.merged.md) `merged`: Fix broken Star History chart in README.md
+-  [\#3629 Issue](./2026-08-26.3629.issue.open.md) `open`: in Source(
+-  [\#3630 Issue](./2026-08-31.3630.issue.closed.md) `closed`: rear mkbackup failing due to failing\_backup\_prog: No such file or directory
+-  [\#3631 PR](./2026-08-31.3631.pr.merged.md) `merged`: NETFS/tar: robust error reporting when backup subshell is signal-killed
+-  [\#3632 PR](./2026-09-01.3632.pr.open.md) `open`: Skip unsupported partition tables during layout save by default (SKIP\_UNSUPPORTED\_PARTITION\_TABLES
+-  [\#3633 PR](./2026-09-01.3633.pr.merged.md) `merged`: Bump github/codeql-action from 4.37.3 to 4.37.9
+-  [\#3634 PR](./2026-09-01.3634.pr.merged.md) `merged`: Generic signal reporting
+-  [\#3635 PR](./2026-09-11.3635.pr.merged.md) `merged`: Update 380\_request\_client\_destination.sh to accept more bp.conf syntaxes
+-  [\#3637 PR](./2026-09-14.3637.pr.merged.md) `merged`: Tell what happens for unsupported filesystems
+-  [\#3638 PR](./2026-09-14.3638.pr.merged.md) `merged`: Support for Cohesity DataProtect with BACKUP=COH
+-  [\#3639 PR](./2026-09-16.3639.pr.open.md) `open`: Support a Btrfs filesystem created on top of multiple block devices
+-  [\#3640 PR](./2026-09-18.3640.pr.closed.md) `closed`: Unsupported option xfs sparse
+-  [\#3641 Issue](./2026-09-21.3641.issue.closed.md) `closed`: ERROR: fstatat(9, dsa\_filter.ko
+-  [\#3642 PR](./2026-09-22.3642.pr.closed.md) `closed`: Point official OBS builds at the active snapshot project
+-  [\#3643 Issue](./2026-09-26.3643.issue.open.md) `open`: Fedora 44 kde plasma reat backup
+-  [\#3644 Issue](./2026-10-01.3644.issue.closed.md) `closed`: OBS signing key has expired again
+-  [\#3645 PR](./2026-10-01.3645.pr.merged.md) `merged`: Bump github/codeql-action from 4.37.9 to 4.38.2
+-  [\#3646 PR](./2026-10-01.3646.pr.merged.md) `merged`: Bump redhat-plumbers-in-action/differential-shellcheck from 5.5.6 to 5.5.7
+-  [\#3647 PR](./2026-10-01.3647.pr.merged.md) `merged`: Skip unsupported mkfs.xfs -i sparse= on older xfsprogs
+-  [\#3648 PR](./2026-10-02.3648.pr.merged.md) `merged`: 'unset' local nested helper functions
+-  [\#3649 PR](./2026-10-02.3649.pr.merged.md) `merged`: swaps: initialize uuid and label as empty strings
+-  [\#3650 PR](./2026-10-04.3650.pr.closed.md) `closed`: Add MKFS\_EXT\_OPTIONS for ext2/ext3/ext4 filesystems during 'rear recover'
+-  [\#3651 PR](./2026-10-05.3651.pr.merged.md) `merged`: Document run-in-docker usage
+-  [\#3652 PR](./2026-10-05.3652.pr.merged.md) `merged`: run-in-docker source error
+-  [\#3653 PR](./2026-10-08.3653.pr.open.md) `open`: Complete rewrite of BACKUP=NBU for Cohesity NetBackup
+-  [\#3654 Issue](./2026-10-08.3654.issue.open.md) `open`: all texts in ReaR should be ASCII
+-  [\#3655 Issue](./2026-10-16.3655.issue.open.md) `open`: BLOCKCLONE: GPT disks refused on backup and silently mis-restored; $scheme and $path unset in two scripts
+-  [\#3656 PR](./2026-10-16.3656.pr.merged.md) `merged`: BLOCKCLONE: support GPT disks, and fix two unset variables and a silent sfdisk failure
+-  [\#3657 PR](./2026-10-20.3657.pr.merged.md) `merged`: arm64: bring initramfs rebuilding on Debian and SUSE
+-  [\#3658 PR](./2026-10-29.3658.pr.open.md) `open`: Use extglob instead of brace expansion in FILES\_TO\_PATCH\_PATTERNS
+-  [\#3659 PR](./2026-11-01.3659.pr.merged.md) `merged`: Bump actions/upload-artifact from 7.0.1 to 7.0.2
+-  [\#3660 PR](./2026-11-01.3660.pr.merged.md) `merged`: Bump github/codeql-action from 4.38.2 to 4.39.1
+-  [\#3661 Issue](./2026-11-01.3661.issue.open.md) `open`: For restore with Duplicity on S3, how are AWS keys handled?
+-  [\#3662 Issue](./2026-11-04.3662.issue.open.md) `open`: Support immutable servers
+-  [\#3663 PR](./2026-11-04.3663.pr.open.md) `open`: BACKUP=COH: fix agent identity handling and systemd unit detection
+-  [\#3664 PR](./2026-11-05.3664.pr.open.md) `open`: Update 890\_finish\_checks.sh
 -  Issues History of Relax-and-Recover (./index.md)
