@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3614 PR merged: Add REAR_INITRD_OVERLAY to split initramfs into core + SquashFS overlay - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3614 PR merged: Add REAR_INITRD_OVERLAY to split initramfs into core + SquashFS overlay";
+        var mkdocs_page_input_path = "issues/2026-07-03.3614.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3614 PR merged: Add REAR_INITRD_OVERLAY to split initramfs into core + SquashFS overlay</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3614_pr_merged_add_rear_initrd_overlay_to_split_initramfs_into_core_squashfs_overlay"><a href="https://github.com/rear/rear/pull/3614">#3614 PR</a> <code>merged</code>: Add REAR_INITRD_OVERLAY to split initramfs into core + SquashFS overlay<a class="headerlink" href="#3614_pr_merged_add_rear_initrd_overlay_to_split_initramfs_into_core_squashfs_overlay" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>, <code>severe improvement</code></p>
+<h4 id="rmetrich_opened_issue_at_2026-07-03_0748"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> opened issue at <a href="https://github.com/rear/rear/pull/3614">2026-07-03 07:48</a>:<a class="headerlink" href="#rmetrich_opened_issue_at_2026-07-03_0748" title="Permanent link">&para;</a></h4>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>On systems where the initramfs is very large (e.g. 559 MiB on RHEL 10
+due to firmware and kernel modules), some hardware or bootloader
+configurations fail to load it into memory. This new opt-in feature
+(<code>REAR_INITRD_OVERLAY</code>) splits the recovery system into a small
+initramfs and a SquashFS overlay image, reducing the initramfs from ~559
+MiB to ~100 MiB.</p>
+<h3 id="how_it_works">How it works<a class="headerlink" href="#how_it_works" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Build time</strong> (<code>pack</code> stage): firmware and non-essential kernel
+    modules are moved from the rootfs into a SquashFS image. Module
+    dependencies and required firmware files are auto-detected and kept
+    in the initramfs.</p>
+</li>
+<li>
+<p><strong>Boot time</strong>: a new early startup script
+    (<code>02-mount-rear-overlay.sh</code>) starts udev to auto-detect hardware and
+    load drivers from the initramfs, then locates and mounts the overlay
+    (from ISO, USB, PXE server, or local <code>/boot</code>), applies it, and
+    retrigggers udev with the full module set.</p>
+</li>
+</ol>
+<h3 id="supported_output_methods">Supported output methods<a class="headerlink" href="#supported_output_methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Output</th>
+<th>Overlay delivery</th>
+<th>Essential modules kept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ISO</td>
+<td>SquashFS on ISO filesystem</td>
+<td>Storage, CD/DVD, USB drivers</td>
+</tr>
+<tr class="even">
+<td>USB</td>
+<td>SquashFS on USB ext3/ext4 partition</td>
+<td>Storage, USB drivers, ext4</td>
+</tr>
+<tr class="odd">
+<td>PXE</td>
+<td>Downloaded via <code>curl</code> from TFTP/HTTP</td>
+<td>Network drivers</td>
+</tr>
+<tr class="even">
+<td>GRUB_RESCUE</td>
+<td>Copied to <code>/boot</code>, path via kernel cmdline</td>
+<td>/boot filesystem + storage driver (auto-detected)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="apply_modes">Apply modes<a class="headerlink" href="#apply_modes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>copy</code></strong>: overlay content is extracted into tmpfs at boot. Simple,
+    robust, ISO/USB can be ejected after boot.</li>
+<li><strong><code>mount</code></strong>: overlay stays mounted via overlayfs on
+    <code>/usr/lib/firmware</code> and <code>/usr/lib/modules</code>. Saves RAM but source
+    device must stay accessible.</li>
+</ul>
+<h3 id="modules_integration">MODULES integration<a class="headerlink" href="#modules_integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>MODULES=('all_modules')</code></strong> (default): entire driver categories
+    are kept in the initramfs using a directory-based approach.</li>
+<li><strong>Restricted MODULES</strong> (<code>loaded_modules</code>, empty, explicit list):
+    only loaded modules plus overlay-access essentials (loop, squashfs,
+    isofs, etc.) are kept. Avoids including unneeded drivers.</li>
+</ul>
+<h3 id="additional_features">Additional features<a class="headerlink" href="#additional_features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Module dependency resolution</strong>: <code>modprobe --show-depends</code> is used
+    at build time to pull missing dependencies into the initramfs.</li>
+<li><strong>Firmware auto-detection</strong>: <code>modinfo -F firmware</code> detects firmware
+    files required by essential modules (supports <code>.xz</code>/<code>.zst</code>
+    compressed firmware).</li>
+<li><strong><code>REAR_INITRD_FIRMWARE_FILES</code></strong>: array variable to manually specify
+    additional firmware patterns for drivers that don't properly declare
+    their firmware requirements.</li>
+<li><strong>s390 support</strong>: on <code>Linux-s390</code>, the entire <code>kernel/drivers/s390</code>
+    tree is kept (cio bus layer + block/scsi/net/crypto).</li>
+</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<pre><code># In /etc/rear/local.conf:
+REAR_INITRD_OVERLAY=copy    # or "mount"
+
+# Optional: manually add firmware for drivers that don't declare dependencies
+REAR_INITRD_FIRMWARE_FILES=( 'bnx2/*' 'tigon/*' )
+</code></pre>
+<p>Requires <code>squashfs-tools</code> package (<code>mksquashfs</code>) on the build system.
+PXE also requires <code>curl</code>.</p>
+<h2 id="example_output">Example output<a class="headerlink" href="#example_output" title="Permanent link">&para;</a></h2>
+<pre><code>Creating recovery system overlay (rootfs is 700 MiB before split)
+Moving firmware files (404 MiB) to overlay
+Pulled 21 module dependencies into initramfs
+Kept 37 MiB of essential kernel modules in initramfs (was 102 MiB)
+Kept 57 firmware files required by essential modules
+Created rear-overlay.sqsh (438 MiB) in 29 seconds
+Rootfs reduced from 700 MiB to 227 MiB
+Created initrd.cgz with gzip default compression (105 MiB) in 8 seconds
+</code></pre>
+<h2 id="new_files">New files<a class="headerlink" href="#new_files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>prep/default/395_include_overlay_tools.sh</code></td>
+<td>Adds <code>depmod</code>/<code>curl</code> to PROGS, overlay modules
+to MODULES_LOAD, detects /boot for GRUB_RESCUE</td>
+</tr>
+<tr class="even">
+<td><code>pack/GNU/Linux/500_create_rear_overlay.sh</code></td>
+<td>Splits rootfs into initramfs + SquashFS overlay with
+dependency/firmware resolution</td>
+</tr>
+<tr class="odd">
+<td><code>skel/default/etc/scripts/system-setup.d/02-mount-rear-overlay.sh</code></td>
+<td>Boot-time script: udev hw detection, overlay mount, content
+application, udev retrigger</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="modified_files">Modified files<a class="headerlink" href="#modified_files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>conf/default.conf</code></td>
+<td><code>REAR_INITRD_OVERLAY</code> and
+<code>REAR_INITRD_FIRMWARE_FILES</code> variables</td>
+</tr>
+<tr class="even">
+<td><code>output/ISO/Linux-i386/800_create_isofs.sh</code></td>
+<td>Copy overlay squashfs to ISO</td>
+</tr>
+<tr class="odd">
+<td><code>output/PXE/default/800_copy_to_tftp.sh</code></td>
+<td>Copy overlay to TFTP server</td>
+</tr>
+<tr class="even">
+<td><code>output/PXE/default/801_copy_to_http.sh</code></td>
+<td>Copy overlay to HTTP server</td>
+</tr>
+<tr class="odd">
+<td><code>output/PXE/default/810_create_pxelinux_cfg.sh</code></td>
+<td><code>rear_overlay=</code> in kernel cmdline</td>
+</tr>
+<tr class="even">
+<td><code>output/USB/default/830_copy_kernel_initrd.sh</code></td>
+<td>Copy overlay to USB device</td>
+</tr>
+<tr class="odd">
+<td><code>output/default/940_grub2_rescue.sh</code></td>
+<td>Copy overlay to /boot, <code>rear_overlay=</code> in Grub entry</td>
+</tr>
+<tr class="even">
+<td><code>lib/bootloader-functions.sh</code></td>
+<td><code>rear_overlay=</code> in PXE boot menu entries</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="test_plan">Test plan<a class="headerlink" href="#test_plan" title="Permanent link">&para;</a></h2>
+<p>Tested on RHEL 10.2 (BIOS and UEFI VMs):</p>
+<ul>
+<li>☒ ISO without overlay (regression: no interference)</li>
+<li>☒ ISO copy mode, default MODULES</li>
+<li>☒ ISO copy mode, MODULES=() (restricted)</li>
+<li>☒ ISO mount mode</li>
+<li>☒ USB copy mode</li>
+<li>☒ USB mount mode, MODULES=()</li>
+<li>☒ PXE copy mode</li>
+<li>☒ PXE mount mode</li>
+<li>☒ GRUB_RESCUE with overlay (BIOS)</li>
+<li>☒ UEFI ISO copy mode</li>
+<li>☒ UEFI ISO mount mode</li>
+</ul>
+<h4 id="codacy-production_commented_at_2026-07-03_0750"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-4874004923">2026-07-03 07:50</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-07-03_0750" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3614/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-07-03_0852"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-4874490132">2026-07-03 08:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-07-03_0852" title="Permanent link">&para;</a></h4>
+<p>@rmetrich<br />
+WOW!<br />
+Thank you for this big enhancement.<br />
+When the initrd is too big it was a dead end for the user.<br />
+Now there is a way out.</p>
+<h4 id="rmetrich_commented_at_2026-07-06_1450"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-4894172787">2026-07-06 14:50</a>:<a class="headerlink" href="#rmetrich_commented_at_2026-07-06_1450" title="Permanent link">&para;</a></h4>
+<p>I'm putting back as Draft because I need quite a lot of fixes</p>
+<h4 id="gdha_commented_at_2026-07-09_0825"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-4923112335">2026-07-09 08:25</a>:<a class="headerlink" href="#gdha_commented_at_2026-07-09_0825" title="Permanent link">&para;</a></h4>
+<p>@rmetrich Thank you - this is a serious improvement!</p>
+<h4 id="jsmeix_commented_at_2026-07-10_1156"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-4935015456">2026-07-10 11:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-07-10_1156" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please review it - as time permits.</p>
+<h4 id="jsmeix_commented_at_2026-07-20_1403"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-5023119321">2026-07-20 14:03</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-07-20_1403" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it on Wednesday (22. July) afternoon<br />
+unless there are questions or objections.</p>
+<h4 id="schlomo_commented_at_2026-07-23_1211"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-5058224292">2026-07-23 12:11</a>:<a class="headerlink" href="#schlomo_commented_at_2026-07-23_1211" title="Permanent link">&para;</a></h4>
+<p>@rmetrich thanks a lot for this enhancement. I can imagine that we'd
+like to extend it to cover other large software packages too, for
+example heavy backup software. Not needed for booting, can be loaded as
+a second stage.</p>
+<p>Thanks a lot!</p>
+<h4 id="rmetrich_commented_at_2026-07-23_1217"><img src="https://avatars.githubusercontent.com/u/1163635?u=36b5e32e1dd55f1ce77cad431a5683fce40a7934&v=4" width="50"><a href="https://github.com/rmetrich">rmetrich</a> commented at <a href="https://github.com/rear/rear/pull/3614#issuecomment-5058276999">2026-07-23 12:17</a>:<a class="headerlink" href="#rmetrich_commented_at_2026-07-23_1217" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@rmetrich thanks a lot for this enhancement. I can imagine that we'd
+like to extend it to cover other large software packages too, for
+example heavy backup software. Not needed for booting, can be loaded
+as a second stage.</p>
+<p>Thanks a lot!</p>
+</blockquote>
+<p>Indeed that could also be an improvement.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-07-03.3614.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

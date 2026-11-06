@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3610 Issue open: UEFI/BIOS Boot-Problem - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3610 Issue open: UEFI/BIOS Boot-Problem";
+        var mkdocs_page_input_path = "issues/2026-06-10.3610.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3610 Issue open: UEFI/BIOS Boot-Problem</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3610_issue_open_uefibios_boot-problem"><a href="https://github.com/rear/rear/issues/3610">#3610 Issue</a> <code>open</code>: UEFI/BIOS Boot-Problem<a class="headerlink" href="#3610_issue_open_uefibios_boot-problem" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>waiting for info</code>, <code>ready-to-close?</code></p>
+<h4 id="zzenld_opened_issue_at_2026-06-10_0945"><img src="https://avatars.githubusercontent.com/u/84368987?v=4" width="50"><a href="https://github.com/ZzenlD">ZzenlD</a> opened issue at <a href="https://github.com/rear/rear/issues/3610">2026-06-10 09:45</a>:<a class="headerlink" href="#zzenld_opened_issue_at_2026-06-10_0945" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.7 / Git</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>Hello everyone,<br />
+As recommended in
+<a href="https://github.com/rear/rear/issues/3580#issuecomment-4097577058">this</a>
+comment, I am opening a new issue here regarding my UEFI boot problem.</p>
+<p>Among other things, I use an external hard drive formatted with Ventoy
+in UEFI mode (with an EFI partition at the beginning).<br />
+I connect this hard drive periodically to various Proxmox hosts, mount
+the Ventoy partition under <code>/mnt/Disaster-Disk/Ventoy</code>, and the data
+partition under <code>/mnt/Disaster-Disk/DATA</code>. Then I manually run
+<code>rear -v mkbackup</code>.</p>
+<p>The rear-config for this always looks on all hosts like this:</p>
+<pre><code># /etc/rear/local.conf 
+OUTPUT=ISO
+OUTPUT_URL=file:///mnt/Disaster-Disk/Ventoy
+BACKUP=NETFS
+BACKUP_URL=file:///mnt/Disaster-Disk/DATA/rear
+BACKUP_PROG=rsync
+BACKUP_PROG_EXCLUDE+=( ${BACKUP_PROG_EXCLUDE[@]} )
+EXCLUDE_MOUNTPOINTS+=('/mnt/Disaster-Disk/Ventoy' '/mnt/Disaster-Disk/DATA')
+EXCLUDE_RESTORE+=('/srv/backup')
+</code></pre>
+<p>After the backup, I unmount the hard drive again, go to the next host,
+and repeat the steps. This way, I always have a bootable offline backup
+of my hardware machines.</p>
+<p>As an example, I connected the hard drive to the hosts <code>proxmox-dev</code> and
+<code>proxmox01</code> and made a backup on each. The hard drive folder structure
+then looks like this:</p>
+<pre><code>user@server:/mnt/Disaster-Disk# tree -L 4
+.
+├── DATA
+│   ├── lost+found
+│   └── rear
+│       └── proxmox01
+│           ├── backup
+│           └── backup.log
+│       └── proxmox-dev
+│           ├── backup
+│           └── backup.log
+└── Ventoy
+    ├── proxmox01
+    │   ├── README
+    │   ├── rear-proxmox01.iso
+    │   ├── rear-proxmox01.log
+    │   └── VERSION
+    └── proxmox-dev
+        ├── README
+        ├── rear-proxmox-dev.iso
+        ├── rear-proxmox-dev.log
+        └── VERSION
+</code></pre>
+<p><strong>Important:</strong> <code>proxmox-dev</code> is installed in UEFI, so it has an EFI
+partition at the beginning and <code>proxmox01</code> is Legacy BIOS and therefore
+has no EFI partition.</p>
+<p>For a disaster recovery test, I now want to connect the hard drive to a
+Proxmox VM, boot it up, and perform a test restore of a host (without
+data) to see if booting, restoring, etc., works.</p>
+<p>And that is exactly what isn’t working. My <code>DR-Test</code> VM in Proxmox is
+configured with UEFI and looks like this:</p>
+<p><img width="850" height="360" alt="Image" src="https://github.com/user-attachments/assets/e012ee38-ac85-43c3-955e-96a4ab8c1895" /></p>
+<p>scsi0 = External hard drive<br />
+scsi1 = Hard drive for test restoration</p>
+<p>When I boot the VM, I get this error message:</p>
+<pre><code>Loading kernel /isolinux/kernel/ ...
+error: can't find command `linuxefi`.
+Loading initial ramdisk /isolinux/initrd.cgz ...
+error: can't find command `initrdefi`.
+
+Press any key to continue ...
+</code></pre>
+<p>Sorry for the long message, but I hope it’s clear where the problem
+lies. If anyone has any ideas on how to fix this, I’d really appreciate
+it :)</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Debian GNU/Linux 13 (trixie)</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>RSYNC</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<pre><code>/dev/sda                                    /dev/sda                  disk                       400G 
+|-/dev/sda1                                 /dev/sda1  /dev/sda       part                      1007K 
+|-/dev/sda2                                 /dev/sda2  /dev/sda       part vfat                    1G 
+`-/dev/sda3                                 /dev/sda3  /dev/sda       part LVM2_member           399G 
+  |-/dev/mapper/pve-swap                    /dev/dm-0  /dev/sda3      lvm  swap                    8G [SWAP]
+  |-/dev/mapper/pve-root                    /dev/dm-1  /dev/sda3      lvm  ext4                   96G /
+  |-/dev/mapper/pve-data_tmeta              /dev/dm-2  /dev/sda3      lvm                        2.8G 
+  | `-/dev/mapper/pve-data-tpool            /dev/dm-4  /dev/dm-2      lvm                      273.4G 
+  |   |-/dev/mapper/pve-data                /dev/dm-5  /dev/dm-4      lvm                      273.4G 
+  |   |-/dev/mapper/pve-backups             /dev/dm-6  /dev/dm-4      lvm  ext4                  150G /srv/backup
+  |   |-/dev/mapper/pve-vm--2001--disk--0   /dev/dm-7  /dev/dm-4      lvm                         20G 
+  |   |-/dev/mapper/pve-vm--2001--disk--1   /dev/dm-8  /dev/dm-4      lvm                          4M 
+  |   |-/dev/mapper/pve-vm--2003--cloudinit /dev/dm-9  /dev/dm-4      lvm  iso9660     cidata      4M 
+  |   |-/dev/mapper/pve-vm--2003--disk--0   /dev/dm-10 /dev/dm-4      lvm                        100G 
+  |   |-/dev/mapper/pve-vm--2003--disk--1   /dev/dm-11 /dev/dm-4      lvm                          4M 
+  |   |-/dev/mapper/pve-vm--3002--cloudinit /dev/dm-12 /dev/dm-4      lvm  iso9660     cidata      4M 
+  |   |-/dev/mapper/pve-vm--3002--disk--1   /dev/dm-13 /dev/dm-4      lvm                         50G 
+  |   |-/dev/mapper/pve-vm--3002--disk--2   /dev/dm-14 /dev/dm-4      lvm                          4M 
+  |   |-/dev/mapper/pve-vm--200002--disk--0 /dev/dm-15 /dev/dm-4      lvm                         30G 
+  |   |-/dev/mapper/pve-vm--100--disk--1    /dev/dm-16 /dev/dm-4      lvm                         32G 
+  |   `-/dev/mapper/pve-vm--100--disk--0    /dev/dm-17 /dev/dm-4      lvm                          4M 
+  `-/dev/mapper/pve-data_tdata              /dev/dm-3  /dev/sda3      lvm                      273.4G 
+    `-/dev/mapper/pve-data-tpool            /dev/dm-4  /dev/dm-3      lvm                      273.4G 
+      |-/dev/mapper/pve-data                /dev/dm-5  /dev/dm-4      lvm                      273.4G 
+      |-/dev/mapper/pve-backups             /dev/dm-6  /dev/dm-4      lvm  ext4                  150G /srv/backup
+      |-/dev/mapper/pve-vm--2001--disk--0   /dev/dm-7  /dev/dm-4      lvm                         20G 
+      |-/dev/mapper/pve-vm--2001--disk--1   /dev/dm-8  /dev/dm-4      lvm                          4M 
+      |-/dev/mapper/pve-vm--2003--cloudinit /dev/dm-9  /dev/dm-4      lvm  iso9660     cidata      4M 
+      |-/dev/mapper/pve-vm--2003--disk--0   /dev/dm-10 /dev/dm-4      lvm                        100G 
+      |-/dev/mapper/pve-vm--2003--disk--1   /dev/dm-11 /dev/dm-4      lvm                          4M 
+      |-/dev/mapper/pve-vm--3002--cloudinit /dev/dm-12 /dev/dm-4      lvm  iso9660     cidata      4M 
+      |-/dev/mapper/pve-vm--3002--disk--1   /dev/dm-13 /dev/dm-4      lvm                         50G 
+      |-/dev/mapper/pve-vm--3002--disk--2   /dev/dm-14 /dev/dm-4      lvm                          4M 
+      |-/dev/mapper/pve-vm--200002--disk--0 /dev/dm-15 /dev/dm-4      lvm                         30G 
+      |-/dev/mapper/pve-vm--100--disk--1    /dev/dm-16 /dev/dm-4      lvm                         32G 
+      `-/dev/mapper/pve-vm--100--disk--0    /dev/dm-17 /dev/dm-4      lvm                          4M 
+/dev/sdb                                    /dev/sdb                  disk                       250G 
+|-/dev/sdb1                                 /dev/sdb1  /dev/sdb       part exfat       Ventoy   10.7G /mnt/Disaster-Disk/Ventoy
+|-/dev/sdb2                                 /dev/sdb2  /dev/sdb       part vfat        VTOYEFI    32M 
+`-/dev/sdb3                                 /dev/sdb3  /dev/sdb       part ext4        DATA    239.3G /mnt/Disaster-Disk/DATA
+/dev/sr0                                    /dev/sr0             ata  rom  iso9660     PVE       1.7G
+</code></pre>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>Edit: The output of <code>rear -d mkrescue</code> looks like:</p>
+<pre><code>root@proxmox-dev:/mnt/Disaster-Disk# rear -d mkrescue
+Relax-and-Recover 2.7 / Git
+Running rear mkrescue (PID 1512175 date 2026-06-10 11:46:31)
+Command line options: /usr/sbin/rear -d mkrescue
+Using log file: /var/log/rear/rear-proxmox-dev.log
+Using build area: /var/tmp/rear.tI8v2TQllINTtZu
+Running 'init' stage ======================
+Running workflow mkrescue on the normal/original system
+Running 'prep' stage ======================
+Using '/usr/bin/xorrisofs' to create ISO filesystem images
+Adding backup directory mountpoint 'fs:/mnt/Disaster-Disk/DATA' to EXCLUDE_RECREATE
+Using autodetected kernel '/boot/vmlinuz-6.17.13-1-pve' as kernel in the recovery system
+Running 'layout/save' stage ======================
+Creating disk layout
+Overwriting existing disk layout file /var/lib/rear/layout/disklayout.conf
+Excluding component fs:/mnt/Disaster-Disk/DATA in EXCLUDE_RECREATE
+Marking component 'fs:/mnt/Disaster-Disk/DATA' as done in /var/lib/rear/layout/disktodo.conf
+Automatically excluding filesystem /mnt/Disaster-Disk/DATA
+Component 'fs:/mnt/Disaster-Disk/DATA' is marked as 'done fs:/mnt/Disaster-Disk/DATA' in /var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/sdb (not used by any mounted filesystem)
+Marking component '/dev/sdb' as done in /var/lib/rear/layout/disktodo.conf
+Dependant component /dev/sdb1 is a child of component /dev/sdb
+Marking component '/dev/sdb1' as done in /var/lib/rear/layout/disktodo.conf
+Dependant component /dev/sdb2 is a child of component /dev/sdb
+Marking component '/dev/sdb2' as done in /var/lib/rear/layout/disktodo.conf
+Dependant component /dev/sdb3 is a child of component /dev/sdb
+Marking component '/dev/sdb3' as done in /var/lib/rear/layout/disktodo.conf
+Dependant component fs:/mnt/Disaster-Disk/DATA is a child of component /dev/sdb
+Component 'fs:/mnt/Disaster-Disk/DATA' is marked as 'done fs:/mnt/Disaster-Disk/DATA' in /var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/sdb' in /var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/sdb' in /var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdb' is disabled in /var/lib/rear/layout/disklayout.conf
+Component 'part /dev/sdb' is disabled in /var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /mnt/Disaster-Disk/DATA' in /var/lib/rear/layout/disklayout.conf
+Using guessed bootloader 'GRUB' for 'rear recover' (found in first bytes on /dev/sda with GPT BIOS boot partition)
+Verifying that the entries in /var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+Creating recovery system root filesystem skeleton layout
+Skipping 'Net1': not bound to any physical interface.
+Handling network interface 'vmbr0'
+vmbr0 is a bridge
+vmbr0 has lower interface fwpr200002p0
+vmbr0 has lower interface nic0
+nic0 is a physical device
+vmbr0 has lower interface tap2001i0
+Handled network interface 'vmbr0'
+Included current keyboard mapping (via 'dumpkeys -f')
+No default US keyboard mapping included (no KEYMAPS_DEFAULT_DIRECTORY specified)
+No support for different keyboard layouts (neither KEYMAPS_DEFAULT_DIRECTORY nor KEYMAPS_DIRECTORIES specified)
+Copying logfile /var/log/rear/rear-proxmox-dev.log into initramfs as '/tmp/rear-proxmox-dev-partial-2026-06-10T11:46:39+02:00.log'
+Running 'build' stage ======================
+Copying files and directories
+Copying binaries and libraries
+Copying all kernel modules in /lib/modules/6.17.13-1-pve (MODULES contains 'all_modules')
+Copying all files in /lib*/firmware/
+Skip copying broken symlink '/etc/mtab' target '/proc/1522219/mounts' on /proc/ /sys/ /dev/ or /run/
+Symlink '/usr/share/misc/magic' -&gt; '/usr/share/file/magic' refers to a non-existing directory on the recovery system.
+It will not be copied by default. You can include '/usr/share/file/magic' via the 'COPY_AS_IS' configuration variable.
+Testing that the recovery system in /var/tmp/rear.tI8v2TQllINTtZu/rootfs contains a usable system
+Testing each binary with 'ldd' and look for 'not found' libraries within the recovery system
+/usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-257.so requires additional libraries
+    libsystemd-shared-257.so =&gt; not found
+ReaR recovery system in '/var/tmp/rear.tI8v2TQllINTtZu/rootfs' needs additional libraries, check /var/log/rear/rear-proxmox-dev.log for details
+Testing that the existing programs in the PROGS array can be found as executable command within the recovery system
+Testing that each program in the REQUIRED_PROGS array can be found as executable command within the recovery system
+Running 'pack' stage ======================
+Creating recovery/rescue system initramfs/initrd initrd.cgz with gzip default compression
+Created initrd.cgz with gzip default compression (705292537 bytes) in 91 seconds
+Running 'output' stage ======================
+Making ISO image
+Wrote ISO image: /var/lib/rear/output/rear-proxmox-dev.iso (689M)
+Copying resulting files to file location
+Saving /var/log/rear/rear-proxmox-dev.log as rear-proxmox-dev.log to file location
+Copying result files '/var/lib/rear/output/rear-proxmox-dev.iso /var/tmp/rear.tI8v2TQllINTtZu/tmp/VERSION /var/tmp/rear.tI8v2TQllINTtZu/tmp/README /var/tmp/rear.tI8v2TQllINTtZu/tmp/rear-proxmox-dev.log' to /mnt/Disaster-Disk/Ventoy/proxmox-dev at file location
+Exiting rear mkrescue (PID 1512175) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.tI8v2TQllINTtZu
+</code></pre>
+<p>If chroot into the Recovery-System, i cant find linuxefi:</p>
+<pre><code>root@proxmox-dev:/mnt/Disaster-Disk# chroot /var/tmp/rear.tI8v2TQllINTtZu/rootfs/
+
+Welcome to Relax-and-Recover. Run "rear recover" to restore your system !
+
+RESCUE proxmox-dev:/ # find . -name 'linuxefi.*
+RESCUE proxmox-dev:/ #
+</code></pre>
+<h4 id="gdha_commented_at_2026-06-11_0707"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3610#issuecomment-4678054529">2026-06-11 07:07</a>:<a class="headerlink" href="#gdha_commented_at_2026-06-11_0707" title="Permanent link">&para;</a></h4>
+<p>@ZzenlD Hi, show us the output of
+<code>grep -i uefi /var/log/rear/rear-$HOSTNAME.log</code> as it will give us some
+information about the EFI boot loader found (or not).<br />
+Secondly, Debian 13 does not have a linuxefi anymore. It uses EFIStub of
+systemd-boot these days. We have several PRs #3607 or #3597 or #3277
+trying to update this.</p>
+<h4 id="zzenld_commented_at_2026-06-12_0517"><img src="https://avatars.githubusercontent.com/u/84368987?v=4" width="50"><a href="https://github.com/ZzenlD">ZzenlD</a> commented at <a href="https://github.com/rear/rear/issues/3610#issuecomment-4687698375">2026-06-12 05:17</a>:<a class="headerlink" href="#zzenld_commented_at_2026-06-12_0517" title="Permanent link">&para;</a></h4>
+<p>Hey, thanks for your reply. The output of
+<code>grep -i uefi /var/log/rear/rear-$HOSTNAME.log</code> is:</p>
+<pre><code>2026-06-12 00:00:04.903407211 Including prep/default/320_include_uefi_env.sh
+2026-06-12 00:00:05.014153046 Including prep/default/321_EFISTUB_check_uefi_env.sh
+2026-06-12 00:00:05.128770262 Including prep/default/330_include_uefi_tools.sh
+2026-06-12 00:00:17.030634556 Including rescue/default/850_save_sysfs_uefi_vars.sh
+2026-06-12 00:00:17.047202809 Including rescue/default/860_set_uefi_vars.sh
+2026-06-12 00:00:18.989894191 Files being copied: /usr/share/rear /var/lib/rear /dev /etc/inputrc /etc/protocols /etc/services /etc/rpc /etc/termcap /etc/terminfo /usr/share/terminfo /etc/netconfig /etc/mke2fs.conf /etc/os-release /etc/localtime /etc/magic /usr/share/misc/magic /etc/dracut.conf /etc/dracut.conf.d /usr/lib/dracut /sbin/modprobe.ksplice-orig /etc/sysctl.conf /etc/sysctl.d /etc/e2fsck.conf /usr/libexec/vi /etc/ssl/certs/* /etc/pki/* /usr/lib/ssl/* /usr/share/ca-certificates/* /etc/ca-certificates/* /etc/nfsmount.conf /etc/sysconfig/nfs /usr/lib/dhcpcd/* /etc/lvm /usr/share/systemd /etc/dbus-1 /usr/lib/systemd/systemd-backlight /usr/lib/systemd/systemd-battery-check /usr/lib/systemd/systemd-binfmt /usr/lib/systemd/systemd-boot-check-no-failures /usr/lib/systemd/systemd-bsod /usr/lib/systemd/systemd-cgroups-agent /usr/lib/systemd/systemd-executor /usr/lib/systemd/systemd-fsck /usr/lib/systemd/systemd-growfs /usr/lib/systemd/systemd-hibernate-resume /usr/lib/systemd/systemd-hostnamed /usr/lib/systemd/systemd-initctl /usr/lib/systemd/systemd-journald /usr/lib/systemd/systemd-localed /usr/lib/systemd/systemd-logind /usr/lib/systemd/systemd-makefs /usr/lib/systemd/systemd-measure /usr/lib/systemd/systemd-modules-load /usr/lib/systemd/systemd-network-generator /usr/lib/systemd/systemd-networkd /usr/lib/systemd/systemd-networkd-wait-online /usr/lib/systemd/systemd-pcrextend /usr/lib/systemd/systemd-pcrlock /usr/lib/systemd/systemd-pstore /usr/lib/systemd/systemd-quotacheck /usr/lib/systemd/systemd-random-seed /usr/lib/systemd/systemd-remount-fs /usr/lib/systemd/systemd-reply-password /usr/lib/systemd/systemd-rfkill /usr/lib/systemd/systemd-shutdown /usr/lib/systemd/systemd-sleep /usr/lib/systemd/systemd-socket-proxyd /usr/lib/systemd/systemd-ssh-proxy /usr/lib/systemd/systemd-storagetm /usr/lib/systemd/systemd-sulogin-shell /usr/lib/systemd/systemd-sysctl /usr/lib/systemd/systemd-sysroot-fstab-check /usr/lib/systemd/systemd-sysv-install /usr/lib/systemd/systemd-timedated /usr/lib/systemd/systemd-tpm2-setup /usr/lib/systemd/systemd-udevd /usr/lib/systemd/systemd-update-done /usr/lib/systemd/systemd-user-runtime-dir /usr/lib/systemd/systemd-user-sessions /usr/lib/systemd/systemd-volatile-root /usr/lib/systemd/systemd-xdg-autostart-condition /lib/systemd/systemd-backlight /lib/systemd/systemd-battery-check /lib/systemd/systemd-binfmt /lib/systemd/systemd-boot-check-no-failures /lib/systemd/systemd-bsod /lib/systemd/systemd-cgroups-agent /lib/systemd/systemd-executor /lib/systemd/systemd-fsck /lib/systemd/systemd-growfs /lib/systemd/systemd-hibernate-resume /lib/systemd/systemd-hostnamed /lib/systemd/systemd-initctl /lib/systemd/systemd-journald /lib/systemd/systemd-localed /lib/systemd/systemd-logind /lib/systemd/systemd-makefs /lib/systemd/systemd-measure /lib/systemd/systemd-modules-load /lib/systemd/systemd-network-generator /lib/systemd/systemd-networkd /lib/systemd/systemd-networkd-wait-online /lib/systemd/systemd-pcrextend /lib/systemd/systemd-pcrlock /lib/systemd/systemd-pstore /lib/systemd/systemd-quotacheck /lib/systemd/systemd-random-seed /lib/systemd/systemd-remount-fs /lib/systemd/systemd-reply-password /lib/systemd/systemd-rfkill /lib/systemd/systemd-shutdown /lib/systemd/systemd-sleep /lib/systemd/systemd-socket-proxyd /lib/systemd/systemd-ssh-proxy /lib/systemd/systemd-storagetm /lib/systemd/systemd-sulogin-shell /lib/systemd/systemd-sysctl /lib/systemd/systemd-sysroot-fstab-check /lib/systemd/systemd-sysv-install /lib/systemd/systemd-timedated /lib/systemd/systemd-tpm2-setup /lib/systemd/systemd-udevd /lib/systemd/systemd-update-done /lib/systemd/systemd-user-runtime-dir /lib/systemd/systemd-user-sessions /lib/systemd/systemd-volatile-root /lib/systemd/systemd-xdg-autostart-condition /usr/lib/systemd/network /lib/systemd/network /usr/lib/systemd/system-generators/systemd-getty-generator /lib/systemd/system-generators/systemd-getty-generator /var/lib/tmpfiles.d /usr/lib/tmpfiles.d /etc/default/grub /etc/grub.d/000_proxmox_boot_header /etc/grub.d/00_header /etc/grub.d/05_debian_theme /etc/grub.d/10_linux /etc/grub.d/20_linux_xen /etc/grub.d/20_memtest86+ /etc/grub.d/25_bli /etc/grub.d/30_os-prober /etc/grub.d/30_uefi-firmware /etc/grub.d/40_custom /etc/grub.d/41_custom /etc/grub.d/README /boot/grub /usr/lib/grub /usr/lib/grub-legacy /usr/share/grub /lib/modules/6.17.13-1-pve/modules.alias /lib/modules/6.17.13-1-pve/modules.alias.bin /lib/modules/6.17.13-1-pve/modules.builtin /lib/modules/6.17.13-1-pve/modules.builtin.alias.bin /lib/modules/6.17.13-1-pve/modules.builtin.bin /lib/modules/6.17.13-1-pve/modules.builtin.modinfo /lib/modules/6.17.13-1-pve/modules.builtin.ranges /lib/modules/6.17.13-1-pve/modules.dep /lib/modules/6.17.13-1-pve/modules.dep.bin /lib/modules/6.17.13-1-pve/modules.devname /lib/modules/6.17.13-1-pve/modules.order /lib/modules/6.17.13-1-pve/modules.softdep /lib/modules/6.17.13-1-pve/modules.symbols /lib/modules/6.17.13-1-pve/modules.symbols.bin /lib/modules/6.17.13-1-pve/modules.weakdep /etc/modules /etc/modules-load.d /etc/modprobe.d /etc/udev /etc/sysconfig/udev /lib/udev /usr/lib/udev /etc/resolv.conf /etc/hosts /etc/host.conf /etc/iproute2 /etc/ssh/moduli /etc/ssh/ssh_config /etc/ssh/sshd_config /root/.ssh/authorized_keys /etc/ld.so.conf /etc/ld.so.conf.d/libc.conf /etc/ld.so.conf.d/x86_64-linux-gnu.conf
+2026-06-12 00:00:23.232066397 copy_as_is_executables = /etc/grub.d/000_proxmox_boot_header /etc/grub.d/00_header /etc/grub.d/05_debian_theme /etc/grub.d/10_linux /etc/grub.d/20_linux_xen /etc/grub.d/20_memtest86+ /etc/grub.d/25_bli /etc/grub.d/30_os-prober /etc/grub.d/30_uefi-firmware /etc/grub.d/40_custom /etc/grub.d/41_custom /lib/systemd/system-generators/systemd-getty-generator /lib/systemd/systemd-backlight /lib/systemd/systemd-battery-check /lib/systemd/systemd-binfmt /lib/systemd/systemd-boot-check-no-failures /lib/systemd/systemd-bsod /lib/systemd/systemd-cgroups-agent /lib/systemd/systemd-executor /lib/systemd/systemd-fsck /lib/systemd/systemd-growfs /lib/systemd/systemd-hibernate-resume /lib/systemd/systemd-hostnamed /lib/systemd/systemd-initctl /lib/systemd/systemd-journald /lib/systemd/systemd-localed /lib/systemd/systemd-logind /lib/systemd/systemd-makefs /lib/systemd/systemd-measure /lib/systemd/systemd-modules-load /lib/systemd/systemd-network-generator /lib/systemd/systemd-networkd /lib/systemd/systemd-networkd-wait-online /lib/systemd/systemd-pcrextend /lib/systemd/systemd-pcrlock /lib/systemd/systemd-pstore /lib/systemd/systemd-quotacheck /lib/systemd/systemd-random-seed /lib/systemd/systemd-remount-fs /lib/systemd/systemd-reply-password /lib/systemd/systemd-rfkill /lib/systemd/systemd-shutdown /lib/systemd/systemd-sleep /lib/systemd/systemd-socket-proxyd /lib/systemd/systemd-ssh-proxy /lib/systemd/systemd-storagetm /lib/systemd/systemd-sulogin-shell /lib/systemd/systemd-sysctl /lib/systemd/systemd-sysv-install /lib/systemd/systemd-timedated /lib/systemd/systemd-tpm2-setup /lib/systemd/systemd-update-done /lib/systemd/systemd-user-runtime-dir /lib/systemd/systemd-user-sessions /lib/systemd/systemd-volatile-root /lib/systemd/systemd-xdg-autostart-condition /lib/udev/ata_id /lib/udev/bridge-network-interface /lib/udev/cdrom_id /lib/udev/dmi_memory_id /lib/udev/fido_id /lib/udev/hdparm /lib/udev/iocost /lib/udev/mtd_probe /lib/udev/scsi_id /lib/udev/v4l_id /lib/udev/vdev_id /lib/udev/virtual-function-naming-helper /lib/udev/zvol_id /usr/lib/dhcpcd/dhcpcd-run-hooks /usr/lib/dracut/dracut-install /usr/lib/grub/i386-pc/grub-bios-setup /usr/lib/grub/i386-pc/grub-ntldr-img /usr/lib/grub/i386-pc/modinfo.sh /usr/lib/grub/x86_64-efi/modinfo.sh /usr/lib/ssl/misc/CA.pl /usr/lib/ssl/misc/tsget.pl /usr/lib/systemd/system-generators/systemd-getty-generator /usr/lib/systemd/systemd-backlight /usr/lib/systemd/systemd-battery-check /usr/lib/systemd/systemd-binfmt /usr/lib/systemd/systemd-boot-check-no-failures /usr/lib/systemd/systemd-bsod /usr/lib/systemd/systemd-cgroups-agent /usr/lib/systemd/systemd-executor /usr/lib/systemd/systemd-fsck /usr/lib/systemd/systemd-growfs /usr/lib/systemd/systemd-hibernate-resume /usr/lib/systemd/systemd-hostnamed /usr/lib/systemd/systemd-initctl /usr/lib/systemd/systemd-journald /usr/lib/systemd/systemd-localed /usr/lib/systemd/systemd-logind /usr/lib/systemd/systemd-makefs /usr/lib/systemd/systemd-measure /usr/lib/systemd/systemd-modules-load /usr/lib/systemd/systemd-network-generator /usr/lib/systemd/systemd-networkd /usr/lib/systemd/systemd-networkd-wait-online /usr/lib/systemd/systemd-pcrextend /usr/lib/systemd/systemd-pcrlock /usr/lib/systemd/systemd-pstore /usr/lib/systemd/systemd-quotacheck /usr/lib/systemd/systemd-random-seed /usr/lib/systemd/systemd-remount-fs /usr/lib/systemd/systemd-reply-password /usr/lib/systemd/systemd-rfkill /usr/lib/systemd/systemd-shutdown /usr/lib/systemd/systemd-sleep /usr/lib/systemd/systemd-socket-proxyd /usr/lib/systemd/systemd-ssh-proxy /usr/lib/systemd/systemd-storagetm /usr/lib/systemd/systemd-sulogin-shell /usr/lib/systemd/systemd-sysctl /usr/lib/systemd/systemd-sysv-install /usr/lib/systemd/systemd-timedated /usr/lib/systemd/systemd-tpm2-setup /usr/lib/systemd/systemd-update-done /usr/lib/systemd/systemd-user-runtime-dir /usr/lib/systemd/systemd-user-sessions /usr/lib/systemd/systemd-volatile-root /usr/lib/systemd/systemd-xdg-autostart-condition /usr/lib/udev/ata_id /usr/lib/udev/bridge-network-interface /usr/lib/udev/cdrom_id /usr/lib/udev/dmi_memory_id /usr/lib/udev/fido_id /usr/lib/udev/hdparm /usr/lib/udev/iocost /usr/lib/udev/mtd_probe /usr/lib/udev/scsi_id /usr/lib/udev/v4l_id /usr/lib/udev/vdev_id /usr/lib/udev/virtual-function-naming-helper /usr/lib/udev/zvol_id /usr/share/rear/skel/default/bin/dhclient-script /usr/share/rear/skel/default/bin/dhcpcd.sh /usr/share/rear/skel/default/bin/ifup /usr/share/rear/skel/default/bin/login /usr/share/rear/skel/default/etc/scripts/boot /usr/share/rear/skel/default/etc/scripts/do-shutdown /usr/share/rear/skel/default/etc/scripts/run-serial /usr/share/rear/skel/default/etc/scripts/run-sshd /usr/share/rear/skel/default/etc/scripts/run-syslog /usr/share/rear/skel/default/etc/scripts/system-setup /usr/share/rear/skel/default/etc/scripts/system-status.sh /usr/share/rear/skel/default/etc/scripts/unlock-opal-disks
+</code></pre>
+<h4 id="gdha_commented_at_2026-06-15_1122"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3610#issuecomment-4707407346">2026-06-15 11:22</a>:<a class="headerlink" href="#gdha_commented_at_2026-06-15_1122" title="Permanent link">&para;</a></h4>
+<p>PR #3607 has been merged. Could you re-do your tests with the master
+branch to verify if this helps you?</p>
+<h4 id="gdha_commented_at_2026-11-06_1016"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3610#issuecomment-6682506570">2026-11-06 10:16</a>:<a class="headerlink" href="#gdha_commented_at_2026-11-06_1016" title="Permanent link">&para;</a></h4>
+<p>@ZzenlD Is this issue fixed?</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-06-10.3610.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

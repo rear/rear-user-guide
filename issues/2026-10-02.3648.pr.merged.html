@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3648 PR merged: 'unset' local nested helper functions - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3648 PR merged: \u0027unset\u0027 local nested helper functions";
+        var mkdocs_page_input_path = "issues/2026-10-02.3648.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3648 PR merged: 'unset' local nested helper functions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3648_pr_merged_unset_local_nested_helper_functions"><a href="https://github.com/rear/rear/pull/3648">#3648 PR</a> <code>merged</code>: 'unset' local nested helper functions<a class="headerlink" href="#3648_pr_merged_unset_local_nested_helper_functions" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>cleanup</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2026-10-02_1143"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3648">2026-10-02 11:43</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2026-10-02_1143" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Cleanup</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Low</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3647#issuecomment-5951434875">https://github.com/rear/rear/pull/3647#issuecomment-5951434875</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>"All checks have passed"</p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>Local nested helper functions must be 'unset'<br />
+because bash does not support 'local function ...'</p>
+<h4 id="codacy-production_commented_at_2026-10-02_1144"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-5951647015">2026-10-02 11:44</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-10-02_1144" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3648/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-10-02_1256"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-5952842048">2026-10-02 12:56</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-02_1256" title="Permanent link">&para;</a></h4>
+<p>I checked that each of the nested helper functions<br />
+is only called within its parent function where<br />
+the helper function is defined:</p>
+<pre><code>localhost:~/rear.github.master # for f in \
+ add_replacement has_replacement get_replacement \
+ syslinux_menu syslinux_menu_help \
+ create_grub2_serial_entry create_grub2_rear_boot_entry \
+ create_grub2_boot_next_entry create_grub2_reboot_entry \
+ create_grub2_exit_entry ; \
+do echo -n "$f : " ; \
+   find usr/sbin/rear usr/share/rear/ -type f | xargs grep -l "$f" ; \
+done
+
+add_replacement : usr/share/rear/lib/layout-functions.sh
+has_replacement : usr/share/rear/lib/layout-functions.sh
+get_replacement : usr/share/rear/lib/layout-functions.sh
+syslinux_menu : usr/share/rear/lib/bootloader-functions.sh
+syslinux_menu_help : usr/share/rear/lib/bootloader-functions.sh
+create_grub2_serial_entry : usr/share/rear/lib/bootloader-functions.sh
+create_grub2_rear_boot_entry : usr/share/rear/lib/bootloader-functions.sh
+create_grub2_boot_next_entry : usr/share/rear/lib/bootloader-functions.sh
+create_grub2_reboot_entry : usr/share/rear/lib/bootloader-functions.sh
+create_grub2_exit_entry : usr/share/rear/lib/bootloader-functions.sh
+</code></pre>
+<p>So</p>
+<pre><code>add_replacement has_replacement get_replacement
+</code></pre>
+<p>appear only in usr/share/rear/lib/layout-functions.sh<br />
+and</p>
+<pre><code>syslinux_menu syslinux_menu_help
+create_grub2_serial_entry create_grub2_rear_boot_entry
+create_grub2_boot_next_entry create_grub2_reboot_entry
+create_grub2_exit_entry
+</code></pre>
+<p>appear only in usr/share/rear/lib/bootloader-functions.sh</p>
+<p>Check that <code>add_replacement has_replacement get_replacement</code><br />
+do not appear in usr/share/rear/lib/layout-functions.sh<br />
+outside of the function apply_layout_mappings()</p>
+<pre><code>localhost:~/rear.github.master # for f in \
+ add_replacement has_replacement get_replacement ; \
+do cat usr/share/rear/lib/layout-functions.sh \
+   | sed -n -e '/^function apply_layout_mappings() {$/,/^}$/!p' \
+   | grep $f ; \
+done
+
+[no output]
+</code></pre>
+<p>Check that <code>syslinux_menu syslinux_menu_help</code><br />
+do not appear in usr/share/rear/lib/bootloader-functions.sh<br />
+outside of the function make_syslinux_config</p>
+<pre><code>localhost:~/rear.github.master # for f in \
+ syslinux_menu syslinux_menu_help ; \
+ do cat usr/share/rear/lib/bootloader-functions.sh \
+    | sed -n -e '/^function make_syslinux_config {$/,/^}$/!p' \
+    | grep $f ; \
+done
+
+[no output]
+</code></pre>
+<p>Check that</p>
+<pre><code>create_grub2_serial_entry create_grub2_rear_boot_entry
+create_grub2_boot_next_entry create_grub2_reboot_entry
+create_grub2_exit_entry
+</code></pre>
+<p>do not appear in usr/share/rear/lib/bootloader-functions.sh<br />
+outside of the function create_grub2_cfg</p>
+<pre><code>localhost:~/rear.github.master # for f in \
+ create_grub2_serial_entry create_grub2_rear_boot_entry \
+ create_grub2_boot_next_entry create_grub2_reboot_entry \
+ create_grub2_exit_entry ; \
+do cat usr/share/rear/lib/bootloader-functions.sh \
+   | sed -n -e '/^function create_grub2_cfg {$/,/^# End of function create_grub2_cfg$/!p' \
+   | grep $f ; \
+done
+
+[no output]
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-10-02_1313"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-5953188754">2026-10-02 13:13</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-02_1313" title="Permanent link">&para;</a></h4>
+<p>I checked that the parent functions</p>
+<pre><code>apply_layout_mappings make_syslinux_config create_grub2_cfg
+</code></pre>
+<p>do not return before its nested helper functions are unset:</p>
+<p>The functions <code>make_syslinux_config create_grub2_cfg</code><br />
+do not call <code>return</code>:</p>
+<pre><code>localhost:~/rear.github.master # cat usr/share/rear/lib/bootloader-functions.sh \
+| sed -n -e '/^function make_syslinux_config {$/,/^}$/p' \
+| grep return
+
+[no output]
+
+localhost:~/rear.github.master # cat usr/share/rear/lib/bootloader-functions.sh \
+| sed -n -e '/^function create_grub2_cfg {$/,/^# End of function create_grub2_cfg$/p' \
+| grep return
+
+[no output]
+</code></pre>
+<p>The function <code>apply_layout_mappings</code> calls <code>return</code><br />
+(excerpts):</p>
+<pre><code>    is_true "$MIGRATION_MODE" || return 0
+...
+    test -s "$file_to_migrate" || return 0
+...
+    is_completely_identical_layout_mapping &amp;&amp; return 0
+...
+    function add_replacement() {
+...
+    function has_replacement() {
+...
+    function get_replacement() {
+        local item replacement junk
+        read item replacement junk &lt; &lt;( grep "^$1 " $replacement_file )
+        test "$replacement" &amp;&amp; echo "$replacement" || return 1
+    }
+...
+    done &lt; "$replacement_file"
+    # It is the responsibility of the caller of this apply_layout_mappings function what to do when it failed
+    # (e.g. error out, retry, show a user dialog, or whatever is appropriate in the caller's environment):
+    is_true $apply_layout_mappings_succeeded &amp;&amp; return 0 || return 1
+}
+</code></pre>
+<p>this is the state before the changes in this pull request<br />
+so inserting the <code>unset</code> before the final <code>return</code> like</p>
+<pre><code>    done &lt; "$replacement_file"
+
+    unset -f add_replacement has_replacement get_replacement
+
+    # It is the responsibility of the caller ...
+    # (e.g. error out, ...
+    is_true $apply_layout_mappings_succeeded &amp;&amp; return 0 || return 1
+}
+</code></pre>
+<p>as done in this pull request is the correct place.</p>
+<h4 id="jsmeix_commented_at_2026-10-06_1351"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6017733143">2026-10-06 13:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-06_1351" title="Permanent link">&para;</a></h4>
+<p>Because "All checks have passed"<br />
+I think it works sufficiently well.</p>
+<h4 id="pcahyna_commented_at_2026-10-06_1401"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6017935967">2026-10-06 14:01</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-10-06_1401" title="Permanent link">&para;</a></h4>
+<p>@jsmeix looking ...</p>
+<h4 id="jsmeix_commented_at_2026-10-06_1436"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6018618334">2026-10-06 14:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-06_1436" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+thank you for your suggestions!</p>
+<p>I will update<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#functions">https://github.com/rear/rear/wiki/Coding-Style#functions</a></p>
+<p>Regarding<br />
+"functions in a script that are not used beyond the script":<br />
+I think finding such functions could be a good task for AI.<br />
+As time permits (looks hopeless with never ending CVEs)<br />
+I may try to get that done.</p>
+<p>Next generic thing for AI are local variables in scripts<br />
+that are not yet defined as 'local'.</p>
+<p>A related generic thing for AI are global variables<br />
+with names that are not uppercase.</p>
+<h4 id="pcahyna_commented_at_2026-10-06_1446"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6018805656">2026-10-06 14:46</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-10-06_1446" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Regarding<br />
+"functions in a script that are not used beyond the script":<br />
+I think finding such functions could be a good task for AI.</p>
+</blockquote>
+<p>I did not mean that we need to find them and fix now, but rather that a
+guideline in Coding Style should encompass that case (if you are going
+to write one).</p>
+<h4 id="pcahyna_commented_at_2026-10-06_1451"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6018899663">2026-10-06 14:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-10-06_1451" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>... I think finding such functions could be a good task for AI.</p>
+<p>... Next generic thing for AI are local variables in scripts<br />
+that are not yet defined as 'local'.</p>
+</blockquote>
+<p>I believe that such mechanical tasks are better handled by traditional
+rule-based automata (cf. your sed / grep pipelines that you used to
+verify the results above) and a good task for (LLM-based) AI is to write
+such rules (shell commands or otherwise). Perhaps that's what you meant
+in fact. An AI coding assistant will likely anyway handle the task by
+constructing shell pipelines of this type and running them.</p>
+<blockquote>
+<p>(looks hopeless with never ending CVEs)</p>
+</blockquote>
+<p>same here...</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1505"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6294030635">2026-10-20 15:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1505" title="Permanent link">&para;</a></h4>
+<p>I enhanced<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#functions">https://github.com/rear/rear/wiki/Coding-Style#functions</a><br />
+and removed the comments in the code here via my two recent commits.</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1506"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6294058608">2026-10-20 15:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1506" title="Permanent link">&para;</a></h4>
+<p>The function bios_grub_install() is only called within<br />
+usr/share/rear/finalize/Linux-i386/660_install_grub2.sh<br />
+so it should be unset in that script.</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1544"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6294880445">2026-10-20 15:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1544" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/rear/rear/pull/3648/commits/e67fa0640a5bb7a2f686f53a0cdee71f4889e29c">https://github.com/rear/rear/pull/3648/commits/e67fa0640a5bb7a2f686f53a0cdee71f4889e29c</a><br />
+shows that it can become tricky to properly<br />
+unset locally meant helper functions because<br />
+unset must happen before each <code>return</code><br />
+after the helper function definition<br />
+so it helps to have helper function definitions<br />
+as late as possible.</p>
+<h4 id="pcahyna_commented_at_2026-10-20_1812"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6297838997">2026-10-20 18:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-10-20_1812" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><a href="https://github.com/rear/rear/commit/e67fa0640a5bb7a2f686f53a0cdee71f4889e29c">e67fa06</a>
+shows that it can become tricky to properly unset locally meant helper
+functions because unset must happen before each <code>return</code> after the
+helper function definition so it helps to have helper function
+definitions as late as possible.</p>
+</blockquote>
+<p>Oops. It could then be preferable to not use nested functions and cope
+with them being global, as this looks difficult to keep track of.</p>
+<h4 id="jsmeix_commented_at_2026-10-21_1040"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6313972862">2026-10-21 10:40</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-21_1040" title="Permanent link">&para;</a></h4>
+<p>The errors in the log of the current failed check<br />
+<a href="https://download.copr.fedorainfracloud.org/results/packit/rear-rear-3648/fedora-rawhide-x86_64/11178011-rear/builder-live.log.gz">https://download.copr.fedorainfracloud.org/results/packit/rear-rear-3648/fedora-rawhide-x86_64/11178011-rear/builder-live.log.gz</a><br />
+seem to not belong to ReaR<br />
+but to setting up the fedora-rawhide-x86_64 system</p>
+<h4 id="pcahyna_commented_at_2026-10-21_1051"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6314160502">2026-10-21 10:51</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-10-21_1051" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The errors in the log of the current failed check
+<a href="https://download.copr.fedorainfracloud.org/results/packit/rear-rear-3648/fedora-rawhide-x86_64/11178011-rear/builder-live.log.gz">https://download.copr.fedorainfracloud.org/results/packit/rear-rear-3648/fedora-rawhide-x86_64/11178011-rear/builder-live.log.gz</a>
+seem to not belong to ReaR but to setting up the
+fedora-rawhide-x86_64 system</p>
+</blockquote>
+<p>Indeed. I am looking into it.</p>
+<h4 id="jsmeix_commented_at_2026-10-21_1057"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6314253480">2026-10-21 10:57</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-21_1057" title="Permanent link">&para;</a></h4>
+<p>Despite that it can become tricky<br />
+to properly unset local functions<br />
+I would prefer to use local functions<br />
+when a function is not sufficiently implemented<br />
+so that it can be safely used globally / everywhere<br />
+to avoid that locally intended specific helper functions<br />
+could be misused as generic global functions, see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#functions">https://github.com/rear/rear/wiki/Coding-Style#functions</a></p>
+<p>When a local function is not unset in some cases<br />
+nothing goes directly wrong because of this.<br />
+It only results that in some cases this local function<br />
+could be misused as a generic global function.<br />
+As long as local functions get unset at the end of the<br />
+intended scope (end of parent function / end of script)<br />
+things should be usually "good enough" and missing<br />
+unset calls can be easily added later as needed.</p>
+<h4 id="jsmeix_commented_at_2026-10-21_1058"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3648#issuecomment-6314281667">2026-10-21 10:58</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-21_1058" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it on Friday (23. Oct.) afternoon<br />
+unless there are objections.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-10-02.3648.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

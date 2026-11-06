@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3638 PR merged: Support for Cohesity DataProtect with BACKUP=COH - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3638 PR merged: Support for Cohesity DataProtect with BACKUP=COH";
+        var mkdocs_page_input_path = "issues/2026-09-14.3638.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3638 PR merged: Support for Cohesity DataProtect with BACKUP=COH</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3638_pr_merged_support_for_cohesity_dataprotect_with_backupcoh"><a href="https://github.com/rear/rear/pull/3638">#3638 PR</a> <code>merged</code>: Support for Cohesity DataProtect with BACKUP=COH<a class="headerlink" href="#3638_pr_merged_support_for_cohesity_dataprotect_with_backupcoh" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>, <code>external tool</code></p>
+<h4 id="sebastian-koehler_opened_issue_at_2026-09-14_2015"><img src="https://avatars.githubusercontent.com/u/61417309?v=4" width="50"><a href="https://github.com/sebastian-koehler">sebastian-koehler</a> opened issue at <a href="https://github.com/rear/rear/pull/3638">2026-09-14 20:15</a>:<a class="headerlink" href="#sebastian-koehler_opened_issue_at_2026-09-14_2015" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Type: New Feature</li>
+<li>Impact: Normal. Adds a new, opt-in backup method (BACKUP=COH). There
+    is no effect on existing methods or users who do not set it.</li>
+<li>Reference to related issue (URL): N/A</li>
+<li>How was this pull request tested?<br />
+    Validated end-to-end against a live Cohesity 7.4.1 cluster, covering
+    both a recovery host that keeps the original hostname/IP and one
+    that comes up with different network settings through a Physical
+    Server File &amp; Folder recovery.</li>
+<li>Description of the changes in this pull request:<br />
+    Adds a new BACKUP=COH method for bare-metal recovery of physical
+    servers protected by Cohesity DataProtect. Since the Cohesity agent
+    cannot pull backups on its own and only accepts connections from the
+    cluster, the approach is:<ul>
+<li>rear mkrescue bundles the installed Cohesity agent, including
+    binaries, configuration, runtime state, required libraries and
+    commands, and the systemd unit, into the rescue image.</li>
+<li>rear recover rebuilds the disk layout, then checks the recovery
+    host's hostname/IP against the values stored in the agent
+    configuration. If they have changed, the agent identity is reset
+    automatically. Files are renamed with a _rear suffix rather
+    than deleted so the agent can register as a new host. If the
+    hostname/IP is unchanged, the same reset is offered as an
+    optional step. Either way, the original server's registration is
+    never touched.</li>
+<li>The agent is started so the Cohesity cluster can reach it, and
+    rear recover pauses while the actual restore is driven from the
+    Cohesity Data Cloud console or REST API. A normal physical
+    server recovery is used if the identity was kept, or a Physical
+    Server File &amp; Folder recovery if it was reset.</li>
+</ul>
+</li>
+</ul>
+<h4 id="codacy-production_commented_at_2026-09-14_2016"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5670210880">2026-09-14 20:16</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-09-14_2016" title="Permanent link">&para;</a></h4>
+<h2 id="not_up_to_standards">Not up to standards ⛔<a class="headerlink" href="#not_up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🔴 Issues</strong>  <code>14 high · 9 medium</code></summary>
+
+> <br/>
+>
+> **Alerts:**  
+> ⚠ 23 issues (≤ 0 issues of at least minor severity)
+>
+> **Results:**  
+> `23` new issues
+>
+> <table>
+> <thead>
+> <tr class="header">
+> <th>Category</th>
+> <th>Results</th>
+> </tr>
+> </thead>
+> <tbody>
+> <tr class="odd">
+> <td>BestPractice</td>
+> <td><code>8</code> medium</td>
+> </tr>
+> <tr class="even">
+> <td>ErrorProne</td>
+> <td><code>1</code> medium <br/> <code>14</code> high</td>
+> </tr>
+> </tbody>
+> </table>
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3638/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="gdha_commented_at_2026-09-15_1355"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5681379436">2026-09-15 13:55</a>:<a class="headerlink" href="#gdha_commented_at_2026-09-15_1355" title="Permanent link">&para;</a></h4>
+<p>@sebastian-koehler Nice to have a new BACKUP scheme ;-)<br />
+<strong>Remark:</strong><br />
+In Bash, the 'local' keyword is only valid within functions. Using
+'local' outside functions results in errors, which can cause scripts to
+fail or behave unexpectedly.<br />
+Please fix this first - thanks.</p>
+<h4 id="jsmeix_commented_at_2026-09-16_0708"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5693457744">2026-09-16 07:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-16_0708" title="Permanent link">&para;</a></h4>
+<p>No!</p>
+<p><code>local</code> is valid in ReaR scripts and<br />
+<code>local</code> should be used in ReaR scripts, see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a><br />
+(excerpt)</p>
+<pre><code>All scripts in usr/share/rear/
+are sourced from within the Source() function
+so you can and should use local for local variables in scripts.
+</code></pre>
+<p>We had and still have plain wrong variable handling<br />
+in our scripts because <code>local</code> is not used.<br />
+We have an old case where a <code>dev</code> or <code>device</code> named<br />
+variable gets overwritten because the same name<br />
+is used without <code>local</code> in a nested place<br />
+but at the time when I noticed that issue<br />
+I failed to get that mess sorted out<br />
+because I was busy with something else.<br />
+Only by luck that overwriting does not cause harm<br />
+because the overwritten original value is not needed<br />
+but things will fail when someone changes the code<br />
+so that the original value will be needed.</p>
+<p>What is wrong is that dumb Codacy Static Code Analysis bot<br />
+which has no global understanding of what it analyzes<br />
+so it produces all the time way too many false alarms<br />
+which do not help but only cause confusion and<br />
+may even lead to false "fixes" (like here).</p>
+<p>Same for that bot's "missing shebang" warnings.<br />
+We could add shebangs to all our scripts<br />
+to silence this false alarm of that dumb bot.<br />
+But we cannot not use <code>local</code> in our scripts<br />
+because that would cause errors in our code.</p>
+<p>I would prefer the Codacy Static Code Analysis bot<br />
+gets simply switched off - at least until someone<br />
+could somehow make that bot behave reasonably useful<br />
+in practice - i.e. with almost zero false alarms.</p>
+<h4 id="jsmeix_commented_at_2026-09-16_0711"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5693489212">2026-09-16 07:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-16_0711" title="Permanent link">&para;</a></h4>
+<p>The only correct Codacy Static Code Analysis bot warning is</p>
+<pre><code>Declare and assign separately to avoid masking return values.
+</code></pre>
+<p>also see<br />
+<a href="https://github.com/rear/rear/wiki/Coding-Style#variables">https://github.com/rear/rear/wiki/Coding-Style#variables</a><br />
+(excerpt)</p>
+<pre><code>Variables that are used only locally should be lowercased
+and must be marked with local like:
+
+local foo="default_value"
+local bar baz
+bar="$( COMMAND1 )"
+baz="$( COMMAND2 )" || Error "COMMAND2 failed"
+
+Avoid
+local bar="$( COMMAND1 )"
+because set -e will not exit
+if COMMAND1 exits with a non-zero status.
+
+Also
+local baz="$( COMMAND2 )" || Error "COMMAND2 failed"
+will not error out if COMMAND2 failed.
+
+See https://github.com/koalaman/shellcheck/wiki/SC2155
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-09-16_0715"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5693530869">2026-09-16 07:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-16_0715" title="Permanent link">&para;</a></h4>
+<p>Off the top of my head I don't know<br />
+if the Codacy Static Code Analysis bot warnings</p>
+<pre><code>Use '[:lower:]' to support accents and foreign alphabets.
+Use '[:upper:]' to support accents and foreign alphabets.
+</code></pre>
+<p>are valid for</p>
+<pre><code>echo "$current_hostname" | tr 'A-Z' 'a-z'
+echo "$cfg_hostname" | tr 'A-Z' 'a-z'
+</code></pre>
+<p>because I don't know if a hostname may contain<br />
+"accents and foreign alphabets"?</p>
+<p>I asked Google AI:<br />
+"which characters are allowed for a hostname?"<br />
+and it replied</p>
+<pre><code>Standard hostnames may contain only
+ASCII letters (a–z), digits (0–9), and hyphens (-).
+</code></pre>
+<p>According to that those Codacy warnings are invaild here<br />
+which proves that the Codacy Static Code Analysis bot<br />
+does not even have a locally focussed "understanding"<br />
+of what it analyzes - i.e. here it does not understand<br />
+that it is about a hostname.</p>
+<h4 id="jsmeix_commented_at_2026-09-16_0933"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5695273849">2026-09-16 09:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-16_0933" title="Permanent link">&para;</a></h4>
+<p>@sebastian-koehler<br />
+could you provide some technical explanation<br />
+what a Cohesity DataProtect backup actually is and<br />
+how it works from a general technical point of view?</p>
+<p>I fail to see this information on<br />
+<a href="https://www.cohesity.com/platform/dataprotect/">https://www.cohesity.com/platform/dataprotect/</a></p>
+<h4 id="sebastian-koehler_commented_at_2026-09-17_1429"><img src="https://avatars.githubusercontent.com/u/61417309?v=4" width="50"><a href="https://github.com/sebastian-koehler">sebastian-koehler</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5716076134">2026-09-17 14:29</a>:<a class="headerlink" href="#sebastian-koehler_commented_at_2026-09-17_1429" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>@sebastian-koehler could you provide some technical explanation what a
+Cohesity DataProtect backup actually is and how it works from a
+general technical point of view?</p>
+<p>I fail to see this information on
+<a href="https://www.cohesity.com/platform/dataprotect/">https://www.cohesity.com/platform/dataprotect/</a></p>
+</blockquote>
+<h1 id="cohesity_dataprotect_with_rear">Cohesity DataProtect with ReaR<a class="headerlink" href="#cohesity_dataprotect_with_rear" title="Permanent link">&para;</a></h1>
+<p>Cohesity DataProtect provides policy-based backup and recovery for
+supported workloads. A protection policy defines the source, schedule,
+retention, and storage target. Backup data is transferred to a Cohesity
+cluster and stored as snapshots.</p>
+<h2 id="backup_processing">Backup processing<a class="headerlink" href="#backup_processing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The client or workload is registered as a protection source.</li>
+<li>A protection job runs according to its assigned policy.</li>
+<li>Data is read directly from the workload or through a locally
+    installed agent.</li>
+<li>The backup stream is sent to the DataProtect cluster.</li>
+<li>The cluster deduplicates and compresses the backup data.</li>
+<li>Encryption protects data in transit and at rest.</li>
+<li>Snapshots can be configured as immutable, preventing modification or
+    deletion during the defined retention period and improving cyber
+    resilience.</li>
+<li>Recovery operations read the required snapshot and restore the
+    selected files, volumes, or workload data.</li>
+</ul>
+<h2 id="rear_integration">ReaR integration<a class="headerlink" href="#rear_integration" title="Permanent link">&para;</a></h2>
+<p>For the ReaR workflow, the lightweight Cohesity agent is installed
+locally on the Linux client and performs either a file system based or
+block based backup.<br />
+The agent can perform source-side deduplication to reduce network
+transfer. Backup data is stored on the DataProtect cluster in
+deduplicated, compressed, encrypted, and optionally immutable snapshots.</p>
+<h4 id="jsmeix_commented_at_2026-09-18_0933"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5728116595">2026-09-18 09:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-18_0933" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here (as time permits).<br />
+Perhaps you spot issues that I overlooked?</p>
+<h4 id="jsmeix_commented_at_2026-09-28_0945"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5867467324">2026-09-28 09:45</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-28_0945" title="Permanent link">&para;</a></h4>
+<p>@sebastian-koehler<br />
+if you like you may add your technical explanation<br />
+what a Cohesity DataProtect backup is and how it works<br />
+in your<br />
+<a href="https://github.com/rear/rear/pull/3638#issuecomment-5716076134">https://github.com/rear/rear/pull/3638#issuecomment-5716076134</a><br />
+to your<br />
+doc/user-guide/19-Cohesity-COH.md<br />
+documentation.</p>
+<p>Such a generic description directly in ReaR<br />
+helps others who will at some later time<br />
+have to adapt and enhance the current<br />
+Cohesity DataProtect code in ReaR<br />
+but who do not use Cohesity DataProtect,<br />
+in particular us ReaR upstream maintainers<br />
+when we try to fix issues in third-party backup code<br />
+that had become somewhat bitrotted over longer time<br />
+(at least I had some not-so-fun with that in the past).</p>
+<h4 id="jsmeix_commented_at_2026-09-28_0947"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5867488177">2026-09-28 09:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-28_0947" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+unless there are objections<br />
+I would like to merge it on Wednesday (30. Sept.) afternoon.</p>
+<h4 id="jsmeix_commented_at_2026-09-30_1306"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3638#issuecomment-5911906937">2026-09-30 13:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-30_1306" title="Permanent link">&para;</a></h4>
+<p>@sebastian-koehler<br />
+thank you for your valuable contribution to ReaR!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-09-14.3638.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

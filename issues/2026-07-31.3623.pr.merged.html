@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3623 PR merged: Enhance Btrfs filesystem support Part 1 - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3623 PR merged: Enhance Btrfs filesystem support Part 1";
+        var mkdocs_page_input_path = "issues/2026-07-31.3623.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3623 PR merged: Enhance Btrfs filesystem support Part 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3623_pr_merged_enhance_btrfs_filesystem_support_part_1"><a href="https://github.com/rear/rear/pull/3623">#3623 PR</a> <code>merged</code>: Enhance Btrfs filesystem support Part 1<a class="headerlink" href="#3623_pr_merged_enhance_btrfs_filesystem_support_part_1" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-07-31_1411"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/pull/3623">2026-07-31 14:11</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-07-31_1411" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    SLES 16.0, openSUSE Leap 16.1 and SLES 12.5 were recovered
+    successfully.</p>
+<p>I created Btrfs filesystems with individual features enabled (for
+<code>block-group-tree</code>, the <code>no-holes</code> and <code>free-space-tree</code> features
+were also enabled as it's mandatory), with all features enabled and
+with all features disabled. In all cases, the filesystems were
+recovered with the expected feature set. For the <code>mixed-bg</code> feature,
+<code>sectorsize</code> and <code>nodesize</code> must be identical, and recovery
+preserved this requirement correctly.<br />
+Example:<br />
+<code>mkfs.btrfs -f --sectorsize 4096 --nodesize 4096 -O mixed-bg,^quota,^extref,^raid56,^skinny-metadata,^no-holes,^free-space-tree,^raid1c34,^zoned,^block-group-tree,^squota /dev/sdb1</code></p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Support recovery of enabled Btrfs filesystem features, <code>nodesize</code>,
+    and <code>sectorsize</code> by backing up their actual values and implicitly
+    passing them to mkfs.btrfs during recovery, preventing them from
+    being overridden by default values.</p>
+<p>The newly supported options are stored in <code>disklayout.conf</code> in the
+same way as <code>blocksize</code>, <code>fragmentsize</code>, etc. are stored for <code>ext*</code>
+filesystems.</p>
+<p>The validation logic was added primarily to mitigate code injection
+risks and to ensure that the recovered values are valid.</p>
+<p>Additionally, I wrote unit tests to simplify the development and
+validation process. If you would prefer not to include them, let me
+know and I will remove the test file. Tests can be run with:
+<code>bats tests/bats/001_filesystems_functions.bats</code></p>
+<p>I’m also preparing additional changes to further improve Btrfs
+support, but I’d first like to hear your feedback on changes in this
+PR as it may not be interesting enough.</p>
+<p>Potentially fixes <a href="https://github.com/rear/rear/issues/3545">https://github.com/rear/rear/issues/3545</a></p>
+<p>Pages that I've used during development:<br />
+<a href="https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#man-mkfs-filesystem-features">https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#man-mkfs-filesystem-features</a><br />
+<a href="https://btrfs.readthedocs.io/en/latest/btrfs-man5.html#filesystem-features">https://btrfs.readthedocs.io/en/latest/btrfs-man5.html#filesystem-features</a></p>
+</li>
+</ul>
+<h4 id="codacy-production_commented_at_2026-07-31_1412"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5143816182">2026-07-31 14:12</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-07-31_1412" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3623/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-08-03_1000"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5164936333">2026-08-03 10:00</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-03_1000" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for this valuable enhancement!</p>
+<h4 id="jsmeix_commented_at_2026-08-03_1044"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5165339030">2026-08-03 10:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-03_1044" title="Permanent link">&para;</a></h4>
+<p>I tested "rear mkrescue" with this changes<br />
+and noticed that the syntax of the</p>
+<pre><code>fs ... btrfs ...
+</code></pre>
+<p>entry in disklayout.conf changed<br />
+in my case on SLES15 SP6 with its default btrfs structure<br />
+from before (long line shown wrapped here)</p>
+<pre><code>fs /dev/vda2 / btrfs
+ uuid=bad9f5d9-6a37-4902-b5fc-ded16e84f357
+ label=
+ options=rw,relatime,discard=async,space_cache=v2,subvolid=267,subvol=/@/.snapshots/1/snapshot
+</code></pre>
+<p>to now with this changes here (long line shown wrapped here)</p>
+<pre><code>fs /dev/vda2 / btrfs
+ uuid=bad9f5d9-6a37-4902-b5fc-ded16e84f357
+ label=
+ nodesize=16384
+ sectorsize=4096
+ features=extref,free-space-tree,no-holes,skinny-metadata
+ options=rw,relatime,discard=async,space_cache=v2,subvolid=267,subvol=/@/.snapshots/1/snapshot
+</code></pre>
+<p>i.e. those new options got inserted</p>
+<pre><code>nodesize=16384 sectorsize=4096 features=extref,free-space-tree,no-holes,skinny-metadata
+</code></pre>
+<p>I hope the new inserted options do not cause issues<br />
+at whatever code places which might expect the<br />
+ordering of the options from before the changes here.</p>
+<p>I think the new options nodesize sectorsize and features<br />
+should be documented in<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md">https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md</a><br />
+there near the end in the section<br />
+"Disk layout file syntax"<br />
+at<br />
+"Filesystems"<br />
+for example like (long line shown wrapped here)</p>
+<pre><code>fs &lt;device&gt; &lt;mountpoint&gt; &lt;filesystem type&gt;
+ [uuid=&lt;uuid&gt;]
+ [label=&lt;label&gt;]
+ [blocksize=&lt;block size(B)&gt;]
+ [&lt;reserved_blocks=&lt;nr of reserved blocks&gt;]
+ [max_mounts=&lt;nr&gt;]
+ [check_interval=&lt;number of days&gt;d]
+ [nodesize=&lt;btrfs node size&gt;]
+ [sectorsize=&lt;btrfs sector size&gt;]
+ [features=&lt;btrfs filesystem features&gt;]
+ [options=&lt;filesystem options&gt;]
+</code></pre>
+<p>which is currently online here:<br />
+<a href="https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md#filesystems">https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.md#filesystems</a></p>
+<h4 id="jsmeix_commented_at_2026-08-03_1141"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5165854035">2026-08-03 11:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-03_1141" title="Permanent link">&para;</a></h4>
+<p>The following is is a general issue.<br />
+It does not directly belong to this specific pull request.</p>
+<p>Regarding the basic functionality description in<br />
+<a href="https://github.com/rear/rear/pull/3623#issue-5030361037">https://github.com/rear/rear/pull/3623#issue-5030361037</a></p>
+<pre><code>Support recovery of enabled Btrfs filesystem features,
+nodesize, and sectorsize by backing up their actual values
+and implicitly passing them to mkfs.btrfs during recovery,
+preventing them from being overridden by default values.
+</code></pre>
+<p>There are generic problems with such functionality:</p>
+<p>On the one hand ReaR intends to recreate a system<br />
+as much as possible as it was before.</p>
+<p>On the other hand it is impossible to determine<br />
+how a system is actually meant to be.</p>
+<p>What I mean is shown by this issue here:</p>
+<p>On my SLES15 SP6 with its default btrfs structure<br />
+all <code>mkfs</code> command calls from the system installytion<br />
+that I can find are only <code>mkfs.btrfs --force /dev/vda2</code><br />
+(/dev/vda2 is the system partition of my only disk)</p>
+<pre><code># find /var/log/YaST2 -type f | xargs grep -o 'mkfs.*'
+
+/var/log/YaST2/yast-installation-logs/YaST2/y2log:
+ mkfs.btrfs --force '/dev/vda2'")
+...
+</code></pre>
+<p>So my btrfs filesystem was created with mkfs.btrfs defaults<br />
+which is what the btrfs filesystem setup is meant to be.</p>
+<p>To recreate the btrfs filesystem as it is meant to be<br />
+would be to call plain <code>mkfs.btrfs --force /dev/vda2</code>.</p>
+<p>Also<br />
+<a href="https://github.com/rear/rear/issues/3545">https://github.com/rear/rear/issues/3545</a><br />
+is a good example how things fail when trying<br />
+to recreate a system as it was before<br />
+instead of recreating as it is meant to be<br />
+when "just use defaults" is meant to be.</p>
+<p>But it is impossible to determine what is meant to be<br />
+because in practice it is impossible to determine<br />
+if a specific setting is there by user intent<br />
+or if it is there just by default.</p>
+<p>So what ReaR tries to do are endless tons of efforts<br />
+to recreate a system as much as possible as it was before.</p>
+<p>But regardless how much effort we put into that task,<br />
+there will be always some settings which are not (yet)<br />
+monitored by ReaR so some recreated systems will<br />
+get recreated different than it was before<br />
+AND<br />
+if "just use defaults" is meant then recreating<br />
+settings as they were before is not what is meant<br />
+and furthermore that can lead to weird issues like<br />
+<a href="https://github.com/rear/rear/issues/3545">https://github.com/rear/rear/issues/3545</a></p>
+<p>I remember the endless efforts to recrate XFS filesystems.<br />
+E.g. see the reasoning for MKFS_XFS_OPTIONS in default.conf<br />
+<a href="https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L699">https://github.com/rear/rear/blob/rear-2.9/usr/share/rear/conf/default.conf#L699</a><br />
+and for more info the related<br />
+<a href="https://github.com/rear/rear/issues/1998">https://github.com/rear/rear/issues/1998</a><br />
+and<br />
+<a href="https://github.com/rear/rear/pull/2005">https://github.com/rear/rear/pull/2005</a></p>
+<p>I think btrfs is even more complex than XFS.</p>
+<p>I think in practice only <code>dd</code> recreates as it was before.</p>
+<h4 id="svlv_commented_at_2026-08-03_1229"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5166311944">2026-08-03 12:29</a>:<a class="headerlink" href="#svlv_commented_at_2026-08-03_1229" title="Permanent link">&para;</a></h4>
+<p>If we are considering a default system created by an OS installer with
+the default options, and <code>btrfs-progs</code> versions are the same on both the
+source system and the rescue system, then yes, there are no issues.</p>
+<p>However, systems with filesystems that were created manually, with
+features implicitly enabled/disabled and other options changed, cannot
+be recovered by ReaR correctly. By “correctly,” I mean that the
+filesystem options will be changed during recovery.</p>
+<p>The issue mentioned <a href="https://github.com/rear/rear/issues/3545">https://github.com/rear/rear/issues/3545</a> resulted
+in a non-bootable system in my case.</p>
+<p>I am not proposing that ReaR should recover all filesystem options,
+since that would be quite a complex task. I am proposing some
+improvements to back up and restore Btrfs filesystem features, as well
+as <code>nodesize</code> and <code>sectorsize</code>, because they are important for mixed
+block groups.</p>
+<p>If based on your experience you think that this is not worth the effort,
+then fair enough. I will finish the Btrfs improvements I'm currently
+working on (Part 2) and see how things go.</p>
+<h4 id="jsmeix_commented_at_2026-08-03_1259"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5166607556">2026-08-03 12:59</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-03_1259" title="Permanent link">&para;</a></h4>
+<p>@svlv</p>
+<p>I think you misunderstood my recent comment<br />
+<a href="https://github.com/rear/rear/pull/3623#issuecomment-5165854035">https://github.com/rear/rear/pull/3623#issuecomment-5165854035</a></p>
+<p>I made this comment here as a generic comment which<br />
+"does not directly belong to this specific pull request".<br />
+This specific pull request is an appreciated enhancement,<br />
+cf. my above comment,<br />
+<a href="https://github.com/rear/rear/pull/3623#issuecomment-5164936333">https://github.com/rear/rear/pull/3623#issuecomment-5164936333</a></p>
+<pre><code>thank you for this valuable enhancement!
+</code></pre>
+<p>I would not have written "valuable enhancement"<br />
+if I think "it is not worth the effort".</p>
+<h4 id="svlv_commented_at_2026-08-03_1303"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5166646841">2026-08-03 13:03</a>:<a class="headerlink" href="#svlv_commented_at_2026-08-03_1303" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<p>Hmm, yes, I likely misunderstood you</p>
+<h4 id="svlv_commented_at_2026-08-03_1337"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5167041363">2026-08-03 13:37</a>:<a class="headerlink" href="#svlv_commented_at_2026-08-03_1337" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>please verify that the new inserted options<br />
+nodesize sectorsize and features<br />
+in fs ... btrfs ... entries in<br />
+var/lib/rear/layout/disklayout.conf<br />
+do not cause issues at whatever code places<br />
+which might expect the ordering of the options<br />
+from before the changes here.</p>
+</blockquote>
+<p>I didn't find any places where these new options could break the logic</p>
+<h4 id="jsmeix_commented_at_2026-08-04_0931"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5177163863">2026-08-04 09:31</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-04_0931" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look and review it (as time permits).</p>
+<h4 id="jsmeix_commented_at_2026-08-05_0829"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3623#issuecomment-5189442941">2026-08-05 08:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-05_0829" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it today afternoon<br />
+unless there are objections.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-07-31.3623.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

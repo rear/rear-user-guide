@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3653 PR open: Complete rewrite of BACKUP=NBU for Cohesity NetBackup - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3653 PR open: Complete rewrite of BACKUP=NBU for Cohesity NetBackup";
+        var mkdocs_page_input_path = "issues/2026-10-08.3653.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3653 PR open: Complete rewrite of BACKUP=NBU for Cohesity NetBackup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3653_pr_open_complete_rewrite_of_backupnbu_for_cohesity_netbackup"><a href="https://github.com/rear/rear/pull/3653">#3653 PR</a> <code>open</code>: Complete rewrite of BACKUP=NBU for Cohesity NetBackup<a class="headerlink" href="#3653_pr_open_complete_rewrite_of_backupnbu_for_cohesity_netbackup" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>cleanup</code>, <code>external tool</code>, <code>ready-to-merge?</code></p>
+<h4 id="sebastian-koehler_opened_issue_at_2026-10-08_1015"><img src="https://avatars.githubusercontent.com/u/61417309?v=4" width="50"><a href="https://github.com/sebastian-koehler">sebastian-koehler</a> opened issue at <a href="https://github.com/rear/rear/pull/3653">2026-10-08 10:15</a>:<a class="headerlink" href="#sebastian-koehler_opened_issue_at_2026-10-08_1015" title="Permanent link">&para;</a></h4>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This is a heavily enhanced version of the existing <code>BACKUP=NBU</code>
+support,<br />
+bringing it up to date for Cohesity NetBackup (formerly
+Symantec/Veritas).<br />
+The original integration was a minimal reference implementation. This<br />
+builds on it and turns it into a full recovery workflow.</p>
+<p>It relies on NetBackup commands that have been around for a long time<br />
+(<code>bpclimagelist</code>, <code>bprestore</code>, <code>bplist</code>, <code>bpclntcmd</code>, <code>nbcertcmd</code>,
+True<br />
+Image Restore, altnames). Using them properly removes the limitations
+of<br />
+the old integration, especially in ReaR's rescue environment.</p>
+<h2 id="whats_new">What's new<a class="headerlink" href="#whats_new" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Host certificate enrollment in the rescue system (NBU 8.1+), with
+    the<br />
+    certificate state carried over to the recovered disk.</li>
+<li>Automatic detection of the client startup mechanism (systemd, SysV<br />
+    init, legacy xinetd).</li>
+<li>Point-in-time restore picked from the real NetBackup catalog, with
+    the<br />
+    restore chain computed automatically.</li>
+<li>True Image Restore support (<code>NBU_TRUE_IMAGE_RESTORE</code>, default true).</li>
+<li>Restore from a different client (altname).</li>
+<li>Handling of a changed hostname or primary server during recovery.</li>
+<li>Safety checks at backup and restore time (client version, TIR
+    backups<br />
+    in the catalog, primary reachability, refusing primary/media
+    servers<br />
+    as clients).</li>
+<li>Stricter <code>bprestore</code> error handling and a more complete rescue
+    image.</li>
+<li>Docs renamed to Cohesity NetBackup, plus a new user guide chapter.</li>
+</ul>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Tested end to end (backup, mkrescue, boot, recover) against a live<br />
+NetBackup 11.2.0.1 primary with three client generations: RHEL 9<br />
+(NBU client 11.2.0.1, systemd+PBX), RHEL 7.9 (NBU client 9.1, legacy<br />
+xinetd) and SLES 15 SP7 (NBU client 11.2.0.1, systemd+PBX).</p>
+<h4 id="codacy-production_commented_at_2026-10-08_1017"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6057694650">2026-10-08 10:17</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-10-08_1017" title="Permanent link">&para;</a></h4>
+<h2 id="not_up_to_standards">Not up to standards ⛔<a class="headerlink" href="#not_up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🔴 Issues</strong>  <code>27 high · 29 medium</code></summary>
+
+> <br/>
+>
+> **Alerts:**  
+> ⚠ 56 issues (≤ 0 issues of at least minor severity)
+>
+> **Results:**  
+> `56` new issues
+>
+> <table>
+> <thead>
+> <tr class="header">
+> <th>Category</th>
+> <th>Results</th>
+> </tr>
+> </thead>
+> <tbody>
+> <tr class="odd">
+> <td>BestPractice</td>
+> <td><code>28</code> medium</td>
+> </tr>
+> <tr class="even">
+> <td>ErrorProne</td>
+> <td><code>1</code> medium <br/> <code>27</code> high</td>
+> </tr>
+> </tbody>
+> </table>
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3653/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-10-16_1320"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6216410830">2026-10-16 13:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-16_1320" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here (as time permits).<br />
+Perhaps you spot issues that I overlooked?</p>
+<h4 id="jsmeix_commented_at_2026-10-28_1406"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6471162675">2026-10-28 14:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-28_1406" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it sometime next week<br />
+depending on your feedback until then.<br />
+I am not in the office until Monday 02. Nov.</p>
+<h4 id="jsmeix_commented_at_2026-11-03_1023"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6601075094">2026-11-03 10:23</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-11-03_1023" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it tomorrow (04. Nov.) afternoon<br />
+unless there are objections.</p>
+<h4 id="pcahyna_commented_at_2026-11-04_1050"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6628793500">2026-11-04 10:50</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-11-04_1050" title="Permanent link">&para;</a></h4>
+<p>@jsmeix sorry for the delay, please let me have a look.</p>
+<h4 id="sebastian-koehler_commented_at_2026-11-04_2052"><img src="https://avatars.githubusercontent.com/u/61417309?v=4" width="50"><a href="https://github.com/sebastian-koehler">sebastian-koehler</a> commented at <a href="https://github.com/rear/rear/pull/3653#issuecomment-6641822906">2026-11-04 20:52</a>:<a class="headerlink" href="#sebastian-koehler_commented_at_2026-11-04_2052" title="Permanent link">&para;</a></h4>
+<p>Thanks for your review and feedback @pcahyna. Based on customer feedback
+I have added an exclude option that allows a partial restore when using
+BACKUP=NBU. Let me know what you think.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-10-08.3653.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

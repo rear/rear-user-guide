@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3627 PR merged: Set TRUSTED_FILES 'readonly' after sourcing config files - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3627 PR merged: Set TRUSTED_FILES \u0027readonly\u0027 after sourcing config files";
+        var mkdocs_page_input_path = "issues/2026-08-06.3627.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3627 PR merged: Set TRUSTED_FILES 'readonly' after sourcing config files</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3627_pr_merged_set_trusted_files_readonly_after_sourcing_config_files"><a href="https://github.com/rear/rear/pull/3627">#3627 PR</a> <code>merged</code>: Set TRUSTED_FILES 'readonly' after sourcing config files<a class="headerlink" href="#3627_pr_merged_set_trusted_files_readonly_after_sourcing_config_files" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2026-08-06_1440"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3627">2026-08-06 14:40</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2026-08-06_1440" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Security</strong></p>
+</li>
+</ul>
+<p>Not setting TRUSTED_FILES 'readonly' would be a security issue.</p>
+<ul>
+<li>Reference to related issue (URL):</li>
+</ul>
+<p>A follow up of <a href="https://github.com/rear/rear/pull/3621">https://github.com/rear/rear/pull/3621</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>Tested same as in<br />
+<a href="https://github.com/rear/rear/pull/3621#issuecomment-5179082263">https://github.com/rear/rear/pull/3621#issuecomment-5179082263</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>Set TRUSTED_FILES 'readonly' after the<br />
+user config files were sourced.</p>
+<p>Additionally<br />
+rename the function 'is_writable_only_by_owner' into<br />
+'is_trusted_write' (abbreviation for
+'is_trusted_write_permissions')<br />
+so all functions for trust checking<br />
+have the same prefix 'is_trusted_'.</p>
+<p>Also added a convenience function 'is_trusted'<br />
+to call the trust checking functions all together, see<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-5204202527">https://github.com/rear/rear/issues/3260#issuecomment-5204202527</a></p>
+<h4 id="codacy-production_commented_at_2026-08-06_1441"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3627#issuecomment-5206240538">2026-08-06 14:41</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-08-06_1441" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3627/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-08-06_1539"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3627#issuecomment-5207055127">2026-08-06 15:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-06_1539" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+provided there are no severe objections<br />
+I would like to merge this pull request<br />
+tomorrow early afternoon.</p>
+<h4 id="jsmeix_commented_at_2026-08-06_1547"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3627#issuecomment-5207134363">2026-08-06 15:47</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-06_1547" title="Permanent link">&para;</a></h4>
+<p>The current is_trusted() implementation here<br />
+is very likely not the final one.</p>
+<p>With this pull request I only liked to have some offhanded<br />
+initial is_trusted() function to show the basic idea, see<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-5204202527">https://github.com/rear/rear/issues/3260#issuecomment-5204202527</a></p>
+<p>As time permits (i.e. as CVEs permit)<br />
+I will implement when I am back from vacation<br />
+step by step what I wrote in<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-5204202527">https://github.com/rear/rear/issues/3260#issuecomment-5204202527</a><br />
+and then I will see what is_trusted() implementation<br />
+works reasonably well in practice.</p>
+<h4 id="jsmeix_commented_at_2026-09-18_1305"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3627#issuecomment-5730410112">2026-09-18 13:05</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-18_1305" title="Permanent link">&para;</a></h4>
+<p>A side note regarding performance:</p>
+<p>I was wondering if my current implementation<br />
+in _framework-setup-and-functions.sh</p>
+<pre><code>function is_trusted_file () {
+    ...
+    for trusted_file in "${TRUSTED_FILES[@]}" ; do
+        test "$actual_file" = "$trusted_file" &amp;&amp; return 0
+    done
+    return 1
+}
+
+...
+
+function source () {
+    ...
+    if ! is_trusted_file "$source_file" ; then
+        # Enforce source file owner is trusted:
+        is_trusted_owner "$source_file" || Error "..."
+        # Enforce source file is at most writable by its owner:
+        is_trusted_write "$source_file" || Error "..."
+        # Enforce source file starts with a trusted path:
+        is_trusted_path "$source_file" || Error "..."
+    fi
+</code></pre>
+<p>is still sufficiently performant<br />
+even when there are many files in TRUSTED_FILES<br />
+because it always calls is_trusted_file()<br />
+which iterates over all files in TRUSTED_FILES.</p>
+<p>I tested it with artificial files in TRUSTED_FILES<br />
+which are never sourced to ensure all those files<br />
+get always needlessly tested in is_trusted_file().</p>
+<p>With empty TRUSTED_FILES:</p>
+<pre><code># time usr/sbin/rear -v mkrescue
+...
+
+real    0m56.726s
+user    0m23.122s
+sys     0m37.138s
+</code></pre>
+<p>With 100 artificial files in TRUSTED_FILES:</p>
+<pre><code># time usr/sbin/rear -v mkrescue
+...
+
+real    0m56.177s
+user    0m22.963s
+sys     0m36.676s
+</code></pre>
+<p>With 1000 artificial files in TRUSTED_FILES:</p>
+<pre><code># time usr/sbin/rear -v mkrescue
+...
+
+real    0m58.827s
+user    0m24.044s
+sys     0m38.134s
+</code></pre>
+<p>With 10000 artificial files in TRUSTED_FILES:</p>
+<pre><code># time usr/sbin/rear -v mkrescue
+...
+
+real    1m9.900s
+user    0m31.514s
+sys     0m42.192s
+</code></pre>
+<p>So 100 TRUSTED_FILES are unnoticeable,<br />
+1000 TRUSTED_FILES make it about 2 seconds slower,<br />
+10000 TRUSTED_FILES make it about 14 seconds slower.</p>
+<p>I think my current simple and straightforward implementation<br />
+is sufficiently performant up to about 1000 TRUSTED_FILES<br />
+but things get noticeably slower if there are thousands<br />
+of TRUSTED_FILES which probably won't happen in practice.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-08-06.3627.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

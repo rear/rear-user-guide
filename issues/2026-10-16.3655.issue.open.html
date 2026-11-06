@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3655 Issue open: BLOCKCLONE: GPT disks refused on backup and silently mis-restored; $scheme and $path unset in two scripts - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3655 Issue open: BLOCKCLONE: GPT disks refused on backup and silently mis-restored; $scheme and $path unset in two scripts";
+        var mkdocs_page_input_path = "issues/2026-10-16.3655.issue.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3655 Issue open: BLOCKCLONE: GPT disks refused on backup and silently mis-restored; $scheme and $path unset in two scripts</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3655_issue_open_blockclone_gpt_disks_refused_on_backup_and_silently_mis-restored_scheme_and_path_unset_in_two_scripts"><a href="https://github.com/rear/rear/issues/3655">#3655 Issue</a> <code>open</code>: BLOCKCLONE: GPT disks refused on backup and silently mis-restored; $scheme and $path unset in two scripts<a class="headerlink" href="#3655_issue_open_blockclone_gpt_disks_refused_on_backup_and_silently_mis-restored_scheme_and_path_unset_in_two_scripts" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>, <code>minor bug</code></p>
+<h4 id="abdelhaleemahmed_opened_issue_at_2026-10-16_1705"><img src="https://avatars.githubusercontent.com/u/33075588?v=4" width="50"><a href="https://github.com/abdelhaleemahmed">abdelhaleemahmed</a> opened issue at <a href="https://github.com/rear/rear/issues/3655">2026-10-16 17:05</a>:<a class="headerlink" href="#abdelhaleemahmed_opened_issue_at_2026-10-16_1705" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>2.9 (release 2.9 / 2025-02-13), and all four issues below are still
+present in <code>master</code> as of today.</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p><code>BACKUP=BLOCKCLONE</code> cannot back up or restore a GPT-partitioned disk,
+and two of its scripts use shell variables that are never assigned. Four
+distinct problems, in the order you meet them:</p>
+<p><strong>1. Saving the layout of a GPT disk aborts with a <code>BugError</code>.</strong></p>
+<p><code>usr/share/rear/layout/save/default/350_save_partitions.sh</code> has the
+<code>("gpt")</code> case commented out with <code>#~</code> markers under
+<code># TODO: @gozora add gpt support</code>, so a GPT disk falls through to:</p>
+<pre><code>BUG in /usr/share/rear/layout/save/default/350_save_partitions.sh line 45:
+Unknown partition table on /dev/loop0
+</code></pre>
+<p>ReaR then prints "Please report it at
+<a href="https://github.com/rear/rear/issues&quot;">https://github.com/rear/rear/issues"</a>,
+which is what this is.</p>
+<p><strong>2. <code>$scheme</code> and <code>$path</code> are used without being set.</strong></p>
+<p><code>usr/share/rear/backup/BLOCKCLONE/default/400_copy_disk_struct_files.sh</code>:</p>
+<pre><code>local backup_path="$( url_path "$BACKUP_URL" )"
+local opath="$( backup_path "$scheme" "$path" )"
+</code></pre>
+<p>Neither <code>$scheme</code> nor <code>$path</code> is ever assigned in this script. Its
+sibling <code>200_make_prefix_dir.sh</code> (symlinked from
+<code>backup/NETFS/default/</code>), which computes the same path and creates the
+directory, sets all three:</p>
+<pre><code>local scheme="$( url_scheme "$BACKUP_URL" )"
+local path="$( url_path "$BACKUP_URL" )"
+local opath="$( backup_path "$scheme" "$path" )"
+</code></pre>
+<p>So the two resolve different directories and the backup fails:</p>
+<pre><code>cp: cannot create regular file '/var/tmp/rear.XXXXXXXX/outputfs/&lt;hostname&gt;': No such file or directory
+</code></pre>
+<p>Note also that line 1 declares a local variable named <code>backup_path</code>,
+which shadows the name of the <code>backup_path</code> function called on line 2.</p>
+<p><strong>3. The 446-byte bootstrap file is copied unconditionally.</strong></p>
+<p>The same script then copies <code>$BLOCKCLONE_MBR_FILE</code>, but that file is
+only written in the <code>("msdos")</code> branch of <code>350_save_partitions.sh</code>. On a
+GPT disk it does not exist and there is nothing meaningful to save
+there, since the boot loader is a file in the EFI System Partition.
+(Only reachable once problem 1 is fixed.)</p>
+<p><strong>4. The restore path does not handle GPT, and fails silently.</strong></p>
+<p><code>usr/share/rear/restore/BLOCKCLONE/default/390_create_partitions.sh</code>
+repeats problem 2 verbatim (same two lines, same shadowing), and
+additionally carries the same <code># TODO: @gozora add gpt support</code> with no
+GPT branch at all. It unconditionally runs:</p>
+<pre><code>sfdisk $BLOCKCLONE_SAVE_MBR_DEV &lt; $opath/$BLOCKCLONE_PARTITIONS_CONF_FILE
+dd if=$opath/$BLOCKCLONE_MBR_FILE of=$BLOCKCLONE_SAVE_MBR_DEV bs=446 count=1
+</code></pre>
+<p>For a GPT disk the saved file is an <code>sgdisk -b</code> binary backup. <code>sfdisk</code>
+cannot read it — but it does not fail either. It declines and <strong>exits
+0</strong>:</p>
+<pre><code># sfdisk /dev/loop1 &lt; testvol_partitions.conf
+&gt;&gt;&gt; line 1: unsupported command
+
+New situation:
+Leaving.
+# echo $?
+0
+</code></pre>
+<p><code>StopIfError</code> therefore does not fire. The restore reports that it
+created the partition layout, having created no partitions, and
+continues to look for the target partition on a still-blank disk. This
+is the one I would consider most serious, because it is silent.</p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Ubuntu 24.04.4 LTS, kernel 6.8.0-107-generic, x86_64. ReaR 2.9
+installed from the project's own release (<code>ubuntu-24-04.zip</code>), since the
+distribution ships 2.7.</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>BLOCKCLONE</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p>The reproducer below needs no Windows and no real disk — a 1 GB loop
+file with a GPT label, an ESP and an NTFS partition is enough:</p>
+<pre><code>NAME       SIZE FSTYPE LABEL
+loop0        1G
+├─loop0p1   64M vfat
+└─loop0p2  959M ntfs   TESTVOL
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048          133119   64.0 MiB    EF00  EFI system partition
+   2          133120         2097118   959.0 MiB   0700  Basic data partition
+</code></pre>
+<p>The original case was an ordinary UEFI Windows Server 2022 guest: GPT,
+128 GiB, ESP + MSR + NTFS.</p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<pre><code>truncate -s 1G /var/tmp/gpttest.img
+LOOP=$(losetup -fP --show /var/tmp/gpttest.img)
+sgdisk -o -n 1:2048:+64M -t 1:ef00 -c 1:"EFI system partition" \
+          -n 2:0:0       -t 2:0700 -c 2:"Basic data partition" $LOOP
+partprobe $LOOP
+mkfs.vfat -F32 ${LOOP}p1
+mkntfs -Q -F -L TESTVOL ${LOOP}p2
+
+cat &gt; /etc/rear/gpttest.conf &lt;&lt;EOF
+BACKUP=BLOCKCLONE
+BACKUP_URL="file:///var/lib/rear/gpttest"
+BACKUP_PROG_ARCHIVE="testvol"
+BACKUP_PROG_SUFFIX=".ntfsclone.img"
+BACKUP_PROG_COMPRESS_SUFFIX=""
+BLOCKCLONE_PROG=ntfsclone
+BLOCKCLONE_SOURCE_DEV="${LOOP}p2"
+BLOCKCLONE_SAVE_MBR_DEV="${LOOP}"
+BLOCKCLONE_MBR_FILE="testvol_boot_strap.img"
+BLOCKCLONE_PARTITIONS_CONF_FILE="testvol_partitions.conf"
+BLOCKCLONE_STRICT_PARTITIONING="yes"
+BLOCKCLONE_ALLOW_MOUNTED="no"
+EOF
+
+rear -C gpttest mkbackuponly
+</code></pre>
+<p>Problem 1 aborts the run. Enabling the <code>("gpt")</code> branch gets you to
+problem 2, and fixing that gets you to problem 3.</p>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>Enable the <code>("gpt")</code> branch that is already in <code>350_save_partitions.sh</code>,
+add the two missing assignments in both scripts, guard the bootstrap
+copy, and branch on the saved file in <code>390_create_partitions.sh</code> —
+<code>sfdisk -d</code> writes a text dump whose first line is <code>label:</code>, <code>sgdisk -b</code>
+writes binary, so one <code>grep</code> distinguishes them without needing a new
+configuration variable.</p>
+<p>With those changes the same reproducer completes:</p>
+<pre><code>Copying /var/lib/rear/layout/testvol_partitions.conf to /var/lib/rear/gpttest/v5c2-client
+No boot-strap file to copy (GPT disk: the boot loader lives in the ESP)
+Creating /var/lib/rear/gpttest/v5c2-client/testvol.ntfsclone.img from /dev/loop0p2 using ntfsclone
+</code></pre>
+<p>and <code>sgdisk -l</code> restores the layout with every partition GUID intact,
+which matters because a UEFI boot configuration can name the partition
+it boots from by GUID.</p>
+<p>I have opened a pull request with these changes. The MBR path is
+untouched — on a DOS-labelled disk all three scripts run exactly the
+commands they ran before, and the GPT branches are additional.</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p>Found while testing BLOCKCLONE end to end on a real machine: a UEFI
+Windows Server 2022 guest was imaged from a Linux system and restored
+onto an empty 128 GiB disk, and it booted with the same <code>MachineGuid</code>,
+the same partition GUIDs, the same filesystem serials and a clean NTFS
+dirty bit. So the method works well once these four things are out of
+the way — <code>ntfsclone</code> put a 136,778,350,592-byte NTFS partition into
+8,269,323,012 bytes (6.0% in use) and restored it in 92 seconds.</p>
+<p>The documentation in <code>doc/user-guide/12-BLOCKCLONE.adoc</code> lists "GPT is
+not supported (work in progress)" and "UEFI is not supported (work in
+progress)" as known limitations, so problems 1 and 3 are arguably known
+gaps rather than surprises. Problems 2 and 4 look like plain bugs
+independent of that, and problem 4's silent <code>exit 0</code> seemed worth
+reporting whatever is decided about GPT support.</p>
+<h4 id="gdha_commented_at_2026-11-06_1001"><img src="https://avatars.githubusercontent.com/u/888633?u=cdaeb31efcc0048d3619651aa18dd4b76e636b21&v=4" width="50"><a href="https://github.com/gdha">gdha</a> commented at <a href="https://github.com/rear/rear/issues/3655#issuecomment-6682241630">2026-11-06 10:01</a>:<a class="headerlink" href="#gdha_commented_at_2026-11-06_1001" title="Permanent link">&para;</a></h4>
+<p>@abdelhaleemahmed PR #3656 has been merged. If you could retest with
+the master branch that would be nice.<br />
+If there are any remaining issues let us know.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-10-16.3655.issue.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

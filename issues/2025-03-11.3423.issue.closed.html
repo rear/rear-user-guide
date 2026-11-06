@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3423 Issue closed: GRUB UEFI Secure Boot entry not working, non-secure boot entry works - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3423 Issue closed: GRUB UEFI Secure Boot entry not working, non-secure boot entry works";
+        var mkdocs_page_input_path = "issues/2025-03-11.3423.issue.closed.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3423 Issue closed: GRUB UEFI Secure Boot entry not working, non-secure boot entry works</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3423_issue_closed_grub_uefi_secure_boot_entry_not_working_non-secure_boot_entry_works"><a href="https://github.com/rear/rear/issues/3423">#3423 Issue</a> <code>closed</code>: GRUB UEFI Secure Boot entry not working, non-secure boot entry works<a class="headerlink" href="#3423_issue_closed_grub_uefi_secure_boot_entry_not_working_non-secure_boot_entry_works" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>bug</code>, <code>fixed / solved / done</code></p>
+<h4 id="schlomo_opened_issue_at_2025-03-11_0940"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> opened issue at <a href="https://github.com/rear/rear/issues/3423">2025-03-11 09:40</a>:<a class="headerlink" href="#schlomo_opened_issue_at_2025-03-11_0940" title="Permanent link">&para;</a></h4>
+<h3 id="rear_version">ReaR version<a class="headerlink" href="#rear_version" title="Permanent link">&para;</a></h3>
+<p>Relax-and-Recover 2.9 / 2025-01-31</p>
+<h3 id="describe_the_rear_bug_in_detail">Describe the ReaR bug in detail<a class="headerlink" href="#describe_the_rear_bug_in_detail" title="Permanent link">&para;</a></h3>
+<p>It seems like we should get rid of the separate boot entries for secure
+boot and regular.</p>
+<p><img width="791" alt="Image" src="https://github.com/user-attachments/assets/7db9ae3d-c99a-42f1-9f0e-cd72fa29d38c" /></p>
+<p><img width="435" alt="Image" src="https://github.com/user-attachments/assets/3685a3b4-b683-4054-a0e3-6c9eb69de01e" /></p>
+<p>I'm wondering if this is related to us fixing the automated secure boot
+detection, and if the separate boot entries are still required.</p>
+<p>Booting from the "non Secure Boot" entry works totally fine and
+<code>mokutil --sb-state</code> also shows secure boot to be enabled. Which is why
+I'm wondering if we should remove the dual boot entries.</p>
+<p><code>rear mkbackup</code> log:
+<a href="https://github.com/user-attachments/files/19180259/rear-rear-u24.log">rear-rear-u24.log</a></p>
+<h3 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h3>
+<p>Linux x64</p>
+<h3 id="os_version">OS version<a class="headerlink" href="#os_version" title="Permanent link">&para;</a></h3>
+<p>Ubuntu 24.04</p>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p>NETFS</p>
+<h3 id="storage_layout">Storage layout<a class="headerlink" href="#storage_layout" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h3 id="what_steps_will_reproduce_the_bug">What steps will reproduce the bug?<a class="headerlink" href="#what_steps_will_reproduce_the_bug" title="Permanent link">&para;</a></h3>
+<p>my <code>site.conf</code> is super simple:</p>
+<pre><code>OUTPUT_URL=nfs://pvm/rear-backup
+BACKUP_URL=$OUTPUT_URL
+BACKUP=NETFS
+</code></pre>
+<h3 id="workaround_if_any">Workaround, if any<a class="headerlink" href="#workaround_if_any" title="Permanent link">&para;</a></h3>
+<p>Use the seemingly wrong non-secure-boot boot entry</p>
+<h3 id="additional_information">Additional information<a class="headerlink" href="#additional_information" title="Permanent link">&para;</a></h3>
+<p><em>No response</em></p>
+<h4 id="schlomo_commented_at_2025-03-11_1013"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2713503931">2025-03-11 10:13</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-11_1013" title="Permanent link">&para;</a></h4>
+<p>BTW, when I switch to BIOS boot then this ISO doesn't even boot because
+of a ISOLINUX error:</p>
+<p><img width="732" alt="Image" src="https://github.com/user-attachments/assets/c8bc815a-a4e6-42ab-aef0-93bccf96f32b" /></p>
+<p>But maybe this is the case of
+<a href="https://github.com/rear/rear/issues/2471#issuecomment-671320189">https://github.com/rear/rear/issues/2471#issuecomment-671320189</a> and
+not really a problem as we don't support BIOS booting a recovery image
+created on an UEFI machine.</p>
+<h4 id="schlomo_commented_at_2025-03-11_1025"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2713553539">2025-03-11 10:25</a>:<a class="headerlink" href="#schlomo_commented_at_2025-03-11_1025" title="Permanent link">&para;</a></h4>
+<p><a href="https://projects.theforeman.org/issues/38178">https://projects.theforeman.org/issues/38178</a> sugests that <code>initrdefi</code>
+was a temporary solution that has been deprecated, and that GRUB2 in
+Ubuntu 24.04 doesn't support that any more.</p>
+<p>Given that both GRUB2 boot entries seem to be <strong>identical</strong> and use the
+exactly same <code>$grub2_kernel</code> except for the <code>efi</code> suffix, maybe we can
+find out if we still need to support that <code>efi</code> suffix for our currently
+supported distros?<br />
+<a href="https://github.com/rear/rear/blob/15e9f9cc3575f31d1347db6559e8fd3f0527a535/usr/share/rear/lib/bootloader-functions.sh#L678-L693">https://github.com/rear/rear/blob/15e9f9cc3575f31d1347db6559e8fd3f0527a535/usr/share/rear/lib/bootloader-functions.sh#L678-L693</a></p>
+<p><a href="https://github.com/rear/rear/pull/2001">https://github.com/rear/rear/pull/2001</a> seems to be related to the
+introduction of the <code>linuxefi</code> commands, but on this Ubuntu 24.04 I got
+here there is no <code>linuxefi.mod</code> at all.</p>
+<h4 id="jsmeix_commented_at_2025-03-12_1321"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2717870522">2025-03-12 13:21</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-03-12_1321" title="Permanent link">&para;</a></h4>
+<p>@schlomo<br />
+only a side note FYI:</p>
+<p>Since a long time it is known that those two entries<br />
+behave somewhat unpredictable / misleading / problematic<br />
+in this or that cases so the usual way in practice is to<br />
+"just try out which one works in your particular environment".</p>
+<p>In general:<br />
+I am not at all a sufficient UEFI expert so normally<br />
+I can neither actually help with debugging UEFI related issues<br />
+nor can I fix UEFI related issues (except exceptions).<br />
+What I could do via basically blind trial and error<br />
+would be to make things somehow work for my specific system<br />
+but this would be certainly not a proper solution for ReaR.<br />
+Fortunately things work so far for me with SLE15, cf.<br />
+<a href="https://github.com/rear/rear/issues/3084#issuecomment-1835773844">https://github.com/rear/rear/issues/3084#issuecomment-1835773844</a></p>
+<h4 id="github-actions_commented_at_2025-05-12_0302"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2870623904">2025-05-12 03:02</a>:<a class="headerlink" href="#github-actions_commented_at_2025-05-12_0302" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="schlomo_commented_at_2025-05-19_0743"><img src="https://avatars.githubusercontent.com/u/101384?v=4" width="50"><a href="https://github.com/schlomo">schlomo</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2889964418">2025-05-19 07:43</a>:<a class="headerlink" href="#schlomo_commented_at_2025-05-19_0743" title="Permanent link">&para;</a></h4>
+<p>I'll at least improve the wording in the GRUB menu</p>
+<h4 id="lzaoral_commented_at_2025-06-09_1410"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2955915149">2025-06-09 14:10</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-06-09_1410" title="Permanent link">&para;</a></h4>
+<p>I've just checked the situation in Fedora and RHEL.</p>
+<p>The support for the <code>linuxefi</code> and <code>initrdefi</code> commands with distinct
+semantics was introduced in Fedora 17 [1]. The patches were
+restructured in Fedora 29 and <code>linuxefi</code> and <code>initrdefi</code> became mere
+aliases for <code>linux</code> and <code>initrd</code> [2]. The same unification can be
+found in RHEL 8 and newer.</p>
+<p>Moreover, these commands were never introduced on non-x86 architectures,
+e.g. <code>aarch64</code>, so these extra entries will be broken there (when #3440
+gets merged).</p>
+<p>I can't speak for Ubuntu or SLES but at least on Fedora-based distros,
+these entries are redundant.</p>
+<p>[1]
+<a href="https://src.fedoraproject.org/rpms/grub2/c/58a808c00980b3a2e7d44d8d309e6e6219f100ff">https://src.fedoraproject.org/rpms/grub2/c/58a808c00980b3a2e7d44d8d309e6e6219f100ff</a><br />
+[2]
+<a href="https://src.fedoraproject.org/rpms/grub2/c/ad4aff0c12370a6edc82478d8ca83627f6916e3d">https://src.fedoraproject.org/rpms/grub2/c/ad4aff0c12370a6edc82478d8ca83627f6916e3d</a></p>
+<h4 id="lzaoral_commented_at_2025-06-16_1254"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-2976548159">2025-06-16 12:54</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-06-16_1254" title="Permanent link">&para;</a></h4>
+<p>edit: The following is not entirely true.</p>
+<p>I've also checked Debian sources and Bullseye [1] and Bookworm [2]
+have <code>linuxefi</code> and <code>initrdefi</code> commands with distinct semantics (though
+there is a newer version of <code>grub2</code> in <code>bookworm-backports</code>).</p>
+<p>[1]
+<a href="https://sources.debian.org/src/grub2/2.06-13+deb12u1/debian/patches/linuxefi.patch/">https://sources.debian.org/src/grub2/2.06-13+deb12u1/debian/patches/linuxefi.patch/</a><br />
+[2]
+<a href="https://sources.debian.org/src/grub2/2.06-13%2Bdeb12u1/debian/patches/linuxefi.patch/">https://sources.debian.org/src/grub2/2.06-13%2Bdeb12u1/debian/patches/linuxefi.patch/</a></p>
+<h4 id="github-actions_commented_at_2025-08-16_0300"><img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50"><a href="https://github.com/apps/github-actions">github-actions</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3193287365">2025-08-16 03:00</a>:<a class="headerlink" href="#github-actions_commented_at_2025-08-16_0300" title="Permanent link">&para;</a></h4>
+<p>Stale issue message</p>
+<h4 id="lzaoral_commented_at_2025-09-05_1240"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3258212657">2025-09-05 12:40</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-09-05_1240" title="Permanent link">&para;</a></h4>
+<p>We have looked at this issue again with @pcahyna and the Debian patches
+I've linked in
+<a href="https://github.com/rear/rear/issues/3423#issuecomment-2976548159">https://github.com/rear/rear/issues/3423#issuecomment-2976548159</a>
+contain additional changes not present in the Fedora original with the
+following description:</p>
+<pre><code>    - Automatically call linuxefi from linux if secure boot is enabled and
+      the kernel is signed, to hand over to the kernel without calling
+      ExitBootServices.  Otherwise, linux will fall through to previous
+      code, call ExitBootServices itself, and boot the kernel normally.
+</code></pre>
+<p>In other words, even though <code>linuxefi</code> and <code>linux</code> are different
+commands with distinct semantics, it should be safe to always use
+<code>linux</code> on Debian and Ubuntu.</p>
+<h4 id="lzaoral_commented_at_2025-09-05_1254"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3258249849">2025-09-05 12:54</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-09-05_1254" title="Permanent link">&para;</a></h4>
+<p>I've also checked SUSE and openSUSE Leap 15 mimics Fedora and RHEL and
+<code>linuxefi</code> and <code>linux</code> are equivalent:
+<a href="https://build.opensuse.org/projects/openSUSE:Leap:15.6/packages/grub2.20627/files/0001-efi-linux-provide-linux-command.patch?expand=0">https://build.opensuse.org/projects/openSUSE:Leap:15.6/packages/grub2.20627/files/0001-efi-linux-provide-linux-command.patch?expand=0</a></p>
+<p>@jsmeix Could you please check if the same holds for SLES as well? Thank
+you!</p>
+<h4 id="jsmeix_commented_at_2025-09-08_1334"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3266355524">2025-09-08 13:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-09-08_1334" title="Permanent link">&para;</a></h4>
+<p>@lzaoral<br />
+<code>efi-linux-provide-linux-command.patch</code> exists<br />
+since SLES15 SP2 and also since openSUSE Leap 15.2<br />
+in both introduced via a <code>grub2</code> RPM update.</p>
+<h4 id="lzaoral_commented_at_2025-09-09_1155"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3270349019">2025-09-09 11:55</a>:<a class="headerlink" href="#lzaoral_commented_at_2025-09-09_1155" title="Permanent link">&para;</a></h4>
+<p>Thank you, @jsmeix! Therefore, if it's fine to (possibly) break support
+for releases older than SLES15 SP2, it should be ok to drop the
+problematic GRUB 2 menu entry as well.</p>
+<h4 id="jsmeix_commented_at_2025-09-09_1252"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-3270606842">2025-09-09 12:52</a>:<a class="headerlink" href="#jsmeix_commented_at_2025-09-09_1252" title="Permanent link">&para;</a></h4>
+<p>It is OK to break support for releases older than SLES15 SP2<br />
+in the upcoming ReaR 3.0 because</p>
+<ul>
+<li>there should be no SLES15 user who still uses such an old service
+    pack (SP)</li>
+<li>even if there is a SLES15 user who still uses SLES15 SP2 he should
+    usually have no reason to update to ReaR 3.0</li>
+<li>ReaR for SLES is provided via the High Availability Extension (HA)
+    and SUSE support for SLES HA 15 SP2 ended in general on 31 Dec 2021
+    and Long Term Service Pack Support ended on 31 Dec 2024 see
+    <a href="https://www.suse.com/de-de/lifecycle/#suse-linux-enterprise-high-availability-extension-15">https://www.suse.com/de-de/lifecycle/#suse-linux-enterprise-high-availability-extension-15</a></li>
+</ul>
+<h4 id="zzenld_commented_at_2026-04-02_0533"><img src="https://avatars.githubusercontent.com/u/84368987?v=4" width="50"><a href="https://github.com/ZzenlD">ZzenlD</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-4174773695">2026-04-02 05:33</a>:<a class="headerlink" href="#zzenld_commented_at_2026-04-02_0533" title="Permanent link">&para;</a></h4>
+<p>I’m going to try posting my issue here, since I think it’s related to
+the linked
+<a href="https://github.com/rear/rear/issues/3423#issuecomment-3258212657">comment</a>.</p>
+<p>I want to use Rear (2.7) on a Proxmox host (9.1.6, Debian Trixie 13.3).
+The system is installed using BIOS.</p>
+<p>This and other systems (some UEFI and some BIOS) back up the ISO files
+to a central drive.<br />
+Now I’ve created a VM with UEFI on a Proxmox host, which I want to use
+to periodically boot the ISO files and restore them for testing
+purposes. But when I boot the ISO image of the BIOS-installed Proxmox
+host on the UEFI VM, I get this error message:</p>
+<pre><code>No bootfile found for UEFI!
+Maybe the image does not support x64 UEFI
+</code></pre>
+<p>I hope that was clear. Is this related, or should I open a new issue for
+this?</p>
+<p>Thanks, you guys are great :)</p>
+<h4 id="lzaoral_commented_at_2026-04-09_0818"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-4212683242">2026-04-09 08:18</a>:<a class="headerlink" href="#lzaoral_commented_at_2026-04-09_0818" title="Permanent link">&para;</a></h4>
+<p>Hello @ZzenlD! The problem you describe in your comment is something
+else. This issue only deals with the "secure boot" grub2 menu entry
+being broken on modern EFI systems.</p>
+<h4 id="jsmeix_commented_at_2026-10-15_1202"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/issues/3423#issuecomment-6191573552">2026-10-15 12:02</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-15_1202" title="Permanent link">&para;</a></h4>
+<p>With <a href="https://github.com/rear/rear/pull/3597">https://github.com/rear/rear/pull/3597</a> merged<br />
+this issue should be done.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2025-03-11.3423.issue.closed.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

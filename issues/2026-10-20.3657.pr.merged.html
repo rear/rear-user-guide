@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3657 PR merged: arm64: bring initramfs rebuilding on Debian and SUSE - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3657 PR merged: arm64: bring initramfs rebuilding on Debian and SUSE";
+        var mkdocs_page_input_path = "issues/2026-10-20.3657.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3657 PR merged: arm64: bring initramfs rebuilding on Debian and SUSE</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3657_pr_merged_arm64_bring_initramfs_rebuilding_on_debian_and_suse"><a href="https://github.com/rear/rear/pull/3657">#3657 PR</a> <code>merged</code>: arm64: bring initramfs rebuilding on Debian and SUSE<a class="headerlink" href="#3657_pr_merged_arm64_bring_initramfs_rebuilding_on_debian_and_suse" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="svlv_opened_issue_at_2026-10-20_1206"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> opened issue at <a href="https://github.com/rear/rear/pull/3657">2026-10-20 12:06</a>:<a class="headerlink" href="#svlv_opened_issue_at_2026-10-20_1206" title="Permanent link">&para;</a></h4>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    ARM64 VMs running Debian 13 and openSUSE Leap 16 were successfully
+    backed up and recovered.</p>
+</li>
+<li>
+<p>Description of the changes in this pull request:<br />
+    Achieve AMD64 parity in initramfs rebuilding on Debian and SUSE.</p>
+</li>
+</ul>
+<h4 id="codacy-production_commented_at_2026-10-20_1207"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6290467885">2026-10-20 12:07</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-10-20_1207" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3657/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-10-20_1241"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291078101">2026-10-20 12:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1241" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+please have a look here (as time permits).<br />
+Perhaps you spot issues that I overlooked?</p>
+<h4 id="lzaoral_commented_at_2026-10-20_1243"><img src="https://avatars.githubusercontent.com/u/48823770?v=4" width="50"><a href="https://github.com/lzaoral">lzaoral</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291118101">2026-10-20 12:43</a>:<a class="headerlink" href="#lzaoral_commented_at_2026-10-20_1243" title="Permanent link">&para;</a></h4>
+<p>Actually, wouldn't it be simpler to execute the initrd regeneration
+regardless of the architecture, i.e. move the script to the <code>default</code>
+directory?</p>
+<h4 id="svlv_commented_at_2026-10-20_1309"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291600729">2026-10-20 13:09</a>:<a class="headerlink" href="#svlv_commented_at_2026-10-20_1309" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Actually, wouldn't it be simpler to execute the initrd regeneration
+regardless of the architecture, i.e. move the script to the default
+directory?</p>
+</blockquote>
+<p>I think, it's a good point. Also, it would allow us to remove some
+arch-specific dirs that contain only a link to
+<code>550_rebuild_initramfs.sh</code></p>
+<pre><code>$ tree usr/share/rear/finalize/SUSE_LINUX/
+usr/share/rear/finalize/SUSE_LINUX/
+├── arm
+│   └── 550_rebuild_initramfs.sh -&gt; ../i386/550_rebuild_initramfs.sh
+├── i386
+│   ├── 550_rebuild_initramfs.sh
+│   └── 675_install_shim.sh
+├── ppc64
+│   └── 550_rebuild_initramfs.sh -&gt; ../i386/550_rebuild_initramfs.sh
+├── ppc64le
+│   └── 550_rebuild_initramfs.sh -&gt; ../i386/550_rebuild_initramfs.sh
+└── s390
+    └── 660_install_grub2_and_zipl.sh
+
+$ tree usr/share/rear/finalize/Debian/
+usr/share/rear/finalize/Debian/
+├── arm
+│   └── 550_rebuild_initramfs.sh -&gt; ../i386/550_rebuild_initramfs.sh
+├── i386
+│   └── 550_rebuild_initramfs.sh
+└── ppc64le
+    └── 550_rebuild_initramfs.sh -&gt; ../i386/550_rebuild_initramfs.sh
+</code></pre>
+<p>I can do it if there are no objections. Please let me know whether you
+agree or not.</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291724061">2026-10-20 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1315" title="Permanent link">&para;</a></h4>
+<p>I don't have time for analysis but<br />
+all actual script files differ</p>
+<pre><code># find usr/share/rear/finalize -type f -ls | grep 'rebuild_initramfs'
+
+... 5397 ... usr/share/rear/finalize/Fedora/550_rebuild_initramfs.sh
+... 5939 ... usr/share/rear/finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh
+... 4454 ... usr/share/rear/finalize/Debian/i386/550_rebuild_initramfs.sh
+</code></pre>
+<h4 id="svlv_commented_at_2026-10-20_1319"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291810657">2026-10-20 13:19</a>:<a class="headerlink" href="#svlv_commented_at_2026-10-20_1319" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I don't have time for analysis but<br />
+all actual script files differ</p>
+</blockquote>
+<p>I think that @lzaoral's idea was to move
+<code>usr/share/rear/finalize/Debian/i386/550_rebuild_initramfs.sh</code> to<br />
+<code>usr/share/rear/finalize/Debian/550_rebuild_initramfs.sh</code> and doing the
+same for SUSE.</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1320"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6291825012">2026-10-20 13:20</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1320" title="Permanent link">&para;</a></h4>
+<p>Ah - sorry - I didn't look carefully.</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1329"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6292013038">2026-10-20 13:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1329" title="Permanent link">&para;</a></h4>
+<p>I think the function SourceStage() in<br />
+lib/_framework-setup-and-functions.sh<br />
+may not source from</p>
+<pre><code>usr/share/rear/finalize/Fedora/default
+usr/share/rear/finalize/Debian/default
+usr/share/rear/finalize/SUSE_LINUX/default
+</code></pre>
+<p>if I understand this code piece correctly<br />
+from plain looking at the SourceStage() code</p>
+<pre><code>    local scripts=( $( cd $SHARE_DIR/$stage
+                 ls -d  {default,"$ARCH","$OS",..."}/*.sh \
+              "$BACKUP"/{default,"$ARCH","$OS",..."}/*.sh \
+              "$OUTPUT"/{default,"$ARCH","$OS",..."}/*.sh \
+    "$OUTPUT"/"$BACKUP"/{default,"$ARCH","$OS",..."}/*.sh \
+</code></pre>
+<p>Proof (in a git clone)</p>
+<pre><code># mkdir usr/share/rear/finalize/SUSE_LINUX/default
+
+# echo 'Error "test"' &gt;usr/share/rear/finalize/SUSE_LINUX/default/999_test.sh
+
+# usr/sbin/rear -s recover | grep test
+[no output]
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-10-20_1341"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6292251879">2026-10-20 13:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1341" title="Permanent link">&para;</a></h4>
+<p>I.e. what confused me was<br />
+"move the script to the <code>default</code> directory"</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1401"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6292674737">2026-10-20 14:01</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1401" title="Permanent link">&para;</a></h4>
+<p>So the actual proposal is for <code>SUSE_LINUX</code> and <code>Debian</code><br />
+to move their actual script to their parent directories<br />
+and remove the symlinks.</p>
+<p>So we would get the actual scripts</p>
+<pre><code>usr/share/rear/finalize/Fedora/550_rebuild_initramfs.sh
+usr/share/rear/finalize/SUSE_LINUX/550_rebuild_initramfs.sh
+usr/share/rear/finalize/Debian/550_rebuild_initramfs.sh
+</code></pre>
+<p>which means those scripts get executed on all architectures<br />
+so those scripts must work on all architectures.</p>
+<p>Because this already works for <code>Fedora</code><br />
+I guess it will also work for <code>SUSE_LINUX</code> and <code>Debian</code><br />
+but I did not check if the scripts for <code>SUSE_LINUX</code> and <code>Debian</code><br />
+will actually work on all architectures.</p>
+<h4 id="svlv_commented_at_2026-10-20_1412"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6292885846">2026-10-20 14:12</a>:<a class="headerlink" href="#svlv_commented_at_2026-10-20_1412" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>So the actual proposal is for SUSE_LINUX and Debian<br />
+to move their actual script to their parent directories<br />
+and remove the symlinks.</p>
+</blockquote>
+<p>Yes, exactly.</p>
+<blockquote>
+<p>but I did not check if the scripts for SUSE_LINUX and Debian<br />
+will actually work on all architectures.</p>
+</blockquote>
+<p>Me neither. I can check only amd64 and arm64. Basically, that's why I am
+asking whether you agree or not.<br />
+I don't possess experience with other platforms (I'm familiar with
+32-bit ARM, but that's unrelated).</p>
+<h4 id="jsmeix_commented_at_2026-10-20_1551"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6295038750">2026-10-20 15:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-20_1551" title="Permanent link">&para;</a></h4>
+<p>I have personal experience only with x86_64.<br />
+I have only x86_64 systems (I am in homeoffice).</p>
+<h4 id="svlv_commented_at_2026-10-20_1603"><img src="https://avatars.githubusercontent.com/u/29474856?u=b3637dbf6b72d36a96742d81028e6361add0d388&v=4" width="50"><a href="https://github.com/svlv">svlv</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6295289886">2026-10-20 16:03</a>:<a class="headerlink" href="#svlv_commented_at_2026-10-20_1603" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>I have personal experience only with x86_64.<br />
+I have only x86_64 systems (I am in homeoffice).</p>
+</blockquote>
+<p>Alright, I am leaving it as is since I can't verify it properly. If
+someone else request it, then we'll see.</p>
+<h4 id="jsmeix_commented_at_2026-10-26_1336"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6417367069">2026-10-26 13:36</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-26_1336" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it this Wednesday (28. Oct.) afternoon<br />
+unless there are objections against its current form.<br />
+Further cleanup work can be done later as needed.</p>
+<h4 id="jsmeix_commented_at_2026-10-28_1329"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3657#issuecomment-6470289325">2026-10-28 13:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-10-28_1329" title="Permanent link">&para;</a></h4>
+<p>@svlv<br />
+thank you for your continuous enhancements to ReaR!</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-10-20.3657.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

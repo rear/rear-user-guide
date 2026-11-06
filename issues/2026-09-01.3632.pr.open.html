@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3632 PR open: Skip unsupported partition tables during layout save by default (SKIP_UNSUPPORTED_PARTITION_TABLES) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3632 PR open: Skip unsupported partition tables during layout save by default (SKIP_UNSUPPORTED_PARTITION_TABLES)";
+        var mkdocs_page_input_path = "issues/2026-09-01.3632.pr.open.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3632 PR open: Skip unsupported partition tables during layout save by default (SKIP_UNSUPPORTED_PARTITION_TABLES)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3632_pr_open_skip_unsupported_partition_tables_during_layout_save_by_default_skip_unsupported_partition_tables"><a href="https://github.com/rear/rear/pull/3632">#3632 PR</a> <code>open</code>: Skip unsupported partition tables during layout save by default (SKIP_UNSUPPORTED_PARTITION_TABLES)<a class="headerlink" href="#3632_pr_open_skip_unsupported_partition_tables_during_layout_save_by_default_skip_unsupported_partition_tables" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code></p>
+<h4 id="parasjain37_opened_issue_at_2026-09-01_0744"><img src="https://avatars.githubusercontent.com/u/52083776?u=e8532f0a4cfcc3d496dfe44b23414f193913661b&v=4" width="50"><a href="https://github.com/parasjain37">parasjain37</a> opened issue at <a href="https://github.com/rear/rear/pull/3632">2026-09-01 07:44</a>:<a class="headerlink" href="#parasjain37_opened_issue_at_2026-09-01_0744" title="Permanent link">&para;</a></h4>
+<p>Add SKIP_UNSUPPORTED_PARTITION_TABLES (default yes) to skip
+sun/unknown/loop disks before writing disk/part lines. Extends #3455
+EXCLUDE_COMPONENTS handling with fleet-scale auto-skip. Adds 315 script
+and 230 filesystem skip. Related: #3455</p>
+<h4 id="relax-and-recover_rear_pull_request_template">Relax-and-Recover (ReaR) Pull Request Template<a class="headerlink" href="#relax-and-recover_rear_pull_request_template" title="Permanent link">&para;</a></h4>
+<p>Please fill in the following items before submitting a new pull request:</p>
+<h5 id="pull_request_details">Pull Request Details:<a class="headerlink" href="#pull_request_details" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Normal</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):<br />
+<a href="https://github.com/rear/rear/issues/2995">https://github.com/rear/rear/issues/2995</a><br />
+<a href="https://github.com/rear/rear/issues/3433">https://github.com/rear/rear/issues/3433</a><br />
+<a href="https://github.com/rear/rear/issues/3455">https://github.com/rear/rear/issues/3455</a></p>
+</li>
+<li>
+<p>How was this pull request tested?<br />
+    Tested on RHE L9.8 VM with legacy SUN labeled non-OS data disk whose
+    partition table reported as unknown by parted. Without
+    EXCLUDE_COMPONENTS in configuration for that specific disk.</p>
+</li>
+</ul>
+<p>Test 1 — default auto-skip (SKIP_UNSUPPORTED_PARTITION_TABLES=y) :<br />
+Ran rear mkrescue -v , succeeds without including sun disk in
+disklayout.conf</p>
+<p>Test 2 — strict mode (SKIP_UNSUPPORTED_PARTITION_TABLES=n):<br />
+mkrescue fails with clear Error on unsupported partition table</p>
+<p>Test 3 — regression for #3455 (EXCLUDE_COMPONENTS):<br />
+<code>SKIP_UNSUPPORTED_PARTITION_TABLES=n</code> +
+<code>EXCLUDE_COMPONENTS+=( /dev/vdX )</code> on unsupported disk<br />
+Then rear mkrescue -v , Disk in EXCLUDE_COMPONENTS is skipped, honoring
+exclusion added even if unsupported skip is set to No.</p>
+<ul>
+<li>Description of the changes in this pull request:<br />
+    Since ReaR 2.7+ (<a href="https://github.com/rear/rear/pull/2803">#2803</a>),
+    layout/save/GNU/Linux/200_partition_layout.sh errors out when
+    parted reports an unsupported partition table type (e.g. sun,
+    unknown, loop, bsd). This causes mkrescue to abort on systems with
+    legacy non-OS data disks that ReaR cannot recreate anyway.</li>
+</ul>
+<p><a href="https://github.com/rear/rear/pull/3455">#3455</a> added a soft-fail path
+in extract_partitions() when the disk is explicitly listed in
+EXCLUDE_COMPONENTS. That helps exceptional cases but does not scale for
+large fleets where per-host EXCLUDE_COMPONENTS configuration is
+impractical. Furthermore, EXCLUDE_COMPONENTS is processed in script
+310_include_exclude.sh, which runs after 200_partition_layout.sh, so
+unsupported disks without sysfs partition entries can still abort layout
+save before exclude logic runs.</p>
+<p>This pull request adds SKIP_UNSUPPORTED_PARTITION_TABLES=y (default)
+to skip unsupported disks during layout save:</p>
+<p>usr/share/rear/conf/default.conf — new parameter
+SKIP_UNSUPPORTED_PARTITION_TABLES=y; set to n for strict Error
+behavior.</p>
+<p>usr/share/rear/lib/layout-functions.sh — new helper
+is_partition_table_type() for supported types (msdos, gpt,
+gpt_sync_mbr, dasd).</p>
+<p>usr/share/rear/layout/save/GNU/Linux/200_partition_layout.sh:</p>
+<p>Initialize $VAR_DIR/layout/skipped_unsupported_disks<br />
+In the disk loop: detect disktype via parted (with 2&gt;/dev/null);
+treat empty parse result as unknown; skip unsupported disks before
+writing active disk lines when auto-skip is enabled<br />
+In extract_partitions(): keep #3455 EXCLUDE_COMPONENTS soft-fail; add
+auto-skip via SKIP_UNSUPPORTED_PARTITION_TABLES<br />
+usr/share/rear/layout/save/GNU/Linux/230_filesystem_layout.sh — skip
+saving filesystem layout for devices on skipped disks.</p>
+<p>usr/share/rear/layout/save/default/315_skip_unsupported_partition_tables.sh
+(new) — mark skipped disks, their filesystems, and swap as done so
+330_remove_exclusions.sh comments them out in disklayout.conf.</p>
+<p>Skipped disks are recorded as commented # Skipped disk ... lines in
+disklayout.conf for auditability. Supported OS disks (gpt/msdos/dasd)
+are unchanged.</p>
+<h4 id="codacy-production_commented_at_2026-09-01_0745"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5490650639">2026-09-01 07:45</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-09-01_0745" title="Permanent link">&para;</a></h4>
+<h2 id="not_up_to_standards">Not up to standards ⛔<a class="headerlink" href="#not_up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🔴 Issues</strong>  <code>7 medium</code></summary>
+
+> <br/>
+>
+> **Alerts:**  
+> ⚠ 7 issues (≤ 0 issues of at least minor severity)
+>
+> **Results:**  
+> `7` new issues
+>
+> <table>
+> <thead>
+> <tr class="header">
+> <th>Category</th>
+> <th>Results</th>
+> </tr>
+> </thead>
+> <tbody>
+> <tr class="odd">
+> <td>BestPractice</td>
+> <td><code>1</code> medium</td>
+> </tr>
+> <tr class="even">
+> <td>ErrorProne</td>
+> <td><code>6</code> medium</td>
+> </tr>
+> </tbody>
+> </table>
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3632/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-09-01_0841"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5491333205">2026-09-01 08:41</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-01_0841" title="Permanent link">&para;</a></h4>
+<p>@parasjain37<br />
+thank you for your valuable enhancement.<br />
+I think it helps to make excluding unwanted stuff<br />
+easier for the user.<br />
+I could not yet look at the details<br />
+(I am currently busy with CVEs elsewhere).</p>
+<p>I think this is a too severe backward incompatible change<br />
+in ReaR behaviour to skip unsupported partition table types<br />
+by default.<br />
+Assume an experienced ReaR user got a new system<br />
+where also an unsupported partition table type exists.<br />
+An experienced ReaR user knows that ReaR errors out<br />
+in such cases.</p>
+<p>Furthermore it is ReaR's default task to<br />
+recreate a system "as it was before".<br />
+So ReaR must not automatically skip things<br />
+when ReaR does not support something but instead<br />
+ReaR must error out when it cannot do its default task.</p>
+<p>Therefore I think in default.conf there should be</p>
+<pre><code>SKIP_UNSUPPORTED_PARTITION_TABLES=''
+</code></pre>
+<p>which should default to "no".</p>
+<p>The crucial point is that it must be an explicit<br />
+user request via a user specified setting like</p>
+<pre><code>SKIP_UNSUPPORTED_PARTITION_TABLES="yes"
+</code></pre>
+<p>where the user commands ReaR to skip disks<br />
+with unsupported partition table types.</p>
+<h4 id="pcahyna_commented_at_2026-09-04_1220"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5540342761">2026-09-04 12:20</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-09-04_1220" title="Permanent link">&para;</a></h4>
+<p>@jsmeix I completely agree.</p>
+<blockquote>
+<p>Furthermore it is ReaR's default task to<br />
+recreate a system "as it was before".<br />
+So ReaR must not automatically skip things<br />
+when ReaR does not support something but instead<br />
+ReaR must error out when it cannot do its default task.</p>
+</blockquote>
+<p>Indeed. ReaR should fail early if it detects something that it will not
+be able to recreate. Silently excluding stuff that it is not able to
+handle and thus potentially losing data is IMO a very bad idea. The
+administrator has to decide what to do in this case.</p>
+<p>Before making a change to the default, I would like to review what is
+actually the desired behavior here. According to private conversations,
+the original problem is that PR #2803 (more precisely, commit
+825478ee27f916553938afaf5164fec22cb32732) introduced a regression. It
+fixed the issue #2801 where in the presence of unsupported partition
+tables a broken layout got generated. But it fixed it by making ReaR
+error out early. The problem is, this is a regression for users where
+those disks got excluded using some <code>*EXCLUDE_*</code> / <code>*INCLUDE_*</code>
+variable - the broken entries in the layout got excluded afterwards, so
+this was not an issue unless the disk was being used or
+<code>AUTOEXCLUDE_DISKS=n</code> was specified in the configuration.</p>
+<p>I would therefore propose to fix the problem in a different way. We
+should change ReaR so that the unsupported partition table causes an
+error only if the partition are actually used. This would lead to the
+same error as now for users that have configurations that can not be
+restored properly, but ReaR would work as before out of the box for
+users who do not have the problematic disks mounted or exclude them via
+any of the <code>*EXCLUDE_*</code> / <code>*INCLUDE_*</code> parameters. We would not add any
+new configuration option. (I feel that there are way too many
+<code>*EXCLUDE_*</code> / <code>*INCLUDE_*</code> parameters already, and as the person who
+has sometimes write docs about what they do, how they are used and how
+they interact I would very much prefer to avoid adding any new ones
+unless really needed.)</p>
+<h4 id="pcahyna_commented_at_2026-09-10_1257"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5619044678">2026-09-10 12:57</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-09-10_1257" title="Permanent link">&para;</a></h4>
+<p>I propose to close this PR and I will implement the approach outlined
+above, unless you @jsmeix really want the new parameter (I prefer not
+introducing new parameters unless really needed).</p>
+<h4 id="jsmeix_commented_at_2026-09-11_0729"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5631007284">2026-09-11 07:29</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-11_0729" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I agree with you.</p>
+<p>I changed this pull request to a draft because I would like<br />
+to keep its proposed changes available at least for now.<br />
+I don't know what happens when I close an unmerged pull request.<br />
+Would that delete its proposed changes?<br />
+Later after your implementation was merged, we could<br />
+delete this pull request with its proposed changes.</p>
+<p>In general regarding<br />
+"there are way too many <em>EXCLUDE_</em> / <em>INCLUDE_</em> parameters"<br />
+Yes, of course.<br />
+That current mess has grown over a long time<br />
+by various contributions for various specific use cases<br />
+without a "master plan" - but without such individual<br />
+contributions there would be basically no ReaR at all.</p>
+<p>Feel free - if you like and/or if it helps you with your<br />
+implementation - to mercilessly clean up the current mess<br />
+in particular because backward incompatible changes<br />
+can be done for the next ReaR major version 3.0.</p>
+<h4 id="pcahyna_commented_at_2026-09-11_0926"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5632385655">2026-09-11 09:26</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-09-11_0926" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Feel free - if you like and/or if it helps you with your<br />
+implementation - to mercilessly clean up the current mess<br />
+in particular because backward incompatible changes<br />
+can be done for the next ReaR major version 3.0.</p>
+</blockquote>
+<p>Would be good, but currently my ambition is limited to making Paras'
+case work again by using the currently available parameters (without
+introducing a new one). Perhaps I will get to reducing the set of
+parameters, but no promises. (Me too, I am currently busy with CVEs
+elsewhere.)</p>
+<h4 id="jsmeix_commented_at_2026-09-14_1246"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5664168360">2026-09-14 12:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-14_1246" title="Permanent link">&para;</a></h4>
+<p>Sigh!</p>
+<p>Above I made the bold statement that</p>
+<pre><code>... it is ReaR's default task to
+recreate a system "as it was before".
+So ReaR must not automatically skip things
+when ReaR does not support something but instead
+ReaR must error out when it cannot do its default task.
+</code></pre>
+<p>Over the weekend it came to my mind to check<br />
+how ReaR behaves when the unsupported ZFS is used.</p>
+<p>So I created a ZFS pool<br />
+on a test VM (with SLES15) on /dev/vdb<br />
+where I have now</p>
+<pre><code># lsblk -ipo NAME,TRAN,TYPE,FSTYPE,SIZE,MOUNTPOINTS
+
+NAME        TRAN   TYPE FSTYPE      SIZE MOUNTPOINTS
+/dev/sr0    sata   rom  iso9660    16.1G 
+/dev/vda    virtio disk              15G 
+|-/dev/vda1 virtio part               8M 
+|-/dev/vda2 virtio part btrfs        13G /var
+|                                        /usr/local
+|                                        /tmp
+|                                        /root
+|                                        /srv
+|                                        /home
+|                                        /opt
+|                                        /boot/grub2/x86_64-efi
+|                                        /boot/grub2/i386-pc
+|                                        /.snapshots
+|                                        /
+`-/dev/vda3 virtio part swap          2G [SWAP]
+/dev/vdb    virtio disk               1G 
+|-/dev/vdb1 virtio part zfs_member 1014M 
+`-/dev/vdb9 virtio part               8M 
+/dev/vdc    virtio disk               2G 
+`-/dev/vdc1 virtio part ext4       1020M /other
+
+# zpool status
+  pool: myzfspool
+ state: ONLINE
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        myzfspool   ONLINE       0     0     0
+          vdb       ONLINE       0     0     0
+</code></pre>
+<p>so the ZFS pool is not shown as mounted by <code>lsblk</code><br />
+regardless that it is in use and <code>mount</code> shows it</p>
+<pre><code># mount | grep zfs
+
+myzfspool on /myzfspool type zfs (rw,relatime,xattr,noacl,casesensitive)
+</code></pre>
+<p>In /myzfspool I did a git clone of ReaR master code<br />
+and used this etc/rear/local.conf</p>
+<pre><code>OUTPUT=ISO
+BACKUP=NETFS
+BACKUP_URL=file:///other/
+BACKUP_ONLY_INCLUDE="yes"
+BACKUP_PROG_INCLUDE=( /myzfspool )
+{ SSH_ROOT_PASSWORD='rear' ; } 2&gt;&gt;/dev/$SECRET_OUTPUT_DEV
+USE_DHCLIENT="yes"
+MODULES=( 'loaded_modules' )
+PROGRESS_MODE="plain"
+PROGRESS_WAIT_SECONDS="5"
+</code></pre>
+<p>for the following <code>rear mkrescue</code> test<br />
+(excerpts):</p>
+<pre><code>localhost:/myzfspool/rear.github.master # usr/sbin/rear -D mkrescue
+
+Relax-and-Recover 2.9 / 2025-01-31
+Running rear mkrescue (PID 6546 date 2026-09-14 13:50:49)
+Command line options: usr/sbin/rear -D mkrescue
+Using log file: /myzfspool/rear.github.master/var/log/rear/rear-localhost.log
+Using build area: /var/tmp/rear.2JzBoRSvwWDy4fC
+...
+Adding backup directory mountpoint 'fs:/other' to EXCLUDE_RECREATE
+...
+Running 'layout/save' stage ======================
+Creating disk layout
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/vda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/vda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.2JzBoRSvwWDy4fC/rootfs/etc/rear/rescue.conf
+Excluding component fs:/other in EXCLUDE_RECREATE
+Marking component 'fs:/other' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/vdb (not used by any mounted filesystem)
+Marking component '/dev/vdb' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/vdb1 is a child of component /dev/vdb
+Marking component '/dev/vdb1' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/vdb9 is a child of component /dev/vdb
+Marking component '/dev/vdb9' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Automatically excluding disk /dev/vdc (not used by any mounted filesystem)
+Marking component '/dev/vdc' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component /dev/vdc1 is a child of component /dev/vdc
+Marking component '/dev/vdc1' as done in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Dependent component fs:/other is a child of component /dev/vdc
+Component 'fs:/other' is marked as 'done fs:/other' in /myzfspool/rear.github.master/var/lib/rear/layout/disktodo.conf
+Disabling excluded components in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/vdb' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/vdb' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Component 'part /dev/vdb' is disabled in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/vdc' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/vdc' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /other' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Using sysconfig bootloader 'grub2' for 'rear recover'
+Skip saving storage layout as 'barrel' devicegraph (no 'barrel' command)
+Verifying that the entries in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf are correct
+Created disk layout (check the results in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf)
+Running 'rescue' stage ======================
+...
+Exiting rear mkrescue (PID 6546) and its descendant processes ...
+Running exit tasks
+To remove the build area you may use (with caution): rm -Rf --one-file-system /var/tmp/rear.2JzBoRSvwWDy4fC
+</code></pre>
+<p>So ReaR does not error out when the unsupported ZFS is used.</p>
+<p>The reason is that ReaR cannot detect that ZFS is used<br />
+because in layout/save/GNU/Linux/230_filesystem_layout.sh<br />
+we do (excerpts)</p>
+<pre><code>supported_filesystems="ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs"
+...
+read_filesystems_command="mount -t $supported_filesystems | cut -d ' ' -f 1,3,5,6"
+# If the findmnt command is available use it instead of the traditional mount command
+...
+findmnt_command="$( type -P findmnt )"
+if test -x "$findmnt_command" ; then
+    ...
+    read_filesystems_command="$findmnt_command -mnrv -o SOURCE,TARGET,FSTYPE,OPTIONS -t $supported_filesystems"
+</code></pre>
+<p>so ReaR calls</p>
+<pre><code>mount -t ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs | cut -d ' ' -f 1,3,5,6
+</code></pre>
+<p>or (when the findmnt command is available)</p>
+<pre><code>findmnt -mnrv -o SOURCE,TARGET,FSTYPE,OPTIONS -t ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs
+</code></pre>
+<p>and all the rest works based on that output<br />
+which must not contain unsupported filesystems<br />
+because ReaR cannot process unsupported filesystems<br />
+so things that depend on unsupported filesystems<br />
+must get automatically excluded (this part is right)<br />
+BUT<br />
+there is no test for unsupported filesystems<br />
+and no code to deal with unsupported filesystems<br />
+(so this part is missing).</p>
+<p>So for unsupported filesystems ReaR is currently<br />
+"Silently excluding stuff that it is not able to handle"<br />
+:-(</p>
+<p>Only in debug mode it tells what got automatically excluded</p>
+<pre><code>Automatically excluding disk /dev/vdb (not used by any mounted filesystem)
+</code></pre>
+<p>But currently ReaR cannot tell why (because there is<br />
+no code to deal with unsupported filesystems)<br />
+and the current message looks somewhat misleading<br />
+because the ZFS pool is not normally mounted<br />
+but nevertheless it is shown by <code>mount</code>.</p>
+<p>As a quick band-aid I added in 230_filesystem_layout.sh</p>
+<pre><code> # Comma separated list of filesystems that is used for "mount/findmnt -t &lt;list,of,filesystems&gt;" below:
+ supported_filesystems="ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs"
++# At least tell what happens for unsupported filesystems,
++# cf. https://github.com/rear/rear/pull/3632#issuecomment-5664168360
++LogPrint "Supported filesystems: $supported_filesystems (what belongs to unsupported filesystems gets automatically excluded)"
+</code></pre>
+<p>see<br />
+<a href="https://github.com/rear/rear/pull/3637">https://github.com/rear/rear/pull/3637</a></p>
+<p>So now at least in verbose mode<br />
+the output looks a bit better (excerpt):</p>
+<pre><code>localhost:/myzfspool/rear.github.master # usr/sbin/rear -v mkrescue
+...
+Supported filesystems: ext2,ext3,ext4,vfat,xfs,reiserfs,btrfs (what belongs to unsupported filesystems gets automatically excluded)
+SLES12-SP1 (and later) btrfs subvolumes setup needed for /dev/vda2 (default subvolume path contains '@/.snapshots/')
+Added  /dev/vda2 to BTRFS_SUBVOLUME_SLES_SETUP in /var/tmp/rear.PlnaLqZhNWp5xUs/rootfs/etc/rear/rescue.conf
+Excluding component fs:/other in EXCLUDE_RECREATE
+Disabling component 'disk /dev/vdb' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/vdb' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'disk /dev/vdc' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'part /dev/vdc' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+Disabling component 'fs ... /other' in /myzfspool/rear.github.master/var/lib/rear/layout/disklayout.conf
+...
+</code></pre>
+<p>In non-verbose mode there is no outout</p>
+<pre><code>localhost:/myzfspool/rear.github.master # usr/sbin/rear mkrescue
+localhost:/myzfspool/rear.github.master # echo $?
+0
+</code></pre>
+<p>which is right because currently there cannot be an Error()<br />
+because there is no code to deal with unsupported filesystems.</p>
+<h4 id="pcahyna_commented_at_2026-09-14_1312"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5664525767">2026-09-14 13:12</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-09-14_1312" title="Permanent link">&para;</a></h4>
+<p>@jsmeix indeed. I realized exactly the same thing when working on the
+same issue. ReaR automatically and silently excludes filesystems that
+are not in the (very short) supported filesystem list. Veritas' vxfs is
+one case, as is ZFS. But let's not make things worse by excluding
+unsupported partition tables as well.</p>
+<h4 id="pcahyna_commented_at_2026-09-14_1318"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3632#issuecomment-5664598315">2026-09-14 13:18</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-09-14_1318" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>(...) which is right because currently there cannot be an Error()<br />
+because there is no code to deal with unsupported filesystems.</p>
+</blockquote>
+<p>I would suggest to make it an Error in a future major release (3.0 or
+4.0) to force the users to alter their configuration to exclude the
+unknown filesystems somehow, just like they used to be able (and should
+be able again) to skip unsupported partition tables by not including
+anything on them.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-09-01.3632.pr.open.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

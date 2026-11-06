@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3621 PR merged: Add is_writable_only_by_owner function (improve trusted sourcing) - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3621 PR merged: Add is_writable_only_by_owner function (improve trusted sourcing)";
+        var mkdocs_page_input_path = "issues/2026-07-30.3621.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3621 PR merged: Add is_writable_only_by_owner function (improve trusted sourcing)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3621_pr_merged_add_is_writable_only_by_owner_function_improve_trusted_sourcing"><a href="https://github.com/rear/rear/pull/3621">#3621 PR</a> <code>merged</code>: Add is_writable_only_by_owner function (improve trusted sourcing)<a class="headerlink" href="#3621_pr_merged_add_is_writable_only_by_owner_function_improve_trusted_sourcing" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code>,
+<code>critical / security / legal</code></p>
+<h4 id="jsmeix_opened_issue_at_2026-07-30_1304"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3621">2026-07-30 13:04</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2026-07-30_1304" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Type: <strong>Enhancement</strong></p>
+</li>
+<li>
+<p>Impact: <strong>Critical</strong></p>
+</li>
+<li>
+<p>Reference to related issue (URL):</p>
+</li>
+</ul>
+<p><a href="https://github.com/rear/rear/issues/3260">https://github.com/rear/rear/issues/3260</a><br />
+therein in particular<br />
+<a href="https://github.com/rear/rear/issues/3260#issuecomment-5131205171">https://github.com/rear/rear/issues/3260#issuecomment-5131205171</a></p>
+<ul>
+<li>How was this pull request tested?</li>
+</ul>
+<p>Tested "rear mkrescue/mkbackup" and "rear recover"<br />
+on SLES 15 SP 6 with default btrfs structure<br />
+i.e. same kind of system as in<br />
+<a href="https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-default-btrfs-structure">https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8#sles-15-sp-6-with-default-btrfs-structure</a></p>
+<ul>
+<li>Description of the changes in this pull request:</li>
+</ul>
+<p>In _framework-setup-and-functions.sh<br />
+add <code>is_writable_only_by_owner</code> function to check<br />
+that none except the file owner has write permissions<br />
+and call that in the 'source' wrapper function<br />
+to improve enforcement of trusted sourcing.</p>
+<p>For background information<br />
+how Gemini CLI helped me to make that function see<br />
+<a href="https://github.com/jsmeix/check_writable">https://github.com/jsmeix/check_writable</a><br />
+therein in particular<br />
+<a href="https://github.com/jsmeix/check_writable/blob/main/check_writable.simplified.md">https://github.com/jsmeix/check_writable/blob/main/check_writable.simplified.md</a></p>
+<h4 id="codacy-production_commented_at_2026-07-30_1306"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5131194001">2026-07-30 13:06</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-07-30_1306" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3621/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-07-31_1234"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5142903517">2026-07-31 12:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-07-31_1234" title="Permanent link">&para;</a></h4>
+<p>@gdha @pcahyna @rear/contributors<br />
+please review it (as time permits)<br />
+but - first and foremost - have a<br />
+relaxed and recovering weekend!</p>
+<h4 id="jsmeix_commented_at_2026-08-04_0644"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5175531546">2026-08-04 06:44</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-04_0644" title="Permanent link">&para;</a></h4>
+<p>I have to fix the logic.<br />
+Currently it is not right.</p>
+<p>Reason:<br />
+Currently I misuse empty TRUSTED_OWNERS<br />
+in the is_writable_only_by_owner function<br />
+as a way out when some special file<br />
+is writable not only by its owner<br />
+but should be trusted nevertheless.</p>
+<p>FWIW:<br />
+I had a bad feeling when I implemented that part<br />
+but that part was not my primary focus of mind<br />
+it was more like "I just need to do something here"<br />
+so the outcome was poor - but one (at least I) cannot<br />
+focus on more than one thing at a time...</p>
+<p>Solution proposal:<br />
+My first idea was to introduce a separated</p>
+<pre><code>TRUSTED_FILES
+</code></pre>
+<p>config array where the user can specify files that are<br />
+trusted "as is" regardless of owner / path / permissions.<br />
+I didn't like the "yet another config variable" way<br />
+so I evaluated various other ideas but in the end<br />
+I always came back to my first idea to be the<br />
+most simple and straightforward solution<br />
+to allow any special cases.</p>
+<h4 id="jsmeix_commented_at_2026-08-04_1232"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5179082263">2026-08-04 12:32</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-04_1232" title="Permanent link">&para;</a></h4>
+<p>Tested "rear mkrescue+mkbackuponly" and "rear recover"<br />
+on SLES 15 SP 6 with default btrfs structure<br />
+in a "git clone" directory where I did</p>
+<pre><code># chmod g+w usr/share/rear/init/default/001_verify_config_arrays.sh
+</code></pre>
+<p>plus in etc/rear/local.conf</p>
+<pre><code>TRUSTED_FILES=( '/root/rear.github.master.jsmeix-check_writable/usr/share/rear/init/default/001_verify_config_arrays.sh' )
+</code></pre>
+<p>because</p>
+<pre><code># readlink -e usr/share/rear/init/default/001_verify_config_arrays.sh
+/root/rear.github.master.jsmeix-check_writable/usr/share/rear/init/default/001_verify_config_arrays.sh
+</code></pre>
+<p>All works well.</p>
+<p>Even "rear -D recover" just works because<br />
+within the ReaR recovery system:</p>
+<pre><code>RESCUE localhost:~ # find / -type f | grep '001_verify_config_arrays.sh'
+/root/rear.github.master.jsmeix-check_writable/usr/share/rear/init/default/001_verify_config_arrays.sh
+
+RESCUE localhost:~ # ls -l /usr/share/rear
+lrwxrwxrwx 1 root root 66 Aug  4 13:21 /usr/share/rear -&gt; ../../root/rear.github.master.jsmeix-check_writable/usr/share/rear
+</code></pre>
+<p>Sourcing it is reported in /var/log/rear/rear-localhost.log as</p>
+<pre><code>2026-08-04 14:16:49.489811775 Trusted sourcing '/usr/share/rear/init/default/001_verify_config_arrays.sh'
+</code></pre>
+<p>because the 'source' wrapper function<br />
+reports how it is called</p>
+<pre><code>function source () {
+  { local source_file="$1"
+    Debug "Trusted sourcing '$*'"
+</code></pre>
+<p>but the verfication functions<br />
+<code>is_trusted_file</code> <code>is_trusted_owner</code> <code>is_writable_only_by_owner</code>
+<code>is_trusted_path</code><br />
+work with the actual file (i.e. with symlinks resolved).</p>
+<h4 id="jsmeix_commented_at_2026-08-04_1235"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5179129783">2026-08-04 12:35</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-04_1235" title="Permanent link">&para;</a></h4>
+<p>@gdha @pcahyna @rear/contributors<br />
+please review it (as time permits).</p>
+<p>I would like to merge it on Thursday (06 July) afternoon<br />
+unless there are objections.</p>
+<h4 id="jsmeix_commented_at_2026-08-07_1248"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3621#issuecomment-5217236300">2026-08-07 12:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-07_1248" title="Permanent link">&para;</a></h4>
+<p>Since<br />
+<a href="https://github.com/rear/rear/pull/3627">https://github.com/rear/rear/pull/3627</a><br />
+is merged the function 'is_writable_only_by_owner' is renamed into<br />
+'is_trusted_write' (abbreviation for
+'is_trusted_write_permissions')<br />
+so all functions for trust checking have the same prefix
+'is_trusted_'.</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-07-30.3621.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

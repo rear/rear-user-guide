@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <meta property="og:title" content="Relax-and-Recover (ReaR) User Guide Documentation"/>
+    <meta property="og:description" content="This is an umbrella documentation project for all Relax-and-Recover (ReaR) kind of documentation ans starting with a good User Guide."/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://relax-and-recover.org/rear-user-guide/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://relax-and-recover.org/rear-user-guide/img/rear_logo_50.png"/>
+    <meta property="og:image:width" content="50"/>
+    <meta property="og:image:height" content="50"/>
+    
+    <title>#3553 PR merged: Automatically include firmware files for the kernel modules in the recovery system - Relax-and-Recover (ReaR) User Guide Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/rear.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "#3553 PR merged: Automatically include firmware files for the kernel modules in the recovery system";
+        var mkdocs_page_input_path = "issues/2026-01-12.3553.pr.merged.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', "366986045", "auto");
+        ga('send', 'pageview');
+      </script>
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Relax-and-Recover (ReaR) User Guide Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">WELCOME</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">Get started!</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">BASICS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/introduction.html">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/history.html">Bit of History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/getting-started.html">Getting started with ReaR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/configuration.html">Basic configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../basics/backup_netfs.html">Example of BACKUP=NETFS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SCENARIOS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Scenarios Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_nas.html">Internal Backup with tar to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/netfs_rsync.html">Internal Backup with rsync to NFS server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rsync.html">External Backup using BACKUP=RSYNC method</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/rbme.html">External Backup using RBME</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/restic.html">External Backup using restic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/duplicity.html">External Backup using duplicity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scenarios/borg.html">External Backup using BorgBackup</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DEVELOPMENT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/github-pr.html">Make a pull request with GitHub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../development/squash-git-log-commments.html">How to squash git log comments into one line</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RELEASE NOTES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear29.html">Release Notes ReaR 2.9</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear28.html">Release Notes ReaR 2.8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear27.html">Release Notes ReaR 2.7</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/rear26.html">Release Notes ReaR 2.6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../releasenotes/knownproblems.html">Known Problems and Workarounds</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ISSUES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Issues History</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">LEGAL</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/contributing/index.html">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../legal/license/index.html">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Relax-and-Recover (ReaR) User Guide Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">#3553 PR merged: Automatically include firmware files for the kernel modules in the recovery system</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3553_pr_merged_automatically_include_firmware_files_for_the_kernel_modules_in_the_recovery_system"><a href="https://github.com/rear/rear/pull/3553">#3553 PR</a> <code>merged</code>: Automatically include firmware files for the kernel modules in the recovery system<a class="headerlink" href="#3553_pr_merged_automatically_include_firmware_files_for_the_kernel_modules_in_the_recovery_system" title="Permanent link">&para;</a></h1>
+<p><strong>Labels</strong>: <code>enhancement</code>, <code>fixed / solved / done</code></p>
+<h4 id="jsmeix_opened_issue_at_2026-01-12_1725"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> opened issue at <a href="https://github.com/rear/rear/pull/3553">2026-01-12 17:25</a>:<a class="headerlink" href="#jsmeix_opened_issue_at_2026-01-12_1725" title="Permanent link">&para;</a></h4>
+<p>In build/GNU/Linux/420_copy_firmware_files.sh<br />
+automatically include firmware files<br />
+for the kernel modules in the recovery system<br />
+see <a href="https://github.com/rear/rear/issues/3551">https://github.com/rear/rear/issues/3551</a></p>
+<h4 id="pcahyna_commented_at_2026-01-13_1304"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3744235117">2026-01-13 13:04</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-01-13_1304" title="Permanent link">&para;</a></h4>
+<p>Thanks @jsmeix, this sounds good, but as a user I don't understand the
+details of how it works. The documentation for FIRMWARE_FILES is here :
+<a href="https://github.com/rear/rear/blob/96aae1e7b504e069d3f07641f05874ed0bb3eaf4/usr/share/rear/conf/default.conf#L1914">https://github.com/rear/rear/blob/96aae1e7b504e069d3f07641f05874ed0bb3eaf4/usr/share/rear/conf/default.conf#L1914</a>
+, does it need updating? (Has the interpretation of the special values
+changed? I see you are deleting a comment in the code about the meaning
+of empty FIRMWARE_FILES ...)</p>
+<h4 id="jsmeix_commented_at_2026-01-13_1333"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3744373948">2026-01-13 13:33</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-13_1333" title="Permanent link">&para;</a></h4>
+<p>Of course default.conf gets adapted accordingly.<br />
+I thought I could do this today morning<br />
+but "something else" got in my way :-(</p>
+<h4 id="jsmeix_commented_at_2026-01-13_1507"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3744865084">2026-01-13 15:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-13_1507" title="Permanent link">&para;</a></h4>
+<p>Yesterday I tested<br />
+<code>MODULES=( 'loaded_modules' )</code><br />
+with empty FIRMWARE_FILES<br />
+and for me things look good so far.</p>
+<p>On my openSUSE Leap 15.6 workstation with AMD graphics<br />
+(built-in in CPU "Ryzen 3 4300G with Radeon Graphics")<br />
+the <code>amdgpu</code> kernel module is loaded which needs firmware:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.9vpz6XhzEPiqZGk
+...
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Copying firmware files that belong to the copied kernel modules (FIRMWARE_FILES not specified)
+...
+
+# du -hs /var/tmp/rear.9vpz6XhzEPiqZGk/rootfs/
+246M    /var/tmp/rear.9vpz6XhzEPiqZGk/rootfs/
+</code></pre>
+<p>For comparison with</p>
+<pre><code>FIRMWARE_FILES=( 'yes' )
+MODULES=( 'loaded_modules' )
+</code></pre>
+<p>what one would normally do when one does not know<br />
+which firmware files are needed</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.JB1vAflGYIR1Del
+...
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Copying all files in /lib*/firmware/
+...
+
+# du -hs /var/tmp/rear.JB1vAflGYIR1Del/rootfs/
+784M    /var/tmp/rear.JB1vAflGYIR1Del/rootfs/
+</code></pre>
+<p>and with</p>
+<pre><code>FIRMWARE_FILES=( 'no' )
+MODULES=( 'loaded_modules' )
+</code></pre>
+<p>what results a recovery system where graphical display may not work<br />
+depending on whether or not the used AMD graphics hardware<br />
+can work in standard (VGA) modes without firmware:</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.AR44mXniirFRtbv
+...
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Omit copying files in /lib*/firmware/ (FIRMWARE_FILES='no')
+...
+
+# du -hs /var/tmp/rear.AR44mXniirFRtbv/rootfs/
+221M    /var/tmp/rear.AR44mXniirFRtbv/rootfs/
+</code></pre>
+<p>The <code>amdgpu</code> firmware files are not so much:</p>
+<pre><code># du -hs /lib/firmware/amdgpu/
+31M     /lib/firmware/amdgpu/
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-01-13_1515"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3744903505">2026-01-13 15:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-13_1515" title="Permanent link">&para;</a></h4>
+<p>It is questionable how far the "modinfo -F firmware" method<br />
+actually works reliably in practice because:</p>
+<p>On my original system (where "rear mkrescue" is run):</p>
+<pre><code># find /lib/firmware/amdgpu/ | wc -l
+639
+
+# modinfo -F firmware amdgpu | wc -l
+576
+</code></pre>
+<p>With</p>
+<pre><code>FIRMWARE_FILES=( 'yes' )
+MODULES=( 'loaded_modules' )
+
+# find /var/tmp/rear.JB1vAflGYIR1Del/rootfs/lib/firmware/amdgpu/ | wc -l
+639
+</code></pre>
+<p>versus with</p>
+<pre><code>FIRMWARE_FILES=()
+MODULES=( 'loaded_modules' )
+
+# find /var/tmp/rear.9vpz6XhzEPiqZGk/rootfs/lib/firmware/amdgpu/ | wc -l
+566
+</code></pre>
+<h4 id="pcahyna_commented_at_2026-01-13_1543"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3745049580">2026-01-13 15:43</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-01-13_1543" title="Permanent link">&para;</a></h4>
+<p>@jsmeix</p>
+<blockquote>
+<p>It is questionable how far the "modinfo -F firmware" method actually
+works reliable in practice because: (...)</p>
+</blockquote>
+<p>As I am not familiar with this area, I am curious what problem do you
+see there. Could you please be more specific?</p>
+<h4 id="jsmeix_commented_at_2026-01-13_1550"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3745083929">2026-01-13 15:50</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-13_1550" title="Permanent link">&para;</a></h4>
+<p>I am also not familiar with this area.<br />
+What I am doing here are my first steps in this area.</p>
+<p>I mean the non-matching numbers of the firmware files<br />
+indicate things could be inconsistent- in particular<br />
+needed firmware files could be missing because they<br />
+might not be listed by "modinfo -F firmware"?</p>
+<p>See also in my initial desctiption<br />
+<a href="https://github.com/rear/rear/issues/3551#issue-3796994085">https://github.com/rear/rear/issues/3551#issue-3796994085</a></p>
+<pre><code>... it is normal that some firmware files
+which are listed by modinfo
+may not exist on the system.
+</code></pre>
+<p>I.e. currently the whole "modinfo -F firmware" stuff<br />
+looks somewhat inconsistent/unreliable to me.</p>
+<p>Tomorrow I will investigate more (as time permits).</p>
+<h4 id="jsmeix_commented_at_2026-01-16_1334"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3760049751">2026-01-16 13:34</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-16_1334" title="Permanent link">&para;</a></h4>
+<p>With the new DebugPrint when no file is found in /lib*/firmware<br />
+that matches the partial firmware filename which is reported<br />
+by modinfo for a kernel module<br />
+those numbers make more sense to me (at least in my specific case).</p>
+<p>I got</p>
+<pre><code># usr/sbin/rear -D mkrescue
+...
+Using build area: /var/tmp/rear.CIShROSO7xxV54s
+...
+Copying only currently loaded kernel modules (MODULES contains 'loaded_modules') and those in MODULES_LOAD
+Copying firmware files that belong to the copied kernel modules (FIRMWARE_FILES not specified)
+No file in /lib*/firmware matching 'amdgpu/cyan_skillfish_gpu_info.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/ip_discovery.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/vega10_cap.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/sienna_cichlid_cap.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/navi12_cap.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/aldebaran_cap.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/gc_11_0_0_toc.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/sienna_cichlid_mes1.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/sienna_cichlid_mes.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/navi10_mes.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'amdgpu/gc_11_0_3_mes.bin' (reported by modinfo for 'amdgpu')
+No file in /lib*/firmware matching 'renesas_usb_fw.mem' (reported by modinfo for 'xhci_pci')
+</code></pre>
+<p>and /var/tmp/rear.CIShROSO7xxV54s/rootfs/lib/firmware/amdgpu<br />
+contains all firmware files which are reported by modinfo<br />
+in particular for the 'amdgpu' kernel module<br />
+except those in the DebugPrint message<br />
+i.e. those which do not exist on my system.</p>
+<h4 id="jsmeix_commented_at_2026-01-16_1339"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3760067214">2026-01-16 13:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-16_1339" title="Permanent link">&para;</a></h4>
+<p>I think my current implementation is all what I can do<br />
+in practice to automatically include firmware files<br />
+for the kernel modules in the recovery system<br />
+so I would like to merge it in its current state.</p>
+<p>@rear/contributors<br />
+please have a look (as time permits)<br />
+and ideally try it out how it behaves on your systems<br />
+in particular with <code>MODULES=( 'loaded_modules' )</code><br />
+and the default empty <code>FIRMWARE_FILES=()</code><br />
+because this is the main case where I would like<br />
+to get things automatically working reasonably well.</p>
+<h4 id="pcahyna_commented_at_2026-01-26_1341"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3799675250">2026-01-26 13:41</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-01-26_1341" title="Permanent link">&para;</a></h4>
+<p>Hi @jsmeix , can you give me a few more days, please? I would like to
+have a look but have not had time for it lately.</p>
+<h4 id="jsmeix_commented_at_2026-01-26_1418"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3799843177">2026-01-26 14:18</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-01-26_1418" title="Permanent link">&para;</a></h4>
+<p>@gdha<br />
+thank you for testing it!</p>
+<p>@pcahyna<br />
+yes of course - there is nothing urgent here.<br />
+I explicitly requested a review from you now.</p>
+<h4 id="pcahyna_commented_at_2026-02-09_1313"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-3871633241">2026-02-09 13:13</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-02-09_1313" title="Permanent link">&para;</a></h4>
+<p>I found out that the size of firmware and consequently of the initramfs
+keeps increasing, which makes this kind of improvements more and more
+valuable. Let me try on RHEL to see the effect...</p>
+<h4 id="jsmeix_commented_at_2026-03-23_1246"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-4110356621">2026-03-23 12:46</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-23_1246" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it on Thursday afternoon<br />
+unless there are objections.</p>
+<p>We are still in ReaR 3.0 development phase<br />
+so if this changes cause more problems than they solve<br />
+we can try to improve things to make things work<br />
+or I can simply revert things to what it was before.</p>
+<p>In any case the default behaviour did not change<br />
+(excerpts from the default.conf description)</p>
+<pre><code>The by default empty FIRMWARE_FILES array
+together with the default MODULES=( 'all_modules' )
+results that normally all files in the /lib*/firmware/
+directories get included in the rescue/recovery system.
+</code></pre>
+<p>and the user can explicity specify MODULES and FIRMWARE_FILES<br />
+according to what he needs in his particular environment<br />
+regardless what our new default behaviour is which is now</p>
+<pre><code>When MODULES does not contain 'all_modules'
+(e.g. when MODULES=( 'loaded_modules' ) is specified),
+then an empty FIRMWARE_FILES array results that
+firmware files which belong to those kernel modules
+which get included in the rescue/recovery system
+get also included in the rescue/recovery system
+</code></pre>
+<h4 id="pcahyna_commented_at_2026-03-25_1916"><img src="https://avatars.githubusercontent.com/u/26300485?u=9105d243bc9f7ade463a3e52e8dd13fa67837158&v=4" width="50"><a href="https://github.com/pcahyna">pcahyna</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">2026-03-25 19:16</a>:<a class="headerlink" href="#pcahyna_commented_at_2026-03-25_1916" title="Permanent link">&para;</a></h4>
+<p>Hello @jsmeix , thank you for the reminder. I researched the topic in
+detail and found that it is actually quite complicated (as it is often
+the case). I see two main problems with the current state of the PR:</p>
+<ol>
+<li>Regarding what the does: it looks incomplete to me. When
+    <code>MODULES=( 'loaded_modules' )</code> and <code>FIRMWARE_FILES</code> is empty, we
+    should copy firmware for all loaded modules, but some modules can be
+    built-in and those can also have firmware. (On a RHEL kernel, most
+    of them don't, but I saw at least one having a firmware, and this
+    can change if you build your own kernel and decide that some
+    hardware drivers should be compiled in.) Here's a WIP fix of this
+    issue, using the list <code>/lib/modules/$KERNEL_VERSION/modules.builtin</code>
+    that newer kernels provide, and the ability of sufficiently new
+    <code>modinfo</code> to query even builtin modules:</li>
+</ol>
+<!-- -->
+
+<pre><code>diff --git a/usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh b/usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh
+index 462fc7ad3..9b9a9493c 100644
+--- a/usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh
++++ b/usr/share/rear/build/GNU/Linux/420_copy_firmware_files.sh
+@@ -61,9 +61,42 @@ fi
+ # Automatically also copy the matching firmware files here, see
+ # https://github.com/rear/rear/issues/3551
+ LogPrint "Copying firmware files that belong to the copied kernel modules (FIRMWARE_FILES not specified)"
+-for module in "${COPY_MODULES[@]}" ; do
+-    firmware_partial_filenames=$( modinfo -k $KERNEL_VERSION -F firmware "$module" ) || continue
+-    for firmware_partial_filename in $firmware_partial_filenames ; do
++local builtin_list="/lib/modules/$KERNEL_VERSION/modules.builtin"
++local firmware_partial_filenames=()
++
++local modinfo_error=0
++if [ -f "$builtin_list" ] ; then
++    local builtin_path
++    local builtin_modules=(
++        $(
++            while read -r builtin_path; do
++                builtin_mod="$(basename "$builtin_path")"
++                # remove the .ko (and possibly other) suffix
++                echo "${builtin_mod%%.*}"
++            done &lt; "$builtin_list"
++        )
++    )
++    for module in "${COPY_MODULES[@]}" "${builtin_modules[@]}" ; do
++        # grep needs to be there as some versions of modinfo print "name: &lt;module name&gt;" for builtin modules
++        # even if not asked for it.
++        if ! firmware_partial_filenames+=( $( modinfo -k $KERNEL_VERSION -F firmware "$module" | grep -v '^[[:alnum:]]*:[[:blank:]]'; exit ${PIPESTATUS[0]} ) ); then
++            # This may happen when $builtin_list is present but
++            # /lib/modules/$KERNEL_VERSION/modules.builtin.modinfo is not.
++            # Only sufficiently new kernels provide modules.builtin.modinfo.
++            # The RHEL 8 kernel, for example, does not.
++            modinfo_error=$?
++            LogPrintError "Error determining firmware files for kernel module $module"
++            LogPrint "The command modinfo -k $KERNEL_VERSION -F firmware $module returned $modinfo_error"
++            break
++        fi
++    done
++else
++    LogPrintError "Unable to determine builtin module list to list firmware in use ($builtin_list not found)"
++    modinfo_error=1
++fi
++
++if [[ "$modinfo_error" == 0 ]] ; then
++    for firmware_partial_filename in "${firmware_partial_filenames[@]}" ; do
+         # For example the command "modinfo -F firmware amdgpu" may show
+         # amdgpu/cyan_skillfish_gpu_info.bin
+         # amdgpu/navi12_gpu_info.bin
+@@ -81,4 +114,13 @@ for module in "${COPY_MODULES[@]}" ; do
+         fi
+         cp $verbose -t $ROOTFS_DIR -p -L --parents $firmware_complete_filename
+     done
+-done
++else
++    LogPrintError "Defaulting to copy all firmware files - determining firmware in use not possible"
++    # TODO: copy of a block above - unify
++    LogPrint "Copying all files in /lib*/firmware/"
++    # Use a simple 'cp -a' for this case to be safe against possible issues
++    # with the more complicated 'find ... | xargs cp' method below.
++    # The '--parents' is needed to get the '/lib*/' directory in the copy.
++    # It is crucial to append to /dev/$DISPENSABLE_OUTPUT_DEV (cf. 'Print' in lib/_framework-setup-and-functions.sh):
++    cp $verbose -t $ROOTFS_DIR -a --parents /lib*/firmware 2&gt;&gt;/dev/$DISPENSABLE_OUTPUT_DEV 1&gt;&amp;2
++fi
+</code></pre>
+<ol>
+<li>Regarding the interface. The problem with the (by default) empty
+    <code>FIRMWARE_FILES</code> is that the meaning changes according to the value
+    of <code>MODULES</code>. When <code>MODULES=( 'all_modules' )</code>, it means a different
+    thing than if <code>MODULES</code> has any other value. I don't like this kind
+    of long-lange interaction. (Of course I know that there are
+    long-range interactions in the code, expressed for example in global
+    variables, but here I mean the interaction between the value of the
+    variables.) Not only it is inelegant and hard for the user to keep
+    track of (one must be aware of the value of one variable in order to
+    understand the meaning of the value of another variable), it also
+    prevents a valuable use case: copying all the firmware that belongs
+    to any of the available modules (because to copy all the available
+    modules, one uses <code>MODULES=( 'all_modules' )</code> , but this changes the
+    meaning of <code>FIRMWARE_FILES=()</code> from "copy the firmware of all the
+    modules that get copied", which we would like here, to "copy all
+    firmware files").<br />
+    Why do I care about this? I believe that copying all the modules
+    (not just the loaded ones) and only the firmware files that belong
+    to these modules (instead of all) is the most valuable use case for
+    these features, actually. It produces an image that can be used on
+    the widest range of hardware, while reducing the initramfs size by
+    omitting the firmware files that are not used by any module, and
+    thus presumably useless.<br />
+    Now the questions are of course, how to specify it and then how to
+    implement it. Regarding the specification, perhaps a special value
+    would be the best option, something like
+    <code>FIRMWARE_FILES=( 'copied_modules' )</code> or perhaps a scalar
+    <code>FIRMWARE_FILES='copied_modules'</code>. I don't like special values,
+    especially as array elements, but we have been using it for modules
+    as well. Alternatively, a special scalar variable like
+    <code>ADD_MODULE_FIRMWARE=y/n</code> could be used.<br />
+    Regarding the implementation, this is of course made difficult by
+    the need of listing all the copied modules, which we don't know if
+    we copy everything. For this, the <code>modules.dep</code> file can be used as
+    it lists all the modules. I started looking at this, but then I got
+    distracted by other things. Gemini suggested this code (would need
+    to be improved, I suppose - see the patch above that implements the
+    part with builtin modules a bit differently):</li>
+</ol>
+<!-- -->
+
+<pre><code>KERNEL_VER=$(uname -r)
+MOD_DIR="/lib/modules/${KERNEL_VER}"
+
+get_all_firmware() {
+    # =========================================================
+    # PIPELINE 1: Loadable Modules (via modules.dep)
+    # =========================================================
+    # 1. awk -F: -&gt; Extract the relative path (left side of the colon).
+    # 2. sed -&gt; Prepend the base directory to make absolute paths.
+    # 3. xargs -&gt; Pass physical files directly to modinfo.
+
+    if [[ -f "${MOD_DIR}/modules.dep" ]]; then
+        awk -F: '{print $1}' "${MOD_DIR}/modules.dep" \
+            | sed "s|^|${MOD_DIR}/|" \
+            | xargs -r modinfo -F firmware 2&gt;/dev/null
+    fi
+
+    # =========================================================
+    # PIPELINE 2: Built-in Modules (via modules.builtin)
+    # =========================================================
+    # 1. awk -F/ -&gt; Strip the directory paths.
+    # 2. sed -&gt; Strip .ko and compression extensions to get pure names.
+    # 3. xargs -&gt; Pass NAMES to modinfo (using -k to force the lookup).
+
+    if [[ -f "${MOD_DIR}/modules.builtin" ]]; then
+        awk -F/ '{print $NF}' "${MOD_DIR}/modules.builtin" \
+            | sed -E 's/\.ko(\..*)?$//' \
+            | xargs -r modinfo -k "${KERNEL_VER}" -F firmware 2&gt;/dev/null
+    fi
+}
+</code></pre>
+<p>In order to not block the merging for too long, I suggest that we agree
+on the proper interface of specifying only the copied modules and do the
+actual implementation of the combination of this with
+<code>MODULES=( 'all_modules' )</code> separately (until it is implemented, we can
+error out when this combination is provided).</p>
+<h4 id="jsmeix_commented_at_2026-03-31_1311"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-4162544395">2026-03-31 13:11</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-03-31_1311" title="Permanent link">&para;</a></h4>
+<p>@pcahyna<br />
+I may have a closer look at your above<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+at the earliest after Easter public holidays<br />
+(in Germany until including 06. April)<br />
+perhaps later as other (non-ReaR) issues may permit.</p>
+<p>A question:<br />
+Is there something actually wrong<br />
+with the changes as this pull request currently is<br />
+so it must not be merged in its current state<br />
+because this will cause real bugs<br />
+(cf. "bug" in <a href="https://github.com/rear/rear/labels">https://github.com/rear/rear/labels</a>)<br />
+OR<br />
+would the current state be acceptable to be merged<br />
+as a first step into the right direction<br />
+which should be further adaptend and enhanced<br />
+as you described in your above<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+?</p>
+<p>The thing is:<br />
+If the current state would be an acceptable first step<br />
+we could move forward step by step as neded and as time permits<br />
+because further adaptions and enhancements could be done<br />
+via subsequent pull requests as long as we are<br />
+in the ReaR 3.0 development phase.<br />
+But currently with<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+moving forward within the ReaR 3.0 development phase<br />
+is blocked for an unpredictable period of time.</p>
+<p>In general:<br />
+When something in a pull request is actually wrong<br />
+so it must not be merged in its current state,<br />
+then the reviewer should set the review state to<br />
+<code>Request changes</code><br />
+to make this clear.</p>
+<h4 id="jsmeix_commented_at_2026-04-07_0912"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-4197851828">2026-04-07 09:12</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-04-07_0912" title="Permanent link">&para;</a></h4>
+<p>As usual:<br />
+Security issues elsewhere got in my way to proceed here.</p>
+<h4 id="codacy-production_commented_at_2026-08-26_1001"><img src="https://avatars.githubusercontent.com/in/56611?v=4" width="50"><a href="https://github.com/apps/codacy-production">codacy-production</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5423700001">2026-08-26 10:01</a>:<a class="headerlink" href="#codacy-production_commented_at_2026-08-26_1001" title="Permanent link">&para;</a></h4>
+<h2 id="up_to_standards">Up to standards ✅<a class="headerlink" href="#up_to_standards" title="Permanent link">&para;</a></h2>
+<details><summary><strong>🟢 Issues</strong>  <code>0 issues</code></summary>
+
+> <br/>
+>
+> **Results:**  
+> `0` new issues
+>
+> [View in
+> Codacy](https://app.codacy.com/gh/rear/rear/pull-requests/3553/issues)  
+> <br/>
+
+</details>
+
+<p><sub><code>NEW</code> Get contextual insights on your PRs based on Codacy's
+metrics, along with PR and Jira context, without leaving GitHub. <a href="https://app.codacy.com/organizations/gh/rear/integrations/provider">Enable
+AI
+reviewer</a></sub><br />
+<sub><code>TIP</code> This summary will be updated as you push new changes.</sub></p>
+<!-- a1b2c3d4-e5f6-7890-abcd-ef1234567890 -->
+
+<h4 id="jsmeix_commented_at_2026-08-26_1115"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5424489736">2026-08-26 11:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-26_1115" title="Permanent link">&para;</a></h4>
+<p>Regarding item 2. in<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+excerpts</p>
+<pre><code>a valuable use case:
+copying all the firmware that belongs to any of the available modules
+...
+I believe that copying all the modules (not just the loaded ones)
+and only the firmware files that belong to these modules
+(instead of all) is the most valuable use case for these features,
+actually.
+It produces an image that can be used on the widest range of hardware,
+while reducing the initramfs size by omitting the firmware files
+that are not used by any module
+</code></pre>
+<p>This means there must be firmware files installed<br />
+which are never used by any installed kernel module<br />
+or by anything which is built-in into the kernel.</p>
+<p>Offhandedly I assume this should normally not happen<br />
+because I (perhaps falsely) assume that whatever<br />
+is responsible for what gets installed on a system<br />
+(e.g. RPM package dependencies or whatever)<br />
+ensures to some reasonable extent that<br />
+nothing is installed which is absolutely useless.</p>
+<p>If something is installed which is absolutely useless<br />
+then this is an issue that should not be handled by ReaR<br />
+but by whatever (or whoever) is responsible for what is<br />
+installed on a system.</p>
+<p>My basic reasoning is that the current<br />
+MODULES=( 'all_modules' ) automatically means<br />
+also "all firmware" i.e. FIRMWARE_FILES=( 'yes' )<br />
+to ensure no firmware is missing in the recovery system.</p>
+<p>I assume one cannot rely on that<br />
+<code>modinfo -F firmware "$module"</code><br />
+will always correctly report all firmware files<br />
+(i.e. the transitive closure of firmware files)<br />
+which could be ever used by the kernel<br />
+(either built-in or via loadable modules).</p>
+<p>If it happens in practice relatively often that<br />
+a large amount of firmware files is installed<br />
+which is absolutely useless, we can discuss<br />
+if this needs to be handled in ReaR or if it is<br />
+better to leave it to our users to do some<br />
+<code>modinfo -F firmware "$module"</code> scripting<br />
+to deal with that issue as needed on their own.</p>
+<p>I mean:<br />
+When a large amount of useless firmware files is installed<br />
+on the original system, why not leave it to the users<br />
+to fix their original systems?</p>
+<h4 id="jsmeix_commented_at_2026-08-26_1239"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5425419917">2026-08-26 12:39</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-26_1239" title="Permanent link">&para;</a></h4>
+<p>I asked Google AI regarding firmware for built-in kernel stuff:</p>
+<pre><code>in Linux "modinfo -F firmware module_name" lists
+firmware files that are needed by a kernel module.
+How can one find out what firmware files are needed
+by stuff that is directly built-in into the kernel?
+</code></pre>
+<p>Google AI replied (excerpts):</p>
+<pre><code>You can find firmware needed by built-in drivers by querying the modules.builtin.modinfo file located in /lib/modules/$(uname -r)/
+
+Using modules.builtin.modinfo
+
+Modern Linux kernels generate a database of metadata for
+statically built-in drivers right alongside loadable modules.
+You can parse this file with grep or strings to extract
+required firmware strings.
+
+tr '\0' '\n' &lt; /lib/modules/$(uname -r)/modules.builtin.modinfo | grep '^firmware='
+
+Alternative Methods
+
+Check Kernel Configuration:
+
+Inspect your active kernel config file
+(found in /boot/config-$(uname -r) or via /proc/config.gz)
+to see which drivers are set to =y (built-in)
+rather than =m (module).
+You can then cross-reference those driver names
+using standard modinfo against an external
+module copy if available.
+</code></pre>
+<p>cf.</p>
+<p><a href="https://bbs.archlinux.org/viewtopic.php?id=256518">https://bbs.archlinux.org/viewtopic.php?id=256518</a></p>
+<p><a href="https://stackoverflow.com/questions/9845877/how-to-determine-if-a-specific-module-is-loaded-in-linux-kernel">https://stackoverflow.com/questions/9845877/how-to-determine-if-a-specific-module-is-loaded-in-linux-kernel</a></p>
+<p><a href="https://unix.stackexchange.com/questions/805966/how-to-identify-which-modules-are-builtin-the-kernel-and-which-require-external">https://unix.stackexchange.com/questions/805966/how-to-identify-which-modules-are-builtin-the-kernel-and-which-require-external</a></p>
+<h4 id="jsmeix_commented_at_2026-08-26_1308"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5425770690">2026-08-26 13:08</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-26_1308" title="Permanent link">&para;</a></h4>
+<p>Regarding item 2. in<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+excerpt</p>
+<pre><code>The problem with the (by default) empty FIRMWARE_FILES is
+that the meaning changes according to the value of MODULES
+</code></pre>
+<p>Yes, and that's intentional.</p>
+<p>I introduced FIRMWARE_FILES in March 2017 via<br />
+<a href="https://github.com/rear/rear/commit/8b7118c976e832a0a402e46b6e8af33e796222ef">https://github.com/rear/rear/commit/8b7118c976e832a0a402e46b6e8af33e796222ef</a><br />
+from<br />
+<a href="https://github.com/rear/rear/pull/1256">https://github.com/rear/rear/pull/1256</a><br />
+and<br />
+<a href="https://github.com/rear/rear/issues/1216">https://github.com/rear/rear/issues/1216</a></p>
+<p>Before we had a hardcoded</p>
+<pre><code>COPY_AS_IS=( ... /lib*/firmware ... )
+</code></pre>
+<p>in usr/share/rear/conf/GNU/Linux.conf</p>
+<p>At that time FIRMWARE_FILES was separated from MODULES.</p>
+<p>Meanwhile things advanced over time so now<br />
+MODULES is some kind of main/master variable<br />
+and FIRMWARE_FILES behaves as subordinate variable<br />
+as long as FIRMWARE_FILES is empty.</p>
+<p>This is in compliance with our usual meaning/handling<br />
+of empty variables in ReaR, cf. 'default.conf'</p>
+<pre><code>Most variables can be set to an empty value VAR=
+which means that this setting is off
+or set to some automatic mode.
+</code></pre>
+<p>I think you prefer strictly independent variables.</p>
+<p>But this is not and never was the case in ReaR.</p>
+<p>E.g. since all the time I know about ReaR<br />
+"If you do not specify OUTPUT_URL variable<br />
+then by default it will be aligned to what was<br />
+defined by variable BACKUP_URL" (cf. "man rear").</p>
+<h4 id="jsmeix_commented_at_2026-08-26_1315"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5425860422">2026-08-26 13:15</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-26_1315" title="Permanent link">&para;</a></h4>
+<p>What is really missing here is<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+item 1. (excerpt)</p>
+<pre><code>some modules can be built-in and those can also have firmware
+</code></pre>
+<p>i.e. support for</p>
+<pre><code>/lib/modules/$KERNEL_VERSION/modules.builtin
+</code></pre>
+<p>I think firmware files for built-in kernel stuff<br />
+must get copied into the recovery system in any case<br />
+except explicit user request <code>FIRMWARE_FILES=( 'no' )</code><br />
+forbids ReaR to copy firmware files.</p>
+<h4 id="jsmeix_commented_at_2026-08-27_1307"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5439577724">2026-08-27 13:07</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-27_1307" title="Permanent link">&para;</a></h4>
+<p>My last commit<br />
+<a href="https://github.com/rear/rear/pull/3553/changes/39074e8c09dd6a1e6936d0543f64cdb673745472">https://github.com/rear/rear/pull/3553/changes/39074e8c09dd6a1e6936d0543f64cdb673745472</a><br />
+is a currently totally untested and blind attempt<br />
+that intends to include firmware for built-in drivers<br />
+into the ReaR recovery system.</p>
+<p>I cannot test it because currently I don't have an<br />
+environment where the kernel has built-in drivers<br />
+which need firmware so currently I have no idea<br />
+whether or not my code could work at all.</p>
+<p>@rear/contributors<br />
+if you have an environment where the kernel<br />
+has built-in drivers which need firmware<br />
+I would much appreciate it if you could help me<br />
+with testing whether or not my code in<br />
+<a href="https://github.com/rear/rear/pull/3553/commits/39074e8c09dd6a1e6936d0543f64cdb673745472">https://github.com/rear/rear/pull/3553/commits/39074e8c09dd6a1e6936d0543f64cdb673745472</a><br />
+could work at all.</p>
+<p>On my openSUSE Leap 16.0 system I have</p>
+<pre><code># for module_path in $( cat /lib/modules/$( uname -r )/modules.builtin ) ; \
+ do module=$( basename $module_path | cut -s -d '.' -f1 ) ; \
+    echo $module ; modinfo -F firmware $module ; \
+ done
+
+rapl
+amd-uncore
+intel-uncore
+intel-cstate
+iosf_mbi
+configs
+zbud
+zsmalloc
+binfmt_script
+exportfs
+nls_base
+utf8data
+autofs4
+pstore
+encrypted-keys
+crypto
+crypto_algapi
+aead
+geniv
+crypto_skcipher
+bpf_crypto_skcipher
+seqiv
+crypto_hash
+akcipher
+sig
+kpp
+hkdf
+dh_generic
+rsa_generic
+ecdsa_generic
+crypto_acompress
+cryptomgr
+hmac
+crypto_null
+md5
+sha1_generic
+sha256_generic
+sha512_generic
+sha3_generic
+ecb
+cbc
+ctr
+aes_generic
+crc32c_generic
+crct10dif_common
+crct10dif_generic
+crc64_rocksoft_generic
+lzo
+lzo-rle
+rng
+drbg
+jitterentropy_rng
+zstd
+ecc
+ecdh_generic
+public_key
+x509_key_parser
+x509_selftest
+pkcs7_message
+kdf_sp800108
+bsg
+mq-deadline
+kyber-iosched
+bfq
+rational
+libcryptoutils
+libaes
+libaescfb
+libaesgcm
+gf128mul
+libsha1
+libsha256
+mpi
+bitrev
+</code></pre>
+<p>so none of them needs firmware.</p>
+<h4 id="jsmeix_commented_at_2026-08-27_1348"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5440083009">2026-08-27 13:48</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-27_1348" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+item 1. (excerpt)</p>
+<pre><code>"Defaulting to copy all firmware files - determining firmware in use not possible"
+</code></pre>
+<p>I am against copying all firmware files as fallback<br />
+in the 420_copy_firmware_files.sh script because<br />
+this would make ReaR behave against what<br />
+is specified in its config variables.</p>
+<p>By default the config variables are</p>
+<pre><code>MODULES=( 'all_modules' )
+FIRMWARE_FILES=()
+</code></pre>
+<p>which results that all kernel modules and all firmware<br />
+gets included in the ReaR recovery system.</p>
+<p>The new code in 420_copy_firmware_files.sh in this<br />
+pull request is meant for the non-default case<br />
+i.e. when not all firmware should be copied<br />
+in particular for the case</p>
+<pre><code>MODULES=( 'loaded_modules' )
+FIRMWARE_FILES=()
+</code></pre>
+<p>When it is not possible to automatically include<br />
+firmware for built-in drivers my current code<br />
+shows a LogPrintError message to inform the user<br />
+but it does not automatically work against what<br />
+the user had specified.</p>
+<p>Perhaps Error instead of LogPrintError could<br />
+be better here?</p>
+<p>I also need to test the other precondition,<br />
+i.e. that modinfo can query even builtin modules.<br />
+Tomorrow (as time permits) I will try to implement<br />
+something as the <code>modinfo_error</code> code in<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+item 1.</p>
+<h4 id="jsmeix_commented_at_2026-08-28_1251"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5452724929">2026-08-28 12:51</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-08-28_1251" title="Permanent link">&para;</a></h4>
+<p>Regarding<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-5425860422">https://github.com/rear/rear/pull/3553#issuecomment-5425860422</a></p>
+<pre><code>I think firmware files for built-in kernel stuff
+must get copied into the recovery system in any case
+except explicit user request FIRMWARE_FILES=( 'no' )
+</code></pre>
+<p>and<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-5440083009">https://github.com/rear/rear/pull/3553#issuecomment-5440083009</a></p>
+<pre><code>When it is not possible to automatically include
+firmware for built-in drivers my current code
+shows a LogPrintError message to inform the user
+but it does not automatically work against what
+the user had specified.
+
+Perhaps Error instead of LogPrintError could
+be better here?
+</code></pre>
+<p>I improved error handling via<br />
+<a href="https://github.com/rear/rear/pull/3553/changes/d722577dae45fdd1a91e0cec17631f8f821715d3">https://github.com/rear/rear/pull/3553/changes/d722577dae45fdd1a91e0cec17631f8f821715d3</a></p>
+<pre><code>When we cannot determine firmware files for built-in kernel drivers
+and when FIRMWARE_FILES are specified,
+we inform the user to ensure firmware for built-in drivers
+is specified in FIRMWARE_FILES.
+
+When we cannot determine firmware files for built-in kernel drivers
+and when FIRMWARE_FILES is empty,
+we error out to be on the safe side to avoid missing firmware
+for built-in drivers in the recovery system.
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-09-09_0906"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5599312858">2026-09-09 09:06</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-09_0906" title="Permanent link">&para;</a></h4>
+<p>Added checks that modinfo succeeds.</p>
+<p>For firmware for built-in drivers we do now:</p>
+<pre><code>When FIRMWARE_FILES are specified
+and there was a modinfo failure when determining
+firmware files for built-in kernel drivers,
+we inform the user to ensure firmware
+for built-in drivers is specified in FIRMWARE_FILES
+but we cannot know if the user had such firmware
+already specified in FIRMWARE_FILES
+
+When FIRMWARE_FILES is empty and
+when there was a modinfo failure when determining
+firmware files for built-in kernel drivers,
+we error out to be on the safe side to avoid missing
+firmware for built-in drivers in the recovery system
+</code></pre>
+<p>For firmware for kernel modules we do now:</p>
+<pre><code>When FIRMWARE_FILES is empty and
+when there was a modinfo failure when determining
+firmware files for kernel modules,
+we error out to be on the safe side to avoid missing
+firmware for kernel modules in the recovery system
+</code></pre>
+<p>What is not implemented is<br />
+when FIRMWARE_FILES is specified<br />
+that we verify that firmware for kernel modules<br />
+in the recovery system is specified in FIRMWARE_FILES<br />
+i.e. when the user specified FIRMWARE_FILES<br />
+we assume the user specified it properly as needed.</p>
+<h4 id="jsmeix_commented_at_2026-09-09_1130"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5601113446">2026-09-09 11:30</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-09_1130" title="Permanent link">&para;</a></h4>
+<p>I think I addressed the items in<br />
+<a href="https://github.com/rear/rear/pull/3553#issuecomment-4129123318">https://github.com/rear/rear/pull/3553#issuecomment-4129123318</a><br />
+except the "Gemini suggested code" item<br />
+(I won't find time to overhaul things)<br />
+either by above comments where I explained my point of view<br />
+or by enhanced existing code and added new code parts.</p>
+<p>Intentionally (because I won't find time to overhaul things)<br />
+I only enhanced current things following the existing style<br />
+which is known to work OK at least in practice.</p>
+<p>In particular I kept the two cases<br />
+"firmware files that belong to built-in kernel drivers" and<br />
+"firmware files that belong to the copied kernel modules"<br />
+separated to avoid accidentally messing up the whole thing<br />
+(including messing up what is known to work OK in practice<br />
+because I tested the kernel modules case but I don't know<br />
+how to test the built-in kernel drivers - I don't have<br />
+built-in kernel drivers which need firmware)<br />
+and because I want different debug and error messages<br />
+for the two different cases.</p>
+<p>In general I want all message texts unique<br />
+so that from a message text it is clear<br />
+what exact code place it comes from<br />
+because rather often users report issues only with<br />
+a single (error) message and if the message text is<br />
+used at several places in ReaR it becomes needlessly hard<br />
+for us to find out what exact code place matches.</p>
+<p>Furthermore unique message texts can be made<br />
+more specific for each case like</p>
+<pre><code>modinfo failed to determine firmware for kernel module 'XXX'
+</code></pre>
+<p>and</p>
+<pre><code>modinfo failed to determine firmware for built-in kernel driver 'YYY'
+</code></pre>
+<p>versus a less specific text used for both cases</p>
+<pre><code>modinfo failed to determine firmware for 'ZZZ'
+</code></pre>
+<p>versus rather poor (not really helpful) text</p>
+<pre><code>modinfo failed
+</code></pre>
+<h4 id="jsmeix_commented_at_2026-09-09_1142"><img src="https://avatars.githubusercontent.com/u/1788608?u=925fc54e2ce01551392622446ece427f51e2f0ce&v=4" width="50"><a href="https://github.com/jsmeix">jsmeix</a> commented at <a href="https://github.com/rear/rear/pull/3553#issuecomment-5601265232">2026-09-09 11:42</a>:<a class="headerlink" href="#jsmeix_commented_at_2026-09-09_1142" title="Permanent link">&para;</a></h4>
+<p>@rear/contributors<br />
+I would like to merge it on Friday (11. Sept.) afternoon<br />
+unless there are objections.<br />
+Please have a look (as time permits).</p>
+<hr />
+<p>[Export of Github issue for
+<a href="https://github.com/rear/rear">rear/rear</a>.]</p>
+              
+            </div>
+          </div>
+
+<footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+    <p>Copyright 2026 - CC0 1.0 Universal<br />Give <a href="https://github.com/rear/rear-user-guide/issues/new?title=issues/2026-01-12.3553.pr.merged.html">feedback</a> on this page.</p>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rear/rear-user-guide" class="fa fa-code-fork" style="color: #fcfcfc"> rear/rear-user-guide</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
